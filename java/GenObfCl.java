@@ -6,7 +6,7 @@ public class ObfCl extends ObfCa {
     protected int a;
     protected int b;
     protected CameraState a_di;
-    protected ObfX a_x;
+    protected CarPhysics a_x;
     private float d;
     private float e;
     protected ObfAt a_at;
@@ -232,8 +232,8 @@ public class ObfCl extends ObfCa {
     }
     // bytecode 12 bytes, max_stack 3, max_locals 1
     public void c() {
-        new ObfCs(); /* constructor */
-        this.a_x = new ObfCs();
+        new StockTune(); /* constructor */
+        this.a_x = new StockTune();
         return;
     }
     // bytecode 18 bytes, max_stack 4, max_locals 1
@@ -1089,7 +1089,7 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public ObfX a() {
+    public CarPhysics a() {
         return this.a_x;
     }
     // bytecode 1 bytes, max_stack 0, max_locals 2

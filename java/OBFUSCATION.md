@@ -21,8 +21,8 @@ kept beside it for review.
 | `ag` | `ObfAg.java` | /images/i_s.png; <clinit>; <init>; Code; javax/microedition |
 | `ah` | `ObfAh.java` | <init>; Code; java/io/IOException; StackMap |
 | `ai` | `GenObfAi.java` | /models/; /tex/; <init>; Code |
-| `aj` | `ObfAj.java` | <init>; Code; java/lang/Object; javax/microedition/m3g/Background; javax/microedition |
-| `ak` | `ObfAk.java` | <init>; Code; createImage; err; java/io; javax/microedition |
+| `aj` | `BackgroundPass.java` | <init>; Code; java/lang/Object; javax/microedition/m3g/Background; javax/microedition |
+| `ak` | `ImageBackground.java` | <init>; Code; createImage; err; java/io; javax/microedition |
 | `al` | `Settings.java` | /back/clear.bck; /back/desert.bck; /back/rain.bck; /back/snow.bck; java/io; java/util; javax/microed |
 | `am` | `GenObfAm.java` | <init>; Code; java/lang/Object; javax/microedition/m3g/Appearance; javax/microedition |
 | `an` | `ObfAn.java` | <init>; Code; currentTimeMillis; java/lang/Object |
@@ -33,8 +33,8 @@ kept beside it for review.
 | `as` | `EngineSounds.java` | /sounds/acc2_8k.amr; /sounds/acc3_8k.amr; /sounds/acc_8k.amr; /sounds/dec_8k.amr; java/util; javax/m |
 | `at` | `GenObfAt.java` | /models/ps; /models/z; /tex/r.png; <clinit>; java/io; javax/microedition |
 | `au` | `ObfAu.java` | <clinit>; <init>; Code; java/lang/Object |
-| `av` | `ObfAv.java` | <init>; Code; StackMap |
-| `aw` | `ObfAw.java` | <init>; Code; java/io/IOException; java/lang/Math |
+| `av` | `AiTune.java` | <init>; Code; StackMap |
+| `aw` | `PlayerTune.java` | <init>; Code; java/io/IOException; java/lang/Math |
 | `ax` | `MenuItem.java` | <init>; Code; getClipHeight; getClipWidth; javax/microedition |
 | `ay` | `ObfAy.java` | <init>; Code; [[F; [[I; java/util; javax/microedition |
 | `az` | `ObfAz.java` | <init>; Code; StackMap; javax/microedition/lcdui/Graphics |
@@ -84,7 +84,7 @@ kept beside it for review.
 | `cp` | `ObfCp.java` | <init>; Code; [Ljava/lang/String;; [Ljavax/microedition/lcdui/Image;; javax/microedition |
 | `cq` | `ObfCq.java` | <clinit>; <init>; Code; createImage; javax/microedition |
 | `cr` | `CockpitCam.java` | <init>; Code; javax/microedition/m3g/Transform; postRotate; javax/microedition |
-| `cs` | `ObfCs.java` | <init>; Code |
+| `cs` | `StockTune.java` | <init>; Code |
 | `ct` | `Plane.java` | <clinit>; <init>; Code; abs |
 | `cu` | `MenuScreen.java` | <init>; Code; KORa; close; java/io; java/util; javax/microedition |
 | `cv` | `MainCanvas.java` | /campaign/campaign; /campaign/deluxe; <clinit>; <init>; java/io; java/util; javax/microedition |
@@ -105,11 +105,11 @@ kept beside it for review.
 | `dj` | `ScoreUpload.java` | &p=; <init>; ?a=b; ?a=s&s=; java/io; javax/microedition |
 | `dk` | `CareerMap.java` | 8a.map; <init>; Code; close; java/io; javax/microedition |
 | `dl` | `ImageItem.java` | <init>; Code; drawImage; getClipHeight; javax/microedition |
-| `dm` | `ObfDm.java` | <init>; Code; javax/microedition/m3g/Background; setColor; javax/microedition |
-| `dn` | `ObfDn.java` | .png; <init>; Code; append; javax/microedition |
+| `dm` | `ColorBackground.java` | <init>; Code; javax/microedition/m3g/Background; setColor; javax/microedition |
+| `dn` | `BitmapFont.java` | .png; <init>; Code; append; javax/microedition |
 | `do` | `ObfDo.java` | <init>; Code; getClipHeight; getClipWidth; javax/microedition |
 | `e` | `TouchButtons.java` | /images/bp.png; /images/f.png; /images/l.png; /images/left.png; java/io; javax/microedition |
-| `f` | `ObfF.java` | <init>; Code; UTF-8; [[B; java/io |
+| `f` | `GlyphTable.java` | <init>; Code; UTF-8; [[B; java/io |
 | `g` | `FontCodec.java` | <init>; Code; close; java/io/IOException; java/io |
 | `h` | `ObfH.java` | <init>; Code; KORa; fillRect; java/util; javax/microedition |
 | `i` | `ObfI.java` | <clinit>; <init>; Code; java/lang/Object |
@@ -127,6 +127,6 @@ kept beside it for review.
 | `u` | `TrackSelect.java` | /images/a.png; /images/map.jpg; /images/qm.png; /images/st.png; java/io; javax/microedition |
 | `v` | `RaceScreen.java` | <init>; ?a=m; Code; append; java/io; javax/microedition |
 | `w` | `ObfW.java` | <clinit>; <init>; ?a=m; Code; java/io; javax/microedition |
-| `x` | `ObfX.java` | <init>; Code; java/io/IOException; java/lang/Object |
+| `x` | `CarPhysics.java` | <init>; Code; java/io/IOException; java/lang/Object |
 | `y` | `Screen.java` | <init>; Code; KORa; buzz |
 | `z` | `Vec2.java` | <init>; Code; append; java/lang/Math |

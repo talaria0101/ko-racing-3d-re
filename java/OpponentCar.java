@@ -8,7 +8,7 @@ public class OpponentCar extends ObfCl {
     private Vec2 b;
     private Vec2 c;
     private RaceLine a_ck;
-    private ObfX b_x;
+    private CarPhysics b_x;
     private boolean h;
     // bytecode 150 bytes, max_stack 6, max_locals 6
     public OpponentCar(Textures v1, InputStream v2, int v3, ObfBs v4, int v5) {
@@ -21,8 +21,8 @@ public class OpponentCar extends ObfCl {
         this.a_ck = null;
         this.b_x = null;
         this.h = false;
-        new ObfAv(); /* constructor */
-        this.b_x = new ObfAv();
+        new AiTune(); /* constructor */
+        this.b_x = new AiTune();
         this.b_x.a(1);
         new Vec2(0.0f, 0.0f); /* constructor */
         new Vec2(0.0f, 0.0f); /* constructor */
@@ -111,7 +111,7 @@ public class OpponentCar extends ObfCl {
         return;
     }
     // bytecode 17 bytes, max_stack 1, max_locals 1
-    public ObfX a() {
+    public CarPhysics a() {
         if (this.e != 0) goto L12;
         return this.b_x;
         L12:

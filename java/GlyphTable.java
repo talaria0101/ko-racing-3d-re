@@ -2,10 +2,10 @@
 // edit: fix the emitter and re-run.  Original name `f`.
 // String constants: <init> | Code | UTF-8 | [[B | append | getClass | getResourceAsStream | intValue | java/io/IOException | java/io/InputStreamReader | java/lang/Class | java/lang/Integer
 // API references: java/io
-public class ObfF {
+public class GlyphTable {
     private byte[][] a;
     // bytecode 26 bytes, max_stack 3, max_locals 3
-    public ObfF(String v1, Font v2) {
+    public GlyphTable(String v1, Font v2) {
         super();
         this.a = null;
         this.a = new Obf[B[SysUtil.c]#1;

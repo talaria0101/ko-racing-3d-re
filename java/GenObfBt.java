@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `bt`.
 // String constants: /cars/ | /images/snow | <clinit> | <init> | Code | [Lcl; | [Lj; | abs | append | currentTimeMillis | getGameAction | getHeight
 public class ObfBt extends Screen {
-    private ObfAj a;
+    private BackgroundPass a;
     private ObfCl a_cl;
     private ObfBs a_bs;
     private static ObfJ a_j;
@@ -300,12 +300,12 @@ public class ObfBt extends Screen {
     public void a() {
         this.d = Settings.f;
         if (Settings.f >= 2) goto L26;
-        new ObfAk(); /* constructor */
-        this.a = new ObfAk();
+        new ImageBackground(); /* constructor */
+        this.a = new ImageBackground();
         return;
         L26:
-        new ObfDm(); /* constructor */
-        this.a = new ObfDm();
+        new ColorBackground(); /* constructor */
+        this.a = new ColorBackground();
         return;
     }
     // bytecode 163 bytes, max_stack 4, max_locals 3

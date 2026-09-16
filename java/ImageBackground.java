@@ -2,11 +2,11 @@
 // edit: fix the emitter and re-run.  Original name `ak`.
 // String constants: <init> | Code | createImage | err | java/io/PrintStream | java/lang/Exception | java/lang/System | javax/microedition/lcdui/Image | javax/microedition/m3g/Background | javax/microedition/m3g/Transform | postRotate | postScale
 // API references: java/io javax/microedition
-public class ObfAk extends ObfAj {
+public class ImageBackground extends BackgroundPass {
     private ObfCq a;
     private Transform a_Transf;
     // bytecode 82 bytes, max_stack 7, max_locals 3
-    public ObfAk() {
+    public ImageBackground() {
         /* try L35-L69 catch java.lang.Exception -> L70 */
         super();
         this.a = null;
@@ -15,13 +15,13 @@ public class ObfAk extends ObfAj {
         this.a_Transf = new javax.microedition.m3g.Transform();
         this.a.setColor(Settings.h);
         String v2 = Settings.a;
-        ObfAk v1 = this;
+        ImageBackground v1 = this;
         v2 = ((String) javax.microedition.lcdui.Image.createImage(Resources.a(v2)));
         new ObfCq(v2, false, false, Settings.a); /* constructor */
         v1.a = new ObfCq(v2, false, false, Settings.a);
         java.lang.System.gc();
         return;
-        v1 = ((ObfAk) ex_70);
+        v1 = ((ImageBackground) ex_70);
         java.lang.System.err.println(v1.toString());
         return;
     }

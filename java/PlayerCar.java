@@ -40,8 +40,8 @@ public class PlayerCar extends ObfCl {
     }
     // bytecode 12 bytes, max_stack 3, max_locals 1
     public void c() {
-        new ObfAw(); /* constructor */
-        this.a = new ObfAw();
+        new PlayerTune(); /* constructor */
+        this.a = new PlayerTune();
         return;
     }
     // bytecode 18 bytes, max_stack 3, max_locals 2

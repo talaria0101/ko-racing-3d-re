@@ -2,9 +2,9 @@
 // edit: fix the emitter and re-run.  Original name `dm`.
 // String constants: <init> | Code | javax/microedition/m3g/Background | setColor
 // API references: javax/microedition
-public class ObfDm extends ObfAj {
+public class ColorBackground extends BackgroundPass {
     // bytecode 15 bytes, max_stack 2, max_locals 1
-    public ObfDm() {
+    public ColorBackground() {
         super();
         this.a.setColor(Settings.i);
         return;

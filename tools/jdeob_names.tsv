@@ -56,3 +56,12 @@ bg	ChaseNear
 c	ChaseFar
 cr	CockpitCam
 di	CameraState
+aj	BackgroundPass
+ak	ImageBackground
+dm	ColorBackground
+dn	BitmapFont
+f	GlyphTable
+av	AiTune
+aw	PlayerTune
+cs	StockTune
+x	CarPhysics

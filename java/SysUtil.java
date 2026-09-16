@@ -46,7 +46,7 @@ public class SysUtil {
     public static int b_I;
     public static int c_I;
     public static int d_I;
-    private static ObfF a_f;
+    private static GlyphTable a_f;
     private static int h_I;
     public static final String[] a_String;
     public static String a_String_2;
@@ -195,14 +195,14 @@ public class SysUtil {
         SysUtil.r = new Font("/fonts/smg", v1, -2, 15);
         new Font(SysUtil.q_String, v1, m1); /* constructor */
         SysUtil.m = new Font(SysUtil.q_String, v1, m1);
-        new ObfDn(SysUtil.j_String, 7, 7, 7); /* constructor */
-        SysUtil.d = new ObfDn(SysUtil.j_String, 7, 7, 7);
-        new ObfDn(((ObfDn) SysUtil.d)); /* constructor */
-        SysUtil.e = new ObfDn(((ObfDn) SysUtil.d));
-        new ObfDn(((ObfDn) SysUtil.d)).a(-24416, true);
-        new ObfDn(SysUtil.p_String, 14, 13, 9); /* constructor */
-        new ObfDn(SysUtil.k_String, 6, 11, 8); /* constructor */
-        SysUtil.g = new ObfDn(SysUtil.k_String, 6, 11, 8);
+        new BitmapFont(SysUtil.j_String, 7, 7, 7); /* constructor */
+        SysUtil.d = new BitmapFont(SysUtil.j_String, 7, 7, 7);
+        new BitmapFont(((BitmapFont) SysUtil.d)); /* constructor */
+        SysUtil.e = new BitmapFont(((BitmapFont) SysUtil.d));
+        new BitmapFont(((BitmapFont) SysUtil.d)).a(-24416, true);
+        new BitmapFont(SysUtil.p_String, 14, 13, 9); /* constructor */
+        new BitmapFont(SysUtil.k_String, 6, 11, 8); /* constructor */
+        SysUtil.g = new BitmapFont(SysUtil.k_String, 6, 11, 8);
         new FontCodec(SysUtil.h_String); /* constructor */
         v1 = new FontCodec(SysUtil.h_String);
         new Font(SysUtil.m_String, v1, 0); /* constructor */
@@ -299,8 +299,8 @@ public class SysUtil {
         Settings.a(Settings.a());
         if (SysUtil.a_f != null) goto L1079;
         /* pop: SysUtil.a_Canvas.getWidth(); */
-        new ObfF(SysUtil.b_String[Settings.a()], SysUtil.a_p); /* constructor */
-        SysUtil.a_f = new ObfF(SysUtil.b_String[Settings.a()], SysUtil.a_p);
+        new GlyphTable(SysUtil.b_String[Settings.a()], SysUtil.a_p); /* constructor */
+        SysUtil.a_f = new GlyphTable(SysUtil.b_String[Settings.a()], SysUtil.a_p);
         goto L1095;
         L1079:
         SysUtil.a_f.a(SysUtil.b_String[Settings.a()], SysUtil.a_p);

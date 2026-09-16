@@ -2,11 +2,11 @@
 // edit: fix the emitter and re-run.  Original name `dn`.
 // String constants: .png | <init> | Code | append | createImage | java/io/IOException | java/lang/StringBuffer | javax/microedition/lcdui/Image | toString | StackMap
 // API references: javax/microedition
-public class ObfDn extends Font {
+public class BitmapFont extends Font {
     private byte b;
     private byte c;
     // bytecode 72 bytes, max_stack 3, max_locals 5
-    public ObfDn(String v1, int v2, int v3, int v4) {
+    public BitmapFont(String v1, int v2, int v3, int v4) {
         super();
         this.b = 0;
         this.c = 0;
@@ -20,11 +20,11 @@ public class ObfDn extends Font {
         return;
     }
     // bytecode 61 bytes, max_stack 3, max_locals 3
-    public ObfDn(ObfDn v1) {
+    public BitmapFont(BitmapFont v1) {
         super(v1);
         this.b = 0;
         this.c = 0;
-        ObfDn v2 = v1;
+        BitmapFont v2 = v1;
         this.b = v1.b;
         this.a = v1.a();
         v2 = v1;

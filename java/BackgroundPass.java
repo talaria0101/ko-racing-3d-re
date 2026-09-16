@@ -2,10 +2,10 @@
 // edit: fix the emitter and re-run.  Original name `aj`.
 // String constants: <init> | Code | java/lang/Object | javax/microedition/m3g/Background
 // API references: javax/microedition
-public class ObfAj {
+public class BackgroundPass {
     protected Background a;
     // bytecode 21 bytes, max_stack 3, max_locals 1
-    public ObfAj() {
+    public BackgroundPass() {
         super();
         this.a = null;
         new javax.microedition.m3g.Background(); /* constructor */
