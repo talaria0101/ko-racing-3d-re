@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `dn`.
 // String constants: .png | <init> | Code | append | createImage | java/io/IOException | java/lang/StringBuffer | javax/microedition/lcdui/Image | toString | StackMap
 // API references: javax/microedition
-public class ObfDn extends ObfP {
+public class ObfDn extends Font {
     private byte b;
     private byte c;
     // bytecode 72 bytes, max_stack 3, max_locals 5

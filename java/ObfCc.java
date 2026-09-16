@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `cc`.
 // String constants: <init> | Code | [Lbn; | drawLine | getClipHeight | getClipWidth | javax/microedition/lcdui/Graphics | setColor | StackMap
 // API references: javax/microedition
-public class ObfCc extends ObfCm {
+public class ObfCc extends WidgetGroup {
     private boolean d;
     private boolean e;
     // bytecode 37 bytes, max_stack 8, max_locals 8

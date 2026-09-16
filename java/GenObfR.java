@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `r`.
 // String constants: .car | /cars/ | /images/lo.png | /images/los.png | /images/w.png | /images/ws.png | /levels/ | /tex/md.jpg | /tex/md2.jpg | <clinit> | <init> | Code
 // API references: java/io java/util javax/microedition
-public class ObfR extends ObfY {
+public class ObfR extends Screen {
     protected int a;
     protected int b;
     private Image c;

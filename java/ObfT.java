@@ -6,11 +6,11 @@ public class ObfT {
     private byte[][] a;
     protected short a_S;
     protected int a_I;
-    protected ObfP a_p;
+    protected Font a_p;
     private String a_String;
     private String b;
     // bytecode 54 bytes, max_stack 2, max_locals 3
-    public ObfT(int v1, ObfP v2) {
+    public ObfT(int v1, Font v2) {
         super();
         this.a = null;
         this.a_S = 0;
@@ -29,7 +29,7 @@ public class ObfT {
         return;
     }
     // bytecode 18 bytes, max_stack 3, max_locals 4
-    public ObfT(String v1, int v2, ObfP v3) {
+    public ObfT(String v1, int v2, Font v3) {
         super(v2, v3);
         this.a_String = v1;
         /* pop: this.a(v1); */
@@ -166,7 +166,7 @@ public class ObfT {
         int v4 = 0;
         int v5 = 0;
         int v6 = 0;
-        ObfP v7 = this.a_p;
+        Font v7 = this.a_p;
         int v8 = 0;
         L20:
         if (v8 >= v1.length) goto L125;

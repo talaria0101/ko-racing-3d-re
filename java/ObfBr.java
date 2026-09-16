@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `br`.
 // String constants: /images/a.png | /images/map2.jpg | /images/qm2.png | /images/st.png | <init> | Code | KORa_deluxe | createImage | java/io/IOException | javax/microedition/lcdui/Image | StackMap
 // API references: javax/microedition
-public class ObfBr extends ObfU {
+public class ObfBr extends TrackSelect {
     // bytecode 46 bytes, max_stack 2, max_locals 3
     public ObfBr(MainCanvas v1, String v2) {
         super(v1);

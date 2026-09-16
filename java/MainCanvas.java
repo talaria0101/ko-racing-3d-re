@@ -7,12 +7,12 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
     private ObfBq a;
     private ObfAn a_an;
     private ObfR a_r;
-    private ObfY a_y;
-    private ObfY b_y;
+    private Screen a_y;
+    private Screen b_y;
     private Thread a_Thread;
     private boolean c;
     private Graphics a_Graphi;
-    private ObfU a_u;
+    private TrackSelect a_u;
     private boolean d;
     private int b_I;
     private boolean e;
@@ -121,8 +121,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         this.a(this.getWidth(), this.getHeight());
         L304:
         if (this.b_y == null) goto L347;
-        if (ObfCo.c() == 0) goto L323;
-        if (ObfCo.b() != 0) goto L347;
+        if (Garage.c() == 0) goto L323;
+        if (Garage.b() != 0) goto L347;
         L323:
         if (this.h != 0) goto L347;
         if (MainCanvas.a_I != 0) goto L347;
@@ -157,14 +157,14 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         L509:
         if (this.b_y == null) goto L541;
         if (MainCanvas.a_I != 0) goto L541;
-        if (ObfCo.c() == 0) goto L534;
-        if (ObfCo.b() != 0) goto L541;
+        if (Garage.c() == 0) goto L534;
+        if (Garage.b() != 0) goto L541;
         L534:
         this.b_y.j();
         L541:
-        if (ObfCo.c() == 0) goto L556;
+        if (Garage.c() == 0) goto L556;
         if (MainCanvas.a_I != 0) goto L556;
-        ObfCo.a();
+        Garage.a();
         L556:
         this.a.a();
         goto L610;
@@ -190,21 +190,21 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         this.b_y.a(this.a_Graphi);
         goto L783;
         L702:
-        if (ObfCo.c() != 0) goto L721;
-        if (ObfCo.a() == 0) goto L721;
-        ObfCo.a(this.a_Graphi);
+        if (Garage.c() != 0) goto L721;
+        if (Garage.a() == 0) goto L721;
+        Garage.a(this.a_Graphi);
         L721:
         if (this.b_y == null) goto L764;
-        if (ObfCo.c() == 0) goto L740;
-        if (ObfCo.b() != 0) goto L764;
+        if (Garage.c() == 0) goto L740;
+        if (Garage.b() != 0) goto L764;
         L740:
         if (this.h != 0) goto L764;
         if (MainCanvas.a_I != 0) goto L764;
         this.b_y.a(this.a_Graphi);
         L764:
-        if (ObfCo.c() == 0) goto L783;
+        if (Garage.c() == 0) goto L783;
         if (MainCanvas.a_I != 0) goto L783;
-        ObfCo.a(this.a_Graphi);
+        Garage.a(this.a_Graphi);
         L783:
         if (this.h == 0) goto L839;
         if (this.i != 0) goto L839;
@@ -237,21 +237,21 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         this.a_an.a();
         v1 = this;
         if (this.i == 0) goto L64;
-        if (ObfCo.c() != 0) goto L64;
-        ObfCo.b(1);
+        if (Garage.c() != 0) goto L64;
+        Garage.b(1);
         if (v1.j != 0) goto L50;
-        ObfCo.a(67);
+        Garage.a(67);
         goto L55;
         L50:
-        ObfCo.c(69);
+        Garage.c(69);
         L55:
-        ObfCo.c(0);
+        Garage.c(0);
         v1.i = false;
         L64:
         ObfAn v2 = v1.a_an;
         v2 = ((ObfAn) (((float) v1.a_an.a_I) / 1000.0f));
         if (v1.b_y == null) goto L145;
-        if (ObfCo.c() != 0) goto L145;
+        if (Garage.c() != 0) goto L145;
         if (v1.h != 0) goto L145;
         if (v1.b_y != v1.a_r) goto L130;
         if (ObfR.g() != 24) goto L130;
@@ -262,7 +262,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         v1.b_y.b(v2);
         v1.b_y.l();
         L145:
-        ObfCo.a(v2);
+        Garage.a(v2);
         if (v1.g == 0) goto L160;
         v1.k();
         L160:
@@ -325,13 +325,13 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         v1.a_y = new ObfBd(v2);
         v2.b_y = v2.a_y;
         v2.a(SysUtil.e, SysUtil.f);
-        new ObfU(v2, "/campaign/campaign"); /* constructor */
-        v2.a_u = new ObfU(v2, "/campaign/campaign");
+        new TrackSelect(v2, "/campaign/campaign"); /* constructor */
+        v2.a_u = new TrackSelect(v2, "/campaign/campaign");
         MainCanvas.a_Z = false;
         if (Settings.h() != 0) goto L174;
-        ObfCo.c(0);
-        ObfCo.c(1);
-        ObfCo.b(1);
+        Garage.c(0);
+        Garage.c(1);
+        Garage.b(1);
         ((ObfBd) v1.a_y).p();
         L174:
         goto L182;
@@ -377,20 +377,20 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         this.c_String = new java.lang.StringBuffer().append(v2).append("").append(v3).append("").append(v4).toString();
         new java.lang.StringBuffer(); /* constructor */
         this.a_String = new java.lang.StringBuffer().append(this.a_String).append(" ").append(this.c_String).toString();
-        ObfCo.a(SysUtil.a[v1][0]);
+        Garage.a(SysUtil.a[v1][0]);
         this.h = true;
         this.i = true;
         return;
         L224:
         this.b_y = this.a_y;
-        ObfCo.b(1);
-        ObfCo.a(66);
+        Garage.b(1);
+        Garage.a(66);
         ((ObfBd) this.a_y).o();
         return;
     }
     // bytecode 15 bytes, max_stack 1, max_locals 1
     public void d() {
-        ObfCo.b(0);
+        Garage.b(0);
         ((ObfBd) this.a_y).q();
         return;
     }
@@ -420,14 +420,14 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         new java.io.DataInputStream(v1); /* constructor */
         v1 = ((String) new java.io.DataInputStream(v1));
         if (Settings.a(new java.io.DataInputStream(v1)).compareTo("OK") == 0) goto L96;
-        ObfCo.c(15);
+        Garage.c(15);
         return;
         L96:
         v2 = ((java.io.ByteArrayOutputStream) Settings.b(v1));
         this.b_String = Settings.a(v1);
         this.a_String = Settings.a(v1);
         this.c_String = Settings.a(v1);
-        ObfCo.a(v2);
+        Garage.a(v2);
         if (this.b_String.length() <= 1) goto L153;
         this.h = true;
         this.i = true;
@@ -436,7 +436,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         this.d();
         return;
         /* pop: ex_158; */
-        ObfCo.c(15);
+        Garage.c(15);
         this.d();
         L168:
         return;
@@ -445,7 +445,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
     public void f() {
         if (this.a_u == null) goto L19;
         this.a_u.o();
-        ObfCo.c(26);
+        Garage.c(26);
         L19:
         return;
     }
@@ -454,7 +454,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         if (this.f == 0) goto L8;
         return;
         L8:
-        if (ObfCo.c() != 0) goto L167;
+        if (Garage.c() != 0) goto L167;
         if (this.h == 0) goto L167;
         if (ObfBh.a(v1) != -11) goto L40;
         this.h = false;
@@ -465,15 +465,15 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         if (SysUtil.a(v1) == -6) goto L67;
         if (SysUtil.b(v1) != 8) goto L166;
         L67:
-        ObfCo.b(0);
+        Garage.b(0);
         if (this.j != 0) goto L130;
         if (SysUtil.a(this.b_String, this.a_String) == 0) goto L109;
         Settings.c(this.c_String);
-        ObfCo.c(68);
+        Garage.c(68);
         this.e();
         return;
         L109:
-        ObfCo.c(72);
+        Garage.c(72);
         this.h = false;
         ((ObfBd) this.a_y).q();
         return;
@@ -487,8 +487,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         L166:
         return;
         L167:
-        if (ObfCo.c() == 0) goto L178;
-        ObfCo.d(v1);
+        if (Garage.c() == 0) goto L178;
+        Garage.d(v1);
         return;
         L178:
         if (this.b_y == null) goto L193;
@@ -498,8 +498,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
     }
     // bytecode 27 bytes, max_stack 2, max_locals 2
     public void keyReleased(int v1) {
-        if (ObfCo.c() == 0) goto L11;
-        ObfCo.e(v1);
+        if (Garage.c() == 0) goto L11;
+        Garage.e(v1);
         return;
         L11:
         if (this.b_y == null) goto L26;
@@ -554,28 +554,28 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         if (this.d != 0) goto L114;
         if (this.b_y != this.a_u) goto L92;
         if (Settings.b() != 0) goto L92;
-        ObfCo.c(33);
-        ObfCo.c(63);
-        ObfCo.c(41);
+        Garage.c(33);
+        Garage.c(63);
+        Garage.c(41);
         if (Settings.k() >= 3) goto L51;
         jt1 = 34; /* join L53 from L46 */
         goto L53;
         L51:
         jt1 = 35; /* join L53 from L51 */
         L53:
-        ObfCo.c(jt1);
-        ObfCo.c(36);
-        ObfCo.c(37);
+        Garage.c(jt1);
+        Garage.c(36);
+        Garage.c(37);
         if (Settings.k() >= 2) goto L78;
-        ObfCo.c(46);
+        Garage.c(46);
         L78:
-        ObfCo.c(38);
+        Garage.c(38);
         this.g = true;
         Settings.a();
         return;
         L92:
         if (this.g == 0) goto L111;
-        if (ObfCo.a() <= 0) goto L106;
+        if (Garage.a() <= 0) goto L106;
         return;
         L106:
         this.g = false;
@@ -591,7 +591,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         this.a_y.g();
         this.c = true;
         if (this.d != 0) goto L210;
-        ObfCo.b();
+        Garage.b();
         this.a_u.b();
         if (this.a_br == null) goto L177;
         this.a_br.b();
@@ -650,20 +650,20 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
     }
     // bytecode 8 bytes, max_stack 1, max_locals 0
     public static void l() {
-        ObfCo.c();
-        ObfCo.b(1);
+        Garage.c();
+        Garage.b(1);
         return;
     }
     // bytecode 25 bytes, max_stack 1, max_locals 1
     public void m() {
         ((ObfBd) this.a_y).u();
-        ObfCo.c(4);
+        Garage.c(4);
         ((ObfBd) this.a_y).r();
         return;
     }
     // bytecode 16 bytes, max_stack 1, max_locals 1
     public void n() {
-        ObfCo.c(45);
+        Garage.c(45);
         ((ObfBd) this.a_y).t();
         return;
     }
@@ -674,14 +674,14 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
     }
     // bytecode 16 bytes, max_stack 1, max_locals 1
     public void p() {
-        ObfCo.c(45);
+        Garage.c(45);
         ((ObfBd) this.a_y).t();
         return;
     }
     // bytecode 27 bytes, max_stack 1, max_locals 1
     public void q() {
-        ObfCo.c(10);
-        ObfCo.b(0);
+        Garage.c(10);
+        Garage.b(0);
         if (Settings.h() != 0) goto L26;
         Settings.e(1);
         Settings.b();
@@ -691,7 +691,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
     }
     // bytecode 10 bytes, max_stack 1, max_locals 1
     public void r() {
-        ObfCo.c(9);
+        Garage.c(9);
         this.q();
         return;
     }
@@ -812,7 +812,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         L220:
         if (v1 == 0) goto L626;
         if (v1 <= 0) goto L235;
-        ObfCo.c(v1);
+        Garage.c(v1);
         goto L623;
         L235:
         if (v1 != m1) goto L319;
@@ -823,8 +823,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         v1.postRotate(180.0f, 0.0f, 1.0f, 0.0f);
         v1.postRotate(90.0f, 1.0f, 0.0f, 0.0f);
         v1.postRotate(300.0f, 0.0f, 0.0f, 1.0f);
-        ObfCo.a(47, ObfBd.a.a(0, 0.0f), v1);
-        ObfCo.a(48, ObfBd.a.a(0, 0.0f), v1);
+        Garage.a(47, ObfBd.a.a(0, 0.0f), v1);
+        Garage.a(48, ObfBd.a.a(0, 0.0f), v1);
         goto L623;
         L319:
         if (v1 != -2) goto L412;
@@ -836,8 +836,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         v1.postRotate(90.0f, 1.0f, 0.0f, 0.0f);
         v1.postRotate(235.0f, 0.0f, 0.0f, 1.0f);
         v1.postScale(0.800000011920929f, 1.0f, 1.0f);
-        ObfCo.a(39, ObfBd.a.a(2, 0.0f), v1);
-        ObfCo.a(42, ObfBd.a.a(2, 0.0f), v1);
+        Garage.a(39, ObfBd.a.a(2, 0.0f), v1);
+        Garage.a(42, ObfBd.a.a(2, 0.0f), v1);
         goto L623;
         L412:
         if (v1 != -3) goto L483;
@@ -848,7 +848,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         v1.postRotate(180.0f, 0.0f, 1.0f, 0.0f);
         v1.postRotate(90.0f, 1.0f, 0.0f, 0.0f);
         v1.postRotate(125.0f, 0.0f, 0.0f, 1.0f);
-        ObfCo.a(43, ObfBd.a.a(3, 0.0f), v1);
+        Garage.a(43, ObfBd.a.a(3, 0.0f), v1);
         goto L623;
         L483:
         if (v1 != -4) goto L554;
@@ -859,7 +859,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         v1.postRotate(180.0f, 0.0f, 1.0f, 0.0f);
         v1.postRotate(90.0f, 1.0f, 0.0f, 0.0f);
         v1.postRotate(125.0f, 0.0f, 0.0f, 1.0f);
-        ObfCo.a(73, ObfBd.a.a(5, 0.0f), v1);
+        Garage.a(73, ObfBd.a.a(5, 0.0f), v1);
         goto L623;
         L554:
         if (v1 != -5) goto L623;
@@ -870,7 +870,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         v1.postRotate(180.0f, 0.0f, 1.0f, 0.0f);
         v1.postRotate(90.0f, 1.0f, 0.0f, 0.0f);
         v1.postRotate(125.0f, 0.0f, 0.0f, 1.0f);
-        ObfCo.a(74, ObfBd.a.a(6, 0.0f), v1);
+        Garage.a(74, ObfBd.a.a(6, 0.0f), v1);
         L623:
         MainCanvas.a();
         L626:
@@ -942,7 +942,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         return;
     }
     // bytecode 16 bytes, max_stack 1, max_locals 1
-    public ObfU a() {
+    public TrackSelect a() {
         if (MainCanvas.a_Z == 0) goto L11;
         return this.a_br;
         L11:
@@ -1032,7 +1032,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public ObfY a() {
+    public Screen a() {
         return this.a_y;
     }
     // bytecode 75 bytes, max_stack 4, max_locals 1
@@ -1094,8 +1094,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         if (this.i != 0) goto L78;
         return;
         L78:
-        if (ObfCo.c() == 0) goto L90;
-        ObfCo.a(v1, v2);
+        if (Garage.c() == 0) goto L90;
+        Garage.a(v1, v2);
         return;
         L90:
         if (this.b_y == null) goto L106;
@@ -1118,7 +1118,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         return;
         L59:
         Settings.d();
-        if (ObfCo.c() != 0) goto L85;
+        if (Garage.c() != 0) goto L85;
         if (this.b_y == null) goto L85;
         /* pop: this.b_y.a(v1, v2); */
         L85:
@@ -1144,8 +1144,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         L98:
         return;
         L99:
-        if (ObfCo.c() == 0) goto L111;
-        ObfCo.b(v1, v2);
+        if (Garage.c() == 0) goto L111;
+        Garage.b(v1, v2);
         return;
         L111:
         if (this.b_y == null) goto L127;

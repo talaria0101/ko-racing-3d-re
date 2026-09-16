@@ -5,7 +5,7 @@
 public class ObfF {
     private byte[][] a;
     // bytecode 26 bytes, max_stack 3, max_locals 3
-    public ObfF(String v1, ObfP v2) {
+    public ObfF(String v1, Font v2) {
         super();
         this.a = null;
         this.a = new Obf[B[SysUtil.c];
@@ -13,7 +13,7 @@ public class ObfF {
         return;
     }
     // bytecode 153 bytes, max_stack 4, max_locals 7
-    public void a(String v1, ObfP v2) {
+    public void a(String v1, Font v2) {
         /* try L0-L150 catch java.io.IOException -> L151 */
         v1 = ((String) this.getClass().getResourceAsStream(v1));
         new java.io.InputStreamReader(v1, "UTF-8"); /* constructor */

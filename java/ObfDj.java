@@ -199,7 +199,7 @@ public class ObfDj {
         L266:
         Settings.g = jt7;
         Settings.b();
-        ObfCo.c(32);
+        Garage.c(32);
         return 1;
         /* pop: ex_279; */
         return 0;

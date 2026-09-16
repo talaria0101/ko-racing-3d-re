@@ -93,13 +93,13 @@ public class ObfAs implements java.lang.Runnable {
         goto L63;
         L26:
         if (Settings.u() != 1) goto L46;
-        new ObfBx(); /* constructor */
-        ObfAs.a_cy = new ObfBx();
+        new SoundBank(); /* constructor */
+        ObfAs.a_cy = new SoundBank();
         goto L63;
         L46:
         if (Settings.u() != 2) goto L63;
-        new ObfDg(); /* constructor */
-        ObfAs.a_cy = new ObfDg();
+        new SoundTrigger(); /* constructor */
+        ObfAs.a_cy = new SoundTrigger();
         L63:
         if (Settings.s() != 0) goto L70;
         return;

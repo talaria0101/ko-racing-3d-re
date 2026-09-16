@@ -4,27 +4,27 @@
 // API references: java/io javax/microedition javax/wireless
 public class SysUtil {
     public static ObfBj a;
-    public static ObfP a_p;
-    public static ObfP b;
-    public static ObfP c;
-    public static ObfP d;
-    public static ObfP e;
-    public static ObfP f;
-    public static ObfP g;
+    public static Font a_p;
+    public static Font b;
+    public static Font c;
+    public static Font d;
+    public static Font e;
+    public static Font f;
+    public static Font g;
     public static int a_I;
-    public static ObfP h;
-    public static ObfP i;
-    public static ObfP j;
-    public static ObfP k;
-    public static ObfP l;
-    public static ObfP m;
-    public static ObfP n;
-    public static ObfP o;
-    public static ObfP p;
-    public static ObfP q;
-    public static ObfP r;
-    private static ObfP u;
-    public static ObfP s;
+    public static Font h;
+    public static Font i;
+    public static Font j;
+    public static Font k;
+    public static Font l;
+    public static Font m;
+    public static Font n;
+    public static Font o;
+    public static Font p;
+    public static Font q;
+    public static Font r;
+    private static Font u;
+    public static Font s;
     private static String b_String;
     private static String c_String;
     private static String d_String;
@@ -42,7 +42,7 @@ public class SysUtil {
     private static String p_String;
     private static String q_String;
     private static String r_String;
-    public static ObfP t;
+    public static Font t;
     public static int b_I;
     public static int c_I;
     public static int d_I;
@@ -166,35 +166,35 @@ public class SysUtil {
         /* try L975-L1031 catch java.lang.IllegalArgumentException -> L1034 */
         /* try L0-L1098 catch java.io.IOException -> L1099 */
         SysUtil.a_Canvas = v0;
-        new ObfG(SysUtil.d_String); /* constructor */
-        ObfG v1 = new ObfG(SysUtil.d_String);
-        new ObfP(SysUtil.e_String, v1, -2, 15); /* constructor */
-        SysUtil.a_p = new ObfP(SysUtil.e_String, v1, -2, 15);
-        new ObfP(SysUtil.e_String, v1, -2, 15).d();
-        new ObfP(SysUtil.r_String, v1, -2); /* constructor */
-        SysUtil.t = new ObfP(SysUtil.r_String, v1, -2);
+        new FontCodec(SysUtil.d_String); /* constructor */
+        FontCodec v1 = new FontCodec(SysUtil.d_String);
+        new Font(SysUtil.e_String, v1, -2, 15); /* constructor */
+        SysUtil.a_p = new Font(SysUtil.e_String, v1, -2, 15);
+        new Font(SysUtil.e_String, v1, -2, 15).d();
+        new Font(SysUtil.r_String, v1, -2); /* constructor */
+        SysUtil.t = new Font(SysUtil.r_String, v1, -2);
         if (SysUtil.e_I > 400) goto L71;
         SysUtil.b = SysUtil.a_p;
         goto L139;
         L71:
         new java.lang.StringBuffer(); /* constructor */
-        new ObfP(new java.lang.StringBuffer().append(SysUtil.e_String).append("2").toString(), v1, -2, 25); /* constructor */
-        SysUtil.b = new ObfP(new java.lang.StringBuffer().append(SysUtil.e_String).append("2").toString(), v1, -2, 25);
+        new Font(new java.lang.StringBuffer().append(SysUtil.e_String).append("2").toString(), v1, -2, 25); /* constructor */
+        SysUtil.b = new Font(new java.lang.StringBuffer().append(SysUtil.e_String).append("2").toString(), v1, -2, 25);
         new java.lang.StringBuffer(); /* constructor */
-        new ObfP(new java.lang.StringBuffer().append(SysUtil.e_String).append("3").toString(), v1, -2, 25); /* constructor */
+        new Font(new java.lang.StringBuffer().append(SysUtil.e_String).append("3").toString(), v1, -2, 25); /* constructor */
         L139:
-        new ObfP("/fonts/sm", v1, 1, 15); /* constructor */
-        SysUtil.n = new ObfP("/fonts/sm", v1, 1, 15);
-        new ObfP("/fonts/sml", v1, 1, 15); /* constructor */
-        SysUtil.o = new ObfP("/fonts/sml", v1, 1, 15);
-        new ObfP("/fonts/sm2", v1, -2, 15); /* constructor */
-        SysUtil.p = new ObfP("/fonts/sm2", v1, -2, 15);
-        new ObfP("/fonts/sml2", v1, -2, 15); /* constructor */
-        SysUtil.q = new ObfP("/fonts/sml2", v1, -2, 15);
-        new ObfP("/fonts/smg", v1, -2, 15); /* constructor */
-        SysUtil.r = new ObfP("/fonts/smg", v1, -2, 15);
-        new ObfP(SysUtil.q_String, v1, m1); /* constructor */
-        SysUtil.m = new ObfP(SysUtil.q_String, v1, m1);
+        new Font("/fonts/sm", v1, 1, 15); /* constructor */
+        SysUtil.n = new Font("/fonts/sm", v1, 1, 15);
+        new Font("/fonts/sml", v1, 1, 15); /* constructor */
+        SysUtil.o = new Font("/fonts/sml", v1, 1, 15);
+        new Font("/fonts/sm2", v1, -2, 15); /* constructor */
+        SysUtil.p = new Font("/fonts/sm2", v1, -2, 15);
+        new Font("/fonts/sml2", v1, -2, 15); /* constructor */
+        SysUtil.q = new Font("/fonts/sml2", v1, -2, 15);
+        new Font("/fonts/smg", v1, -2, 15); /* constructor */
+        SysUtil.r = new Font("/fonts/smg", v1, -2, 15);
+        new Font(SysUtil.q_String, v1, m1); /* constructor */
+        SysUtil.m = new Font(SysUtil.q_String, v1, m1);
         new ObfDn(SysUtil.j_String, 7, 7, 7); /* constructor */
         SysUtil.d = new ObfDn(SysUtil.j_String, 7, 7, 7);
         new ObfDn(((ObfDn) SysUtil.d)); /* constructor */
@@ -203,54 +203,54 @@ public class SysUtil {
         new ObfDn(SysUtil.p_String, 14, 13, 9); /* constructor */
         new ObfDn(SysUtil.k_String, 6, 11, 8); /* constructor */
         SysUtil.g = new ObfDn(SysUtil.k_String, 6, 11, 8);
-        new ObfG(SysUtil.h_String); /* constructor */
-        v1 = new ObfG(SysUtil.h_String);
-        new ObfP(SysUtil.m_String, v1, 0); /* constructor */
-        SysUtil.h = new ObfP(SysUtil.m_String, v1, 0);
-        new ObfP(SysUtil.m_String, v1, 0).a(2);
-        new ObfP(SysUtil.h); /* constructor */
-        SysUtil.k = new ObfP(SysUtil.h);
-        new ObfP(SysUtil.h); /* constructor */
-        SysUtil.j = new ObfP(SysUtil.h);
+        new FontCodec(SysUtil.h_String); /* constructor */
+        v1 = new FontCodec(SysUtil.h_String);
+        new Font(SysUtil.m_String, v1, 0); /* constructor */
+        SysUtil.h = new Font(SysUtil.m_String, v1, 0);
+        new Font(SysUtil.m_String, v1, 0).a(2);
+        new Font(SysUtil.h); /* constructor */
+        SysUtil.k = new Font(SysUtil.h);
+        new Font(SysUtil.h); /* constructor */
+        SysUtil.j = new Font(SysUtil.h);
         SysUtil.k.a(-65536, 1);
         SysUtil.j.a(-16711936, 1);
         new ObfAh(SysUtil.l_String, 12, 11, 8); /* constructor */
         SysUtil.l = new ObfAh(SysUtil.l_String, 12, 11, 8);
-        new ObfG(SysUtil.f_String); /* constructor */
-        v1 = new ObfG(SysUtil.f_String);
-        new ObfP(SysUtil.g_String, v1, 0); /* constructor */
-        SysUtil.c = new ObfP(SysUtil.g_String, v1, 0);
-        new ObfG(SysUtil.i_String); /* constructor */
-        v1 = new ObfG(SysUtil.i_String);
-        new ObfP(SysUtil.n_String, v1, 0); /* constructor */
-        SysUtil.i = new ObfP(SysUtil.n_String, v1, 0);
-        new ObfP(SysUtil.o_String, v1, 0); /* constructor */
-        SysUtil.f = new ObfP(SysUtil.o_String, v1, 0);
+        new FontCodec(SysUtil.f_String); /* constructor */
+        v1 = new FontCodec(SysUtil.f_String);
+        new Font(SysUtil.g_String, v1, 0); /* constructor */
+        SysUtil.c = new Font(SysUtil.g_String, v1, 0);
+        new FontCodec(SysUtil.i_String); /* constructor */
+        v1 = new FontCodec(SysUtil.i_String);
+        new Font(SysUtil.n_String, v1, 0); /* constructor */
+        SysUtil.i = new Font(SysUtil.n_String, v1, 0);
+        new Font(SysUtil.o_String, v1, 0); /* constructor */
+        SysUtil.f = new Font(SysUtil.o_String, v1, 0);
         new java.lang.StringBuffer(); /* constructor */
-        new ObfG(new java.lang.StringBuffer().append(SysUtil.b_String).append(".tab").toString()); /* constructor */
-        v1 = new ObfG(new java.lang.StringBuffer().append(SysUtil.b_String).append(".tab").toString());
+        new FontCodec(new java.lang.StringBuffer().append(SysUtil.b_String).append(".tab").toString()); /* constructor */
+        v1 = new FontCodec(new java.lang.StringBuffer().append(SysUtil.b_String).append(".tab").toString());
         if (v0.getWidth() <= 200) goto L529;
-        new ObfP(SysUtil.b_String, v1, -12); /* constructor */
+        new Font(SysUtil.b_String, v1, -12); /* constructor */
         goto L559;
         L529:
         new java.lang.StringBuffer(); /* constructor */
-        new ObfP(new java.lang.StringBuffer().append(SysUtil.b_String).append("s").toString(), v1, -6); /* constructor */
+        new Font(new java.lang.StringBuffer().append(SysUtil.b_String).append("s").toString(), v1, -6); /* constructor */
         L559:
         new java.lang.StringBuffer(); /* constructor */
-        new ObfG(new java.lang.StringBuffer().append(SysUtil.c_String).append(".tab").toString()); /* constructor */
-        v1 = new ObfG(new java.lang.StringBuffer().append(SysUtil.c_String).append(".tab").toString());
+        new FontCodec(new java.lang.StringBuffer().append(SysUtil.c_String).append(".tab").toString()); /* constructor */
+        v1 = new FontCodec(new java.lang.StringBuffer().append(SysUtil.c_String).append(".tab").toString());
         if (v0.getWidth() <= 200) goto L651;
-        new ObfP(SysUtil.c_String, v1, -12); /* constructor */
-        SysUtil.u = new ObfP(SysUtil.c_String, v1, -12);
+        new Font(SysUtil.c_String, v1, -12); /* constructor */
+        SysUtil.u = new Font(SysUtil.c_String, v1, -12);
         new java.lang.StringBuffer(); /* constructor */
-        new ObfP(new java.lang.StringBuffer().append(SysUtil.c_String).append("s").toString(), v1, -6); /* constructor */
-        SysUtil.s = new ObfP(new java.lang.StringBuffer().append(SysUtil.c_String).append("s").toString(), v1, -6);
+        new Font(new java.lang.StringBuffer().append(SysUtil.c_String).append("s").toString(), v1, -6); /* constructor */
+        SysUtil.s = new Font(new java.lang.StringBuffer().append(SysUtil.c_String).append("s").toString(), v1, -6);
         goto L689;
         L651:
         new java.lang.StringBuffer(); /* constructor */
-        new ObfP(new java.lang.StringBuffer().append(SysUtil.c_String).append("s").toString(), v1, -6); /* constructor */
-        SysUtil.u = new ObfP(new java.lang.StringBuffer().append(SysUtil.c_String).append("s").toString(), v1, -6);
-        SysUtil.s = new ObfP(new java.lang.StringBuffer().append(SysUtil.c_String).append("s").toString(), v1, -6);
+        new Font(new java.lang.StringBuffer().append(SysUtil.c_String).append("s").toString(), v1, -6); /* constructor */
+        SysUtil.u = new Font(new java.lang.StringBuffer().append(SysUtil.c_String).append("s").toString(), v1, -6);
+        SysUtil.s = new Font(new java.lang.StringBuffer().append(SysUtil.c_String).append("s").toString(), v1, -6);
         L689:
         SysUtil.a_arrarrB[0] = SysUtil.a_p.a("0");
         SysUtil.a_arrarrB[1] = SysUtil.a_p.a("1");
@@ -307,7 +307,7 @@ public class SysUtil {
         L1095:
         Settings.c();
         return;
-        v1 = ((ObfG) ex_1099);
+        v1 = ((FontCodec) ex_1099);
         ex_1099.printStackTrace();
         return;
     }

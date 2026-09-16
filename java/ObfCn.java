@@ -102,7 +102,7 @@ public class ObfCn extends ObfT {
         int v4 = 0;
         int v5 = 0;
         int v6 = 0;
-        ObfP v7 = this.a;
+        Font v7 = this.a;
         int v8 = 0;
         L20:
         if (v8 >= v1.length) goto L125;

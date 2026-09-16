@@ -13,7 +13,7 @@ public class ObfS extends ObfBi {
         return;
     }
     // bytecode 32 bytes, max_stack 6, max_locals 6
-    public ObfS(Widget v1, int v2, int v3, int v4, ObfP v5) {
+    public ObfS(Widget v1, int v2, int v3, int v4, Font v5) {
         super(null, 0, 0, v4, v5);
         this.a = 0.0f;
         this.b = 0.0f;

@@ -13,7 +13,7 @@ public class ObfCh extends Widget {
     private long b_J;
     protected ObfT a_t;
     protected int h;
-    protected ObfP a_p;
+    protected Font a_p;
     private int l;
     private int m;
     private int n;
@@ -24,7 +24,7 @@ public class ObfCh extends Widget {
         return;
     }
     // bytecode 104 bytes, max_stack 6, max_locals 7
-    public ObfCh(Widget v1, int v2, int v3, int v4, int v5, ObfP v6) {
+    public ObfCh(Widget v1, int v2, int v3, int v4, int v5, Font v6) {
         super(v1, v2, v3, v4, v5);
         this.b = 0;
         this.c = 0;

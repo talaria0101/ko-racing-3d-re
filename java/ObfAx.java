@@ -4,16 +4,16 @@
 // API references: javax/microedition
 public class ObfAx extends Widget {
     private int b;
-    protected ObfP a;
+    protected Font a;
     private boolean b_Z;
     protected int a_I;
     // bytecode 13 bytes, max_stack 7, max_locals 6
-    public ObfAx(Widget v1, int v2, int v3, int v4, ObfP v5) {
+    public ObfAx(Widget v1, int v2, int v3, int v4, Font v5) {
         super(v1, v2, v3, v4, v5, 1);
         return;
     }
     // bytecode 115 bytes, max_stack 6, max_locals 7
-    public ObfAx(Widget v1, int v2, int v3, int v4, ObfP v5, boolean v6) {
+    public ObfAx(Widget v1, int v2, int v3, int v4, Font v5, boolean v6) {
         super(v1, v2, v3, 0, 0);
         this.b = 0;
         this.a = null;

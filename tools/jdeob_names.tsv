@@ -15,3 +15,11 @@ dk	CareerMap
 m	MainMenu
 o	GhostCar
 bz	Vec3
+g	FontCodec
+p	Font
+u	TrackSelect
+y	Screen
+bx	SoundBank
+cm	WidgetGroup
+co	Garage
+dg	SoundTrigger

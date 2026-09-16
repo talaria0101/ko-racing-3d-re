@@ -12,7 +12,7 @@ public class ObfN extends ObfCh {
         return;
     }
     // bytecode 64 bytes, max_stack 7, max_locals 4
-    public ObfN(int v1, int v2, ObfP v3) {
+    public ObfN(int v1, int v2, Font v3) {
         /* try L30-L54 catch java.io.IOException -> L57 */
         super(null, 0, 0, v1, v2, v3);
         this.a = null;

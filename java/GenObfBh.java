@@ -2,22 +2,22 @@
 // edit: fix the emitter and re-run.  Original name `bh`.
 // String constants: <init> | Code | [[I | abs | currentTimeMillis | getClipHeight | getWidth | java/lang/Math | java/lang/String | java/lang/System | javax/microedition/lcdui/Graphics | length
 // API references: javax/microedition
-public class ObfBh extends ObfY {
-    protected ObfCm a;
+public class ObfBh extends Screen {
+    protected WidgetGroup a;
     protected ObfBi a_bi;
     protected ObfBi b;
     private ObfBi d;
     private ObfBi e;
     private ObfBi f;
-    protected ObfCm b_cm;
+    protected WidgetGroup b_cm;
     private ObfBi g;
     private ObfBi h;
     private ObfBi i;
     protected ObfBi c;
-    private ObfCm g_cm;
+    private WidgetGroup g_cm;
     private ObfDb a_db;
     private ObfBi j;
-    private ObfCm h_cm;
+    private WidgetGroup h_cm;
     private ObfCp a_cp;
     private ObfCp b_cp;
     private ObfDb b_db;
@@ -28,11 +28,11 @@ public class ObfBh extends ObfY {
     private ObfDb g_db;
     private ObfCp c_cp;
     private ObfCp d_cp;
-    protected ObfCm c_cm;
+    protected WidgetGroup c_cm;
     protected ObfAo a_ao;
     private ObfDb h_db;
     private ObfBk a_bk;
-    private ObfCm i_cm;
+    private WidgetGroup i_cm;
     private ObfBk b_bk;
     private ObfDb i_db;
     private ObfAz a_az;
@@ -40,13 +40,13 @@ public class ObfBh extends ObfY {
     private ObfAz c_az;
     private ObfAz d_az;
     private ObfAz e_az;
-    private ObfCm j_cm;
+    private WidgetGroup j_cm;
     private ObfDb j_db;
     private ObfDb k;
     private ObfDb l;
-    protected ObfCm d_cm;
+    protected WidgetGroup d_cm;
     private ObfAo b_ao;
-    protected ObfCm e_cm;
+    protected WidgetGroup e_cm;
     protected int a_I;
     private int f_I;
     private long a_J;
@@ -54,9 +54,9 @@ public class ObfBh extends ObfY {
     public int b_I;
     public int c_I;
     private int g_I;
-    private ObfY a_y;
+    private Screen a_y;
     private boolean d_Z;
-    protected ObfCm f_cm;
+    protected WidgetGroup f_cm;
     protected boolean b_Z;
     protected boolean c_Z;
     protected int d_I;
@@ -192,8 +192,8 @@ public class ObfBh extends ObfY {
     // bytecode 239 bytes, max_stack 10, max_locals 2
     public void a() {
         ObfBh v1 = this;
-        new ObfCm(null, 0, 0, v1.b_I, v1.c_I, 9, 1); /* constructor */
-        this.a = new ObfCm(null, 0, 0, v1.b_I, v1.c_I, 9, 1);
+        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, 1); /* constructor */
+        this.a = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, 1);
         v1.a.a(1);
         new ObfAx(null, 0, 0, 0, SysUtil.b); /* constructor */
         v1.a.a(new ObfAx(null, 0, 0, 0, SysUtil.b), 0);
@@ -220,8 +220,8 @@ public class ObfBh extends ObfY {
     }
     // bytecode 1488 bytes, max_stack 10, max_locals 2
     public void m() {
-        new ObfCm(null, 0, 0, this.b_I, this.c_I, 10, 1); /* constructor */
-        this.b_cm = new ObfCm(null, 0, 0, this.b_I, this.c_I, 10, 1);
+        new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 10, 1); /* constructor */
+        this.b_cm = new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 10, 1);
         new ObfAx(null, 0, 0, 2, SysUtil.b); /* constructor */
         this.b_cm.a(new ObfAx(null, 0, 0, 2, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
@@ -230,8 +230,8 @@ public class ObfBh extends ObfY {
         this.g = new ObfBi(null, 0, 0, 4, SysUtil.b);
         this.b_cm.a(this.g, 0);
         ObfBh v1 = this;
-        new ObfCm(null, 0, 0, v1.b_I, v1.c_I, 14, 1); /* constructor */
-        this.g_cm = new ObfCm(null, 0, 0, v1.b_I, v1.c_I, 14, 1);
+        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, 1); /* constructor */
+        this.g_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, 1);
         new ObfAx(null, 0, 0, 4, SysUtil.b); /* constructor */
         v1.g_cm.a(new ObfAx(null, 0, 0, 4, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
@@ -247,8 +247,8 @@ public class ObfBh extends ObfY {
         v1.j = new ObfBi(null, 0, 0, 236, SysUtil.b);
         v1.g_cm.a(v1.j, 0);
         v1.b();
-        new ObfCm(null, 0, 0, v1.b_I, v1.c_I, 14, 1); /* constructor */
-        v1.h_cm = new ObfCm(null, 0, 0, v1.b_I, v1.c_I, 14, 1);
+        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, 1); /* constructor */
+        v1.h_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, 1);
         new ObfAx(null, 0, 0, 236, SysUtil.b); /* constructor */
         v1.h_cm.a(new ObfAx(null, 0, 0, 236, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
@@ -316,8 +316,8 @@ public class ObfBh extends ObfY {
         this.i = new ObfBi(null, 0, 0, 51, SysUtil.b);
         this.b_cm.a(this.i, 0);
         v1 = this;
-        new ObfCm(null, 0, 0, v1.b_I, v1.c_I, 9, 1); /* constructor */
-        this.j_cm = new ObfCm(null, 0, 0, v1.b_I, v1.c_I, 9, 1);
+        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, 1); /* constructor */
+        this.j_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, 1);
         new ObfAx(null, 0, 0, 51, SysUtil.b); /* constructor */
         v1.j_cm.a(new ObfAx(null, 0, 0, 51, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
@@ -342,8 +342,8 @@ public class ObfBh extends ObfY {
         new ObfBi(null, 0, 0, 24, SysUtil.b); /* constructor */
         this.h = new ObfBi(null, 0, 0, 24, SysUtil.b);
         v1 = this;
-        new ObfCm(null, 0, 0, v1.b_I, v1.c_I, 9, 1); /* constructor */
-        this.i_cm = new ObfCm(null, 0, 0, v1.b_I, v1.c_I, 9, 1);
+        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, 1); /* constructor */
+        this.i_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, 1);
         new ObfAx(null, 0, 0, 24, SysUtil.b); /* constructor */
         v1.i_cm.a(new ObfAx(null, 0, 0, 24, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
@@ -377,8 +377,8 @@ public class ObfBh extends ObfY {
     }
     // bytecode 128 bytes, max_stack 10, max_locals 1
     public void w() {
-        new ObfCm(null, 0, 0, this.b_I, this.c_I, 9, 1); /* constructor */
-        this.d_cm = new ObfCm(null, 0, 0, this.b_I, this.c_I, 9, 1);
+        new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 9, 1); /* constructor */
+        this.d_cm = new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 9, 1);
         new ObfAx(null, 0, 0, 100, SysUtil.b); /* constructor */
         this.d_cm.a(new ObfAx(null, 0, 0, 100, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
@@ -1098,7 +1098,7 @@ public class ObfBh extends ObfY {
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2
-    public void a(ObfY v1) {
+    public void a(Screen v1) {
         this.a_y = v1;
         return;
     }
@@ -1119,7 +1119,7 @@ public class ObfBh extends ObfY {
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2
-    public void a(ObfCm v1) {
+    public void a(WidgetGroup v1) {
         this.e_cm = v1;
         return;
     }

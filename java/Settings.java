@@ -1050,11 +1050,11 @@ public class Settings {
         /* try L37-L169 catch java.io.IOException -> L173 */
         byte[] v0 = ObfDj.a(Settings.h_String, 0, Settings.a(Settings.f_String));
         if (ObfDj.a(Settings.h_String, 0, Settings.a(Settings.f_String)) != null) goto L25;
-        ObfCo.c(15);
+        Garage.c(15);
         return 0;
         L25:
         if (v0.length != 0) goto L37;
-        ObfCo.c(16);
+        Garage.c(16);
         return 0;
         L37:
         v0 = TouchButtons.b(v0);
@@ -1063,19 +1063,19 @@ public class Settings {
         new java.io.DataInputStream(v0); /* constructor */
         v0 = ((byte[]) new java.io.DataInputStream(v0));
         if (Settings.a(new java.io.DataInputStream(v0)).compareTo("OK") == 0) goto L83;
-        ObfCo.c(15);
+        Garage.c(15);
         jt1 = 0; /* join L153 from L74 */
         goto L153;
         L83:
         int v1 = v0.readByte();
         if (v0.readByte() != 22) goto L110;
         Settings.l_I = v0.readInt();
-        ObfCo.c(18);
+        Garage.c(18);
         goto L153;
         L110:
         if (v1 == 25) goto L130;
-        ObfCo.c(70);
-        ObfCo.c(71);
+        Garage.c(70);
+        Garage.c(71);
         goto L153;
         L130:
         /* pop: v0.readInt(); */
@@ -1087,8 +1087,8 @@ public class Settings {
         jt1 = 1; /* join L153 from L130 */
         L153:
         if (jt1 == 0) goto L170;
-        ObfCo.b(1);
-        ObfCo.c(17);
+        Garage.b(1);
+        Garage.c(17);
         Settings.b();
         return 1;
         L170:
@@ -1103,11 +1103,11 @@ public class Settings {
         /* try L35-L168 catch java.io.IOException -> L172 */
         byte[] v1 = ObfDj.a(Settings.g_String, 0, Settings.a(v0));
         if (ObfDj.a(Settings.g_String, 0, Settings.a(v0)) != null) goto L23;
-        ObfCo.c(15);
+        Garage.c(15);
         return 0;
         L23:
         if (v1.length != 0) goto L35;
-        ObfCo.c(16);
+        Garage.c(16);
         return 0;
         L35:
         v1 = TouchButtons.b(v1);
@@ -1116,18 +1116,18 @@ public class Settings {
         new java.io.DataInputStream(v1); /* constructor */
         v1 = ((byte[]) new java.io.DataInputStream(v1));
         if (Settings.a(new java.io.DataInputStream(v1)).compareTo("OK") == 0) goto L81;
-        ObfCo.c(15);
+        Garage.c(15);
         jt1 = 0; /* join L146 from L72 */
         goto L146;
         L81:
         int v2 = v1.readByte();
         if (v1.readByte() != 22) goto L108;
         Settings.l_I = v1.readInt();
-        ObfCo.c(18);
+        Garage.c(18);
         goto L146;
         L108:
         if (v2 == 25) goto L123;
-        ObfCo.c(14);
+        Garage.c(14);
         goto L146;
         L123:
         /* pop: v1.readInt(); */
@@ -1141,8 +1141,8 @@ public class Settings {
         if (jt1 == 0) goto L169;
         v2 = ((int) v0);
         Settings.j_String = v0;
-        ObfCo.b(1);
-        ObfCo.c(17);
+        Garage.b(1);
+        Garage.c(17);
         Settings.b();
         return 1;
         L169:
