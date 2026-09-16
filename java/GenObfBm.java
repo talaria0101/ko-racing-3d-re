@@ -256,12 +256,12 @@ public class ObfBm {
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2
-    public void a(int v1) {
+    public void a__void(int v1) {
         this.c = v1;
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int a() {
+    public int a__int() {
         return this.c;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -269,7 +269,7 @@ public class ObfBm {
         return this.b;
     }
     // bytecode 147 bytes, max_stack 5, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         if (this.b != 0) goto L9;
         return 0;
         L9:
@@ -284,15 +284,15 @@ public class ObfBm {
         return this.a.a(this.a_I, (this.a_F - ObfAr.b), (this.b_F - ObfAr.b));
     }
     // bytecode 16 bytes, max_stack 3, max_locals 2
-    public boolean a(int v1) {
-        return this.a.a(((v1 + this.a_I) % 4));
+    public boolean a__boolean(int v1) {
+        return this.a.a__boolean(((v1 + this.a_I) % 4));
     }
     // bytecode 16 bytes, max_stack 3, max_locals 2
-    public boolean b(int v1) {
-        return this.a.b(((v1 + this.a_I) % 4));
+    public boolean b__boolean(int v1) {
+        return this.a.b__boolean(((v1 + this.a_I) % 4));
     }
     // bytecode 14 bytes, max_stack 2, max_locals 2
-    public boolean c(int v1) {
+    public boolean c__boolean(int v1) {
         if (this.a_arrB[v1] != 2) goto L12;
         return 1;
         L12:
@@ -307,7 +307,7 @@ public class ObfBm {
         return;
     }
     // bytecode 71 bytes, max_stack 3, max_locals 4
-    public float a(float v1, float v2) {
+    public float a__float(float v1, float v2) {
         ObfBm v3 = this;
         v3 = ((ObfBm) (this.a_I % 4));
         if ((this.a_I % 4) != 0) goto L16;
@@ -329,10 +329,10 @@ public class ObfBm {
         v1 = (1.0f - v2);
         v2 = v3;
         L61:
-        return this.a.a(v1, v2);
+        return this.a.a__float(v1, v2);
     }
     // bytecode 152 bytes, max_stack 3, max_locals 4
-    public Rect a(float v1, float v2) {
+    public Rect a__Rect(float v1, float v2) {
         ObfBm v3 = this;
         v3 = ((ObfBm) (this.a_I % 4));
         if ((this.a_I % 4) == 0) goto L58;
@@ -352,8 +352,8 @@ public class ObfBm {
         v1 = (1.0f - v2);
         v2 = v3;
         L58:
-        v1 = ((float) this.a.a(v1, v2));
-        if (this.a.a(v1, v2) != null) goto L74;
+        v1 = ((float) this.a.a__Rect(v1, v2));
+        if (this.a.a__Rect(v1, v2) != null) goto L74;
         return null;
         L74:
         v3 = this;
@@ -373,12 +373,12 @@ public class ObfBm {
         return v1;
     }
     // bytecode 8 bytes, max_stack 3, max_locals 2
-    public void b(int v1) {
+    public void b__void(int v1) {
         this.a_arrZ[0] = 1;
         return;
     }
     // bytecode 23 bytes, max_stack 2, max_locals 2
-    public void c(int v1) {
+    public void c__void(int v1) {
         if (this.d <= 0) goto L17;
         java.lang.System.out.println(this.d);
         L17:
@@ -404,7 +404,7 @@ public class ObfBm {
         return;
     }
     // bytecode 21 bytes, max_stack 3, max_locals 2
-    public void a() {
+    public void a__void() {
         int v1 = 0;
         L2:
         if (v1 >= 5) goto L20;

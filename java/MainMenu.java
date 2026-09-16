@@ -138,7 +138,7 @@ public class MainMenu {
         return;
     }
     // bytecode 276 bytes, max_stack 5, max_locals 6
-    public int a() {
+    public int a__int() {
         /* try L171-L180 catch javax.microedition.rms.InvalidRecordIDException -> L183 */
         /* try L202-L210 catch javax.microedition.rms.RecordStoreNotOpenException -> L213 */
         /* try L202-L210 catch javax.microedition.rms.RecordStoreException -> L217 */
@@ -236,15 +236,15 @@ public class MainMenu {
         return 1;
     }
     // bytecode 6 bytes, max_stack 1, max_locals 1
-    public int b() {
+    public int b__int() {
         return this.a_arrLdd.length;
     }
     // bytecode 10 bytes, max_stack 2, max_locals 2
-    public String a(int v1) {
+    public String a__String(int v1) {
         return this.a_arrLdd[v1].toString();
     }
     // bytecode 171 bytes, max_stack 3, max_locals 3
-    public int c() {
+    public int c__int() {
         /* try L61-L88 catch java.io.IOException -> L91 */
         int v2 = 0;
         String v1 = this.b_String;
@@ -254,8 +254,8 @@ public class MainMenu {
         L23:
         return 1;
         L25:
-        v1 = ((String) this.a(v1));
-        if (this.a(v1) != 0) goto L37;
+        v1 = ((String) this.a__int(v1));
+        if (this.a__int(v1) != 0) goto L37;
         return 2;
         L37:
         if (v1 != 2) goto L44;
@@ -277,23 +277,23 @@ public class MainMenu {
         if (ScoreUpload.a(this.c, false, TouchButtons.a(v1.toByteArray())) == null) goto L125;
         if (this.a(v1, true) != 0) goto L139;
         L125:
-        if (this.a() != 0) goto L137;
+        if (this.a__boolean() != 0) goto L137;
         this.c_I = m1;
         L137:
         return 1;
         L139:
-        this.c();
+        this.c__void();
         if (this.e() > 0) goto L158;
-        if (this.a(v1) != 0) goto L169;
+        if (this.a__boolean(v1) != 0) goto L169;
         L158:
         this.c_I = m1;
-        this.d();
+        this.d__void();
         return 1;
         L169:
         return 0;
     }
     // bytecode 169 bytes, max_stack 5, max_locals 9
-    public int a(byte[] v1) {
+    public int a__int(byte[] v1) {
         /* try L0-L36 catch java.io.IOException -> L166 */
         /* try L37-L48 catch java.io.IOException -> L166 */
         /* try L49-L57 catch java.io.IOException -> L166 */
@@ -334,7 +334,7 @@ public class MainMenu {
         jt2 = 0; /* join L150 from L149 */
         L150:
         this.a_Z = jt2;
-        /* pop: this.c(); */
+        /* pop: this.c__boolean(); */
         L158:
         if (v2 == 0) goto L164;
         return 1;
@@ -356,7 +356,7 @@ public class MainMenu {
         return 0;
         L37:
         Settings.a(Settings.a(v1));
-        Settings.b();
+        Settings.b__void();
         this.c_I = v1.readInt();
         this.k = v1.readInt();
         if (v2 == 0) goto L99;
@@ -399,14 +399,14 @@ public class MainMenu {
         L320:
         MainMenu.a_I = v1.readInt();
         MainMenu.a_String = Settings.a(v1);
-        this.d();
+        this.d__void();
         return 1;
         v1 = ((byte[]) ex_340);
         ex_340.printStackTrace();
         return 0;
     }
     // bytecode 133 bytes, max_stack 3, max_locals 3
-    public int d() {
+    public int d__int() {
         /* try L25-L72 catch java.io.IOException -> L126 */
         /* try L73-L109 catch java.io.IOException -> L126 */
         /* try L110-L125 catch java.io.IOException -> L126 */
@@ -678,7 +678,7 @@ public class MainMenu {
         v3 += 1;
         goto L331;
         L405:
-        if (this.c() != 0) goto L414;
+        if (this.c__boolean() != 0) goto L414;
         return 1;
         L414:
         return 0;
@@ -686,7 +686,7 @@ public class MainMenu {
         return 1;
     }
     // bytecode 130 bytes, max_stack 5, max_locals 3
-    public boolean a(byte[] v1) {
+    public boolean a__boolean(byte[] v1) {
         /* try L11-L20 catch javax.microedition.rms.InvalidRecordIDException -> L23 */
         /* try L47-L55 catch javax.microedition.rms.RecordStoreNotOpenException -> L58 */
         /* try L47-L55 catch javax.microedition.rms.RecordStoreException -> L66 */
@@ -704,7 +704,7 @@ public class MainMenu {
         /* pop: v2.addRecord(v1, 0, v1.length); */
         v2.setRecord(1, v1, 0, v1.length);
         L42:
-        /* pop: this.c(); */
+        /* pop: this.c__boolean(); */
         if (v2 == null) goto L55;
         v2.closeRecordStore();
         L55:
@@ -743,7 +743,7 @@ public class MainMenu {
         return 0;
     }
     // bytecode 529 bytes, max_stack 5, max_locals 6
-    public boolean c() {
+    public boolean c__boolean() {
         /* try L28-L271 catch java.io.IOException -> L274 */
         /* try L280-L292 catch javax.microedition.rms.RecordStoreNotOpenException -> L295 */
         /* try L280-L292 catch javax.microedition.rms.RecordStoreException -> L303 */
@@ -902,7 +902,7 @@ public class MainMenu {
         return 1;
     }
     // bytecode 183 bytes, max_stack 3, max_locals 2
-    public void c() {
+    public void c__void() {
         this.e_arrI = new int[this.d_I]#1;
         int v1 = 0;
         L12:
@@ -945,7 +945,7 @@ public class MainMenu {
         return;
     }
     // bytecode 491 bytes, max_stack 5, max_locals 6
-    public void d() {
+    public void d__void() {
         /* try L71-L83 catch javax.microedition.rms.RecordStoreNotOpenException -> L84 */
         /* try L71-L83 catch javax.microedition.rms.RecordStoreException -> L90 */
         /* try L71-L83 catch java.io.IOException -> L96 */
@@ -970,7 +970,7 @@ public class MainMenu {
         /* try L441-L457 catch java.lang.NullPointerException -> L484 */
         Object v1 = null;
         Object v3 = null;
-        this.c();
+        this.c__void();
         v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore("KORa_record", false, 0, false));
         byte[] v2 = TouchButtons.b(v1.getRecord(1));
         new java.io.ByteArrayInputStream(v2); /* constructor */
@@ -1106,7 +1106,7 @@ public class MainMenu {
         throw v2;
     }
     // bytecode 69 bytes, max_stack 4, max_locals 3
-    public boolean a() {
+    public boolean a__boolean() {
         /* try L22-L30 catch java.lang.Exception -> L33 */
         /* try L2-L22 catch javax.microedition.rms.RecordStoreException -> L36 */
         /* try L37-L45 catch java.lang.Exception -> L48 */
@@ -1168,7 +1168,7 @@ public class MainMenu {
         v1.drawImage(this.c_Image, (((v4 + v2) + 5) - ((int) this.a_F)), (v5 + 5), 20);
         v1.drawImage(this.b_Image, (((v4 - 5) - this.b_Image.getWidth()) + ((int) this.a_F)), (v5 + 5), 20);
         v5 += 5;
-        SysUtil.m.a(v1, SysUtil.a((161 + this.d_arrI[this.g_I])), ((v1.getClipWidth() - SysUtil.m.a(SysUtil.a((161 + this.d_arrI[this.g_I])))) / 2), v5);
+        SysUtil.m.a(v1, SysUtil.a((161 + this.d_arrI[this.g_I])), ((v1.getClipWidth() - SysUtil.m.a__int(SysUtil.a((161 + this.d_arrI[this.g_I])))) / 2), v5);
         if (v1.getClipWidth() <= 200) goto L313;
         v2 = 140;
         goto L317;
@@ -1194,26 +1194,26 @@ public class MainMenu {
         SysUtil.a_p.a(v1, this.a_String[this.g_I], ((v4 + v2) - SysUtil.a_p.a(this.a_String[this.g_I])), v5);
         v5 += 12;
         SysUtil.a_p.a(v1, SysUtil.a(165), v4, v5);
-        SysUtil.a_p.a(v1, SysUtil.a((76 + this.c_arrI[this.g_I])), ((v4 + v2) - SysUtil.a_p.a(SysUtil.a((76 + this.c_arrI[this.g_I])))), v5);
+        SysUtil.a_p.a(v1, SysUtil.a((76 + this.c_arrI[this.g_I])), ((v4 + v2) - SysUtil.a_p.a__int(SysUtil.a((76 + this.c_arrI[this.g_I])))), v5);
         v5 += 12;
         SysUtil.a_p.a(v1, SysUtil.a(57), v4, v5);
-        SysUtil.a_p.a(v1, this.b_arrI[this.g_I], ((v4 + v2) - SysUtil.a_p.a(this.b_arrI[this.g_I])), v5);
+        SysUtil.a_p.a(v1, this.b_arrI[this.g_I], ((v4 + v2) - SysUtil.a_p.a__int(this.b_arrI[this.g_I])), v5);
         v5 += 12;
         SysUtil.a_p.a(v1, SysUtil.a((71 + this.d_arrI[this.g_I])), v4, v5);
         if (this.d_arrI[this.g_I] >= 2) goto L724;
         SysUtil.a_p.a(v1, ((long) this.e_arrI[this.g_I]), ((v4 + v2) - SysUtil.a_p.a(((long) this.e_arrI[this.g_I]))), v5);
         goto L762;
         L724:
-        SysUtil.a_p.a(v1, this.e_arrI[this.g_I], ((v4 + v2) - SysUtil.a_p.a(this.e_arrI[this.g_I])), v5);
+        SysUtil.a_p.a(v1, this.e_arrI[this.g_I], ((v4 + v2) - SysUtil.a_p.a__int(this.e_arrI[this.g_I])), v5);
         L762:
         v5 += 12;
         SysUtil.a_p.a(v1, SysUtil.a(164), v4, v5);
         if (this.f_arrI[this.g_I] <= 0) goto L854;
-        SysUtil.a_p.a(v1, this.f_arrI[this.g_I], (((v4 + v2) - SysUtil.a_p.a(this.f_arrI[this.g_I])) - 3), v5);
+        SysUtil.a_p.a(v1, this.f_arrI[this.g_I], (((v4 + v2) - SysUtil.a_p.a__int(this.f_arrI[this.g_I])) - 3), v5);
         SysUtil.a_p.a(v1, ".", ((v4 + v2) - 3), v5);
         goto L886;
         L854:
-        SysUtil.a_p.a(v1, SysUtil.a(174), ((v4 + v2) - SysUtil.a_p.a(SysUtil.a(174))), v5);
+        SysUtil.a_p.a(v1, SysUtil.a(174), ((v4 + v2) - SysUtil.a_p.a__int(SysUtil.a(174))), v5);
         L886:
         v5 += 12;
         SysUtil.a_p.a(v1, SysUtil.a(194), v4, v5);
@@ -1225,11 +1225,11 @@ public class MainMenu {
         SysUtil.a_p.a(v1, v8, ((v4 + v2) - SysUtil.a_p.a(v8)), v5);
         goto L1013;
         L981:
-        SysUtil.a_p.a(v1, SysUtil.a(174), ((v4 + v2) - SysUtil.a_p.a(SysUtil.a(174))), v5);
+        SysUtil.a_p.a(v1, SysUtil.a(174), ((v4 + v2) - SysUtil.a_p.a__int(SysUtil.a(174))), v5);
         L1013:
         if (v3 <= 0) goto L1126;
-        v8 = ((MainMenu) SysUtil.a_p.a(SysUtil.a(168)));
-        v2 = SysUtil.a_p.b(v3);
+        v8 = ((MainMenu) SysUtil.a_p.a__int(SysUtil.a(168)));
+        v2 = SysUtil.a_p.b__int(v3);
         v4 = (((v1.getClipWidth() - v8) - v2) / 2);
         SysUtil.a_p.a(v1, SysUtil.a(168), v4, (v6 + 8));
         if (this.a_Z == 0) goto L1100;
@@ -1239,7 +1239,7 @@ public class MainMenu {
         SysUtil.a_p.a(v1, SysUtil.a(174), (v4 + v8), (v6 + 8));
         goto L1163;
         L1126:
-        SysUtil.a_p.a(v1, SysUtil.a(169), ((v1.getClipWidth() - SysUtil.a_p.a(SysUtil.a(169))) / 2), (v6 + 8));
+        SysUtil.a_p.a(v1, SysUtil.a(169), ((v1.getClipWidth() - SysUtil.a_p.a__int(SysUtil.a(169))) / 2), (v6 + 8));
         L1163:
         if (this.i_String == null) goto L1180;
         if (this.i_String.length() > 0) goto L1189;
@@ -1291,7 +1291,7 @@ public class MainMenu {
         return;
     }
     // bytecode 189 bytes, max_stack 3, max_locals 6
-    public boolean a(int v1, int v2) {
+    public boolean a__boolean(int v1, int v2) {
         int v3 = this.a_Image.getWidth();
         int v4 = this.a_Image.getHeight();
         int v5 = ((SysUtil.e_I - v3) / 2);
@@ -1302,7 +1302,7 @@ public class MainMenu {
         if (v1 >= ((v3 + this.b_Image.getWidth()) + 50)) goto L112;
         if (v2 <= (v4 - 15)) goto L112;
         if (v2 >= ((v4 + this.b_Image.getHeight()) + 15)) goto L112;
-        this.a();
+        this.a__void();
         return 1;
         L112:
         v3 = (((v5 - 5) - this.b_Image.getWidth()) + ((int) this.a_F));
@@ -1310,23 +1310,23 @@ public class MainMenu {
         if (v1 >= ((v3 + this.b_Image.getWidth()) + 50)) goto L187;
         if (v2 <= (v4 - 15)) goto L187;
         if (v2 >= ((v4 + this.b_Image.getHeight()) + 15)) goto L187;
-        this.b();
+        this.b__void();
         return 1;
         L187:
         return 0;
     }
     // bytecode 17 bytes, max_stack 4, max_locals 1
-    public InputStream a() {
+    public InputStream a__InputStream() {
         new java.io.ByteArrayInputStream(this.b_arrarrB[this.g_I]); /* constructor */
         return new java.io.ByteArrayInputStream(this.b_arrarrB[this.g_I]);
     }
     // bytecode 16 bytes, max_stack 3, max_locals 1
-    public void a() {
+    public void a__void() {
         this.g_I = ((this.g_I + 1) % this.d_I);
         return;
     }
     // bytecode 21 bytes, max_stack 3, max_locals 1
-    public void b() {
+    public void b__void() {
         this.g_I = (((this.g_I - 1) + this.d_I) % this.d_I);
         return;
     }
@@ -1339,7 +1339,7 @@ public class MainMenu {
         return this.c_arrI[this.g_I];
     }
     // bytecode 10 bytes, max_stack 2, max_locals 1
-    public byte[] a() {
+    public byte[] a__bytearr() {
         return this.a_arrarrB[this.g_I];
     }
     // bytecode 10 bytes, max_stack 2, max_locals 1
@@ -1347,7 +1347,7 @@ public class MainMenu {
         return this.d_arrI[this.g_I];
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2
-    public int a(int v1) {
+    public int a__int(int v1) {
         return this.d_arrI[v1];
     }
     // bytecode 78 bytes, max_stack 5, max_locals 3
@@ -1364,7 +1364,7 @@ public class MainMenu {
         this.i = this.c_I;
         L50:
         this.e_arrI[this.g_I] = v1.c(this.e_arrI[this.g_I]);
-        /* pop: this.c(); */
+        /* pop: this.c__boolean(); */
         return;
     }
     // bytecode 10 bytes, max_stack 2, max_locals 1
@@ -1372,7 +1372,7 @@ public class MainMenu {
         return this.e_arrI[this.g_I];
     }
     // bytecode 39 bytes, max_stack 6, max_locals 1
-    public boolean b() {
+    public boolean b__boolean() {
         if (lcmp(this.a, 0L) <= 0) goto L37;
         new java.util.Date(); /* constructor */
         if (lcmp((this.a - ((long) ((int) (new java.util.Date().getTime() / 1000L)))), 0L) >= 0) goto L37;
@@ -1381,19 +1381,19 @@ public class MainMenu {
         return 0;
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2
-    public String b(int v1) {
+    public String b__String(int v1) {
         return this.b_String[v1];
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2
-    public int b(int v1) {
+    public int b__int(int v1) {
         return this.h_arrI[v1];
     }
     // bytecode 9 bytes, max_stack 2, max_locals 3
-    public String a(int v1, int v2) {
+    public String a__String(int v1, int v2) {
         return this.a_String[v1][v2];
     }
     // bytecode 9 bytes, max_stack 2, max_locals 3
-    public int a(int v1, int v2) {
+    public int a__int(int v1, int v2) {
         return this.a_arrarrI[v1][v2];
     }
     // bytecode 8 bytes, max_stack 2, max_locals 2

@@ -189,7 +189,7 @@ public class Garage {
         return;
     }
     // bytecode 116 bytes, max_stack 4, max_locals 0
-    public static void d() {
+    public static void d__void() {
         /* try L7-L113 catch java.io.IOException -> L114 */
         if (Garage.a_Z == 0) goto L7;
         return;
@@ -220,7 +220,7 @@ public class Garage {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static boolean a() {
+    public static boolean a__boolean() {
         return Garage.d_Z;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -229,11 +229,11 @@ public class Garage {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static boolean b() {
+    public static boolean b__boolean() {
         return Garage.e_Z;
     }
     // bytecode 37 bytes, max_stack 3, max_locals 0
-    public static void a() {
+    public static void a__void() {
         if (Garage.a_am == null) goto L36;
         KORa.m_pCanvas.a().a(Garage.a_Backgr);
         KORa.m_pCanvas.a().a(Garage.a_am.a(), Garage.a_Transf);
@@ -242,12 +242,12 @@ public class Garage {
     }
     // bytecode 1219 bytes, max_stack 6, max_locals 10
     public static void a(Graphics v0) {
-        if (Garage.c() != 0) goto L13;
+        if (Garage.c__boolean() != 0) goto L13;
         if (Garage.d_Z != 0) goto L13;
         return;
         L13:
         if (Garage.a_Z != 0) goto L22;
-        Garage.d();
+        Garage.d__void();
         L22:
         if (Garage.e_Z == 0) goto L440;
         Graphics v1 = v0;
@@ -262,7 +262,7 @@ public class Garage {
         v1.setColor(0);
         v1.fillRect(0, 0, v1.getClipWidth(), v1.getClipHeight());
         if (Garage.b_arrI[Garage.g] != 51) goto L173;
-        v1.drawImage(Garage.d(), ((SysUtil.e_I - Garage.d().getWidth()) / 2), (((SysUtil.f_I - Garage.d().getHeight()) / 2) - 20), 20);
+        v1.drawImage(Garage.d__Image(), ((SysUtil.e_I - Garage.d__Image().getWidth()) / 2), (((SysUtil.f_I - Garage.d__Image().getHeight()) / 2) - 20), 20);
         goto L440;
         L173:
         if (Garage.b_arrI[Garage.g] != 53) goto L224;
@@ -270,16 +270,16 @@ public class Garage {
         goto L440;
         L224:
         if (Garage.b_arrI[Garage.g] != 52) goto L272;
-        v1.drawImage(Garage.e(), ((SysUtil.e_I - Garage.e().getWidth()) / 2), ((SysUtil.f_I - Garage.e().getHeight()) / 2), 20);
+        v1.drawImage(Garage.e__Image(), ((SysUtil.e_I - Garage.e__Image().getWidth()) / 2), ((SysUtil.f_I - Garage.e__Image().getHeight()) / 2), 20);
         goto L440;
         L272:
         if (Garage.b_arrI[Garage.g] != 65) goto L401;
-        v1.drawImage(Garage.c(), (((SysUtil.e_I - Garage.c().getWidth()) / 2) - 60), (((SysUtil.f_I - Garage.c().getHeight()) / 2) + 20), 20);
-        v1.drawImage(Garage.c(), (((SysUtil.e_I - Garage.c().getWidth()) / 2) + 60), (((SysUtil.f_I - Garage.c().getHeight()) / 2) + 20), 20);
-        v1.drawImage(Garage.b(), ((SysUtil.e_I - Garage.b().getWidth()) / 2), (((SysUtil.f_I - Garage.b().getHeight()) / 2) + 20), 20);
+        v1.drawImage(Garage.c__Image(), (((SysUtil.e_I - Garage.c__Image().getWidth()) / 2) - 60), (((SysUtil.f_I - Garage.c__Image().getHeight()) / 2) + 20), 20);
+        v1.drawImage(Garage.c__Image(), (((SysUtil.e_I - Garage.c__Image().getWidth()) / 2) + 60), (((SysUtil.f_I - Garage.c__Image().getHeight()) / 2) + 20), 20);
+        v1.drawImage(Garage.b__Image(), ((SysUtil.e_I - Garage.b__Image().getWidth()) / 2), (((SysUtil.f_I - Garage.b__Image().getHeight()) / 2) + 20), 20);
         goto L440;
         L401:
-        v1.drawImage(Garage.a(), (((SysUtil.e_I - Garage.a().getWidth()) / 2) - 30), (((SysUtil.f_I - Garage.a().getHeight()) / 2) + 10), 20);
+        v1.drawImage(Garage.a__Image(), (((SysUtil.e_I - Garage.a__Image().getWidth()) / 2) - 30), (((SysUtil.f_I - Garage.a__Image().getHeight()) / 2) + 10), 20);
         L440:
         Garage.d = ((((float) SysUtil.f_I) / 2.0f) - (((float) Garage.a[0].getHeight()) / 4.0f));
         if (fcmpg(((((((float) SysUtil.f_I) / 2.0f) - (((float) Garage.a[0].getHeight()) / 4.0f)) + ((float) Garage.a[0].getHeight())) + 4.0f), ((float) SysUtil.f_I)) <= 0) goto L502;
@@ -303,12 +303,12 @@ public class Garage {
         Garage.a_n.b(v2, v3);
         int v7 = v6;
         if (Garage.a_n.d() <= 80) goto L665;
-        v6 = (v6 + ((Garage.a_n.d() - Garage.a_n.a()) / 4));
+        v6 = (v6 + ((Garage.a_n.d() - Garage.a_n.a__int()) / 4));
         goto L683;
         L665:
-        v6 = (v6 + (Garage.a_n.d() - Garage.a_n.a()));
+        v6 = (v6 + (Garage.a_n.d() - Garage.a_n.a__int()));
         L683:
-        v3 = Garage.a_n.a();
+        v3 = Garage.a_n.a__int();
         int v8 = ((int) (Garage.e_F * 20.0f));
         int v9 = 0;
         L702:
@@ -345,13 +345,13 @@ public class Garage {
         return;
     }
     // bytecode 92 bytes, max_stack 3, max_locals 0
-    public static void b() {
+    public static void b__void() {
         if (Garage.f_I <= 0) goto L11;
         Garage.j = true;
         return;
         L11:
         Garage.a_Z = false;
-        if (Settings.c() != 0) goto L61;
+        if (Settings.c__boolean() != 0) goto L61;
         Garage.a[0] = null;
         Garage.a[1] = null;
         Garage.a_Image = null;
@@ -365,34 +365,34 @@ public class Garage {
         Garage.a_cq = null;
         Garage.a_Backgr = null;
         if (Garage.a_n == null) goto L81;
-        Garage.a_n.e();
+        Garage.a_n.e__void();
         L81:
-        Planet.b();
+        Planet.b__void();
         Garage.j = false;
         java.lang.System.gc();
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int a() {
+    public static int a__int() {
         return Garage.f_I;
     }
     // bytecode 467 bytes, max_stack 4, max_locals 2
     public static void a(float v0) {
-        if (Garage.c() != 0) goto L13;
+        if (Garage.c__boolean() != 0) goto L13;
         if (Garage.d_Z != 0) goto L13;
         return;
         L13:
         if (Garage.a_Z != 0) goto L22;
-        Garage.d();
+        Garage.d__void();
         L22:
         if (Garage.f_Z == 0) goto L56;
-        Planet.a();
-        if (Planet.a() == 0) goto L56;
+        Planet.a__void();
+        if (Planet.a__boolean() == 0) goto L56;
         Garage.f_Z = false;
-        if (Garage.c() != 0) goto L56;
+        if (Garage.c__boolean() != 0) goto L56;
         int v1 = 0;
         Garage.d_Z = false;
-        Planet.b();
+        Planet.b__void();
         L56:
         Garage.a_F = (Garage.a_F + v0);
         Garage.b_F = (Garage.b_F + v0);
@@ -468,7 +468,7 @@ public class Garage {
         return;
     }
     // bytecode 25 bytes, max_stack 1, max_locals 0
-    public static Image a() {
+    public static Image a__Image() {
         /* try L6-L17 catch java.io.IOException -> L20 */
         if (Garage.b_Image != null) goto L21;
         Garage.b_Image = javax.microedition.lcdui.Image.createImage(Resources.a("/images/box.png"));
@@ -478,7 +478,7 @@ public class Garage {
         return Garage.b_Image;
     }
     // bytecode 25 bytes, max_stack 1, max_locals 0
-    public static Image b() {
+    public static Image b__Image() {
         /* try L6-L17 catch java.io.IOException -> L20 */
         if (Garage.e_Image != null) goto L21;
         Garage.e_Image = javax.microedition.lcdui.Image.createImage(Resources.a("/images/bt.png"));
@@ -488,7 +488,7 @@ public class Garage {
         return Garage.e_Image;
     }
     // bytecode 25 bytes, max_stack 1, max_locals 0
-    public static Image c() {
+    public static Image c__Image() {
         /* try L6-L17 catch java.io.IOException -> L20 */
         if (Garage.e_Image != null) goto L21;
         Garage.d_Image = javax.microedition.lcdui.Image.createImage(Resources.a("/images/pho.png"));
@@ -498,7 +498,7 @@ public class Garage {
         return Garage.d_Image;
     }
     // bytecode 25 bytes, max_stack 1, max_locals 0
-    public static Image d() {
+    public static Image d__Image() {
         /* try L6-L17 catch java.io.IOException -> L20 */
         if (Garage.c_Image != null) goto L21;
         Garage.c_Image = javax.microedition.lcdui.Image.createImage(Resources.a("/images/full.png"));
@@ -508,7 +508,7 @@ public class Garage {
         return Garage.c_Image;
     }
     // bytecode 25 bytes, max_stack 1, max_locals 0
-    public static Image e() {
+    public static Image e__Image() {
         /* try L6-L17 catch java.io.IOException -> L20 */
         if (Garage.f_Image != null) goto L21;
         Garage.f_Image = javax.microedition.lcdui.Image.createImage(Resources.a("/images/ea.png"));
@@ -537,7 +537,7 @@ public class Garage {
     public static void a(String v0) {
         Garage.h = 1;
         if (Garage.a_Z != 0) goto L15;
-        Garage.d();
+        Garage.d__void();
         L15:
         Garage.h_Z = false;
         Garage.i = false;
@@ -582,7 +582,7 @@ public class Garage {
     // bytecode 167 bytes, max_stack 6, max_locals 2
     public static void c(int v0) {
         if (Garage.a_Z != 0) goto L9;
-        Garage.d();
+        Garage.d__void();
         L9:
         Garage.h_Z = false;
         Garage.i = false;
@@ -615,7 +615,7 @@ public class Garage {
         return;
     }
     // bytecode 29 bytes, max_stack 2, max_locals 0
-    public static void e() {
+    public static void e__void() {
         if (Garage.f_I != 0) goto L7;
         return;
         L7:
@@ -624,7 +624,7 @@ public class Garage {
         return;
     }
     // bytecode 57 bytes, max_stack 6, max_locals 0
-    public static void c() {
+    public static void c__void() {
         Garage.g = (((Garage.g - 1) + Garage.b_arrI.length) % Garage.b_arrI.length);
         Garage.f_I = (Garage.f_I + 1);
         new UiText((Garage.d_I - 24), Garage.b_arrI[Garage.g]); /* constructor */
@@ -633,7 +633,7 @@ public class Garage {
         return;
     }
     // bytecode 16 bytes, max_stack 1, max_locals 0
-    public static boolean c() {
+    public static boolean c__boolean() {
         if (Garage.c_Z != 0) goto L12;
         if (Garage.f_Z == 0) goto L14;
         L12:
@@ -643,19 +643,19 @@ public class Garage {
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
     public static void c(boolean v0) {
-        Garage.e();
+        Garage.e__void();
         Garage.c_Z = false;
         return;
     }
     // bytecode 218 bytes, max_stack 6, max_locals 1
     public static void d(int v0) {
-        if (Garage.c() == 0) goto L14;
+        if (Garage.c__boolean() == 0) goto L14;
         if (fcmpl(Garage.e_F, 1.0f) >= 0) goto L15;
         L14:
         return;
         L15:
         if (Garage.a_n.a(v0) != 0) goto L217;
-        Garage.e();
+        Garage.e__void();
         if (Garage.h != 1) goto L48;
         if (Garage.b_arrI[Garage.g] == -1000) goto L63;
         L48:
@@ -669,7 +669,7 @@ public class Garage {
         if (Garage.f_I != 0) goto L94;
         Garage.c_Z = false;
         if (Garage.j == 0) goto L94;
-        Garage.b();
+        Garage.b__void();
         L94:
         if (Garage.d_Z != 0) goto L106;
         if (Garage.f_I == 0) goto L112;
@@ -697,7 +697,7 @@ public class Garage {
     }
     // bytecode 22 bytes, max_stack 2, max_locals 1
     public static void e(int v0) {
-        if (Garage.c() != 0) goto L7;
+        if (Garage.c__boolean() != 0) goto L7;
         return;
         L7:
         if (Garage.a_n == null) goto L21;

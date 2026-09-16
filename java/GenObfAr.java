@@ -276,7 +276,7 @@ public class ObfAr {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         return this.b_Z;
     }
     // bytecode 35 bytes, max_stack 5, max_locals 6
@@ -318,7 +318,7 @@ public class ObfAr {
         if (Plane.b() != 0) goto L310;
         L298:
         if (ObfAu.a_Z != 0) goto L318;
-        if (Plane.a() == 0) goto L318;
+        if (Plane.a__boolean() == 0) goto L318;
         L310:
         ObfAu.b = ObfAr.a_ct;
         return 1;
@@ -347,23 +347,23 @@ public class ObfAr {
         return this.b_arrZ[v1];
     }
     // bytecode 6 bytes, max_stack 2, max_locals 1
-    public void a() {
+    public void a__void() {
         this.b_Z = true;
         return;
     }
     // bytecode 19 bytes, max_stack 3, max_locals 3
-    public float a(float v1, float v2) {
+    public float a__float(float v1, float v2) {
         if (this.a_a != null) goto L9;
         return 0.0f;
         L9:
-        return this.a_a.a(v1, v2);
+        return this.a_a.a__float(v1, v2);
     }
     // bytecode 29 bytes, max_stack 5, max_locals 3
-    public Rect a(float v1, float v2) {
+    public Rect a__Rect(float v1, float v2) {
         if (this.a_a != null) goto L19;
         return SysUtil.a.a(0.0f, 0.0f, -1.0f, 0.0f);
         L19:
-        return this.a_a.a(v1, v2);
+        return this.a_a.a__Rect(v1, v2);
     }
     // bytecode 36 bytes, max_stack 2, max_locals 1
     public void b() {

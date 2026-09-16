@@ -171,8 +171,8 @@ public class CareerMap extends MenuScreen {
         this.a_(v1);
         if (Settings.m() != 0) goto L336;
         this.b(v1, 1, 94, this.s, 10, v3, v2, v4);
-        this.b(v1, 2, 95, this.a(), 10, v3, v2, v4);
-        v5 = ((Graphics) this.a());
+        this.b(v1, 2, 95, this.a__int(), 10, v3, v2, v4);
+        v5 = ((Graphics) this.a__int());
         if (ObfR.o == 0) goto L319;
         if (v5 <= ObfR.o) goto L319;
         v5 = ((Graphics) ObfR.o);
@@ -183,9 +183,9 @@ public class CareerMap extends MenuScreen {
         v5 = this.b.getGraphics();
         this.b(v5, 0, 94, this.s, 0, 0, v2, v4);
         v1.drawRegion(this.b, 0, 0, this.b.getWidth(), this.b.getHeight(), 5, ((v1.getClipWidth() - (v3 + v4)) - this.b.getHeight()), ((v1.getClipHeight() - this.b.getWidth()) / 2), 20);
-        this.b(v5, 0, 95, this.a(), 0, 0, v2, v4);
+        this.b(v5, 0, 95, this.a__int(), 0, 0, v2, v4);
         v1.drawRegion(this.b, 0, 0, this.b.getWidth(), this.b.getHeight(), 5, ((v1.getClipWidth() - (v3 + (v4 << 1))) - this.b.getHeight()), ((v1.getClipHeight() - this.b.getWidth()) / 2), 20);
-        int v6 = this.a();
+        int v6 = this.a__int();
         if (ObfR.o == 0) goto L524;
         if (v6 <= ObfR.o) goto L524;
         v6 = ObfR.o;
@@ -213,8 +213,8 @@ public class CareerMap extends MenuScreen {
         return;
     }
     // bytecode 15 bytes, max_stack 2, max_locals 1
-    public boolean a() {
-        if (this.a() > this.s) goto L13;
+    public boolean a__boolean() {
+        if (this.a__int() > this.s) goto L13;
         return 1;
         L13:
         return 0;
@@ -235,13 +235,13 @@ public class CareerMap extends MenuScreen {
     // bytecode 10 bytes, max_stack 2, max_locals 2
     public void a(float v1) {
         this.a(v1);
-        this.a();
+        this.a__void();
         return;
     }
     // bytecode 53 bytes, max_stack 3, max_locals 1
-    public void a() {
+    public void a__void() {
         if (this.a.a(0).g() <= this.t) goto L52;
-        if (this.a() == 0) goto L37;
+        if (this.a__boolean() == 0) goto L37;
         this.a.a(0).l();
         return;
         L37:
@@ -250,9 +250,9 @@ public class CareerMap extends MenuScreen {
         return;
     }
     // bytecode 16 bytes, max_stack 2, max_locals 2
-    public int a() {
-        int v1 = this.a();
-        if (this.a() != 0) goto L14;
+    public int a__int() {
+        int v1 = this.a__int();
+        if (this.a__int() != 0) goto L14;
         v1 = this.i();
         L14:
         return v1;

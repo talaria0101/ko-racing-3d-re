@@ -104,7 +104,7 @@ public class CarSpec {
         return;
     }
     // bytecode 214 bytes, max_stack 8, max_locals 5
-    public void a(int v1) {
+    public void a__void(int v1) {
         /* try L0-L186 catch java.lang.Exception -> L187 */
         new java.lang.StringBuffer(); /* constructor */
         String v2 = new java.lang.StringBuffer().append("/cars/").append(CarSpec.a[v1]).toString();
@@ -137,7 +137,7 @@ public class CarSpec {
     // bytecode 69 bytes, max_stack 4, max_locals 3
     public ObfAt a(int v1, float v2) {
         if (this.a_arrLat[v1] != null) goto L14;
-        this.a(v1);
+        this.a__void(v1);
         L14:
         if (this.a_arrLat[v1].a == null) goto L62;
         CarSpec.a_Transf.setIdentity();
@@ -147,14 +147,14 @@ public class CarSpec {
         return this.a_arrLat[v1];
     }
     // bytecode 21 bytes, max_stack 2, max_locals 2
-    public String a(int v1) {
+    public String a__String(int v1) {
         if (this.b[v1] != null) goto L14;
-        this.a(v1);
+        this.a__void(v1);
         L14:
         return this.b[v1];
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2
-    public int a(int v1) {
+    public int a__int(int v1) {
         return this.a_arrI[v1];
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2

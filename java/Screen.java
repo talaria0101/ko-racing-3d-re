@@ -50,11 +50,11 @@ public class Screen {
         return;
     }
     // bytecode 1 bytes, max_stack 0, max_locals 3
-    public void a(int v1, int v2) {
+    public void a__void(int v1, int v2) {
         return;
     }
     // bytecode 82 bytes, max_stack 3, max_locals 4
-    public boolean a(int v1, int v2) {
+    public boolean a__boolean(int v1, int v2) {
         int v3 = 0;
         if (v1 >= 70) goto L39;
         if (v2 <= (SysUtil.f_I - 70)) goto L39;

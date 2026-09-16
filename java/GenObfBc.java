@@ -78,7 +78,7 @@ public class ObfBc {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         return this.a_Z;
     }
     // bytecode 35 bytes, max_stack 5, max_locals 6
@@ -89,7 +89,7 @@ public class ObfBc {
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 1
-    public void a() {
+    public void a__void() {
         this.a = null;
         return;
     }

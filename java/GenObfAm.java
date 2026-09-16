@@ -92,11 +92,11 @@ public class ObfAm {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public Mesh a() {
+    public Mesh a__Mesh() {
         return this.a_Mesh;
     }
     // bytecode 45 bytes, max_stack 2, max_locals 1
-    public Transform a() {
+    public Transform a__Transform() {
         this.d.setIdentity();
         this.d.postMultiply(this.a);
         this.d.postMultiply(this.b);
@@ -105,10 +105,10 @@ public class ObfAm {
     }
     // bytecode 5 bytes, max_stack 1, max_locals 2
     public Transform a(ObfJ v1) {
-        return this.a();
+        return this.a__Transform();
     }
     // bytecode 26 bytes, max_stack 2, max_locals 1
-    public void a() {
+    public void a__void() {
         this.a = null;
         this.b = null;
         this.c = null;

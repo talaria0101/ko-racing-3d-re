@@ -81,7 +81,7 @@ public class ObfAi {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         return this.a_Z;
     }
     // bytecode 100 bytes, max_stack 5, max_locals 9
@@ -101,7 +101,7 @@ public class ObfAi {
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 1
-    public void a() {
+    public void a__void() {
         this.a = null;
         return;
     }

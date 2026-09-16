@@ -28,7 +28,7 @@ public class DeluxeTrackSelect extends TrackSelect {
         return;
     }
     // bytecode 21 bytes, max_stack 2, max_locals 2
-    public boolean a(int v1) {
+    public boolean a__boolean(int v1) {
         if (v1 < 7) goto L19;
         if (this.b < 13) goto L17;
         return 1;
@@ -38,20 +38,20 @@ public class DeluxeTrackSelect extends TrackSelect {
         return 1;
     }
     // bytecode 46 bytes, max_stack 2, max_locals 2
-    public byte[] a(int v1) {
+    public byte[] a__bytearr(int v1) {
         if (v1 != 2) goto L12;
-        return SysUtil.a(162);
+        return SysUtil.a__bytearr(162);
         L12:
         if (v1 != 5) goto L24;
-        return SysUtil.a(163);
+        return SysUtil.a__bytearr(163);
         L24:
         if (v1 != 6) goto L37;
-        return SysUtil.a(161);
+        return SysUtil.a__bytearr(161);
         L37:
-        return SysUtil.a((v1 + 202));
+        return SysUtil.a__bytearr((v1 + 202));
     }
     // bytecode 83 bytes, max_stack 2, max_locals 1
-    public void a() {
+    public void a__void() {
         /* try L0-L80 catch java.io.IOException -> L81 */
         if (Settings.c() == 0) goto L13;
         if (this.a != null) goto L75;
@@ -74,12 +74,12 @@ public class DeluxeTrackSelect extends TrackSelect {
         return;
     }
     // bytecode 2 bytes, max_stack 1, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         return 1;
     }
     // bytecode 9 bytes, max_stack 2, max_locals 2
-    public String a(int v1) {
-        return ObfBd.a_ba.a(7);
+    public String a__String(int v1) {
+        return ObfBd.a_ba.a__String(7);
     }
 }
 

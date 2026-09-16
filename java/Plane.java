@@ -32,7 +32,7 @@ public class Plane {
     }
     // bytecode 21 bytes, max_stack 5, max_locals 3
     public void a(Vec3 v1, Vec3 v2) {
-        this.a(v1.a(), v1.b(), v2.a(), v2.b());
+        this.a(v1.a__float(), v1.b__float(), v2.a__float(), v2.b__float());
         return;
     }
     // bytecode 13 bytes, max_stack 5, max_locals 5
@@ -43,11 +43,11 @@ public class Plane {
     }
     // bytecode 59 bytes, max_stack 5, max_locals 4
     public void a(Vec3 v1, float v2, float v3) {
-        this.b.b(v1.a(), v1.b());
+        this.b.b(v1.a__float(), v1.b__float());
         this.a.b(v2, v3);
         v2 = ((float) this);
         v2 = ((float) this);
-        this.a_F = (-((v1.a() * this.a.a()) + (v1.b() * this.a.b())));
+        this.a_F = (-((v1.a__float() * this.a.a__float()) + (v1.b__float() * this.a.b__float())));
         return;
     }
     // bytecode 71 bytes, max_stack 5, max_locals 6
@@ -56,25 +56,25 @@ public class Plane {
         this.a.a();
         Plane v5 = this;
         v5 = this;
-        this.a_F = (-((v1 * this.a.a()) + (v2 * this.a.b())));
+        this.a_F = (-((v1 * this.a.a__float()) + (v2 * this.a.b__float())));
         this.b.b(v1, v2);
         this.c.b(v3, v4);
         return;
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
-    public float a() {
-        return this.a.a();
+    public float a__float() {
+        return this.a.a__float();
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
-    public float b() {
-        return this.a.b();
+    public float b__float() {
+        return this.a.b__float();
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public Vec2 a() {
+    public Vec2 a__Vec2() {
         return this.a;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public Vec2 b() {
+    public Vec2 b__Vec2() {
         return this.b;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -82,7 +82,7 @@ public class Plane {
         return this.c;
     }
     // bytecode 76 bytes, max_stack 3, max_locals 1
-    public static boolean a() {
+    public static boolean a__boolean() {
         Plane v0 = ObfAu.b;
         v0 = ObfAu.a;
         v0 = ObfAu.b;
@@ -90,13 +90,13 @@ public class Plane {
         if (fcmpg((Vec2.a(ObfAu.b.a, ObfAu.a.b) + ObfAu.b.a_F), 0.6000000238418579f) <= 0) goto L74;
         v0 = ObfAu.a;
         if (fcmpl(ObfAu.b.a(ObfAu.a.c), 0.6000000238418579f) >= 0) goto L74;
-        if (fcmpl(ObfAu.a_bz.b(), ObfAu.a_bz.c()) >= 0) goto L74;
+        if (fcmpl(ObfAu.a_bz.b__float(), ObfAu.a_bz.c()) >= 0) goto L74;
         return 1;
         L74:
         return 0;
     }
     // bytecode 528 bytes, max_stack 5, max_locals 6
-    public static boolean b() {
+    public static boolean b__boolean() {
         Plane v5 = ObfAu.b;
         v5 = ObfAu.a;
         v5 = ObfAu.b;
@@ -104,7 +104,7 @@ public class Plane {
         if (fcmpg((Vec2.a(ObfAu.b.a, ObfAu.a.b) + ObfAu.b.a_F), 0.30000001192092896f) <= 0) goto L78;
         v5 = ObfAu.a;
         if (fcmpl(ObfAu.b.a(ObfAu.a.c), 0.30000001192092896f) >= 0) goto L78;
-        if (fcmpl(ObfAu.a_bz.b(), ObfAu.a_bz.c()) >= 0) goto L78;
+        if (fcmpl(ObfAu.a_bz.b__float(), ObfAu.a_bz.c()) >= 0) goto L78;
         return 1;
         L78:
         v0 = ((float) SceneryList.a(v0));
@@ -128,36 +128,36 @@ public class Plane {
         L208:
         v5 = ObfAu.a;
         v5 = ObfAu.a;
-        v0 = (ObfAu.a.c.a() - ObfAu.a.b.a());
+        v0 = (ObfAu.a.c.a__float() - ObfAu.a.b.a__float());
         v5 = ObfAu.a;
         v5 = ObfAu.a;
-        v1 = ((int) (ObfAu.a.c.b() - ObfAu.a.b.b()));
+        v1 = ((int) (ObfAu.a.c.b__float() - ObfAu.a.b.b__float()));
         v5 = ObfAu.b;
         v5 = ObfAu.b;
-        v2 = ((int) (ObfAu.b.c.a() - ObfAu.b.b.a()));
+        v2 = ((int) (ObfAu.b.c.a__float() - ObfAu.b.b.a__float()));
         v5 = ObfAu.b;
         v5 = ObfAu.b;
-        v3 = ((int) (ObfAu.b.c.b() - ObfAu.b.b.b()));
+        v3 = ((int) (ObfAu.b.c.b__float() - ObfAu.b.b.b__float()));
         float v4 = ((v2 * v1) - (v3 * v0));
         if (fcmpg(((v2 * v1) - (v3 * v0)), 0.0f) != 0) goto L345;
-        if (fcmpl(ObfAu.a_bz.b(), ObfAu.a_bz.c()) >= 0) goto L345;
+        if (fcmpl(ObfAu.a_bz.b__float(), ObfAu.a_bz.c()) >= 0) goto L345;
         return 1;
         L345:
         v5 = ObfAu.b;
         v5 = ObfAu.a;
         v5 = ObfAu.a;
         v5 = ObfAu.b;
-        v0 = (((v0 * (ObfAu.b.b.b() - ObfAu.a.b.b())) + (v1 * (ObfAu.a.b.a() - ObfAu.b.b.a()))) / v4);
+        v0 = (((v0 * (ObfAu.b.b.b__float() - ObfAu.a.b.b__float())) + (v1 * (ObfAu.a.b.a__float() - ObfAu.b.b.a__float()))) / v4);
         v5 = ObfAu.a;
         v5 = ObfAu.b;
         v5 = ObfAu.b;
         v5 = ObfAu.a;
-        v1 = ((int) (((v2 * (ObfAu.a.b.b() - ObfAu.b.b.b())) + (v3 * (ObfAu.b.b.a() - ObfAu.a.b.a()))) / (-v4)));
+        v1 = ((int) (((v2 * (ObfAu.a.b.b__float() - ObfAu.b.b.b__float())) + (v3 * (ObfAu.b.b.a__float() - ObfAu.a.b.a__float()))) / (-v4)));
         if (fcmpg(v0, -0.0010000000474974513f) < 0) goto L526;
         if (fcmpl(v0, 1.0010000467300415f) > 0) goto L526;
         if (fcmpg(v1, -0.0010000000474974513f) < 0) goto L526;
         if (fcmpl(v1, 1.0010000467300415f) > 0) goto L526;
-        if (fcmpl((ObfAu.a_bz.a() + (v1 * (ObfAu.a_bz.b() - ObfAu.a_bz.a()))), ObfAu.a_bz.c()) >= 0) goto L526;
+        if (fcmpl((ObfAu.a_bz.a__float() + (v1 * (ObfAu.a_bz.b__float() - ObfAu.a_bz.a__float()))), ObfAu.a_bz.c()) >= 0) goto L526;
         return 1;
         L526:
         return 0;
@@ -176,7 +176,7 @@ public class Plane {
         if (fcmpg(v2, 1.0f) <= 0) goto L111;
         v2 = this;
         v2 = this;
-        Plane.e.b((v1.a() - this.c.a()), (v1.b() - this.c.b()));
+        Plane.e.b((v1.a__float() - this.c.a__float()), (v1.b__float() - this.c.b__float()));
         return Plane.e.c();
         L111:
         v2 = this;

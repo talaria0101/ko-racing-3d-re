@@ -20,7 +20,7 @@ public class StringList extends MenuList {
     }
     // bytecode 107 bytes, max_stack 8, max_locals 4
     public void b(Graphics v1, int v2, int v3) {
-        SysUtil.b.a();
+        SysUtil.b.a__void();
         if (this.c() == 0) goto L49;
         v1.setColor(10066329);
         SysUtil.a(v1, 0, ((v3 + this.f()) - 1), v1.getClipWidth(), (SysUtil.b.a() + 1), 11184810, 8947848, true);
@@ -30,11 +30,11 @@ public class StringList extends MenuList {
         return;
     }
     // bytecode 35 bytes, max_stack 3, max_locals 1
-    public int a() {
+    public int a__int() {
         if (this.a != null) goto L17;
         return (SysUtil.b.a(true) + 3);
         L17:
-        return ((this.a.a() + SysUtil.b.a(true)) + 3);
+        return ((this.a.a__int() + SysUtil.b.a(true)) + 3);
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2
     public void a(byte v1) {
@@ -42,9 +42,9 @@ public class StringList extends MenuList {
         return;
     }
     // bytecode 16 bytes, max_stack 2, max_locals 2
-    public void a(int v1) {
+    public void a__void(int v1) {
         if (this.a == null) goto L15;
-        this.a.a(v1);
+        this.a.a__void(v1);
         L15:
         return;
     }
@@ -53,7 +53,7 @@ public class StringList extends MenuList {
         return (SysUtil.b.a(this.a[this.b]) + 10);
     }
     // bytecode 29 bytes, max_stack 3, max_locals 2
-    public void a() {
+    public void a__void() {
         int v1 = 0;
         L2:
         if (v1 >= this.a) goto L23;
@@ -65,7 +65,7 @@ public class StringList extends MenuList {
         return;
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2
-    public String a(int v1) {
+    public String a__String(int v1) {
         return this.a[v1];
     }
 }

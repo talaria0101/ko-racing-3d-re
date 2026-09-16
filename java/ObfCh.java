@@ -43,23 +43,23 @@ public class ObfCh extends Widget {
         this.i = 3;
         this.a_p = v6;
         this.b(true);
-        this.a();
+        this.a__void();
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int d() {
+    public int d__int() {
         return this.g;
     }
     // bytecode 15 bytes, max_stack 2, max_locals 3
-    public void b(int v1, int v2) {
+    public void b__void(int v1, int v2) {
         this.e(v1);
         this.f(v2);
-        this.a();
+        this.a__void();
         return;
     }
     // bytecode 8 bytes, max_stack 2, max_locals 1
-    public int a() {
-        return (this.a() - 50);
+    public int a__int() {
+        return (this.a__int() - 50);
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2
     public void b(int v1) {
@@ -67,24 +67,24 @@ public class ObfCh extends Widget {
         return;
     }
     // bytecode 45 bytes, max_stack 5, max_locals 1
-    public void a() {
+    public void a__void() {
         this.c = ((byte) ((this.a_p.a() + 1) + this.i));
         this.b = ((byte) ((1 + ((this.g - (this.b_I << 1)) / this.c)) - 2));
         return;
     }
     // bytecode 39 bytes, max_stack 3, max_locals 1
-    public void c() {
+    public void c__void() {
         if (this.b() == SysUtil.e_I) goto L38;
-        this.b(SysUtil.e_I, this.a());
+        this.b__void(SysUtil.e_I, this.a__int());
         this.h = 0;
         this.m = 0;
-        this.a_t.a();
+        this.a_t.a__void();
         L38:
         return;
     }
     // bytecode 33 bytes, max_stack 4, max_locals 4
     public void a(Graphics v1, int v2, int v3) {
-        this.c();
+        this.c__void();
         v2 = (v2 + this.e());
         v3 = (v3 + this.f());
         this.c(v1, v2, v3);
@@ -216,7 +216,7 @@ public class ObfCh extends Widget {
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 1
-    public void d() {
+    public void d__void() {
         this.h = 0;
         return;
     }
@@ -235,7 +235,7 @@ public class ObfCh extends Widget {
         return;
     }
     // bytecode 2 bytes, max_stack 1, max_locals 1
-    public int c() {
+    public int c__int() {
         return 0;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 3
@@ -244,7 +244,7 @@ public class ObfCh extends Widget {
         return;
     }
     // bytecode 107 bytes, max_stack 4, max_locals 3
-    public boolean b(int v1, int v2) {
+    public boolean b__boolean(int v1, int v2) {
         v1 = this.m;
         if (this.n < 0) goto L90;
         this.m = (this.m - (v2 - this.n));
@@ -268,7 +268,7 @@ public class ObfCh extends Widget {
     // bytecode 20 bytes, max_stack 2, max_locals 1
     public void e() {
         if (this.a_t == null) goto L14;
-        this.a_t.c();
+        this.a_t.c__void();
         L14:
         this.a_t = null;
         return;

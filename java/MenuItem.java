@@ -42,7 +42,7 @@ public class MenuItem extends Widget {
         return this.b;
     }
     // bytecode 2 bytes, max_stack 1, max_locals 2
-    public boolean a(int v1) {
+    public boolean a__boolean(int v1) {
         return 0;
     }
     // bytecode 26 bytes, max_stack 7, max_locals 4
@@ -140,7 +140,7 @@ public class MenuItem extends Widget {
         return this.a.a(SysUtil.a(this.b));
     }
     // bytecode 169 bytes, max_stack 4, max_locals 8
-    public int a(int v1) {
+    public int a__int(int v1) {
         if (v1 >= 0) goto L9;
         return this.b();
         L9:
@@ -190,7 +190,7 @@ public class MenuItem extends Widget {
         return this.d;
     }
     // bytecode 191 bytes, max_stack 4, max_locals 8
-    public void a(int v1) {
+    public void a__void(int v1) {
         byte[] v2 = SysUtil.a(this.b);
         int v3 = 0;
         int v4 = 0;

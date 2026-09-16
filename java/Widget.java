@@ -71,7 +71,7 @@ public class Widget {
         return;
     }
     // bytecode 1 bytes, max_stack 0, max_locals 2
-    public void a(int v1) {
+    public void a__void(int v1) {
         return;
     }
     // bytecode 10 bytes, max_stack 2, max_locals 1
@@ -83,19 +83,19 @@ public class Widget {
         return this.e;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int b() {
+    public int b__int() {
         return this.f;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int a() {
+    public int a__int() {
         return this.g;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public boolean b() {
+    public boolean b__boolean() {
         return this.b;
     }
     // bytecode 20 bytes, max_stack 2, max_locals 2
-    public boolean c() {
+    public boolean c__boolean() {
         Widget v1 = this;
         if (this.b == 0) goto L18;
         if (this.a_Z == 0) goto L18;
@@ -132,7 +132,7 @@ public class Widget {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public byte a() {
+    public byte a__byte() {
         return this.a;
     }
     // bytecode 83 bytes, max_stack 3, max_locals 2
@@ -147,12 +147,12 @@ public class Widget {
         L27:
         v1 = this;
         if (this.a != 1) goto L56;
-        this.b(((this.a_bn.b() - this.b()) / 2));
+        this.b(((this.a_bn.b__int() - this.b__int()) / 2));
         return;
         L56:
         v1 = this;
         if (this.a != 2) goto L82;
-        this.b((this.a_bn.b() - this.b()));
+        this.b((this.a_bn.b__int() - this.b__int()));
         L82:
         return;
     }
@@ -162,17 +162,17 @@ public class Widget {
         return;
     }
     // bytecode 36 bytes, max_stack 3, max_locals 3
-    public boolean a(int v1, int v2) {
+    public boolean a__boolean(int v1, int v2) {
         if (v1 < 0) goto L34;
         if (v2 < this.f()) goto L34;
         if (v1 >= SysUtil.e_I) goto L34;
-        if (v2 >= (this.f() + this.a())) goto L34;
+        if (v2 >= (this.f() + this.a__int())) goto L34;
         return 1;
         L34:
         return 0;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 3
-    public void a(int v1, int v2) {
+    public void a__void(int v1, int v2) {
         this.c_Z = false;
         return;
     }
@@ -181,8 +181,8 @@ public class Widget {
         this.c_Z = false;
         if (v1 < this.e()) goto L52;
         if (v2 < this.f()) goto L52;
-        if (v1 >= (this.e() + this.b())) goto L52;
-        if (v2 >= (this.f() + this.a())) goto L52;
+        if (v1 >= (this.e() + this.b__int())) goto L52;
+        if (v2 >= (this.f() + this.a__int())) goto L52;
         this.c_Z = true;
         L52:
         return this.c_Z;

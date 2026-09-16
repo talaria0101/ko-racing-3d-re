@@ -114,20 +114,20 @@ public class ObfBt extends Screen {
         this.a_r = v2;
         v2 = ((ObfR) v3);
         v1 = ((MainCanvas) this);
-        EngineSounds.a();
+        EngineSounds.a__void();
         new ObfQ(); /* constructor */
         v1.a_q = new ObfQ();
-        ObfBt.b.a();
-        ObfBt.c.a();
+        ObfBt.b.a__void();
+        ObfBt.c.a__void();
         ObfBt.a_I = 0;
         ObfBt.a_j = ObfBt.a_arrLj[ObfBt.a_I];
-        v1.a();
+        v1.a__void();
         v1.a_arrLcl = new ObfCl[v1.a_r.d()]#4;
         if (Settings.e_Z != 0) goto L212;
         java.lang.System.gc();
         L212:
         v1.a_bs = v1.a_r.a();
-        v1.a_bs.a();
+        v1.a_bs.a__void();
         v3 = ((InputStream) 0);
         L232:
         if (v3 >= v1.a_r.d()) goto L333;
@@ -153,7 +153,7 @@ public class ObfBt extends Screen {
         L397:
         v2 = ((ObfR) v1.a_bs.a(v1.a_bs.a(v1.a_bs.b(), v1.a_bs.c(), 1), v1.a_bs.b(v1.a_bs.b(), v1.a_bs.c(), 1)));
         L449:
-        v1.a_arrLcl[v3].a(v2.a(), v2.b(), v2.c(), v1.a_r);
+        v1.a_arrLcl[v3].a(v2.a__float(), v2.b(), v2.c(), v1.a_r);
         if (v1.a_r.e_Z == 0) goto L493;
         v1.a_arrLcl[v3].f();
         L493:
@@ -187,26 +187,26 @@ public class ObfBt extends Screen {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static ObfJ a() {
+    public static ObfJ a__ObfJ() {
         return ObfBt.a_j;
     }
     // bytecode 686 bytes, max_stack 10, max_locals 4
     public void e() {
         /* try L605-L678 catch java.io.IOException -> L681 */
-        EngineSounds.a();
+        EngineSounds.a__void();
         new ObfQ(); /* constructor */
         this.a_q = new ObfQ();
-        ObfBt.b.a();
-        ObfBt.c.a();
+        ObfBt.b.a__void();
+        ObfBt.c.a__void();
         ObfBt.a_I = 0;
         ObfBt.a_j = ObfBt.a_arrLj[ObfBt.a_I];
-        this.a();
+        this.a__void();
         this.a_arrLcl = new ObfCl[this.a_r.d()]#2;
         if (Settings.e_Z != 0) goto L67;
         java.lang.System.gc();
         L67:
         this.a_bs = this.a_r.a();
-        this.a_bs.a();
+        this.a_bs.a__void();
         int v1 = 0;
         L87:
         if (v1 >= this.a_r.d()) goto L389;
@@ -246,7 +246,7 @@ public class ObfBt extends Screen {
         L453:
         v2 = this.a_bs.a(this.a_bs.a(this.a_bs.b(), this.a_bs.c(), 1), this.a_bs.b(this.a_bs.b(), this.a_bs.c(), 1));
         L505:
-        this.a_arrLcl[v1].a(v2.a(), v2.b(), v2.c(), this.a_r);
+        this.a_arrLcl[v1].a(v2.a__float(), v2.b(), v2.c(), this.a_r);
         if (this.a_r.e_Z == 0) goto L549;
         this.a_arrLcl[v1].f();
         L549:
@@ -297,7 +297,7 @@ public class ObfBt extends Screen {
         return;
     }
     // bytecode 38 bytes, max_stack 3, max_locals 1
-    public void a() {
+    public void a__void() {
         this.d = Settings.f;
         if (Settings.f >= 2) goto L26;
         new ImageBackground(); /* constructor */
@@ -328,7 +328,7 @@ public class ObfBt extends Screen {
         this.a.a(v1, ObfBt.a_j);
         v1.a(ObfBt.a_j.a());
         this.a_bs.a(v1, ObfBt.a_j, this.a_arrLcl);
-        if (ObfBt.a_j.a() == 0) goto L124;
+        if (ObfBt.a_j.a__boolean() == 0) goto L124;
         this.a_cl.c(v1);
         L124:
         int v2 = 0;
@@ -365,7 +365,7 @@ public class ObfBt extends Screen {
         return;
     }
     // bytecode 14 bytes, max_stack 2, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         return this.a_bs.a(ObfBt.a_j.a());
     }
     // bytecode 22 bytes, max_stack 2, max_locals 2
@@ -385,7 +385,7 @@ public class ObfBt extends Screen {
         return 0;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public float a() {
+    public float a__float() {
         return this.a_F;
     }
     // bytecode 1636 bytes, max_stack 4, max_locals 5
@@ -560,7 +560,7 @@ public class ObfBt extends Screen {
         if (this.a_arrLcl[v3].a(this.a_arrLcl[v4], true) == 0) goto L914;
         if (v3 != this.a_r.e()) goto L893;
         this.e_Z = true;
-        EngineSounds.a((50 * Settings.t()));
+        EngineSounds.a__void((50 * Settings.t()));
         L893:
         this.a_arrLcl[v3].c(v1);
         this.a_arrLcl[v4].c(v1);
@@ -586,7 +586,7 @@ public class ObfBt extends Screen {
         L990:
         if (this.a_arrLcl[this.a_r.e()].b() == 0) goto L1055;
         this.e_Z = true;
-        EngineSounds.a((50 * Settings.t()));
+        EngineSounds.a__void((50 * Settings.t()));
         this.a_arrLcl[this.a_r.e()].c(v1);
         /* pop: this.a_arrLcl[this.a_r.e()].a(v1); */
         L1055:
@@ -633,7 +633,7 @@ public class ObfBt extends Screen {
         EngineSounds.a(((this.a_cl.a().j() / this.a_cl.a().k()) * 100.0f));
         if (this.a_cl.d() != 0) goto L1324;
         if (fcmpg(this.a_cl.a().j(), 0.5f) <= 0) goto L1324;
-        if (fcmpg(java.lang.Math.abs(this.a_cl.a().a()), 0.4000000059604645f) <= 0) goto L1324;
+        if (fcmpg(java.lang.Math.abs(this.a_cl.a().a__float()), 0.4000000059604645f) <= 0) goto L1324;
         jt4 = 1; /* join L1325 from L1320 */
         goto L1325;
         L1324:
@@ -648,7 +648,7 @@ public class ObfBt extends Screen {
         if (v4 >= this.a_r.d()) goto L1413;
         if (this.a_arrLcl[v3].b() == 0) goto L1407;
         if (this.a_arrLcl[v4].b() == 0) goto L1407;
-        if (this.a_arrLcl[v3].a() != 0) goto L1407;
+        if (this.a_arrLcl[v3].a__boolean() != 0) goto L1407;
         this.a_arrLcl[v4].b();
         L1407:
         v4 += 1;
@@ -702,7 +702,7 @@ public class ObfBt extends Screen {
         return this.e_Z;
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2
-    public ObfCl a(int v1) {
+    public ObfCl a__ObfCl(int v1) {
         return this.a_arrLcl[v1];
     }
     // bytecode 82 bytes, max_stack 3, max_locals 2
@@ -719,7 +719,7 @@ public class ObfBt extends Screen {
         return;
     }
     // bytecode 269 bytes, max_stack 3, max_locals 2
-    public void a(int v1) {
+    public void a__void(int v1) {
         if (this.a.getGameAction(v1) == Settings.a(0)) goto L76;
         if (v1 == Settings.a(0)) goto L76;
         if (v1 == 113) goto L76;
@@ -819,7 +819,7 @@ public class ObfBt extends Screen {
         /* try L36-L168 catch java.lang.Exception -> L169 */
         this.b(0, 0);
         if (this.d == Settings.f) goto L20;
-        this.a();
+        this.a__void();
         L20:
         ObfBt.a_I = Settings.j();
         ObfBt.a_j = ObfBt.a_arrLj[ObfBt.a_I];
@@ -868,12 +868,12 @@ public class ObfBt extends Screen {
         return;
     }
     // bytecode 8 bytes, max_stack 3, max_locals 3
-    public boolean a(int v1, int v2) {
-        this.a(v1, v2);
+    public boolean a__boolean(int v1, int v2) {
+        this.a__void(v1, v2);
         return 1;
     }
     // bytecode 285 bytes, max_stack 5, max_locals 3
-    public void a(int v1, int v2) {
+    public void a__void(int v1, int v2) {
         if (Settings.l() != 0) goto L34;
         if (v1 <= (SysUtil.e_I - 70)) goto L66;
         if (v2 >= 70) goto L66;

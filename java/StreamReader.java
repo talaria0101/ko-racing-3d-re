@@ -14,7 +14,7 @@ public class StreamReader {
         return;
     }
     // bytecode 63 bytes, max_stack 2, max_locals 4
-    public static String a(InputStream v0) {
+    public static String a__String(InputStream v0) {
         /* try L3-L44 catch java.lang.Exception -> L47 */
         String v2 = "";
         int v1 = v0.read();
@@ -34,7 +34,7 @@ public class StreamReader {
         return v2;
     }
     // bytecode 13 bytes, max_stack 1, max_locals 1
-    public static int a(InputStream v0) {
+    public static int a__int(InputStream v0) {
         /* try L0-L5 catch java.lang.Exception -> L8 */
         v0 = ((InputStream) v0.read());
         goto L11;
@@ -43,11 +43,11 @@ public class StreamReader {
         return v0;
     }
     // bytecode 6 bytes, max_stack 1, max_locals 1
-    public static byte a(InputStream v0) {
+    public static byte a__byte(InputStream v0) {
         return ((byte) v0.read());
     }
     // bytecode 22 bytes, max_stack 3, max_locals 3
-    public static short a(InputStream v0) {
+    public static short a__short(InputStream v0) {
         InputStream v2 = v0;
         int v1 = v0.read();
         v2 = v0;

@@ -27,7 +27,7 @@ public class ScoreUpload {
         return this.a(this.a);
     }
     // bytecode 33 bytes, max_stack 4, max_locals 2
-    public String[] a(int v1) {
+    public String[] a__Stringarr(int v1) {
         new java.lang.StringBuffer(); /* constructor */
         v1 = ((int) this.a(new java.lang.StringBuffer().append(this.b).append(this.a_arrI[v1]).toString()));
         return this.a(new java.lang.StringBuffer().append(this.b).append(this.a_arrI[v1]).toString());
@@ -65,7 +65,7 @@ public class ScoreUpload {
         return this.a_String;
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2
-    public String a(int v1) {
+    public String a__String(int v1) {
         return this.a_String[v1];
     }
     // bytecode 176 bytes, max_stack 5, max_locals 6
@@ -118,7 +118,7 @@ public class ScoreUpload {
         return null;
     }
     // bytecode 282 bytes, max_stack 3, max_locals 3
-    public boolean a(int v1) {
+    public boolean a__boolean(int v1) {
         /* try L42-L73 catch java.io.IOException -> L279 */
         /* try L74-L278 catch java.io.IOException -> L279 */
         new java.lang.StringBuffer(); /* constructor */

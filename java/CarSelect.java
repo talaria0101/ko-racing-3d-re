@@ -14,23 +14,23 @@ public class CarSelect extends CareerMap {
         return;
     }
     // bytecode 12 bytes, max_stack 2, max_locals 1
-    public int a() {
+    public int a__int() {
         return this.a.a(0).e();
     }
     // bytecode 34 bytes, max_stack 3, max_locals 1
-    public void a() {
+    public void a__void() {
         if (this.a.a(0).g() <= this.t) goto L33;
         this.t = this.a.a(0).g();
         L33:
         return;
     }
     // bytecode 17 bytes, max_stack 2, max_locals 2
-    public int b() {
+    public int b__int() {
         ObfCl v1 = this.a.a(this.e());
         return this.a.a(this.e()).e();
     }
     // bytecode 183 bytes, max_stack 3, max_locals 3
-    public void b() {
+    public void b__void() {
         InputStream v1 = Resources.a(ObfR.c_String);
         /* pop: Resources.a(ObfR.c_String).skip(((long) ObfR.g)); */
         ObfR.j = StreamReader.a(v1);

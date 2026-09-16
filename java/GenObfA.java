@@ -48,14 +48,14 @@ public class ObfA {
         return;
     }
     // bytecode 21 bytes, max_stack 3, max_locals 3
-    public float a(float v1, float v2) {
+    public float a__float(float v1, float v2) {
         if (this.a != null) goto L9;
         return 0.0f;
         L9:
-        return this.a(v1, v2).a(v1, v2);
+        return this.a__Rect(v1, v2).a__float(v1, v2);
     }
     // bytecode 72 bytes, max_stack 5, max_locals 4
-    public Rect a(float v1, float v2) {
+    public Rect a__Rect(float v1, float v2) {
         if (this.a != null) goto L19;
         return SysUtil.a.a(0.0f, 0.0f, -1.0f, 0.0f);
         L19:

@@ -141,13 +141,13 @@ public class TouchButtons {
         /* pop: v1.c(); */
         /* pop: v1.d(); */
         /* pop: v1.b(); */
-        /* pop: v1.a(); */
+        /* pop: v1.a__Image(); */
         /* pop: v1.e(); */
         L482:
         goto L486;
         /* pop: ex_485; */
         L486:
-        v1.a();
+        v1.a__void();
         return;
     }
     // bytecode 11 bytes, max_stack 2, max_locals 2
@@ -162,7 +162,7 @@ public class TouchButtons {
         return;
     }
     // bytecode 669 bytes, max_stack 4, max_locals 1
-    public void a() {
+    public void a__void() {
         /* try L320-L666 catch java.lang.Exception -> L667 */
         this.a = SysUtil.e_I;
         this.b = SysUtil.f_I;
@@ -242,7 +242,7 @@ public class TouchButtons {
         return;
     }
     // bytecode 32 bytes, max_stack 2, max_locals 2
-    public Image a() {
+    public Image a__Image() {
         /* try L7-L19 catch java.lang.Exception -> L22 */
         if (this.l_Image != null) goto L27;
         this.l_Image = javax.microedition.lcdui.Image.createImage(Resources.a("/images/pause.png"));
@@ -497,7 +497,7 @@ public class TouchButtons {
         if (this.w != Settings.n()) goto L20;
         if (SysUtil.e_I == this.a) goto L24;
         L20:
-        this.a();
+        this.a__void();
         L24:
         if (this.a_B >= 4) goto L138;
         String v2 = java.lang.String.valueOf((3 - this.a_B));
@@ -607,7 +607,7 @@ public class TouchButtons {
         goto L1016;
         L946:
         if (this.C != 3) goto L1016;
-        v1.drawImage(this.e(), (((SysUtil.e_I - this.a().getWidth()) - 6) - ((this.e().getWidth() - this.a().getWidth()) / 2)), (6 - ((this.e().getHeight() - this.a().getHeight()) / 2)), 20);
+        v1.drawImage(this.e(), (((SysUtil.e_I - this.a__Image().getWidth()) - 6) - ((this.e().getWidth() - this.a__Image().getWidth()) / 2)), (6 - ((this.e().getHeight() - this.a__Image().getHeight()) / 2)), 20);
         L1016:
         if (Settings.r() != 0) goto L1047;
         v1.drawImage(this.c(), 8, ((SysUtil.f_I - this.c().getHeight()) / 2), 20);
@@ -616,7 +616,7 @@ public class TouchButtons {
         v1.drawImage(this.d(), (SysUtil.e_I - 8), ((SysUtil.f_I - this.d().getHeight()) / 2), 24);
         L1082:
         v1.drawImage(this.b(), ((SysUtil.e_I - this.b().getWidth()) / 2), (SysUtil.f_I - 40), 20);
-        v1.drawImage(this.a(), ((SysUtil.e_I - this.a().getWidth()) - 6), 6, 20);
+        v1.drawImage(this.a__Image(), ((SysUtil.e_I - this.a__Image().getWidth()) - 6), 6, 20);
         goto L1472;
         L1140:
         if (this.C != 0) goto L1193;
@@ -632,12 +632,12 @@ public class TouchButtons {
         goto L1371;
         L1305:
         if (this.C != 3) goto L1371;
-        v1.drawImage(this.e(), ((SysUtil.e_I - 6) + ((this.e().getWidth() - this.a().getWidth()) / 2)), ((SysUtil.f_I - 6) + ((this.e().getHeight() - this.a().getHeight()) / 2)), 40);
+        v1.drawImage(this.e(), ((SysUtil.e_I - 6) + ((this.e().getWidth() - this.a__Image().getWidth()) / 2)), ((SysUtil.f_I - 6) + ((this.e().getHeight() - this.a__Image().getHeight()) / 2)), 40);
         L1371:
         v1.drawImage(this.c(), ((SysUtil.e_I - this.c().getHeight()) / 2), 8, 20);
         v1.drawImage(this.d(), ((SysUtil.e_I - this.d().getHeight()) / 2), (SysUtil.f_I - 8), 36);
         v1.drawImage(this.b(), 40, ((SysUtil.f_I - this.b().getHeight()) / 2), 24);
-        v1.drawImage(this.a(), (SysUtil.e_I - 6), (SysUtil.f_I - 6), 40);
+        v1.drawImage(this.a__Image(), (SysUtil.e_I - 6), (SysUtil.f_I - 6), 40);
         L1472:
         this.a(v1);
         this.f(v1);

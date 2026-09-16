@@ -28,7 +28,7 @@ public class ObfCb extends Widget {
         return;
     }
     // bytecode 2 bytes, max_stack 1, max_locals 2
-    public boolean a(int v1) {
+    public boolean a__boolean(int v1) {
         return 0;
     }
     // bytecode 152 bytes, max_stack 6, max_locals 4
@@ -58,8 +58,8 @@ public class ObfCb extends Widget {
         return 200;
     }
     // bytecode 9 bytes, max_stack 2, max_locals 2
-    public void a(int v1) {
-        this.a.a(v1);
+    public void a__void(int v1) {
+        this.a.a__void(v1);
         return;
     }
     // bytecode 7 bytes, max_stack 1, max_locals 1

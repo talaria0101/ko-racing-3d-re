@@ -431,7 +431,7 @@ public class ObfBh extends Screen {
     }
     // bytecode 355 bytes, max_stack 5, max_locals 1
     public void i() {
-        Settings.a((3 - this.a_db.d()));
+        Settings.a__void((3 - this.a_db.d()));
         if ((3 - this.a_db.d()) >= 3) goto L350;
         this.h_db.g((2 - Settings.a_arrarrI[(3 - this.a_db.d())][0]));
         this.a_bk.c(Settings.a_arrarrI[(3 - this.a_db.d())][1]);
@@ -695,12 +695,12 @@ public class ObfBh extends Screen {
         v3 += 1;
         goto L642;
         L681:
-        Settings.a(3);
+        Settings.a__void(3);
         v3 = 0;
         L687:
         if (v3 >= 3) goto L708;
         if (v2[v3] == 0) goto L702;
-        Settings.a(v3);
+        Settings.a__void(v3);
         L702:
         v3 += 1;
         goto L687;
@@ -743,19 +743,19 @@ public class ObfBh extends Screen {
     }
     // bytecode 91 bytes, max_stack 2, max_locals 3
     public void p() {
-        int v2 = SysUtil.c(Settings.a(0));
+        int v2 = SysUtil.c(Settings.a__int(0));
         ObfAz v1 = this.a_az;
         this.a_az.b_I = v2;
-        v2 = SysUtil.c(Settings.a(1));
+        v2 = SysUtil.c(Settings.a__int(1));
         v1 = this.b_az;
         this.b_az.b_I = v2;
-        v2 = SysUtil.c(Settings.a(2));
+        v2 = SysUtil.c(Settings.a__int(2));
         v1 = this.c_az;
         this.c_az.b_I = v2;
-        v2 = SysUtil.c(Settings.a(3));
+        v2 = SysUtil.c(Settings.a__int(3));
         v1 = this.d_az;
         this.d_az.b_I = v2;
-        v2 = SysUtil.c(Settings.a(4));
+        v2 = SysUtil.c(Settings.a__int(4));
         v1 = this.e_az;
         this.e_az.b_I = v2;
         return;
@@ -782,21 +782,21 @@ public class ObfBh extends Screen {
         L22:
         this.d_Z = false;
         L27:
-        this.e_cm.a(0);
+        this.e_cm.a__void(0);
         this.e_cm.a(v1, 0, 0);
         ImageGrid.b(v1, 0, (v1.getClipHeight() - 28));
         return;
     }
     // bytecode 97 bytes, max_stack 2, max_locals 1
-    public static int a(int v0) {
-        if (SysUtil.a(v0) == -7) goto L18;
-        if (SysUtil.a(v0) != -11) goto L21;
+    public static int a__int(int v0) {
+        if (SysUtil.a__int(v0) == -7) goto L18;
+        if (SysUtil.a__int(v0) != -11) goto L21;
         L18:
         return -11;
         L21:
         if (SysUtil.b(v0) == 8) goto L48;
-        if (SysUtil.a(v0) == -5) goto L48;
-        if (SysUtil.a(v0) != -6) goto L51;
+        if (SysUtil.a__int(v0) == -5) goto L48;
+        if (SysUtil.a__int(v0) != -6) goto L51;
         L48:
         return -5;
         L51:
@@ -816,7 +816,7 @@ public class ObfBh extends Screen {
     }
     // bytecode 236 bytes, max_stack 2, max_locals 2
     public void c() {
-        if (ObfBh.a(this.a_I) != -11) goto L38;
+        if (ObfBh.a__int(this.a_I) != -11) goto L38;
         int v1 = 0;
         v1 = ((int) this);
         this.a_I = 2147483647;
@@ -869,7 +869,7 @@ public class ObfBh extends Screen {
     }
     // bytecode 157 bytes, max_stack 2, max_locals 2
     public void n() {
-        if (ObfBh.a(this.a_I) != -11) goto L31;
+        if (ObfBh.a__int(this.a_I) != -11) goto L31;
         int v1 = 0;
         v1 = ((int) this);
         this.a_I = 2147483647;
@@ -938,8 +938,8 @@ public class ObfBh extends Screen {
         if (this.e_cm.a().c() != 0) goto L198;
         ImageGrid.a().a(ImageGrid.a_ci, -6);
         L198:
-        if (SysUtil.a(this.a_I) == -6) goto L222;
-        if (SysUtil.a(this.a_I) != -7) goto L227;
+        if (SysUtil.a__int(this.a_I) == -6) goto L222;
+        if (SysUtil.a__int(this.a_I) != -7) goto L227;
         L222:
         this.c_Z = true;
         L227:
@@ -954,7 +954,7 @@ public class ObfBh extends Screen {
         L270:
         if (this.e_cm != this.g_cm) goto L370;
         v1 = ((float) this);
-        if (ObfBh.a(this.a_I) != -11) goto L318;
+        if (ObfBh.a__int(this.a_I) != -11) goto L318;
         int v2 = 0;
         v2 = ((int) v1);
         v1.a_I = 2147483647;
@@ -975,7 +975,7 @@ public class ObfBh extends Screen {
         L370:
         if (this.e_cm != this.h_cm) goto L431;
         v1 = ((float) this);
-        if (ObfBh.a(this.a_I) != -11) goto L418;
+        if (ObfBh.a__int(this.a_I) != -11) goto L418;
         v2 = 0;
         v2 = ((int) v1);
         v1.a_I = 2147483647;
@@ -1014,7 +1014,7 @@ public class ObfBh extends Screen {
         L607:
         return;
         L608:
-        if (ObfBh.a(v1.a_I) != -11) goto L642;
+        if (ObfBh.a__int(v1.a_I) != -11) goto L642;
         v2 = 0;
         v2 = ((int) v1);
         v1.a_I = 2147483647;
@@ -1025,7 +1025,7 @@ public class ObfBh extends Screen {
         L643:
         if (this.e_cm != this.j_cm) goto L741;
         v1 = ((float) this);
-        if (ObfBh.a(this.a_I) != -11) goto L728;
+        if (ObfBh.a__int(this.a_I) != -11) goto L728;
         v2 = 0;
         v2 = ((int) v1);
         v1.a_I = 2147483647;
@@ -1041,13 +1041,13 @@ public class ObfBh extends Screen {
         L741:
         if (this.e_cm != this.d_cm) goto L922;
         v1 = ((float) this);
-        if (SysUtil.a(this.a_I) == -6) goto L778;
-        if (SysUtil.a(v1.a_I) != -5) goto L791;
+        if (SysUtil.a__int(this.a_I) == -6) goto L778;
+        if (SysUtil.a__int(v1.a_I) != -5) goto L791;
         L778:
         if (v1.b_ao.a().length() > 0) goto L815;
         L791:
-        if (SysUtil.a(v1.a_I) == -7) goto L815;
-        if (SysUtil.a(v1.a_I) != -11) goto L862;
+        if (SysUtil.a__int(v1.a_I) == -7) goto L815;
+        if (SysUtil.a__int(v1.a_I) != -11) goto L862;
         L815:
         v2 = 0;
         v2 = ((int) v1);
@@ -1083,7 +1083,7 @@ public class ObfBh extends Screen {
         return;
     }
     // bytecode 34 bytes, max_stack 2, max_locals 2
-    public void a(int v1) {
+    public void a__void(int v1) {
         this.a_I = v1;
         if (SysUtil.b(this.a_I) == 1) goto L28;
         if (SysUtil.b(this.a_I) != 6) goto L33;
@@ -1128,7 +1128,7 @@ public class ObfBh extends Screen {
         return;
     }
     // bytecode 27 bytes, max_stack 3, max_locals 3
-    public boolean a(int v1, int v2) {
+    public boolean a__boolean(int v1, int v2) {
         this.c_Z = false;
         this.d_I = v1;
         this.e_I = v2;
@@ -1136,7 +1136,7 @@ public class ObfBh extends Screen {
         return 1;
     }
     // bytecode 44 bytes, max_stack 3, max_locals 3
-    public void a(int v1, int v2) {
+    public void a__void(int v1, int v2) {
         /* pop: this.e_cm.b(v1, v2); */
         if (java.lang.Math.abs((v2 - this.e_I)) > 20) goto L38;
         if (java.lang.Math.abs((v1 - this.d_I)) <= 20) goto L43;
@@ -1151,15 +1151,15 @@ public class ObfBh extends Screen {
         this.e_I = 0;
         if (this.c_Z == 0) goto L32;
         this.c_Z = false;
-        this.e_cm.a(v1, v2);
+        this.e_cm.a__void(v1, v2);
         return;
         L32:
-        if (this.a(v1, v2) == 0) goto L47;
+        if (this.a__boolean(v1, v2) == 0) goto L47;
         this.b_Z = true;
         return;
         L47:
-        v1 = this.e_cm.a(v1, v2);
-        if (this.e_cm.a(v1, v2) == 0) goto L93;
+        v1 = this.e_cm.a__boolean(v1, v2);
+        if (this.e_cm.a__boolean(v1, v2) == 0) goto L93;
         this.a_I = -195;
         this.b(0.0f);
         if (this.e_cm != this.i_cm) goto L88;

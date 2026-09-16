@@ -27,12 +27,12 @@ public class ChaseFar extends ObfJ {
         this.d = 1.899999976158142f;
         new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
         this.a = new Vec3(0.0f, 0.0f, 0.0f);
-        this.a();
+        this.a__void();
         return;
     }
     // bytecode 44 bytes, max_stack 4, max_locals 1
-    public void a() {
-        this.a();
+    public void a__void() {
+        this.a__void();
         this.e = -0.8999999761581421f;
         this.c = -3.0f;
         this.b = -60.0f;
@@ -114,7 +114,7 @@ public class ChaseFar extends ObfJ {
         this.l = (-this.k);
         this.a.a((this.b - this.l));
         this.a.b(this.a);
-        this.a[0] = (v1.b() + ((this.d + (this.l / 50.0f)) * this.a.a()));
+        this.a[0] = (v1.b() + ((this.d + (this.l / 50.0f)) * this.a.a__float()));
         this.a[1] = (v1.c() - ((this.d + (this.l / 50.0f)) * this.a.b()));
         this.a[2] = ((v1.d() + ((this.d + (this.l / 50.0f)) * this.a.c())) + this.c);
         this.a.postTranslate(this.a[0], this.a[1], this.a[2]);
@@ -125,7 +125,7 @@ public class ChaseFar extends ObfJ {
         return;
     }
     // bytecode 10 bytes, max_stack 2, max_locals 1
-    public float a() {
+    public float a__float() {
         return (this.b - this.l);
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1

@@ -229,11 +229,11 @@ public class ObfBd extends ObfBh {
         this.q_I = 0;
         this.h_F = 0.0f;
         this.a = v1;
-        this.a();
+        this.a__void();
         return;
     }
     // bytecode 2181 bytes, max_stack 10, max_locals 3
-    public void a() {
+    public void a__void() {
         /* try L2065-L2149 catch java.io.IOException -> L2152 */
         /* try L2153-L2165 catch java.io.IOException -> L2168 */
         ObfBd v1 = this;
@@ -814,7 +814,7 @@ public class ObfBd extends ObfBh {
     // bytecode 136 bytes, max_stack 3, max_locals 3
     public void a(WidgetGroup v1) {
         if (v1 != this.n_cm) goto L100;
-        this.d_af.a();
+        this.d_af.a__void();
         this.o_I = 0;
         int v2 = 0;
         L22:
@@ -885,7 +885,7 @@ public class ObfBd extends ObfBh {
         ObfR.b_String_2 = this.a_af.a(this.a_af.d());
         goto L150;
         L128:
-        ObfR.b_String_2 = this.a.a().b(this.a_arrI[this.a()]);
+        ObfR.b_String_2 = this.a.a().b(this.a_arrI[this.a__int()]);
         L150:
         ObfR.k = (this.b_af.d() + 1);
         ObfR.j = (this.a_db.a(this.a_db.d()).d() - 76);
@@ -907,7 +907,7 @@ public class ObfBd extends ObfBh {
         ObfR.b_String_2 = this.a_af.a(this.a_af.d());
         goto L325;
         L303:
-        ObfR.b_String_2 = this.a.a().b(this.a_arrI[this.a()]);
+        ObfR.b_String_2 = this.a.a().b(this.a_arrI[this.a__int()]);
         L325:
         ObfR.k = (this.b_af.d() + 1);
         ObfR.j = (this.a_db.a(this.a_db.d()).d() - 76);
@@ -1027,7 +1027,7 @@ public class ObfBd extends ObfBh {
         v3.I();
         goto L1278;
         L1088:
-        v3.e_af.a();
+        v3.e_af.a__void();
         v3.e_af.b(147);
         int v4 = 0;
         L1108:
@@ -1059,7 +1059,7 @@ public class ObfBd extends ObfBh {
         v2.a_String = "";
         v2.I();
         L1271:
-        v2.e_af.a();
+        v2.e_af.a__void();
         L1278:
         return;
         L1279:
@@ -1362,11 +1362,11 @@ public class ObfBd extends ObfBh {
         v2.a(v2.n_cm);
         return;
         L2892:
-        v3 = ((float) v2.a());
+        v3 = ((float) v2.a__int());
         v1 = ((float) v2.a_db.d());
         v4 = v2.a_db.a(v1).d();
         if (v2.k_cm.a(v2.a) == 0) goto L3027;
-        if (v3 == v2.a()) goto L2990;
+        if (v3 == v2.a__int()) goto L2990;
         v2.E();
         if (v1 >= v2.a_db.g()) goto L2979;
         if (v2.a_db.a(v1).d() != v4) goto L2979;
@@ -1505,7 +1505,7 @@ public class ObfBd extends ObfBh {
         goto L3762;
         L3744:
         if (SysUtil.b(v2.a) != 5) goto L3762;
-        v2.a_m.a();
+        v2.a_m.a__void();
         L3762:
         v2.a_cq = null;
         java.lang.System.gc();
@@ -1985,8 +1985,8 @@ public class ObfBd extends ObfBh {
         if (SysUtil.b(this.a) != 8) goto L242;
         L124:
         this.c(0);
-        int v1 = this.a_m.a();
-        if (this.a_m.a() != 0) goto L219;
+        int v1 = this.a_m.a__int();
+        if (this.a_m.a__int() != 0) goto L219;
         this.m_I = 1;
         Garage.c(22);
         Garage.b(false);
@@ -2034,7 +2034,7 @@ public class ObfBd extends ObfBh {
     // bytecode 185 bytes, max_stack 4, max_locals 4
     public void D() {
         /* try L12-L107 catch java.lang.Exception -> L110 */
-        this.a_af.a();
+        this.a_af.a__void();
         this.q_I = 0;
         InputStream v1 = this.getClass().getResourceAsStream("/levels/list.txt");
         new java.io.InputStreamReader(v1, "UTF-8"); /* constructor */
@@ -2063,7 +2063,7 @@ public class ObfBd extends ObfBh {
         v1 = ((InputStream) this.a.a());
         v2 = ((java.io.InputStreamReader) 0);
         L130:
-        if (v2 >= v1.a()) goto L184;
+        if (v2 >= v1.a__int()) goto L184;
         if (v1.b(v2) == 0) goto L178;
         this.a_af.a(v1.c(v2));
         this.a_arrI[this.j_I] = v2;
@@ -2076,13 +2076,13 @@ public class ObfBd extends ObfBh {
     }
     // bytecode 177 bytes, max_stack 3, max_locals 3
     public void E() {
-        this.a_db.a();
+        this.a_db.a__void();
         TrackSelect v1 = this.a.a();
         int v2 = 0;
         L17:
         if (v2 >= 5) goto L70;
         if (this.a_af.d() < this.q_I) goto L53;
-        if (v1.b(this.a_arrI[this.a()], v2) == 0) goto L64;
+        if (v1.b(this.a_arrI[this.a__int()], v2) == 0) goto L64;
         L53:
         this.a_db.c((v2 + 76));
         L64:
@@ -2094,11 +2094,11 @@ public class ObfBd extends ObfBh {
         jt1 = 8; /* join L110 from L92 */
         goto L110;
         L97:
-        jt1 = v1.a(this.a_arrI[this.a()]); /* join L110 from L97 */
+        jt1 = v1.a(this.a_arrI[this.a__int()]); /* join L110 from L97 */
         L110:
         v2 = jt1;
         if (jt1 == this.b_af.g()) goto L176;
-        this.b_af.a();
+        this.b_af.a__void();
         v1 = ((TrackSelect) 1);
         L131:
         if (v1 > v2) goto L168;
@@ -2112,12 +2112,12 @@ public class ObfBd extends ObfBh {
         return;
     }
     // bytecode 13 bytes, max_stack 2, max_locals 1
-    public int a() {
+    public int a__int() {
         return (this.a_af.d() - this.q_I);
     }
     // bytecode 10 bytes, max_stack 1, max_locals 1
     public void s() {
-        ObfBd.a_ba.a();
+        ObfBd.a_ba.a__void();
         java.lang.System.gc();
         return;
     }
@@ -2260,7 +2260,7 @@ public class ObfBd extends ObfBh {
         jt1 = this.a_af.a(this.a_af.d()); /* join L144 from L108 */
         goto L144;
         L125:
-        jt1 = this.a.a().b(this.a_arrI[this.a()]); /* join L144 from L125 */
+        jt1 = this.a.a().b(this.a_arrI[this.a__int()]); /* join L144 from L125 */
         L144:
         new Sprite(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(jt1).toString(), v1, true)); /* constructor */
         this.a_cq = new Sprite(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(jt1).toString(), v1, true));
@@ -2388,7 +2388,7 @@ public class ObfBd extends ObfBh {
         this.I();
         return;
         L79:
-        this.e_af.a();
+        this.e_af.a__void();
         this.e_af.b(146);
         int v2 = 0;
         L98:
@@ -2402,16 +2402,16 @@ public class ObfBd extends ObfBh {
         return;
     }
     // bytecode 7 bytes, max_stack 3, max_locals 3
-    public boolean a(int v1, int v2) {
-        return this.a(v1, v2);
+    public boolean a__boolean(int v1, int v2) {
+        return this.a__boolean(v1, v2);
     }
     // bytecode 71 bytes, max_stack 3, max_locals 3
-    public void a(int v1, int v2) {
+    public void a__void(int v1, int v2) {
         if (this.e == this.a) goto L37;
         if (this.e != this.m_cm) goto L30;
         if (this.m_I != 3) goto L37;
         L30:
-        this.a(v1, v2);
+        this.a__void(v1, v2);
         return;
         L37:
         if (java.lang.Math.abs((v2 - this.e)) > 20) goto L65;
@@ -2428,13 +2428,13 @@ public class ObfBd extends ObfBh {
         /* try L478-L482 catch java.lang.Exception -> L485 */
         if (this.c == 0) goto L22;
         this.c = false;
-        this.e.a(v1, v2);
+        this.e.a__void(v1, v2);
         return;
         L22:
         int v3 = 0;
         if (this.e != this.m_cm) goto L110;
         if (this.m_I != 2) goto L101;
-        if (this.a_m.a(v1, v2) == 0) goto L101;
+        if (this.a_m.a__boolean(v1, v2) == 0) goto L101;
         this.a_cq = null;
         java.lang.System.gc();
         new Sprite(ObfR.a(this.a_m.a(), "/images/ts2.png", true)); /* constructor */
@@ -2484,11 +2484,11 @@ public class ObfBd extends ObfBh {
         goto L499;
         L337:
         if (this.e != this.k_cm) goto L493;
-        v4 = ((java.io.IOException) this.a());
+        v4 = ((java.io.IOException) this.a__int());
         int v5 = this.a_db.d();
         int v6 = this.a_db.a(v5).d();
         this.b(v1, v2);
-        if (v4 == this.a()) goto L449;
+        if (v4 == this.a__int()) goto L449;
         this.E();
         if (v5 >= this.a_db.g()) goto L434;
         if (this.a_db.a(v5).d() != v6) goto L434;

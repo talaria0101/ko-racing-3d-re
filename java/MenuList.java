@@ -45,7 +45,7 @@ public class MenuList extends Widget {
         return;
     }
     // bytecode 139 bytes, max_stack 3, max_locals 2
-    public boolean a(int v1) {
+    public boolean a__boolean(int v1) {
         if (this.c() != 0) goto L9;
         return 0;
         L9:
@@ -97,11 +97,11 @@ public class MenuList extends Widget {
         L49:
         int v4 = 0;
         if (this.a == null) goto L68;
-        v4 = this.a.a();
+        v4 = this.a.a__int();
         L68:
         this.b(v1, v2, (v3 + v4));
         if (this.c() == 0) goto L447;
-        SysUtil.b.a();
+        SysUtil.b.a__void();
         if (Settings.l() != 0) goto L234;
         if (this.b_Z != 0) goto L117;
         if (this.b < (this.a_I - 1)) goto L131;
@@ -167,7 +167,7 @@ public class MenuList extends Widget {
         return this.b;
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2
-    public MenuItem a(int v1) {
+    public MenuItem a__MenuItem(int v1) {
         return this.a_arrLax[v1];
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2
@@ -186,29 +186,29 @@ public class MenuList extends Widget {
         return v1;
     }
     // bytecode 42 bytes, max_stack 2, max_locals 3
-    public void a(int v1) {
+    public void a__void(int v1) {
         if (this.a == null) goto L15;
-        this.a.a(v1);
+        this.a.a__void(v1);
         L15:
         int v2 = 0;
         L17:
         if (v2 >= this.a_I) goto L41;
-        this.a_arrLax[v2].a(v1);
+        this.a_arrLax[v2].a__void(v1);
         v2 += 1;
         goto L17;
         L41:
         return;
     }
     // bytecode 79 bytes, max_stack 3, max_locals 1
-    public int a() {
+    public int a__int() {
         if (this.a != null) goto L34;
         if (this.a_arrLax[this.b] == null) goto L34;
-        return (this.a_arrLax[this.b].a() + 3);
+        return (this.a_arrLax[this.b].a__int() + 3);
         L34:
         if (this.a_arrLax[this.b] != null) goto L56;
-        return (this.a.a() + 3);
+        return (this.a.a__int() + 3);
         L56:
-        return ((this.a.a() + this.a_arrLax[this.b].a()) + 3);
+        return ((this.a.a__int() + this.a_arrLax[this.b].a__int()) + 3);
     }
     // bytecode 48 bytes, max_stack 3, max_locals 1
     public int c() {
@@ -229,7 +229,7 @@ public class MenuList extends Widget {
         return this.a_I;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 1
-    public void a() {
+    public void a__void() {
         this.a_I = 0;
         return;
     }
@@ -246,11 +246,11 @@ public class MenuList extends Widget {
         L48:
         int v3 = (((this.e() - SysUtil.b.a(60)) - 2) - 20);
         if (v2 < this.f()) goto L114;
-        if (v2 >= (this.f() + this.a())) goto L114;
+        if (v2 >= (this.f() + this.a__int())) goto L114;
         if (v1 <= v3) goto L114;
         if (v1 >= (v3 + 50)) goto L114;
         KORa.buzz();
-        /* pop: this.a(SysUtil.a()); */
+        /* pop: this.a__boolean(SysUtil.a__int()); */
         return 1;
         L114:
         if (this.b_Z == 0) goto L134;
@@ -261,11 +261,11 @@ public class MenuList extends Widget {
         L148:
         v3 = (((this.e() + this.b()) + 2) - 20);
         if (v2 < this.f()) goto L210;
-        if (v2 >= (this.f() + this.a())) goto L210;
+        if (v2 >= (this.f() + this.a__int())) goto L210;
         if (v1 <= v3) goto L210;
         if (v1 >= (v3 + 50)) goto L210;
         KORa.buzz();
-        /* pop: this.a(SysUtil.b()); */
+        /* pop: this.a__boolean(SysUtil.b()); */
         return 1;
         L210:
         return 0;

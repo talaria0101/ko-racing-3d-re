@@ -37,7 +37,7 @@ public class ImageGrid extends Widget {
         return;
     }
     // bytecode 7 bytes, max_stack 2, max_locals 1
-    public GridCell a() {
+    public GridCell a__GridCell() {
         return this.a[0];
     }
     // bytecode 7 bytes, max_stack 2, max_locals 1
@@ -91,14 +91,14 @@ public class ImageGrid extends Widget {
     // bytecode 28 bytes, max_stack 4, max_locals 3
     public static void b(Graphics v0, int v1, int v2) {
         if (ImageGrid.a_ag != null) goto L9;
-        ImageGrid.a();
+        ImageGrid.a__void();
         L9:
         ImageGrid.a_ag.e(SysUtil.e_I);
         ImageGrid.a_ag.a(v0, 0, v2);
         return;
     }
     // bytecode 139 bytes, max_stack 6, max_locals 1
-    public static void a() {
+    public static void a__void() {
         /* try L17-L112 catch java.io.IOException -> L115 */
         new ImageGrid(0, 0, SysUtil.e_I, 28); /* constructor */
         ImageGrid.a_ag = new ImageGrid(0, 0, SysUtil.e_I, 28);
@@ -123,9 +123,9 @@ public class ImageGrid extends Widget {
         return;
     }
     // bytecode 13 bytes, max_stack 1, max_locals 0
-    public static ImageGrid a() {
+    public static ImageGrid a__ImageGrid() {
         if (ImageGrid.a_ag != null) goto L9;
-        ImageGrid.a();
+        ImageGrid.a__void();
         L9:
         return ImageGrid.a_ag;
     }

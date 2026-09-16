@@ -65,14 +65,14 @@ public class Snow {
         if (v1 >= this.a_I) goto L39;
         this.a_arrarrI[v1] = new int[4]#1;
         this.a_arrarrF[v1] = new float[2]#2;
-        this.a(v1);
+        this.a__void(v1);
         v1 += 1;
         goto L2;
         L39:
         return;
     }
     // bytecode 129 bytes, max_stack 6, max_locals 2
-    public void a(int v1) {
+    public void a__void(int v1) {
         this.a_arrarrF[v1][0] = ((float) this.a_Random.nextInt(this.b));
         this.a_arrarrF[v1][1] = ((float) this.a_Random.nextInt((this.c / 2)));
         this.a_arrarrI[v1][0] = this.a_Random.nextInt(Snow.d);
@@ -121,7 +121,7 @@ public class Snow {
         if (fcmpl(this.a_arrarrF[v7][0], 0.0f) < 0) goto L336;
         if (fcmpg(this.a_arrarrF[v7][1], ((float) this.a_arrarrI[v7][3])) <= 0) goto L342;
         L336:
-        this.a(v7);
+        this.a__void(v7);
         L342:
         v7 += 1;
         goto L50;
@@ -129,7 +129,7 @@ public class Snow {
         return;
     }
     // bytecode 10 bytes, max_stack 3, max_locals 1
-    public static int a(int v0) {
+    public static int a__int(int v0) {
         return (v0 / ((Snow.e / 3) + 1));
     }
     // bytecode 170 bytes, max_stack 6, max_locals 3
@@ -138,15 +138,15 @@ public class Snow {
         L2:
         if (v2 >= this.a_I) goto L169;
         if (Settings.l() != 0) goto L58;
-        v1.drawImage(Snow.a[Snow.a(this.a_arrarrI[v2][1])], ((int) this.a_arrarrF[v2][0]), ((int) this.a_arrarrF[v2][1]), 20);
+        v1.drawImage(Snow.a[Snow.a__int(this.a_arrarrI[v2][1])], ((int) this.a_arrarrF[v2][0]), ((int) this.a_arrarrF[v2][1]), 20);
         goto L163;
         L58:
         if (Settings.l() != 1) goto L112;
-        v1.drawImage(Snow.a[Snow.a(this.a_arrarrI[v2][1])], (v1.getClipWidth() - ((int) this.a_arrarrF[v2][1])), ((int) this.a_arrarrF[v2][0]), 20);
+        v1.drawImage(Snow.a[Snow.a__int(this.a_arrarrI[v2][1])], (v1.getClipWidth() - ((int) this.a_arrarrF[v2][1])), ((int) this.a_arrarrF[v2][0]), 20);
         goto L163;
         L112:
         if (Settings.l() != 3) goto L163;
-        v1.drawImage(Snow.a[Snow.a(this.a_arrarrI[v2][1])], ((int) this.a_arrarrF[v2][1]), (v1.getClipHeight() - ((int) this.a_arrarrF[v2][0])), 20);
+        v1.drawImage(Snow.a[Snow.a__int(this.a_arrarrI[v2][1])], ((int) this.a_arrarrF[v2][1]), (v1.getClipHeight() - ((int) this.a_arrarrF[v2][0])), 20);
         L163:
         v2 += 1;
         goto L2;

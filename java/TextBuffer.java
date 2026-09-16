@@ -32,7 +32,7 @@ public class TextBuffer {
     public TextBuffer(String v1, int v2, Font v3) {
         this(v2, v3);
         this.a_String = v1;
-        /* pop: this.a(v1); */
+        /* pop: this.a__boolean(v1); */
         return;
     }
     // bytecode 19 bytes, max_stack 3, max_locals 3
@@ -43,11 +43,11 @@ public class TextBuffer {
         return;
     }
     // bytecode 48 bytes, max_stack 3, max_locals 1
-    public void a() {
+    public void a__void() {
         this.a_S = 0;
         this.a_I = (SysUtil.e_I - 15);
         if (this.a_String == null) goto L32;
-        /* pop: this.a(this.a_String); */
+        /* pop: this.a__boolean(this.a_String); */
         return;
         L32:
         if (this.b == null) goto L47;
@@ -56,7 +56,7 @@ public class TextBuffer {
         return;
     }
     // bytecode 108 bytes, max_stack 4, max_locals 4
-    public boolean a(String v1) {
+    public boolean a__boolean(String v1) {
         /* try L0-L91 catch java.io.IOException -> L94 */
         this.a_S = 0;
         v1 = ((String) this.getClass().getResourceAsStream(v1));
@@ -69,7 +69,7 @@ public class TextBuffer {
         v2 = v1.read();
         if (v1.read() == m1) goto L30;
         if (((char) v2) != 10) goto L63;
-        this.a(v3);
+        this.a__void(v3);
         v3 = "";
         goto L30;
         L63:
@@ -77,7 +77,7 @@ public class TextBuffer {
         v3 = new java.lang.StringBuffer().append(v3).append(((char) v2)).toString();
         goto L30;
         L86:
-        this.a(v3);
+        this.a__void(v3);
         goto L97;
         /* pop: ex_94; */
         return 0;
@@ -114,7 +114,7 @@ public class TextBuffer {
         return;
     }
     // bytecode 14 bytes, max_stack 3, max_locals 2
-    public void a(String v1) {
+    public void a__void(String v1) {
         this.a(this.a_p.a(v1), true);
         return;
     }
@@ -147,7 +147,7 @@ public class TextBuffer {
         goto L156;
         L118:
         if (v4 != 10) goto L136;
-        this.a(v2);
+        this.a__void(v2);
         v2 = "";
         goto L156;
         L136:
@@ -157,7 +157,7 @@ public class TextBuffer {
         v3 += 1;
         goto L5;
         L162:
-        this.a(v2);
+        this.a__void(v2);
         return;
     }
     // bytecode 172 bytes, max_stack 5, max_locals 9
@@ -208,7 +208,7 @@ public class TextBuffer {
         return this.a[v1];
     }
     // bytecode 6 bytes, max_stack 1, max_locals 1
-    public byte a() {
+    public byte a__byte() {
         return ((byte) this.a_S);
     }
     // bytecode 30 bytes, max_stack 3, max_locals 2

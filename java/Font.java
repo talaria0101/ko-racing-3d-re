@@ -64,7 +64,7 @@ public class Font {
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 1
-    public void a() {
+    public void a__void() {
         this.a_Z = true;
         return;
     }
@@ -152,7 +152,7 @@ public class Font {
     }
     // bytecode 25 bytes, max_stack 4, max_locals 1
     public void d() {
-        this.s = this.a(32);
+        this.s = this.a__byte(32);
         this.a[this.s] = ((byte) (this.a[this.s] + 3));
         return;
     }
@@ -194,7 +194,7 @@ public class Font {
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2
-    public void a(int v1) {
+    public void a__void(int v1) {
         this.q = 2;
         return;
     }
@@ -224,7 +224,7 @@ public class Font {
         return this.c[v1];
     }
     // bytecode 59 bytes, max_stack 5, max_locals 4
-    public int a(String v1) {
+    public int a__int(String v1) {
         if (v1 == null) goto L11;
         if (v1.length() != 0) goto L13;
         L11:
@@ -234,28 +234,28 @@ public class Font {
         int v3 = 0;
         L17:
         if (v3 >= v1.length()) goto L52;
-        v2 = (v2 + (this.b(this.a(v1.charAt(v3))) + this.a_I));
+        v2 = (v2 + (this.b(this.a__byte(v1.charAt(v3))) + this.a_I));
         v3 += 1;
         goto L17;
         L52:
         return (v2 - this.a_I);
     }
     // bytecode 60 bytes, max_stack 5, max_locals 3
-    public int a(int v1) {
+    public int a__int(int v1) {
         if (v1 > 0) goto L15;
-        return this.b(this.a(48));
+        return this.b(this.a__byte(48));
         L15:
         int v2 = 0;
         L17:
         if (v1 <= 0) goto L53;
-        v2 = (v2 + (this.b(this.a(((char) ((v1 % 10) + 48)))) + this.a_I));
+        v2 = (v2 + (this.b(this.a__byte(((char) ((v1 % 10) + 48)))) + this.a_I));
         v1 = (v1 / 10);
         goto L17;
         L53:
         return (v2 - this.a_I);
     }
     // bytecode 9 bytes, max_stack 4, max_locals 2
-    public int a(byte[] v1) {
+    public int a__int(byte[] v1) {
         return this.a(v1, 0, v1.length);
     }
     // bytecode 104 bytes, max_stack 4, max_locals 7
@@ -272,7 +272,7 @@ public class Font {
         int v5 = (v6 + v2);
         if ((v6 + v2) >= v1.length) goto L96;
         if ((v1[v5] & 255) <= SysUtil.b_I) goto L72;
-        v4 = (v4 + (this.b(this.a(32)) + this.a_I));
+        v4 = (v4 + (this.b(this.a__byte(32)) + this.a_I));
         goto L90;
         L72:
         v4 = (v4 + (this.b(v1[v5]) + this.a_I));
@@ -283,15 +283,15 @@ public class Font {
         return (v4 - this.a_I);
     }
     // bytecode 10 bytes, max_stack 3, max_locals 2
-    public int a(char v1) {
-        return this.b(this.a(v1));
+    public int a__int(char v1) {
+        return this.b(this.a__byte(v1));
     }
     // bytecode 11 bytes, max_stack 2, max_locals 2
     public int e(byte v1) {
         return (this.a(v1) + this.a_I);
     }
     // bytecode 106 bytes, max_stack 4, max_locals 7
-    public String a(byte[] v1) {
+    public String a__String(byte[] v1) {
         int v3 = v1.length;
         v1 = ((byte[]) 0);
         byte[] v2 = v1;
@@ -315,7 +315,7 @@ public class Font {
         return v4;
     }
     // bytecode 16 bytes, max_stack 3, max_locals 3
-    public byte[] a(String v1) {
+    public byte[] a__bytearr(String v1) {
         byte v2 = new byte[v1.length()]#1;
         /* pop: this.a(v1, v2); */
         return v2;
@@ -329,7 +329,7 @@ public class Font {
         L8:
         if (v3 >= v1.length()) goto L40;
         if (v3 >= v2.length) goto L40;
-        v2[v3] = this.a(v1.charAt(v3));
+        v2[v3] = this.a__byte(v1.charAt(v3));
         v3 += 1;
         goto L8;
         L40:
@@ -339,7 +339,7 @@ public class Font {
     public int a(int v1, int v2) {
         if (v1 > 0) goto L23;
         Font.e = 1;
-        Font.d[v2] = this.a(48);
+        Font.d[v2] = this.a__byte(48);
         return Font.e;
         L23:
         Font.e = 0;
@@ -347,7 +347,7 @@ public class Font {
         if (v1 <= 0) goto L74;
         Font.f = (v1 % 10);
         v1 = (v1 / 10);
-        Font.d[(v2 - Font.e)] = this.a(((char) (48 + Font.f)));
+        Font.d[(v2 - Font.e)] = this.a__byte(((char) (48 + Font.f)));
         Font.e = (Font.e + 1);
         goto L27;
         L74:
@@ -402,7 +402,7 @@ public class Font {
         Font.c_I = (v4 + Font.l);
         Font.b_B = v3[Font.c_I];
         if ((v3[Font.c_I] & 255) <= SysUtil.b_I) goto L169;
-        Font.k = (Font.k + v1.a(v1.a(32), v6, v7, v2, Font.g, Font.h, Font.i, Font.j, Font.k));
+        Font.k = (Font.k + v1.a(v1.a__byte(32), v6, v7, v2, Font.g, Font.h, Font.i, Font.j, Font.k));
         goto L217;
         L169:
         if (Font.c_I >= v3.length) goto L217;
@@ -498,7 +498,7 @@ public class Font {
         return (this.b(v1) + this.a_I);
     }
     // bytecode 9 bytes, max_stack 2, max_locals 1
-    public byte a() {
+    public byte a__byte() {
         return this.a(this.a_Z);
     }
     // bytecode 19 bytes, max_stack 2, max_locals 2
@@ -512,8 +512,8 @@ public class Font {
         return ((byte) (this.a_B + jt1));
     }
     // bytecode 9 bytes, max_stack 2, max_locals 2
-    public byte a(char v1) {
-        return this.a_g.a(v1);
+    public byte a__byte(char v1) {
+        return this.a_g.a__byte(v1);
     }
     // bytecode 123 bytes, max_stack 8, max_locals 4
     public void a(int v1, boolean v2) {
@@ -556,22 +556,22 @@ public class Font {
         Font.d_I = (Font.d_I + v5);
         if (v5 >= 2) goto L208;
         if (v5 > 0) goto L133;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L133:
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         goto L208;
         L160:
-        Font.d[(32 - Font.d_I)] = this.a(49);
+        Font.d[(32 - Font.d_I)] = this.a__byte(49);
         Font.d_I = (Font.d_I + 1);
-        Font.d[(32 - Font.d_I)] = this.a(60);
+        Font.d[(32 - Font.d_I)] = this.a__byte(60);
         Font.d_I = (Font.d_I + 1);
         L208:
         if (v6 > 0) goto L217;
         if (v2 <= 0) goto L286;
         L217:
-        Font.d[(32 - Font.d_I)] = this.a(32);
+        Font.d[(32 - Font.d_I)] = this.a__byte(32);
         Font.d_I = (Font.d_I + 1);
         Font.d[(32 - Font.d_I)] = v7[1];
         Font.d_I = (Font.d_I + 1);
@@ -579,7 +579,7 @@ public class Font {
         Font.d_I = (Font.d_I + v5);
         L286:
         if (v2 <= 0) goto L358;
-        Font.d[(32 - Font.d_I)] = this.a(32);
+        Font.d[(32 - Font.d_I)] = this.a__byte(32);
         Font.d_I = (Font.d_I + 1);
         Font.d[(32 - Font.d_I)] = v7[0];
         Font.d_I = (Font.d_I + 1);
@@ -598,34 +598,34 @@ public class Font {
         Font.d_I = this.a(v6, 32);
         if (this.a(v6, 32) >= 2) goto L103;
         if (Font.d_I > 0) goto L79;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L79:
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L103:
-        Font.d[(32 - Font.d_I)] = this.a(46);
+        Font.d[(32 - Font.d_I)] = this.a__byte(46);
         Font.d_I = (Font.d_I + 1);
         v2 = ((long) this.a(v2, (32 - Font.d_I)));
         Font.d_I = (Font.d_I + v2);
         if (v2 >= 2) goto L204;
         if (v2 > 0) goto L180;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L180:
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L204:
-        Font.d[(32 - Font.d_I)] = this.a(58);
+        Font.d[(32 - Font.d_I)] = this.a__byte(58);
         Font.d_I = (Font.d_I + 1);
         v2 = ((long) this.a(v7, (32 - Font.d_I)));
         Font.d_I = (Font.d_I + v2);
         if (v2 >= 2) goto L306;
         if (v2 > 0) goto L282;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L282:
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L306:
         this.a(v1, Font.d, ((32 - Font.d_I) + 1), Font.d_I, v4, v5, 10);
@@ -650,22 +650,22 @@ public class Font {
         Font.d_I = (Font.d_I + v2);
         if (v2 >= 2) goto L199;
         if (v2 > 0) goto L124;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L124:
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         goto L199;
         L151:
-        Font.d[(32 - Font.d_I)] = this.a(49);
+        Font.d[(32 - Font.d_I)] = this.a__byte(49);
         Font.d_I = (Font.d_I + 1);
-        Font.d[(32 - Font.d_I)] = this.a(60);
+        Font.d[(32 - Font.d_I)] = this.a__byte(60);
         Font.d_I = (Font.d_I + 1);
         L199:
         if (v3 > 0) goto L207;
         if (v1 <= 0) goto L273;
         L207:
-        Font.d[(32 - Font.d_I)] = this.a(32);
+        Font.d[(32 - Font.d_I)] = this.a__byte(32);
         Font.d_I = (Font.d_I + 1);
         Font.d[(32 - Font.d_I)] = v4[1];
         Font.d_I = (Font.d_I + 1);
@@ -673,7 +673,7 @@ public class Font {
         Font.d_I = (Font.d_I + v2);
         L273:
         if (v1 <= 0) goto L343;
-        Font.d[(32 - Font.d_I)] = this.a(32);
+        Font.d[(32 - Font.d_I)] = this.a__byte(32);
         Font.d_I = (Font.d_I + 1);
         Font.d[(32 - Font.d_I)] = v4[0];
         Font.d_I = (Font.d_I + 1);
@@ -691,34 +691,34 @@ public class Font {
         Font.d_I = this.a(v3, 32);
         if (this.a(v3, 32) >= 2) goto L101;
         if (Font.d_I > 0) goto L77;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L77:
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L101:
-        Font.d[(32 - Font.d_I)] = this.a(46);
+        Font.d[(32 - Font.d_I)] = this.a__byte(46);
         Font.d_I = (Font.d_I + 1);
         v1 = ((long) this.a(v1, (32 - Font.d_I)));
         Font.d_I = (Font.d_I + v1);
         if (v1 >= 2) goto L202;
         if (v1 > 0) goto L178;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L178:
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L202:
-        Font.d[(32 - Font.d_I)] = this.a(58);
+        Font.d[(32 - Font.d_I)] = this.a__byte(58);
         Font.d_I = (Font.d_I + 1);
         v1 = ((long) this.a(v4, (32 - Font.d_I)));
         Font.d_I = (Font.d_I + v1);
         if (v1 >= 2) goto L304;
         if (v1 > 0) goto L280;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L280:
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L304:
         return this.a(Font.d, ((32 - Font.d_I) + 1), Font.d_I);
@@ -741,36 +741,36 @@ public class Font {
         v7 = (v8 / 10);
         Font.d_I = (Font.d_I + this.a(v7, (32 - Font.d_I)));
         if ((Font.d_I + this.a(v7, (32 - Font.d_I))) > 0) goto L131;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L131:
-        Font.d[(32 - Font.d_I)] = this.a(46);
+        Font.d[(32 - Font.d_I)] = this.a__byte(46);
         Font.d_I = (Font.d_I + 1);
         v6 = ((long) this.a(v6, (32 - Font.d_I)));
         Font.d_I = (Font.d_I + v6);
         if (v6 >= 2) goto L242;
         if (v9 <= 0) goto L242;
         if (v6 > 0) goto L218;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L218:
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L242:
         if (v9 <= 0) goto L324;
-        Font.d[(32 - Font.d_I)] = this.a(58);
+        Font.d[(32 - Font.d_I)] = this.a__byte(58);
         Font.d_I = (Font.d_I + 1);
         v6 = ((long) this.a(v9, (32 - Font.d_I)));
         Font.d_I = (Font.d_I + v6);
         if (v6 >= 2) goto L324;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L324:
         if (lcmp(v2, 0L) < 0) goto L349;
-        Font.d[(32 - Font.d_I)] = this.a(43);
+        Font.d[(32 - Font.d_I)] = this.a__byte(43);
         goto L365;
         L349:
-        Font.d[(32 - Font.d_I)] = this.a(45);
+        Font.d[(32 - Font.d_I)] = this.a__byte(45);
         L365:
         Font.d_I = (Font.d_I + 1);
         this.a(v1, Font.d, ((32 - Font.d_I) + 1), Font.d_I, v4, v5, 10);
@@ -790,36 +790,36 @@ public class Font {
         v6 = (v3 / 10);
         Font.d_I = (Font.d_I + this.a(v6, (32 - Font.d_I)));
         if ((Font.d_I + this.a(v6, (32 - Font.d_I))) > 0) goto L111;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L111:
-        Font.d[(32 - Font.d_I)] = this.a(46);
+        Font.d[(32 - Font.d_I)] = this.a__byte(46);
         Font.d_I = (Font.d_I + 1);
         v3 = this.a(v5, (32 - Font.d_I));
         Font.d_I = (Font.d_I + v3);
         if (v3 >= 2) goto L218;
         if (v4 <= 0) goto L218;
         if (v3 > 0) goto L194;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L194:
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L218:
         if (v4 <= 0) goto L297;
-        Font.d[(32 - Font.d_I)] = this.a(58);
+        Font.d[(32 - Font.d_I)] = this.a__byte(58);
         Font.d_I = (Font.d_I + 1);
         v3 = this.a(v4, (32 - Font.d_I));
         Font.d_I = (Font.d_I + v3);
         if (v3 >= 2) goto L297;
-        Font.d[(32 - Font.d_I)] = this.a(48);
+        Font.d[(32 - Font.d_I)] = this.a__byte(48);
         Font.d_I = (Font.d_I + 1);
         L297:
         if (lcmp(v1, 0L) <= 0) goto L322;
-        Font.d[(32 - Font.d_I)] = this.a(43);
+        Font.d[(32 - Font.d_I)] = this.a__byte(43);
         goto L338;
         L322:
-        Font.d[(32 - Font.d_I)] = this.a(45);
+        Font.d[(32 - Font.d_I)] = this.a__byte(45);
         L338:
         Font.d_I = (Font.d_I + 1);
         return this.a(Font.d, ((32 - Font.d_I) + 1), Font.d_I);

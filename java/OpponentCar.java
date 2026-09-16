@@ -43,7 +43,7 @@ public class OpponentCar extends ObfCl {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         return this.h;
     }
     // bytecode 408 bytes, max_stack 4, max_locals 5
@@ -111,7 +111,7 @@ public class OpponentCar extends ObfCl {
         return;
     }
     // bytecode 17 bytes, max_stack 1, max_locals 1
-    public CarPhysics a() {
+    public CarPhysics a__CarPhysics() {
         if (this.e != 0) goto L12;
         return this.b_x;
         L12:

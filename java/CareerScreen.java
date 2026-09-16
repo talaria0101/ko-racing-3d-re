@@ -43,7 +43,7 @@ public class CareerScreen extends MenuScreen {
     }
     // bytecode 10 bytes, max_stack 1, max_locals 1
     public void t() {
-        this.f();
+        this.f__void();
         ObfR.a_B = 19;
         return;
     }
@@ -133,7 +133,7 @@ public class CareerScreen extends MenuScreen {
         return;
     }
     // bytecode 2 bytes, max_stack 1, max_locals 1
-    public int f() {
+    public int f__int() {
         return 1;
     }
     // bytecode 380 bytes, max_stack 5, max_locals 4
@@ -359,10 +359,10 @@ public class CareerScreen extends MenuScreen {
         return this.s;
     }
     // bytecode 15 bytes, max_stack 1, max_locals 1
-    public void f() {
+    public void f__void() {
         this.a.a();
         java.lang.System.gc();
-        this.f();
+        this.f__void();
         return;
     }
     // bytecode 56 bytes, max_stack 4, max_locals 1

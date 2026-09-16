@@ -10,7 +10,7 @@ public class UiText extends TextBuffer {
         this.b = m1;
         v1 = ((int) this);
         this.b = v2;
-        /* pop: v1.a("/ui/bob.txt"); */
+        /* pop: v1.a__boolean("/ui/bob.txt"); */
         return;
     }
     // bytecode 1 bytes, max_stack 0, max_locals 1
@@ -18,7 +18,7 @@ public class UiText extends TextBuffer {
         return;
     }
     // bytecode 370 bytes, max_stack 4, max_locals 5
-    public boolean a(String v1) {
+    public boolean a__boolean(String v1) {
         /* try L0-L324 catch java.io.IOException -> L365 */
         /* try L325-L362 catch java.io.IOException -> L365 */
         this.a = 0;
@@ -69,7 +69,7 @@ public class UiText extends TextBuffer {
         L293:
         if (((char) v2) != 10) goto L334;
         if (v4 != this.b) goto L325;
-        this.a(v3);
+        this.a__void(v3);
         if (this.a <= 0) goto L323;
         return 1;
         L323:
@@ -83,7 +83,7 @@ public class UiText extends TextBuffer {
         v3 = new java.lang.StringBuffer().append(v3).append(((char) v2)).toString();
         goto L33;
         L357:
-        this.a(v3);
+        this.a__void(v3);
         goto L368;
         /* pop: ex_365; */
         return 0;
@@ -91,9 +91,9 @@ public class UiText extends TextBuffer {
         return 0;
     }
     // bytecode 15 bytes, max_stack 3, max_locals 2
-    public void a(String v1) {
+    public void a__void(String v1) {
         this.a = 0;
-        this.a(v1.substring(4));
+        this.a__void(v1.substring(4));
         return;
     }
     // bytecode 172 bytes, max_stack 5, max_locals 9

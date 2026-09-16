@@ -202,7 +202,7 @@ public class RaceView extends ObfR {
         ObfCl v2 = this.a.a(this.e());
         this.a.j(v2.g());
         this.a.d(v2.d());
-        this.a.a(this.a.a());
+        this.a.a(this.a.a__boolean());
         this.a.g(((int) (v2.a().j() * 100.0f)));
         this.a.h(((int) ((v2.a().j() / v2.a().k()) * 100.0f)));
         this.a.c(((int) (this.d * 1000.0f)));
@@ -314,7 +314,7 @@ public class RaceView extends ObfR {
         v5.drawRect(0, 0, ((v1.getClipWidth() - 20) - 1), ((v2 << 1) - 1));
         L241:
         v5 = ((Graphics) this.i());
-        int v6 = this.a();
+        int v6 = this.a__int();
         v1.setColor(7829367);
         this.a_(v1);
         if (Settings.m() != 0) goto L321;
@@ -351,7 +351,7 @@ public class RaceView extends ObfR {
         return;
     }
     // bytecode 15 bytes, max_stack 2, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         if (this.i() < this.t) goto L13;
         return 1;
         L13:
@@ -362,7 +362,7 @@ public class RaceView extends ObfR {
         return ((int) (this.d * 1000.0f));
     }
     // bytecode 9 bytes, max_stack 2, max_locals 1
-    public int a() {
+    public int a__int() {
         return ((int) (this.h * 1000.0f));
     }
     // bytecode 19 bytes, max_stack 2, max_locals 2
@@ -377,9 +377,9 @@ public class RaceView extends ObfR {
     // bytecode 19 bytes, max_stack 2, max_locals 2
     public int d(int v1) {
         if (v1 <= 0) goto L12;
-        if (this.a() <= v1) goto L17;
+        if (this.a__int() <= v1) goto L17;
         L12:
-        return this.a();
+        return this.a__int();
         L17:
         return v1;
     }

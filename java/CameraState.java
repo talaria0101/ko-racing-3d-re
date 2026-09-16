@@ -65,23 +65,23 @@ public class CameraState {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public float a() {
+    public float a__float() {
         return this.m;
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
-    public float b() {
-        return this.a.a();
+    public float b__float() {
+        return this.a.a__float();
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
-    public float c() {
-        return this.a.b();
+    public float c__float() {
+        return this.a.b__float();
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
     public float d() {
-        return this.a.c();
+        return this.a.c__float();
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public Vec3 a() {
+    public Vec3 a__Vec3() {
         return this.a;
     }
     // bytecode 9 bytes, max_stack 5, max_locals 4
@@ -110,13 +110,13 @@ public class CameraState {
         return;
     }
     // bytecode 12 bytes, max_stack 2, max_locals 1
-    public void a() {
+    public void a__void() {
         this.j = 0.0f;
         this.k = 100.0f;
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 1
-    public void b() {
+    public void b__void() {
         this.k = 0.0f;
         return;
     }
@@ -205,7 +205,7 @@ public class CameraState {
         return this.d;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public Vec3 b() {
+    public Vec3 b__Vec3() {
         return this.b;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -251,37 +251,37 @@ public class CameraState {
     public void a(float v1, float v2) {
         this.a_z.b(v1, v2);
         this.b_z.b(v1, v2);
-        this.c();
+        this.c__void();
         return;
     }
     // bytecode 35 bytes, max_stack 3, max_locals 3
     public void b(float v1, float v2) {
         this.a_z.a(v1, v2);
-        this.b_z.b(this.a_z.a(), this.a_z.b());
-        this.c();
+        this.b_z.b(this.a_z.a__float(), this.a_z.b__float());
+        this.c__void();
         return;
     }
     // bytecode 57 bytes, max_stack 4, max_locals 2
     public void l(float v1) {
-        this.a_z.a(((-this.b_z.a()) * v1), ((-this.b_z.b()) * v1));
-        if (SceneryList.a(this.a_z.a()) == SceneryList.a(this.b_z.a())) goto L56;
+        this.a_z.a(((-this.b_z.a__float()) * v1), ((-this.b_z.b__float()) * v1));
+        if (SceneryList.a(this.a_z.a__float()) == SceneryList.a(this.b_z.a__float())) goto L56;
         this.a(0.0f, 0.0f);
         L56:
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public Vec2 a() {
+    public Vec2 a__Vec2() {
         return this.a_z;
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
     public float n() {
-        return this.a_z.c();
+        return this.a_z.c__float();
     }
     // bytecode 34 bytes, max_stack 3, max_locals 2
-    public void c() {
-        float v1 = this.a_z.c();
-        if (fcmpg(this.a_z.c(), 0.0f) <= 0) goto L28;
-        this.b_F = (this.a_z.b() / v1);
+    public void c__void() {
+        float v1 = this.a_z.c__float();
+        if (fcmpg(this.a_z.c__float(), 0.0f) <= 0) goto L28;
+        this.b_F = (this.a_z.b__float() / v1);
         return;
         L28:
         this.b_F = 0.0f;
@@ -292,7 +292,7 @@ public class CameraState {
         return this.b_F;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         return this.b_Z;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2
@@ -301,7 +301,7 @@ public class CameraState {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public boolean b() {
+    public boolean b__boolean() {
         return this.a_Z;
     }
 }

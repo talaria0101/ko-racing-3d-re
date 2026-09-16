@@ -31,11 +31,11 @@ public class ObfCp extends Widget {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         return this.b;
     }
     // bytecode 92 bytes, max_stack 2, max_locals 3
-    public boolean a(int v1) {
+    public boolean a__boolean(int v1) {
         if (this.c() != 0) goto L9;
         return 0;
         L9:
@@ -91,13 +91,13 @@ public class ObfCp extends Widget {
         return this.a.b();
     }
     // bytecode 21 bytes, max_stack 4, max_locals 2
-    public void a(int v1) {
-        this.a.a((v1 - (this.a_Image[0].getWidth() + 4)));
+    public void a__void(int v1) {
+        this.a.a__void((v1 - (this.a_Image[0].getWidth() + 4)));
         return;
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
-    public int a() {
-        return this.a.a();
+    public int a__int() {
+        return this.a.a__int();
     }
     // bytecode 2 bytes, max_stack 1, max_locals 1
     public int c() {
@@ -107,7 +107,7 @@ public class ObfCp extends Widget {
     public boolean a(int v1, int v2) {
         if (v2 < this.f()) goto L48;
         v1 = ((int) this);
-        if (v2 >= (this.f() + this.a.a())) goto L48;
+        if (v2 >= (this.f() + this.a.a__int())) goto L48;
         if (this.b != 0) goto L38;
         jt1 = 1; /* join L39 from L34 */
         goto L39;

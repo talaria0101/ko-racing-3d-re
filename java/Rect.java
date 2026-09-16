@@ -23,15 +23,15 @@ public class Rect {
         return this;
     }
     // bytecode 48 bytes, max_stack 3, max_locals 3
-    public float a(float v1, float v2) {
+    public float a__float(float v1, float v2) {
         if (fcmpg(this.a.c(), 0.0f) != 0) goto L14;
         return 0.0f;
         L14:
-        return ((-(((this.a.a() * v1) + (this.a.b() * v2)) + this.a_F)) / this.a.c());
+        return ((-(((this.a.a__float() * v1) + (this.a.b() * v2)) + this.a_F)) / this.a.c());
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
-    public float a() {
-        return this.a.a();
+    public float a__float() {
+        return this.a.a__float();
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
     public float b() {
@@ -46,7 +46,7 @@ public class Rect {
         return this.a_F;
     }
     // bytecode 33 bytes, max_stack 3, max_locals 3
-    public void a() {
+    public void a__void() {
         Rect v2 = this;
         float v1 = this.a.d();
         v2 = this;
@@ -55,7 +55,7 @@ public class Rect {
         return;
     }
     // bytecode 19 bytes, max_stack 5, max_locals 3
-    public void a(float v1, float v2) {
+    public void a__void(float v1, float v2) {
         v1 = ((float) this);
         this.a.b(v1, v2, this.a.c());
         return;

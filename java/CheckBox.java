@@ -28,13 +28,13 @@ public class CheckBox extends ObfCh {
         return;
     }
     // bytecode 10 bytes, max_stack 2, max_locals 1
-    public void a() {
+    public void a__void() {
         this.a = 0;
-        this.a();
+        this.a__void();
         return;
     }
     // bytecode 31 bytes, max_stack 2, max_locals 2
-    public int a() {
+    public int a__int() {
         int v1 = ((this.b - this.g()) * this.a.a());
         if (((this.b - this.g()) * this.a.a()) >= 0) goto L24;
         v1 = 0;
@@ -44,33 +44,33 @@ public class CheckBox extends ObfCh {
     // bytecode 576 bytes, max_stack 6, max_locals 4
     public void a(Graphics v1, int v2, int v3) {
         if (this.g <= 80) goto L26;
-        v3 = (v3 + ((this.g - this.a()) / 4));
+        v3 = (v3 + ((this.g - this.a__int()) / 4));
         goto L38;
         L26:
-        v3 = (v3 + (this.g - this.a()));
+        v3 = (v3 + (this.g - this.a__int()));
         L38:
         v1.setColor(15921906);
-        v1.fillRect((v2 + (this.a.getWidth() / 2)), v3, (this.f - this.a.getWidth()), this.a());
-        v1.fillRect(v2, (v3 + (this.a.getHeight() / 2)), this.f, (this.a() - this.a.getHeight()));
+        v1.fillRect((v2 + (this.a.getWidth() / 2)), v3, (this.f - this.a.getWidth()), this.a__int());
+        v1.fillRect(v2, (v3 + (this.a.getHeight() / 2)), this.f, (this.a__int() - this.a.getHeight()));
         v1.setColor(5000268);
         v1.fillRect((v2 + (this.a.getWidth() / 2)), v3, (this.b() - this.a.getWidth()), 1);
-        v1.fillRect((v2 + (this.a.getWidth() / 2)), ((v3 + this.a()) - 1), (this.b() - this.a.getWidth()), 1);
-        v1.fillRect(v2, (v3 + (this.a.getHeight() / 2)), 1, (this.a() - this.a.getHeight()));
-        v1.fillRect(((v2 + this.b()) - 1), (v3 + (this.a.getHeight() / 2)), 1, (this.a() - this.a.getHeight()));
+        v1.fillRect((v2 + (this.a.getWidth() / 2)), ((v3 + this.a__int()) - 1), (this.b() - this.a.getWidth()), 1);
+        v1.fillRect(v2, (v3 + (this.a.getHeight() / 2)), 1, (this.a__int() - this.a.getHeight()));
+        v1.fillRect(((v2 + this.b()) - 1), (v3 + (this.a.getHeight() / 2)), 1, (this.a__int() - this.a.getHeight()));
         v1.setClip(v2, v3, (this.a.getWidth() / 2), (this.a.getHeight() / 2));
         v1.drawImage(this.a, v2, v3, 20);
         v1.setClip(((v2 + this.b()) - (this.a.getWidth() / 2)), v3, (this.a.getWidth() / 2), (this.a.getHeight() / 2));
         v1.drawImage(this.a, ((v2 + this.b()) - this.a.getWidth()), v3, 20);
-        v1.setClip(v2, ((v3 + this.a()) - (this.a.getHeight() / 2)), (this.a.getWidth() / 2), (this.a.getHeight() / 2));
-        v1.drawImage(this.a, v2, ((v3 + this.a()) - this.a.getHeight()), 20);
-        v1.setClip(((v2 + this.b()) - (this.a.getWidth() / 2)), ((v3 + this.a()) - (this.a.getHeight() / 2)), (this.a.getWidth() / 2), (this.a.getHeight() / 2));
-        v1.drawImage(this.a, ((v2 + this.b()) - this.a.getWidth()), ((v3 + this.a()) - this.a.getHeight()), 20);
+        v1.setClip(v2, ((v3 + this.a__int()) - (this.a.getHeight() / 2)), (this.a.getWidth() / 2), (this.a.getHeight() / 2));
+        v1.drawImage(this.a, v2, ((v3 + this.a__int()) - this.a.getHeight()), 20);
+        v1.setClip(((v2 + this.b()) - (this.a.getWidth() / 2)), ((v3 + this.a__int()) - (this.a.getHeight() / 2)), (this.a.getWidth() / 2), (this.a.getHeight() / 2));
+        v1.drawImage(this.a, ((v2 + this.b()) - this.a.getWidth()), ((v3 + this.a__int()) - this.a.getHeight()), 20);
         v1.setClip(0, 0, SysUtil.e_I, SysUtil.f_I);
         if (this.b_Z == 0) goto L532;
         this.a(v1, (v2 + 6), (v3 + 12));
         L532:
         v1.setColor(15921906);
-        v1.fillRect(((v2 + this.b()) - 6), (v3 + (this.a.getHeight() / 2)), 5, (this.a() - this.a.getHeight()));
+        v1.fillRect(((v2 + this.b()) - 6), (v3 + (this.a.getHeight() / 2)), 5, (this.a__int() - this.a.getHeight()));
         return;
     }
     // bytecode 160 bytes, max_stack 5, max_locals 4
@@ -81,8 +81,8 @@ public class CheckBox extends ObfCh {
         L57:
         if (this.g() <= 1) goto L147;
         if ((this.h + this.b) >= this.g()) goto L147;
-        v1.setClip((v2 - 5), ((((v3 + this.a()) - 3) - 7) - 2), this.b(), 3);
-        v1.drawImage(this.b, ((v2 + ((this.b() - this.b.getWidth()) / 2)) - 5), ((((v3 - 5) + this.a()) - 7) - 2), 20);
+        v1.setClip((v2 - 5), ((((v3 + this.a__int()) - 3) - 7) - 2), this.b(), 3);
+        v1.drawImage(this.b, ((v2 + ((this.b() - this.b.getWidth()) / 2)) - 5), ((((v3 - 5) + this.a__int()) - 7) - 2), 20);
         L147:
         v1.setClip(0, 0, SysUtil.e_I, SysUtil.f_I);
         return;
@@ -118,7 +118,7 @@ public class CheckBox extends ObfCh {
         if (v1 < 0) goto L35;
         if (v2 < this.f()) goto L35;
         if (v1 >= this.b()) goto L35;
-        if (v2 >= (this.f() + this.a())) goto L35;
+        if (v2 >= (this.f() + this.a__int())) goto L35;
         return 1;
         L35:
         return 0;

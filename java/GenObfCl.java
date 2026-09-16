@@ -172,7 +172,7 @@ public class ObfCl extends ObfCa {
         this.e_z = new Vec2(0.0f, 0.0f);
         new Vec2(0.0f, 0.0f); /* constructor */
         this.b_z = new Vec2(0.0f, 0.0f);
-        this.c();
+        this.c__void();
         v3 = ((int) v2);
         v2 = ((InputStream) this);
         v2.a_String = StreamReader.a(v3);
@@ -231,18 +231,18 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 12 bytes, max_stack 3, max_locals 1
-    public void c() {
+    public void c__void() {
         new StockTune(); /* constructor */
         this.a_x = new StockTune();
         return;
     }
     // bytecode 18 bytes, max_stack 4, max_locals 1
-    public void d() {
+    public void d__void() {
         this.m_I = (this.m_I + KORa.rand.nextInt(10));
         return;
     }
     // bytecode 24 bytes, max_stack 4, max_locals 1
-    public void e() {
+    public void e__void() {
         if (this.m_I <= 0) goto L23;
         this.m_I = (this.m_I - KORa.rand.nextInt(2));
         L23:
@@ -250,7 +250,7 @@ public class ObfCl extends ObfCa {
     }
     // bytecode 18 bytes, max_stack 3, max_locals 2
     public void a(Textures v1) {
-        if (this.d_I != Settings.d()) goto L11;
+        if (this.d_I != Settings.d__int()) goto L11;
         return;
         L11:
         this.a(v1, true);
@@ -259,7 +259,7 @@ public class ObfCl extends ObfCa {
     // bytecode 20 bytes, max_stack 2, max_locals 2
     public void a(ObfBq v1) {
         if (this.c_Z == 0) goto L13;
-        if (Settings.d() > 0) goto L14;
+        if (Settings.d__int() > 0) goto L14;
         L13:
         return;
         L14:
@@ -287,13 +287,13 @@ public class ObfCl extends ObfCa {
     // bytecode 248 bytes, max_stack 7, max_locals 3
     public void a(Textures v1, boolean v2) {
         /* try L192-L211 catch java.io.IOException -> L214 */
-        if (Settings.d() <= 1) goto L11;
+        if (Settings.d__int() <= 1) goto L11;
         ObfAt.a_Z = true;
         L11:
-        if (this.d_I == Settings.d()) goto L28;
-        this.d_I = Settings.d();
+        if (this.d_I == Settings.d__int()) goto L28;
+        this.d_I = Settings.d__int();
         L28:
-        if (Settings.d() <= 0) goto L119;
+        if (Settings.d__int() <= 0) goto L119;
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
@@ -304,7 +304,7 @@ public class ObfCl extends ObfCa {
         new java.lang.StringBuffer(); /* constructor */
         this.a_at = AssetManager.a_de.b(new java.lang.StringBuffer().append("/models/").append(this.b_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c_String).toString(), false);
         L174:
-        if (Settings.d() <= 0) goto L215;
+        if (Settings.d__int() <= 0) goto L215;
         if (Settings.g() == 0) goto L215;
         if (ObfCl.a_cq != null) goto L215;
         new Sprite(v1.a("/tex/shadow.png", true), true, true); /* constructor */
@@ -313,7 +313,7 @@ public class ObfCl extends ObfCa {
         /* pop: ex_214; */
         L215:
         this.a_at.a(this.a_di.b(), this.a_di.c(), this.a_di.d());
-        this.j();
+        this.j__void();
         return;
     }
     // bytecode 146 bytes, max_stack 4, max_locals 4
@@ -328,7 +328,7 @@ public class ObfCl extends ObfCa {
         L62:
         v2 = ((float) this);
         this.a_at.a(v2.a_di.b(), v2.a_di.c(), v2.a_di.d());
-        v2.j();
+        v2.j__void();
         if (ObfCl.a_cq == null) goto L118;
         this.c_Z = true;
         if (Settings.e() != 0) goto L118;
@@ -336,7 +336,7 @@ public class ObfCl extends ObfCa {
         L118:
         v1.a(this.a_at);
         if (this.o_Z != 0) goto L140;
-        this.a_at.c();
+        this.a_at.c__void();
         L140:
         this.o_Z = false;
         return;
@@ -349,12 +349,12 @@ public class ObfCl extends ObfCa {
         L10:
         this.i = false;
         if (fcmpl(this.a_di.e(), 0.0f) >= 0) goto L35;
-        this.a_di.a();
+        this.a_di.a__void();
         return;
         L35:
-        this.a_di.c((this.a().h() * v1));
-        if (fcmpg(this.a_di.e(), this.a().l()) <= 0) goto L83;
-        this.a_di.b(this.a().l());
+        this.a_di.c((this.a__CarPhysics().h() * v1));
+        if (fcmpg(this.a_di.e(), this.a__CarPhysics().l()) <= 0) goto L83;
+        this.a_di.b(this.a__CarPhysics().l());
         L83:
         return;
     }
@@ -365,16 +365,16 @@ public class ObfCl extends ObfCa {
         return;
         L10:
         this.i = false;
-        if (this.a_di.b() != 0) goto L58;
+        if (this.a_di.b__boolean() != 0) goto L58;
         if (fcmpg(this.a_di.j(), 0.10000000149011612f) <= 0) goto L58;
-        this.a_di.a();
-        this.a_at.b();
+        this.a_di.a__void();
+        this.a_at.b__void();
         this.o_Z = true;
         return;
         L58:
-        this.a_di.c(((-this.a().h()) * v1));
-        if (fcmpl(this.a_di.e(), this.a().m()) >= 0) goto L107;
-        this.a_di.b(this.a().m());
+        this.a_di.c(((-this.a__CarPhysics().h()) * v1));
+        if (fcmpl(this.a_di.e(), this.a__CarPhysics().m()) >= 0) goto L107;
+        this.a_di.b(this.a__CarPhysics().m());
         L107:
         return;
     }
@@ -388,12 +388,12 @@ public class ObfCl extends ObfCa {
         this.a_di.d(0.0f);
         return;
         L32:
-        v1 = (this.a().j() * v1);
+        v1 = (this.a__CarPhysics().j() * v1);
         v2 = this;
         v2 = ((ObfCl) java.lang.Math.abs(this.a_di.l()));
         if (this.g_Z != 0) goto L118;
         if (fcmpl(v2, 1.0f) >= 0) goto L118;
-        if (this.a_x.a() == 0) goto L118;
+        if (this.a_x.a__boolean() == 0) goto L118;
         if (Settings.m != 1) goto L91;
         if (ObfCl.f_Z == 0) goto L118;
         L91:
@@ -406,10 +406,10 @@ public class ObfCl extends ObfCa {
         this.g_Z = false;
         this.a_di.e(v1);
         if (fcmpg(this.a_di.j(), 0.0f) <= 0) goto L171;
-        v1 = (this.a().n() / this.a_di.j());
-        if (fcmpg((this.a().n() / this.a_di.j()), this.a().o()) <= 0) goto L179;
+        v1 = (this.a__CarPhysics().n() / this.a_di.j());
+        if (fcmpg((this.a__CarPhysics().n() / this.a_di.j()), this.a__CarPhysics().o()) <= 0) goto L179;
         L171:
-        v1 = this.a().o();
+        v1 = this.a__CarPhysics().o();
         L179:
         if (fcmpg(this.a_di.l(), v1) <= 0) goto L199;
         this.a_di.d(v1);
@@ -427,11 +427,11 @@ public class ObfCl extends ObfCa {
         this.a_di.d(0.0f);
         return;
         L37:
-        if (this.a_di.b() == 0) goto L63;
-        jt1 = (this.a().o() * v1); /* join L73 from L51 */
+        if (this.a_di.b__boolean() == 0) goto L63;
+        jt1 = (this.a__CarPhysics().o() * v1); /* join L73 from L51 */
         goto L73;
         L63:
-        jt1 = ((-this.a().o()) * v1); /* join L73 from L63 */
+        jt1 = ((-this.a__CarPhysics().o()) * v1); /* join L73 from L63 */
         L73:
         this.a_di.d(jt1);
         return;
@@ -446,12 +446,12 @@ public class ObfCl extends ObfCa {
         this.a_di.d(0.0f);
         return;
         L32:
-        v1 = ((-this.a().j()) * v1);
+        v1 = ((-this.a__CarPhysics().j()) * v1);
         v2 = this;
         v2 = ((ObfCl) java.lang.Math.abs(this.a_di.l()));
         if (this.g_Z != 0) goto L119;
         if (fcmpl(v2, 1.0f) >= 0) goto L119;
-        if (this.a_x.a() == 0) goto L119;
+        if (this.a_x.a__boolean() == 0) goto L119;
         if (Settings.m != 1) goto L92;
         if (ObfCl.f_Z == 0) goto L119;
         L92:
@@ -464,10 +464,10 @@ public class ObfCl extends ObfCa {
         this.g_Z = false;
         this.a_di.e(v1);
         if (fcmpg(this.a_di.j(), 0.0f) <= 0) goto L172;
-        v1 = (this.a().n() / this.a_di.j());
-        if (fcmpg((this.a().n() / this.a_di.j()), this.a().o()) <= 0) goto L180;
+        v1 = (this.a__CarPhysics().n() / this.a_di.j());
+        if (fcmpg((this.a__CarPhysics().n() / this.a_di.j()), this.a__CarPhysics().o()) <= 0) goto L180;
         L172:
-        v1 = this.a().o();
+        v1 = this.a__CarPhysics().o();
         L180:
         if (fcmpl(this.a_di.l(), (-v1)) >= 0) goto L202;
         this.a_di.d((-v1));
@@ -481,7 +481,7 @@ public class ObfCl extends ObfCa {
         return;
         L10:
         this.a_Z = false;
-        if (this.a_di.b() != 0) goto L31;
+        if (this.a_di.b__boolean() != 0) goto L31;
         this.n(v1);
         return;
         L31:
@@ -495,7 +495,7 @@ public class ObfCl extends ObfCa {
         return;
         L10:
         this.a_Z = false;
-        if (this.a_di.b() != 0) goto L31;
+        if (this.a_di.b__boolean() != 0) goto L31;
         this.o(v1);
         return;
         L31:
@@ -508,41 +508,41 @@ public class ObfCl extends ObfCa {
         ObfCl v2 = this;
         if (this.i != 0) goto L24;
         ObfCl v4 = v2;
-        if (v2.a_di.a() != 0) goto L136;
+        if (v2.a_di.a__boolean() != 0) goto L136;
         L24:
         v4 = v2;
-        if (fcmpg(v2.a_di.b().d(), 10.0f) <= 0) goto L136;
+        if (fcmpg(v2.a_di.b__Vec3().d(), 10.0f) <= 0) goto L136;
         v4 = v2;
-        if (v2.a_di.a() == 0) goto L98;
+        if (v2.a_di.a__boolean() == 0) goto L98;
         v4 = v2;
         v4 = v2;
-        v2.a_di.b().f((1.0f - (((v3 * (v2.a_di.b().d() - 10.0f)) / 13.0f) / 1.7000000476837158f)));
+        v2.a_di.b__Vec3().f((1.0f - (((v3 * (v2.a_di.b__Vec3().d() - 10.0f)) / 13.0f) / 1.7000000476837158f)));
         goto L136;
         L98:
         v4 = v2;
         v4 = v2;
-        v2.a_di.b().f((1.0f - (((v3 * (v2.a_di.b().d() - 10.0f)) / 13.0f) / 2.0f)));
+        v2.a_di.b__Vec3().f((1.0f - (((v3 * (v2.a_di.b__Vec3().d() - 10.0f)) / 13.0f) / 2.0f)));
         L136:
-        this.a(v1);
+        this.a__void(v1);
         this.b(v1);
         v3 = v1;
         v2 = this;
-        this.a_di.l((v3 * v2.a().w()));
+        this.a_di.l((v3 * v2.a__CarPhysics().w()));
         return;
     }
     // bytecode 100 bytes, max_stack 3, max_locals 2
-    public void a(float v1) {
+    public void a__void(float v1) {
         if (this.i != 0) goto L13;
         this.i = true;
         return;
         L13:
         if (fcmpg(this.a_di.e(), 0.0f) <= 0) goto L63;
-        this.a_di.c(((-this.a().p()) * v1));
+        this.a_di.c(((-this.a__CarPhysics().p()) * v1));
         if (fcmpl(this.a_di.e(), 0.0f) >= 0) goto L99;
         this.a_di.b(0.0f);
         return;
         L63:
-        this.a_di.c((this.a().p() * v1));
+        this.a_di.c((this.a__CarPhysics().p() * v1));
         if (fcmpg(this.a_di.e(), 0.0f) <= 0) goto L99;
         this.a_di.b(0.0f);
         L99:
@@ -557,10 +557,10 @@ public class ObfCl extends ObfCa {
         if (fcmpg(this.a_di.l(), 0.0f) <= 0) goto L98;
         if (Settings.m != 2) goto L60;
         if (ObfCl.f_Z != 0) goto L60;
-        this.a_di.e((((-this.a().q()) * v1) * 2.0f));
+        this.a_di.e((((-this.a__CarPhysics().q()) * v1) * 2.0f));
         goto L77;
         L60:
-        this.a_di.e(((-this.a().q()) * v1));
+        this.a_di.e(((-this.a__CarPhysics().q()) * v1));
         L77:
         if (fcmpl(this.a_di.l(), 0.0f) >= 0) goto L168;
         this.a_di.d(0.0f);
@@ -568,10 +568,10 @@ public class ObfCl extends ObfCa {
         L98:
         if (Settings.m != 2) goto L132;
         if (ObfCl.f_Z != 0) goto L132;
-        this.a_di.e(((this.a().q() * v1) * 2.0f));
+        this.a_di.e(((this.a__CarPhysics().q() * v1) * 2.0f));
         goto L148;
         L132:
-        this.a_di.e((this.a().q() * v1));
+        this.a_di.e((this.a__CarPhysics().q() * v1));
         L148:
         if (fcmpg(this.a_di.l(), 0.0f) <= 0) goto L168;
         this.a_di.d(0.0f);
@@ -587,16 +587,16 @@ public class ObfCl extends ObfCa {
         float v3 = this.g_F;
         ObfCl v2 = this;
         this.a_z.b(v3, v4);
-        v2.a_z.a();
-        this.f.b(((this.h_F * this.a_di.b().b()) + (this.g_F * this.a_di.b().a())), (((-this.g_F) * this.a_di.b().b()) + (this.h_F * this.a_di.b().a())), this.a_di.b().c());
-        if (fcmpl(this.f.a(), 0.0f) >= 0) goto L167;
+        v2.a_z.a__void();
+        this.f.b(((this.h_F * this.a_di.b__Vec3().b()) + (this.g_F * this.a_di.b__Vec3().a__float())), (((-this.g_F) * this.a_di.b__Vec3().b()) + (this.h_F * this.a_di.b__Vec3().a__float())), this.a_di.b__Vec3().c());
+        if (fcmpl(this.f.a__float(), 0.0f) >= 0) goto L167;
         jt1 = 1; /* join L168 from L163 */
         goto L168;
         L167:
         jt1 = 0; /* join L168 from L167 */
         L168:
         this.a_di.a(jt1);
-        if (fcmpl(java.lang.Math.abs(this.f.a()), 0.0010000000474974513f) >= 0) goto L195;
+        if (fcmpl(java.lang.Math.abs(this.f.a__float()), 0.0010000000474974513f) >= 0) goto L195;
         this.f.c(0.0f);
         L195:
         if (fcmpl(java.lang.Math.abs(this.f.b()), 0.0010000000474974513f) >= 0) goto L219;
@@ -605,15 +605,15 @@ public class ObfCl extends ObfCa {
         if (fcmpl(java.lang.Math.abs(this.f.c()), 0.0010000000474974513f) >= 0) goto L243;
         this.f.e(0.0f);
         L243:
-        v2 = ((ObfCl) ((this.a().b() * 0.5f) * this.a_di.m()));
-        if (fcmpl(this.f.a(), 0.0f) >= 0) goto L315;
-        v2 = ((ObfCl) ((float) SceneryList.a(((double) v2), ((double) (-this.f.a())))));
-        v3 = ((float) SceneryList.a(((double) this.f.b()), ((double) (-this.f.a()))));
+        v2 = ((ObfCl) ((this.a__CarPhysics().b() * 0.5f) * this.a_di.m()));
+        if (fcmpl(this.f.a__float(), 0.0f) >= 0) goto L315;
+        v2 = ((ObfCl) ((float) SceneryList.a(((double) v2), ((double) (-this.f.a__float())))));
+        v3 = ((float) SceneryList.a(((double) this.f.b()), ((double) (-this.f.a__float()))));
         goto L370;
         L315:
-        if (fcmpg(this.f.a(), 0.0f) <= 0) goto L366;
-        v2 = ((ObfCl) ((float) SceneryList.a(((double) v2), ((double) this.f.a()))));
-        v3 = ((float) SceneryList.a(((double) this.f.b()), ((double) this.f.a())));
+        if (fcmpg(this.f.a__float(), 0.0f) <= 0) goto L366;
+        v2 = ((ObfCl) ((float) SceneryList.a(((double) v2), ((double) this.f.a__float()))));
+        v3 = ((float) SceneryList.a(((double) this.f.b()), ((double) this.f.a__float())));
         goto L370;
         L366:
         v2 = ((ObfCl) 0.0f);
@@ -628,17 +628,17 @@ public class ObfCl extends ObfCa {
         v4 = ((v3 + v2) - this.a_di.l());
         v2 = ((ObfCl) (v3 - v2));
         v3 = ((float) this);
-        this.a_di.a(v2);
-        if (this.a_di.a() != 0) goto L436;
+        this.a_di.a__void(v2);
+        if (this.a_di.a__boolean() != 0) goto L436;
         v4 = 0.0f;
         v2 = ((ObfCl) 0.0f);
         L436:
-        this.d_z.b(0.0f, (this.a().g() * java.lang.Math.max((-this.a().v()), java.lang.Math.min(this.a().v(), (this.a().u() * v4)))));
+        this.d_z.b(0.0f, (this.a__CarPhysics().g() * java.lang.Math.max((-this.a__CarPhysics().v()), java.lang.Math.min(this.a__CarPhysics().v(), (this.a__CarPhysics().u() * v4)))));
         if (fcmpg(this.a_di.f(), 0.0f) <= 0) goto L549;
-        this.e_z.b(0.0f, ((this.a().g() * this.i_F) * java.lang.Math.max((-this.a().v()), java.lang.Math.min(this.a().v(), (this.a().t() * v2)))));
+        this.e_z.b(0.0f, ((this.a__CarPhysics().g() * this.i_F) * java.lang.Math.max((-this.a__CarPhysics().v()), java.lang.Math.min(this.a__CarPhysics().v(), (this.a__CarPhysics().t() * v2)))));
         goto L595;
         L549:
-        this.e_z.b(0.0f, (this.a().g() * java.lang.Math.max((-this.a().v()), java.lang.Math.min(this.a().v(), (this.a().t() * v2)))));
+        this.e_z.b(0.0f, (this.a__CarPhysics().g() * java.lang.Math.max((-this.a__CarPhysics().v()), java.lang.Math.min(this.a__CarPhysics().v(), (this.a__CarPhysics().t() * v2)))));
         L595:
         if (fcmpg(java.lang.Math.abs(this.d_z.b()), 0.0f) <= 0) goto L656;
         if (fcmpg(java.lang.Math.abs(this.d), 0.0f) <= 0) goto L656;
@@ -653,15 +653,15 @@ public class ObfCl extends ObfCa {
         this.e = this.e_z.b();
         this.d = this.d_z.b();
         this.a_bj = null;
-        if (this.a_di.a() == 0) goto L941;
+        if (this.a_di.a__boolean() == 0) goto L941;
         this.a_bj = this.a_bs.a(this.a_di.b(), this.a_di.c());
-        v2 = ((ObfCl) (((this.a_bj.a() * this.g_F) + (this.a_bj.b() * this.h_F)) / this.a_bj.c()));
-        ObfCl.i_bz.b((100.0f * (this.a_di.e() - ((this.a().i() * this.a_di.f()) * ((float) SceneryList.a(this.f.a()))))), 0.0f, 0.0f);
-        ObfCl.j_bz.b(((float) (-SceneryList.a(v2))), 0.0f, 0.0f);
-        ObfCl.j_bz.e(java.lang.Math.abs((ObfCl.j_bz.a() * v2)));
-        ObfCl.i_bz.e(java.lang.Math.abs((ObfCl.i_bz.a() * v2)));
+        v2 = ((ObfCl) (((this.a_bj.a__float() * this.g_F) + (this.a_bj.b() * this.h_F)) / this.a_bj.c()));
+        ObfCl.i_bz.b((100.0f * (this.a_di.e() - ((this.a__CarPhysics().i() * this.a_di.f()) * ((float) SceneryList.a__int(this.f.a__float()))))), 0.0f, 0.0f);
+        ObfCl.j_bz.b(((float) (-SceneryList.a__int(v2))), 0.0f, 0.0f);
+        ObfCl.j_bz.e(java.lang.Math.abs((ObfCl.j_bz.a__float() * v2)));
+        ObfCl.i_bz.e(java.lang.Math.abs((ObfCl.i_bz.a__float() * v2)));
         v2 = ((ObfCl) (v2 * v2));
-        ObfCl.j_bz.f((((19.600000381469727f * this.a().e()) * v2) / ((float) java.lang.Math.sqrt(((double) (v2 + 1.0f))))));
+        ObfCl.j_bz.f((((19.600000381469727f * this.a__CarPhysics().e()) * v2) / ((float) java.lang.Math.sqrt(((double) (v2 + 1.0f))))));
         goto L1085;
         L941:
         ObfCl.i_bz.b(0.0f, 0.0f, 0.0f);
@@ -672,57 +672,57 @@ public class ObfCl extends ObfCa {
         v3 = ((float) this);
         v2 = ((ObfCl) (this.a_di.d() - this.a_bs.a((this.a_di.b() - (0.30000001192092896f * this.g_F)), (this.a_di.c() - (0.30000001192092896f * this.g_F)))));
         if (fcmpl((this.a_di.d() - this.a_bs.a((this.a_di.b() - (0.30000001192092896f * this.g_F)), (this.a_di.c() - (0.30000001192092896f * this.g_F)))), -5.0f) >= 0) goto L1046;
-        ObfCl.j_bz.b(0.0f, 0.0f, ((9.800000190734863f * this.a().e()) / 2.4000000953674316f));
+        ObfCl.j_bz.b(0.0f, 0.0f, ((9.800000190734863f * this.a__CarPhysics().e()) / 2.4000000953674316f));
         goto L1085;
         L1046:
-        ObfCl.j_bz.b(0.0f, 0.0f, (9.800000190734863f * this.a().e()));
+        ObfCl.j_bz.b(0.0f, 0.0f, (9.800000190734863f * this.a__CarPhysics().e()));
         goto L1085;
         L1067:
-        ObfCl.j_bz.b(0.0f, 0.0f, (9.800000190734863f * this.a().e()));
+        ObfCl.j_bz.b(0.0f, 0.0f, (9.800000190734863f * this.a__CarPhysics().e()));
         L1085:
-        ObfCl.k_bz.b(((-(this.a().s() * this.f.a())) + ((this.a().r() * this.f.a()) * java.lang.Math.abs(this.f.a()))), ((-(this.a().s() * this.f.b())) + ((this.a().r() * this.f.b()) * java.lang.Math.abs(this.f.b()))), (-(this.a().s() * this.f.c())));
-        this.f_z.b(((((float) java.lang.Math.sin(((double) this.a_di.l()))) * this.d_z.a()) + this.e_z.a()), ((((float) java.lang.Math.cos(((double) this.a_di.l()))) * this.d_z.b()) + this.e_z.b()));
-        ObfCl.l.b((((ObfCl.i_bz.a() + this.f_z.a()) + ObfCl.k_bz.a()) + ObfCl.j_bz.a()), (((ObfCl.i_bz.b() + this.f_z.b()) + ObfCl.k_bz.b()) + ObfCl.j_bz.b()), ((ObfCl.i_bz.c() + ObfCl.j_bz.c()) + ObfCl.k_bz.c()));
+        ObfCl.k_bz.b(((-(this.a__CarPhysics().s() * this.f.a__float())) + ((this.a__CarPhysics().r() * this.f.a__float()) * java.lang.Math.abs(this.f.a__float()))), ((-(this.a__CarPhysics().s() * this.f.b())) + ((this.a__CarPhysics().r() * this.f.b()) * java.lang.Math.abs(this.f.b()))), (-(this.a__CarPhysics().s() * this.f.c())));
+        this.f_z.b(((((float) java.lang.Math.sin(((double) this.a_di.l()))) * this.d_z.a__float()) + this.e_z.a__float()), ((((float) java.lang.Math.cos(((double) this.a_di.l()))) * this.d_z.b()) + this.e_z.b()));
+        ObfCl.l.b((((ObfCl.i_bz.a__float() + this.f_z.a__float()) + ObfCl.k_bz.a__float()) + ObfCl.j_bz.a__float()), (((ObfCl.i_bz.b() + this.f_z.b()) + ObfCl.k_bz.b()) + ObfCl.j_bz.b()), ((ObfCl.i_bz.c() + ObfCl.j_bz.c()) + ObfCl.k_bz.c()));
         if (fcmpl(this.a_di.j(), 0.20000000298023224f) >= 0) goto L1400;
-        if (fcmpl(java.lang.Math.abs(ObfCl.l.a()), java.lang.Math.abs(ObfCl.l.b())) >= 0) goto L1400;
+        if (fcmpl(java.lang.Math.abs(ObfCl.l.a__float()), java.lang.Math.abs(ObfCl.l.b())) >= 0) goto L1400;
         if (fcmpl(this.a_di.n(), 0.0f) > 0) goto L1400;
         this.f.d(0.0f);
         ObfCl.l.d(0.0f);
         L1400:
-        v2 = ((ObfCl) ((this.a().c() * this.d_z.b()) - (this.a().d() * this.e_z.b())));
-        ObfCl.m.b((ObfCl.l.a() / this.a().e()), (ObfCl.l.b() / this.a().e()), (ObfCl.l.c() / this.a().e()));
-        this.f_F = (v2 / this.a().f());
-        this.g.b(this.f.a(), this.f.b(), this.f.c());
+        v2 = ((ObfCl) ((this.a__CarPhysics().c() * this.d_z.b()) - (this.a__CarPhysics().d() * this.e_z.b())));
+        ObfCl.m.b((ObfCl.l.a__float() / this.a__CarPhysics().e()), (ObfCl.l.b() / this.a__CarPhysics().e()), (ObfCl.l.c() / this.a__CarPhysics().e()));
+        this.f_F = (v2 / this.a__CarPhysics().f());
+        this.g.b(this.f.a__float(), this.f.b(), this.f.c());
         this.h_bz.b(this.a_di.b(), this.a_di.c(), this.a_di.d());
         L1549:
         if (this.j != 0) goto L1921;
         if (fcmpg(v1, 0.009999999776482582f) <= 0) goto L1921;
         v1 = (v1 - 0.009999999776482582f);
-        this.b_bz.b((0.009999999776482582f * ObfCl.m.a()), (0.009999999776482582f * ObfCl.m.b()), (0.009999999776482582f * ObfCl.m.c()));
-        this.b_bz.a(this.g.a(), this.g.b(), this.g.c());
-        this.b_bz.b(((this.h_F * this.b_bz.b()) + (this.g_F * this.b_bz.a())), (((-this.g_F) * this.b_bz.b()) + (this.h_F * this.b_bz.a())), this.b_bz.c());
-        if (fcmpg(this.b_bz.e(), this.a().k()) <= 0) goto L1764;
-        this.b_bz.a();
-        this.b_bz.c((this.b_bz.a() * this.a().k()));
-        this.b_bz.d((this.b_bz.b() * this.a().k()));
+        this.b_bz.b((0.009999999776482582f * ObfCl.m.a__float()), (0.009999999776482582f * ObfCl.m.b()), (0.009999999776482582f * ObfCl.m.c()));
+        this.b_bz.a(this.g.a__float(), this.g.b(), this.g.c());
+        this.b_bz.b(((this.h_F * this.b_bz.b()) + (this.g_F * this.b_bz.a__float())), (((-this.g_F) * this.b_bz.b()) + (this.h_F * this.b_bz.a__float())), this.b_bz.c());
+        if (fcmpg(this.b_bz.e(), this.a__CarPhysics().k()) <= 0) goto L1764;
+        this.b_bz.a__void();
+        this.b_bz.c((this.b_bz.a__float() * this.a__CarPhysics().k()));
+        this.b_bz.d((this.b_bz.b() * this.a__CarPhysics().k()));
         L1764:
-        this.g.b(((this.h_F * this.b_bz.b()) + (this.g_F * this.b_bz.a())), (((-this.g_F) * this.b_bz.b()) + (this.h_F * this.b_bz.a())), this.b_bz.c());
-        this.a_bz.b((this.h_bz.a() + (0.009999999776482582f * this.b_bz.a())), (this.h_bz.b() + (0.009999999776482582f * this.b_bz.b())), (this.h_bz.c() + (0.009999999776482582f * this.b_bz.c())));
-        this.h_bz.b(this.a_bz.a(), this.a_bz.b(), this.a_bz.c());
+        this.g.b(((this.h_F * this.b_bz.b()) + (this.g_F * this.b_bz.a__float())), (((-this.g_F) * this.b_bz.b()) + (this.h_F * this.b_bz.a__float())), this.b_bz.c());
+        this.a_bz.b((this.h_bz.a__float() + (0.009999999776482582f * this.b_bz.a__float())), (this.h_bz.b() + (0.009999999776482582f * this.b_bz.b())), (this.h_bz.c() + (0.009999999776482582f * this.b_bz.c())));
+        this.h_bz.b(this.a_bz.a__float(), this.a_bz.b(), this.a_bz.c());
         goto L1549;
         L1921:
-        this.b_bz.b((v1 * ObfCl.m.a()), (v1 * ObfCl.m.b()), (v1 * ObfCl.m.c()));
-        this.b_bz.a(this.g.a(), this.g.b(), this.g.c());
-        this.g();
-        this.b_bz.b(((this.h_F * this.b_bz.b()) + (this.g_F * this.b_bz.a())), (((-this.g_F) * this.b_bz.b()) + (this.h_F * this.b_bz.a())), this.b_bz.c());
-        if (fcmpg(this.b_bz.e(), this.a().k()) <= 0) goto L2118;
-        this.b_bz.a();
-        this.b_bz.c((this.b_bz.a() * this.a().k()));
-        this.b_bz.d((this.b_bz.b() * this.a().k()));
+        this.b_bz.b((v1 * ObfCl.m.a__float()), (v1 * ObfCl.m.b()), (v1 * ObfCl.m.c()));
+        this.b_bz.a(this.g.a__float(), this.g.b(), this.g.c());
+        this.g__void();
+        this.b_bz.b(((this.h_F * this.b_bz.b()) + (this.g_F * this.b_bz.a__float())), (((-this.g_F) * this.b_bz.b()) + (this.h_F * this.b_bz.a__float())), this.b_bz.c());
+        if (fcmpg(this.b_bz.e(), this.a__CarPhysics().k()) <= 0) goto L2118;
+        this.b_bz.a__void();
+        this.b_bz.c((this.b_bz.a__float() * this.a__CarPhysics().k()));
+        this.b_bz.d((this.b_bz.b() * this.a__CarPhysics().k()));
         L2118:
-        this.a_bz.b((this.h_bz.a() + (v1 * this.b_bz.a())), (this.h_bz.b() + (v1 * this.b_bz.b())), (this.h_bz.c() + (v1 * this.b_bz.c())));
-        v1 = this.a_bs.a((this.a_bz.a() - (0.30000001192092896f * this.g_F)), (this.a_bz.b() - (0.30000001192092896f * this.g_F)));
-        v1 = (this.a_bs.a((this.a_bz.a() - (0.30000001192092896f * this.g_F)), (this.a_bz.b() - (0.30000001192092896f * this.g_F))) * ObfAr.c);
+        this.a_bz.b((this.h_bz.a__float() + (v1 * this.b_bz.a__float())), (this.h_bz.b() + (v1 * this.b_bz.b())), (this.h_bz.c() + (v1 * this.b_bz.c())));
+        v1 = this.a_bs.a((this.a_bz.a__float() - (0.30000001192092896f * this.g_F)), (this.a_bz.b() - (0.30000001192092896f * this.g_F)));
+        v1 = (this.a_bs.a((this.a_bz.a__float() - (0.30000001192092896f * this.g_F)), (this.a_bz.b() - (0.30000001192092896f * this.g_F))) * ObfAr.c);
         this.j = true;
         this.k_F = v1;
         v2 = ((ObfCl) (v1 - this.a_bz.c()));
@@ -732,24 +732,24 @@ public class ObfCl extends ObfCa {
         L2255:
         if (fcmpl(java.lang.Math.abs(v2), 2.5f) > 0) goto L2468;
         this.a_bz.e(v1);
-        if (fcmpg((this.a_bz.a() - this.a_di.a().a()), 0.0f) == 0) goto L2351;
-        this.b_bz.e(((this.b_bz.a() * (this.a_bz.c() - this.a_di.a().c())) / (this.a_bz.a() - this.a_di.a().a())));
+        if (fcmpg((this.a_bz.a__float() - this.a_di.a__Vec3().a__float()), 0.0f) == 0) goto L2351;
+        this.b_bz.e(((this.b_bz.a__float() * (this.a_bz.c() - this.a_di.a__Vec3().c())) / (this.a_bz.a__float() - this.a_di.a__Vec3().a__float())));
         goto L2437;
         L2351:
-        if (fcmpg((this.a_bz.b() - this.a_di.a().b()), 0.0f) == 0) goto L2429;
-        this.b_bz.e(((this.b_bz.b() * (this.a_bz.c() - this.a_di.a().c())) / (this.a_bz.b() - this.a_di.a().b())));
+        if (fcmpg((this.a_bz.b() - this.a_di.a__Vec3().b()), 0.0f) == 0) goto L2429;
+        this.b_bz.e(((this.b_bz.b() * (this.a_bz.c() - this.a_di.a__Vec3().c())) / (this.a_bz.b() - this.a_di.a__Vec3().b())));
         goto L2437;
         L2429:
         this.b_bz.e(0.0f);
         L2437:
-        if (this.a_di.a() != 0) goto L2468;
+        if (this.a_di.a__boolean() != 0) goto L2468;
         if (fcmpl(this.b_bz.c(), -0.30000001192092896f) >= 0) goto L2468;
         this.b_bz.e(0.0f);
         L2468:
-        v1 = this.a_bs.a((this.a_bz.a() + (0.6000000238418579f * this.g_F)), (this.a_bz.b() + (0.6000000238418579f * this.h_F)));
-        v2 = ((ObfCl) this.a_bs.a((this.a_bz.a() - (0.6000000238418579f * this.g_F)), (this.a_bz.b() - (0.6000000238418579f * this.h_F))));
-        v3 = this.a_bs.a((this.a_bz.a() - (0.30000001192092896f * this.h_F)), (this.a_bz.b() + (0.30000001192092896f * this.g_F)));
-        v4 = this.a_bs.a((this.a_bz.a() + (0.30000001192092896f * this.h_F)), (this.a_bz.b() - (0.30000001192092896f * this.g_F)));
+        v1 = this.a_bs.a((this.a_bz.a__float() + (0.6000000238418579f * this.g_F)), (this.a_bz.b() + (0.6000000238418579f * this.h_F)));
+        v2 = ((ObfCl) this.a_bs.a((this.a_bz.a__float() - (0.6000000238418579f * this.g_F)), (this.a_bz.b() - (0.6000000238418579f * this.h_F))));
+        v3 = this.a_bs.a((this.a_bz.a__float() - (0.30000001192092896f * this.h_F)), (this.a_bz.b() + (0.30000001192092896f * this.g_F)));
+        v4 = this.a_bs.a((this.a_bz.a__float() + (0.30000001192092896f * this.h_F)), (this.a_bz.b() - (0.30000001192092896f * this.g_F)));
         this.k_Z = false;
         if (this.j == 0) goto L2688;
         this.c_bz.b(1.2000000476837158f, 0.0f, (ObfAr.c * (v1 - v2)));
@@ -760,31 +760,31 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 109 bytes, max_stack 5, max_locals 1
-    public void f() {
+    public void f__void() {
         this.g_F = ((float) java.lang.Math.sin(((double) this.a_di.k())));
         this.h_F = ((float) java.lang.Math.cos(((double) this.a_di.k())));
         this.b_bz.a(4.0f, 0.0f, 0.0f);
-        this.a_di.b(((this.h_F * this.b_bz.b()) + (this.g_F * this.b_bz.a())), (((-this.g_F) * this.b_bz.b()) + (this.h_F * this.b_bz.a())), this.b_bz.c());
+        this.a_di.b(((this.h_F * this.b_bz.b()) + (this.g_F * this.b_bz.a__float())), (((-this.g_F) * this.b_bz.b()) + (this.h_F * this.b_bz.a__float())), this.b_bz.c());
         return;
     }
     // bytecode 1 bytes, max_stack 0, max_locals 1
-    public void g() {
+    public void g__void() {
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 1
-    public void h() {
+    public void h__void() {
         this.e_Z = true;
         return;
     }
     // bytecode 636 bytes, max_stack 5, max_locals 7
-    public int a(float v1) {
+    public int a__int(float v1) {
         int v2 = 0;
-        this.a_ct.a(this.a_di.a(), this.a_bz);
-        this.o.b((-this.a_di.a().c()), (-this.a_bz.c()), 0.0f);
-        ObfAu.a.a(this.a_di.a(), this.a_bz);
-        ObfAu.a_bz.b((-this.a_di.a().c()), (-this.a_bz.c()), 0.0f);
+        this.a_ct.a(this.a_di.a__Vec3(), this.a_bz);
+        this.o.b((-this.a_di.a__Vec3().c()), (-this.a_bz.c()), 0.0f);
+        ObfAu.a.a(this.a_di.a__Vec3(), this.a_bz);
+        ObfAu.a_bz.b((-this.a_di.a__Vec3().c()), (-this.a_bz.c()), 0.0f);
         this.k();
-        if (this.a_bs.a() == 0) goto L634;
+        if (this.a_bs.a__boolean() == 0) goto L634;
         v1 = ((float) this);
         if (fcmpl(this.a_di.j(), 1.0f) >= 0) goto L141;
         if (Settings.m != 2) goto L141;
@@ -799,35 +799,35 @@ public class ObfCl extends ObfCa {
         Plane v3 = ObfAu.b;
         v2 = ((int) v1);
         v1 = ((float) this);
-        float v5 = Vec2.a(this.b_bz, v3.a());
+        float v5 = Vec2.a(this.b_bz, v3.a__Vec2());
         float v6 = v1.b_bz.d();
-        v6 = (0.20000000298023224f + ((v1.a().k() - v6) / v1.a().k()));
-        if (fcmpg((0.20000000298023224f + ((v1.a().k() - v6) / v1.a().k())), 1.0f) <= 0) goto L205;
+        v6 = (0.20000000298023224f + ((v1.a__CarPhysics().k() - v6) / v1.a__CarPhysics().k()));
+        if (fcmpg((0.20000000298023224f + ((v1.a__CarPhysics().k() - v6) / v1.a__CarPhysics().k())), 1.0f) <= 0) goto L205;
         v6 = 1.0f;
         L205:
-        v1.c_z.b((v1.b_bz.a() - ((v5 * 1.0f) * v3.a())), (v1.b_bz.b() - ((v5 * 1.0f) * v3.b())));
-        v1.c_z.a();
-        v5 = ((v1.c_z.a() * v3.a()) + (v1.c_z.b() * v3.b()));
+        v1.c_z.b((v1.b_bz.a__float() - ((v5 * 1.0f) * v3.a__float())), (v1.b_bz.b() - ((v5 * 1.0f) * v3.b())));
+        v1.c_z.a__void();
+        v5 = ((v1.c_z.a__float() * v3.a__float()) + (v1.c_z.b() * v3.b()));
         v5 = (1.0f - java.lang.Math.abs(v5));
         v5 = ((1.0f - java.lang.Math.abs(v5)) + v6);
         v5 = (((1.0f - java.lang.Math.abs(v5)) + v6) / 2.0f);
-        v1.c_z.a((((v3.a() * v5) * 4.0f) * v2), (((v3.b() * v5) * 4.0f) * v2));
+        v1.c_z.a((((v3.a__float() * v5) * 4.0f) * v2), (((v3.b() * v5) * 4.0f) * v2));
         v2 = ((int) (v4 * v1.b_bz.d()));
         if (fcmpl((v4 * v1.b_bz.d()), 2.0f) >= 0) goto L350;
         v2 = ((int) 2.0f);
         L350:
-        v1.c_z.a();
+        v1.c_z.a__void();
         v1.c_z.c(v2);
         v2 = ((int) v1.b_bz.c());
         if (v1.j == 0) goto L444;
         if (v1.a_bj == null) goto L444;
         if (fcmpg(v1.a_bj.c(), 0.0f) == 0) goto L444;
-        v1.i();
-        v2 = ((int) ((-((v1.a_bj.a() * v1.c_z.a()) + (v1.a_bj.b() * v1.c_z.b()))) / v1.a_bj.c()));
+        v1.i__void();
+        v2 = ((int) ((-((v1.a_bj.a__float() * v1.c_z.a__float()) + (v1.a_bj.b() * v1.c_z.b()))) / v1.a_bj.c()));
         L444:
-        v1.a_di.b(v1.c_z.a(), v1.c_z.b(), v2);
-        v1.c_z.b(((v1.h_F * v1.c_z.b()) + (v1.g_F * v1.c_z.a())), (((-v1.g_F) * v1.c_z.b()) + (v1.h_F * v1.c_z.a())));
-        v1.a_di.b(v1.c_z.a(), v1.c_z.b());
+        v1.a_di.b(v1.c_z.a__float(), v1.c_z.b(), v2);
+        v1.c_z.b(((v1.h_F * v1.c_z.b()) + (v1.g_F * v1.c_z.a__float())), (((-v1.g_F) * v1.c_z.b()) + (v1.h_F * v1.c_z.a__float())));
+        v1.a_di.b(v1.c_z.a__float(), v1.c_z.b());
         v2 = ((int) ((0.30000001192092896f * v1.a_di.o()) * v1.a_di.n()));
         if (fcmpl(((0.30000001192092896f * v1.a_di.o()) * v1.a_di.n()), 1.5f) >= 0) goto L580;
         if (fcmpg(v2, 0.0f) <= 0) goto L580;
@@ -837,19 +837,19 @@ public class ObfCl extends ObfCa {
         if (fcmpl(v2, 0.0f) >= 0) goto L596;
         v2 = ((int) -1.5f);
         L596:
-        if (fcmpg(v1.f.a(), 0.0f) < 0) goto L619;
+        if (fcmpg(v1.f.a__float(), 0.0f) < 0) goto L619;
         v1.a_di.i(v2);
         goto L628;
         L619:
         v1.a_di.i((-v2));
         L628:
-        v1.a();
+        v1.a__void();
         v2 = 1;
         L634:
         return v2;
     }
     // bytecode 26 bytes, max_stack 4, max_locals 1
-    public void i() {
+    public void i__void() {
         this.a_bj = this.a_bs.a(this.a_di.b(), this.a_di.c());
         return;
     }
@@ -857,23 +857,23 @@ public class ObfCl extends ObfCa {
     public void a(Plane v1, Vec3 v2, float v3, float v4, Vec3 v5) {
         ObfCl.n.a(v2, this.b_bz);
         float v6 = (-v1.a(ObfCl.n));
-        this.c_z.a(v1.a());
+        this.c_z.a(v1.a__Vec2());
         this.c_z.c((v6 * 2.0f));
-        this.c_z.a(ObfCl.n.a(), ObfCl.n.b());
+        this.c_z.a(ObfCl.n.a__float(), ObfCl.n.b());
         this.c_z.a(this.c_z, v2);
-        this.c_z.a();
+        this.c_z.a__void();
         this.c_z.c((this.b_bz.d() * v3));
-        this.c_z.c((v5.a() * (0.75f - v3)), (v5.b() * (1.0f - v3)));
+        this.c_z.c((v5.a__float() * (0.75f - v3)), (v5.b() * (1.0f - v3)));
         v1 = ((Plane) this.b_bz.c());
         if (this.j == 0) goto L202;
         if (this.a_bj == null) goto L202;
         if (fcmpg(this.a_bj.c(), 0.0f) == 0) goto L202;
-        this.i();
-        v1 = ((Plane) ((-((this.a_bj.a() * this.c_z.a()) + (this.a_bj.b() * this.c_z.b()))) / this.a_bj.c()));
+        this.i__void();
+        v1 = ((Plane) ((-((this.a_bj.a__float() * this.c_z.a__float()) + (this.a_bj.b() * this.c_z.b()))) / this.a_bj.c()));
         L202:
-        this.a_di.b(this.c_z.a(), this.c_z.b(), v1);
-        this.c_z.b(((this.h_F * this.c_z.b()) + (this.g_F * this.c_z.a())), (((-this.g_F) * this.c_z.b()) + (this.h_F * this.c_z.a())));
-        this.a_di.b(this.c_z.a(), this.c_z.b());
+        this.a_di.b(this.c_z.a__float(), this.c_z.b(), v1);
+        this.c_z.b(((this.h_F * this.c_z.b()) + (this.g_F * this.c_z.a__float())), (((-this.g_F) * this.c_z.b()) + (this.h_F * this.c_z.a__float())));
+        this.a_di.b(this.c_z.a__float(), this.c_z.b());
         v1 = ((Plane) ((v4 * this.a_di.o()) * this.a_di.n()));
         if (fcmpl(((v4 * this.a_di.o()) * this.a_di.n()), 1.5f) >= 0) goto L338;
         if (fcmpg(v1, 0.0f) <= 0) goto L338;
@@ -883,7 +883,7 @@ public class ObfCl extends ObfCa {
         if (fcmpl(v1, 0.0f) >= 0) goto L354;
         v1 = ((Plane) -1.5f);
         L354:
-        if (fcmpg(this.f.a(), 0.0f) < 0) goto L375;
+        if (fcmpg(this.f.a__float(), 0.0f) < 0) goto L375;
         this.a_di.i(v1);
         return;
         L375:
@@ -899,7 +899,7 @@ public class ObfCl extends ObfCa {
         goto L32;
         L21:
         v4 = this;
-        v3 = this.a_di.a();
+        v3 = this.a_di.a__Vec3();
         L32:
         v4 = v1;
         if (v1.b_Z != 0) goto L54;
@@ -908,25 +908,25 @@ public class ObfCl extends ObfCa {
         goto L66;
         L54:
         v4 = v1;
-        v4 = ((ObfCl) v1.a_di.a());
+        v4 = ((ObfCl) v1.a_di.a__Vec3());
         L66:
         v3 = ((Vec3) Vec2.b(v3, v4));
         if (fcmpl(Vec2.b(v3, v4), 0.8999999761581421f) >= 0) goto L381;
-        v1.d();
-        this.a();
-        v1.a();
+        v1.d__void();
+        this.a__void();
+        v1.a__void();
         if (v2 != 0) goto L98;
         return 1;
         L98:
         v4 = this;
         v4 = v1;
-        v2 = ((boolean) Vec3.a(this.a_di.a(), v1.a_di.a()));
+        v2 = ((boolean) Vec3.a(this.a_di.a__Vec3(), v1.a_di.a__Vec3()));
         v4 = this;
         v4 = this;
-        this.c_bz.a(this.a_bz, this.a_di.a(), 0.0f);
+        this.c_bz.a(this.a_bz, this.a_di.a__Vec3(), 0.0f);
         v4 = v1;
         v4 = v1;
-        this.d_bz.a(v1.a_bz, v1.a_di.a(), 0.0f);
+        this.d_bz.a(v1.a_bz, v1.a_di.a__Vec3(), 0.0f);
         this.a_ct.a(this.d_bz, this.c_bz);
         if (fcmpl((v2 - v3), 0.10000000149011612f) >= 0) goto L275;
         v4 = this;
@@ -963,10 +963,10 @@ public class ObfCl extends ObfCa {
         if (this.b_Z == 0) goto L10;
         return;
         L10:
-        v2 = ((ObfCl) SceneryList.a(this.a_di.m()));
+        v2 = ((ObfCl) SceneryList.a__int(this.a_di.m()));
         float v3 = (this.a_di.m() + (this.f_F * v1));
-        int v4 = SceneryList.a((this.a_di.m() + (this.f_F * v1)));
-        if (fcmpl(this.a_di.j(), this.a().a()) >= 0) goto L77;
+        int v4 = SceneryList.a__int((this.a_di.m() + (this.f_F * v1)));
+        if (fcmpl(this.a_di.j(), this.a__CarPhysics().a__float()) >= 0) goto L77;
         if (v2 == 0) goto L77;
         if (v4 == 0) goto L77;
         if (v2 == v4) goto L77;
@@ -978,11 +978,11 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public boolean b() {
+    public boolean b__boolean() {
         return this.b_Z;
     }
     // bytecode 40 bytes, max_stack 5, max_locals 2
-    public void a() {
+    public void a__void() {
         this.b_Z = true;
         ObfCl v1 = this;
         v1 = this;
@@ -991,29 +991,29 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 18 bytes, max_stack 2, max_locals 1
-    public int a() {
-        return ((this.g_I * this.a_bs.a()) + this.f_I);
+    public int a__int() {
+        return ((this.g_I * this.a_bs.a__int()) + this.f_I);
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int b() {
+    public int b__int() {
         return this.e_I;
     }
     // bytecode 323 bytes, max_stack 5, max_locals 4
     public void d(float v1) {
         this.b_F = 0.0f;
-        this.a_di.b(this.b_bz.a(), this.b_bz.b(), this.b_bz.c());
+        this.a_di.b(this.b_bz.a__float(), this.b_bz.b(), this.b_bz.c());
         this.d_Z = false;
-        int v2 = this.a_bs.a(this.a_di.b(), this.a_di.c(), this.a_bz.a(), this.a_bz.b());
-        if (this.a_bs.a(this.a_di.b(), this.a_di.c(), this.a_bz.a(), this.a_bz.b()) < 0) goto L96;
+        int v2 = this.a_bs.a(this.a_di.b(), this.a_di.c(), this.a_bz.a__float(), this.a_bz.b());
+        if (this.a_bs.a(this.a_di.b(), this.a_di.c(), this.a_bz.a__float(), this.a_bz.b()) < 0) goto L96;
         this.e_I = this.c;
         this.f_I = v2;
         this.d_Z = true;
         L96:
-        this.a_di.a(this.a_bz.a(), this.a_bz.b(), this.a_bz.c(), this.j);
-        v2 = SceneryList.a(this.a_di.m());
+        this.a_di.a(this.a_bz.a__float(), this.a_bz.b(), this.a_bz.c(), this.j);
+        v2 = SceneryList.a__int(this.a_di.m());
         this.a_di.j((this.f_F * v1));
-        int v3 = SceneryList.a(this.a_di.m());
-        if (fcmpl(this.a_di.j(), this.a().a()) >= 0) goto L202;
+        int v3 = SceneryList.a__int(this.a_di.m());
+        if (fcmpl(this.a_di.j(), this.a__CarPhysics().a__float()) >= 0) goto L202;
         if (v2 == 0) goto L202;
         if (v3 == 0) goto L202;
         if (v2 == v3) goto L202;
@@ -1022,7 +1022,7 @@ public class ObfCl extends ObfCa {
         if (this.k_Z == 0) goto L253;
         this.h = true;
         this.a_di.c(SceneryList.b(((double) this.e_bz.b())));
-        this.a_di.a(SceneryList.b(((double) this.e_bz.a())));
+        this.a_di.a(SceneryList.b(((double) this.e_bz.a__float())));
         goto L278;
         L253:
         if (this.h == 0) goto L268;
@@ -1033,12 +1033,12 @@ public class ObfCl extends ObfCa {
         L278:
         this.a_di.f(v1);
         this.a_di.k((v1 * (this.a_di.m() + this.a_x.x())));
-        this.a_di.b();
+        this.a_di.b__void();
         this.b_F = 0.0f;
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public CameraState a() {
+    public CameraState a__CameraState() {
         return this.a_di;
     }
     // bytecode 315 bytes, max_stack 4, max_locals 8
@@ -1077,19 +1077,19 @@ public class ObfCl extends ObfCa {
         if (v4.e_Z != 0) goto L195;
         v5 = (0.0f + (0.30000001192092896f * ObfAr.c));
         L195:
-        v4 = ((ObfR) this.a_bs.a(this.a_bs.b(), this.a_bs.c()));
-        v4 = ((ObfR) (2 - this.a_bs.a(this.a_bs.b(), this.a_bs.c()).a));
+        v4 = ((ObfR) this.a_bs.a(this.a_bs.b__int(), this.a_bs.c__int()));
+        v4 = ((ObfR) (2 - this.a_bs.a(this.a_bs.b__int(), this.a_bs.c__int()).a));
         float v7 = SysUtil.a(((float) (2 - v4)), v5, v6);
         v6 = SysUtil.b(((float) (2 - v4)), v5, v6);
         v5 = v7;
         this.a_di.a((v1 + v6), (v2 + v5), 0.0f);
         this.a_di.h(v3);
         this.a_at.a(this.a_di.b(), this.a_di.c(), this.a_di.d());
-        this.j();
+        this.j__void();
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public CarPhysics a() {
+    public CarPhysics a__CarPhysics() {
         return this.a_x;
     }
     // bytecode 1 bytes, max_stack 0, max_locals 2
@@ -1097,11 +1097,11 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public Vec3 a() {
+    public Vec3 a__Vec3() {
         return this.a_bz;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public Vec3 b() {
+    public Vec3 b__Vec3() {
         return this.b_bz;
     }
     // bytecode 53 bytes, max_stack 4, max_locals 2
@@ -1118,15 +1118,15 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public Vec2 a() {
+    public Vec2 a__Vec2() {
         return this.a_z;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public boolean c() {
+    public boolean c__boolean() {
         return this.d_Z;
     }
     // bytecode 16 bytes, max_stack 2, max_locals 1
-    public int c() {
+    public int c__int() {
         if (this.m_Z == 0) goto L14;
         return (this.g_I - 1);
         L14:
@@ -1176,27 +1176,27 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int d() {
+    public int d__int() {
         return this.j_I;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int e() {
+    public int e__int() {
         return this.c;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int f() {
+    public int f__int() {
         return this.i_I;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public float a() {
+    public float a__float() {
         return this.j_F;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int g() {
+    public int g__int() {
         return this.h_I;
     }
     // bytecode 82 bytes, max_stack 5, max_locals 2
-    public void j() {
+    public void j__void() {
         this.a_at.a((((-this.a_di.k()) / 3.1415927410125732f) * 180.0f), 0.0f, 0.0f, 1.0f);
         this.a_at.b(((this.a_di.h() / 3.1415927410125732f) * 180.0f), 1.0f, 0.0f, 0.0f);
         ObfCl v1 = this;
@@ -1209,23 +1209,23 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 1 bytes, max_stack 0, max_locals 1
-    public void b() {
+    public void b__void() {
         return;
     }
     // bytecode 2 bytes, max_stack 1, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         return 0;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int h() {
+    public int h__int() {
         return this.a;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int i() {
+    public int i__int() {
         return this.b;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public boolean d() {
+    public boolean d__boolean() {
         return this.l_Z;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 1
@@ -1234,7 +1234,7 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int j() {
+    public int j__int() {
         return this.g_I;
     }
     // bytecode 212 bytes, max_stack 5, max_locals 3
@@ -1242,17 +1242,17 @@ public class ObfCl extends ObfCa {
         v1.writeLong(this.a_J);
         this.a_J = (this.a_J + 1L);
         ObfCl v2 = this;
-        v1.writeFloat(this.a_di.a().a());
+        v1.writeFloat(this.a_di.a__Vec3().a__float());
         v2 = this;
-        v1.writeFloat(this.a_di.a().b());
+        v1.writeFloat(this.a_di.a__Vec3().b());
         v2 = this;
-        v1.writeFloat(this.a_di.a().c());
+        v1.writeFloat(this.a_di.a__Vec3().c());
         v2 = this;
-        v1.writeFloat(this.a_di.b().a());
+        v1.writeFloat(this.a_di.b__Vec3().a__float());
         v2 = this;
-        v1.writeFloat(this.a_di.b().b());
+        v1.writeFloat(this.a_di.b__Vec3().b());
         v2 = this;
-        v1.writeFloat(this.a_di.b().c());
+        v1.writeFloat(this.a_di.b__Vec3().c());
         v2 = this;
         v1.writeFloat(this.a_di.k());
         v2 = this;
@@ -1264,9 +1264,9 @@ public class ObfCl extends ObfCa {
         v2 = this;
         v1.writeFloat(this.a_di.l());
         v2 = this;
-        v1.writeFloat(this.a_di.a().a());
+        v1.writeFloat(this.a_di.a__Vec2().a__float());
         v2 = this;
-        v1.writeFloat(this.a_di.a().b());
+        v1.writeFloat(this.a_di.a__Vec2().b());
         return;
     }
     // bytecode 1 bytes, max_stack 0, max_locals 2
@@ -1280,7 +1280,7 @@ public class ObfCl extends ObfCa {
     }
     // bytecode 9 bytes, max_stack 2, max_locals 2
     public void b(int v1) {
-        this.a().a(v1);
+        this.a__CarPhysics().a(v1);
         return;
     }
 }

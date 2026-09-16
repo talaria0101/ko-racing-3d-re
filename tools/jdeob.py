@@ -517,6 +517,28 @@ _CONV = {'i2l': 'long', 'i2f': 'float', 'i2d': 'double',
          'l2i_dup': 'int'}
 
 
+def overload_map(klass, names):
+    """(name, params, ret) -> printed name, splitting return-only clashes."""
+    groups = {}
+    for _, mname, mdesc, _ in klass.methods:
+        if mname in ('<init>', '<clinit>'):
+            continue
+        try:
+            params, ret = split_desc(mdesc)
+        except Exception:
+            continue
+        groups.setdefault((mname, tuple(params)), {})[ret] = 1
+    omap = {}
+    for (mname, params), rets in groups.items():
+        if len(rets) > 1:
+            for ret in rets:
+                tag = java_type(ret, names).replace('.', '_')
+                tag = tag.replace('[', 'arr').replace(']', '')
+                tag = ''.join(ch if ch.isalnum() else '_' for ch in tag)
+                omap[(mname, tuple(params), ret)] = '%s__%s' % (mname, tag)
+    return omap
+
+
 def _esc(s):
     return (s.replace('\\', '\\\\').replace('"', '\\"')
              .replace('\n', '\\n').replace('\r', '\\r').replace('\t', '\\t'))
@@ -529,6 +551,17 @@ class Emitter:
         self.fmap = fmap or {}
         self._own_desc = desc
         self.klass = klass
+        self._init_rest(klass, acc, name, desc, code, names)
+        self.omap = overload_map(klass, names)
+
+    def oname(self, nm, ds):
+        try:
+            params, ret = split_desc(ds)
+        except Exception:
+            return nm
+        return self.omap.get((nm, tuple(params), ret), nm)
+
+    def _init_rest(self, klass, acc, name, desc, code, names):
         self.names = names
         self.mname = name
         self.static = bool(acc & 0x0008)
@@ -716,7 +749,9 @@ class Emitter:
         else:
             head = 'public %s%s %s(' % (
                 'static ' if self.static else '',
-                java_type(self.ret, self.names), self.mname)
+                java_type(self.ret, self.names),
+                self.oname(self.mname, '(%s)%s' % (''.join(self.params),
+                                                   self.ret)))
         parts = []
         idx = 0 if self.static else 1
         for p in self.params:
@@ -1276,6 +1311,7 @@ class Emitter:
         ds = rest.split(':')[1] if ':' in rest else ''
         cls_r = readable_class(cls.replace('/', '.'), self.names)
         params, ret = split_desc(ds) if ds.startswith('(') else ([], 'V')
+        nm = self.oname(nm, ds) if ds.startswith('(') else nm
         nargs = len(params)
         args = [self.pop()[1] for _ in range(nargs)]
         args.reverse()

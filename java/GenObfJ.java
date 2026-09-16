@@ -35,28 +35,28 @@ public class ObfJ {
         return;
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
-    public void a() {
+    public void a__void() {
         this.a.setIdentity();
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public Transform a() {
+    public Transform a__Transform() {
         return this.a;
     }
     public void a(CameraState v1, float v2);
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public Frustum a() {
+    public Frustum a__Frustum() {
         return this.a_df;
     }
     // bytecode 2 bytes, max_stack 1, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         return 1;
     }
     // bytecode 27 bytes, max_stack 3, max_locals 3
     public void a(ObfJ v1) {
         ObfJ v2 = v1;
         this.a_F = v1.a_F;
-        this.b = v1.a();
+        this.b = v1.a__float();
         this.d = v1.b();
         return;
     }
@@ -65,7 +65,7 @@ public class ObfJ {
         return this.a_F;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public float a() {
+    public float a__float() {
         return this.b;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1

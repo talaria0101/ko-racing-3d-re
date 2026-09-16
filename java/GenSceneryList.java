@@ -49,7 +49,7 @@ public class SceneryList {
         return;
     }
     // bytecode 32 bytes, max_stack 2, max_locals 2
-    public ObfAi a(int v1) {
+    public ObfAi a__ObfAi(int v1) {
         if (this.a[v1].a() != 0) goto L25;
         this.a[v1].a(this.a_cf);
         L25:
@@ -85,7 +85,7 @@ public class SceneryList {
         return 0;
     }
     // bytecode 34 bytes, max_stack 1, max_locals 1
-    public static int a(int v0) {
+    public static int a__int(int v0) {
         switch (v0) {
         case 0: goto L28;
         case 2: goto L30;

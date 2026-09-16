@@ -162,7 +162,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         return;
     }
     // bytecode 630 bytes, max_stack 5, max_locals 8
-    public boolean a(String v1, String v2) {
+    public boolean a__boolean(String v1, String v2) {
         /* try L339-L362 catch java.lang.Exception -> L365 */
         /* try L474-L497 catch java.lang.Exception -> L500 */
         /* try L505-L538 catch java.lang.Exception -> L541 */
@@ -198,7 +198,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v3.setRequestProperty("User-Agent", this.b_String);
         L169:
         new java.lang.StringBuffer(); /* constructor */
-        String v7 = new java.lang.StringBuffer().append("").append(VservManager.b(v4)).toString();
+        String v7 = new java.lang.StringBuffer().append("").append(VservManager.b__String(v4)).toString();
         v3.setRequestMethod("POST");
         v3.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
         new java.lang.StringBuffer(); /* constructor */
@@ -332,7 +332,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (this.D_Z != 0) goto L61;
         this.x_Z = true;
         L61:
-        this.a(v1);
+        this.a__void(v1);
         if (this.c == null) goto L116;
         if (this.c.length <= 0) goto L116;
         this.a_arrZ = new boolean[this.c.length]#2;
@@ -442,7 +442,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         return;
     }
     // bytecode 1996 bytes, max_stack 4, max_locals 16
-    public void a(String v1) {
+    public void a__void(String v1) {
         /* try L152-L279 catch java.lang.Exception -> L282 */
         /* try L288-L866 catch java.lang.Exception -> L869 */
         /* try L875-L1192 catch java.lang.Exception -> L1195 */
@@ -1555,20 +1555,20 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         return;
     }
     // bytecode 821 bytes, max_stack 4, max_locals 14
-    public String a(String v1) {
+    public String a__String(String v1) {
         VservManager.t = this.getWidth();
         VservManager.u = this.getHeight();
         VservManager v4 = this;
         int v5 = 0;
         int v6 = 0;
         if (v4.b_Hashta.containsKey("supportedScreens") == 0) goto L509;
-        v4 = ((VservManager) VservManager.a(v4.b_Hashta.get("supportedScreens").toString(), "|"));
-        int v7 = new int[VservManager.a(v4.b_Hashta.get("supportedScreens").toString(), "|").length]#1;
+        v4 = ((VservManager) VservManager.a__Stringarr(v4.b_Hashta.get("supportedScreens").toString(), "|"));
+        int v7 = new int[VservManager.a__Stringarr(v4.b_Hashta.get("supportedScreens").toString(), "|").length]#1;
         int v8 = new int[v4.length]#2;
         int v2 = 0;
         L72:
         if (v2 >= v4.length) goto L124;
-        String[] v3 = VservManager.a(v4[v2].toLowerCase(), "x");
+        String[] v3 = VservManager.a__Stringarr(v4[v2].toLowerCase(), "x");
         v7[v2] = java.lang.Integer.parseInt(java.lang.String.valueOf(v3[0]));
         v8[v2] = java.lang.Integer.parseInt(java.lang.String.valueOf(v3[1]));
         v2 += 1;
@@ -1658,8 +1658,8 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v3 = ((String[]) v3[1]);
         v5 = ((int) v1);
         v4 = this;
-        v6 = ((int) VservManager.a(v5, "."));
-        v4 = ((VservManager) VservManager.a(v5, ".")[(v6.length - 1)]);
+        v6 = ((int) VservManager.a__Stringarr(v5, "."));
+        v4 = ((VservManager) VservManager.a__Stringarr(v5, ".")[(v6.length - 1)]);
         v7 = ((int) "");
         v8 = 0;
         L567:
@@ -1690,7 +1690,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         return v5;
     }
     // bytecode 389 bytes, max_stack 5, max_locals 9
-    public String[] a(String v1) {
+    public String[] a__Stringarr(String v1) {
         /* try L38-L377 catch java.lang.Exception -> L380 */
         int v2 = VservManager.t;
         Object v4 = null;
@@ -1872,7 +1872,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v2.l = v5;
         L621:
         if (v2.D_Z == 0) goto L660;
-        v2.a_Image = javax.microedition.lcdui.Image.createImage(v2.a(v2.h_String));
+        v2.a_Image = javax.microedition.lcdui.Image.createImage(v2.a__String(v2.h_String));
         goto L647;
         /* pop: ex_646; */
         L647:
@@ -1984,7 +1984,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v1 = ((int) v2);
         v2.j_String = v5;
         v8 = v2;
-        v5 = ((int) v2.a(v2.j_String));
+        v5 = ((int) v2.a__Stringarr(v2.j_String));
         v8 = v2;
         v2.b_String = v5;
         v2.e();
@@ -2140,7 +2140,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         return;
     }
     // bytecode 165 bytes, max_stack 2, max_locals 4
-    public static String b(String v0) {
+    public static String b__String(String v0) {
         if (v0 != null) goto L6;
         return null;
         L6:
@@ -2190,8 +2190,8 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         String v1 = "zoneId";
         if (this.b_Hashta.containsKey(v1) == 0) goto L116;
         new java.lang.StringBuffer(); /* constructor */
-        int v2 = this.a(new java.lang.StringBuffer().append(this.d_String).append("&showat=").append(VservManager.b(this.c_String)).append("&zoneid=").append(VservManager.b(this.b_Hashta.get(v1).toString())).toString(), this.b_Hashta.get(v1).toString());
-        if (this.a(new java.lang.StringBuffer().append(this.d_String).append("&showat=").append(VservManager.b(this.c_String)).append("&zoneid=").append(VservManager.b(this.b_Hashta.get(v1).toString())).toString(), this.b_Hashta.get(v1).toString()) == 0) goto L101;
+        int v2 = this.a__boolean(new java.lang.StringBuffer().append(this.d_String).append("&showat=").append(VservManager.b__String(this.c_String)).append("&zoneid=").append(VservManager.b__String(this.b_Hashta.get(v1).toString())).toString(), this.b_Hashta.get(v1).toString());
+        if (this.a__boolean(new java.lang.StringBuffer().append(this.d_String).append("&showat=").append(VservManager.b__String(this.c_String)).append("&zoneid=").append(VservManager.b__String(this.b_Hashta.get(v1).toString())).toString(), this.b_Hashta.get(v1).toString()) == 0) goto L101;
         this.removeCommand(this.d_Comman);
         this.d_J = 0L;
         L101:
@@ -2207,8 +2207,8 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L137:
         if (v2 >= this.a_String.length) goto L223;
         new java.lang.StringBuffer(); /* constructor */
-        int v3 = this.a(new java.lang.StringBuffer().append(this.d_String).append("&showat=end").append("&zoneid=").append(VservManager.b(this.a_String[v2])).toString(), this.a_String[v2]);
-        if (this.a(new java.lang.StringBuffer().append(this.d_String).append("&showat=end").append("&zoneid=").append(VservManager.b(this.a_String[v2])).toString(), this.a_String[v2]) == 0) goto L213;
+        int v3 = this.a__boolean(new java.lang.StringBuffer().append(this.d_String).append("&showat=end").append("&zoneid=").append(VservManager.b__String(this.a_String[v2])).toString(), this.a_String[v2]);
+        if (this.a__boolean(new java.lang.StringBuffer().append(this.d_String).append("&showat=end").append("&zoneid=").append(VservManager.b__String(this.a_String[v2])).toString(), this.a_String[v2]) == 0) goto L213;
         this.removeCommand(this.d_Comman);
         this.d_J = 0L;
         L213:
@@ -2344,7 +2344,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L655:
         if (v3 == null) goto L754;
         new java.lang.StringBuffer(); /* constructor */
-        String v9 = new java.lang.StringBuffer().append("data=").append(VservManager.b(v3)).toString();
+        String v9 = new java.lang.StringBuffer().append("data=").append(VservManager.b__String(v3)).toString();
         v6.setRequestMethod("POST");
         v6.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
         new java.lang.StringBuffer(); /* constructor */
@@ -2498,7 +2498,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.a(this.g_String, 2);
         goto L1520;
         L1457:
-        v1 = ((Enumeration) this.getClass().getResourceAsStream(this.a(this.g_String)));
+        v1 = ((Enumeration) this.getClass().getResourceAsStream(this.a__String(this.g_String)));
         this.a_Player = javax.microedition.media.Manager.createPlayer(v1, "video/3gpp");
         this.E_Z = true;
         this.a_Player.addPlayerListener(this);
@@ -2589,7 +2589,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         /* pop: ex_183; */
         L184:
         new java.lang.StringBuffer(); /* constructor */
-        this.d_String = new java.lang.StringBuffer().append("http://a.vserv.mobi/delivery/adapi.php?ua=").append(VservManager.b(this.b_String)).append("&sw=").append(VservManager.t).append("&sh=").append(VservManager.u).append("&vr=").append(VservManager.b("j0.1.13")).append("&app=1").toString();
+        this.d_String = new java.lang.StringBuffer().append("http://a.vserv.mobi/delivery/adapi.php?ua=").append(VservManager.b__String(this.b_String)).append("&sw=").append(VservManager.t).append("&sh=").append(VservManager.u).append("&vr=").append(VservManager.b__String("j0.1.13")).append("&app=1").toString();
         if (this.J != 0) goto L265;
         this.o();
         return;
@@ -2650,7 +2650,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         VservManager v1 = this;
         if (v1.midlet.getAppProperty("MIDlet-Name") == null) goto L62;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&mn=").append(VservManager.b(v1.midlet.getAppProperty("MIDlet-Name"))).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&mn=").append(VservManager.b__String(v1.midlet.getAppProperty("MIDlet-Name"))).toString();
         L62:
         goto L66;
         /* pop: ex_65; */
@@ -2681,21 +2681,21 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L229:
         if (v1.b_Hashta.containsKey("vservParam") == 0) goto L288;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&").append(VservManager.b(v1.b_Hashta.get("vservParam").toString().trim())).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&").append(VservManager.b__String(v1.b_Hashta.get("vservParam").toString().trim())).toString();
         L288:
         goto L292;
         /* pop: ex_291; */
         L292:
         if (v1.b_Hashta.containsKey("vservJarParam") == 0) goto L351;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&").append(VservManager.b(v1.b_Hashta.get("vservJarParam").toString().trim())).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&").append(VservManager.b__String(v1.b_Hashta.get("vservJarParam").toString().trim())).toString();
         L351:
         goto L355;
         /* pop: ex_354; */
         L355:
         if (v1.b_Hashta.containsKey("categoryId") == 0) goto L414;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&zc=").append(VservManager.b(v1.b_Hashta.get("categoryId").toString().trim())).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&zc=").append(VservManager.b__String(v1.b_Hashta.get("categoryId").toString().trim())).toString();
         L414:
         goto L418;
         /* pop: ex_417; */
@@ -2723,14 +2723,14 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L535:
         if (java.lang.System.getProperty("microedition.locale") == null) goto L580;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&lc=").append(VservManager.b(java.lang.System.getProperty("microedition.locale"))).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&lc=").append(VservManager.b__String(java.lang.System.getProperty("microedition.locale"))).toString();
         L580:
         goto L584;
         /* pop: ex_583; */
         L584:
         if (VservManager.imeiNo == null) goto L628;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&im=").append(VservManager.b(VservManager.imeiNo)).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&im=").append(VservManager.b__String(VservManager.imeiNo)).toString();
         goto L791;
         L628:
         new java.util.Vector(); /* constructor */
@@ -2753,7 +2753,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (VservManager.imeiNo.trim().length() < 8) goto L698;
         v3 = 1;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&im=").append(VservManager.b(VservManager.imeiNo)).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&im=").append(VservManager.b__String(VservManager.imeiNo)).toString();
         L779:
         if (v3 != 0) goto L787;
         VservManager.imeiNo = null;
@@ -2763,7 +2763,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L791:
         if (java.lang.System.getProperty("wireless.messaging.sms.smsc") == null) goto L836;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&smsc=").append(VservManager.b(java.lang.System.getProperty("wireless.messaging.sms.smsc"))).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&smsc=").append(VservManager.b__String(java.lang.System.getProperty("wireless.messaging.sms.smsc"))).toString();
         L836:
         goto L840;
         /* pop: ex_839; */
@@ -2772,7 +2772,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v2 = ((java.util.Vector) 0);
         if (VservManager.networkCode == null) goto L892;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&nc=").append(VservManager.b(VservManager.networkCode)).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&nc=").append(VservManager.b__String(VservManager.networkCode)).toString();
         goto L1204;
         L892:
         new java.util.Vector(); /* constructor */
@@ -2797,9 +2797,9 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (v6.equals("com.nokia.mid.mnc") == 0) goto L1135;
         if (v6.length() <= 3) goto L1135;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&nc=").append(VservManager.b(VservManager.networkCode.substring(3))).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&nc=").append(VservManager.b__String(VservManager.networkCode.substring(3))).toString();
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&cc=").append(VservManager.b(VservManager.networkCode.substring(0, 3))).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&cc=").append(VservManager.b__String(VservManager.networkCode.substring(0, 3))).toString();
         VservManager.countryCode = VservManager.networkCode.substring(0, 3);
         VservManager.networkCode = VservManager.networkCode.substring(3);
         v4 = ((Enumeration) 1);
@@ -2808,7 +2808,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L1135:
         v4 = ((Enumeration) 1);
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&nc=").append(VservManager.b(VservManager.networkCode.substring(3))).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&nc=").append(VservManager.b__String(VservManager.networkCode.substring(3))).toString();
         goto L1183;
         L1180:
         goto L963;
@@ -2825,7 +2825,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (v2 != 0) goto L1410;
         if (VservManager.countryCode == null) goto L1252;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&cc=").append(VservManager.b(VservManager.countryCode)).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&cc=").append(VservManager.b__String(VservManager.countryCode)).toString();
         goto L1410;
         L1252:
         new java.util.Vector(); /* constructor */
@@ -2846,7 +2846,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (java.lang.System.getProperty(((java.lang.String) v5.nextElement())) == null) goto L1317;
         if (VservManager.countryCode.trim().length() < 0) goto L1317;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&cc=").append(VservManager.b(VservManager.countryCode)).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&cc=").append(VservManager.b__String(VservManager.countryCode)).toString();
         v4 = ((Enumeration) 1);
         L1397:
         if (v4 != 0) goto L1406;
@@ -2858,7 +2858,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (v1.z_Z == 0) goto L1797;
         if (VservManager.cellId == null) goto L1461;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&ce=").append(VservManager.b(VservManager.cellId)).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&ce=").append(VservManager.b__String(VservManager.cellId)).toString();
         goto L1619;
         L1461:
         new java.util.Vector(); /* constructor */
@@ -2879,7 +2879,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (java.lang.System.getProperty(((java.lang.String) v5.nextElement())) == null) goto L1526;
         if (VservManager.cellId.trim().length() < 0) goto L1526;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&ce=").append(VservManager.b(VservManager.cellId)).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&ce=").append(VservManager.b__String(VservManager.cellId)).toString();
         v4 = ((Enumeration) 1);
         L1606:
         if (v4 != 0) goto L1615;
@@ -2890,7 +2890,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L1619:
         if (VservManager.locationAreaCode == null) goto L1663;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&lac=").append(VservManager.b(VservManager.locationAreaCode)).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&lac=").append(VservManager.b__String(VservManager.locationAreaCode)).toString();
         goto L1797;
         L1663:
         new java.util.Vector(); /* constructor */
@@ -2907,7 +2907,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (java.lang.System.getProperty(((java.lang.String) v5.nextElement())) == null) goto L1704;
         if (VservManager.locationAreaCode.trim().length() < 0) goto L1704;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&lac=").append(VservManager.b(VservManager.locationAreaCode)).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&lac=").append(VservManager.b__String(VservManager.locationAreaCode)).toString();
         v4 = ((Enumeration) 1);
         L1784:
         if (v4 != 0) goto L1793;
@@ -2929,14 +2929,14 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v1.z = new java.lang.StringBuffer().append(java.lang.String.valueOf(v4)).append("/").append(java.lang.String.valueOf(v6)).append("/").append(java.lang.String.valueOf(v5)).toString();
         if (v1.z == null) goto L1940;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&pd=").append(VservManager.b(v1.z)).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&pd=").append(VservManager.b__String(v1.z)).toString();
         L1940:
         v3.setTime(v2);
         new java.lang.StringBuffer(); /* constructor */
         v1.A = new java.lang.StringBuffer().append(v3.get(11)).append(":").append(v3.get(12)).append(":").append(v3.get(13)).toString();
         if (v1.A == null) goto L2039;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&pt=").append(VservManager.b(v1.A)).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&pt=").append(VservManager.b__String(v1.A)).toString();
         L2039:
         goto L2043;
         /* pop: ex_2042; */
@@ -2944,14 +2944,14 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (v1.b_Hashta.containsKey("jadParam") == 0) goto L2128;
         if (v1.midlet.getAppProperty(v1.b_Hashta.get("jadParam").toString()) == null) goto L2128;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&userProfile=").append(VservManager.b(v1.midlet.getAppProperty(v1.b_Hashta.get("jadParam").toString()))).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&userProfile=").append(VservManager.b__String(v1.midlet.getAppProperty(v1.b_Hashta.get("jadParam").toString()))).toString();
         L2128:
         goto L2132;
         /* pop: ex_2131; */
         L2132:
         if (v1.midlet.getAppProperty("MIDlet-Version").toString() == null) goto L2191;
         new java.lang.StringBuffer(); /* constructor */
-        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&av=").append(VservManager.b(v1.midlet.getAppProperty("MIDlet-Version").toString())).toString();
+        v1.d_String = new java.lang.StringBuffer().append(v1.d_String).append("&av=").append(VservManager.b__String(v1.midlet.getAppProperty("MIDlet-Version").toString())).toString();
         L2191:
         goto L2195;
         /* pop: ex_2194; */
@@ -2962,7 +2962,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         VservManager.cache.clear();
         goto L2286;
         L2242:
-        v1 = ((VservManager) VservManager.a(v1, "|"));
+        v1 = ((VservManager) VservManager.a__Stringarr(v1, "|"));
         v2 = ((java.util.Vector) 0);
         L2252:
         if (v2 >= v1.length) goto L2286;
@@ -2973,14 +2973,14 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         goto L2252;
         L2286:
         if (this.b_Hashta.containsKey("cache") == 0) goto L2320;
-        this.a_String = VservManager.a(this.b_Hashta.get("cache").toString(), "|");
+        this.a_String = VservManager.a__Stringarr(this.b_Hashta.get("cache").toString(), "|");
         L2320:
         v1 = this;
         this.d_Z = true;
         return;
     }
     // bytecode 102 bytes, max_stack 4, max_locals 4
-    public static String[] a(String v0, String v1) {
+    public static String[] a__Stringarr(String v0, String v1) {
         new java.util.Vector(); /* constructor */
         java.util.Vector v2 = new java.util.Vector();
         int v3 = v0.indexOf(v1);
@@ -3015,7 +3015,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         return;
     }
     // bytecode 334 bytes, max_stack 6, max_locals 3
-    public void b(String v1) {
+    public void b__void(String v1) {
         VservManager v2 = this;
         if (this.a_B >= 4) goto L24;
         v2.a_B = ((byte) (v2.a_B + 1));
@@ -3136,7 +3136,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L248:
         v1.setColor(0);
         v1.fillRect(0, 0, VservManager.t, VservManager.u);
-        this.b(this.k_String);
+        this.b__void(this.k_String);
         goto L493;
         L276:
         if (VservManager.t == this.z_I) goto L328;
@@ -3144,7 +3144,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.z_I = VservManager.t;
         this.A_I = VservManager.u;
         VservManager v2 = this;
-        String[] v3 = this.a(this.j_String);
+        String[] v3 = this.a__Stringarr(this.j_String);
         v2 = this;
         this.b_String = v3;
         L328:
@@ -3158,7 +3158,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (this.m_Z != 0) goto L396;
         v1.setColor(0);
         v1.fillRect(0, 0, VservManager.t, VservManager.u);
-        this.b(this.k_String);
+        this.b__void(this.k_String);
         goto L493;
         L396:
         v2 = this;
@@ -3169,7 +3169,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (this.n_Z != 0) goto L456;
         v1.setColor(0);
         v1.fillRect(0, 0, VservManager.t, VservManager.u);
-        this.b(this.k_String);
+        this.b__void(this.k_String);
         goto L493;
         L456:
         v2 = this;
@@ -3448,7 +3448,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         return;
         L78:
         if (v1.length() == 0) goto L212;
-        v1 = ((String) VservManager.a(v1, ","));
+        v1 = ((String) VservManager.a__Stringarr(v1, ","));
         int v2 = 0;
         int v3 = 0;
         L96:

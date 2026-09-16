@@ -23,7 +23,7 @@ public class ObfW extends MenuScreen {
         return;
     }
     // bytecode 46 bytes, max_stack 2, max_locals 1
-    public void b() {
+    public void b__void() {
         ObfR.k = ObfW.a.f();
         ObfR.j = ObfW.a.g();
         this.a_arrB = ObfW.a.a();
@@ -146,7 +146,7 @@ public class ObfW extends MenuScreen {
         return;
     }
     // bytecode 29 bytes, max_stack 2, max_locals 2
-    public int b() {
+    public int b__int() {
         ObfCl v1 = this.a.a(this.e());
         if (this.s != 0) goto L24;
         return v1.e();

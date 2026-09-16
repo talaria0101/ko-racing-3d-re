@@ -30,14 +30,14 @@ public class AudioPlayer implements javax.microedition.media.PlayerListener {
         return;
     }
     // bytecode 192 bytes, max_stack 4, max_locals 4
-    public Player a(String v1) {
+    public Player a__Player(String v1) {
         /* try L16-L176 catch java.lang.Exception -> L179 */
         javax.microedition.media.Player v2 = ((javax.microedition.media.Player) this.a.get(v1));
         if (((javax.microedition.media.Player) this.a.get(v1)) != null) goto L190;
         String v3 = v1;
         if (AudioPlayer.a_Class != null) goto L44;
-        AudioPlayer.a_Class = AudioPlayer.a("cy");
-        jt1 = AudioPlayer.a("cy"); /* join L47 from L32 */
+        AudioPlayer.a_Class = AudioPlayer.a__Class("cy");
+        jt1 = AudioPlayer.a__Class("cy"); /* join L47 from L32 */
         goto L47;
         L44:
         jt1 = AudioPlayer.a_Class; /* join L47 from L44 */
@@ -77,7 +77,7 @@ public class AudioPlayer implements javax.microedition.media.PlayerListener {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int a() {
+    public int a__int() {
         return this.c;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -86,7 +86,7 @@ public class AudioPlayer implements javax.microedition.media.PlayerListener {
         return;
     }
     // bytecode 11 bytes, max_stack 1, max_locals 1
-    public void b() {
+    public void b__void() {
         /* try L0-L8 catch java.lang.Exception -> L9 */
         AudioPlayer.a_Player.start();
         return;
@@ -119,7 +119,7 @@ public class AudioPlayer implements javax.microedition.media.PlayerListener {
         v3.deallocate();
         java.lang.Thread.sleep(70L);
         L75:
-        AudioPlayer.a_Player = this.a(v1);
+        AudioPlayer.a_Player = this.a__Player(v1);
         this.e();
         /* pop: AudioPlayer.a_Player.setMediaTime(-1L); */
         goto L103;
@@ -134,7 +134,7 @@ public class AudioPlayer implements javax.microedition.media.PlayerListener {
         return 1;
     }
     // bytecode 44 bytes, max_stack 2, max_locals 1
-    public void a() {
+    public void a__void() {
         /* try L14-L20 catch java.lang.InterruptedException -> L23 */
         if (AudioPlayer.a_Player == null) goto L24;
         AudioPlayer.a_Player.deallocate();
@@ -154,11 +154,11 @@ public class AudioPlayer implements javax.microedition.media.PlayerListener {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int b() {
+    public static int b__int() {
         return AudioPlayer.d;
     }
     // bytecode 18 bytes, max_stack 3, max_locals 1
-    public static Class a(String v0) {
+    public static Class a__Class(String v0) {
         /* try L0-L4 catch java.lang.ClassNotFoundException -> L5 */
         return java.lang.Class.forName(v0);
         v0 = ((String) ex_5);

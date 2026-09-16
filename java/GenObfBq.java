@@ -65,7 +65,7 @@ public class ObfBq {
         return;
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
-    public void a() {
+    public void a__void() {
         this.a.releaseTarget();
         return;
     }
@@ -80,7 +80,7 @@ public class ObfBq {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public Graphics3D a() {
+    public Graphics3D a__Graphics3D() {
         return this.a;
     }
     // bytecode 16 bytes, max_stack 2, max_locals 1

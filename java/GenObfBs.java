@@ -60,7 +60,7 @@ public class ObfBs {
         return;
     }
     // bytecode 6 bytes, max_stack 1, max_locals 1
-    public int a() {
+    public int a__int() {
         return this.a_arrB.length;
     }
     // bytecode 133 bytes, max_stack 4, max_locals 5
@@ -73,8 +73,8 @@ public class ObfBs {
         if (v2 != v4) goto L55;
         return m1;
         L55:
-        v1 = ((float) this.a(v1, v2).c());
-        v2 = ((float) this.a(v3, v4).c());
+        v1 = ((float) this.a__ObfBm(v1, v2).c());
+        v2 = ((float) this.a__ObfBm(v3, v4).c());
         if (v1 <= v2) goto L83;
         return m1;
         L83:
@@ -167,9 +167,9 @@ public class ObfBs {
         new java.util.Vector(20); /* constructor */
         v3 = ((int) v2);
         v3 = ((int) v2);
-        v1 = ((InputStream) v2.a(v2.f, v2.g));
-        v3 = ((int) v2.a(v2.f, v2.g));
-        v2 = ((boolean) (-v2.a(v2.f, v2.g).a));
+        v1 = ((InputStream) v2.a__ObfBm(v2.f, v2.g));
+        v3 = ((int) v2.a__ObfBm(v2.f, v2.g));
+        v2 = ((boolean) (-v2.a__ObfBm(v2.f, v2.g).a));
         v1.a(((v2 + 3) % 4), true);
         return;
         v3 = ((int) ex_593);
@@ -192,8 +192,8 @@ public class ObfBs {
         return;
         L29:
         if (v6 < 0) goto L65;
-        if (this.a(v4, v5) == null) goto L65;
-        if (this.a_arrarrLbm[v4][v5].a() != this.e) goto L66;
+        if (this.a__ObfBm(v4, v5) == null) goto L65;
+        if (this.a_arrarrLbm[v4][v5].a__int() != this.e) goto L66;
         L65:
         return;
         L66:
@@ -235,8 +235,8 @@ public class ObfBs {
         return;
         L29:
         if (v6 < 0) goto L65;
-        if (this.a(v4, v5) == null) goto L65;
-        if (this.a_arrarrLbm[v4][v5].a() != this.e) goto L66;
+        if (this.a__ObfBm(v4, v5) == null) goto L65;
+        if (this.a_arrarrLbm[v4][v5].a__int() != this.e) goto L66;
         L65:
         return;
         L66:
@@ -285,31 +285,31 @@ public class ObfBs {
         return;
     }
     // bytecode 201 bytes, max_stack 3, max_locals 3
-    public boolean a() {
+    public boolean a__boolean() {
         float v1 = ((ObfAu.a.b().a() / ObfAr.c) + 0.5f);
         float v2 = ((ObfAu.a.b().b() / ObfAr.c) + 0.5f);
         v1 = ((float) ((int) v1));
         v2 = ((float) ((int) v2));
-        if (this.a(v1, v2) != null) goto L51;
+        if (this.a__ObfBm(v1, v2) != null) goto L51;
         return 0;
         L51:
-        if (this.a_arrarrLbm[v1][v2].a() == 0) goto L67;
+        if (this.a_arrarrLbm[v1][v2].a__boolean() == 0) goto L67;
         return 1;
         L67:
         if (this.a_arrarrLbm[v1][v2].b(0) == 0) goto L100;
-        if (this.a_arrarrLbm[(v1 + 1)][v2].a() == 0) goto L100;
+        if (this.a_arrarrLbm[(v1 + 1)][v2].a__boolean() == 0) goto L100;
         return 1;
         L100:
         if (this.a_arrarrLbm[v1][v2].b(1) == 0) goto L133;
-        if (this.a_arrarrLbm[v1][(v2 - 1)].a() == 0) goto L133;
+        if (this.a_arrarrLbm[v1][(v2 - 1)].a__boolean() == 0) goto L133;
         return 1;
         L133:
         if (this.a_arrarrLbm[v1][v2].b(2) == 0) goto L166;
-        if (this.a_arrarrLbm[(v1 - 1)][v2].a() == 0) goto L166;
+        if (this.a_arrarrLbm[(v1 - 1)][v2].a__boolean() == 0) goto L166;
         return 1;
         L166:
         if (this.a_arrarrLbm[v1][v2].b(3) == 0) goto L199;
-        if (this.a_arrarrLbm[v1][(v2 + 1)].a() == 0) goto L199;
+        if (this.a_arrarrLbm[v1][(v2 + 1)].a__boolean() == 0) goto L199;
         return 1;
         L199:
         return 0;
@@ -326,7 +326,7 @@ public class ObfBs {
         int v2 = 0;
         L40:
         if (v2 >= 4) goto L151;
-        if (this.a(this.c, this.d) == null) goto L145;
+        if (this.a__ObfBm(this.c, this.d) == null) goto L145;
         if (this.a_arrarrLbm[this.c][this.d].a(v2) == 0) goto L145;
         if (this.a_arrarrLbm[this.c][this.d].c(v2) == 0) goto L145;
         if (v1.b((((float) (this.c + SceneryList.a(v2))) * ObfAr.c), (((float) (this.d + SceneryList.b(v2))) * ObfAr.c), (ObfBs.a_F / 5.0f)) == 0) goto L145;
@@ -338,7 +338,7 @@ public class ObfBs {
         return 0;
     }
     // bytecode 35 bytes, max_stack 2, max_locals 3
-    public ObfBm a(int v1, int v2) {
+    public ObfBm a__ObfBm(int v1, int v2) {
         if (v2 < 0) goto L24;
         if (v1 < 0) goto L24;
         if (v2 >= this.b) goto L24;
@@ -357,33 +357,33 @@ public class ObfBs {
         return this.g;
     }
     // bytecode 55 bytes, max_stack 4, max_locals 6
-    public float a(float v1, float v2) {
+    public float a__float(float v1, float v2) {
         v1 = ((v1 / ObfAr.c) + 0.5f);
         v2 = ((v2 / ObfAr.c) + 0.5f);
         int v3 = ((int) v1);
         int v4 = ((int) v2);
-        ObfBm v5 = this.a(v3, v4);
-        if (this.a(v3, v4) == null) goto L53;
-        return v5.a((v1 - ((float) v3)), (v2 - ((float) v4)));
+        ObfBm v5 = this.a__ObfBm(v3, v4);
+        if (this.a__ObfBm(v3, v4) == null) goto L53;
+        return v5.a__float((v1 - ((float) v3)), (v2 - ((float) v4)));
         L53:
         return 0.0f;
     }
     // bytecode 65 bytes, max_stack 5, max_locals 6
-    public Rect a(float v1, float v2) {
+    public Rect a__Rect(float v1, float v2) {
         v1 = ((v1 / ObfAr.c) + 0.5f);
         v2 = ((v2 / ObfAr.c) + 0.5f);
         int v3 = ((int) v1);
         int v4 = ((int) v2);
-        ObfBm v5 = this.a(v3, v4);
-        if (this.a(v3, v4) == null) goto L53;
-        return v5.a((v1 - ((float) v3)), (v2 - ((float) v4)));
+        ObfBm v5 = this.a__ObfBm(v3, v4);
+        if (this.a__ObfBm(v3, v4) == null) goto L53;
+        return v5.a__Rect((v1 - ((float) v3)), (v2 - ((float) v4)));
         L53:
         return SysUtil.a.a(0.0f, 0.0f, -1.0f, 0.0f);
     }
     // bytecode 155 bytes, max_stack 4, max_locals 6
     public void a(int v1, int v2, Vec2 v3) {
-        ObfBm v4 = this.a(v1, v2);
-        if (this.a(v1, v2) != null) goto L13;
+        ObfBm v4 = this.a__ObfBm(v1, v2);
+        if (this.a__ObfBm(v1, v2) != null) goto L13;
         return;
         L13:
         int v5 = 0;
@@ -393,8 +393,8 @@ public class ObfBs {
         if (v4.c(v5) != 0) goto L148;
         v1 = (v1 + SceneryList.a(v5));
         v2 = (v2 + SceneryList.b(v5));
-        if (this.a(v1, v2) == null) goto L101;
-        if (this.a(v1, v2).a(((v5 + 2) % 4)) != 0) goto L101;
+        if (this.a__ObfBm(v1, v2) == null) goto L101;
+        if (this.a__ObfBm(v1, v2).a(((v5 + 2) % 4)) != 0) goto L101;
         v1 = (v1 + SceneryList.a(v5));
         v2 = (v2 + SceneryList.b(v5));
         L101:
@@ -408,7 +408,7 @@ public class ObfBs {
         return;
     }
     // bytecode 492 bytes, max_stack 5, max_locals 5
-    public Image a() {
+    public Image a__Image() {
         /* try L0-L484 catch java.lang.Exception -> L485 */
         int v1 = new int[((this.a * 3) * (this.b * 3))]#1;
         int v2 = 0;
@@ -424,7 +424,7 @@ public class ObfBs {
         int v3 = 0;
         L58:
         if (v3 >= this.b) goto L459;
-        if (this.a(v2, v3) == null) goto L453;
+        if (this.a__ObfBm(v2, v3) == null) goto L453;
         int v4 = 0;
         L78:
         if (v4 >= 4) goto L332;
@@ -470,7 +470,7 @@ public class ObfBs {
     }
     // bytecode 94 bytes, max_stack 3, max_locals 6
     public int a(int v1, int v2, int v3) {
-        v3 = ((int) this.a(v1, v2));
+        v3 = ((int) this.a__ObfBm(v1, v2));
         int v4 = 0;
         L10:
         int v5 = 0;
@@ -480,7 +480,7 @@ public class ObfBs {
         if (v3.c(v5) == 0) goto L60;
         v1 = (v1 + SceneryList.a(v5));
         v2 = (v2 + SceneryList.b(v5));
-        v3 = ((int) this.a(v1, v2));
+        v3 = ((int) this.a__ObfBm(v1, v2));
         L60:
         v5 += 1;
         goto L13;
@@ -493,7 +493,7 @@ public class ObfBs {
     }
     // bytecode 94 bytes, max_stack 3, max_locals 6
     public int b(int v1, int v2, int v3) {
-        v3 = ((int) this.a(v1, v2));
+        v3 = ((int) this.a__ObfBm(v1, v2));
         int v4 = 0;
         L10:
         int v5 = 0;
@@ -503,7 +503,7 @@ public class ObfBs {
         if (v3.c(v5) == 0) goto L60;
         v1 = (v1 + SceneryList.a(v5));
         v2 = (v2 + SceneryList.b(v5));
-        v3 = ((int) this.a(v1, v2));
+        v3 = ((int) this.a__ObfBm(v1, v2));
         L60:
         v5 += 1;
         goto L13;
@@ -515,8 +515,8 @@ public class ObfBs {
         return v2;
     }
     // bytecode 314 bytes, max_stack 6, max_locals 10
-    public Vec3 a(int v1, int v2) {
-        ObfBm v3 = this.a(v1, v2);
+    public Vec3 a__Vec3(int v1, int v2) {
+        ObfBm v3 = this.a__ObfBm(v1, v2);
         Object v4 = null;
         int v6 = 0;
         int v7 = 0;
@@ -560,13 +560,13 @@ public class ObfBs {
         return v4;
     }
     // bytecode 247 bytes, max_stack 3, max_locals 8
-    public void a() {
+    public void a__void() {
         /* try L0-L240 catch java.lang.Exception -> L241 */
         int v1 = this.f;
         int v2 = this.g;
         int v3 = 0;
         int v4 = 0;
-        ObfBm v5 = this.a(v1, v2);
+        ObfBm v5 = this.a__ObfBm(v1, v2);
         int v6 = 0;
         L26:
         v5.c(v3);
@@ -581,10 +581,10 @@ public class ObfBs {
         if (v5.c(v7) != 0) goto L174;
         v1 = (v1 + SceneryList.a(v7));
         v2 = (v2 + SceneryList.b(v7));
-        if (this.a(v1, v2) == null) goto L180;
-        if (this.a(v1, v2).a(((v7 + 2) % 4)) != 0) goto L155;
-        v5 = this.a(v1, v2);
-        this.a(v1, v2).d(v3);
+        if (this.a__ObfBm(v1, v2) == null) goto L180;
+        if (this.a__ObfBm(v1, v2).a(((v7 + 2) % 4)) != 0) goto L155;
+        v5 = this.a__ObfBm(v1, v2);
+        this.a__ObfBm(v1, v2).d(v3);
         v3 += 1;
         if (v6 != 0) goto L139;
         v4 += 1;
@@ -592,7 +592,7 @@ public class ObfBs {
         v1 = (v1 + SceneryList.a(v7));
         v2 = (v2 + SceneryList.b(v7));
         L155:
-        this.a(v1, v2).a(((v7 + 2) % 4), true);
+        this.a__ObfBm(v1, v2).a(((v7 + 2) % 4), true);
         goto L180;
         L174:
         v7 += 1;
@@ -603,7 +603,7 @@ public class ObfBs {
         v6 = 1;
         L199:
         this.h = v3;
-        v5 = this.a(v1, v2);
+        v5 = this.a__ObfBm(v1, v2);
         if (v1 != this.f) goto L228;
         if (v2 == this.g) goto L233;
         L228:
@@ -628,15 +628,15 @@ public class ObfBs {
         int v7 = ((int) v3);
         v2 = ((int) (v2 - ((float) v6)));
         v3 = (v3 - ((float) v7));
-        ObfBm v8 = v1.a(v6, v7);
-        if (v1.a(v6, v7) != null) goto L78;
+        ObfBm v8 = v1.a__ObfBm(v6, v7);
+        if (v1.a__ObfBm(v6, v7) != null) goto L78;
         return 1000.0f;
         L78:
         if (v5 <= 0) goto L93;
         v8.e(v5);
         goto L98;
         L93:
-        v8.a();
+        v8.a__void();
         L98:
         if (v8.d() < 0) goto L168;
         if (fcmpl(v4, -0.5f) > 0) goto L168;
@@ -644,7 +644,7 @@ public class ObfBs {
         v4 = ((float) 0);
         L125:
         if (v4 >= 4) goto L211;
-        if (v1.a((v6 + SceneryList.a(v4)), (v7 + SceneryList.b(v4))).c() > v8.d()) goto L211;
+        if (v1.a__ObfBm((v6 + SceneryList.a(v4)), (v7 + SceneryList.b(v4))).c() > v8.d()) goto L211;
         v4 += 1;
         goto L125;
         L168:
@@ -683,8 +683,8 @@ public class ObfBs {
         int v4 = ((int) v2);
         v1 = (v1 - ((float) v3));
         v2 = (v2 - ((float) v4));
-        v3 = ((boolean) this.a(v3, v4));
-        if (this.a(v3, v4) != null) goto L51;
+        v3 = ((boolean) this.a__ObfBm(v3, v4));
+        if (this.a__ObfBm(v3, v4) != null) goto L51;
         return 1000.0f;
         L51:
         float v5 = ((float) v3.c());
@@ -722,8 +722,8 @@ public class ObfBs {
         int v3 = 0;
         L12:
         if (v3 >= this.b) goto L45;
-        if (this.a(v2, v3) == null) goto L39;
-        this.a(v2, v3).a(v1);
+        if (this.a__ObfBm(v2, v3) == null) goto L39;
+        this.a__ObfBm(v2, v3).a(v1);
         L39:
         v3 += 1;
         goto L12;
@@ -741,8 +741,8 @@ public class ObfBs {
         int v3 = 0;
         L12:
         if (v3 >= this.b) goto L45;
-        if (this.a(v2, v3) == null) goto L39;
-        this.a(v2, v3).b(v1);
+        if (this.a__ObfBm(v2, v3) == null) goto L39;
+        this.a__ObfBm(v2, v3).b(v1);
         L39:
         v3 += 1;
         goto L12;

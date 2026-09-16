@@ -42,7 +42,7 @@ public class IconList extends Widget {
         return;
     }
     // bytecode 139 bytes, max_stack 3, max_locals 3
-    public boolean a(int v1) {
+    public boolean a__boolean(int v1) {
         if (this.c() != 0) goto L9;
         return 0;
         L9:
@@ -154,12 +154,12 @@ public class IconList extends Widget {
         return;
     }
     // bytecode 35 bytes, max_stack 2, max_locals 3
-    public void a(int v1) {
-        this.a.a(v1);
+    public void a__void(int v1) {
+        this.a.a__void(v1);
         int v2 = 0;
         L10:
         if (v2 >= this.a_I) goto L34;
-        this.a_arrLdl[v2].a(v1);
+        this.a_arrLdl[v2].a__void(v1);
         v2 += 1;
         goto L10;
         L34:

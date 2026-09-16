@@ -70,7 +70,7 @@ public class CarPhysics {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public float a() {
+    public float a__float() {
         return this.y;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -226,7 +226,7 @@ public class CarPhysics {
         return this.z;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         return this.a_Z;
     }
     // bytecode 8 bytes, max_stack 3, max_locals 2
@@ -235,7 +235,7 @@ public class CarPhysics {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int a() {
+    public int a__int() {
         return this.c_I;
     }
 }

@@ -266,7 +266,7 @@ public class Settings {
         return;
     }
     // bytecode 19 bytes, max_stack 2, max_locals 0
-    public static boolean a() {
+    public static boolean a__boolean() {
         if (Settings.i_Z == 0) goto L17;
         if (SysUtil.e_I <= SysUtil.f_I) goto L17;
         return 1;
@@ -274,11 +274,11 @@ public class Settings {
         return 0;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int a() {
+    public static int a__int() {
         return Settings.A;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public static void a(int v0) {
+    public static void a__void(int v0) {
         Settings.A = v0;
         return;
     }
@@ -293,9 +293,9 @@ public class Settings {
         int v2 = 0;
         L9:
         if (v2 >= 5) goto L59;
-        Settings.a_arrarrarrI[0][4][v2] = Settings.a(v2);
-        Settings.a_arrarrarrI[1][4][v2] = Settings.a(v2);
-        Settings.a_arrarrarrI[2][4][v2] = Settings.a(v2);
+        Settings.a_arrarrarrI[0][4][v2] = Settings.a__int(v2);
+        Settings.a_arrarrarrI[1][4][v2] = Settings.a__int(v2);
+        Settings.a_arrarrarrI[2][4][v2] = Settings.a__int(v2);
         v2 += 1;
         goto L9;
         L59:
@@ -308,11 +308,11 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static boolean b() {
+    public static boolean b__boolean() {
         return Settings.l_Z;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static boolean c() {
+    public static boolean c__boolean() {
         return Settings.j_Z;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -321,13 +321,13 @@ public class Settings {
         return;
     }
     // bytecode 8 bytes, max_stack 1, max_locals 0
-    public static void a() {
+    public static void a__void() {
         Settings.l_Z = true;
-        Settings.b();
+        Settings.b__void();
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int b() {
+    public static int b__int() {
         return Settings.x;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -336,7 +336,7 @@ public class Settings {
         return;
     }
     // bytecode 585 bytes, max_stack 5, max_locals 5
-    public static void b() {
+    public static void b__void() {
         /* try L378-L386 catch javax.microedition.rms.RecordStoreNotOpenException -> L387 */
         /* try L378-L386 catch javax.microedition.rms.RecordStoreException -> L394 */
         /* try L378-L386 catch java.io.IOException -> L401 */
@@ -514,7 +514,7 @@ public class Settings {
         throw v1;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int c() {
+    public static int c__int() {
         return Settings.m;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -523,16 +523,16 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static String a() {
+    public static String a__String() {
         return Settings.j_String;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public static void a(String v0) {
+    public static void a__void(String v0) {
         Settings.j_String = v0;
         return;
     }
     // bytecode 791 bytes, max_stack 4, max_locals 3
-    public static void c() {
+    public static void c__void() {
         /* try L422-L434 catch javax.microedition.rms.RecordStoreNotOpenException -> L435 */
         /* try L422-L434 catch javax.microedition.rms.RecordStoreException -> L441 */
         /* try L422-L434 catch java.io.IOException -> L447 */
@@ -691,7 +691,7 @@ public class Settings {
         v1 = ((byte[]) jt3);
         Settings.c_Z = jt3;
         Settings.d = Settings.a_arrarrI[Settings.A][11];
-        Settings.b();
+        Settings.b__void();
         if (v0 == null) goto L665;
         v0.closeRecordStore();
         L665:
@@ -759,7 +759,7 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static String b() {
+    public static String b__String() {
         return Settings.d_String;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -768,19 +768,19 @@ public class Settings {
         return;
     }
     // bytecode 14 bytes, max_stack 1, max_locals 0
-    public static void d() {
+    public static void d__void() {
         if (Settings.m_Z != 0) goto L13;
         Settings.m_Z = true;
-        Settings.b();
+        Settings.b__void();
         L13:
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static boolean d() {
+    public static boolean d__boolean() {
         return Settings.m_Z;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static byte a() {
+    public static byte a__byte() {
         return Settings.b_B;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -789,7 +789,7 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int d() {
+    public static int d__int() {
         return Settings.p;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -798,7 +798,7 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int e() {
+    public static int e__int() {
         return Settings.q;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -807,7 +807,7 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int f() {
+    public static int f__int() {
         return Settings.k;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -816,7 +816,7 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int g() {
+    public static int g__int() {
         return Settings.g;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -825,7 +825,7 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int h() {
+    public static int h__int() {
         return Settings.f;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -834,7 +834,7 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static boolean e() {
+    public static boolean e__boolean() {
         return Settings.b_Z;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -843,7 +843,7 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static boolean f() {
+    public static boolean f__boolean() {
         return Settings.a_Z;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -852,7 +852,7 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static boolean g() {
+    public static boolean g__boolean() {
         return Settings.c_Z;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -861,7 +861,7 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int i() {
+    public static int i__int() {
         return Settings.e;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -870,7 +870,7 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int j() {
+    public static int j__int() {
         return Settings.r;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -879,7 +879,7 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int k() {
+    public static int k__int() {
         return Settings.o;
     }
     // bytecode 14 bytes, max_stack 2, max_locals 0
@@ -935,7 +935,7 @@ public class Settings {
         return 1;
     }
     // bytecode 14 bytes, max_stack 2, max_locals 1
-    public static int a(int v0) {
+    public static int a__int(int v0) {
         return Settings.a_arrarrarrI[Settings.q()][Settings.o][v0];
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
@@ -995,11 +995,11 @@ public class Settings {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static boolean h() {
+    public static boolean h__boolean() {
         return Settings.k_Z;
     }
     // bytecode 69 bytes, max_stack 3, max_locals 4
-    public static byte[] a(String v0) {
+    public static byte[] a__bytearr(String v0) {
         /* try L19-L63 catch java.io.IOException -> L66 */
         new java.io.ByteArrayOutputStream(); /* constructor */
         java.io.ByteArrayOutputStream v1 = new java.io.ByteArrayOutputStream();
@@ -1021,7 +1021,7 @@ public class Settings {
     // bytecode 8 bytes, max_stack 1, max_locals 1
     public static void c(String v0) {
         Settings.f_String = v0;
-        Settings.b();
+        Settings.b__void();
         return;
     }
     // bytecode 30 bytes, max_stack 3, max_locals 2
@@ -1039,17 +1039,17 @@ public class Settings {
         return new java.lang.String(v1);
     }
     // bytecode 14 bytes, max_stack 2, max_locals 0
-    public static boolean i() {
+    public static boolean i__boolean() {
         if (Settings.f_String.length() <= 2) goto L12;
         return 1;
         L12:
         return 0;
     }
     // bytecode 180 bytes, max_stack 3, max_locals 2
-    public static boolean j() {
+    public static boolean j__boolean() {
         /* try L37-L169 catch java.io.IOException -> L173 */
-        byte[] v0 = ScoreUpload.a(Settings.h_String, false, Settings.a(Settings.f_String));
-        if (ScoreUpload.a(Settings.h_String, false, Settings.a(Settings.f_String)) != null) goto L25;
+        byte[] v0 = ScoreUpload.a(Settings.h_String, false, Settings.a__bytearr(Settings.f_String));
+        if (ScoreUpload.a(Settings.h_String, false, Settings.a__bytearr(Settings.f_String)) != null) goto L25;
         Garage.c(15);
         return 0;
         L25:
@@ -1089,7 +1089,7 @@ public class Settings {
         if (jt1 == 0) goto L170;
         Garage.b(true);
         Garage.c(17);
-        Settings.b();
+        Settings.b__void();
         return 1;
         L170:
         goto L178;
@@ -1099,10 +1099,10 @@ public class Settings {
         return 0;
     }
     // bytecode 179 bytes, max_stack 3, max_locals 3
-    public static boolean a(String v0) {
+    public static boolean a__boolean(String v0) {
         /* try L35-L168 catch java.io.IOException -> L172 */
-        byte[] v1 = ScoreUpload.a(Settings.g_String, false, Settings.a(v0));
-        if (ScoreUpload.a(Settings.g_String, false, Settings.a(v0)) != null) goto L23;
+        byte[] v1 = ScoreUpload.a(Settings.g_String, false, Settings.a__bytearr(v0));
+        if (ScoreUpload.a(Settings.g_String, false, Settings.a__bytearr(v0)) != null) goto L23;
         Garage.c(15);
         return 0;
         L23:
@@ -1143,7 +1143,7 @@ public class Settings {
         Settings.j_String = v0;
         Garage.b(true);
         Garage.c(17);
-        Settings.b();
+        Settings.b__void();
         return 1;
         L169:
         goto L177;
@@ -1153,7 +1153,7 @@ public class Settings {
         return 0;
     }
     // bytecode 30 bytes, max_stack 2, max_locals 1
-    public static float a() {
+    public static float a__float() {
         float v0 = Settings.c_F;
         if (Settings.g != 1) goto L16;
         v0 = (v0 * 0.699999988079071f);
@@ -1173,7 +1173,7 @@ public class Settings {
         return;
     }
     // bytecode 2 bytes, max_stack 1, max_locals 0
-    public static boolean k() {
+    public static boolean k__boolean() {
         return 1;
     }
 }

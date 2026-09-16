@@ -19,14 +19,14 @@ public class SoundBank extends AudioPlayer {
         return;
     }
     // bytecode 189 bytes, max_stack 4, max_locals 4
-    public Player a(String v1) {
+    public Player a__Player(String v1) {
         /* try L16-L171 catch java.lang.Exception -> L174 */
         javax.microedition.media.Player v2 = ((javax.microedition.media.Player) this.a.get(v1));
         if (((javax.microedition.media.Player) this.a.get(v1)) != null) goto L187;
         String v3 = v1;
         if (SoundBank.a_Class != null) goto L44;
-        SoundBank.a_Class = SoundBank.a("cy");
-        jt1 = SoundBank.a("cy"); /* join L47 from L32 */
+        SoundBank.a_Class = SoundBank.a__Class("cy");
+        jt1 = SoundBank.a__Class("cy"); /* join L47 from L32 */
         goto L47;
         L44:
         jt1 = SoundBank.a_Class; /* join L47 from L44 */
@@ -78,8 +78,8 @@ public class SoundBank extends AudioPlayer {
         L75:
         return 0;
         L77:
-        AudioPlayer.a_Player = this.a(v1);
-        if (this.a(v1) != null) goto L91;
+        AudioPlayer.a_Player = this.a__Player(v1);
+        if (this.a__Player(v1) != null) goto L91;
         return 0;
         L91:
         AudioPlayer.a_Player.realize();
@@ -165,7 +165,7 @@ public class SoundBank extends AudioPlayer {
         return;
     }
     // bytecode 18 bytes, max_stack 3, max_locals 1
-    public static Class a(String v0) {
+    public static Class a__Class(String v0) {
         /* try L0-L4 catch java.lang.ClassNotFoundException -> L5 */
         return java.lang.Class.forName(v0);
         v0 = ((String) ex_5);

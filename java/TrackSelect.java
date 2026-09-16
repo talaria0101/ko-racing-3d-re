@@ -241,11 +241,11 @@ public class TrackSelect extends Screen {
         this.b_arrI = new int[7]#2;
         this.e_I = 0;
         this.a_String = v2;
-        this.c();
+        this.c__void();
         return;
     }
     // bytecode 83 bytes, max_stack 2, max_locals 1
-    public void a() {
+    public void a__void() {
         /* try L0-L80 catch java.io.IOException -> L81 */
         if (Settings.c() == 0) goto L13;
         if (this.a != null) goto L75;
@@ -263,7 +263,7 @@ public class TrackSelect extends Screen {
         return;
     }
     // bytecode 84 bytes, max_stack 2, max_locals 1
-    public void b() {
+    public void b__void() {
         this.l();
         this.a_Z = false;
         this.f_Z = false;
@@ -286,9 +286,9 @@ public class TrackSelect extends Screen {
         return;
     }
     // bytecode 580 bytes, max_stack 3, max_locals 3
-    public void c() {
+    public void c__void() {
         /* try L0-L577 catch java.lang.Exception -> L578 */
-        this.a();
+        this.a__void();
         new java.lang.StringBuffer(); /* constructor */
         InputStream v1 = Resources.a(new java.lang.StringBuffer().append(this.a_String).append(".000").toString());
         this.j = StreamReader.a(v1);
@@ -378,7 +378,7 @@ public class TrackSelect extends Screen {
         return;
     }
     // bytecode 32 bytes, max_stack 2, max_locals 2
-    public boolean a(int v1) {
+    public boolean a__boolean(int v1) {
         if (v1 != 7) goto L14;
         if (Settings.h_Z == 0) goto L14;
         return 1;
@@ -407,7 +407,7 @@ public class TrackSelect extends Screen {
         return;
     }
     // bytecode 21 bytes, max_stack 3, max_locals 2
-    public void b(int v1) {
+    public void b__void(int v1) {
         this.b_arrI[this.e_I] = v1;
         this.e_I = (this.e_I + 1);
         return;
@@ -515,7 +515,7 @@ public class TrackSelect extends Screen {
         v2 = 0;
         L654:
         if (v2 >= this.p) goto L686;
-        if (this.a(v2) == 0) goto L680;
+        if (this.a__boolean(v2) == 0) goto L680;
         this.u = (this.u + 1);
         L680:
         v2 += 1;
@@ -549,11 +549,11 @@ public class TrackSelect extends Screen {
         if (Settings.k() != 0) goto L907;
         if (v1 == 0) goto L907;
         if (this.x <= TrackSelect.q) goto L907;
-        Garage.a(49);
-        Garage.a(50);
-        Garage.b(51);
-        Garage.b(65);
-        Garage.b(52);
+        Garage.a__void(49);
+        Garage.a__void(50);
+        Garage.b__void(51);
+        Garage.b__void(65);
+        Garage.b__void(52);
         this.g_Z = true;
         this.h_Z = true;
         L907:
@@ -599,7 +599,7 @@ public class TrackSelect extends Screen {
     // bytecode 134 bytes, max_stack 3, max_locals 3
     public void t() {
         if (this.a != null) goto L11;
-        this.a();
+        this.a__void();
         L11:
         int v1 = this.f;
         int v2 = this.g;
@@ -656,7 +656,7 @@ public class TrackSelect extends Screen {
         if (this.h_Z == 0) goto L43;
         this.h_Z = false;
         this.g_Z = false;
-        this.a.c();
+        this.a.c__void();
         this.m();
         L43:
         if (this.d_Z == 0) goto L69;
@@ -667,9 +667,9 @@ public class TrackSelect extends Screen {
         return;
         L69:
         if (this.f_Z == 0) goto L118;
-        /* pop: this.a_n.a(this.v); */
-        if (ObfBh.a(this.v) == -11) goto L112;
-        if (ObfBh.a(this.v) != -5) goto L117;
+        /* pop: this.a_n.a__boolean(this.v); */
+        if (ObfBh.a__int(this.v) == -11) goto L112;
+        if (ObfBh.a__int(this.v) != -5) goto L117;
         L112:
         this.f_Z = false;
         L117:
@@ -742,7 +742,7 @@ public class TrackSelect extends Screen {
         L149:
         int v2 = jt1;
         if (this.c_Z == 0) goto L388;
-        SysUtil.q.a(v1, SysUtil.a(125), ((SysUtil.e_I - SysUtil.q.a(SysUtil.a(125))) / 2), (((SysUtil.f_I / 2) - (this.s / 2)) + 2));
+        SysUtil.q.a(v1, SysUtil.a__bytearr(125), ((SysUtil.e_I - SysUtil.q.a(SysUtil.a__bytearr(125))) / 2), (((SysUtil.f_I / 2) - (this.s / 2)) + 2));
         if (this.u <= 0) goto L388;
         v1.setClip((((SysUtil.e_I - this.r) / 2) + 2), (((((SysUtil.f_I / 2) + (this.s / 2)) - 48) - 5) - 3), 13, 13);
         v1.drawImage(this.d_Image, (((SysUtil.e_I - this.r) / 2) + 2), (((((SysUtil.f_I / 2) + (this.s / 2)) - 48) - 5) - 3), 20);
@@ -750,12 +750,12 @@ public class TrackSelect extends Screen {
         v1.drawImage(this.d_Image, (((((SysUtil.e_I + this.r) / 2) - 2) - 13) - 13), (((((SysUtil.f_I / 2) + (this.s / 2)) - 48) - 5) - 3), 20);
         v1.setClip(0, 0, SysUtil.e_I, SysUtil.f_I);
         L388:
-        String v3 = ObfBd.a_ba.a(v2);
+        String v3 = ObfBd.a_ba.a__String(v2);
         SysUtil.q.a(v1, v3, ((SysUtil.e_I - SysUtil.q.a(v3)) / 2), ((((SysUtil.f_I / 2) + (this.s / 2)) - 48) - 10));
         v3 = ((String) 0);
         L437:
         if (v3 >= 4) goto L654;
-        SysUtil.o.a(v1, SysUtil.a((v3 + 127)), ((-2 + (SysUtil.e_I / 2)) - SysUtil.n.a(SysUtil.a((v3 + 127)))), (((((SysUtil.f_I / 2) + (this.s / 2)) - 48) + 8) + (v3 * 8)));
+        SysUtil.o.a(v1, SysUtil.a__bytearr((v3 + 127)), ((-2 + (SysUtil.e_I / 2)) - SysUtil.n.a(SysUtil.a__bytearr((v3 + 127)))), (((((SysUtil.f_I / 2) + (this.s / 2)) - 48) + 8) + (v3 * 8)));
         int v4 = 1;
         L504:
         if (v4 > ObfBd.a_ba.a(v2, v3)) goto L648;
@@ -789,7 +789,7 @@ public class TrackSelect extends Screen {
         if (this.e_I > 0) goto L835;
         if (this.d_I <= 0) goto L877;
         L835:
-        SysUtil.a_p.a(v1, SysUtil.a(v2), ((SysUtil.e_I - SysUtil.a_p.a(SysUtil.a(v2))) / 2), (((SysUtil.f_I / 2) - (this.s / 2)) + 7));
+        SysUtil.a_p.a(v1, SysUtil.a__bytearr(v2), ((SysUtil.e_I - SysUtil.a_p.a(SysUtil.a__bytearr(v2))) / 2), (((SysUtil.f_I / 2) - (this.s / 2)) + 7));
         L877:
         return;
         L878:
@@ -908,7 +908,7 @@ public class TrackSelect extends Screen {
         L898:
         jt6 = (v5 / 20); /* join L903 from L898 */
         L903:
-        SysUtil.o.a(v1, SysUtil.a(192), (((((((((int) this.a_F) + this.a_arrarrI[v2][0]) + 115) - this.a_p.a(SysUtil.a(192))) - 5) + v5) + jt6) - 1), (((((((int) this.b_F) + this.a_arrarrI[v2][1]) + 1) + v6) - 1) + v3));
+        SysUtil.o.a(v1, SysUtil.a__bytearr(192), (((((((((int) this.a_F) + this.a_arrarrI[v2][0]) + 115) - this.a_p.a(SysUtil.a__bytearr(192))) - 5) + v5) + jt6) - 1), (((((((int) this.b_F) + this.a_arrarrI[v2][1]) + 1) + v6) - 1) + v3));
         goto L1077;
         L935:
         v1.setColor(8947848);
@@ -924,7 +924,7 @@ public class TrackSelect extends Screen {
         v1.setColor(14540253);
         v1.fillRect(((((int) this.a_F) + this.a_arrarrI[v2][0]) + v5), (((((int) this.b_F) + this.a_arrarrI[v2][1]) + v6) + 24), 115, (v4 - 24));
         if (this.a_arrZ[v2] == 0) goto L1348;
-        v4 = ((int) SysUtil.a(194));
+        v4 = ((int) SysUtil.a__bytearr(194));
         this.a_p.a(v1, v4, ((((((int) this.a_F) + this.a_arrarrI[v2][0]) + 10) + v5) - 1), (((((((int) this.b_F) + this.a_arrarrI[v2][1]) + 24) + 2) + v6) + v3));
         if ((-this.b_arrarrI[this.c_arrarrI[v2][0]][3]) != 1) goto L1228;
         jt8 = 0; /* join L1244 from L1224 */
@@ -939,7 +939,7 @@ public class TrackSelect extends Screen {
         if (v7 != 7) goto L1264;
         v7 = 5;
         L1264:
-        String v8 = this.a(v7);
+        String v8 = this.a__String(v7);
         v4 = this.a_p.a(v8);
         this.a_p.a(v1, v8, ((((((((int) this.a_F) + this.a_arrarrI[v2][0]) + 115) - v4) - 7) + v5) - 1), (((((((int) this.b_F) + this.a_arrarrI[v2][1]) + 48) + 1) + v6) + v3));
         goto L1578;
@@ -951,7 +951,7 @@ public class TrackSelect extends Screen {
         v1.setColor(11184810);
         v1.fillRect((((((int) this.a_F) + this.a_arrarrI[v2][0]) + v5) + 1), ((((((int) this.b_F) + this.a_arrarrI[v2][1]) + v6) + (24 * (v4 + 1))) + 1), 113, 22);
         L1433:
-        v7 = ((int) this.a(this.b_arrarrI[this.c_arrarrI[v2][v4]][0]));
+        v7 = ((int) this.a__bytearr(this.b_arrarrI[this.c_arrarrI[v2][v4]][0]));
         if (this.a_p == null) goto L1572;
         if (this.b_p == null) goto L1572;
         v8 = ((String) this.a_p.a(v7));
@@ -1010,7 +1010,7 @@ public class TrackSelect extends Screen {
         SysUtil.a(v2, 0, 0, v2.getClipWidth(), v3, 10066329, 6710886, true);
         v2.setColor(10066329);
         v2.drawLine(0, v3, v2.getClipWidth(), v3);
-        SysUtil.a_p.a(v2, SysUtil.a(70), 5, 3);
+        SysUtil.a_p.a(v2, SysUtil.a__bytearr(70), 5, 3);
         SysUtil.a(v2, (v2.getClipWidth() - (v3 * 3)), 0, (v3 * 3), v3, 16777215, 11184810, true);
         new java.lang.StringBuffer(); /* constructor */
         v1 = ((Graphics) new java.lang.StringBuffer().append(v1.c_I).append("%").toString());
@@ -1019,19 +1019,19 @@ public class TrackSelect extends Screen {
         return;
     }
     // bytecode 8 bytes, max_stack 2, max_locals 2
-    public String a(int v1) {
-        return ObfBd.a_ba.a(v1);
+    public String a__String(int v1) {
+        return ObfBd.a_ba.a__String(v1);
     }
     // bytecode 9 bytes, max_stack 2, max_locals 2
-    public byte[] a(int v1) {
-        return SysUtil.a((v1 + 202));
+    public byte[] a__bytearr(int v1) {
+        return SysUtil.a__bytearr((v1 + 202));
     }
     // bytecode 28 bytes, max_stack 2, max_locals 2
     public void u() {
         int v1 = this.t;
         L5:
         v1 = ((v1 + 1) % this.p);
-        if (this.a(v1) == 0) goto L5;
+        if (this.a__boolean(v1) == 0) goto L5;
         this.t = v1;
         return;
     }
@@ -1041,18 +1041,18 @@ public class TrackSelect extends Screen {
         return;
     }
     // bytecode 718 bytes, max_stack 4, max_locals 4
-    public void a(int v1) {
+    public void a__void(int v1) {
         if (this.a_Z != 0) goto L8;
         return;
         L8:
         if (this.g_Z == 0) goto L74;
-        if (ObfBh.a(v1) != -11) goto L34;
+        if (ObfBh.a__int(v1) != -11) goto L34;
         Garage.b(false);
         this.g_Z = false;
         return;
         L34:
-        if (SysUtil.a(v1) == -5) goto L61;
-        if (SysUtil.a(v1) == -6) goto L61;
+        if (SysUtil.a__int(v1) == -5) goto L61;
+        if (SysUtil.a__int(v1) == -6) goto L61;
         if (SysUtil.b(v1) != 8) goto L73;
         L61:
         Garage.b(false);
@@ -1075,24 +1075,24 @@ public class TrackSelect extends Screen {
         return;
         L128:
         if (this.c_Z == 0) goto L233;
-        if (ObfBh.a(v1) != -3) goto L179;
+        if (ObfBh.a__int(v1) != -3) goto L179;
         v1 = ((int) this);
         int v2 = this.t;
         L151:
         v2 = (((v2 - 1) + CarSpec.a.length) % CarSpec.a.length);
-        if (v1.a(v2) == 0) goto L151;
+        if (v1.a__boolean(v2) == 0) goto L151;
         v1.t = v2;
         return;
         L179:
-        if (ObfBh.a(v1) != -4) goto L193;
+        if (ObfBh.a__int(v1) != -4) goto L193;
         this.u();
         return;
         L193:
-        if (ObfBh.a(v1) != -11) goto L208;
+        if (ObfBh.a__int(v1) != -11) goto L208;
         this.c_Z = false;
         return;
         L208:
-        if (ObfBh.a(v1) != -5) goto L232;
+        if (ObfBh.a__int(v1) != -5) goto L232;
         this.d_Z = true;
         this.c_Z = false;
         this.e_Z = false;
@@ -1100,14 +1100,14 @@ public class TrackSelect extends Screen {
         return;
         L233:
         if (this.e_Z == 0) goto L326;
-        if (ObfBh.a(v1) != -11) goto L255;
+        if (ObfBh.a__int(v1) != -11) goto L255;
         this.e_Z = false;
         return;
         L255:
-        if (ObfBh.a(v1) != -5) goto L325;
+        if (ObfBh.a__int(v1) != -5) goto L325;
         if (this.a_arrZ[this.k] != 0) goto L309;
         if (this.b_arrarrI[this.c_arrarrI[this.k][this.o]][0] == 6) goto L309;
-        if (this.a() == 0) goto L320;
+        if (this.a__boolean() == 0) goto L320;
         L309:
         this.d_Z = true;
         this.e_Z = false;
@@ -1117,7 +1117,7 @@ public class TrackSelect extends Screen {
         L325:
         return;
         L326:
-        if (ObfBh.a(v1) != -3) goto L466;
+        if (ObfBh.a__int(v1) != -3) goto L466;
         v1 = m1;
         v2 = 0;
         int v3 = 0;
@@ -1141,7 +1141,7 @@ public class TrackSelect extends Screen {
         L465:
         return;
         L466:
-        if (ObfBh.a(v1) != -4) goto L608;
+        if (ObfBh.a__int(v1) != -4) goto L608;
         v1 = m1;
         v2 = 1000;
         v3 = 0;
@@ -1165,19 +1165,19 @@ public class TrackSelect extends Screen {
         L607:
         return;
         L608:
-        if (ObfBh.a(v1) != m1) goto L651;
+        if (ObfBh.a__int(v1) != m1) goto L651;
         this.o = (((this.o - 1) + this.a_arrarrI[this.k][2]) % this.a_arrarrI[this.k][2]);
         return;
         L651:
-        if (ObfBh.a(v1) != -2) goto L683;
+        if (ObfBh.a__int(v1) != -2) goto L683;
         this.o = ((this.o + 1) % this.a_arrarrI[this.k][2]);
         return;
         L683:
-        if (ObfBh.a(v1) != -11) goto L697;
+        if (ObfBh.a__int(v1) != -11) goto L697;
         this.m();
         return;
         L697:
-        if (ObfBh.a(v1) != -5) goto L717;
+        if (ObfBh.a__int(v1) != -5) goto L717;
         if (this.e_Z != 0) goto L717;
         this.v();
         L717:
@@ -1222,11 +1222,11 @@ public class TrackSelect extends Screen {
         new CarSelect(); /* constructor */
         this.a_r = new CarSelect();
         L154:
-        this.a_r.b();
+        this.a_r.b__void();
         this.t = ObfR.h;
         if (this.a_arrZ[this.k] != 0) goto L202;
-        if (this.a(this.t) != 0) goto L202;
-        if (this.a() != 0) goto L202;
+        if (this.a__boolean(this.t) != 0) goto L202;
+        if (this.a__boolean() != 0) goto L202;
         this.u();
         L202:
         TrackSelect v1 = this;
@@ -1241,7 +1241,7 @@ public class TrackSelect extends Screen {
         return;
     }
     // bytecode 2 bytes, max_stack 1, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         return 0;
     }
     // bytecode 171 bytes, max_stack 3, max_locals 1
@@ -1262,28 +1262,28 @@ public class TrackSelect extends Screen {
         return;
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2
-    public void c(int v1) {
+    public void c__void(int v1) {
         this.v = 2147483647;
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int a() {
+    public int a__int() {
         return this.j;
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2
-    public String b(int v1) {
+    public String b__String(int v1) {
         return this.b_String[v1];
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2
-    public String c(int v1) {
+    public String c__String(int v1) {
         return this.a_String[v1];
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2
-    public int a(int v1) {
+    public int a__int(int v1) {
         return this.d[v1];
     }
     // bytecode 42 bytes, max_stack 2, max_locals 5
-    public boolean b(int v1, int v2) {
+    public boolean b__boolean(int v1, int v2) {
         int v3 = 1;
         int v4 = 0;
         L7:
@@ -1300,7 +1300,7 @@ public class TrackSelect extends Screen {
         return 0;
     }
     // bytecode 15 bytes, max_stack 2, max_locals 2
-    public boolean b(int v1) {
+    public boolean b__boolean(int v1) {
         if (this.a_arrarrI[v1][2] < 0) goto L13;
         return 1;
         L13:
@@ -1617,7 +1617,7 @@ public class TrackSelect extends Screen {
         this.c_arrZ[this.c_arrarrI[this.k][this.o]] = 0;
         L214:
         if (this.b_arrZ[this.c_arrarrI[this.k][this.o]] != 0) goto L317;
-        if (v1.a() == 0) goto L317;
+        if (v1.a__boolean() == 0) goto L317;
         if (this.a_arrZ[this.k] == 0) goto L262;
         this.n();
         goto L292;
@@ -1629,37 +1629,37 @@ public class TrackSelect extends Screen {
         L317:
         this.a(true);
         this.x();
-        Settings.b();
-        if (v1.a() == 0) goto L479;
+        Settings.b__void();
+        if (v1.a__boolean() == 0) goto L479;
         this.y = 0;
         this.r();
         if (this.b_I != 4) goto L366;
-        if (this.a(0) != 0) goto L366;
+        if (this.a__boolean(0) != 0) goto L366;
         v2 = m1;
         goto L479;
         L366:
         if (this.b_I != 9) goto L389;
-        if (this.a(2) != 0) goto L389;
+        if (this.a__boolean(2) != 0) goto L389;
         v2 = -2;
         goto L479;
         L389:
         if (this.b_I != 18) goto L412;
-        if (this.a(3) != 0) goto L412;
+        if (this.a__boolean(3) != 0) goto L412;
         v2 = -3;
         goto L479;
         L412:
         if (this.b_I != 6) goto L435;
-        if (this.a(5) != 0) goto L435;
+        if (this.a__boolean(5) != 0) goto L435;
         v2 = -4;
         goto L479;
         L435:
         if (this.b_I != 22) goto L459;
-        if (this.a(6) != 0) goto L459;
+        if (this.a__boolean(6) != 0) goto L459;
         v2 = -5;
         goto L479;
         L459:
         if (this.b_I != 27) goto L479;
-        if (this.a(4) != 0) goto L479;
+        if (this.a__boolean(4) != 0) goto L479;
         return 44;
         L479:
         return v2;
@@ -1677,10 +1677,10 @@ public class TrackSelect extends Screen {
         if (v1 != 7) goto L55;
         v1 = 5;
         L55:
-        if (this.a(v1) == 0) goto L68;
+        if (this.a__boolean(v1) == 0) goto L68;
         if (v1 != 1) goto L80;
         L68:
-        this.b(v1);
+        this.b__void(v1);
         this.d_arrZ[v1] = 1;
         L80:
         return;
@@ -1694,7 +1694,7 @@ public class TrackSelect extends Screen {
         if (this.c_Z == 0) goto L481;
         L28:
         this.a.a().a().setViewport(((SysUtil.e_I / 2) - (this.r / 2)), ((SysUtil.f_I / 2) - (this.s / 2)), this.r, this.s);
-        this.a.a().a(this.r, this.s);
+        this.a.a().a__void(this.r, this.s);
         ObfBd.a_Backgr.setColor(0);
         this.a.a().a(ObfBd.a_Backgr);
         if (this.e_I > 0) goto L125;
@@ -1723,7 +1723,7 @@ public class TrackSelect extends Screen {
         int v4 = 0;
         L267:
         if (v4 >= 5) goto L342;
-        if (v1.b(v2, v4) == 0) goto L336;
+        if (v1.b__boolean(v2, v4) == 0) goto L336;
         if (v4 == 0) goto L294;
         if (v4 != 1) goto L300;
         L294:
@@ -1764,23 +1764,23 @@ public class TrackSelect extends Screen {
         this.a.a().a().setViewport(0, 0, 1, 1);
         this.a.a().a(ObfBd.a_Backgr);
         this.a.a().a().setViewport(0, 0, SysUtil.e_I, SysUtil.f_I);
-        this.a.a().a(SysUtil.e_I, SysUtil.f_I);
+        this.a.a().a__void(SysUtil.e_I, SysUtil.f_I);
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public float a() {
+    public float a__float() {
         return this.a_F;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public float b() {
+    public float b__float() {
         return this.b_F;
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
-    public int b() {
+    public int b__int() {
         return this.a.getWidth();
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
-    public int c() {
+    public int c__int() {
         return this.a.getHeight();
     }
     // bytecode 98 bytes, max_stack 3, max_locals 2
@@ -1845,12 +1845,12 @@ public class TrackSelect extends Screen {
         new java.io.DataInputStream(v3); /* constructor */
         v3 = ((java.io.ByteArrayOutputStream) new java.io.DataInputStream(v3));
         if (Settings.a(new java.io.DataInputStream(v3)).compareTo("OK") == 0) goto L97;
-        Garage.c(15);
+        Garage.c__void(15);
         return;
         L97:
         if (Settings.a().length() != 0) goto L116;
         Settings.a(Settings.a(v3));
-        Settings.b();
+        Settings.b__void();
         L116:
         v4 = ((java.io.DataOutputStream) v3.readByte());
         if (v3.readByte() != 0) goto L222;
@@ -1873,12 +1873,12 @@ public class TrackSelect extends Screen {
         this.a(false);
         this.y = 0;
         this.r();
-        Settings.a();
+        Settings.a__void();
         this.a.E();
-        Garage.c(29);
+        Garage.c__void(29);
         goto L260;
         L222:
-        Garage.c(28);
+        Garage.c__void(28);
         return;
         /* pop: ex_228; */
         /* pop: v1.addRecord(v2, 0, v2.length); */
@@ -1886,10 +1886,10 @@ public class TrackSelect extends Screen {
         /* pop: ex_241; */
         return;
         /* pop: ex_243; */
-        Garage.c(15);
+        Garage.c__void(15);
         return;
         /* pop: ex_250; */
-        Garage.c(15);
+        Garage.c__void(15);
         return;
         v1 = ((Object) ex_257);
         throw v1;
@@ -1938,7 +1938,7 @@ public class TrackSelect extends Screen {
         new java.io.DataInputStream(v2); /* constructor */
         v2 = ((java.io.ByteArrayOutputStream) new java.io.DataInputStream(v2));
         if (Settings.a(new java.io.DataInputStream(v2)).compareTo("OK") == 0) goto L146;
-        Garage.c(15);
+        Garage.c__void(15);
         if (v1 == null) goto L123;
         v1.closeRecordStore();
         L123:
@@ -1956,14 +1956,14 @@ public class TrackSelect extends Screen {
         L146:
         if (Settings.a().length() != 0) goto L165;
         Settings.a(Settings.a(v2));
-        Settings.b();
+        Settings.b__void();
         L165:
         v2 = ((java.io.ByteArrayOutputStream) v2.readByte());
         if (v2.readByte() != 0) goto L182;
-        Garage.c(27);
+        Garage.c__void(27);
         goto L187;
         L182:
-        Garage.c(16);
+        Garage.c__void(16);
         L187:
         if (v1 == null) goto L195;
         v1.closeRecordStore();
@@ -1980,7 +1980,7 @@ public class TrackSelect extends Screen {
         ex_214.printStackTrace();
         return;
         /* pop: ex_221; */
-        Garage.c(15);
+        Garage.c__void(15);
         if (v1 == null) goto L235;
         v1.closeRecordStore();
         L235:
@@ -1996,7 +1996,7 @@ public class TrackSelect extends Screen {
         ex_254.printStackTrace();
         return;
         /* pop: ex_261; */
-        Garage.c(15);
+        Garage.c__void(15);
         if (v1 == null) goto L275;
         v1.closeRecordStore();
         L275:
@@ -2029,31 +2029,31 @@ public class TrackSelect extends Screen {
         throw v2;
     }
     // bytecode 12 bytes, max_stack 2, max_locals 3
-    public boolean a(int v1, int v2) {
+    public boolean a__boolean(int v1, int v2) {
         this.B = v1;
         this.C = v2;
         return 0;
     }
     // bytecode 1200 bytes, max_stack 6, max_locals 8
-    public void b(int v1, int v2) {
+    public void b__void(int v1, int v2) {
         if (this.j_Z == 0) goto L23;
         this.z = m1;
         this.A = m1;
         this.j_Z = false;
         return;
         L23:
-        if (this.a(v1, v2) == 0) goto L38;
+        if (this.a__boolean(v1, v2) == 0) goto L38;
         this.i_Z = true;
         return;
         L38:
         if (this.f_Z == 0) goto L81;
-        this.i_Z = this.a_n.a((v1 - ((SysUtil.e_I - this.r) / 2)), (v2 - ((SysUtil.f_I - this.s) / 2)));
+        this.i_Z = this.a_n.a__boolean((v1 - ((SysUtil.e_I - this.r) / 2)), (v2 - ((SysUtil.f_I - this.s) / 2)));
         return;
         L81:
         if (this.d_I > 0) goto L95;
         if (this.e_I <= 0) goto L101;
         L95:
-        this.a(0);
+        this.a__void(0);
         return;
         L101:
         if (this.c_Z == 0) goto L411;
@@ -2062,7 +2062,7 @@ public class TrackSelect extends Screen {
         if (v2 < (((((SysUtil.f_I / 2) + (this.s / 2)) - 56) - 3) - 10)) goto L219;
         if (v2 > (((((SysUtil.f_I / 2) + (this.s / 2)) - 43) + 6) + 10)) goto L219;
         KORa.buzz();
-        this.a(SysUtil.a());
+        this.a__void(SysUtil.a__int());
         this.i_Z = true;
         return;
         L219:
@@ -2071,7 +2071,7 @@ public class TrackSelect extends Screen {
         if (v2 < (((((SysUtil.f_I / 2) + (this.s / 2)) - 56) - 3) - 10)) goto L330;
         if (v2 > (((((SysUtil.f_I / 2) + (this.s / 2)) - 43) + 6) + 10)) goto L330;
         KORa.buzz();
-        this.a(SysUtil.b());
+        this.a__void(SysUtil.b__int());
         this.i_Z = true;
         return;
         L330:
@@ -2101,7 +2101,7 @@ public class TrackSelect extends Screen {
         if (v2 > (v5 + v3)) goto L557;
         if (this.a_arrZ[this.k] != 0) goto L535;
         if (this.b_arrarrI[this.c_arrarrI[this.k][this.o]][0] == 6) goto L535;
-        if (this.a() == 0) goto L548;
+        if (this.a__boolean() == 0) goto L548;
         L535:
         this.d_Z = true;
         this.e_Z = false;
@@ -2201,7 +2201,7 @@ public class TrackSelect extends Screen {
         return;
     }
     // bytecode 440 bytes, max_stack 5, max_locals 8
-    public void a(int v1, int v2) {
+    public void a__void(int v1, int v2) {
         int v3 = 0;
         L2:
         if (v3 >= this.a_arrarrI.length) goto L312;

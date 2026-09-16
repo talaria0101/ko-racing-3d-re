@@ -47,7 +47,7 @@ public class ObfCc extends WidgetGroup {
         if (v2 >= this.a) goto L82;
         this.a[v2].a(v1);
         if (this.d == 0) goto L44;
-        if (this.a() == 0) goto L44;
+        if (this.a__boolean() == 0) goto L44;
         this.d = false;
         L44:
         if (this.e == 0) goto L76;
@@ -76,9 +76,9 @@ public class ObfCc extends WidgetGroup {
         return this.a(v1);
     }
     // bytecode 35 bytes, max_stack 2, max_locals 1
-    public void a() {
-        ((MarqueeButton) this.a[this.b]).a();
-        this.a();
+    public void a__void() {
+        ((MarqueeButton) this.a[this.b]).a__void();
+        this.a__void();
         ((MarqueeButton) this.a[this.b]).d();
         return;
     }
@@ -90,7 +90,7 @@ public class ObfCc extends WidgetGroup {
         return;
     }
     // bytecode 31 bytes, max_stack 2, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         if (this.d == 0) goto L27;
         if (fcmpg(((MarqueeButton) this.a[this.b]).a(), 1.0f) < 0) goto L29;
         L27:

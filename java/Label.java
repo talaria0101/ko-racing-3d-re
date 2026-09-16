@@ -225,7 +225,7 @@ public class Label extends Widget {
         v6 = (this.c + v2);
         v5 = v1;
         v4 = this;
-        v8 = ((String) Label.a(this.a_I));
+        v8 = ((String) Label.a__byte(this.a_I));
         v9 = ((int) "");
         v10 = 0;
         L632:
@@ -259,7 +259,7 @@ public class Label extends Widget {
         return;
     }
     // bytecode 20 bytes, max_stack 2, max_locals 1
-    public static byte a(int v0) {
+    public static byte a__byte(int v0) {
         if (v0 < 48) goto L18;
         if (v0 > 57) goto L18;
         return ((byte) (v0 - 48));
@@ -267,11 +267,11 @@ public class Label extends Widget {
         return m1;
     }
     // bytecode 31 bytes, max_stack 3, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         if (this.b_Z != 0) goto L9;
         return 0;
         L9:
-        return this.a(this.a_arrarrC[Label.a(this.a_I)][this.b_I]);
+        return this.a(this.a_arrarrC[Label.a__byte(this.a_I)][this.b_I]);
     }
     // bytecode 146 bytes, max_stack 5, max_locals 2
     public boolean a(char v1) {
@@ -292,7 +292,7 @@ public class Label extends Widget {
         return 1;
     }
     // bytecode 127 bytes, max_stack 6, max_locals 2
-    public void a() {
+    public void a__void() {
         if (this.i <= 0) goto L126;
         int v1 = (SysUtil.b.a(this.a.charAt((this.i - 1))) - 2);
         new java.lang.StringBuffer(); /* constructor */
@@ -309,15 +309,15 @@ public class Label extends Widget {
         return;
     }
     // bytecode 520 bytes, max_stack 4, max_locals 5
-    public boolean a(int v1) {
+    public boolean a__boolean(int v1) {
         /* try L0-L495 catch java.lang.Exception -> L513 */
         /* try L496-L509 catch java.lang.Exception -> L513 */
         if (this.c() == 0) goto L510;
         if (ImageGrid.d != null) goto L16;
-        ImageGrid.a();
+        ImageGrid.a__void();
         L16:
         ImageGrid.a().a(ImageGrid.a_ci, -6);
-        if (this.a().length() <= 0) goto L51;
+        if (this.a__String().length() <= 0) goto L51;
         ImageGrid.a().b(ImageGrid.c, -7);
         goto L62;
         L51:
@@ -337,12 +337,12 @@ public class Label extends Widget {
         L116:
         int v4 = 0;
         if (v3 < 32) goto L167;
-        if (SysUtil.a(v3) != 0) goto L167;
+        if (SysUtil.a__boolean(v3) != 0) goto L167;
         new java.lang.StringBuffer(); /* constructor */
         /* pop: v2.a(new java.lang.StringBuffer().append("").append(((char) v3)).toString().toUpperCase().charAt(0)); */
         goto L408;
         L167:
-        if (Label.a(v3) != m1) goto L323;
+        if (Label.a__byte(v3) != m1) goto L323;
         if (v3 == 42) goto L199;
         if (SysUtil.a(v3) == -7) goto L199;
         if (SysUtil.a(v3) != -8) goto L285;
@@ -364,14 +364,14 @@ public class Label extends Widget {
         v2.b_Z = false;
         goto L411;
         L278:
-        v2.a();
+        v2.a__void();
         goto L411;
         L285:
         if (SysUtil.a(v3) == -6) goto L300;
         if (v3 != 35) goto L411;
         L300:
         if (v2.b_Z == 0) goto L317;
-        /* pop: v2.a(); */
+        /* pop: v2.a__boolean(); */
         v2.b_Z = false;
         L317:
         v4 = 1;
@@ -383,15 +383,15 @@ public class Label extends Widget {
         L346:
         v4 = v3;
         v3 = v2;
-        /* pop: v2.a(); */
-        if (Label.a(v4) == m1) goto L381;
+        /* pop: v2.a__boolean(); */
+        if (Label.a__byte(v4) == m1) goto L381;
         v3.b_Z = true;
         v3.a_I = v4;
         v3.b_I = 0;
         L381:
         goto L408;
         L384:
-        v2.b_I = ((v2.b_I + 1) % v2.a_arrarrC[Label.a(v2.a_I)].length);
+        v2.b_I = ((v2.b_I + 1) % v2.a_arrarrC[Label.a__byte(v2.a_I)].length);
         L408:
         v4 = 1;
         L411:
@@ -403,20 +403,20 @@ public class Label extends Widget {
         this.h = v1;
         if (this.b_Z == 0) goto L458;
         if (lcmp((java.lang.System.currentTimeMillis() - this.b), 700L) <= 0) goto L458;
-        v2 = this.a();
+        v2 = this.a__boolean();
         this.b_Z = false;
         L458:
         if (v1 >= 0) goto L508;
         if (SysUtil.b(v1) == 1) goto L479;
         if (SysUtil.b(v1) != 6) goto L496;
         L479:
-        /* pop: this.a(); */
+        /* pop: this.a__boolean(); */
         this.b_Z = false;
         this.a(false);
         return 1;
         L496:
         if (SysUtil.b(v1) != 2) goto L508;
-        this.a();
+        this.a__void();
         L508:
         return v2;
         L510:
@@ -449,7 +449,7 @@ public class Label extends Widget {
         return;
     }
     // bytecode 43 bytes, max_stack 2, max_locals 2
-    public String a() {
+    public String a__String() {
         int v1 = 0;
         L2:
         if (v1 >= this.a.length()) goto L32;
@@ -465,15 +465,15 @@ public class Label extends Widget {
         return 40;
     }
     // bytecode 30 bytes, max_stack 3, max_locals 3
-    public boolean a(int v1, int v2) {
-        if (this.a(v1, v2) == 0) goto L28;
-        ((KORa) KORa.self).displayTextField(this.d, this.a());
+    public boolean a__boolean(int v1, int v2) {
+        if (this.a__boolean(v1, v2) == 0) goto L28;
+        ((KORa) KORa.self).displayTextField(this.d, this.a__String());
         return 1;
         L28:
         return 0;
     }
     // bytecode 1 bytes, max_stack 0, max_locals 3
-    public void a(int v1, int v2) {
+    public void a__void(int v1, int v2) {
         return;
     }
     // bytecode 2 bytes, max_stack 1, max_locals 3

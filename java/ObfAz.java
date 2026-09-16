@@ -62,20 +62,20 @@ public class ObfAz extends MenuItem {
         L25:
         v1 = this.a.a(SysUtil.a(211));
         L39:
-        return (this.a((this.a.b() - v1)) + v1);
+        return (this.a__int((this.a.b() - v1)) + v1);
     }
     // bytecode 49 bytes, max_stack 3, max_locals 3
-    public int a(int v1) {
+    public int a__int(int v1) {
         if (this.b_Z != 0) goto L25;
         int v2 = this.a.a(SysUtil.a(this.b));
         goto L39;
         L25:
         v2 = this.a.a(SysUtil.a(211));
         L39:
-        return (this.a((v1 - v2)) + v2);
+        return (this.a__int((v1 - v2)) + v2);
     }
     // bytecode 114 bytes, max_stack 2, max_locals 3
-    public boolean a(int v1) {
+    public boolean a__boolean(int v1) {
         if (this.b_Z == 0) goto L37;
         if (v1 >= 2147483647) goto L37;
         Settings.a(this.h, v1);
@@ -88,8 +88,8 @@ public class ObfAz extends MenuItem {
         if (this.c() != 0) goto L46;
         return 0;
         L46:
-        if (SysUtil.a(v1) == -5) goto L81;
-        if (SysUtil.a(v1) == -6) goto L81;
+        if (SysUtil.a__int(v1) == -5) goto L81;
+        if (SysUtil.a__int(v1) == -6) goto L81;
         if (SysUtil.b(v1) == 5) goto L81;
         if (SysUtil.b(v1) != 8) goto L88;
         L81:

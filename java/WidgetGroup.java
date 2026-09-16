@@ -52,23 +52,23 @@ public class WidgetGroup extends Widget {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public float a() {
+    public float a__float() {
         return this.a_F;
     }
     // bytecode 10 bytes, max_stack 2, max_locals 1
-    public void d() {
-        this.a_F = ((float) this.a());
+    public void d__void() {
+        this.a_F = ((float) this.a__int());
         return;
     }
     // bytecode 17 bytes, max_stack 2, max_locals 1
-    public boolean a() {
-        if (fcmpg(this.a_F, ((float) this.a())) < 0) goto L15;
+    public boolean a__boolean() {
+        if (fcmpg(this.a_F, ((float) this.a__int())) < 0) goto L15;
         return 1;
         L15:
         return 0;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 1
-    public void c() {
+    public void c__void() {
         this.b_Z = true;
         return;
     }
@@ -76,7 +76,7 @@ public class WidgetGroup extends Widget {
     public void a(float v1) {
         if (this.b_Z == 0) goto L42;
         this.a_F = (this.a_F + (v1 * ((float) this.j)));
-        if (fcmpg(this.a_F, ((float) this.a())) < 0) goto L81;
+        if (fcmpg(this.a_F, ((float) this.a__int())) < 0) goto L81;
         this.b_Z = false;
         return;
         L42:
@@ -88,8 +88,8 @@ public class WidgetGroup extends Widget {
         return;
     }
     // bytecode 10 bytes, max_stack 2, max_locals 1
-    public int a() {
-        return (this.a() + this.m);
+    public int a__int() {
+        return (this.a__int() + this.m);
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2
     public void b(float v1) {
@@ -118,7 +118,7 @@ public class WidgetGroup extends Widget {
         L66:
         int v8 = ((int) (((float) jt2) * this.b_F));
         this.h = v8;
-        if (this.a() <= v8) goto L101;
+        if (this.a__int() <= v8) goto L101;
         this.f((v8 - this.m));
         L101:
         if ((Settings.l() % 2) != 0) goto L115;
@@ -127,15 +127,15 @@ public class WidgetGroup extends Widget {
         L115:
         jt3 = v6; /* join L117 from L115 */
         L117:
-        this.d((jt3 - this.a()));
+        this.d((jt3 - this.a__int()));
         v8 = (SysUtil.b.a(true) + 6);
         if (this.d == 0) goto L155;
         this.d((this.e + v8));
         L155:
         if (Settings.l() != 0) goto L552;
-        v1.setClip((this.e() + v2), ((this.e + v3) - v8), this.b(), (this.a() + v8));
+        v1.setClip((this.e() + v2), ((this.e + v3) - v8), this.b(), (this.a__int() + v8));
         v1.setColor(5592405);
-        SysUtil.a(v1, (this.e() + v2), (this.e + v3), this.b(), this.a(), 5592405, 8947848, true);
+        SysUtil.a(v1, (this.e() + v2), (this.e + v3), this.b(), this.a__int(), 5592405, 8947848, true);
         if (this.d == 0) goto L409;
         v1.setColor(10223616);
         SysUtil.a(v1, (this.e() + v2), ((this.e + v3) - v8), this.b(), v8, 10223616, 13565952, true);
@@ -147,13 +147,13 @@ public class WidgetGroup extends Widget {
         v1.drawLine((this.e() + v2), ((this.e + v3) - v8), (((this.e() + v2) + this.b()) - 1), ((this.e + v3) - v8));
         v1.drawLine((this.e() + v2), (this.e + v3), (((this.e() + v2) + this.b()) - 1), (this.e + v3));
         L409:
-        v1.setClip((this.e() + v2), (((this.e + v3) + 4) + SysUtil.d_I), this.b(), ((this.a() - (2 * (4 + SysUtil.d_I))) - this.m));
+        v1.setClip((this.e() + v2), (((this.e + v3) + 4) + SysUtil.d_I), this.b(), ((this.a__int() - (2 * (4 + SysUtil.d_I))) - this.m));
         v8 = SysUtil.d_I;
         int v9 = 1;
         L460:
         if (v9 >= this.a_I) goto L539;
         this.a[v9].d(v8);
-        v8 = (v8 + (this.a[v9].a() + WidgetGroup.i));
+        v8 = (v8 + (this.a[v9].a__int() + WidgetGroup.i));
         this.a[v9].h();
         this.a[v9].a(v1, (v2 + this.e()), (this.f() + v3));
         v9 += 1;
@@ -163,9 +163,9 @@ public class WidgetGroup extends Widget {
         return;
         L552:
         if (Settings.l() != 3) goto L945;
-        v1.setClip(((this.e + v3) - v8), (this.e() + v2), (this.a() + v8), this.b());
+        v1.setClip(((this.e + v3) - v8), (this.e() + v2), (this.a__int() + v8), this.b());
         v1.setColor(5592405);
-        SysUtil.a(v1, (this.e + v3), (this.e() + v2), this.a(), this.b(), 5592405, 8947848, false);
+        SysUtil.a(v1, (this.e + v3), (this.e() + v2), this.a__int(), this.b(), 5592405, 8947848, false);
         if (this.d == 0) goto L807;
         v1.setColor(10223616);
         SysUtil.a(v1, ((this.e + v3) - v8), (this.e() + v2), v8, this.b(), 10223616, 13565952, false);
@@ -177,13 +177,13 @@ public class WidgetGroup extends Widget {
         v1.drawLine(((this.e + v3) - v8), (this.e() + v2), ((this.e + v3) - v8), (((this.e() + v2) + this.b()) - 1));
         v1.drawLine((this.e + v3), (this.e() + v2), (this.e + v3), (((this.e() + v2) + this.b()) - 1));
         L807:
-        v1.setClip((((this.e + v3) + 4) + SysUtil.d_I), (this.e() + v2), (this.a() - (2 * (4 + SysUtil.d_I))), this.b());
+        v1.setClip((((this.e + v3) + 4) + SysUtil.d_I), (this.e() + v2), (this.a__int() - (2 * (4 + SysUtil.d_I))), this.b());
         v8 = SysUtil.d_I;
         v9 = 1;
         L853:
         if (v9 >= this.a_I) goto L932;
         this.a[v9].d(v8);
-        v8 = (v8 + (this.a[v9].a() + WidgetGroup.i));
+        v8 = (v8 + (this.a[v9].a__int() + WidgetGroup.i));
         this.a[v9].h();
         this.a[v9].a(v1, (v2 + this.e()), (this.f() + v3));
         v9 += 1;
@@ -193,9 +193,9 @@ public class WidgetGroup extends Widget {
         return;
         L945:
         if (Settings.l() != 1) goto L1390;
-        v1.setClip((((v6 - ((this.e + v3) - v8)) - this.a()) - v8), (this.e() + v2), (this.a() + v8), this.b());
+        v1.setClip((((v6 - ((this.e + v3) - v8)) - this.a__int()) - v8), (this.e() + v2), (this.a__int() + v8), this.b());
         v1.setColor(5592405);
-        SysUtil.a(v1, ((v6 - (this.e + v3)) - this.a()), (this.e() + v2), this.a(), this.b(), 8947848, 5592405, false);
+        SysUtil.a(v1, ((v6 - (this.e + v3)) - this.a__int()), (this.e() + v2), this.a__int(), this.b(), 8947848, 5592405, false);
         if (this.d == 0) goto L1237;
         v1.setColor(10223616);
         SysUtil.a(v1, ((v6 - ((this.e + v3) - v8)) - v8), (this.e() + v2), v8, this.b(), 13565952, 10223616, false);
@@ -207,13 +207,13 @@ public class WidgetGroup extends Widget {
         v1.drawLine((v6 - ((this.e + v3) - v8)), (this.e() + v2), (v6 - ((this.e + v3) - v8)), (((this.e() + v2) + this.b()) - 1));
         v1.drawLine((v6 - (this.e + v3)), (this.e() + v2), (v6 - (this.e + v3)), (((this.e() + v2) + this.b()) - 1));
         L1237:
-        v1.setClip((((v6 - (((this.e + v3) + 4) + SysUtil.d_I)) - this.a()) + (2 * (4 + SysUtil.d_I))), (this.e() + v2), (this.a() - (2 * (4 + SysUtil.d_I))), this.b());
+        v1.setClip((((v6 - (((this.e + v3) + 4) + SysUtil.d_I)) - this.a__int()) + (2 * (4 + SysUtil.d_I))), (this.e() + v2), (this.a__int() - (2 * (4 + SysUtil.d_I))), this.b());
         v8 = SysUtil.d_I;
         v9 = 1;
         L1299:
         if (v9 >= this.a_I) goto L1378;
         this.a[v9].d(v8);
-        v8 = (v8 + (this.a[v9].a() + WidgetGroup.i));
+        v8 = (v8 + (this.a[v9].a__int() + WidgetGroup.i));
         this.a[v9].h();
         this.a[v9].a(v1, (v2 + this.e()), (this.f() + v3));
         v9 += 1;
@@ -224,7 +224,7 @@ public class WidgetGroup extends Widget {
         return;
     }
     // bytecode 71 bytes, max_stack 3, max_locals 3
-    public void a() {
+    public void a__void() {
         int v2 = 0;
         L2:
         if (v2 >= this.a_I) goto L70;
@@ -260,8 +260,8 @@ public class WidgetGroup extends Widget {
     // bytecode 138 bytes, max_stack 6, max_locals 3
     public void i(int v1) {
         int v2 = (this.f() + this.a[v1].f());
-        if (((this.f() + this.a[v1].f()) + this.a[v1].a()) <= (((((this.e + this.h) - SysUtil.d_I) - 6) - this.m) - 10)) goto L99;
-        this.l = (this.l + ((((((this.e + this.h) - (v2 + this.a[v1].a())) - SysUtil.d_I) - 6) - this.m) - 10));
+        if (((this.f() + this.a[v1].f()) + this.a[v1].a__int()) <= (((((this.e + this.h) - SysUtil.d_I) - 6) - this.m) - 10)) goto L99;
+        this.l = (this.l + ((((((this.e + this.h) - (v2 + this.a[v1].a__int())) - SysUtil.d_I) - 6) - this.m) - 10));
         return;
         L99:
         if (v2 >= (this.e + this.m)) goto L137;
@@ -270,15 +270,15 @@ public class WidgetGroup extends Widget {
         return;
     }
     // bytecode 79 bytes, max_stack 2, max_locals 2
-    public boolean a(int v1) {
+    public boolean a__boolean(int v1) {
         if (v1 != -195) goto L9;
         return 1;
         L9:
         if (this.b < 0) goto L77;
-        if (this.a[this.b].a(v1) == 0) goto L77;
+        if (this.a[this.b].a__boolean(v1) == 0) goto L77;
         if (this.a[this.b].c() != 0) goto L75;
         if (SysUtil.b(v1) != 1) goto L62;
-        this.a();
+        this.a__void();
         goto L75;
         L62:
         if (SysUtil.b(v1) != 6) goto L75;
@@ -296,7 +296,7 @@ public class WidgetGroup extends Widget {
         this.a[this.a_I] = v1;
         this.a[this.a_I].a(this);
         this.a[this.a_I].d(this.k);
-        this.k = (this.k + this.a[this.a_I].a());
+        this.k = (this.k + this.a[this.a_I].a__int());
         this.a[this.a_I].a(v2);
         this.a[this.a_I].a(this.a());
         if (this.b >= 0) goto L145;
@@ -308,7 +308,7 @@ public class WidgetGroup extends Widget {
         return;
     }
     // bytecode 11 bytes, max_stack 3, max_locals 1
-    public void g() {
+    public void g__void() {
         this.a_I = (this.a_I + 2);
         return;
     }
@@ -323,17 +323,17 @@ public class WidgetGroup extends Widget {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int d() {
+    public int d__int() {
         return this.a_I;
     }
     // bytecode 63 bytes, max_stack 3, max_locals 3
-    public void a(int v1) {
+    public void a__void(int v1) {
         v1 = 0;
         int v2 = 0;
         L4:
         if (v2 >= this.a_I) goto L47;
-        this.a[v2].a(this.b());
-        v1 = (v1 + (this.a[v2].a() + WidgetGroup.i));
+        this.a[v2].a__void(this.b());
+        v1 = (v1 + (this.a[v2].a__int() + WidgetGroup.i));
         v2 += 1;
         goto L4;
         L47:
@@ -348,18 +348,18 @@ public class WidgetGroup extends Widget {
         return (this.e + this.l);
     }
     // bytecode 2 bytes, max_stack 1, max_locals 1
-    public int c() {
+    public int c__int() {
         return m1;
     }
     // bytecode 19 bytes, max_stack 2, max_locals 1
-    public Widget a() {
+    public Widget a__Widget() {
         if (this.b >= 0) goto L9;
         return null;
         L9:
         return this.a[this.b];
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int g() {
+    public int g__int() {
         return this.b;
     }
     // bytecode 14 bytes, max_stack 2, max_locals 2
@@ -368,14 +368,14 @@ public class WidgetGroup extends Widget {
         return;
     }
     // bytecode 99 bytes, max_stack 4, max_locals 5
-    public boolean a(int v1, int v2) {
+    public boolean a__boolean(int v1, int v2) {
         int v3 = 0;
         int v4 = 2;
         L5:
         if (v4 >= this.a_I) goto L97;
         if (v3 != 0) goto L91;
         if (this.a[v4] == null) goto L91;
-        if (this.a[v4].a(v1, (v2 - this.f())) == 0) goto L91;
+        if (this.a[v4].a__boolean(v1, (v2 - this.f())) == 0) goto L91;
         this.a[this.b].a(false);
         this.b = v4;
         this.a[this.b].a(true, 5);
@@ -388,14 +388,14 @@ public class WidgetGroup extends Widget {
         return v3;
     }
     // bytecode 47 bytes, max_stack 3, max_locals 4
-    public void a(int v1, int v2) {
+    public void a__void(int v1, int v2) {
         this.n = m1;
         this.e = false;
         int v3 = 2;
         L12:
         if (v3 >= this.a_I) goto L46;
         if (this.a[v3] == null) goto L40;
-        this.a[v3].a(v1, v2);
+        this.a[v3].a__void(v1, v2);
         L40:
         v3 += 1;
         goto L12;
@@ -408,8 +408,8 @@ public class WidgetGroup extends Widget {
         int v3 = this.l;
         if (this.n < 0) goto L97;
         this.l = (this.l + (v2 - this.n));
-        int v4 = ((((this.k - this.a()) + SysUtil.b.a(true)) + 7) + 30);
-        if (((((this.k - this.a()) + SysUtil.b.a(true)) + 7) + 30) >= 70) goto L68;
+        int v4 = ((((this.k - this.a__int()) + SysUtil.b.a(true)) + 7) + 30);
+        if (((((this.k - this.a__int()) + SysUtil.b.a(true)) + 7) + 30) >= 70) goto L68;
         v4 = 0;
         L68:
         if (this.l <= 0) goto L80;

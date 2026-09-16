@@ -50,7 +50,7 @@ public class Vec2 {
         return;
     }
     // bytecode 7 bytes, max_stack 2, max_locals 1
-    public float a() {
+    public float a__float() {
         return this.a[0];
     }
     // bytecode 7 bytes, max_stack 2, max_locals 1
@@ -72,7 +72,7 @@ public class Vec2 {
         return ((float) java.lang.Math.sqrt(((double) ((this.a[0] * this.a[0]) + (this.a[1] * this.a[1])))));
     }
     // bytecode 33 bytes, max_stack 4, max_locals 2
-    public void a() {
+    public void a__void() {
         float v1 = this.c();
         if (fcmpg(this.c(), 0.0f) != 0) goto L12;
         return;
@@ -88,7 +88,7 @@ public class Vec2 {
         return;
     }
     // bytecode 39 bytes, max_stack 5, max_locals 4
-    public void a(Vec2 v1, Vec2 v2) {
+    public void a__void(Vec2 v1, Vec2 v2) {
         Vec2 v3 = v1;
         v3 = v2;
         v3 = v1;
@@ -97,10 +97,10 @@ public class Vec2 {
         return;
     }
     // bytecode 31 bytes, max_stack 4, max_locals 4
-    public void a(Vec2 v1, Vec3 v2) {
+    public void a__void(Vec2 v1, Vec3 v2) {
         Vec2 v3 = v1;
         v3 = v1;
-        this.b((v1.a[0] - v2.a()), (v1.a[1] - v2.b()));
+        this.b((v1.a[0] - v2.a__float()), (v1.a[1] - v2.b()));
         return;
     }
     // bytecode 21 bytes, max_stack 4, max_locals 2
@@ -110,7 +110,7 @@ public class Vec2 {
         return;
     }
     // bytecode 36 bytes, max_stack 4, max_locals 3
-    public static float a(Vec2 v0, Vec2 v1) {
+    public static float a__float(Vec2 v0, Vec2 v1) {
         Vec2 v2 = v0;
         v2 = v1;
         v2 = v0;
@@ -119,19 +119,19 @@ public class Vec2 {
     }
     // bytecode 20 bytes, max_stack 3, max_locals 2
     public static float a(Vec3 v0, Vec3 v1) {
-        return ((v0.a() * v1.a()) + (v0.b() * v1.b()));
+        return ((v0.a__float() * v1.a__float()) + (v0.b() * v1.b()));
     }
     // bytecode 28 bytes, max_stack 4, max_locals 3
     public static float a(Vec3 v0, Vec2 v1) {
         Vec2 v2 = v1;
         v2 = v1;
-        return ((v0.a() * v1.a[0]) + (v0.b() * v1.a[1]));
+        return ((v0.a__float() * v1.a[0]) + (v0.b() * v1.a[1]));
     }
     // bytecode 28 bytes, max_stack 3, max_locals 3
-    public static float a(Vec2 v0, Vec3 v1) {
+    public static float a__float(Vec2 v0, Vec3 v1) {
         Vec2 v2 = v0;
         v2 = v0;
-        return ((v0.a[0] * v1.a()) + (v0.a[1] * v1.b()));
+        return ((v0.a[0] * v1.a__float()) + (v0.a[1] * v1.b()));
     }
     // bytecode 48 bytes, max_stack 3, max_locals 2
     public String toString() {
@@ -142,11 +142,11 @@ public class Vec2 {
     }
     // bytecode 16 bytes, max_stack 3, max_locals 2
     public static float b(Vec2 v0, Vec3 v1) {
-        return (Vec2.a(v0, v1) / (v0.c() * v1.d()));
+        return (Vec2.a__float(v0, v1) / (v0.c() * v1.d()));
     }
     // bytecode 33 bytes, max_stack 3, max_locals 3
     public static float b(Vec3 v0, Vec3 v1) {
-        float v2 = (v0.a() - v1.a());
+        float v2 = (v0.a__float() - v1.a__float());
         v0 = ((Vec3) (v0.b() - v1.b()));
         return ((float) java.lang.Math.sqrt(((double) ((v2 * v2) + (v0 * v0)))));
     }

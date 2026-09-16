@@ -27,7 +27,7 @@ public class MarqueeButton extends MenuButton {
         if (fcmpg(this.a, this.b) == 0) goto L120;
         L19:
         this.a(v1, (v2 + ((int) this.a)), (v3 + 7), false);
-        if (fcmpg(this.a(), 1.0f) < 0) goto L120;
+        if (fcmpg(this.a__float(), 1.0f) < 0) goto L120;
         if (SysUtil.e_I <= 400) goto L75;
         jt1 = 5; /* join L76 from L71 */
         goto L76;
@@ -75,7 +75,7 @@ public class MarqueeButton extends MenuButton {
         return;
     }
     // bytecode 31 bytes, max_stack 3, max_locals 1
-    public void a() {
+    public void a__void() {
         MarqueeButton.b_I = 200;
         this.a = 0.0f;
         this.b = ((float) ((this.a.b() / 2) + this.b()));
@@ -125,7 +125,7 @@ public class MarqueeButton extends MenuButton {
         return;
     }
     // bytecode 26 bytes, max_stack 2, max_locals 1
-    public float a() {
+    public float a__float() {
         if (fcmpg(this.c, 0.0f) != 0) goto L11;
         return 1.0f;
         L11:

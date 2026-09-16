@@ -37,7 +37,7 @@ public class Planet {
         return;
     }
     // bytecode 320 bytes, max_stack 4, max_locals 3
-    public static void a() {
+    public static void a__void() {
         if (Planet.b_Z != 0) goto L9;
         Planet.c();
         L9:
@@ -144,7 +144,7 @@ public class Planet {
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static boolean a() {
+    public static boolean a__boolean() {
         return Planet.a_Z;
     }
     // bytecode 263 bytes, max_stack 3, max_locals 3

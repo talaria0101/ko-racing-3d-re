@@ -343,7 +343,7 @@ public class SysUtil {
         return (((v0[3] + 256) % 256) + (v1 << 8));
     }
     // bytecode 363 bytes, max_stack 2, max_locals 1
-    public static String a(int v0) {
+    public static String a__String(int v0) {
         if (v0 != -3000) goto L10;
         return "0";
         L10:
@@ -381,16 +381,16 @@ public class SysUtil {
         return "*";
         L120:
         if (v0 != 35) goto L138;
-        return SysUtil.a_p.a(SysUtil.a(35));
+        return SysUtil.a_p.a(SysUtil.a__bytearr(35));
         L138:
         if (v0 != 36) goto L156;
-        return SysUtil.a_p.a(SysUtil.a(36));
+        return SysUtil.a_p.a(SysUtil.a__bytearr(36));
         L156:
         if (v0 != 37) goto L174;
-        return SysUtil.a_p.a(SysUtil.a(37));
+        return SysUtil.a_p.a(SysUtil.a__bytearr(37));
         L174:
         if (v0 != 38) goto L258;
-        v0 = ((int) SysUtil.a_p.a(SysUtil.a(38)));
+        v0 = ((int) SysUtil.a_p.a(SysUtil.a__bytearr(38)));
         if (Settings.k() != 2) goto L256;
         if (Settings.m() != 1) goto L229;
         new java.lang.StringBuffer(); /* constructor */
@@ -404,7 +404,7 @@ public class SysUtil {
         return v0;
         L258:
         if (v0 != 39) goto L342;
-        v0 = ((int) SysUtil.a_p.a(SysUtil.a(39)));
+        v0 = ((int) SysUtil.a_p.a(SysUtil.a__bytearr(39)));
         if (Settings.k() != 2) goto L340;
         if (Settings.m() != 1) goto L313;
         new java.lang.StringBuffer(); /* constructor */
@@ -423,7 +423,7 @@ public class SysUtil {
         return ((javax.microedition.lcdui.game.GameCanvas) SysUtil.a_Canvas).getKeyName(v0).toUpperCase();
     }
     // bytecode 205 bytes, max_stack 3, max_locals 1
-    public static byte[] a(int v0) {
+    public static byte[] a__bytearr(int v0) {
         if (v0 != -3000) goto L13;
         return SysUtil.a_arrarrB[0];
         L13:
@@ -464,10 +464,10 @@ public class SysUtil {
         new java.lang.StringBuffer(); /* constructor */
         return SysUtil.a_p.a(new java.lang.StringBuffer().append("ACTIVATION KEY: ").append(Settings.a()).toString());
         L197:
-        return SysUtil.a_f.a(v0);
+        return SysUtil.a_f.a__bytearr(v0);
     }
     // bytecode 470 bytes, max_stack 2, max_locals 1
-    public static int a(int v0) {
+    public static int a__int(int v0) {
         if (v0 != -201) goto L10;
         return -5;
         L10:
@@ -639,7 +639,7 @@ public class SysUtil {
         return v0;
     }
     // bytecode 109 bytes, max_stack 2, max_locals 1
-    public static boolean a(int v0) {
+    public static boolean a__boolean(int v0) {
         switch (v0) {
         case -15: goto L70;
         case -14: goto L70;

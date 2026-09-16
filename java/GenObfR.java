@@ -183,12 +183,12 @@ public class ObfR extends Screen {
         ObfR.a_B = 21;
         ObfR.b_Z = false;
         this.a = v1;
-        this.i();
+        this.i__void();
         ObfCl.f_Z = false;
         return;
     }
     // bytecode 332 bytes, max_stack 4, max_locals 5
-    public void b() {
+    public void b__void() {
         InputStream v1 = Resources.a(ObfR.c_String);
         /* pop: Resources.a(ObfR.c_String).skip(((long) ObfR.g)); */
         ObfR.k = 1;
@@ -283,7 +283,7 @@ public class ObfR extends Screen {
         return;
     }
     // bytecode 91 bytes, max_stack 5, max_locals 3
-    public void c() {
+    public void c__void() {
         new ObfK(this.a.getWidth(), this.a.getHeight()); /* constructor */
         this.a_e = new ObfK(this.a.getWidth(), this.a.getHeight());
         this.a_e.a(this.a_bs.a());
@@ -300,40 +300,40 @@ public class ObfR extends Screen {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int c() {
+    public int c__int() {
         return this.a;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public int d() {
+    public int d__int() {
         return this.b;
     }
     // bytecode 18 bytes, max_stack 2, max_locals 2
-    public String a(int v1) {
+    public String a__String(int v1) {
         if (v1 < this.b) goto L11;
         return "";
         L11:
         return this.a_String[v1];
     }
     // bytecode 17 bytes, max_stack 2, max_locals 2
-    public int a(int v1) {
+    public int a__int(int v1) {
         if (v1 < this.b) goto L10;
         return m1;
         L10:
         return this.a_arrI[v1];
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public ObfBs a() {
+    public ObfBs a__ObfBs() {
         return this.a_bs;
     }
     // bytecode 2 bytes, max_stack 1, max_locals 1
-    public int e() {
+    public int e__int() {
         return 0;
     }
     // bytecode 29 bytes, max_stack 2, max_locals 2
-    public void d() {
+    public void d__void() {
         this.g_Z = false;
         if (this.d_Z != 0) goto L16;
-        this.e();
+        this.e__void();
         L16:
         ObfR v1 = this;
         ObfR.a_B = 20;
@@ -341,11 +341,11 @@ public class ObfR extends Screen {
         return;
     }
     // bytecode 189 bytes, max_stack 5, max_locals 2
-    public void e() {
+    public void e__void() {
         /* try L6-L10 catch java.io.IOException -> L13 */
         /* try L0-L182 catch java.lang.Exception -> L183 */
         if (ObfR.b_Z != 0) goto L18;
-        this.b();
+        this.b__void();
         goto L14;
         /* pop: ex_13; */
         L14:
@@ -385,40 +385,40 @@ public class ObfR extends Screen {
         return;
     }
     // bytecode 2 bytes, max_stack 1, max_locals 1
-    public int f() {
+    public int f__int() {
         return m1;
     }
     // bytecode 36 bytes, max_stack 2, max_locals 1
-    public void f() {
+    public void f__void() {
         if (this.a_bt == null) goto L14;
         this.a_bt.s();
         L14:
         this.a_bt = null;
         this.a_e = null;
-        AssetManager.b();
+        AssetManager.b__void();
         this.d_Z = false;
         java.lang.System.gc();
         return;
     }
     // bytecode 24 bytes, max_stack 2, max_locals 1
-    public void g() {
+    public void g__void() {
         if (ObfR.a_B == 24) goto L16;
         if (ObfR.a_B != 25) goto L23;
         L16:
-        this.a_bt.g();
+        this.a_bt.g__void();
         L23:
         return;
     }
     // bytecode 21 bytes, max_stack 2, max_locals 1
-    public void h() {
+    public void h__void() {
         if (ObfR.a_B != 25) goto L20;
         ObfR.a_B = 24;
-        this.a_bt.h();
+        this.a_bt.h__void();
         L20:
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
-    public static int g() {
+    public static int g__int() {
         return ObfR.a_B;
     }
     // bytecode 215 bytes, max_stack 4, max_locals 3
@@ -429,32 +429,32 @@ public class ObfR extends Screen {
         L10:
         if (v1 >= this.b) goto L118;
         if (this.a_bt.a(v1).c() == 0) goto L112;
-        int v2 = this.a_bt.a(v1).a();
-        if (this.a_bt.a(v1).a() >= this.d_arrI.length) goto L112;
+        int v2 = this.a_bt.a(v1).a__int();
+        if (this.a_bt.a(v1).a__int() >= this.d_arrI.length) goto L112;
         if (v2 < 0) goto L112;
         if (this.d_arrI[v2] >= 0) goto L112;
-        this.d_arrI[v2] = this.a_bt.a(v1).b();
+        this.d_arrI[v2] = this.a_bt.a(v1).b__int();
         if (this.e_arrI[v2] < 0) goto L112;
-        this.a_e.a((this.e_arrI[v2] - this.d_arrI[v2]));
+        this.a_e.a__void((this.e_arrI[v2] - this.d_arrI[v2]));
         L112:
         v1 += 1;
         goto L10;
         L118:
         if (this.a_bt.a(0).c() == 0) goto L212;
-        v1 = ((float) this.a_bt.a(0).a());
-        if (this.a_bt.a(0).a() >= this.e_arrI.length) goto L212;
+        v1 = ((float) this.a_bt.a(0).a__int());
+        if (this.a_bt.a(0).a__int() >= this.e_arrI.length) goto L212;
         if (v1 < 0) goto L212;
         if (this.e_arrI[v1] >= 0) goto L212;
-        this.e_arrI[v1] = this.a_bt.a(0).b();
+        this.e_arrI[v1] = this.a_bt.a(0).b__int();
         if (this.d_arrI[v1] < 0) goto L212;
-        this.a_e.a((this.e_arrI[v1] - this.d_arrI[v1]));
+        this.a_e.a__void((this.e_arrI[v1] - this.d_arrI[v1]));
         L212:
         return;
         /* pop: ex_213; */
         return;
     }
     // bytecode 19 bytes, max_stack 3, max_locals 1
-    public void i() {
+    public void i__void() {
         if (Settings.d_String.length() <= 0) goto L18;
         this.b_String[0] = Settings.d_String;
         L18:
@@ -463,7 +463,7 @@ public class ObfR extends Screen {
     // bytecode 405 bytes, max_stack 5, max_locals 3
     public void b(float v1) {
         /* try L205-L398 catch java.lang.Exception -> L399 */
-        this.i();
+        this.i__void();
         if (ObfR.a_B < 24) goto L78;
         if (ObfR.a_B >= 200) goto L78;
         this.a_bt.b(v1);
@@ -519,9 +519,9 @@ public class ObfR extends Screen {
         MainCanvas.a();
         L334:
         v1.q();
-        v1.c();
+        v1.c__void();
         v1.n();
-        v1.a_bt.d();
+        v1.a_bt.d__void();
         if (v1.c_Z == 0) goto L373;
         v1.v = (v1.v + 1);
         MainCanvas.a();
@@ -541,7 +541,7 @@ public class ObfR extends Screen {
     public void a_(Graphics v1) {
         /* try L14-L50 catch java.io.IOException -> L53 */
         /* try L176-L212 catch java.io.IOException -> L215 */
-        if (this.a() == 0) goto L169;
+        if (this.a__boolean() == 0) goto L169;
         if (this.d_Image != null) goto L54;
         if (SysUtil.e_I <= 200) goto L38;
         this.d_Image = javax.microedition.lcdui.Image.createImage(Resources.a("/images/w.png"));
@@ -616,24 +616,24 @@ public class ObfR extends Screen {
         goto L25;
         L66:
         this.a_e.i(v3);
-        this.a_e.j(v2.g());
-        this.a_e.c(this.b());
-        this.a_e.d(v2.d());
+        this.a_e.j(v2.g__int());
+        this.a_e.c__void(this.b__int());
+        this.a_e.d(v2.d__int());
         this.k();
-        this.a_e.a(this.a_bt.a());
+        this.a_e.a(this.a_bt.a__boolean());
         this.a_e.g(((int) (v2.a().j() * 100.0f)));
         this.a_e.h(((int) ((v2.a().j() / v2.a().k()) * 100.0f)));
         this.a_e.e(v1);
         return;
     }
     // bytecode 16 bytes, max_stack 2, max_locals 2
-    public int b() {
+    public int b__int() {
         ObfR v1 = this;
         v1 = ((ObfR) this.a_bt.a(0));
-        return this.a_bt.a(0).d();
+        return this.a_bt.a(0).d__int();
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public TouchButtons a() {
+    public TouchButtons a__TouchButtons() {
         return this.a_e;
     }
     // bytecode 897 bytes, max_stack 11, max_locals 12
@@ -696,7 +696,7 @@ public class ObfR extends Screen {
         SysUtil.h.a(v4, (v5 + 1), (((v9 + 10) + v6) - 6), ((((v5 * v8) + v7) + (((v6 * 2) - SysUtil.h.a()) / 2)) + 1));
         SysUtil.b.a(v4, v3.b_String[v3.b_arrI[v5]], ((((v9 + v4.getClipWidth()) - 10) - ((v6 - 7) / 2)) - SysUtil.b.a(v3.b_String[v3.b_arrI[v5]])), (((((v5 * v8) + v7) + ((v6 - 7) / 2)) - 8) + 4));
         if (v5 != 0) goto L596;
-        int v10 = v3.a_bt.a(v3.b_arrI[v5]).e();
+        int v10 = v3.a_bt.a(v3.b_arrI[v5]).e__int();
         SysUtil.b.a(v4, ((long) v10), ((((v9 + v4.getClipWidth()) - 10) - ((v6 - 7) / 2)) - SysUtil.b.a(((long) v10))), ((((((v5 * v8) + v7) + v6) + ((v6 - 7) / 2)) - 8) + 4));
         goto L890;
         L596:
@@ -708,7 +708,7 @@ public class ObfR extends Screen {
         SysUtil.h.a(v10, (v5 + 1), ((v9 + v6) - 6), ((((v6 * 2) - SysUtil.h.a()) / 2) + 1));
         SysUtil.b.a(v10, v3.b_String[v3.b_arrI[v5]], ((v10.getClipWidth() - ((v6 - 7) / 2)) - SysUtil.b.a(v3.b_String[v3.b_arrI[v5]])), ((v6 - 7) / 2));
         if (v5 != 0) goto L809;
-        int v11 = v3.a_bt.a(v3.b_arrI[v5]).e();
+        int v11 = v3.a_bt.a(v3.b_arrI[v5]).e__int();
         SysUtil.b.a(v10, ((long) v11), (((v9 + v10.getClipWidth()) - ((v6 - 7) / 2)) - SysUtil.b.a(((long) v11))), (v6 + ((v6 - 7) / 2)));
         goto L825;
         L809:
@@ -743,7 +743,7 @@ public class ObfR extends Screen {
         v5 += 21;
         v3 = ((int) SysUtil.a(91));
         v2 = ((Image) SysUtil.p.a(v3));
-        int v6 = (SysUtil.p.a(ObfR.d) + 1);
+        int v6 = (SysUtil.p.a__int(ObfR.d) + 1);
         v4 = (v4 + 8);
         SysUtil.p.a(v1, v3, v4, v5);
         SysUtil.p.a(v1, ObfR.d, ((v4 + v2) + 5), v5);
@@ -770,7 +770,7 @@ public class ObfR extends Screen {
         return;
     }
     // bytecode 25 bytes, max_stack 2, max_locals 1
-    public int h() {
+    public int h__int() {
         if (ObfR.a_B > 21) goto L11;
         return 55;
         L11:
@@ -800,7 +800,7 @@ public class ObfR extends Screen {
         if (ObfR.a_B != 27) goto L76;
         this.d(v1);
         L76:
-        byte[] v2 = SysUtil.a(this.h());
+        byte[] v2 = SysUtil.a(this.h__int());
         if (Settings.m() != 0) goto L435;
         SysUtil.a(v1, 0, ((v1.getClipHeight() - SysUtil.b.a()) - this.e), v1.getClipWidth(), (SysUtil.b.a() + this.e), 5592405, 10066329, true);
         v1.setColor(10066329);
@@ -814,17 +814,17 @@ public class ObfR extends Screen {
         new ProgressBar(null, m1); /* constructor */
         this.a_cb = new ProgressBar(null, m1);
         L229:
-        this.a_cb.b(this.v);
+        this.a_cb.b__void(this.v);
         this.a_cb.a(v1, 0, ((v1.getClipHeight() - SysUtil.b.a()) - this.e));
         L265:
-        if (Settings.a() == 0) goto L302;
+        if (Settings.a__boolean() == 0) goto L302;
         SysUtil.b.a(v1, v2, ((v1.getClipWidth() - SysUtil.b.a(v2)) - 5), (this.e / 2));
         goto L342;
         L302:
         SysUtil.b.a(v1, v2, ((v1.getClipWidth() - SysUtil.b.a(v2)) - 5), ((v1.getClipHeight() - SysUtil.b.a()) - (this.e / 2)));
         L342:
         if (ObfR.a_B < 26) goto L691;
-        if (Settings.a() == 0) goto L403;
+        if (Settings.a__boolean() == 0) goto L403;
         v2 = SysUtil.a(48);
         SysUtil.b.a(v1, v2, ((v1.getClipWidth() - SysUtil.b.a(v2)) - 5), ((v1.getClipHeight() - SysUtil.b.a()) - (this.e / 2)));
         return;
@@ -848,7 +848,7 @@ public class ObfR extends Screen {
         new ProgressBar(null, m1); /* constructor */
         this.a_cb = new ProgressBar(null, m1);
         L586:
-        this.a_cb.b(this.v);
+        this.a_cb.b__void(this.v);
         this.a_cb.a(v3, 0, 1);
         L607:
         SysUtil.b.a(v3, v2, ((v3.getClipWidth() - SysUtil.b.a(v2)) - 5), (this.e / 2));
@@ -861,7 +861,7 @@ public class ObfR extends Screen {
     }
     // bytecode 96 bytes, max_stack 8, max_locals 9
     public void a(Graphics v1, int v2, int v3, int v4, int v5, int v6, int v7, int v8) {
-        v8 = (this.a_bt.a(this.b_arrI[v2]).e() - this.a_bt.a(this.b_arrI[0]).e());
+        v8 = (this.a_bt.a(this.b_arrI[v2]).e__int() - this.a_bt.a(this.b_arrI[0]).e__int());
         v3 = ((((v3 + v1.getClipWidth()) - v4) - ((v5 - 7) / 2)) - SysUtil.b.b(((long) v8)));
         SysUtil.b.b(v1, ((long) v8), v3, (((((v2 * v6) + v7) + v5) + ((v5 - 7) / 2)) - 8));
         return;
@@ -878,7 +878,7 @@ public class ObfR extends Screen {
         return;
     }
     // bytecode 67 bytes, max_stack 4, max_locals 3
-    public void b(int v1) {
+    public void b__void(int v1) {
         int v2 = (this.s + 1);
         L7:
         if (v2 >= this.b) goto L46;
@@ -893,16 +893,16 @@ public class ObfR extends Screen {
         return;
     }
     // bytecode 186 bytes, max_stack 2, max_locals 3
-    public void a(int v1) {
+    public void a__void(int v1) {
         if (ObfR.a_B != 24) goto L48;
-        if (SysUtil.a(v1) == -6) goto L26;
-        if (SysUtil.a(v1) != -7) goto L39;
+        if (SysUtil.a__int(v1) == -6) goto L26;
+        if (SysUtil.a__int(v1) != -7) goto L39;
         L26:
         ObfR.a_B = 25;
         this.a.z();
         return;
         L39:
-        this.a_bt.a(v1);
+        this.a_bt.a__void(v1);
         return;
         L48:
         if (ObfR.a_B != 22) goto L62;
@@ -912,7 +912,7 @@ public class ObfR extends Screen {
         if (ObfR.a_B == 26) goto L78;
         if (ObfR.a_B != 27) goto L185;
         L78:
-        if (SysUtil.a(v1) != -6) goto L138;
+        if (SysUtil.a__int(v1) != -6) goto L138;
         v1 = 0;
         int v2 = 0;
         L91:
@@ -928,8 +928,8 @@ public class ObfR extends Screen {
         this.a.t();
         return;
         L138:
-        if (SysUtil.a(v1) == -7) goto L156;
-        if (SysUtil.a(v1) != -5) goto L185;
+        if (SysUtil.a__int(v1) == -7) goto L156;
+        if (SysUtil.a__int(v1) != -5) goto L185;
         L156:
         if (ObfR.a_B != 26) goto L170;
         ObfR.a_B = 27;
@@ -941,19 +941,19 @@ public class ObfR extends Screen {
         return;
     }
     // bytecode 17 bytes, max_stack 2, max_locals 2
-    public void c(int v1) {
+    public void c__void(int v1) {
         if (ObfR.a_B != 24) goto L16;
-        this.a_bt.c(v1);
+        this.a_bt.c__void(v1);
         L16:
         return;
     }
     // bytecode 75 bytes, max_stack 3, max_locals 2
     public void n() {
-        this.d_arrI = new int[(this.a_bs.a() * this.a)]#1;
-        this.e_arrI = new int[(this.a_bs.a() * this.a)]#2;
+        this.d_arrI = new int[(this.a_bs.a__int() * this.a)]#1;
+        this.e_arrI = new int[(this.a_bs.a__int() * this.a)]#2;
         int v1 = 0;
         L38:
-        if (v1 >= (this.a_bs.a() * this.a)) goto L74;
+        if (v1 >= (this.a_bs.a__int() * this.a)) goto L74;
         this.d_arrI[v1] = m1;
         this.e_arrI[v1] = m1;
         v1 += 1;
@@ -1000,7 +1000,7 @@ public class ObfR extends Screen {
         L28:
         if (v5 >= (v1 + 1)) goto L125;
         int v6 = ((byte) StreamReader.a(v0));
-        if ((((byte) StreamReader.a(v0)) & ObfR.b(0)) == 0) goto L85;
+        if ((((byte) StreamReader.a(v0)) & ObfR.b__int(0)) == 0) goto L85;
         int v3 = StreamReader.a(v0);
         if (StreamReader.a(v0) <= 0) goto L85;
         ObfR.d = (ObfR.d + 10);
@@ -1010,7 +1010,7 @@ public class ObfR extends Screen {
         v3 = 1;
         L87:
         if (v3 > 6) goto L119;
-        if ((v6 & ObfR.b(v3)) == 0) goto L113;
+        if ((v6 & ObfR.b__int(v3)) == 0) goto L113;
         /* pop: StreamReader.a(v0); */
         /* pop: StreamReader.a(v0); */
         L113:
@@ -1039,7 +1039,7 @@ public class ObfR extends Screen {
         return v1;
     }
     // bytecode 21 bytes, max_stack 2, max_locals 3
-    public static int b(int v0) {
+    public static int b__int(int v0) {
         int v1 = 1;
         int v2 = 0;
         L4:
@@ -1122,7 +1122,7 @@ public class ObfR extends Screen {
         L344:
         if (v7 >= (v3 + 1)) goto L462;
         v10 = ((java.util.Random) ((byte) StreamReader.a(v0)));
-        if ((((byte) StreamReader.a(v0)) & ObfR.b(0)) == 0) goto L422;
+        if ((((byte) StreamReader.a(v0)) & ObfR.b__int(0)) == 0) goto L422;
         v2 = ((boolean) StreamReader.a(v0));
         ObfR.a(v1, v9, v7, v6, v2, StreamReader.a(v0), v5, v11, v12);
         if (v2 <= 0) goto L422;
@@ -1133,7 +1133,7 @@ public class ObfR extends Screen {
         v2 = ((boolean) 1);
         L424:
         if (v2 > 6) goto L456;
-        if ((v10 & ObfR.b(v2)) == 0) goto L450;
+        if ((v10 & ObfR.b__int(v2)) == 0) goto L450;
         /* pop: StreamReader.a(v0); */
         /* pop: StreamReader.a(v0); */
         L450:
@@ -1195,7 +1195,7 @@ public class ObfR extends Screen {
         return;
     }
     // bytecode 13 bytes, max_stack 2, max_locals 1
-    public boolean a() {
+    public boolean a__boolean() {
         if (this.b_arrI[0] != 0) goto L11;
         return 1;
         L11:
@@ -1225,20 +1225,20 @@ public class ObfR extends Screen {
         return;
     }
     // bytecode 12 bytes, max_stack 2, max_locals 1
-    public int i() {
-        return this.a_bt.a(0).e();
+    public int i__int() {
+        return this.a_bt.a(0).e__int();
     }
     // bytecode 2 bytes, max_stack 1, max_locals 1
-    public int a() {
+    public int a__int() {
         return 0;
     }
     // bytecode 26 bytes, max_stack 2, max_locals 2
-    public int c(int v1) {
+    public int c__int(int v1) {
         if (v1 <= 0) goto L19;
-        if (this.i() <= 0) goto L24;
-        if (this.i() >= v1) goto L24;
+        if (this.i__int() <= 0) goto L24;
+        if (this.i__int() >= v1) goto L24;
         L19:
-        return this.i();
+        return this.i__int();
         L24:
         return v1;
     }
@@ -1247,7 +1247,7 @@ public class ObfR extends Screen {
         return 0;
     }
     // bytecode 42 bytes, max_stack 3, max_locals 3
-    public boolean a(int v1, int v2) {
+    public boolean a__boolean(int v1, int v2) {
         if (ObfR.a_B < 26) goto L13;
         this.g_Z = true;
         L13:
@@ -1255,24 +1255,24 @@ public class ObfR extends Screen {
         return 1;
         L23:
         if (this.a_bt == null) goto L40;
-        return this.a_bt.a(v1, v2);
+        return this.a_bt.a__boolean(v1, v2);
         L40:
         return 0;
     }
     // bytecode 26 bytes, max_stack 3, max_locals 3
-    public void a(int v1, int v2) {
+    public void a__void(int v1, int v2) {
         if (ObfR.a_B == 24) goto L9;
         return;
         L9:
         if (this.a_bt == null) goto L25;
-        this.a_bt.a(v1, v2);
+        this.a_bt.a__void(v1, v2);
         L25:
         return;
     }
     // bytecode 228 bytes, max_stack 3, max_locals 3
     public void b(int v1, int v2) {
         if (ObfR.a_B != 22) goto L16;
-        this.a(-203);
+        this.a__void(-203);
         return;
         L16:
         if (ObfR.a_B < 26) goto L135;
@@ -1280,36 +1280,36 @@ public class ObfR extends Screen {
         if (Settings.m() != 0) goto L90;
         if (v1 >= 100) goto L61;
         if (v2 <= (SysUtil.f_I - 150)) goto L61;
-        this.a(-202);
+        this.a__void(-202);
         L61:
         if (v1 <= (SysUtil.e_I - 100)) goto L134;
         if (v2 <= (SysUtil.f_I - 150)) goto L134;
-        this.a(-203);
+        this.a__void(-203);
         return;
         L90:
         if (v2 >= 100) goto L110;
         if (v1 >= 150) goto L110;
-        this.a(-202);
+        this.a__void(-202);
         L110:
         if (v2 <= (SysUtil.f_I - 100)) goto L134;
         if (v1 >= 150) goto L134;
-        this.a(-203);
+        this.a__void(-203);
         L134:
         return;
         L135:
         if (ObfR.a_B == 24) goto L153;
-        if (this.a(v1, v2) == 0) goto L211;
+        if (this.a__boolean(v1, v2) == 0) goto L211;
         return;
         L153:
         if (Settings.l() != 0) goto L183;
         if (v1 <= (SysUtil.e_I - 70)) goto L211;
         if (v2 >= 70) goto L211;
-        this.a(-202);
+        this.a__void(-202);
         return;
         L183:
         if (v1 <= (SysUtil.e_I - 70)) goto L211;
         if (v2 <= (SysUtil.f_I - 70)) goto L211;
-        this.a(-202);
+        this.a__void(-202);
         return;
         L211:
         if (this.a_bt == null) goto L227;
