@@ -120,7 +120,7 @@ class Car:
 class ObjectDef:
     model: str
     texture: str
-    flag: bool                 # passed to the model cache as "textured"/wrap
+    flag: bool                 # texture format: RGBA when set, RGB when clear
 
     @classmethod
     def parse(cls, blob: bytes) -> "ObjectDef":

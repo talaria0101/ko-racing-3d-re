@@ -2360,6 +2360,41 @@ fn the_tile_atlas_follows_the_weather() {
     }
 }
 
+/// Detail and object textures follow the weather too, each the way its own
+/// loader does it: `bc.a(cf)` swaps a mid texture containing `texpack` for
+/// the seasonal atlas and one starting with `t.png` for the seasonal second
+/// sheet, while `ai.a(cf)` only does the latter swap for objects.
+#[test]
+fn detail_textures_follow_the_weather() {
+    use kora::scene::{detail_texture, object_texture};
+
+    assert_eq!(detail_texture(0, "t.png"), "tex/t.png", "clear keeps");
+    assert_eq!(detail_texture(1, "t.png"), "tex/t.png", "rain keeps");
+    assert_eq!(detail_texture(4, "t.png"), "tex/tf2.png", "autumn trees");
+    assert_eq!(detail_texture(2, "t.png"), "tex/ts2.png", "snow trees");
+    assert_eq!(detail_texture(3, "t.png"), "tex/td2.png", "desert trees");
+    assert_eq!(detail_texture(4, "texpack.png"), "tex/tf.png", "mid atlas");
+    assert_eq!(detail_texture(4, "church.png"), "tex/church.png", "untouched");
+    assert_eq!(object_texture(4, "t.png"), "tex/tf2.png", "object trees");
+    assert_eq!(
+        object_texture(4, "texpack.png"),
+        "tex/texpack.png",
+        "objects keep the plain atlas"
+    );
+    assert_eq!(object_texture(4, "f.png"), "tex/f.png", "untouched");
+    // And every sheet either can name is in the pack.
+    let resources = pack::load(&assets());
+    for theme in 0..=4 {
+        for path in [
+            detail_texture(theme, "t.png"),
+            detail_texture(theme, "texpack.png"),
+            object_texture(theme, "t.png"),
+        ] {
+            assert!(resources.contains_key(&path), "{path} is missing");
+        }
+    }
+}
+
 /// Mesh texture coordinates are **signed** bytes, and `128 * scale + bias`
 /// maps them onto 0..1: the file stores them unsigned, the MIDlet keeps them in
 /// a Java `byte[]`, and M3G decodes that as signed (`new VertexArray(n, 2, 1)`

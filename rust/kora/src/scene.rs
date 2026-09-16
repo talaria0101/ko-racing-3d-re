@@ -60,6 +60,48 @@ pub fn tile_atlas(theme: u8, texture: &str) -> String {
     format!("tex/{swapped}")
 }
 
+/// The texture a mid-detail or object model really means, which also depends
+/// on the weather.
+///
+/// `bc.a(cf)` (mid detail) swaps a texture containing `texpack` for the
+/// seasonal atlas - `ts.png`, `td.png`, `tf.png` - and one starting with
+/// `t.png` for the seasonal second sheet - `ts2.png`, `td2.png`, `tf2.png`.
+/// `ai.a(cf)` (objects) only does the latter swap, so objects keep the plain
+/// atlas whatever the season.  Anything else, and themes 0-1, keep the stored
+/// name.  Without this, autumn races dress their trees in the summer sheet:
+/// green walls where the game shows orange ones.
+pub fn detail_texture(theme: u8, texture: &str) -> String {
+    let swapped = match theme {
+        2 => ("ts.png", "ts2.png"),
+        3 => ("td.png", "td2.png"),
+        4 => ("tf.png", "tf2.png"),
+        _ => return format!("tex/{texture}"),
+    };
+    if texture.contains("texpack") {
+        format!("tex/{}", swapped.0)
+    } else if texture.starts_with("t.png") {
+        format!("tex/{}", swapped.1)
+    } else {
+        format!("tex/{texture}")
+    }
+}
+
+/// What [`detail_texture`] does for object models: `ai.a(cf)` swaps only the
+/// `t.png` sheet and leaves the shared atlas alone.
+pub fn object_texture(theme: u8, texture: &str) -> String {
+    let swapped = match theme {
+        2 => "ts2.png",
+        3 => "td2.png",
+        4 => "tf2.png",
+        _ => return format!("tex/{texture}"),
+    };
+    if texture.starts_with("t.png") {
+        format!("tex/{swapped}")
+    } else {
+        format!("tex/{texture}")
+    }
+}
+
 /// A deliberate handle on the tile atlas's texture coordinates.
 ///
 /// The coordinates this port computes are the game's own, byte for byte, and
@@ -482,7 +524,10 @@ impl<'a> Builder<'a> {
         let is_atlas = texture_path.ends_with("texpack.png")
             || texture_path.ends_with("ts.png")
             || texture_path.ends_with("td.png")
-            || texture_path.ends_with("tf.png");
+            || texture_path.ends_with("tf.png")
+            || texture_path.ends_with("ts2.png")
+            || texture_path.ends_with("td2.png")
+            || texture_path.ends_with("tf2.png");
 
         let bounds = self
             .uv_bounds
@@ -660,7 +705,7 @@ pub fn build_detailed(
                 if let Some(md) = mids.get(&kind) {
                     builder.place(
                         &format!("models/{}", md.model),
-                        &format!("tex/{}", md.texture),
+                        &detail_texture(theme, &md.texture),
                         [WORLD_SCALE; 3],
                         arg as f32 * half,
                         [ox, oy, 0.0],
@@ -717,7 +762,7 @@ pub fn build_detailed(
                     };
                     builder.place(
                         &format!("models/{}", object.model),
-                        &format!("tex/{}", object.texture),
+                        &object_texture(theme, &object.texture),
                         [WORLD_SCALE; 3],
                         arg as f32 * half,
                         [lx, ly, pz],

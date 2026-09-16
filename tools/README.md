@@ -119,9 +119,15 @@ i8[]  extra[39]             # unread by this build
 
 ```
 str   model                 # /models/<model>
-str   texture               # /tex/<texture>
-u8    flag                  # != 0 selects the wrapped/cached model variant
+str   texture               # /tex/<texture>, season-swapped (see below)
+u8    flag                  # != 0 loads the texture as RGBA, else RGB
 ```
+
+The flag picks the `Image2D` format in `cf.a(string, int, boolean)`: true
+loads type 100 (RGBA), false type 99 (RGB).  It is set on trees, bushes and
+cacti (`t1`-`t4`, `b1`, `c1`, `z2`, `z3`) and clear on everything else.  When
+the texture starts with `t.png`, `ai` swaps it for the season's second sheet:
+`ts2.png` on theme 2, `td2.png` on 3, `tf2.png` on 4.
 
 ## `.bck` — sky / background (`al.q(int)`)
 
@@ -140,9 +146,14 @@ u32   scale_b               # /1000
 
 ```
 str   model
-str   texture
+str   texture               # season-swapped (see below)
 u8    trailing              # present in every file, ignored by the reader
 ```
+
+`bc` swaps the texture for the race's weather, like the tile atlas does:
+a texture containing `texpack` becomes `ts.png` / `td.png` / `tf.png` on
+themes 2/3/4, and one starting with `t.png` becomes `ts2.png` / `td2.png` /
+`tf2.png`.
 
 ## `.hd` — high-detail tile item (`bp.a(b)`)
 
