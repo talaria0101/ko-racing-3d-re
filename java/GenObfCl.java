@@ -58,7 +58,7 @@ public class ObfCl extends ObfCa {
     protected Vec3 c_bz;
     protected Vec3 d_bz;
     private Vec3 o;
-    protected ObfCt a_ct;
+    protected Plane a_ct;
     private int l_I;
     private boolean l_Z;
     protected boolean d_Z;
@@ -221,9 +221,9 @@ public class ObfCl extends ObfCa {
         this.o = new Vec3(0.0f, 0.0f, 0.0f);
         new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
         ObfCl.n = new Vec3(0.0f, 0.0f, 0.0f);
-        new ObfCt(0.0f, 0.0f, 0.0f, 0.0f); /* constructor */
-        this.a_ct = new ObfCt(0.0f, 0.0f, 0.0f, 0.0f);
-        new ObfCt(0.0f, 0.0f, 0.0f, 0.0f); /* constructor */
+        new Plane(0.0f, 0.0f, 0.0f, 0.0f); /* constructor */
+        this.a_ct = new Plane(0.0f, 0.0f, 0.0f, 0.0f);
+        new Plane(0.0f, 0.0f, 0.0f, 0.0f); /* constructor */
         new javax.microedition.m3g.Transform(); /* constructor */
         this.b_Transf = new javax.microedition.m3g.Transform();
         new javax.microedition.m3g.Transform(); /* constructor */
@@ -796,7 +796,7 @@ public class ObfCl extends ObfCa {
         L143:
         v1 = 0.30000001192092896f;
         float v4 = jt1;
-        ObfCt v3 = ObfAu.b;
+        Plane v3 = ObfAu.b;
         v2 = ((int) v1);
         v1 = ((float) this);
         float v5 = Vec2.a(this.b_bz, v3.a());
@@ -854,7 +854,7 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 385 bytes, max_stack 5, max_locals 7
-    public void a(ObfCt v1, Vec3 v2, float v3, float v4, Vec3 v5) {
+    public void a(Plane v1, Vec3 v2, float v3, float v4, Vec3 v5) {
         ObfCl.n.a(v2, this.b_bz);
         float v6 = (-v1.a(ObfCl.n));
         this.c_z.a(v1.a());
@@ -864,24 +864,24 @@ public class ObfCl extends ObfCa {
         this.c_z.a();
         this.c_z.c((this.b_bz.d() * v3));
         this.c_z.c((v5.a() * (0.75f - v3)), (v5.b() * (1.0f - v3)));
-        v1 = ((ObfCt) this.b_bz.c());
+        v1 = ((Plane) this.b_bz.c());
         if (this.j == 0) goto L202;
         if (this.a_bj == null) goto L202;
         if (fcmpg(this.a_bj.c(), 0.0f) == 0) goto L202;
         this.i();
-        v1 = ((ObfCt) ((-((this.a_bj.a() * this.c_z.a()) + (this.a_bj.b() * this.c_z.b()))) / this.a_bj.c()));
+        v1 = ((Plane) ((-((this.a_bj.a() * this.c_z.a()) + (this.a_bj.b() * this.c_z.b()))) / this.a_bj.c()));
         L202:
         this.a_di.b(this.c_z.a(), this.c_z.b(), v1);
         this.c_z.b(((this.h_F * this.c_z.b()) + (this.g_F * this.c_z.a())), (((-this.g_F) * this.c_z.b()) + (this.h_F * this.c_z.a())));
         this.a_di.b(this.c_z.a(), this.c_z.b());
-        v1 = ((ObfCt) ((v4 * this.a_di.o()) * this.a_di.n()));
+        v1 = ((Plane) ((v4 * this.a_di.o()) * this.a_di.n()));
         if (fcmpl(((v4 * this.a_di.o()) * this.a_di.n()), 1.5f) >= 0) goto L338;
         if (fcmpg(v1, 0.0f) <= 0) goto L338;
-        v1 = ((ObfCt) 1.5f);
+        v1 = ((Plane) 1.5f);
         L338:
         if (fcmpg(v1, -1.5f) <= 0) goto L354;
         if (fcmpl(v1, 0.0f) >= 0) goto L354;
-        v1 = ((ObfCt) -1.5f);
+        v1 = ((Plane) -1.5f);
         L354:
         if (fcmpg(this.f.a(), 0.0f) < 0) goto L375;
         this.a_di.i(v1);

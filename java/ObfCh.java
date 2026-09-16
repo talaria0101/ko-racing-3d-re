@@ -11,7 +11,7 @@ public class ObfCh extends Widget {
     private int k;
     private long a_J;
     private long b_J;
-    protected ObfT a_t;
+    protected TextBuffer a_t;
     protected int h;
     protected Font a_p;
     private int l;
@@ -209,7 +209,7 @@ public class ObfCh extends Widget {
         return ((this.g - (2 * this.b_I)) - 10);
     }
     // bytecode 13 bytes, max_stack 2, max_locals 3
-    public void a(ObfT v1) {
+    public void a(TextBuffer v1) {
         ObfCh v2 = this;
         this.h = 0;
         this.a_t = v1;

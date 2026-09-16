@@ -2,17 +2,17 @@
 // edit: fix the emitter and re-run.  Original name `n`.
 // String constants: /images/c.png | /images/r.png | <init> | Code | createImage | drawImage | fillRect | getHeight | getWidth | java/io/IOException | javax/microedition/lcdui/Graphics | javax/microedition/lcdui/Image
 // API references: javax/microedition
-public class ObfN extends ObfCh {
+public class CheckBox extends ObfCh {
     private Image a;
     private Image b;
     private boolean b_Z;
     // bytecode 10 bytes, max_stack 4, max_locals 3
-    public ObfN(int v1, int v2) {
+    public CheckBox(int v1, int v2) {
         this(v1, v2, SysUtil.t);
         return;
     }
     // bytecode 64 bytes, max_stack 7, max_locals 4
-    public ObfN(int v1, int v2, Font v3) {
+    public CheckBox(int v1, int v2, Font v3) {
         /* try L30-L54 catch java.io.IOException -> L57 */
         super(null, 0, 0, v1, v2, v3);
         this.a = null;
@@ -88,7 +88,7 @@ public class ObfN extends ObfCh {
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2
-    public void a(ObfT v1) {
+    public void a(TextBuffer v1) {
         this.a(v1);
         return;
     }

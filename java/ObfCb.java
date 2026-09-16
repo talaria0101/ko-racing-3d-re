@@ -3,7 +3,7 @@
 // String constants: <init> | Code | drawRect | fillRect | getClipWidth | javax/microedition/lcdui/Graphics | setColor | StackMap
 // API references: javax/microedition
 public class ObfCb extends Widget {
-    private ObfAx a;
+    private MenuItem a;
     protected int a_I;
     protected int b;
     // bytecode 86 bytes, max_stack 8, max_locals 3
@@ -15,8 +15,8 @@ public class ObfCb extends Widget {
         this.b(false);
         this.a(false);
         if (v2 < 0) goto L70;
-        new ObfAx(this, 0, 0, v2, SysUtil.a); /* constructor */
-        this.a = new ObfAx(this, 0, 0, v2, SysUtil.a);
+        new MenuItem(this, 0, 0, v2, SysUtil.a); /* constructor */
+        this.a = new MenuItem(this, 0, 0, v2, SysUtil.a);
         this.e(this.a.b());
         goto L76;
         L70:

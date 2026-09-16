@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `dl`.
 // String constants: <init> | Code | drawImage | getClipHeight | getHeight | getWidth | javax/microedition/lcdui/Graphics | javax/microedition/lcdui/Image | StackMap
 // API references: javax/microedition
-public class ObfDl extends ObfAx {
+public class ObfDl extends MenuItem {
     private Image a;
     private int b;
     private byte b_B;

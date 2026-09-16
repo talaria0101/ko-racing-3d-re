@@ -2,13 +2,13 @@
 // edit: fix the emitter and re-run.  Original name `ab`.
 // String constants:  PTS | <init> | Code | [[B | [[[B | append | drawRect | fillRect | getMessage | indexOf | java/lang/Exception | java/lang/String
 // API references: javax/microedition
-public class ObfAb extends ObfT {
+public class Dialog extends TextBuffer {
     private byte[][][] a;
     private boolean[] a_arrZ;
     private boolean[] b;
     private int[] a_arrI;
     // bytecode 962 bytes, max_stack 7, max_locals 7
-    public ObfAb(int v1, MainMenu v2) {
+    public Dialog(int v1, MainMenu v2) {
         /* try L385-L954 catch java.lang.Exception -> L955 */
         super(v1, SysUtil.b);
         this.a = null;

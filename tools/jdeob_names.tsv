@@ -33,3 +33,10 @@ dj	ScoreUpload
 ck	RaceLine
 bv	RaceView
 v	RaceScreen
+ax	MenuItem
+bk	IconList
+db	MenuList
+n	CheckBox
+ab	Dialog
+ct	Plane
+t	TextBuffer

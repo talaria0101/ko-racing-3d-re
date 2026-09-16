@@ -17,7 +17,7 @@ public class ObfAr {
     private boolean b_Z;
     private int a_I;
     private ObfA a_a;
-    private static ObfCt a_ct;
+    private static Plane a_ct;
     private static float d;
     private static float e;
     private static float f;
@@ -53,8 +53,8 @@ public class ObfAr {
         ObfAr.a = 7.0f;
         ObfAr.b = (1.0f * ObfAr.a);
         ObfAr.c = (2.0f * ObfAr.b);
-        new ObfCt(); /* constructor */
-        ObfAr.a_ct = new ObfCt();
+        new Plane(); /* constructor */
+        ObfAr.a_ct = new Plane();
         ObfAr.d = 0.0f;
         ObfAr.e = 0.0f;
         ObfAr.f = 0.0f;
@@ -315,10 +315,10 @@ public class ObfAr {
         ObfAu.a.e(this.a_arrF[v4]);
         ObfAu.b = ObfAr.a_ct;
         if (ObfAu.a_Z == 0) goto L298;
-        if (ObfCt.b() != 0) goto L310;
+        if (Plane.b() != 0) goto L310;
         L298:
         if (ObfAu.a_Z != 0) goto L318;
-        if (ObfCt.a() == 0) goto L318;
+        if (Plane.a() == 0) goto L318;
         L310:
         ObfAu.b = ObfAr.a_ct;
         return 1;

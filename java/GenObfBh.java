@@ -15,35 +15,35 @@ public class ObfBh extends Screen {
     private ObfBi i;
     protected ObfBi c;
     private WidgetGroup g_cm;
-    private ObfDb a_db;
+    private MenuList a_db;
     private ObfBi j;
     private WidgetGroup h_cm;
     private ObfCp a_cp;
     private ObfCp b_cp;
-    private ObfDb b_db;
-    private ObfDb c_db;
-    private ObfDb d_db;
-    private ObfDb e_db;
-    private ObfDb f_db;
-    private ObfDb g_db;
+    private MenuList b_db;
+    private MenuList c_db;
+    private MenuList d_db;
+    private MenuList e_db;
+    private MenuList f_db;
+    private MenuList g_db;
     private ObfCp c_cp;
     private ObfCp d_cp;
     protected WidgetGroup c_cm;
     protected Label a_ao;
-    private ObfDb h_db;
-    private ObfBk a_bk;
+    private MenuList h_db;
+    private IconList a_bk;
     private WidgetGroup i_cm;
-    private ObfBk b_bk;
-    private ObfDb i_db;
+    private IconList b_bk;
+    private MenuList i_db;
     private ObfAz a_az;
     private ObfAz b_az;
     private ObfAz c_az;
     private ObfAz d_az;
     private ObfAz e_az;
     private WidgetGroup j_cm;
-    private ObfDb j_db;
-    private ObfDb k;
-    private ObfDb l;
+    private MenuList j_db;
+    private MenuList k;
+    private MenuList l;
     protected WidgetGroup d_cm;
     private Label b_ao;
     protected WidgetGroup e_cm;
@@ -195,8 +195,8 @@ public class ObfBh extends Screen {
         new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true); /* constructor */
         this.a = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true);
         v1.a.a(1);
-        new ObfAx(null, 0, 0, 0, SysUtil.b); /* constructor */
-        v1.a.a(new ObfAx(null, 0, 0, 0, SysUtil.b), 0);
+        new MenuItem(null, 0, 0, 0, SysUtil.b); /* constructor */
+        v1.a.a(new MenuItem(null, 0, 0, 0, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
         v1.a.a(new ObfCz(3), 0);
         new ObfBi(null, 0, 0, 1, SysUtil.b); /* constructor */
@@ -222,8 +222,8 @@ public class ObfBh extends Screen {
     public void m() {
         new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 10, true); /* constructor */
         this.b_cm = new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 10, true);
-        new ObfAx(null, 0, 0, 2, SysUtil.b); /* constructor */
-        this.b_cm.a(new ObfAx(null, 0, 0, 2, SysUtil.b), 0);
+        new MenuItem(null, 0, 0, 2, SysUtil.b); /* constructor */
+        this.b_cm.a(new MenuItem(null, 0, 0, 2, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
         this.b_cm.a(new ObfCz(3), 0);
         new ObfBi(null, 0, 0, 4, SysUtil.b); /* constructor */
@@ -232,12 +232,12 @@ public class ObfBh extends Screen {
         ObfBh v1 = this;
         new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, true); /* constructor */
         this.g_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, true);
-        new ObfAx(null, 0, 0, 4, SysUtil.b); /* constructor */
-        v1.g_cm.a(new ObfAx(null, 0, 0, 4, SysUtil.b), 0);
+        new MenuItem(null, 0, 0, 4, SysUtil.b); /* constructor */
+        v1.g_cm.a(new MenuItem(null, 0, 0, 4, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
         v1.g_cm.a(new ObfCz(3), 0);
-        new ObfDb(v1.h_cm, 4, 235); /* constructor */
-        v1.a_db = new ObfDb(v1.h_cm, 4, 235);
+        new MenuList(v1.h_cm, 4, 235); /* constructor */
+        v1.a_db = new MenuList(v1.h_cm, 4, 235);
         v1.a_db.c(212);
         v1.a_db.c(15);
         v1.a_db.c(19);
@@ -249,54 +249,54 @@ public class ObfBh extends Screen {
         v1.b();
         new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, true); /* constructor */
         v1.h_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, true);
-        new ObfAx(null, 0, 0, 236, SysUtil.b); /* constructor */
-        v1.h_cm.a(new ObfAx(null, 0, 0, 236, SysUtil.b), 0);
+        new MenuItem(null, 0, 0, 236, SysUtil.b); /* constructor */
+        v1.h_cm.a(new MenuItem(null, 0, 0, 236, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
         v1.h_cm.a(new ObfCz(3), 0);
-        new ObfDb(v1.h_cm, 3, 6); /* constructor */
-        v1.d_db = new ObfDb(v1.h_cm, 3, 6);
+        new MenuList(v1.h_cm, 3, 6); /* constructor */
+        v1.d_db = new MenuList(v1.h_cm, 3, 6);
         v1.d_db.c(15);
         v1.d_db.c(19);
         v1.d_db.c(16);
         v1.h_cm.a(v1.d_db, 0);
-        new ObfDb(v1.h_cm, 3, 7); /* constructor */
-        v1.e_db = new ObfDb(v1.h_cm, 3, 7);
+        new MenuList(v1.h_cm, 3, 7); /* constructor */
+        v1.e_db = new MenuList(v1.h_cm, 3, 7);
         v1.e_db.c(15);
         v1.e_db.c(19);
         v1.e_db.c(16);
         v1.h_cm.a(v1.e_db, 0);
-        new ObfDb(v1.h_cm, 3, 8); /* constructor */
-        v1.f_db = new ObfDb(v1.h_cm, 3, 8);
+        new MenuList(v1.h_cm, 3, 8); /* constructor */
+        v1.f_db = new MenuList(v1.h_cm, 3, 8);
         v1.f_db.c(15);
         v1.f_db.c(19);
         v1.f_db.c(16);
         v1.h_cm.a(v1.f_db, 0);
-        new ObfDb(v1.h_cm, 3, 9); /* constructor */
-        v1.g_db = new ObfDb(v1.h_cm, 3, 9);
+        new MenuList(v1.h_cm, 3, 9); /* constructor */
+        v1.g_db = new MenuList(v1.h_cm, 3, 9);
         v1.g_db.c(18);
         v1.g_db.c(19);
         v1.g_db.c(20);
         v1.h_cm.a(v1.g_db, 0);
         /* pop: v1.a.getWidth(); */
-        new ObfBk(v1.h_cm, 0, 0, 14); /* constructor */
-        v1.a_bk = new ObfBk(v1.h_cm, 0, 0, 14);
+        new IconList(v1.h_cm, 0, 0, 14); /* constructor */
+        v1.a_bk = new IconList(v1.h_cm, 0, 0, 14);
         v1.a_bk.b(22);
         v1.a_bk.b(214);
         v1.a_bk.b(21);
         v1.h_cm.a(v1.a_bk, 0);
-        new ObfDb(v1.h_cm, 3, 13); /* constructor */
-        v1.h_db = new ObfDb(v1.h_cm, 3, 13);
+        new MenuList(v1.h_cm, 3, 13); /* constructor */
+        v1.h_db = new MenuList(v1.h_cm, 3, 13);
         v1.h_db.c(15);
         v1.h_db.c(16);
         v1.h_db.c(17);
         v1.h_cm.a(v1.h_db, 0);
-        new ObfDb(v1.h_cm, 2, 10); /* constructor */
-        v1.c_db = new ObfDb(v1.h_cm, 2, 10);
+        new MenuList(v1.h_cm, 2, 10); /* constructor */
+        v1.c_db = new MenuList(v1.h_cm, 2, 10);
         v1.c_db.c(15);
         v1.c_db.c(16);
         v1.h_cm.a(v1.c_db, 0);
-        new ObfDb(v1.h_cm, 3, 40); /* constructor */
-        v1.b_db = new ObfDb(v1.h_cm, 3, 40);
+        new MenuList(v1.h_cm, 3, 40); /* constructor */
+        v1.b_db = new MenuList(v1.h_cm, 3, 40);
         v1.b_db.c(41);
         v1.b_db.c(42);
         new ObfCp(v1.h_cm, 0, 0, v1.a.getWidth(), 209); /* constructor */
@@ -318,22 +318,22 @@ public class ObfBh extends Screen {
         v1 = this;
         new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true); /* constructor */
         this.j_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true);
-        new ObfAx(null, 0, 0, 51, SysUtil.b); /* constructor */
-        v1.j_cm.a(new ObfAx(null, 0, 0, 51, SysUtil.b), 2);
+        new MenuItem(null, 0, 0, 51, SysUtil.b); /* constructor */
+        v1.j_cm.a(new MenuItem(null, 0, 0, 51, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
         v1.j_cm.a(new ObfCz(3), 0);
-        new ObfDb(v1.j_cm, 3, 50); /* constructor */
-        v1.j_db = new ObfDb(v1.j_cm, 3, 50);
+        new MenuList(v1.j_cm, 3, 50); /* constructor */
+        v1.j_db = new MenuList(v1.j_cm, 3, 50);
         v1.j_db.c(47);
         v1.j_db.c(46);
         v1.j_db.c(45);
-        new ObfDb(v1.j_cm, 3, 123); /* constructor */
-        v1.k = new ObfDb(v1.j_cm, 3, 123);
+        new MenuList(v1.j_cm, 3, 123); /* constructor */
+        v1.k = new MenuList(v1.j_cm, 3, 123);
         v1.k.c(197);
         v1.k.c(47);
         v1.k.c(46);
-        new ObfDb(v1.j_cm, 3, 239); /* constructor */
-        v1.l = new ObfDb(v1.j_cm, 3, 239);
+        new MenuList(v1.j_cm, 3, 239); /* constructor */
+        v1.l = new MenuList(v1.j_cm, 3, 239);
         v1.l.c(15);
         v1.l.c(16);
         v1.l.c(45);
@@ -344,18 +344,18 @@ public class ObfBh extends Screen {
         v1 = this;
         new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true); /* constructor */
         this.i_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true);
-        new ObfAx(null, 0, 0, 24, SysUtil.b); /* constructor */
-        v1.i_cm.a(new ObfAx(null, 0, 0, 24, SysUtil.b), 2);
+        new MenuItem(null, 0, 0, 24, SysUtil.b); /* constructor */
+        v1.i_cm.a(new MenuItem(null, 0, 0, 24, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
         v1.i_cm.a(new ObfCz(3), 0);
         /* pop: v1.a.getWidth(); */
-        new ObfBk(v1.i_cm, 0, 0, 44); /* constructor */
-        v1.b_bk = new ObfBk(v1.i_cm, 0, 0, 44);
+        new IconList(v1.i_cm, 0, 0, 44); /* constructor */
+        v1.b_bk = new IconList(v1.i_cm, 0, 0, 44);
         v1.b_bk.b(237);
         v1.b_bk.b(238);
         v1.i_cm.a(v1.b_bk, 0);
-        new ObfDb(v1.i_cm, 5, 25); /* constructor */
-        v1.i_db = new ObfDb(v1.i_cm, 5, 25);
+        new MenuList(v1.i_cm, 5, 25); /* constructor */
+        v1.i_db = new MenuList(v1.i_cm, 5, 25);
         v1.i_db.c(212);
         v1.i_db.c(26);
         v1.i_db.c(27);
@@ -379,12 +379,12 @@ public class ObfBh extends Screen {
     public void w() {
         new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 9, true); /* constructor */
         this.d_cm = new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 9, true);
-        new ObfAx(null, 0, 0, 100, SysUtil.b); /* constructor */
-        this.d_cm.a(new ObfAx(null, 0, 0, 100, SysUtil.b), 2);
+        new MenuItem(null, 0, 0, 100, SysUtil.b); /* constructor */
+        this.d_cm.a(new MenuItem(null, 0, 0, 100, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
         this.d_cm.a(new ObfCz(3), 0);
-        new ObfAx(null, 0, 0, 101, SysUtil.b); /* constructor */
-        this.d_cm.a(new ObfAx(null, 0, 0, 101, SysUtil.b), 0);
+        new MenuItem(null, 0, 0, 101, SysUtil.b); /* constructor */
+        this.d_cm.a(new MenuItem(null, 0, 0, 101, SysUtil.b), 0);
         new Label(this.d_cm, 0, 0, 200, 30, 101); /* constructor */
         this.b_ao = new Label(this.d_cm, 0, 0, 200, 30, 101);
         this.d_cm.a(this.b_ao, 0);

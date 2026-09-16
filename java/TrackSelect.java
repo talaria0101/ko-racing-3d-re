@@ -58,7 +58,7 @@ public class TrackSelect extends Screen {
     private boolean e_Z;
     protected Image d_Image;
     private int u;
-    private ObfN a_n;
+    private CheckBox a_n;
     private boolean f_Z;
     private int v;
     private static String c_String;
@@ -535,11 +535,11 @@ public class TrackSelect extends Screen {
         if (v3.r <= SysUtil.e_I) goto L782;
         v3.r = SysUtil.e_I;
         L782:
-        new ObfN(v3.r, v3.s); /* constructor */
-        v3.a_n = new ObfN(v3.r, v3.s);
+        new CheckBox(v3.r, v3.s); /* constructor */
+        v3.a_n = new CheckBox(v3.r, v3.s);
         L801:
-        new ObfT(v4, (v3.r - 10), SysUtil.a_p); /* constructor */
-        v3.a_n.a(new ObfT(v4, (v3.r - 10), SysUtil.a_p));
+        new TextBuffer(v4, (v3.r - 10), SysUtil.a_p); /* constructor */
+        v3.a_n.a(new TextBuffer(v4, (v3.r - 10), SysUtil.a_p));
         v3.a_n.a_(true);
         L835:
         v2 += 1;

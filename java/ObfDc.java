@@ -11,12 +11,12 @@ public class ObfDc extends ObfCh {
         return;
     }
     // bytecode 7 bytes, max_stack 3, max_locals 2
-    public void a(ObfT v1) {
+    public void a(TextBuffer v1) {
         this.a(v1, false);
         return;
     }
     // bytecode 11 bytes, max_stack 2, max_locals 3
-    public void a(ObfT v1, boolean v2) {
+    public void a(TextBuffer v1, boolean v2) {
         this.a(v1);
         this.b = v2;
         return;
@@ -42,7 +42,7 @@ public class ObfDc extends ObfCh {
         if (v9 >= this.b) goto L147;
         v8 = ((ObfDc) (this.h + v9));
         if ((this.h + v9) >= this.g()) goto L147;
-        ((ObfAb) this.a).a(v1, v8, (v2 + this.a), (((v3 + this.b) + (v9 * this.c)) + 2));
+        ((Dialog) this.a).a(v1, v8, (v2 + this.a), (((v3 + this.b) + (v9 * this.c)) + 2));
         v9 += 1;
         goto L80;
         L147:

@@ -2,13 +2,13 @@
 // edit: fix the emitter and re-run.  Original name `au`.
 // String constants: <clinit> | <init> | Code | java/lang/Object
 public class ObfAu {
-    public static ObfCt a;
-    public static ObfCt b;
+    public static Plane a;
+    public static Plane b;
     public static Vec3 a_bz;
     public static boolean a_Z;
     static {
-        new ObfCt(0.0f, 0.0f, 0.0f, 0.0f); /* constructor */
-        ObfAu.a = new ObfCt(0.0f, 0.0f, 0.0f, 0.0f);
+        new Plane(0.0f, 0.0f, 0.0f, 0.0f); /* constructor */
+        ObfAu.a = new Plane(0.0f, 0.0f, 0.0f, 0.0f);
         ObfAu.b = null;
         new Vec2(0.0f, 0.0f); /* constructor */
         new Vec3(0.0f, 0.0f, 0.0f); /* constructor */

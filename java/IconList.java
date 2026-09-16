@@ -2,8 +2,8 @@
 // edit: fix the emitter and re-run.  Original name `bk`.
 // String constants: <init> | Code | [Ldl; | [Ljava/lang/String; | [Ljavax/microedition/lcdui/Image; | createImage | getWidth | java/io/IOException | javax/microedition/lcdui/Image | StackMap | javax/microedition/lcdui/Graphics
 // API references: javax/microedition
-public class ObfBk extends Widget {
-    private ObfAx a;
+public class IconList extends Widget {
+    private MenuItem a;
     private Image[] a_Image;
     private ObfDl[] a_arrLdl;
     private int a_I;
@@ -11,7 +11,7 @@ public class ObfBk extends Widget {
     private int h;
     private boolean b_Z;
     // bytecode 173 bytes, max_stack 8, max_locals 5
-    public ObfBk(Widget v1, int v2, int v3, int v4) {
+    public IconList(Widget v1, int v2, int v3, int v4) {
         /* try L112-L156 catch java.io.IOException -> L157 */
         super(v1, 0, 0, 0, 0);
         this.a = null;
@@ -25,8 +25,8 @@ public class ObfBk extends Widget {
         this.b_Z = false;
         this.b(true);
         this.a(false);
-        new ObfAx(this, 0, 0, v4, SysUtil.b); /* constructor */
-        this.a = new ObfAx(this, 0, 0, v4, SysUtil.b);
+        new MenuItem(this, 0, 0, v4, SysUtil.b); /* constructor */
+        this.a = new MenuItem(this, 0, 0, v4, SysUtil.b);
         this.a_arrLdl = new ObfDl[3];
         this.e(this.a.b());
         v2 = 1;

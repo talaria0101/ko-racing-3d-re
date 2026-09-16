@@ -2,14 +2,14 @@
 // edit: fix the emitter and re-run.  Original name `db`.
 // String constants: <init> | Code | KORa | [Lax; | buzz | getClipHeight | javax/microedition/lcdui/Graphics | StackMap
 // API references: javax/microedition
-public class ObfDb extends Widget {
-    protected ObfAx a;
-    private ObfAx[] a_arrLax;
+public class MenuList extends Widget {
+    protected MenuItem a;
+    private MenuItem[] a_arrLax;
     protected int a_I;
     protected int b;
     private boolean b_Z;
     // bytecode 99 bytes, max_stack 6, max_locals 4
-    public ObfDb(Widget v1, int v2, int v3) {
+    public MenuList(Widget v1, int v2, int v3) {
         super(v1, 0, 0, 0, 0);
         this.a = null;
         this.a_arrLax = null;
@@ -19,7 +19,7 @@ public class ObfDb extends Widget {
         this.b(true);
         this.a(false);
         this.b(v3);
-        this.a_arrLax = new ObfAx[v2];
+        this.a_arrLax = new MenuItem[v2];
         if (this.a == null) goto L78;
         this.e(this.a.b());
         goto L89;
@@ -34,8 +34,8 @@ public class ObfDb extends Widget {
     // bytecode 23 bytes, max_stack 8, max_locals 2
     public void b(int v1) {
         if (v1 < 0) goto L22;
-        new ObfAx(this, 0, 0, v1, SysUtil.b); /* constructor */
-        this.a = new ObfAx(this, 0, 0, v1, SysUtil.b);
+        new MenuItem(this, 0, 0, v1, SysUtil.b); /* constructor */
+        this.a = new MenuItem(this, 0, 0, v1, SysUtil.b);
         L22:
         return;
     }
@@ -144,8 +144,8 @@ public class ObfDb extends Widget {
     }
     // bytecode 50 bytes, max_stack 9, max_locals 2
     public void c(int v1) {
-        new ObfAx(this, 0, 0, v1, SysUtil.b); /* constructor */
-        this.a_arrLax[this.a_I] = new ObfAx(this, 0, 0, v1, SysUtil.b);
+        new MenuItem(this, 0, 0, v1, SysUtil.b); /* constructor */
+        this.a_arrLax[this.a_I] = new MenuItem(this, 0, 0, v1, SysUtil.b);
         this.a_arrLax[this.a_I].a(this.a());
         this.a_I = (this.a_I + 1);
         return;
@@ -167,7 +167,7 @@ public class ObfDb extends Widget {
         return this.b;
     }
     // bytecode 7 bytes, max_stack 2, max_locals 2
-    public ObfAx a(int v1) {
+    public MenuItem a(int v1) {
         return this.a_arrLax[v1];
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2

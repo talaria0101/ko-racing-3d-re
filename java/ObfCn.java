@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `cn`.
 // String constants: /ui/bob.txt | <init> | Code | UTF-8 | append | getClass | getResourceAsStream | java/io/IOException | java/io/InputStreamReader | java/lang/Class | java/lang/Object | java/lang/String
 // API references: java/io
-public class ObfCn extends ObfT {
+public class ObfCn extends TextBuffer {
     private int b;
     // bytecode 32 bytes, max_stack 4, max_locals 3
     public ObfCn(int v1, int v2) {

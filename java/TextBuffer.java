@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `t`.
 // String constants: <init> | Code | UTF-8 | [[B | append | charAt | getClass | getResourceAsStream | java/io/IOException | java/io/InputStreamReader | java/lang/Class | java/lang/Object
 // API references: java/io
-public class ObfT {
+public class TextBuffer {
     private byte[][] a;
     protected short a_S;
     protected int a_I;
@@ -10,7 +10,7 @@ public class ObfT {
     private String a_String;
     private String b;
     // bytecode 54 bytes, max_stack 2, max_locals 3
-    public ObfT(int v1, Font v2) {
+    public TextBuffer(int v1, Font v2) {
         super();
         this.a = null;
         this.a_S = 0;
@@ -24,19 +24,19 @@ public class ObfT {
         return;
     }
     // bytecode 10 bytes, max_stack 4, max_locals 3
-    public ObfT(String v1, int v2) {
+    public TextBuffer(String v1, int v2) {
         this(v1, v2, SysUtil.b);
         return;
     }
     // bytecode 18 bytes, max_stack 3, max_locals 4
-    public ObfT(String v1, int v2, Font v3) {
+    public TextBuffer(String v1, int v2, Font v3) {
         this(v2, v3);
         this.a_String = v1;
         /* pop: this.a(v1); */
         return;
     }
     // bytecode 19 bytes, max_stack 3, max_locals 3
-    public ObfT(int v1, String v2) {
+    public TextBuffer(int v1, String v2) {
         this(v1, SysUtil.b);
         this.b = v2;
         this.b(v2);

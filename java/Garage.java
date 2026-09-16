@@ -18,7 +18,7 @@ public class Garage {
     private static float b_F;
     private static float c_F;
     private static float d;
-    private static ObfN a_n;
+    private static CheckBox a_n;
     private static int d_I;
     private static int e;
     private static float e_F;
@@ -204,8 +204,8 @@ public class Garage {
         Garage.a_Image = javax.microedition.lcdui.Image.createImage(Resources.a("/images/garage.png"));
         L66:
         Garage.c_F = ((float) ((SysUtil.e / 2) - 8));
-        new ObfN(Garage.d_I, Garage.e); /* constructor */
-        Garage.a_n = new ObfN(Garage.d_I, Garage.e);
+        new CheckBox(Garage.d_I, Garage.e); /* constructor */
+        Garage.a_n = new CheckBox(Garage.d_I, Garage.e);
         Garage.a_Z = true;
         new javax.microedition.m3g.Background(); /* constructor */
         Garage.a_Backgr = new javax.microedition.m3g.Background();
@@ -552,8 +552,8 @@ public class Garage {
         if (Garage.f_I != 0) goto L160;
         Garage.d_I = 200;
         Garage.e = 160;
-        new ObfT((Garage.d_I - 24), v0); /* constructor */
-        Garage.a_n.a(new ObfT((Garage.d_I - 24), v0));
+        new TextBuffer((Garage.d_I - 24), v0); /* constructor */
+        Garage.a_n.a(new TextBuffer((Garage.d_I - 24), v0));
         Garage.a_n.a_(false);
         Garage.e_F = 0.30000001192092896f;
         if (fcmpg(Garage.f, 0.30000001192092896f) != 0) goto L146;
@@ -677,8 +677,8 @@ public class Garage {
         if (Garage.f_I <= 0) goto L217;
         L112:
         if (Garage.b_arrI[Garage.g] != -1000) goto L150;
-        new ObfT((Garage.d_I - 24), Garage.a_String); /* constructor */
-        Garage.a_n.a(new ObfT((Garage.d_I - 24), Garage.a_String));
+        new TextBuffer((Garage.d_I - 24), Garage.a_String); /* constructor */
+        Garage.a_n.a(new TextBuffer((Garage.d_I - 24), Garage.a_String));
         goto L176;
         L150:
         new ObfCn((Garage.d_I - 24), Garage.b_arrI[Garage.g]); /* constructor */

@@ -364,7 +364,7 @@ public class WidgetGroup extends Widget {
     }
     // bytecode 14 bytes, max_stack 2, max_locals 2
     public void b(int v1) {
-        ((ObfAx) this.a[0]).b(v1);
+        ((MenuItem) this.a[0]).b(v1);
         return;
     }
     // bytecode 99 bytes, max_stack 4, max_locals 5
