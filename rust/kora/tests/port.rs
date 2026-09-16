@@ -2625,3 +2625,84 @@ fn void_exits_get_barriers() {
     // Negative control: the start cell's east edge is open road.
     assert!(!near(vec3(105.0, 0.0, -70.0)), "wall blocks open road");
 }
+
+
+/// The placement log covers every `.map` payload exactly once: no dropped
+/// detail, no duplicates. Timberton carries 37 mid and 35 high payloads.
+#[test]
+fn placement_log_covers_every_payload() {
+    let resources = pack::load(&assets());
+    let map = format::Map::parse(&resources["levels/ma1.map"]).expect("ma1");
+    let track = scene::build_themed(&assets(), &resources, "ma1.map", 4);
+    let mut mid = 0;
+    let mut high = 0;
+    let mut tiles = 0;
+    let mut seen = std::collections::HashSet::new();
+    for placement in &track.placements {
+        // One `.hd` payload expands to one placement per entry, so the
+        // key carries the origin too; only a byte-identical repeat counts
+        // as a duplicate.
+        let key = (
+            placement.layer,
+            placement.cell,
+            placement.kind,
+            placement.arg,
+            placement.model.clone(),
+            (placement.origin[0] * 100.0) as i32,
+            (placement.origin[1] * 100.0) as i32,
+            (placement.origin[2] * 100.0) as i32,
+        );
+        assert!(seen.insert(key.clone()), "duplicate placement {key:?}");
+        match placement.layer {
+            "tile" => tiles += 1,
+            "mid" => mid += 1,
+            "high" => high += 1,
+            other => panic!("unknown layer {other}"),
+        }
+    }
+    let map_mid: usize = map
+        .cells
+        .iter()
+        .flat_map(|row| row.iter())
+        .map(|cell| cell.mid.len())
+        .sum();
+    let map_high: usize = map
+        .cells
+        .iter()
+        .flat_map(|row| row.iter())
+        .map(|cell| cell.high.len())
+        .sum();
+    assert_eq!(mid, map_mid, "mid payloads lost or invented");
+    // One `.hd` payload expands to one placement per entry.
+    let hd_list = pack::lines(&pack::read_jar_file(&assets(), "lists/hd_list"));
+    let mut expanded = 0;
+    for row in &map.cells {
+        for cell in row {
+            for &(kind, _) in &cell.high {
+                let file = &hd_list[kind as usize - 1];
+                expanded += format::HighDetail::parse(&resources[&format!("tiles/{file}")])
+                    .expect("hd")
+                    .entries
+                    .iter()
+                    // Kind 0 is an intentional empty slot (e.g. t38.hd).
+                    .filter(|entry| entry.kind != 0)
+                    .count();
+            }
+        }
+    }
+    assert_eq!(high, expanded, "high entries lost or invented");
+    assert_eq!(mid, 37);
+    assert_eq!(map_high, 35);
+    assert!(tiles > 0);
+    // The church lands on its cell with its own model.
+    assert!(track.placements.iter().any(|placement| {
+        placement.cell == (0, 5)
+            && placement.layer == "high"
+            && placement.model == "models/ch"
+    }));
+    // The log renders lines for all of it.
+    let log = track.placement_log("ma1.map", 4);
+    assert!(log.contains("models/ch"));
+    assert!(log.contains("wall ["));
+    assert!(log.contains("slot ["));
+}

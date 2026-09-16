@@ -376,6 +376,8 @@ pub struct Track {
     pub walls: Vec<(Vec3, Vec3)>,
     pub spawn: Vec3,
     pub spawn_yaw: f32,
+    /// Every placed instance, in build order (see [`Placement`]).
+    pub placements: Vec<Placement>,
 }
 
 impl Track {
@@ -527,12 +529,39 @@ impl Batch {
     }
 }
 
+/// One placed instance, recorded for the placement log: which `.map` cell
+/// and payload put which model where, with which yaw.  Written out on
+/// every race start (see [`Track::placement_log`]) so a misplaced rail
+/// can be traced back to its exact cell, kind and argument.
+#[derive(Clone, Debug)]
+pub struct Placement {
+    /// `tile`, `mid` or `high`.
+    pub layer: &'static str,
+    /// `.map` cell.
+    pub cell: (i32, i32),
+    /// Tile kind, `.md` kind or `.hd` kind.
+    pub kind: u8,
+    /// Payload argument (yaw selector / mirror side).
+    pub arg: u8,
+    /// Model resource as placed (after the object lookup for `high`).
+    pub model: String,
+    /// Texture resource as placed (after the seasonal swap).
+    pub texture: String,
+    /// Game-space origin (cell origin plus the `.hd` offset, if any).
+    pub origin: [f32; 3],
+    /// Radians about the game's up axis (0 for flagged trees).
+    pub yaw: f32,
+    /// `.ob` flag for `high` (identity rotation when set), else false.
+    pub flagged: bool,
+}
+
 struct Builder<'a> {
     res: &'a Resources,
     batches: HashMap<String, Batch>,
     /// Texture coordinate rectangle each texture's models cover, so the atlas
     /// can be tiled to suit them.
     uv_bounds: HashMap<String, [f32; 4]>,
+    placements: Vec<Placement>,
 }
 
 impl<'a> Builder<'a> {
@@ -541,21 +570,24 @@ impl<'a> Builder<'a> {
             res,
             batches: HashMap::new(),
             uv_bounds: HashMap::new(),
+            placements: Vec::new(),
         }
     }
 
     /// Transform one model instance and append it to its texture batch.
     fn place(
         &mut self,
-        model_path: &str,
-        texture_path: &str,
+        placement: Placement,
         scale: [f32; 3],
-        yaw: f32,
-        origin: [f32; 3],
     ) {
-        let Some(model) = parse_model(self.res, model_path) else {
+        let model_path = placement.model.clone();
+        let texture_path = placement.texture.clone();
+        let yaw = placement.yaw;
+        let origin = placement.origin;
+        let Some(model) = parse_model(self.res, &model_path) else {
             return;
         };
+        self.placements.push(placement);
         // Only the shared tile atlas is adjustable: everything else already
         // matches the artwork it names.
         let is_atlas = texture_path.ends_with("texpack.png")
@@ -711,11 +743,18 @@ pub fn build_detailed(
                     }
                     if let Some(tile) = tiles.get(&kind) {
                         builder.place(
-                            &format!("models/p/{}", tile.name),
-                            &tile_atlas(theme, &tile.texture),
+                            Placement {
+                                layer: "tile",
+                                cell: (x as i32, y as i32),
+                                kind,
+                                arg,
+                                model: format!("models/p/{}", tile.name),
+                                texture: tile_atlas(theme, &tile.texture),
+                                origin: [ox, oy, 0.0],
+                                yaw: arg as f32 * half,
+                                flagged: false,
+                            },
                             [WORLD_SCALE; 3],
-                            arg as f32 * half,
-                            [ox, oy, 0.0],
                         );
                     }
                 }
@@ -741,11 +780,18 @@ pub fn build_detailed(
                 }
                 if let Some(md) = mids.get(&kind) {
                     builder.place(
-                        &format!("models/{}", md.model),
-                        &detail_texture(theme, &md.texture),
+                        Placement {
+                            layer: "mid",
+                            cell: (x as i32, y as i32),
+                            kind,
+                            arg,
+                            model: format!("models/{}", md.model),
+                            texture: detail_texture(theme, &md.texture),
+                            origin: [ox, oy, 0.0],
+                            yaw: arg as f32 * half,
+                            flagged: false,
+                        },
                         [WORLD_SCALE; 3],
-                        arg as f32 * half,
-                        [ox, oy, 0.0],
                     );
                 }
             }
@@ -798,11 +844,18 @@ pub fn build_detailed(
                         _ => (ox + px, oy + py),
                     };
                     builder.place(
-                        &format!("models/{}", object.model),
-                        &object_texture(theme, &object.texture),
+                        Placement {
+                            layer: "high",
+                            cell: (x as i32, y as i32),
+                            kind,
+                            arg,
+                            model: format!("models/{}", object.model),
+                            texture: object_texture(theme, &object.texture),
+                            origin: [lx, ly, pz],
+                            yaw: high_detail_yaw(object.flag, arg),
+                            flagged: object.flag,
+                        },
                         [WORLD_SCALE; 3],
-                        high_detail_yaw(object.flag, arg),
-                        [lx, ly, pz],
                     );
                 }
             }
@@ -823,7 +876,10 @@ pub fn build_detailed(
         ));
 
     let Builder {
-        batches, uv_bounds, ..
+        batches,
+        uv_bounds,
+        placements,
+        ..
     } = builder;
 
     // Physics ground.  The MIDlet samples each tile's collision mesh for
@@ -989,6 +1045,64 @@ pub fn build_detailed(
         walls,
         spawn,
         spawn_yaw,
+        placements,
+    }
+}
+
+impl Track {
+    /// Human-readable placement dump: one line per placed instance plus
+    /// the grid slots and the barriers.  Written to
+    /// `placements-<map>.log` on every race start so a misplaced rail can
+    /// be traced to its cell, kind and argument.  Origins are game-space
+    /// `(x, y, z)`, yaws are radians about the game's up axis.
+    pub fn placement_log(&self, map_name: &str, theme: u8) -> String {
+        let mut out = String::new();
+        out.push_str(&format!(
+            "# placements for {map_name} theme {theme}: {} instances, {} walls\n",
+            self.placements.len(),
+            self.walls.len()
+        ));
+        out.push_str(&format!(
+            "# race_dir {:?} spawn ({:.1},{:.1},{:.1}) yaw {:.3}\n",
+            self.grid.race_dir(),
+            self.spawn.x,
+            self.spawn.y,
+            self.spawn.z,
+            self.spawn_yaw
+        ));
+        out.push_str("# cell layer kind arg model texture origin yaw flagged\n");
+        for placement in &self.placements {
+            out.push_str(&format!(
+                "{},{} {} {} {} {} {} [{:.2},{:.2},{:.2}] {:.3} {}\n",
+                placement.cell.0,
+                placement.cell.1,
+                placement.layer,
+                placement.kind,
+                placement.arg,
+                placement.model,
+                placement.texture,
+                placement.origin[0],
+                placement.origin[1],
+                placement.origin[2],
+                placement.yaw,
+                placement.flagged as u8
+            ));
+        }
+        out.push_str("# walls as macroquad centre + half extents\n");
+        for (centre, half) in &self.walls {
+            out.push_str(&format!(
+                "wall [{:.2},{:.2},{:.2}] [{:.2},{:.2},{:.2}]\n",
+                centre.x, centre.y, centre.z, half.x, half.y, half.z
+            ));
+        }
+        out.push_str("# grid slots as macroquad position + yaw\n");
+        for (position, yaw) in self.grid.grid_slots(4) {
+            out.push_str(&format!(
+                "slot [{:.2},{:.2},{:.2}] {:.3}\n",
+                position.x, position.y, position.z, yaw
+            ));
+        }
+        out
     }
 }
 

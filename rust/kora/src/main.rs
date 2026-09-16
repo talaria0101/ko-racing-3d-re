@@ -177,6 +177,18 @@ fn start_race(
         kora::settings::Quality::High => scene::Detail::Full,
     };
     let mut track = scene::build_detailed(dir, resources, &event.map, event.theme, detail);
+    // Placement audit trail: every tile, detail instance, barrier and grid
+    // slot, so a misplaced rail can be traced to its cell, kind and arg.
+    let log_name = format!("placements-{}.log", event.map);
+    if let Err(error) = std::fs::write(&log_name, track.placement_log(&event.map, event.theme)) {
+        eprintln!("placements log: {log_name}: {error}");
+    } else {
+        println!(
+            "placements: {} instances, {} walls -> {log_name}",
+            track.placements.len(),
+            track.walls.len()
+        );
+    }
     track.attach_textures(resources);
     // The theme byte picks one of the five backgrounds (`al.q(j)`).
     let sky = sky::Sky::load(resources, event.theme);

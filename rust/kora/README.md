@@ -189,6 +189,11 @@ src/text.rs      text drawing, over macroquad's rasteriser
 src/main.rs      macroquad front-end
 src/bin/dump_track.rs   writes a built track to a file, for `kora view`
 tests/port.rs    headless checks
+
+Every race start also writes `placements-<map>.log` beside the working
+directory: one line per placed tile/detail instance (cell, kind, argument,
+model, texture, origin, yaw), then the barriers and grid slots, so a
+misplaced rail can be traced to its exact payload.
 ```
 
 Geometry building never touches the GPU, so `scene::build` and
