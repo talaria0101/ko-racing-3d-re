@@ -12,7 +12,7 @@ kept beside it for review.
 | `KORa` | `KORa.java` | <clinit>; <init>; Cancel; Code; java/util; javax/microedition |
 | `VservManager` | `VservManager.java` |  Configuration/;  Profile/; %2D; %2F; java/io; java/util; javax/microedition |
 | `a` | `GenObfA.java` | <init>; Code; [Li;; java/lang/Object |
-| `aa` | `ObfAa.java` | <init>; Code; abs; java/lang/Math; javax/microedition |
+| `aa` | `OrbitCam.java` | <init>; Code; abs; java/lang/Math; javax/microedition |
 | `ab` | `Dialog.java` |  PTS; <init>; Code; [[B; javax/microedition |
 | `ac` | `ObfAc.java` | <init>; Code; KORa; close; java/io; java/util |
 | `ad` | `ObfAd.java` | <init>; Code; LOST; getClipHeight; javax/microedition |
@@ -45,7 +45,7 @@ kept beside it for review.
 | `bd` | `GenObfBd.java` | /images/lg.png; /images/tc.png; /images/td.png; /images/tf.png; java/io; javax/microedition |
 | `be` | `StreamReader.java` | <clinit>; <init>; Code; append; java/io |
 | `bf` | `TileList.java` | /lists/tile_list; /tiles/; <init>; Code; java/io |
-| `bg` | `ObfBg.java` | <init>; Code; abs; java/lang/Math; javax/microedition |
+| `bg` | `ChaseNear.java` | <init>; Code; abs; java/lang/Math; javax/microedition |
 | `bh` | `GenObfBh.java` | <init>; Code; [[I; abs; javax/microedition |
 | `bi` | `MenuButton.java` | <init>; Code; KORa; buzz |
 | `bj` | `Rect.java` | <init>; Code; java/lang/Object; StackMap |
@@ -65,7 +65,7 @@ kept beside it for review.
 | `bx` | `SoundBank.java` | <clinit>; <init>; Code; VolumeControl; java/io; java/util; javax/microedition |
 | `by` | `ObfBy.java` | <init>; Code; javax/microedition/m3g/Transform; postRotate; javax/microedition |
 | `bz` | `Vec3.java` | <init>; Code; cos; java/lang/Math |
-| `c` | `ObfC.java` | <init>; Code; abs; java/lang/Math; javax/microedition |
+| `c` | `ChaseFar.java` | <init>; Code; abs; java/lang/Math; javax/microedition |
 | `ca` | `ObfCa.java` | <init>; Code; java/lang/Object |
 | `cb` | `ObfCb.java` | <init>; Code; drawRect; fillRect; javax/microedition |
 | `cc` | `ObfCc.java` | <init>; Code; [Lbn;; drawLine; javax/microedition |
@@ -83,7 +83,7 @@ kept beside it for review.
 | `co` | `Garage.java` | /images/add.png; /images/bob_full.png; /images/box.png; /images/bt.png; java/util; javax/microeditio |
 | `cp` | `ObfCp.java` | <init>; Code; [Ljava/lang/String;; [Ljavax/microedition/lcdui/Image;; javax/microedition |
 | `cq` | `ObfCq.java` | <clinit>; <init>; Code; createImage; javax/microedition |
-| `cr` | `ObfCr.java` | <init>; Code; javax/microedition/m3g/Transform; postRotate; javax/microedition |
+| `cr` | `CockpitCam.java` | <init>; Code; javax/microedition/m3g/Transform; postRotate; javax/microedition |
 | `cs` | `ObfCs.java` | <init>; Code |
 | `ct` | `Plane.java` | <clinit>; <init>; Code; abs |
 | `cu` | `MenuScreen.java` | <init>; Code; KORa; close; java/io; java/util; javax/microedition |
@@ -101,7 +101,7 @@ kept beside it for review.
 | `df` | `Frustum.java` | <clinit>; <init>; Code; cos |
 | `dg` | `SoundTrigger.java` | <init>; Code; abs; compareTo; javax/microedition |
 | `dh` | `Bluetooth.java` | 32253635BF2E4FE0898AF505D430A394; ;authenticate=; ;encrypt=; ;master=; java/io; java/util; javax/blu |
-| `di` | `ObfDi.java` | <init>; Code; abs; java/lang/Math |
+| `di` | `CameraState.java` | <init>; Code; abs; java/lang/Math |
 | `dj` | `ScoreUpload.java` | &p=; <init>; ?a=b; ?a=s&s=; java/io; javax/microedition |
 | `dk` | `CareerMap.java` | 8a.map; <init>; Code; close; java/io; javax/microedition |
 | `dl` | `ImageItem.java` | <init>; Code; drawImage; getClipHeight; javax/microedition |

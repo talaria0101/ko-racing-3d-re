@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `aa`.
 // String constants: <init> | Code | abs | java/lang/Math | javax/microedition/m3g/Transform | postRotate | postTranslate | setIdentity | StackMap
 // API references: javax/microedition
-public class ObfAa extends ObfJ {
+public class OrbitCam extends ObfJ {
     private float f;
     private float g;
     private float h;
@@ -10,7 +10,7 @@ public class ObfAa extends ObfJ {
     private float j;
     private float k;
     // bytecode 69 bytes, max_stack 2, max_locals 1
-    public ObfAa() {
+    public OrbitCam() {
         super();
         this.f = 20.0f;
         this.g = 20.0f;
@@ -33,7 +33,7 @@ public class ObfAa extends ObfJ {
         return;
     }
     // bytecode 378 bytes, max_stack 6, max_locals 5
-    public void a(ObfDi v1, float v2) {
+    public void a(CameraState v1, float v2) {
         this.a.setIdentity();
         new Vec3(0.0f, 1.0f, 0.0f); /* constructor */
         Vec3 v3 = new Vec3(0.0f, 1.0f, 0.0f);
@@ -66,7 +66,7 @@ public class ObfAa extends ObfJ {
         new float[3]#2[0] = (v1.b() + (this.d * v3.a()));
         new float[3]#2[1] = (v1.c() - (this.d * v3.b()));
         new float[3]#2[2] = ((v1.d() + (this.d * v3.c())) + this.c);
-        v1 = ((ObfDi) new float[3]#2);
+        v1 = ((CameraState) new float[3]#2);
         this.a.postTranslate(v1[0], v1[1], v1[2]);
         this.a.a(v1, (-this.a), 0.0f);
         this.a.postRotate((180.0f - this.a), 0.0f, 0.0f, 1.0f);

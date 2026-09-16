@@ -8,8 +8,8 @@ public class ObfBt extends Screen {
     private static ObfJ a_j;
     private static ObfJ b;
     private static ObfJ c;
-    private static ObfCr a_cr;
-    private static ObfAa a_aa;
+    private static CockpitCam a_cr;
+    private static OrbitCam a_aa;
     private ObfL a_l;
     private static ObfJ[] a_arrLj;
     private static int a_I;
@@ -33,14 +33,14 @@ public class ObfBt extends Screen {
     private float c_F;
     static {
         ObfBt.a_j = null;
-        new ObfBg(); /* constructor */
-        ObfBt.b = new ObfBg();
-        new ObfC(); /* constructor */
-        ObfBt.c = new ObfC();
-        new ObfCr(); /* constructor */
-        ObfBt.a_cr = new ObfCr();
-        new ObfAa(); /* constructor */
-        ObfBt.a_aa = new ObfAa();
+        new ChaseNear(); /* constructor */
+        ObfBt.b = new ChaseNear();
+        new ChaseFar(); /* constructor */
+        ObfBt.c = new ChaseFar();
+        new CockpitCam(); /* constructor */
+        ObfBt.a_cr = new CockpitCam();
+        new OrbitCam(); /* constructor */
+        ObfBt.a_aa = new OrbitCam();
         new ObfJ[3]#5[0] = ObfBt.b;
         new ObfJ[3]#5[1] = ObfBt.c;
         new ObfJ[3]#5[2] = ObfBt.a_cr;
@@ -163,7 +163,7 @@ public class ObfBt extends Screen {
         v3 = ((InputStream) 0);
         L501:
         if (v3 >= ObfBt.a_arrLj.length) goto L537;
-        ObfDi v4 = v1.a_cl.a();
+        CameraState v4 = v1.a_cl.a();
         v2 = ((ObfR) ObfBt.a_arrLj[v3]);
         ObfBt.a_arrLj[v3].a(v4, 1.0f);
         v3 += 1;
@@ -256,7 +256,7 @@ public class ObfBt extends Screen {
         v1 = 0;
         L557:
         if (v1 >= ObfBt.a_arrLj.length) goto L591;
-        ObfDi v3 = this.a_cl.a();
+        CameraState v3 = this.a_cl.a();
         v2 = ((Vec3) ObfBt.a_arrLj[v1]);
         ObfBt.a_arrLj[v1].a(v3, 1.0f);
         v1 += 1;

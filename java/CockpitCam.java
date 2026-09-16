@@ -2,12 +2,12 @@
 // edit: fix the emitter and re-run.  Original name `cr`.
 // String constants: <init> | Code | javax/microedition/m3g/Transform | postRotate | postTranslate | setIdentity | StackMap
 // API references: javax/microedition
-public class ObfCr extends ObfJ {
+public class CockpitCam extends ObfJ {
     private float f;
     private float g;
     private float h;
     // bytecode 34 bytes, max_stack 2, max_locals 1
-    public ObfCr() {
+    public CockpitCam() {
         super();
         this.f = 0.0f;
         this.g = 1.5f;
@@ -17,7 +17,7 @@ public class ObfCr extends ObfJ {
         return;
     }
     // bytecode 269 bytes, max_stack 5, max_locals 4
-    public void a(ObfDi v1, float v2) {
+    public void a(CameraState v1, float v2) {
         this.a.setIdentity();
         this.a = v1.g();
         this.b = ((((-v1.h()) * 57.2957763671875f) + this.b) / 2.0f);

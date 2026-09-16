@@ -43,7 +43,7 @@ public class ObfJ {
     public Transform a() {
         return this.a;
     }
-    public void a(ObfDi v1, float v2);
+    public void a(CameraState v1, float v2);
     // bytecode 5 bytes, max_stack 1, max_locals 1
     public Frustum a() {
         return this.a_df;

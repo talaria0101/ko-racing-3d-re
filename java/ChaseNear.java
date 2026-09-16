@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `bg`.
 // String constants: <init> | Code | abs | java/lang/Math | javax/microedition/m3g/Transform | postRotate | postTranslate | setIdentity | StackMap
 // API references: javax/microedition
-public class ObfBg extends ObfJ {
+public class ChaseNear extends ObfJ {
     private float f;
     private float g;
     private float h;
@@ -13,7 +13,7 @@ public class ObfBg extends ObfJ {
     private float l;
     private boolean a_Z;
     // bytecode 78 bytes, max_stack 6, max_locals 1
-    public ObfBg() {
+    public ChaseNear() {
         super();
         this.f = 0.25f;
         this.g = 55.0f;
@@ -42,7 +42,7 @@ public class ObfBg extends ObfJ {
         return;
     }
     // bytecode 758 bytes, max_stack 6, max_locals 4
-    public void a(ObfDi v1, float v2) {
+    public void a(CameraState v1, float v2) {
         float v3 = v1.g();
         if (fcmpl(this.a, v3) >= 0) goto L77;
         this.a = (this.a + (((v3 - this.a) / this.f) * v2));

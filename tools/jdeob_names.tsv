@@ -51,3 +51,8 @@ cn	UiText
 de	Meshes
 df	Frustum
 dl	ImageItem
+aa	OrbitCam
+bg	ChaseNear
+c	ChaseFar
+cr	CockpitCam
+di	CameraState

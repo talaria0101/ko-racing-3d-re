@@ -177,7 +177,7 @@ public class ObfBs {
         return;
     }
     // bytecode 33 bytes, max_stack 3, max_locals 2
-    public void a(ObfDi v1) {
+    public void a(CameraState v1) {
         this.c = ((int) ((v1.b() / ObfAr.c) + 0.5f));
         this.d = ((int) ((v1.c() / ObfAr.c) + 0.5f));
         return;
@@ -616,14 +616,14 @@ public class ObfBs {
         return;
     }
     // bytecode 279 bytes, max_stack 5, max_locals 9
-    public float a(ObfDi v1, int v2) {
+    public float a(CameraState v1, int v2) {
         float v3 = ((v1.b() / ObfAr.c) + 0.5f);
         float v4 = ((v1.c() / ObfAr.c) + 0.5f);
         int v5 = v2;
         v4 = v1.d();
         v3 = v4;
         v2 = ((int) v3);
-        v1 = ((ObfDi) this);
+        v1 = ((CameraState) this);
         int v6 = ((int) v2);
         int v7 = ((int) v3);
         v2 = ((int) (v2 - ((float) v6)));

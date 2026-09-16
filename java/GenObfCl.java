@@ -5,7 +5,7 @@
 public class ObfCl extends ObfCa {
     protected int a;
     protected int b;
-    protected ObfDi a_di;
+    protected CameraState a_di;
     protected ObfX a_x;
     private float d;
     private float e;
@@ -159,8 +159,8 @@ public class ObfCl extends ObfCa {
         this.a_bs = v4;
         this.k = v3;
         this.l_I = v5;
-        new ObfDi(); /* constructor */
-        this.a_di = new ObfDi();
+        new CameraState(); /* constructor */
+        this.a_di = new CameraState();
         this.a_di.a(0.0f, 0.0f, 0.0f);
         new Vec2(0.0f, 0.0f); /* constructor */
         new Vec2(0.0f, 0.0f); /* constructor */
@@ -1038,7 +1038,7 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public ObfDi a() {
+    public CameraState a() {
         return this.a_di;
     }
     // bytecode 315 bytes, max_stack 4, max_locals 8
