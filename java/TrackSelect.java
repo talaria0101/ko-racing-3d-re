@@ -683,8 +683,8 @@ public class TrackSelect extends Screen {
         if (fcmpg(this.e_F, 360.0f) <= 0) goto L173;
         this.e_F = (this.e_F - 360.0f);
         L173:
-        ObfAg.a().a(ObfAg.a, -6);
-        ObfAg.a().b(ObfAg.b, -7);
+        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().b(ImageGrid.b, -7);
         this.d_F = (this.d_F + ((((float) this.l) * v1) * 9.0f));
         if (fcmpg(this.d_F, 3.799999952316284f) <= 0) goto L239;
         this.d_F = 3.799999952316284f;
@@ -720,7 +720,7 @@ public class TrackSelect extends Screen {
     }
     // bytecode 905 bytes, max_stack 9, max_locals 5
     public void a(Graphics v1) {
-        ObfAg.b(v1, 0, (SysUtil.f - 28));
+        ImageGrid.b(v1, 0, (SysUtil.f - 28));
         if (this.f_Z == 0) goto L49;
         this.a_n.a(v1, ((v1.getClipWidth() - this.r) / 2), ((v1.getClipHeight() - this.s) / 2));
         return;

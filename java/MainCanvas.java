@@ -209,9 +209,9 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         if (this.h == 0) goto L839;
         if (this.i != 0) goto L839;
         if (MainCanvas.a_I != 0) goto L839;
-        ObfAg.a().a(ObfAg.a, -6);
-        ObfAg.a().b(ObfAg.b, -7);
-        ObfAg.b(this.a_Graphi, 0, (SysUtil.f - 28));
+        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().b(ImageGrid.b, -7);
+        ImageGrid.b(this.a_Graphi, 0, (SysUtil.f - 28));
         L839:
         if ((Settings.m() % 2) != 1) goto L895;
         if (this.b_y == this.a_r) goto L895;

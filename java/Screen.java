@@ -58,7 +58,7 @@ public class Screen {
         int v3 = 0;
         if (v1 >= 70) goto L39;
         if (v2 <= (SysUtil.f - 70)) goto L39;
-        if (ObfAg.a().a() == null) goto L30;
+        if (ImageGrid.a().a() == null) goto L30;
         KORa.buzz();
         L30:
         v3 = 1;
@@ -66,7 +66,7 @@ public class Screen {
         L39:
         if (v1 <= (SysUtil.e - 70)) goto L80;
         if (v2 <= (SysUtil.f - 70)) goto L80;
-        if (ObfAg.a().b() == null) goto L71;
+        if (ImageGrid.a().b() == null) goto L71;
         KORa.buzz();
         L71:
         v3 = 1;

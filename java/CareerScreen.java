@@ -305,9 +305,9 @@ public class CareerScreen extends MenuScreen {
         if (CareerScreen.a == 18) goto L91;
         if (CareerScreen.a != 16) goto L123;
         L91:
-        ObfAg.a().a(ObfAg.b, -6);
-        ObfAg.a().b(null, -7);
-        ObfAg.b(v1, 0, (v1.getClipHeight() - 28));
+        ImageGrid.a().a(ImageGrid.b, -6);
+        ImageGrid.a().b(null, -7);
+        ImageGrid.b(v1, 0, (v1.getClipHeight() - 28));
         L123:
         if (this.g == 0) goto L251;
         new java.lang.StringBuffer(); /* constructor */

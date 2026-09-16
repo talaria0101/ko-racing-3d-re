@@ -2,39 +2,39 @@
 // edit: fix the emitter and re-run.  Original name `ci`.
 // String constants: <init> | Code | clipRect | drawImage | getClipHeight | getClipWidth | getClipX | getClipY | getHeight | getWidth | javax/microedition/lcdui/Graphics | javax/microedition/lcdui/Image
 // API references: javax/microedition
-public class ObfCi extends ObfBw {
+public class ImageCell extends GridCell {
     private Image a;
     private int a_I;
     private int b;
     // bytecode 30 bytes, max_stack 2, max_locals 3
-    public ObfCi(ObfAg v1, Image v2) {
+    public ImageCell(ImageGrid v1, Image v2) {
         super(v1);
         this.a = null;
         this.a_I = m1;
         this.b = 0;
-        v1 = ((ObfAg) this);
+        v1 = ((ImageGrid) this);
         this.a = v2;
         return;
     }
     // bytecode 16 bytes, max_stack 3, max_locals 4
-    public ObfCi(ObfAg v1, Image v2, int v3) {
+    public ImageCell(ImageGrid v1, Image v2, int v3) {
         this(v1, v2);
         v2 = ((Image) v3);
-        v1 = ((ObfAg) this);
+        v1 = ((ImageGrid) this);
         this.a_I = v2;
         return;
     }
     // bytecode 355 bytes, max_stack 6, max_locals 8
     public void a(Graphics v1, int v2, int v3) {
         if (this.b == Settings.n()) goto L50;
-        ObfCi v4 = this;
+        ImageCell v4 = this;
         this.a = SysUtil.a(v4.a, (((Settings.n() - v4.b) + 360) % 360));
         v4.b = Settings.n();
         L50:
         if (this.a() == 0) goto L354;
         if (this.a == null) goto L354;
         if (this.a_I < 0) goto L332;
-        v4 = ((ObfCi) v1.getClipX());
+        v4 = ((ImageCell) v1.getClipX());
         int v5 = v1.getClipY();
         int v6 = v1.getClipWidth();
         int v7 = v1.getClipHeight();

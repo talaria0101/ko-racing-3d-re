@@ -313,15 +313,15 @@ public class Label extends Widget {
         /* try L0-L495 catch java.lang.Exception -> L513 */
         /* try L496-L509 catch java.lang.Exception -> L513 */
         if (this.c() == 0) goto L510;
-        if (ObfAg.d != null) goto L16;
-        ObfAg.a();
+        if (ImageGrid.d != null) goto L16;
+        ImageGrid.a();
         L16:
-        ObfAg.a().a(ObfAg.a, -6);
+        ImageGrid.a().a(ImageGrid.a, -6);
         if (this.a().length() <= 0) goto L51;
-        ObfAg.a().b(ObfAg.c, -7);
+        ImageGrid.a().b(ImageGrid.c, -7);
         goto L62;
         L51:
-        ObfAg.a().b(ObfAg.b, -7);
+        ImageGrid.a().b(ImageGrid.b, -7);
         L62:
         int v2 = 0;
         if (v1 == this.h) goto L79;

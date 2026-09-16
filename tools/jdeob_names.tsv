@@ -71,3 +71,8 @@ dd	ScoreRecord
 ay	Rain
 l	Snow
 ad	Countdown
+cg	ProgressBar
+ag	ImageGrid
+bw	GridCell
+ci	ImageCell
+do	RaceTouchControls

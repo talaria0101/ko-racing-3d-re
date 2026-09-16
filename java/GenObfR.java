@@ -811,8 +811,8 @@ public class ObfR extends Screen {
         if (ObfR.a_B != 23) goto L265;
         L209:
         if (this.a_cb != null) goto L229;
-        new ObfCg(null, m1); /* constructor */
-        this.a_cb = new ObfCg(null, m1);
+        new ProgressBar(null, m1); /* constructor */
+        this.a_cb = new ProgressBar(null, m1);
         L229:
         this.a_cb.b(this.v);
         this.a_cb.a(v1, 0, ((v1.getClipHeight() - SysUtil.b.a()) - this.e));
@@ -845,8 +845,8 @@ public class ObfR extends Screen {
         if (ObfR.a_B != 23) goto L607;
         L566:
         if (this.a_cb != null) goto L586;
-        new ObfCg(null, m1); /* constructor */
-        this.a_cb = new ObfCg(null, m1);
+        new ProgressBar(null, m1); /* constructor */
+        this.a_cb = new ProgressBar(null, m1);
         L586:
         this.a_cb.b(this.v);
         this.a_cb.a(v3, 0, 1);

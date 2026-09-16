@@ -181,8 +181,8 @@ public class RaceView extends ObfR {
     }
     // bytecode 109 bytes, max_stack 5, max_locals 2
     public void c() {
-        new ObfDo(this.a.getWidth(), this.a.getHeight()); /* constructor */
-        this.a = new ObfDo(this.a.getWidth(), this.a.getHeight());
+        new RaceTouchControls(this.a.getWidth(), this.a.getHeight()); /* constructor */
+        this.a = new RaceTouchControls(this.a.getWidth(), this.a.getHeight());
         this.a.e(this.t);
         int v1 = 0;
         L38:

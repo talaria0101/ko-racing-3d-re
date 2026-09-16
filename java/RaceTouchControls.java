@@ -2,9 +2,9 @@
 // edit: fix the emitter and re-run.  Original name `do`.
 // String constants: <init> | Code | getClipHeight | getClipWidth | javax/microedition/lcdui/Graphics | StackMap
 // API references: javax/microedition
-public class ObfDo extends TouchButtons {
+public class RaceTouchControls extends TouchButtons {
     // bytecode 7 bytes, max_stack 3, max_locals 3
-    public ObfDo(int v1, int v2) {
+    public RaceTouchControls(int v1, int v2) {
         super(v1, v2);
         return;
     }

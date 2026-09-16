@@ -2,9 +2,9 @@
 // edit: fix the emitter and re-run.  Original name `cg`.
 // String constants: <init> | Code | fillRect | getClipWidth | javax/microedition/lcdui/Graphics | setColor
 // API references: javax/microedition
-public class ObfCg extends ObfCb {
+public class ProgressBar extends ObfCb {
     // bytecode 7 bytes, max_stack 3, max_locals 3
-    public ObfCg(Widget v1, int v2) {
+    public ProgressBar(Widget v1, int v2) {
         super(null, m1);
         return;
     }

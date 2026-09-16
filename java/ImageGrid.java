@@ -2,34 +2,34 @@
 // edit: fix the emitter and re-run.  Original name `ag`.
 // String constants: /images/i_s.png | <clinit> | <init> | Code | [Lbw; | createImage | java/io/IOException | javax/microedition/lcdui/Image | StackMap | javax/microedition/lcdui/Graphics
 // API references: javax/microedition
-public class ObfAg extends Widget {
-    private ObfBw[] a;
-    private static ObfAg a_ag;
-    public static ObfCi a_ci;
-    public static ObfCi b;
-    public static ObfCi c;
-    public static ObfCi d;
+public class ImageGrid extends Widget {
+    private GridCell[] a;
+    private static ImageGrid a_ag;
+    public static ImageCell a_ci;
+    public static ImageCell b;
+    public static ImageCell c;
+    public static ImageCell d;
     static {
-        ObfAg.a_ag = null;
-        ObfAg.a_ci = null;
-        ObfAg.b = null;
-        ObfAg.c = null;
-        ObfAg.d = null;
+        ImageGrid.a_ag = null;
+        ImageGrid.a_ci = null;
+        ImageGrid.b = null;
+        ImageGrid.c = null;
+        ImageGrid.d = null;
         return;
     }
     // bytecode 39 bytes, max_stack 6, max_locals 5
-    public ObfAg(int v1, int v2, int v3, int v4) {
+    public ImageGrid(int v1, int v2, int v3, int v4) {
         super(null, 0, 0, v3, 28);
-        new ObfBw[5]#1[0] = null;
-        new ObfBw[5]#1[1] = null;
-        new ObfBw[5]#1[2] = null;
-        new ObfBw[5]#1[3] = null;
-        new ObfBw[5]#1[4] = null;
-        this.a = new ObfBw[5]#1;
+        new GridCell[5]#1[0] = null;
+        new GridCell[5]#1[1] = null;
+        new GridCell[5]#1[2] = null;
+        new GridCell[5]#1[3] = null;
+        new GridCell[5]#1[4] = null;
+        this.a = new GridCell[5]#1;
         return;
     }
     // bytecode 18 bytes, max_stack 3, max_locals 3
-    public void a(ObfBw v1, int v2) {
+    public void a(GridCell v1, int v2) {
         if (v1 == null) goto L10;
         v1.a(0, v2);
         L10:
@@ -37,15 +37,15 @@ public class ObfAg extends Widget {
         return;
     }
     // bytecode 7 bytes, max_stack 2, max_locals 1
-    public ObfBw a() {
+    public GridCell a() {
         return this.a[0];
     }
     // bytecode 7 bytes, max_stack 2, max_locals 1
-    public ObfBw b() {
+    public GridCell b() {
         return this.a[2];
     }
     // bytecode 19 bytes, max_stack 3, max_locals 3
-    public void b(ObfBw v1, int v2) {
+    public void b(GridCell v1, int v2) {
         if (v1 == null) goto L11;
         v1.a(2, -7);
         L11:
@@ -90,44 +90,44 @@ public class ObfAg extends Widget {
     }
     // bytecode 28 bytes, max_stack 4, max_locals 3
     public static void b(Graphics v0, int v1, int v2) {
-        if (ObfAg.a_ag != null) goto L9;
-        ObfAg.a();
+        if (ImageGrid.a_ag != null) goto L9;
+        ImageGrid.a();
         L9:
-        ObfAg.a_ag.e(SysUtil.e);
-        ObfAg.a_ag.a(v0, 0, v2);
+        ImageGrid.a_ag.e(SysUtil.e);
+        ImageGrid.a_ag.a(v0, 0, v2);
         return;
     }
     // bytecode 139 bytes, max_stack 6, max_locals 1
     public static void a() {
         /* try L17-L112 catch java.io.IOException -> L115 */
-        new ObfAg(0, 0, SysUtil.e, 28); /* constructor */
-        ObfAg.a_ag = new ObfAg(0, 0, SysUtil.e, 28);
+        new ImageGrid(0, 0, SysUtil.e, 28); /* constructor */
+        ImageGrid.a_ag = new ImageGrid(0, 0, SysUtil.e, 28);
         if (SysUtil.e > 400) goto L31;
         SysUtil.a = "/images/i_s.png";
         L31:
         Image v0 = javax.microedition.lcdui.Image.createImage(Resources.a(SysUtil.a));
-        new ObfCi(ObfAg.a_ag, v0, 0); /* constructor */
-        ObfAg.a_ci = new ObfCi(ObfAg.a_ag, v0, 0);
-        new ObfCi(ObfAg.a_ag, v0, 1); /* constructor */
-        ObfAg.b = new ObfCi(ObfAg.a_ag, v0, 1);
-        new ObfCi(ObfAg.a_ag, v0, 2); /* constructor */
-        new ObfCi(ObfAg.a_ag, v0, 3); /* constructor */
-        ObfAg.c = new ObfCi(ObfAg.a_ag, v0, 3);
-        new ObfCi(ObfAg.a_ag, v0, 4); /* constructor */
-        ObfAg.d = new ObfCi(ObfAg.a_ag, v0, 4);
+        new ImageCell(ImageGrid.a_ag, v0, 0); /* constructor */
+        ImageGrid.a_ci = new ImageCell(ImageGrid.a_ag, v0, 0);
+        new ImageCell(ImageGrid.a_ag, v0, 1); /* constructor */
+        ImageGrid.b = new ImageCell(ImageGrid.a_ag, v0, 1);
+        new ImageCell(ImageGrid.a_ag, v0, 2); /* constructor */
+        new ImageCell(ImageGrid.a_ag, v0, 3); /* constructor */
+        ImageGrid.c = new ImageCell(ImageGrid.a_ag, v0, 3);
+        new ImageCell(ImageGrid.a_ag, v0, 4); /* constructor */
+        ImageGrid.d = new ImageCell(ImageGrid.a_ag, v0, 4);
         goto L116;
         /* pop: ex_115; */
         L116:
-        ObfAg.a_ag.a(ObfAg.a_ci, -6);
-        ObfAg.a_ag.b(ObfAg.b, -7);
+        ImageGrid.a_ag.a(ImageGrid.a_ci, -6);
+        ImageGrid.a_ag.b(ImageGrid.b, -7);
         return;
     }
     // bytecode 13 bytes, max_stack 1, max_locals 0
-    public static ObfAg a() {
-        if (ObfAg.a_ag != null) goto L9;
-        ObfAg.a();
+    public static ImageGrid a() {
+        if (ImageGrid.a_ag != null) goto L9;
+        ImageGrid.a();
         L9:
-        return ObfAg.a_ag;
+        return ImageGrid.a_ag;
     }
 }
 

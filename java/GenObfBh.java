@@ -784,7 +784,7 @@ public class ObfBh extends Screen {
         L27:
         this.e_cm.a(0);
         this.e_cm.a(v1, 0, 0);
-        ObfAg.b(v1, 0, (v1.getClipHeight() - 28));
+        ImageGrid.b(v1, 0, (v1.getClipHeight() - 28));
         return;
     }
     // bytecode 97 bytes, max_stack 2, max_locals 1
@@ -932,11 +932,11 @@ public class ObfBh extends Screen {
         if (this.e_cm.a().c() == m1) goto L163;
         if (this.e_cm.a().c() <= 1) goto L174;
         L163:
-        ObfAg.a().a(null, 0);
+        ImageGrid.a().a(null, 0);
         goto L198;
         L174:
         if (this.e_cm.a().c() != 0) goto L198;
-        ObfAg.a().a(ObfAg.a, -6);
+        ImageGrid.a().a(ImageGrid.a, -6);
         L198:
         if (SysUtil.a(this.a_I) == -6) goto L222;
         if (SysUtil.a(this.a_I) != -7) goto L227;
@@ -947,7 +947,7 @@ public class ObfBh extends Screen {
         this.c();
         return;
         L243:
-        ObfAg.a().b(ObfAg.b, -7);
+        ImageGrid.a().b(ImageGrid.b, -7);
         if (this.e_cm != this.b_cm) goto L270;
         this.n();
         return;
@@ -1061,12 +1061,12 @@ public class ObfBh extends Screen {
         L862:
         /* pop: v1.d_cm.a(v1.a_I); */
         if (v1.b_ao.a().length() <= 0) goto L901;
-        ObfAg.a().a(ObfAg.a, -6);
+        ImageGrid.a().a(ImageGrid.a, -6);
         goto L910;
         L901:
-        ObfAg.a().a(null, -6);
+        ImageGrid.a().a(null, -6);
         L910:
-        ObfAg.a().b(ObfAg.b, -7);
+        ImageGrid.a().b(ImageGrid.b, -7);
         return;
         L922:
         this.a_Z = true;
