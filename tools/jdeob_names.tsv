@@ -1,0 +1,10 @@
+# obfuscated -> readable names for tools/jdeob.py (tab separated)
+al	Settings
+aq	SysUtil
+be	StreamReader
+bl	Resources
+cv	MainCanvas
+cy	AudioPlayer
+dh	Bluetooth
+e	TouchButtons
+z	Vec2

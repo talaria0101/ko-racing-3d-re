@@ -1096,7 +1096,6 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.a(0);
         return;
     }
-    /* REVIEW: stack underflow */
     // bytecode 983 bytes, max_stack 4, max_locals 3
     public VservManager(MIDlet v1, Hashtable v2) {
         /* try L387-L394 catch java.lang.Exception -> L976 */
@@ -4000,7 +3999,6 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L1782:
         return;
     }
-    /* REVIEW: stack underflow */
     // bytecode 192 bytes, max_stack 5, max_locals 7
     public void a(HttpConnection v1) {
         /* try L41-L172 catch java.lang.Exception -> L175 */

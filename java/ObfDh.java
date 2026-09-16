@@ -161,7 +161,7 @@ public class ObfDh implements java.lang.Runnable, javax.bluetooth.DiscoveryListe
         v1 = ((int) v0);
         v1 = ((int) v0.getAttributeValue(4));
         long v3 = ObfDh.a(v0.getAttributeValue(4));
-        if (lcmp(/* UNDERFLOW */ null, 0L) > 0) goto L43;
+        if (lcmp(ObfDh.a(v0.getAttributeValue(4)), 0L) > 0) goto L43;
         new java.lang.NullPointerException(); /* constructor */
         throw new java.lang.NullPointerException();
         L43:
@@ -182,7 +182,6 @@ public class ObfDh implements java.lang.Runnable, javax.bluetooth.DiscoveryListe
         /* pop: ex_138; */
         return v0.getConnectionURL(0, 0);
     }
-    /* REVIEW: stack underflow */
     // bytecode 150 bytes, max_stack 5, max_locals 4
     public static long a(DataElement v0) {
         long v1 = 0L;

@@ -74,7 +74,6 @@ public class ObfBl {
         L133:
         return null;
     }
-    /* REVIEW: stack underflow */
     // bytecode 52 bytes, max_stack 3, max_locals 1
     public static InputStream a(String v0) {
         if (ObfBl.a_bl != null) goto L18;

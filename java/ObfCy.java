@@ -105,7 +105,7 @@ public class ObfCy implements javax.microedition.media.PlayerListener {
         /* try L87-L99 catch javax.microedition.media.MediaException -> L102 */
         /* try L55-L120 catch java.lang.Exception -> L123 */
         long v3 = java.lang.Math.abs((java.lang.System.currentTimeMillis() - this.a_J));
-        if (lcmp(/* UNDERFLOW */ null, 500L) < 0) goto L46;
+        if (lcmp(java.lang.Math.abs((java.lang.System.currentTimeMillis() - this.a_J)), 500L) < 0) goto L46;
         if (lcmp(v3, 1500L) >= 0) goto L35;
         if (ObfCy.d == 4) goto L46;
         L35:
@@ -133,7 +133,6 @@ public class ObfCy implements javax.microedition.media.PlayerListener {
         L124:
         return 1;
     }
-    /* REVIEW: stack underflow; join L103 depth 1 vs 0; join L124 depth 1 vs 0 */
     // bytecode 44 bytes, max_stack 2, max_locals 1
     public void a() {
         /* try L14-L20 catch java.lang.InterruptedException -> L23 */

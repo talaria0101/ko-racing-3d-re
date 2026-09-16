@@ -483,6 +483,8 @@ class Klass:
         for e in self.cp:
             if e and e[0] == 'Utf8' and len(e[1]) > 2 and any(
                     ch.isalpha() for ch in e[1]):
+                if '(' in e[1] or e[1].startswith('L') and e[1].endswith(';'):
+                    continue
                 out.append(e[1])
         return out
 
@@ -995,7 +997,8 @@ class Emitter:
             return
         if op == 'pop2':
             t, e = self.pop()
-            self.pop()
+            if t not in ('long', 'double'):
+                self.pop()
             if len(e) > 4 and not e.startswith('jt'):
                 L.append('/* pop: %s; */' % e)
             return
@@ -1014,6 +1017,17 @@ class Emitter:
         if op == 'dup_x2':
             t1, a = self.pop()
             t2, b = self.pop()
+            if t1 in ('long', 'double'):
+                self.problems.append('dup_x2 on 2-slot value at %d' % pc)
+                self.push(t1, a)
+                self.push(t2, b)
+                self.push(t1, a)
+                return
+            if t2 in ('long', 'double'):
+                self.push(t1, a)
+                self.push(t2, b)
+                self.push(t1, a)
+                return
             t3, c = self.pop()
             self.push(t1, a)
             self.push(t3, c)
@@ -1022,6 +1036,10 @@ class Emitter:
             return
         if op == 'dup2':
             t1, a = self.pop()
+            if t1 in ('long', 'double'):
+                self.push(t1, a)
+                self.push(t1, a)
+                return
             t2, b = self.pop()
             self.push(t2, b)
             self.push(t1, a)
@@ -1031,6 +1049,17 @@ class Emitter:
         if op == 'dup2_x1':
             t1, a = self.pop()
             t2, b = self.pop()
+            if t1 in ('long', 'double'):
+                self.problems.append('dup2_x1 on 2-slot value at %d' % pc)
+                self.push(t1, a)
+                self.push(t2, b)
+                self.push(t1, a)
+                return
+            if t2 in ('long', 'double'):
+                self.push(t1, a)
+                self.push(t2, b)
+                self.push(t1, a)
+                return
             t3, c = self.pop()
             self.push(t2, b)
             self.push(t1, a)
@@ -1039,15 +1068,30 @@ class Emitter:
             self.push(t1, a)
             return
         if op == 'dup2_x2':
-            vals = [self.pop(), self.pop(), self.pop(), self.pop()]
-            t1, a = vals[0]
-            t2, b = vals[1]
-            self.push(t2, b)
-            self.push(t1, a)
-            for t, v in reversed(vals):
+            t1, a = self.pop()
+            t2, b = self.pop()
+            if t1 in ('long', 'double') and t2 in ('long', 'double'):
+                self.push(t1, a)
+                self.push(t2, b)
+                self.push(t1, a)
+                return
+            if t1 in ('long', 'double'):
+                t3, c = self.pop()
+                self.push(t1, a)
+                self.push(t3, c)
+                self.push(t2, b)
+                self.push(t1, a)
+                return
+            if t2 in ('long', 'double'):
+                self.push(t1, a)
+                self.push(t2, b)
+                self.push(t1, a)
+                return
+            t3, c = self.pop()
+            t4, d = self.pop()
+            for t, v in [(t2, b), (t1, a), (t4, d), (t3, c),
+                         (t2, b), (t1, a)]:
                 self.push(t, v)
-            self.push(t2, b)
-            self.push(t1, a)
             return
         if op == 'swap':
             t1, a = self.pop()
