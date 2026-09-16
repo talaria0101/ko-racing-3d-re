@@ -86,6 +86,22 @@ pub fn detail_texture(theme: u8, texture: &str) -> String {
     }
 }
 
+/// Which way a high-detail object faces: `ai.a(Lbq;Lj;FFFFFF)V` has two
+/// render paths selected by the `.ob` flag (`ai.b`, set on trees, bushes
+/// and cacti). The normal path posts the caller yaw (`bp` passes
+/// 0/90/180/270) about `(0,0,1)`; the flagged path sets translation only
+/// and renders with identity rotation, so the yaw is dropped for trees.
+/// The port used to yaw every object, which turned each flat tree plane
+/// (`t1` is all `y = 0.15`) edge-on or piled face-on into its neighbours:
+/// the giant foliage wall on Timberton.
+pub fn high_detail_yaw(flagged: bool, arg: u8) -> f32 {
+    if flagged {
+        0.0
+    } else {
+        arg as f32 * std::f32::consts::FRAC_PI_2
+    }
+}
+
 /// What [`detail_texture`] does for object models: `ai.a(cf)` swaps only the
 /// `t.png` sheet and leaves the shared atlas alone.
 pub fn object_texture(theme: u8, texture: &str) -> String {
@@ -764,7 +780,7 @@ pub fn build_detailed(
                         &format!("models/{}", object.model),
                         &object_texture(theme, &object.texture),
                         [WORLD_SCALE; 3],
-                        arg as f32 * half,
+                        high_detail_yaw(object.flag, arg),
                         [lx, ly, pz],
                     );
                 }

@@ -2471,3 +2471,54 @@ fn car_and_tile_unwraps_stay_inside_their_texture() {
     }
     assert!(checked > 20, "expected the tile set, saw {checked}");
 }
+
+/// Flagged scenery (trees, bushes, cacti) ignores the cell yaw.
+/// `ai.a(Lbq;Lj;FFFFFF)V` has two render paths picked by the `.ob`
+/// flag: normal objects post the caller yaw about `(0,0,1)`, flagged
+/// ones set translation only and render with identity rotation. `bp`
+/// still mirrors their x/y per side, but the 0/90/180/270 it passes
+/// is dropped for trees.
+///
+/// The port yawed every high-detail object, so each flat tree plane
+/// (`t1` holds `y = 0.15` on all 12 vertices) was turned `arg * 90`
+/// degrees away from the game: edge-on singles in some cells, and
+/// where several lined a verge, one continuous tall foliage wall
+/// (Timberton screenshot 1). The `.ob` flag is set on exactly
+/// `t1`-`t4`, `b1`, `c1`, `z2`, `z3`.
+#[test]
+fn flagged_scenery_ignores_cell_yaw() {
+    use kora::scene::high_detail_yaw;
+    use std::f32::consts::FRAC_PI_2;
+
+    // Normal objects (church, houses, fences, walls) take the yaw.
+    for arg in 0..4 {
+        assert!(
+            (high_detail_yaw(false, arg) - arg as f32 * FRAC_PI_2).abs() < 1e-6,
+            "normal object on arg {arg} should yaw"
+        );
+    }
+    // Flagged trees and bushes always face the same way.
+    for arg in 0..4 {
+        assert_eq!(high_detail_yaw(true, arg), 0.0, "flagged tree on arg {arg}");
+    }
+    // And the flag is set on exactly the trees, bushes and cacti.
+    let resources = pack::load(&assets());
+    let mut flagged = Vec::new();
+    let mut plain = Vec::new();
+    let mut names: Vec<_> = resources
+        .keys()
+        .filter(|name| name.starts_with("objects/") && name.ends_with(".ob"))
+        .collect();
+    names.sort();
+    for name in names {
+        let ob = format::ObjectDef::parse(&resources[name]).expect("bad .ob");
+        (if ob.flag { &mut flagged } else { &mut plain }).push(
+            name.trim_start_matches("objects/")
+                .trim_end_matches(".ob")
+                .to_string(),
+        );
+    }
+    assert_eq!(flagged, ["b1", "c1", "t1", "t2", "t3", "t4", "z2", "z3"]);
+    assert!(plain.contains(&"ch".to_string()), "church stays yawed");
+    assert!(plain.contains(&"za".to_string()), "fences stay yawed");
+}
