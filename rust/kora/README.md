@@ -61,6 +61,8 @@ Controls: the **control scheme** picked in OPTIONS decides which keys drive -
 CLASSIC is the arrow keys, LEFT-HANDED is WASD and RIGHT-HANDED is the numeric
 keypad - **space** is the handbrake, **Esc** pauses, **M** toggles the music,
 and in the menus the arrows move, **Enter** confirms and **Esc** goes back.
+**Tab** detaches a free photo camera (WASD moves, R/F go up and down, the
+arrows look, Shift is fast); it prints its eye/target for `kora view`.
 
 ## What is implemented
 

@@ -96,6 +96,27 @@ impl Jump {
     }
 }
 
+/// A detached photo camera: Tab hands the viewport over, WASD moves,
+/// R/F go up and down, the arrows look around.  Driving keys keep
+/// working underneath, so pause (Esc) first for a static shot; the
+/// eye/target print on toggle fits `dump_track` + `kora view --eye/--look`.
+#[derive(Clone, Copy)]
+struct FreeCam {
+    pos: Vec3,
+    yaw: f32,
+    pitch: f32,
+}
+
+impl FreeCam {
+    fn forward(self) -> Vec3 {
+        vec3(
+            -self.yaw.sin() * self.pitch.cos(),
+            self.pitch.sin(),
+            -self.yaw.cos() * self.pitch.cos(),
+        )
+    }
+}
+
 /// A race in progress: the track, the cars and the running order.
 struct Running {
     event: RaceEvent,
@@ -109,6 +130,7 @@ struct Running {
     drivers: Vec<AiDriver>,
     player: usize,
     camera: Vec3,
+    free: Option<FreeCam>,
     finish_order: Vec<usize>,
     outcome: Option<Outcome>,
     /// The offscreen the world is drawn into, and its size so it can be rebuilt
@@ -216,6 +238,7 @@ fn start_race(
         drivers,
         player,
         camera,
+        free: None,
         finish_order: Vec::new(),
         outcome: None,
         target: None,
@@ -231,7 +254,82 @@ impl Running {
         }
         self.finish_order.clear();
         self.outcome = None;
+        self.free = None;
         self.camera = self.track.spawn + vec3(0.0, 5.0, 9.0);
+    }
+
+    /// Tab hands the viewport to a free photo camera (or back to the car).
+    /// The eye/target print fits `dump_track` + `kora view --eye/--look`, so
+    /// a framed shot can be re-rendered headlessly.
+    fn toggle_free_cam(&mut self) {
+        if let Some(free) = self.free {
+            let target = free.pos + free.forward() * 3.0;
+            println!(
+                "free camera off: eye {:.1},{:.1},{:.1} look {:.1},{:.1},{:.1} fov 90",
+                free.pos.x, free.pos.y, free.pos.z, target.x, target.y, target.z
+            );
+            self.free = None;
+            return;
+        }
+        let (_, rotation) = self.world.pose(self.player);
+        let heading = rotation * vec3(0.0, 0.0, -1.0);
+        let yaw = (-heading.x).atan2(-heading.z);
+        let free = FreeCam {
+            pos: self.camera,
+            yaw,
+            pitch: 0.0,
+        };
+        let target = free.pos + free.forward() * 3.0;
+        println!(
+            "free camera on: eye {:.1},{:.1},{:.1} look {:.1},{:.1},{:.1} fov 90 - WASD move R/F up/down arrows look",
+            free.pos.x, free.pos.y, free.pos.z, target.x, target.y, target.z
+        );
+        self.free = Some(free);
+    }
+
+    /// WASD moves, R/F go up and down, the arrows look.  Shift is fast.
+    fn update_free_cam(&mut self, dt: f32) {
+        let Some(free) = &mut self.free else {
+            return;
+        };
+        let turn = 1.8 * dt;
+        if is_key_down(KeyCode::Left) {
+            free.yaw += turn;
+        }
+        if is_key_down(KeyCode::Right) {
+            free.yaw -= turn;
+        }
+        if is_key_down(KeyCode::Up) {
+            free.pitch = (free.pitch + turn).min(1.45);
+        }
+        if is_key_down(KeyCode::Down) {
+            free.pitch = (free.pitch - turn).max(-1.45);
+        }
+        let speed = if is_key_down(KeyCode::LeftShift) || is_key_down(KeyCode::RightShift) {
+            48.0
+        } else {
+            12.0
+        } * dt;
+        let forward = free.forward();
+        let left = vec3(forward.z, 0.0, -forward.x).normalize_or_zero();
+        if is_key_down(KeyCode::W) {
+            free.pos += forward * speed;
+        }
+        if is_key_down(KeyCode::S) {
+            free.pos -= forward * speed;
+        }
+        if is_key_down(KeyCode::A) {
+            free.pos += left * speed;
+        }
+        if is_key_down(KeyCode::D) {
+            free.pos -= left * speed;
+        }
+        if is_key_down(KeyCode::R) {
+            free.pos.y += speed;
+        }
+        if is_key_down(KeyCode::F) {
+            free.pos.y -= speed;
+        }
     }
 
     /// Advance the race by one frame.  Returns the outcome once the player has
@@ -364,8 +462,13 @@ impl Running {
 
         let mut camera = Camera3D::default();
         camera.render_target = Some(target.clone());
-        camera.position = self.camera;
-        camera.target = position + forward * 3.0 + up * 0.8;
+        if let Some(free) = self.free {
+            camera.position = free.pos;
+            camera.target = free.pos + free.forward() * 3.0;
+        } else {
+            camera.position = self.camera;
+            camera.target = position + forward * 3.0 + up * 0.8;
+        }
         camera.up = up;
         // The game's own field of view: `bq.a` sets the M3G perspective to a 90
         // degree vertical FOV for every view.  A narrower one magnifies the near
@@ -507,6 +610,15 @@ impl Running {
             20.0,
             Color::new(0.9, 0.9, 0.9, 1.0),
         );
+        if self.free.is_some() {
+            text::draw_shadow(
+                "TAB CAM  WASD MOVE  R/F UP/DOWN  ARROWS LOOK",
+                16.0,
+                screen_height() - 64.0,
+                20.0,
+                Color::new(1.0, 0.85, 0.2, 1.0),
+            );
+        }
 
         let markers: Vec<hud::Marker> = (0..self.world.cars.len())
             .map(|car| {
@@ -956,6 +1068,10 @@ async fn main() {
                     cursor = 0;
                     screen = Screen::Paused;
                 } else {
+                    if is_key_pressed(KeyCode::Tab) {
+                        run.toggle_free_cam();
+                    }
+                    run.update_free_cam(dt);
                     let laps = env_number("KORA_LAPS", 99).unwrap_or(run.event.laps).max(1);
                     let finished = run.update(dt, laps, &settings);
                     run.draw_world(dt, &settings);
