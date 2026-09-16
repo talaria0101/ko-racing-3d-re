@@ -389,9 +389,24 @@ class Map:
             row = []
             for _ in range(width):
                 flags = r.u8()
+                # One payload per set bit, in bit order; each bit dispatches
+                # by its own index (class `bs` tests `r.b(i) & flags` per
+                # bit).  Slicing the payload list positionally drops and
+                # misroutes entries on short cells, so walk the bits.
                 payloads = [tuple(r.raw(2)) for bit in range(7) if flags & (1 << bit)]
                 tile = payloads[0] if flags & 1 else None
-                row.append(MapCell(flags, tile, payloads[1:4], payloads[4:7]))
+                mid: List[Tuple[int, int]] = []
+                high: List[Tuple[int, int]] = []
+                cursor = 1 if flags & 1 else 0
+                for bit in range(1, 7):
+                    if not flags & (1 << bit):
+                        continue
+                    if bit <= 3:
+                        mid.append(payloads[cursor])
+                    else:
+                        high.append(payloads[cursor])
+                    cursor += 1
+                row.append(MapCell(flags, tile, mid, high))
             cells.append(row)
         start = (r.u8(), r.u8())
         finish = (r.u8(), r.u8())

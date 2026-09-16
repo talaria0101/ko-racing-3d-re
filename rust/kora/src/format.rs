@@ -290,6 +290,9 @@ impl Tile {
 }
 
 /// One placed track cell: `tile` plus mid/high detail references.
+///
+/// Each set flag bit contributes one payload, dispatched by bit index: bit 0
+/// the tile, bits 1-3 mid detail, bits 4-6 high detail.
 pub struct MapCell {
     pub flags: u8,
     pub tile: Option<(u8, u8)>,
@@ -323,9 +326,30 @@ impl Map {
                         payloads.push((r.u8(), r.u8()));
                     }
                 }
+                // Payloads run in flag-bit order with one entry per set bit,
+                // and each bit dispatches by its own index (class `bs` tests
+                // `r.b(i) & flags` per bit: bit 0 the tile, bits 1-3 mid
+                // detail, bits 4-6 high detail).  Slicing positionally
+                // (`payloads.get(1..4)`) needs the whole range in bounds, so
+                // cells with fewer than four payloads silently lost all mid
+                // detail and cells with fewer than five lost high detail -
+                // most of the trackside trees.
                 let tile = if flags & 1 != 0 { Some(payloads[0]) } else { None };
-                let mid = payloads.get(1..4).map(<[(u8, u8)]>::to_vec).unwrap_or_default();
-                let high = payloads.get(4..).map(<[(u8, u8)]>::to_vec).unwrap_or_default();
+                let mut mid = Vec::new();
+                let mut high = Vec::new();
+                let mut cursor = usize::from(flags & 1 != 0);
+                for bit in 1..7 {
+                    if flags & (1 << bit) == 0 {
+                        continue;
+                    }
+                    let payload = payloads[cursor];
+                    cursor += 1;
+                    if bit <= 3 {
+                        mid.push(payload);
+                    } else {
+                        high.push(payload);
+                    }
+                }
                 row.push(MapCell {
                     flags,
                     tile,
