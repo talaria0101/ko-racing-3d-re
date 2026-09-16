@@ -3,7 +3,7 @@
 //! The original MIDlet reads every asset out of its own `data`/`data.<n>`
 //! archive; this port does exactly the same, parsing the model, tile, map,
 //! car, campaign and font formats directly instead of converting them.
-//! Rendering is macroquad, physics is rapier3d's raycast vehicle controller.
+//! Rendering is macroquad, physics is the game's own arcade vehicle model.
 //!
 //! Menus: `KORA_SKIP_MENU=1` boots straight into a race, and `KORA_MAP`,
 //! `KORA_CAR`, `KORA_LAPS`, `KORA_OPPONENTS` and `KORA_ASSETS` still override
@@ -21,6 +21,7 @@ use kora::campaign::{self, RaceEvent};
 use kora::labels;
 use kora::menu::Outcome;
 use kora::physics::{CarControl, Tuning, World};
+use kora::engine::Engine;
 use kora::progress::{self, Progress};
 use kora::race::Race;
 use kora::text;
@@ -133,6 +134,8 @@ struct Running {
     free: Option<FreeCam>,
     finish_order: Vec<usize>,
     outcome: Option<Outcome>,
+    engine: Engine,
+    last_throttle: f32,
     /// The offscreen the world is drawn into, and its size so it can be rebuilt
     /// when the window changes.
     target: Option<(RenderTarget, Vec2)>,
@@ -163,6 +166,7 @@ impl Running {
 }
 
 /// Build a race from an event: track, textures, cars and race state.
+#[allow(clippy::too_many_arguments)]
 fn start_race(
     resources: &pack::Resources,
     dir: &PathBuf,
@@ -170,6 +174,7 @@ fn start_race(
     car_file: &str,
     settings: &Settings,
     back: Screen,
+    engine: Engine,
 ) -> Option<Running> {
     let detail = match settings.quality {
         kora::settings::Quality::Low => scene::Detail::Base,
@@ -207,19 +212,20 @@ fn start_race(
     }
     let mut geometry = scene::build_car(resources, &car_def)?;
     let texture = scene::load_car_texture(resources, &mut geometry);
-    let tuning = Tuning::from_stats(car_def.stats);
-
     let laps = env_number("KORA_LAPS", 99).unwrap_or(event.laps).max(1);
     let opponents = env_number("KORA_OPPONENTS", 7).unwrap_or(event.opponents);
 
-    let mut world = World::new(
-        track.collision_vertices.clone(),
-        track.collision_indices.clone(),
-        &track.walls,
-    );
+    let mut world = World::new(&track.walls);
     let mut player = 0;
     for (index, &(spot, yaw)) in track.grid.grid_slots(1 + opponents as usize).iter().enumerate() {
-        let car = world.add_car(spot, yaw, geometry.half_extents, tuning);
+        // The player runs the player tune, opponents the AI tune; both read
+        // the same four `.car` stat bytes (`PlayerTune`/`AiTune`).
+        let tune = if index == 0 {
+            Tuning::player(car_def.stats)
+        } else {
+            Tuning::ai(car_def.stats)
+        };
+        let car = world.add_car(spot, yaw, tune, index != 0);
         if index == 0 {
             player = car;
         }
@@ -254,6 +260,8 @@ fn start_race(
         finish_order: Vec::new(),
         outcome: None,
         target: None,
+        engine,
+        last_throttle: 0.0,
     })
 }
 
@@ -267,6 +275,7 @@ impl Running {
         self.finish_order.clear();
         self.outcome = None;
         self.free = None;
+        self.engine.stop();
         self.camera = self.track.spawn + vec3(0.0, 5.0, 9.0);
     }
 
@@ -358,6 +367,7 @@ impl Running {
         } else {
             0.0
         };
+        self.last_throttle = controls[self.player].throttle.max(0.0);
         // Positive steering turns the wheels left (about +Y).
         controls[self.player].steer = if is_key_down(left) {
             1.0
@@ -383,29 +393,30 @@ impl Running {
             );
         }
 
-        let substeps = ((dt / (1.0 / 60.0)).ceil() as i32).clamp(1, 4);
-        for _ in 0..substeps {
-            self.world.step(dt / substeps as f32, &controls);
-        }
-
+        // The MIDlet sets its car's height from the track's collision mesh
+        // every frame, which is how it crosses the steps between tiles.
         let ride = self.geometry.half_extents.y + 0.02;
         let reach = self.geometry.half_extents.z + 0.5;
+        let mut heights = Vec::with_capacity(self.world.cars.len());
         for index in 0..self.world.cars.len() {
             let (place, rotation) = self.world.pose(index);
             if place.y < -40.0 {
                 self.world.reset(index);
+                heights.push(None);
                 continue;
             }
-            // The MIDlet sets its car's height from the track's collision mesh
-            // every frame, which is how it crosses the steps between tiles.
             let heading = rotation * vec3(0.0, 0.0, -1.0);
-            let support = self.track.surface.support_height(place, heading, reach, place.y, ride);
-            if let Some(height) = support {
-                self.world.conform(index, height + ride);
-            }
-            // ...and it never turtles, so a car that does is stood back up.
-            self.world
-                .upright(index, support.map(|height| height + ride).unwrap_or(place.y));
+            heights.push(
+                self.track
+                    .surface
+                    .support_height(place, heading, reach, place.y, ride)
+                    .map(|height| height + ride),
+            );
+        }
+
+        let substeps = ((dt / (1.0 / 60.0)).ceil() as i32).clamp(1, 4);
+        for _ in 0..substeps {
+            self.world.step(dt / substeps as f32, &controls, &heights);
         }
 
         let now = get_time();
@@ -415,6 +426,12 @@ impl Running {
             if self.races[index].finished && !before {
                 self.finish_order.push(index);
             }
+        }
+
+        {
+            let state = self.world.engine(self.player);
+            let throttle = self.last_throttle;
+            self.engine.update(state, throttle, settings.volume);
         }
 
         if self.outcome.is_none() && self.races[self.player].finished {
@@ -832,7 +849,7 @@ async fn main() {
                 .get(progress.car)
                 .map(|car| car.file.clone())
                 .unwrap_or_else(|| "rally.car".to_string());
-            running = start_race(&resources, &dir, &event, &file, &settings, Screen::Quick);
+            running = start_race(&resources, &dir, &event, &file, &settings, Screen::Quick, Engine::load(&dir).await);
             if running.is_some() {
                 screen = Screen::Race;
             }
@@ -973,6 +990,7 @@ async fn main() {
                                     &file,
                                     &settings,
                                     Screen::Map(index),
+                                    Engine::load(&dir).await,
                                 );
                                 if running.is_some() {
                                     message.clear();
@@ -1023,7 +1041,7 @@ async fn main() {
                                     .get(progress.car)
                                     .map(|car| car.file.clone())
                                     .unwrap_or_else(|| "rally.car".to_string());
-                                running = start_race(&resources, &dir, &event, &file, &settings, screen);
+                                running = start_race(&resources, &dir, &event, &file, &settings, screen, Engine::load(&dir).await);
                                 if running.is_some() {
                                     screen = Screen::Race;
                                 } else {

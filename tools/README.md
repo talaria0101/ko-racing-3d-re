@@ -387,9 +387,9 @@ consistent with there being no economy in the build at all.
 
 ## Rust port
 
-`rust/kora/` reimplements the engine in Rust (macroquad + rapier3d) and reads
+`rust/kora/` reimplements the engine in Rust (macroquad, game-shaped vehicle model) and reads
 the same formats straight from `data`/`data.<n>`; the module split is
 `pack.rs` (archive), `format.rs` (the parsers above), `scene.rs` (map to
-meshes and collision), `physics.rs` (rapier vehicle) and `text.rs` (bitmap
+meshes and collision), `physics.rs` (the game's own arcade vehicle model) and `text.rs` (bitmap
 font).  `cargo test --release` builds every one of the 40 tracks headlessly,
 so the layouts above are exercised on all shipped data rather than a sample.

@@ -2,12 +2,13 @@
 //!
 //! All geometry is baked into a handful of macroquad meshes (one per texture)
 //! with the tile models transformed into world space on the CPU.  The same
-//! tile triangles are also emitted as a collision trimesh for rapier.
+//! tile triangles are also emitted as a collision trimesh so headless
+//! tests can check the road surface the cars drive on.
 //!
 //! Coordinate convention: the game's models put **Z downwards** - `a`, the
 //! collision mesh reader, negates the third component of every triangle it
 //! builds, a tile raises its kerbs to *negative* z, and all twenty car models
-//! stand their wheels on `z = 0` with the body above it.  macroquad/rapier are
+//! stand their wheels on `z = 0` with the body above it.  macroquad is
 //! Y-up, so the model axes are mapped as
 //!
 //! ```text
@@ -30,7 +31,6 @@ use std::path::Path;
 use macroquad::models::{Mesh, Vertex};
 use macroquad::prelude::*;
 use macroquad::texture::{Image, Texture2D};
-use rapier3d::prelude::Vector as RVector;
 
 use crate::format;
 use crate::grid::Grid;
@@ -370,7 +370,7 @@ pub struct Track {
     /// Texture coordinate rectangle covered by each mesh's models, keyed by
     /// texture resource.
     pub uv_bounds: HashMap<String, [f32; 4]>,
-    pub collision_vertices: Vec<RVector>,
+    pub collision_vertices: Vec<[f32; 3]>,
     pub collision_indices: Vec<[u32; 3]>,
     /// Edge barriers as `(centre, half extents)` in macroquad space.
     pub walls: Vec<(Vec3, Vec3)>,
@@ -480,7 +480,7 @@ fn world_of(centre: Vec3, local: Vec2, height: f32) -> Vec3 {
 }
 
 fn push_triangle(
-    vertices: &mut Vec<RVector>,
+    vertices: &mut Vec<[f32; 3]>,
     indices: &mut Vec<[u32; 3]>,
     a: Vec3,
     b: Vec3,
@@ -488,7 +488,7 @@ fn push_triangle(
 ) {
     let base = vertices.len() as u32;
     for point in [a, b, c] {
-        vertices.push(RVector::new(point.x, point.y, point.z));
+        vertices.push([point.x, point.y, point.z]);
     }
     indices.push([base, base + 1, base + 2]);
 }
@@ -892,7 +892,7 @@ pub fn build_detailed(
     // than overlapping sheets.  Steps between neighbouring cells are left as
     // they are and the car is lifted onto the surface (see `World::conform`),
     // which is how the MIDlet drives its own car over them.
-    let mut collision_vertices: Vec<RVector> = Vec::new();
+    let mut collision_vertices: Vec<[f32; 3]> = Vec::new();
     let mut collision_indices: Vec<[u32; 3]> = Vec::new();
     let mut walls: Vec<(Vec3, Vec3)> = Vec::new();
     let half_tile = TILE * 0.5;
@@ -923,7 +923,7 @@ pub fn build_detailed(
                 (half_tile, half_tile),
                 (half_tile, -half_tile),
             ] {
-                collision_vertices.push(RVector::new(centre.x + dx, 0.0, centre.z + dz));
+                collision_vertices.push([centre.x + dx, 0.0, centre.z + dz]);
             }
             collision_indices.push([base, base + 1, base + 2]);
             collision_indices.push([base, base + 2, base + 3]);

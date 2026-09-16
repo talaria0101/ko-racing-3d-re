@@ -136,19 +136,28 @@ fn car_settles_and_drives_on_the_track() {
     let geometry = scene::build_car(&resources, &car).unwrap();
 
     let scene::Track {
-        collision_vertices,
-        collision_indices,
+        surface,
         walls,
         spawn,
         spawn_yaw,
         ..
     } = track;
-    let mut world = World::new(collision_vertices, collision_indices, &walls);
-    let player = world.add_car(spawn, spawn_yaw, geometry.half_extents, Tuning::default());
+    let mut world = World::new(&walls);
+    let player = world.add_car(spawn, spawn_yaw, Tuning::default(), false);
+    let ride = geometry.half_extents.y + 0.02;
+    let reach = geometry.half_extents.z + 0.5;
+    let heights = |world: &World| {
+        let (place, rotation) = world.pose(player);
+        let heading = rotation * Vec3::new(0.0, 0.0, -1.0);
+        vec![surface
+            .support_height(place, heading, reach, place.y, ride)
+            .map(|height| height + ride)]
+    };
 
     let idle = [CarControl::default()];
     for _ in 0..240 {
-        world.step(1.0 / 60.0, &idle);
+        let heights = heights(&world);
+        world.step(1.0 / 60.0, &idle, &heights);
     }
     let resting = world.position(player);
     assert!(
@@ -161,7 +170,8 @@ fn car_settles_and_drives_on_the_track() {
         ..Default::default()
     }];
     for _ in 0..120 {
-        world.step(1.0 / 60.0, &drive);
+        let heights = heights(&world);
+        world.step(1.0 / 60.0, &drive, &heights);
     }
     let moved = (world.position(player) - resting).length();
     assert!(moved > 0.5, "car did not move under throttle ({moved:.2})");
@@ -318,23 +328,15 @@ fn opponents_drive_the_track() {
     let geometry = scene::build_car(&resources, &car).unwrap();
 
     let scene::Track {
-        grid,
-        surface,
-        collision_vertices,
-        collision_indices,
-        walls,
-        spawn,
-        spawn_yaw,
-        ..
+        grid, surface, walls, ..
     } = track;
     let grid: Grid = grid;
 
-    let mut world = World::new(collision_vertices, collision_indices, &walls);
+    let mut world = World::new(&walls);
     for &(spot, yaw) in grid.grid_slots(4).iter() {
-        world.add_car(spot, yaw, geometry.half_extents, Tuning::default());
+        world.add_car(spot, yaw, Tuning::default(), true);
     }
     let cars = world.cars.len();
-    let _ = (spawn, spawn_yaw);
 
     let mut races: Vec<Race> = (0..cars).map(|i| Race::new(&grid, 3, world.position(i), 0.0)).collect();
     let mut travelled = vec![0.0f32; cars];
@@ -358,21 +360,19 @@ fn opponents_drive_the_track() {
                 1.0 / 60.0,
             );
         }
-        world.step(1.0 / 60.0, &controls);
+        let mut heights = Vec::with_capacity(cars);
         for index in 0..cars {
             let (place, rotation) = world.pose(index);
             let heading = rotation * vec3(0.0, 0.0, -1.0);
             let reach = geometry.half_extents.z + 0.5;
-            let support = surface.support_height(place, heading, reach, place.y, geometry.half_extents.y + 0.02);
-            if let Some(height) = support {
-                world.conform(index, height + geometry.half_extents.y + 0.02);
-            }
-            world.upright(
-                index,
-                support
-                    .map(|height| height + geometry.half_extents.y + 0.02)
-                    .unwrap_or(place.y),
+            heights.push(
+                surface
+                    .support_height(place, heading, reach, place.y, geometry.half_extents.y + 0.02)
+                    .map(|height| height + geometry.half_extents.y + 0.02),
             );
+        }
+        world.step(1.0 / 60.0, &controls, &heights);
+        for index in 0..cars {
             let place = world.position(index);
             assert!(place.y > -30.0, "car {index} fell off at step {step}");
             travelled[index] += (place - previous[index]).length();
@@ -421,16 +421,11 @@ fn opponents_survive_other_tracks() {
     for map in ["mc5.map", "sp3.map", "19.map"] {
         let track = scene::build(&dir, &resources, map);
         let scene::Track {
-            grid,
-            surface,
-            collision_vertices,
-            collision_indices,
-            walls,
-            ..
+            grid, surface, walls, ..
         } = track;
-        let mut world = World::new(collision_vertices, collision_indices, &walls);
+        let mut world = World::new(&walls);
         for &(spot, yaw) in grid.grid_slots(3).iter() {
-            world.add_car(spot, yaw, geometry.half_extents, Tuning::default());
+            world.add_car(spot, yaw, Tuning::default(), true);
         }
         let cars = world.cars.len();
         let mut drivers: Vec<AiDriver> =
@@ -449,21 +444,19 @@ fn opponents_survive_other_tracks() {
                     1.0 / 60.0,
                 );
             }
-            world.step(1.0 / 60.0, &controls);
+            let mut heights = Vec::with_capacity(cars);
             for index in 0..cars {
                 let (place, rotation) = world.pose(index);
                 let heading = rotation * vec3(0.0, 0.0, -1.0);
                 let reach = geometry.half_extents.z + 0.5;
-                let support = surface.support_height(place, heading, reach, place.y, geometry.half_extents.y + 0.02);
-                if let Some(height) = support {
-                    world.conform(index, height + geometry.half_extents.y + 0.02);
-                }
-                world.upright(
-                    index,
-                    support
-                        .map(|height| height + geometry.half_extents.y + 0.02)
-                        .unwrap_or(place.y),
+                heights.push(
+                    surface
+                        .support_height(place, heading, reach, place.y, geometry.half_extents.y + 0.02)
+                        .map(|height| height + geometry.half_extents.y + 0.02),
                 );
+            }
+            world.step(1.0 / 60.0, &controls, &heights);
+            for index in 0..cars {
                 let place = world.position(index);
                 assert!(
                     place.y > -20.0,
@@ -608,7 +601,7 @@ fn collision_meshes_give_tracks_elevation() {
         track
             .collision_vertices
             .iter()
-            .map(|v| v.y)
+            .map(|v| v[1])
             .fold((f32::MAX, f32::MIN), |(lo, hi), y| (lo.min(y), hi.max(y)))
     };
     let (low, high) = span(&hills);
@@ -626,7 +619,7 @@ fn collision_meshes_give_tracks_elevation() {
     let raised = scene::build(&dir, &resources, "ma1.map");
     let (bottom, _) = span(&raised);
     assert!(bottom <= -0.6, "ma1.map should dip, got {bottom:.2}");
-    assert!(raised.collision_vertices.iter().any(|v| v.y < -0.5));
+    assert!(raised.collision_vertices.iter().any(|v| v[1] < -0.5));
 
     // The collider must be the height function the runtime queries: every cell
     // whose tile ships a mesh has a grid vertex at its centre, and that vertex
@@ -643,9 +636,9 @@ fn collision_meshes_give_tracks_elevation() {
                 continue;
             }
             let found = track.collision_vertices.iter().any(|v| {
-                (v.x - centre.x).abs() < 1e-3
-                    && (v.z - centre.z).abs() < 1e-3
-                    && (v.y - height).abs() < 1e-3
+                (v[0] - centre.x).abs() < 1e-3
+                    && (v[2] - centre.z).abs() < 1e-3
+                    && (v[1] - height).abs() < 1e-3
             });
             assert!(
                 found,
@@ -672,16 +665,11 @@ fn cars_climb_the_track_elevation() {
     // 1.map has a 4.2-unit ramp; without the lift the cars end up stuck in it.
     let track = scene::build(&dir, &resources, "1.map");
     let scene::Track {
-        grid,
-        surface,
-        collision_vertices,
-        collision_indices,
-        walls,
-        ..
+        grid, surface, walls, ..
     } = track;
-    let mut world = World::new(collision_vertices, collision_indices, &walls);
+    let mut world = World::new(&walls);
     for &(spot, yaw) in grid.grid_slots(2).iter() {
-        world.add_car(spot, yaw, geometry.half_extents, Tuning::default());
+        world.add_car(spot, yaw, Tuning::default(), true);
     }
     let cars = world.cars.len();
     let ride = geometry.half_extents.y + 0.02;
@@ -696,19 +684,19 @@ fn cars_climb_the_track_elevation() {
             controls[index] =
                 drivers[index].control(&grid, position, heading, world.speed(index), 1.0 / 60.0);
         }
-        world.step(1.0 / 60.0, &controls);
+        let mut heights = Vec::with_capacity(cars);
         for index in 0..cars {
             let (position, rotation) = world.pose(index);
             let heading = rotation * vec3(0.0, 0.0, -1.0);
             let reach = geometry.half_extents.z + 0.5;
-            let support = surface.support_height(position, heading, reach, position.y, ride);
-            if let Some(height) = support {
-                world.conform(index, height + ride);
-            }
-            world.upright(
-                index,
-                support.map(|height| height + ride).unwrap_or(position.y),
+            heights.push(
+                surface
+                    .support_height(position, heading, reach, position.y, ride)
+                    .map(|height| height + ride),
             );
+        }
+        world.step(1.0 / 60.0, &controls, &heights);
+        for index in 0..cars {
             highest = highest.max(world.position(index).y);
         }
     }
@@ -847,16 +835,11 @@ fn a_race_runs_to_the_flag_and_scores() {
 
     let track = scene::build(&dir, &resources, "1.map");
     let scene::Track {
-        grid,
-        surface,
-        collision_vertices,
-        collision_indices,
-        walls,
-        ..
+        grid, surface, walls, ..
     } = track;
-    let mut world = World::new(collision_vertices, collision_indices, &walls);
+    let mut world = World::new(&walls);
     for &(spot, yaw) in grid.grid_slots(4).iter() {
-        world.add_car(spot, yaw, geometry.half_extents, Tuning::default());
+        world.add_car(spot, yaw, Tuning::default(), true);
     }
     let cars = world.cars.len();
     let laps = 2;
@@ -873,20 +856,18 @@ fn a_race_runs_to_the_flag_and_scores() {
             controls[index] =
                 drivers[index].control(&grid, position, heading, world.speed(index), 1.0 / 60.0);
         }
-        world.step(1.0 / 60.0, &controls);
+        let mut heights = Vec::with_capacity(cars);
         for index in 0..cars {
             let (place, rotation) = world.pose(index);
             let heading = rotation * vec3(0.0, 0.0, -1.0);
             let reach = geometry.half_extents.z + 0.5;
-            let support = surface.support_height(place, heading, reach, place.y, ride);
-            if let Some(height) = support {
-                world.conform(index, height + ride);
-            }
-            world.upright(
-                index,
-                support.map(|height| height + ride).unwrap_or(place.y),
+            heights.push(
+                surface
+                    .support_height(place, heading, reach, place.y, ride)
+                    .map(|height| height + ride),
             );
         }
+        world.step(1.0 / 60.0, &controls, &heights);
         let now = step as f64 / 60.0;
         for index in 0..cars {
             let before = races[index].finished;
@@ -1024,8 +1005,12 @@ fn the_deluxe_campaign_opens_on_points_alone() {
 /// The four `.car` values reach the handling, each moving its own part.
 ///
 /// Their names are the game's own - `aq.a(127 + i)` draws them and `ui/ui.txt`
-/// gives those ids - so they are pinned here: a silent change would quietly
-/// relabel the setup screen.
+/// gives those ids - so they are pinned here. What they *do* comes from the
+/// tune readers, and it is less than the names promise: the four stat bytes
+/// land in the tune `u`, `v`, `ia` and `ib` (`PlayerTune.a(InputStream)`
+/// reads exactly four single bytes), while top speed, throttle rate and
+/// steering response are shared constants. Only the tire clamp bounds feel
+/// the stats (`CarPhysics.t()`/`u()`/`v()`).
 #[test]
 fn car_stats_change_the_handling() {
     use kora::labels;
@@ -1038,47 +1023,27 @@ fn car_stats_change_the_handling() {
 
     let base = [3, 5, 5, 1];
     let stock = Tuning::from_stats(base);
-    let raise = |stat: usize, value: u8| {
-        let mut stats = base;
-        stats[stat] = value;
-        Tuning::from_stats(stats)
-    };
+    // The bytes land where the stream reader puts them.
+    assert_eq!((stock.u, stock.v, stock.ia, stock.ib), (3.0, 5.0, 5, 1));
 
-    // SPEED buys top end by lowering drag, and touches nothing else.
-    let quick = raise(0, 6);
-    assert!(quick.linear_damping < stock.linear_damping);
-    assert_eq!(quick.engine_force, stock.engine_force);
-    assert_eq!(quick.brake, stock.brake);
-    assert_eq!(quick.steer, stock.steer);
+    // Shared constants: every car revs, brakes and locks the same.
+    let other = Tuning::from_stats([6, 6, 6, 6]);
+    assert_eq!(other.top_speed(1, false), stock.top_speed(1, false));
+    assert_eq!(
+        other.throttle_rate(1, 0, false),
+        stock.throttle_rate(1, 0, false)
+    );
+    assert_eq!(other.steer_lock(10.0), stock.steer_lock(10.0));
 
-    // ACCELERATION buys engine force, and nothing else.
-    let brisk = raise(1, 6);
-    assert!(brisk.engine_force > stock.engine_force);
-    assert_eq!(brisk.linear_damping, stock.linear_damping);
-    assert_eq!(brisk.brake, stock.brake);
+    // The tire bounds move with the integer stats: a 6 HANDLING car holds
+    // notably more lateral force than the rally car's 1.
+    let (_, _, rally_v) = stock.tire_bounds();
+    let (_, _, best_v) = other.tire_bounds();
+    assert!(best_v > rally_v * 1.3);
 
-    // BRAKING buys brake force, and nothing else.
-    let stops = raise(2, 6);
-    assert!(stops.brake > stock.brake);
-    assert!(stops.brake > raise(2, 1).brake);
-    assert_eq!(stops.engine_force, stock.engine_force);
-    assert_eq!(stops.friction, stock.friction);
-
-    // HANDLING buys steering angle and the grip to use it.
-    let nimble = raise(3, 6);
-    assert!(nimble.steer > stock.steer);
-    assert!(nimble.friction > stock.friction);
-    assert_eq!(nimble.brake, stock.brake);
-    assert_eq!(nimble.engine_force, stock.engine_force);
-
-    // The default is the first car `ba.a` lists, sitting on the constants the
-    // port was calibrated with before the values were wired up at all.
+    // The default is the first car `ba.a` lists (`rally.car` 3/5/5/1).
     let default = Tuning::default();
-    assert_eq!(default.engine_force, stock.engine_force);
-    assert_eq!(default.linear_damping, stock.linear_damping);
-    assert_eq!(default.steer, stock.steer);
-    assert_eq!(default.friction, stock.friction);
-    assert_eq!(default.brake, stock.brake);
+    assert_eq!((default.u, default.v, default.ia, default.ib), (3.0, 5.0, 5, 1));
 }
 
 /// The seven race modes carry the game's own names, and the three that hold a
@@ -1125,9 +1090,11 @@ fn race_modes_are_named_by_the_game() {
     }
 }
 
-/// A car with better values really does go quicker, and still drives a track.
+/// Grip, not power, separates the cars: every tune shares top speed and
+/// throttle rate, so a straight-line drag ends level and the better stats
+/// only tell in the corners. This pins both halves.
 #[test]
-fn a_better_car_is_quicker() {
+fn grip_separates_the_cars() {
     use kora::physics::{CarControl, Tuning, World};
     let dir = assets();
     let resources = pack::load(&dir);
@@ -1136,16 +1103,12 @@ fn a_better_car_is_quicker() {
 
     let run = |tuning: Tuning| -> f32 {
         let track = scene::build(&dir, &resources, "1.map");
-        let scene::Track {
-            collision_vertices,
-            collision_indices,
-            walls,
-            spawn,
-            spawn_yaw,
-            ..
-        } = track;
-        let mut world = World::new(collision_vertices, collision_indices, &walls);
-        world.add_car(spawn, spawn_yaw, geometry.half_extents, tuning);
+        let scene::Track { surface, walls, .. } = track;
+        let mut world = World::new(&walls);
+        let (spot, yaw) = track.grid.grid_slots(1)[0];
+        world.add_car(spot, yaw, tuning, false);
+        let ride = geometry.half_extents.y + 0.02;
+        let reach = geometry.half_extents.z + 0.5;
         let flat_out = [CarControl {
             throttle: 1.0,
             ..Default::default()
@@ -1153,16 +1116,22 @@ fn a_better_car_is_quicker() {
         // Long enough to build speed, short enough not to reach the first
         // corner and spoil the comparison with a barrier.
         for _ in 0..90 {
-            world.step(1.0 / 60.0, &flat_out);
+            let (place, rotation) = world.pose(0);
+            let heading = rotation * Vec3::new(0.0, 0.0, -1.0);
+            let heights = vec![surface
+                .support_height(place, heading, reach, place.y, ride)
+                .map(|height| height + ride)];
+            world.step(1.0 / 60.0, &flat_out, &heights);
         }
         world.speed(0)
     };
 
     let rally = run(Tuning::from_stats([3, 5, 5, 1]));
     let best = run(Tuning::from_stats([6, 6, 6, 6]));
+    // Same top end: a drag race ends level to within a frame's worth.
     assert!(
-        best > rally,
-        "the best car in the list should be quicker: {best:.2} against {rally:.2}"
+        (best - rally).abs() < 2.0,
+        "drag race should end level: {best:.2} against {rally:.2}"
     );
 }
 
@@ -2706,3 +2675,4 @@ fn placement_log_covers_every_payload() {
     assert!(log.contains("wall ["));
     assert!(log.contains("slot ["));
 }
+

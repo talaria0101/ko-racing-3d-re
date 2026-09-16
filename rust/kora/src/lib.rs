@@ -9,6 +9,7 @@
 
 pub mod ai;
 pub mod campaign;
+pub mod engine;
 pub mod format;
 pub mod grid;
 pub mod hud;
