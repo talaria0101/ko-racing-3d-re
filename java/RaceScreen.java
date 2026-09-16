@@ -2,10 +2,10 @@
 // edit: fix the emitter and re-run.  Original name `v`.
 // String constants: <init> | ?a=m | Code | append | createImage | drawRect | fillRect | getClipHeight | getClipWidth | getGraphics | getHeight | getWidth
 // API references: java/io javax/microedition
-public class ObfV extends ObfBv {
+public class RaceScreen extends RaceView {
     private byte[] a;
     // bytecode 37 bytes, max_stack 2, max_locals 2
-    public ObfV(MainCanvas v1) {
+    public RaceScreen(MainCanvas v1) {
         super(v1);
         new java.lang.StringBuffer(); /* constructor */
         /* pop: new java.lang.StringBuffer().append(Settings.b).append("?a=m").toString(); */
@@ -15,12 +15,12 @@ public class ObfV extends ObfBv {
     }
     // bytecode 46 bytes, max_stack 2, max_locals 1
     public void b() {
-        ObfV.k = ObfW.a.f();
-        ObfV.j = ObfW.a.g();
+        RaceScreen.k = ObfW.a.f();
+        RaceScreen.j = ObfW.a.g();
         this.a = ObfW.a.a();
-        ObfV.j = ObfW.a.g();
-        ObfV.m = 1;
-        ObfV.l = 0;
+        RaceScreen.j = ObfW.a.g();
+        RaceScreen.m = 1;
+        RaceScreen.l = 0;
         return;
     }
     // bytecode 28 bytes, max_stack 8, max_locals 1
@@ -32,7 +32,7 @@ public class ObfV extends ObfBv {
     }
     // bytecode 10 bytes, max_stack 1, max_locals 1
     public void o() {
-        ObfV.a(ObfW.a.a());
+        RaceScreen.a(ObfW.a.a());
         return;
     }
     // bytecode 21 bytes, max_stack 5, max_locals 1
@@ -100,8 +100,8 @@ public class ObfV extends ObfBv {
     }
     // bytecode 20 bytes, max_stack 2, max_locals 2
     public void a(int v1) {
-        if (ObfV.a != 22) goto L14;
-        ObfV.a = 24;
+        if (RaceScreen.a != 22) goto L14;
+        RaceScreen.a = 24;
         return;
         L14:
         this.a(v1);

@@ -1491,6 +1491,20 @@ def emit_all(only=None):
                'cl': 'RaceCar', 'bt': 'RaceController', 'bd': 'RaceStage',
                'bh': 'RaceStage', 'r': 'RaceConfig', 'bq': 'Renderer',
                'j': 'CameraRig', 'b': 'SceneryList'}
+    if not only:
+        # full run only: drop stale files left by renames now that
+        # `curated` exists
+        import glob as _g
+        keep = set()
+        for ob in obs:
+            if ob in curated:
+                keep.add('Gen' + names.get(ob, 'Obf' + ob) + '.java')
+            else:
+                keep.add(names[ob] + '.java')
+        for path in _g.glob(os.path.join(_JDIR, 'Obf*.java')) + \
+                _g.glob(os.path.join(_JDIR, 'Gen*.java')):
+            if os.path.basename(path) not in keep:
+                os.remove(path)
     written = []
     for ob in obs:
         text = decompile_class(ob, names)

@@ -1214,8 +1214,8 @@ public class TrackSelect extends Screen {
         goto L154;
         L114:
         if (ObfR.f != 5) goto L135;
-        new ObfBv(); /* constructor */
-        this.a_r = new ObfBv();
+        new RaceView(); /* constructor */
+        this.a_r = new RaceView();
         goto L154;
         L135:
         if (ObfR.f != 6) goto L154;

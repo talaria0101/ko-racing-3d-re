@@ -630,8 +630,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         goto L361;
         L319:
         if (ObfR.f != 5) goto L341;
-        new ObfBv(this); /* constructor */
-        this.a_r = new ObfBv(this);
+        new RaceView(this); /* constructor */
+        this.a_r = new RaceView(this);
         goto L361;
         L341:
         if (ObfR.f != 6) goto L361;
@@ -1022,8 +1022,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         goto L131;
         L112:
         if (ObfW.f != 2) goto L131;
-        new ObfV(this); /* constructor */
-        this.a_r = new ObfV(this);
+        new RaceScreen(this); /* constructor */
+        this.a_r = new RaceScreen(this);
         L131:
         this.a_r.d();
         this.c = false;

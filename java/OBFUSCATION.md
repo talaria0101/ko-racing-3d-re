@@ -60,7 +60,7 @@ kept beside it for review.
 | `bs` | `GenObfBs.java` | <clinit>; <init>; Code; [[Lbm;; java/io; java/util; javax/microedition |
 | `bt` | `GenObfBt.java` | /cars/; /images/snow; <clinit>; <init> |
 | `bu` | `CareerScreen.java` | /levels/; <init>; Code; PLAYER; java/io; javax/microedition |
-| `bv` | `ObfBv.java` | <init>; Code; [Ljava/lang/String;; abs; java/io; javax/microedition |
+| `bv` | `RaceView.java` | <init>; Code; [Ljava/lang/String;; abs; java/io; javax/microedition |
 | `bw` | `ObfBw.java` | <init>; Code; StackMap |
 | `bx` | `SoundBank.java` | <clinit>; <init>; Code; VolumeControl; java/io; java/util; javax/microedition |
 | `by` | `ObfBy.java` | <init>; Code; javax/microedition/m3g/Transform; postRotate; javax/microedition |
@@ -125,7 +125,7 @@ kept beside it for review.
 | `s` | `ObfS.java` | <clinit>; <init>; Code; getClipWidth; javax/microedition |
 | `t` | `ObfT.java` | <init>; Code; UTF-8; [[B; java/io |
 | `u` | `TrackSelect.java` | /images/a.png; /images/map.jpg; /images/qm.png; /images/st.png; java/io; javax/microedition |
-| `v` | `ObfV.java` | <init>; ?a=m; Code; append; java/io; javax/microedition |
+| `v` | `RaceScreen.java` | <init>; ?a=m; Code; append; java/io; javax/microedition |
 | `w` | `ObfW.java` | <clinit>; <init>; ?a=m; Code; java/io; javax/microedition |
 | `x` | `ObfX.java` | <init>; Code; java/io/IOException; java/lang/Object |
 | `y` | `Screen.java` | <init>; Code; KORa; buzz |
