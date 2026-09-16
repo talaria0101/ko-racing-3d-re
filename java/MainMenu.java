@@ -268,7 +268,7 @@ public class MainMenu {
         v2.writeByte(MainMenu.b);
         v2.writeUTF(Settings.a());
         v2.writeInt(50);
-        v2.writeUTF(Settings.e);
+        v2.writeUTF(Settings.e_String);
         goto L96;
         v2 = ((int) ex_91);
         ex_91.printStackTrace();
@@ -574,7 +574,7 @@ public class MainMenu {
         java.io.DataOutputStream v2 = new java.io.DataOutputStream(v1);
         v2.writeByte(MainMenu.b);
         v2.writeUTF(Settings.a());
-        v2.writeUTF(Settings.d);
+        v2.writeUTF(Settings.d_String);
         v2.writeInt(this.i);
         v2.writeByte(this.e_arrI.length);
         int v3 = 0;
@@ -585,7 +585,7 @@ public class MainMenu {
         v3 += 1;
         goto L66;
         L101:
-        v2.writeUTF(Settings.e);
+        v2.writeUTF(Settings.e_String);
         goto L116;
         v3 = ((int) ex_111);
         ex_111.printStackTrace();
@@ -1190,56 +1190,56 @@ public class MainMenu {
         v2 += -12;
         v4 += 2;
         v5 = (v7 + 8);
-        SysUtil.a.a(v1, SysUtil.a(160), v4, v5);
-        SysUtil.a.a(v1, this.a_String[this.g_I], ((v4 + v2) - SysUtil.a.a(this.a_String[this.g_I])), v5);
+        SysUtil.a_p.a(v1, SysUtil.a(160), v4, v5);
+        SysUtil.a_p.a(v1, this.a_String[this.g_I], ((v4 + v2) - SysUtil.a_p.a(this.a_String[this.g_I])), v5);
         v5 += 12;
-        SysUtil.a.a(v1, SysUtil.a(165), v4, v5);
-        SysUtil.a.a(v1, SysUtil.a((76 + this.c_arrI[this.g_I])), ((v4 + v2) - SysUtil.a.a(SysUtil.a((76 + this.c_arrI[this.g_I])))), v5);
+        SysUtil.a_p.a(v1, SysUtil.a(165), v4, v5);
+        SysUtil.a_p.a(v1, SysUtil.a((76 + this.c_arrI[this.g_I])), ((v4 + v2) - SysUtil.a_p.a(SysUtil.a((76 + this.c_arrI[this.g_I])))), v5);
         v5 += 12;
-        SysUtil.a.a(v1, SysUtil.a(57), v4, v5);
-        SysUtil.a.a(v1, this.b_arrI[this.g_I], ((v4 + v2) - SysUtil.a.a(this.b_arrI[this.g_I])), v5);
+        SysUtil.a_p.a(v1, SysUtil.a(57), v4, v5);
+        SysUtil.a_p.a(v1, this.b_arrI[this.g_I], ((v4 + v2) - SysUtil.a_p.a(this.b_arrI[this.g_I])), v5);
         v5 += 12;
-        SysUtil.a.a(v1, SysUtil.a((71 + this.d_arrI[this.g_I])), v4, v5);
+        SysUtil.a_p.a(v1, SysUtil.a((71 + this.d_arrI[this.g_I])), v4, v5);
         if (this.d_arrI[this.g_I] >= 2) goto L724;
-        SysUtil.a.a(v1, ((long) this.e_arrI[this.g_I]), ((v4 + v2) - SysUtil.a.a(((long) this.e_arrI[this.g_I]))), v5);
+        SysUtil.a_p.a(v1, ((long) this.e_arrI[this.g_I]), ((v4 + v2) - SysUtil.a_p.a(((long) this.e_arrI[this.g_I]))), v5);
         goto L762;
         L724:
-        SysUtil.a.a(v1, this.e_arrI[this.g_I], ((v4 + v2) - SysUtil.a.a(this.e_arrI[this.g_I])), v5);
+        SysUtil.a_p.a(v1, this.e_arrI[this.g_I], ((v4 + v2) - SysUtil.a_p.a(this.e_arrI[this.g_I])), v5);
         L762:
         v5 += 12;
-        SysUtil.a.a(v1, SysUtil.a(164), v4, v5);
+        SysUtil.a_p.a(v1, SysUtil.a(164), v4, v5);
         if (this.f_arrI[this.g_I] <= 0) goto L854;
-        SysUtil.a.a(v1, this.f_arrI[this.g_I], (((v4 + v2) - SysUtil.a.a(this.f_arrI[this.g_I])) - 3), v5);
-        SysUtil.a.a(v1, ".", ((v4 + v2) - 3), v5);
+        SysUtil.a_p.a(v1, this.f_arrI[this.g_I], (((v4 + v2) - SysUtil.a_p.a(this.f_arrI[this.g_I])) - 3), v5);
+        SysUtil.a_p.a(v1, ".", ((v4 + v2) - 3), v5);
         goto L886;
         L854:
-        SysUtil.a.a(v1, SysUtil.a(174), ((v4 + v2) - SysUtil.a.a(SysUtil.a(174))), v5);
+        SysUtil.a_p.a(v1, SysUtil.a(174), ((v4 + v2) - SysUtil.a_p.a(SysUtil.a(174))), v5);
         L886:
         v5 += 12;
-        SysUtil.a.a(v1, SysUtil.a(194), v4, v5);
+        SysUtil.a_p.a(v1, SysUtil.a(194), v4, v5);
         if (this.f_arrI[this.g_I] <= 0) goto L981;
         new java.lang.StringBuffer(); /* constructor */
         int v9 = this.g_I;
         MainMenu v8 = this;
         v8 = ((MainMenu) new java.lang.StringBuffer().append(this.g_arrI[v9]).append(" PTS").toString());
-        SysUtil.a.a(v1, v8, ((v4 + v2) - SysUtil.a.a(v8)), v5);
+        SysUtil.a_p.a(v1, v8, ((v4 + v2) - SysUtil.a_p.a(v8)), v5);
         goto L1013;
         L981:
-        SysUtil.a.a(v1, SysUtil.a(174), ((v4 + v2) - SysUtil.a.a(SysUtil.a(174))), v5);
+        SysUtil.a_p.a(v1, SysUtil.a(174), ((v4 + v2) - SysUtil.a_p.a(SysUtil.a(174))), v5);
         L1013:
         if (v3 <= 0) goto L1126;
-        v8 = ((MainMenu) SysUtil.a.a(SysUtil.a(168)));
-        v2 = SysUtil.a.b(v3);
+        v8 = ((MainMenu) SysUtil.a_p.a(SysUtil.a(168)));
+        v2 = SysUtil.a_p.b(v3);
         v4 = (((v1.getClipWidth() - v8) - v2) / 2);
-        SysUtil.a.a(v1, SysUtil.a(168), v4, (v6 + 8));
+        SysUtil.a_p.a(v1, SysUtil.a(168), v4, (v6 + 8));
         if (this.a_Z == 0) goto L1100;
-        SysUtil.a.b(v1, v3, (v4 + v8), (v6 + 8));
+        SysUtil.a_p.b(v1, v3, (v4 + v8), (v6 + 8));
         goto L1163;
         L1100:
-        SysUtil.a.a(v1, SysUtil.a(174), (v4 + v8), (v6 + 8));
+        SysUtil.a_p.a(v1, SysUtil.a(174), (v4 + v8), (v6 + 8));
         goto L1163;
         L1126:
-        SysUtil.a.a(v1, SysUtil.a(169), ((v1.getClipWidth() - SysUtil.a.a(SysUtil.a(169))) / 2), (v6 + 8));
+        SysUtil.a_p.a(v1, SysUtil.a(169), ((v1.getClipWidth() - SysUtil.a_p.a(SysUtil.a(169))) / 2), (v6 + 8));
         L1163:
         if (this.i_String == null) goto L1180;
         if (this.i_String.length() > 0) goto L1189;

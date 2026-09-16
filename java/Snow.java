@@ -78,7 +78,7 @@ public class Snow {
         this.a_arrarrI[v1][0] = this.a_Random.nextInt(Snow.d);
         this.a_arrarrI[v1][1] = this.a_Random.nextInt(Snow.e);
         this.a_arrarrI[v1][2] = (100 - this.a_Random.nextInt(200));
-        this.a_arrarrI[v1][3] = (((SysUtil.f / 2) + this.a_Random.nextInt((SysUtil.f / 2))) - 30);
+        this.a_arrarrI[v1][3] = (((SysUtil.f_I / 2) + this.a_Random.nextInt((SysUtil.f_I / 2))) - 30);
         return;
     }
     // bytecode 50 bytes, max_stack 3, max_locals 2

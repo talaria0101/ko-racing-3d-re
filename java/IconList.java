@@ -32,8 +32,8 @@ public class IconList extends Widget {
         v2 = 1;
         v1 = ((Widget) this);
         this.b = v2;
-        this.a_Image[0] = javax.microedition.lcdui.Image.createImage(Resources.a(SysUtil.a[0]));
-        this.a_Image[1] = javax.microedition.lcdui.Image.createImage(Resources.a(SysUtil.a[1]));
+        this.a_Image[0] = javax.microedition.lcdui.Image.createImage(Resources.a(SysUtil.a_String[0]));
+        this.a_Image[1] = javax.microedition.lcdui.Image.createImage(Resources.a(SysUtil.a_String[1]));
         /* pop: this.a_Image[0].getWidth(); */
         return;
         /* pop: ex_157; */

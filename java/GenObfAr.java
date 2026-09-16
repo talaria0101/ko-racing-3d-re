@@ -122,13 +122,13 @@ public class ObfAr {
         jt1 = "np/"; /* join L64 from L62 */
         L64:
         new java.lang.StringBuffer(); /* constructor */
-        if (Settings.d == 0) goto L97;
+        if (Settings.d_Z == 0) goto L97;
         jt2 = "h/"; /* join L99 from L92 */
         goto L99;
         L97:
         jt2 = ""; /* join L99 from L97 */
         L99:
-        this.a_am = ObfBb.a.a(new java.lang.StringBuffer().append("/models/").append(jt1).append(v2).toString(), new java.lang.StringBuffer().append("/tex/").append(jt2).append(this.c_String).toString(), false, true);
+        this.a_am = ObfBb.a_de.a(new java.lang.StringBuffer().append("/models/").append(jt1).append(v2).toString(), new java.lang.StringBuffer().append("/tex/").append(jt2).append(this.c_String).toString(), false, true);
         goto L208;
         L123:
         new java.lang.StringBuffer(); /* constructor */
@@ -139,17 +139,17 @@ public class ObfAr {
         jt3 = "np/"; /* join L152 from L150 */
         L152:
         new java.lang.StringBuffer(); /* constructor */
-        if (Settings.d == 0) goto L185;
+        if (Settings.d_Z == 0) goto L185;
         jt4 = "h/"; /* join L187 from L180 */
         goto L187;
         L185:
         jt4 = ""; /* join L187 from L185 */
         L187:
-        this.a_am = ObfBb.a.b(new java.lang.StringBuffer().append("/models/").append(jt3).append(v2).toString(), new java.lang.StringBuffer().append("/tex/").append(jt4).append(this.c_String).toString(), false, true);
+        this.a_am = ObfBb.a_de.b(new java.lang.StringBuffer().append("/models/").append(jt3).append(v2).toString(), new java.lang.StringBuffer().append("/tex/").append(jt4).append(this.c_String).toString(), false, true);
         L208:
         this.a_am.b((ObfAr.a + 0.009999999776482582f), (ObfAr.a + 0.009999999776482582f), (ObfAr.a + 0.009999999776482582f));
         Settings.a_Z = v3;
-        ObfAr.a_Z = Settings.d;
+        ObfAr.a_Z = Settings.d_Z;
         return;
     }
     // bytecode 500 bytes, max_stack 5, max_locals 4
@@ -157,7 +157,7 @@ public class ObfAr {
         /* try L481-L485 catch java.io.IOException -> L488 */
         ObfAr.a = 7.0f;
         if (Settings.m != 2) goto L23;
-        if (ObfCl.f != 0) goto L23;
+        if (ObfCl.f_Z != 0) goto L23;
         ObfAr.a = 9.0f;
         L23:
         ObfAr.b = (1.0f * ObfAr.a);
@@ -312,7 +312,7 @@ public class ObfAr {
         L233:
         ObfAr.a_ct.a(((ObfAr.c - ObfAr.f) + v2), (ObfAr.d + v3), ((ObfAr.c - ObfAr.g) + v2), (ObfAr.e + v3));
         L267:
-        ObfAu.a.e(this.a_arrF[v4]);
+        ObfAu.a_bz.e(this.a_arrF[v4]);
         ObfAu.b = ObfAr.a_ct;
         if (ObfAu.a_Z == 0) goto L298;
         if (Plane.b() != 0) goto L310;
@@ -380,7 +380,7 @@ public class ObfAr {
     public void c() {
         ObfAr.a = 7.0f;
         if (Settings.m != 2) goto L23;
-        if (ObfCl.f != 0) goto L23;
+        if (ObfCl.f_Z != 0) goto L23;
         ObfAr.a = 9.0f;
         L23:
         ObfAr.b = (1.0f * ObfAr.a);

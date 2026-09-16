@@ -165,7 +165,7 @@ public class Widget {
     public boolean a(int v1, int v2) {
         if (v1 < 0) goto L34;
         if (v2 < this.f()) goto L34;
-        if (v1 >= SysUtil.e) goto L34;
+        if (v1 >= SysUtil.e_I) goto L34;
         if (v2 >= (this.f() + this.a())) goto L34;
         return 1;
         L34:

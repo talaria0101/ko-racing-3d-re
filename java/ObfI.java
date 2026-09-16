@@ -61,7 +61,7 @@ public class ObfI {
     }
     // bytecode 35 bytes, max_stack 5, max_locals 1
     public Rect a() {
-        return SysUtil.a_bj.a(this.a_bj.a(), this.a_bj.b(), this.a_bj.c(), this.a_bj.d());
+        return SysUtil.a.a(this.a_bj.a(), this.a_bj.b(), this.a_bj.c(), this.a_bj.d());
     }
 }
 

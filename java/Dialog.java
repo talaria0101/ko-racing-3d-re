@@ -24,7 +24,7 @@ public class Dialog extends TextBuffer {
         v1.b();
         v1.b();
         v1.a_arrZ[v1.a] = 1;
-        if (MainMenu.a > 0) goto L106;
+        if (MainMenu.a_I > 0) goto L106;
         jt1 = 175; /* join L109 from L100 */
         goto L109;
         L106:
@@ -54,8 +54,8 @@ public class Dialog extends TextBuffer {
         goto L146;
         L286:
         if (v2.j() <= 3) goto L369;
-        v3 = ((int) Settings.d);
-        if (Settings.d.length() <= 5) goto L313;
+        v3 = ((int) Settings.d_String);
+        if (Settings.d_String.length() <= 5) goto L313;
         v3 = ((int) v3.substring(0, 5));
         L313:
         new java.lang.StringBuffer(); /* constructor */
@@ -80,7 +80,7 @@ public class Dialog extends TextBuffer {
         v4.a[v4.a][2] = v4.a.a(v6);
         v4.b();
         v1.b();
-        if (MainMenu.a > 0) goto L733;
+        if (MainMenu.a_I > 0) goto L733;
         if (v2.a(v3, 0) <= 0) goto L715;
         if (v2.e(v3) == 1) goto L600;
         if (v2.a(v3) >= 2) goto L564;
@@ -90,8 +90,8 @@ public class Dialog extends TextBuffer {
         v1.a("1.", v2.a(v3, 0), new java.lang.StringBuffer().append(v2.a(v3, 0)).append("").toString());
         L600:
         if (v2.e(v3) <= 0) goto L932;
-        v4 = ((int) Settings.d);
-        if (Settings.d.length() <= 5) goto L630;
+        v4 = ((int) Settings.d_String);
+        if (Settings.d_String.length() <= 5) goto L630;
         v4 = ((int) v4.substring(0, 5));
         L630:
         if (v2.a(v3) >= 2) goto L653;
@@ -113,7 +113,7 @@ public class Dialog extends TextBuffer {
         v1.a_arrI[v1.a] = v2.a(v3, v4);
         L771:
         if (v2.d(v3) != v2.a(v3, v4)) goto L868;
-        if (Settings.d.indexOf(v2.a(v3, v4)) != 0) goto L868;
+        if (Settings.d_String.indexOf(v2.a(v3, v4)) != 0) goto L868;
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
         v1.a(new java.lang.StringBuffer().append(">> ").append((v4 + 1)).append(".").toString(), v2.a(v3, v4), new java.lang.StringBuffer().append(v2.d(v3)).append("").toString(), " <<");

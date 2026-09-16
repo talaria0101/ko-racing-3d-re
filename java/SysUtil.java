@@ -815,7 +815,7 @@ public class SysUtil {
         L185:
         v7 = ((int) javax.microedition.lcdui.Image.createRGBImage(v5, v2, v3, true));
         L195:
-        if (Settings.e != 0) goto L204;
+        if (Settings.e_Z != 0) goto L204;
         java.lang.System.gc();
         L204:
         return v7;
@@ -846,7 +846,7 @@ public class SysUtil {
         goto L24;
         L108:
         v5 = ((int) javax.microedition.lcdui.Image.createRGBImage(v4, v1, v2, true));
-        if (Settings.e != 0) goto L127;
+        if (Settings.e_Z != 0) goto L127;
         java.lang.System.gc();
         L127:
         return v5;

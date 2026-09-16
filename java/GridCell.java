@@ -15,18 +15,18 @@ public class GridCell extends Widget {
     // bytecode 277 bytes, max_stack 4, max_locals 4
     public void a(byte v1, int v2, int v3) {
         if (Settings.a() == 0) goto L126;
-        this.c = (SysUtil.e - ((v3 + 28) / 2));
+        this.c = (SysUtil.e_I - ((v3 + 28) / 2));
         this.e = 0;
         if (v1 != 2) goto L41;
         this.e = (this.e + 4);
         return;
         L41:
         if (v1 != 1) goto L63;
-        this.e = (this.e + ((SysUtil.f - v2) / 2));
+        this.e = (this.e + ((SysUtil.f_I - v2) / 2));
         return;
         L63:
         if (v1 != 0) goto L84;
-        this.e = (this.e + ((SysUtil.f - v2) - 4));
+        this.e = (this.e + ((SysUtil.f_I - v2) - 4));
         return;
         L84:
         if (v1 != 4) goto L101;
@@ -34,7 +34,7 @@ public class GridCell extends Widget {
         return;
         L101:
         if (v1 != 3) goto L125;
-        this.e = (this.e + (((SysUtil.f - v2) - 4) - 30));
+        this.e = (this.e + (((SysUtil.f_I - v2) - 4) - 30));
         L125:
         return;
         L126:

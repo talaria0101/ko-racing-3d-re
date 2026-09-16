@@ -32,7 +32,7 @@ public class ObfAm {
     }
     // bytecode 11 bytes, max_stack 5, max_locals 4
     public static Appearance a(Textures v0, String v1, int v2, boolean v3) {
-        return ObfAm.a(v0, v1, v2, v3, Settings.b);
+        return ObfAm.a(v0, v1, v2, v3, Settings.b_Z);
     }
     // bytecode 12 bytes, max_stack 5, max_locals 5
     public static Appearance a(Textures v0, String v1, int v2, boolean v3, boolean v4) {
@@ -48,7 +48,7 @@ public class ObfAm {
         v6.setShading(165);
         v6.setTwoSidedLightingEnable(false);
         v6.setCulling(v4);
-        v6.setPerspectiveCorrectionEnable(Settings.a);
+        v6.setPerspectiveCorrectionEnable(Settings.a_Z);
         v5.setPolygonMode(v6);
         v5.setTexture(0, v0.a(v1, v2));
         new javax.microedition.m3g.CompositingMode(); /* constructor */

@@ -8,19 +8,19 @@ public class RaceScreen extends RaceView {
     public RaceScreen(MainCanvas v1) {
         super(v1);
         new java.lang.StringBuffer(); /* constructor */
-        /* pop: new java.lang.StringBuffer().append(Settings.b).append("?a=m").toString(); */
+        /* pop: new java.lang.StringBuffer().append(Settings.b_String).append("?a=m").toString(); */
         this.a = null;
-        ObfCl.f = true;
+        ObfCl.f_Z = true;
         return;
     }
     // bytecode 46 bytes, max_stack 2, max_locals 1
     public void b() {
-        RaceScreen.k = ObfW.a.f();
-        RaceScreen.j = ObfW.a.g();
+        ObfR.k = ObfW.a.f();
+        ObfR.j = ObfW.a.g();
         this.a = ObfW.a.a();
-        RaceScreen.j = ObfW.a.g();
-        RaceScreen.m = 1;
-        RaceScreen.l = 0;
+        ObfR.j = ObfW.a.g();
+        ObfR.m = 1;
+        ObfR.l = 0;
         return;
     }
     // bytecode 28 bytes, max_stack 8, max_locals 1
@@ -37,8 +37,8 @@ public class RaceScreen extends RaceView {
     }
     // bytecode 21 bytes, max_stack 5, max_locals 1
     public void p() {
-        new ObfBs(ObfBb.a, ObfW.a.a()); /* constructor */
-        this.a = new ObfBs(ObfBb.a, ObfW.a.a());
+        new ObfBs(ObfBb.a_cf, ObfW.a.a()); /* constructor */
+        this.a = new ObfBs(ObfBb.a_cf, ObfW.a.a());
         return;
     }
     // bytecode 103 bytes, max_stack 5, max_locals 2
@@ -100,8 +100,8 @@ public class RaceScreen extends RaceView {
     }
     // bytecode 20 bytes, max_stack 2, max_locals 2
     public void a(int v1) {
-        if (RaceScreen.a != 22) goto L14;
-        RaceScreen.a = 24;
+        if (ObfR.a_B != 22) goto L14;
+        ObfR.a_B = 24;
         return;
         L14:
         this.a(v1);

@@ -90,7 +90,7 @@ public class Plane {
         if (fcmpg((Vec2.a(ObfAu.b.a, ObfAu.a.b) + ObfAu.b.a_F), 0.6000000238418579f) <= 0) goto L74;
         v0 = ObfAu.a;
         if (fcmpl(ObfAu.b.a(ObfAu.a.c), 0.6000000238418579f) >= 0) goto L74;
-        if (fcmpl(ObfAu.a.b(), ObfAu.a.c()) >= 0) goto L74;
+        if (fcmpl(ObfAu.a_bz.b(), ObfAu.a_bz.c()) >= 0) goto L74;
         return 1;
         L74:
         return 0;
@@ -104,7 +104,7 @@ public class Plane {
         if (fcmpg((Vec2.a(ObfAu.b.a, ObfAu.a.b) + ObfAu.b.a_F), 0.30000001192092896f) <= 0) goto L78;
         v5 = ObfAu.a;
         if (fcmpl(ObfAu.b.a(ObfAu.a.c), 0.30000001192092896f) >= 0) goto L78;
-        if (fcmpl(ObfAu.a.b(), ObfAu.a.c()) >= 0) goto L78;
+        if (fcmpl(ObfAu.a_bz.b(), ObfAu.a_bz.c()) >= 0) goto L78;
         return 1;
         L78:
         v0 = ((float) ObfB.a(v0));
@@ -140,7 +140,7 @@ public class Plane {
         v3 = ((int) (ObfAu.b.c.b() - ObfAu.b.b.b()));
         float v4 = ((v2 * v1) - (v3 * v0));
         if (fcmpg(((v2 * v1) - (v3 * v0)), 0.0f) != 0) goto L345;
-        if (fcmpl(ObfAu.a.b(), ObfAu.a.c()) >= 0) goto L345;
+        if (fcmpl(ObfAu.a_bz.b(), ObfAu.a_bz.c()) >= 0) goto L345;
         return 1;
         L345:
         v5 = ObfAu.b;
@@ -157,7 +157,7 @@ public class Plane {
         if (fcmpl(v0, 1.0010000467300415f) > 0) goto L526;
         if (fcmpg(v1, -0.0010000000474974513f) < 0) goto L526;
         if (fcmpl(v1, 1.0010000467300415f) > 0) goto L526;
-        if (fcmpl((ObfAu.a.a() + (v1 * (ObfAu.a.b() - ObfAu.a.a()))), ObfAu.a.c()) >= 0) goto L526;
+        if (fcmpl((ObfAu.a_bz.a() + (v1 * (ObfAu.a_bz.b() - ObfAu.a_bz.a()))), ObfAu.a_bz.c()) >= 0) goto L526;
         return 1;
         L526:
         return 0;

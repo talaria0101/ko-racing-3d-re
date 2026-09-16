@@ -27,8 +27,8 @@ public class RaceView extends ObfR {
         this.h = 0.0f;
         this.t = 5000;
         this.q = 66;
-        ObfCl.f = false;
-        RaceView.r = 4;
+        ObfCl.f_Z = false;
+        ObfR.r = 4;
         return;
     }
     // bytecode 70 bytes, max_stack 2, max_locals 2
@@ -45,28 +45,28 @@ public class RaceView extends ObfR {
         this.h = 0.0f;
         this.t = 5000;
         this.a = v1;
-        RaceView.b = false;
-        ObfCl.f = false;
+        ObfR.b_Z = false;
+        ObfCl.f_Z = false;
         return;
     }
     // bytecode 138 bytes, max_stack 4, max_locals 2
     public void e() {
         /* try L11-L15 catch java.io.IOException -> L18 */
         this.d = true;
-        if (RaceView.b != 0) goto L23;
+        if (ObfR.b_Z != 0) goto L23;
         this.b();
         goto L19;
         /* pop: ex_18; */
         L19:
-        RaceView.b = true;
+        ObfR.b_Z = true;
         L23:
-        this.a = RaceView.b;
-        this.t = RaceView.i;
-        this.a = RaceView.k;
+        this.a = ObfR.b_String_2;
+        this.t = ObfR.i;
+        this.a = ObfR.k;
         this.b = 1;
         this.a = new java.lang.String[this.b]#1;
-        if (RaceView.h >= 50) goto L81;
-        this.a[0] = CarSpec.a[RaceView.h];
+        if (ObfR.h >= 50) goto L81;
+        this.a[0] = CarSpec.a[ObfR.h];
         L81:
         this.a = new int[this.b]#2;
         this.b = new int[this.b]#3;
@@ -83,39 +83,39 @@ public class RaceView extends ObfR {
     }
     // bytecode 190 bytes, max_stack 3, max_locals 3
     public void b() {
-        InputStream v1 = Resources.a(RaceView.c);
-        /* pop: Resources.a(RaceView.c).skip(((long) RaceView.g)); */
-        RaceView.j = StreamReader.a(v1);
+        InputStream v1 = Resources.a(ObfR.c_String);
+        /* pop: Resources.a(ObfR.c_String).skip(((long) ObfR.g)); */
+        ObfR.j = StreamReader.a(v1);
         if (StreamReader.a(v1) <= 0) goto L34;
         jt1 = 1; /* join L35 from L30 */
         goto L35;
         L34:
         jt1 = 0; /* join L35 from L34 */
         L35:
-        RaceView.a = jt1;
-        RaceView.k = StreamReader.a(v1);
-        if (RaceView.h != -10) goto L63;
-        RaceView.h = StreamReader.a(v1);
+        ObfR.a_Z = jt1;
+        ObfR.k = StreamReader.a(v1);
+        if (ObfR.h != -10) goto L63;
+        ObfR.h = StreamReader.a(v1);
         goto L68;
         L63:
         /* pop: StreamReader.a(v1); */
         L68:
         float v2 = 1.0f;
-        if (RaceView.h < 50) goto L144;
+        if (ObfR.h < 50) goto L144;
         if (Settings.c() != 0) goto L87;
         v2 = 0.5f;
         L87:
         if (Settings.c() != 2) goto L97;
         v2 = 0.30000001192092896f;
         L97:
-        RaceView.i = ((int) (((float) StreamReader.b(v1)) * v2));
+        ObfR.i = ((int) (((float) StreamReader.b(v1)) * v2));
         if (((int) (((float) StreamReader.b(v1)) * v2)) <= 100000) goto L181;
-        RaceView.i = 120000;
+        ObfR.i = 120000;
         if (Settings.c() != 0) goto L130;
-        RaceView.i = 80000;
+        ObfR.i = 80000;
         L130:
         if (Settings.c() != 0) goto L181;
-        RaceView.i = 50000;
+        ObfR.i = 50000;
         goto L181;
         L144:
         if (Settings.c() != 0) goto L153;
@@ -124,9 +124,9 @@ public class RaceView extends ObfR {
         if (Settings.c() != 2) goto L163;
         v2 = 0.5f;
         L163:
-        RaceView.i = (((int) ((((float) StreamReader.b(v1)) * v2) / 1000.0f)) * 1000);
+        ObfR.i = (((int) ((((float) StreamReader.b(v1)) * v2) / 1000.0f)) * 1000);
         L181:
-        RaceView.l = 0;
+        ObfR.l = 0;
         v1.close();
         return;
     }
@@ -161,22 +161,22 @@ public class RaceView extends ObfR {
         v4 = (v4 + 10);
         v3 = ((int) SysUtil.a(58));
         v2 = ((Image) SysUtil.p.a(v3));
-        int v6 = (SysUtil.p.a(RaceView.d) + 1);
+        int v6 = (SysUtil.p.a(ObfR.d) + 1);
         SysUtil.p.a(v1, v3, v4, v5);
-        SysUtil.p.a(v1, RaceView.d, ((v4 + v2) + 10), v5);
+        SysUtil.p.a(v1, ObfR.d, ((v4 + v2) + 10), v5);
         SysUtil.p.a(v1, SysUtil.a(59), (((v4 + v2) + v6) + 10), v5);
         v5 = (v5 + (SysUtil.p.a() + 5));
         v3 = ((int) SysUtil.a(57));
         SysUtil.p.a(v1, v3, v4, v5);
-        SysUtil.p.a(v1, RaceView.k, ((v4 + v2) + 10), v5);
+        SysUtil.p.a(v1, ObfR.k, ((v4 + v2) + 10), v5);
         v5 = (v5 + (SysUtil.p.a() + 5));
         v3 = ((int) SysUtil.a(165));
         SysUtil.p.a(v1, v3, v4, v5);
-        SysUtil.p.a(v1, SysUtil.a((76 + RaceView.j)), ((v4 + v2) + 10), v5);
+        SysUtil.p.a(v1, SysUtil.a((76 + ObfR.j)), ((v4 + v2) + 10), v5);
         v5 = (v5 + (SysUtil.p.a() + 5));
         v3 = ((int) SysUtil.a(90));
         SysUtil.p.a(v1, v3, v4, v5);
-        SysUtil.p.a(v1, RaceView.i, ((v4 + v2) + 10), v5);
+        SysUtil.p.a(v1, ObfR.i, ((v4 + v2) + 10), v5);
         return;
     }
     // bytecode 109 bytes, max_stack 5, max_locals 2
@@ -228,7 +228,7 @@ public class RaceView extends ObfR {
     // bytecode 366 bytes, max_stack 4, max_locals 3
     public void b(float v1) {
         this.b(v1);
-        if (RaceView.a > 21) goto L14;
+        if (ObfR.a_B > 21) goto L14;
         return;
         L14:
         ObfCl v2 = this.a.a(this.e());
@@ -249,7 +249,7 @@ public class RaceView extends ObfR {
         this.b = 0.0f;
         this.g = 1.0f;
         L134:
-        if (RaceView.a >= 26) goto L243;
+        if (ObfR.a_B >= 26) goto L243;
         if (fcmpg(v2.a().j(), 0.30000001192092896f) <= 0) goto L243;
         if (fcmpg(java.lang.Math.abs(v2.a().a()), 0.20000000298023224f) <= 0) goto L243;
         if (fcmpg(v2.a(), this.e) <= 0) goto L243;
@@ -262,7 +262,7 @@ public class RaceView extends ObfR {
         if (this.f == 0) goto L345;
         this.c = (this.c + v1);
         if (fcmpg(this.c, 1.5f) > 0) goto L278;
-        if (RaceView.a < 26) goto L345;
+        if (ObfR.a_B < 26) goto L345;
         L278:
         if (fcmpg(this.b, 0.10000000149011612f) <= 0) goto L330;
         if (fcmpg((this.b - 0.10000000149011612f), this.h) <= 0) goto L314;
@@ -282,7 +282,7 @@ public class RaceView extends ObfR {
     // bytecode 559 bytes, max_stack 11, max_locals 8
     public void d(Graphics v1) {
         int v2 = 30;
-        if (SysUtil.f > 240) goto L15;
+        if (SysUtil.f_I > 240) goto L15;
         v2 = 23;
         L15:
         if (Settings.m() != 0) goto L39;
@@ -298,7 +298,7 @@ public class RaceView extends ObfR {
         int v4 = ((v2 * 2) + v3);
         if ((Settings.m() % 2) != 1) goto L118;
         if (this.b == null) goto L101;
-        if (this.b.getWidth() >= (SysUtil.e - 20)) goto L118;
+        if (this.b.getWidth() >= (SysUtil.e_I - 20)) goto L118;
         L101:
         this.b = javax.microedition.lcdui.Image.createImage((v1.getClipWidth() - 20), (v2 * 2));
         L118:

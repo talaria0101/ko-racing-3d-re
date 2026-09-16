@@ -39,7 +39,7 @@ public class UiText extends TextBuffer {
         L79:
         if (((char) v2) != 38) goto L110;
         new java.lang.StringBuffer(); /* constructor */
-        v3 = new java.lang.StringBuffer().append(v3).append(Settings.l).toString();
+        v3 = new java.lang.StringBuffer().append(v3).append(Settings.l_I).toString();
         goto L33;
         L110:
         if (((char) v2) != 42) goto L148;
@@ -59,7 +59,7 @@ public class UiText extends TextBuffer {
         L224:
         if (((char) v2) != 126) goto L255;
         new java.lang.StringBuffer(); /* constructor */
-        v3 = new java.lang.StringBuffer().append(v3).append(MainMenu.a).toString();
+        v3 = new java.lang.StringBuffer().append(v3).append(MainMenu.a_String).toString();
         goto L33;
         L255:
         if (((char) v2) != 94) goto L293;

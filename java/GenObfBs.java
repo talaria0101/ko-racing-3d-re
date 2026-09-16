@@ -110,27 +110,27 @@ public class ObfBs {
         L100:
         if ((v5 & ObfR.b(1)) == 0) goto L145;
         if (this.a_arrarrLbm[v4][v3] == null) goto L145;
-        this.a_arrarrLbm[v4][v3].a(ObfBb.a, StreamReader.a(v1), StreamReader.a(v1));
+        this.a_arrarrLbm[v4][v3].a(ObfBb.a_ae, StreamReader.a(v1), StreamReader.a(v1));
         L145:
         if ((v5 & ObfR.b(2)) == 0) goto L190;
         if (this.a_arrarrLbm[v4][v3] == null) goto L190;
-        this.a_arrarrLbm[v4][v3].b(ObfBb.a, StreamReader.a(v1), StreamReader.a(v1));
+        this.a_arrarrLbm[v4][v3].b(ObfBb.a_ae, StreamReader.a(v1), StreamReader.a(v1));
         L190:
         if ((v5 & ObfR.b(3)) == 0) goto L235;
         if (this.a_arrarrLbm[v4][v3] == null) goto L235;
-        this.a_arrarrLbm[v4][v3].c(ObfBb.a, StreamReader.a(v1), StreamReader.a(v1));
+        this.a_arrarrLbm[v4][v3].c(ObfBb.a_ae, StreamReader.a(v1), StreamReader.a(v1));
         L235:
         if ((v5 & ObfR.b(4)) == 0) goto L280;
         if (this.a_arrarrLbm[v4][v3] == null) goto L280;
-        this.a_arrarrLbm[v4][v3].a(ObfBb.a, StreamReader.a(v1), StreamReader.a(v1));
+        this.a_arrarrLbm[v4][v3].a(ObfBb.a_ap, StreamReader.a(v1), StreamReader.a(v1));
         L280:
         if ((v5 & ObfR.b(5)) == 0) goto L325;
         if (this.a_arrarrLbm[v4][v3] == null) goto L325;
-        this.a_arrarrLbm[v4][v3].b(ObfBb.a, StreamReader.a(v1), StreamReader.a(v1));
+        this.a_arrarrLbm[v4][v3].b(ObfBb.a_ap, StreamReader.a(v1), StreamReader.a(v1));
         L325:
         if ((v5 & ObfR.b(6)) == 0) goto L371;
         if (this.a_arrarrLbm[v4][v3] == null) goto L371;
-        this.a_arrarrLbm[v4][v3].c(ObfBb.a, StreamReader.a(v1), StreamReader.a(v1));
+        this.a_arrarrLbm[v4][v3].c(ObfBb.a_ap, StreamReader.a(v1), StreamReader.a(v1));
         L371:
         v4 += 1;
         goto L45;
@@ -201,7 +201,7 @@ public class ObfBs {
         return;
         L94:
         this.a_arrarrLbm[v4][v5].a(this.e);
-        if (Settings.b == 0) goto L137;
+        if (Settings.b_Z == 0) goto L137;
         if (Settings.k > 0) goto L137;
         this.a_arrarrLbm[v4][v5].a(v1);
         L137:
@@ -218,7 +218,7 @@ public class ObfBs {
         this.a(v1, v2, v3, v4, (v5 + 1), (v6 - 1));
         L273:
         if (v6 != 0) goto L304;
-        if (Settings.b == 0) goto L290;
+        if (Settings.b_Z == 0) goto L290;
         if (Settings.k <= 0) goto L304;
         L290:
         this.a_arrarrLbm[v4][v5].a(v1);
@@ -244,7 +244,7 @@ public class ObfBs {
         return;
         L94:
         this.a_arrarrLbm[v4][v5].a(this.e);
-        if (Settings.b == 0) goto L139;
+        if (Settings.b_Z == 0) goto L139;
         if (Settings.k > 0) goto L139;
         this.a_arrarrLbm[v4][v5].a(v1, v3, v2);
         L139:
@@ -261,7 +261,7 @@ public class ObfBs {
         this.b(v1, v2, v3, v4, (v5 + 1), (v6 - 1));
         L275:
         if (v6 != 0) goto L308;
-        if (Settings.b == 0) goto L292;
+        if (Settings.b_Z == 0) goto L292;
         if (Settings.k <= 0) goto L308;
         L292:
         this.a_arrarrLbm[v4][v5].a(v1, v3, v2);

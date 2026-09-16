@@ -573,7 +573,7 @@ public class TrackSelect extends Screen {
     public void c(int v1, int v2) {
         this.y = (this.y + 1);
         int v3 = (SysUtil.e_I / 2);
-        int v4 = (SysUtil.f / 2);
+        int v4 = (SysUtil.f_I / 2);
         if (v3 >= 110) goto L32;
         v3 = 110;
         L32:
@@ -614,8 +614,8 @@ public class TrackSelect extends Screen {
         v2 = 0;
         goto L97;
         L68:
-        if (v2 >= (-(this.a.getHeight() - SysUtil.f))) goto L97;
-        v2 = (-(this.a.getHeight() - SysUtil.f));
+        if (v2 >= (-(this.a.getHeight() - SysUtil.f_I))) goto L97;
+        v2 = (-(this.a.getHeight() - SysUtil.f_I));
         L97:
         this.f = v1;
         this.g = v2;
@@ -683,7 +683,7 @@ public class TrackSelect extends Screen {
         if (fcmpg(this.e_F, 360.0f) <= 0) goto L173;
         this.e_F = (this.e_F - 360.0f);
         L173:
-        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().a(ImageGrid.a_ci, -6);
         ImageGrid.a().b(ImageGrid.b, -7);
         this.d_F = (this.d_F + ((((float) this.l) * v1) * 9.0f));
         if (fcmpg(this.d_F, 3.799999952316284f) <= 0) goto L239;
@@ -720,7 +720,7 @@ public class TrackSelect extends Screen {
     }
     // bytecode 905 bytes, max_stack 9, max_locals 5
     public void a(Graphics v1) {
-        ImageGrid.b(v1, 0, (SysUtil.f - 28));
+        ImageGrid.b(v1, 0, (SysUtil.f_I - 28));
         if (this.f_Z == 0) goto L49;
         this.a_n.a(v1, ((v1.getClipWidth() - this.r) / 2), ((v1.getClipHeight() - this.s) / 2));
         return;
@@ -730,7 +730,7 @@ public class TrackSelect extends Screen {
         if (this.c_Z == 0) goto L878;
         L70:
         v1.setColor(6710886);
-        v1.fillRect(((SysUtil.e_I / 2) - (this.r / 2)), ((SysUtil.f / 2) - (this.s / 2)), this.r, 20);
+        v1.fillRect(((SysUtil.e_I / 2) - (this.r / 2)), ((SysUtil.f_I / 2) - (this.s / 2)), this.r, 20);
         if (this.e_I > 0) goto L124;
         if (this.c_Z == 0) goto L657;
         L124:
@@ -742,27 +742,27 @@ public class TrackSelect extends Screen {
         L149:
         int v2 = jt1;
         if (this.c_Z == 0) goto L388;
-        SysUtil.q.a(v1, SysUtil.a(125), ((SysUtil.e_I - SysUtil.q.a(SysUtil.a(125))) / 2), (((SysUtil.f / 2) - (this.s / 2)) + 2));
+        SysUtil.q.a(v1, SysUtil.a(125), ((SysUtil.e_I - SysUtil.q.a(SysUtil.a(125))) / 2), (((SysUtil.f_I / 2) - (this.s / 2)) + 2));
         if (this.u <= 0) goto L388;
-        v1.setClip((((SysUtil.e_I - this.r) / 2) + 2), (((((SysUtil.f / 2) + (this.s / 2)) - 48) - 5) - 3), 13, 13);
-        v1.drawImage(this.d_Image, (((SysUtil.e_I - this.r) / 2) + 2), (((((SysUtil.f / 2) + (this.s / 2)) - 48) - 5) - 3), 20);
-        v1.setClip(((((SysUtil.e_I + this.r) / 2) - 2) - 13), (((((SysUtil.f / 2) + (this.s / 2)) - 48) - 5) - 3), 13, 13);
-        v1.drawImage(this.d_Image, (((((SysUtil.e_I + this.r) / 2) - 2) - 13) - 13), (((((SysUtil.f / 2) + (this.s / 2)) - 48) - 5) - 3), 20);
-        v1.setClip(0, 0, SysUtil.e_I, SysUtil.f);
+        v1.setClip((((SysUtil.e_I - this.r) / 2) + 2), (((((SysUtil.f_I / 2) + (this.s / 2)) - 48) - 5) - 3), 13, 13);
+        v1.drawImage(this.d_Image, (((SysUtil.e_I - this.r) / 2) + 2), (((((SysUtil.f_I / 2) + (this.s / 2)) - 48) - 5) - 3), 20);
+        v1.setClip(((((SysUtil.e_I + this.r) / 2) - 2) - 13), (((((SysUtil.f_I / 2) + (this.s / 2)) - 48) - 5) - 3), 13, 13);
+        v1.drawImage(this.d_Image, (((((SysUtil.e_I + this.r) / 2) - 2) - 13) - 13), (((((SysUtil.f_I / 2) + (this.s / 2)) - 48) - 5) - 3), 20);
+        v1.setClip(0, 0, SysUtil.e_I, SysUtil.f_I);
         L388:
-        String v3 = ObfBd.a.a(v2);
-        SysUtil.q.a(v1, v3, ((SysUtil.e_I - SysUtil.q.a(v3)) / 2), ((((SysUtil.f / 2) + (this.s / 2)) - 48) - 10));
+        String v3 = ObfBd.a_ba.a(v2);
+        SysUtil.q.a(v1, v3, ((SysUtil.e_I - SysUtil.q.a(v3)) / 2), ((((SysUtil.f_I / 2) + (this.s / 2)) - 48) - 10));
         v3 = ((String) 0);
         L437:
         if (v3 >= 4) goto L654;
-        SysUtil.o.a(v1, SysUtil.a((v3 + 127)), ((-2 + (SysUtil.e_I / 2)) - SysUtil.n.a(SysUtil.a((v3 + 127)))), (((((SysUtil.f / 2) + (this.s / 2)) - 48) + 8) + (v3 * 8)));
+        SysUtil.o.a(v1, SysUtil.a((v3 + 127)), ((-2 + (SysUtil.e_I / 2)) - SysUtil.n.a(SysUtil.a((v3 + 127)))), (((((SysUtil.f_I / 2) + (this.s / 2)) - 48) + 8) + (v3 * 8)));
         int v4 = 1;
         L504:
-        if (v4 > ObfBd.a.a(v2, v3)) goto L648;
+        if (v4 > ObfBd.a_ba.a(v2, v3)) goto L648;
         v1.setColor(255, (((6 - v4) << 8) / 6), 0);
-        v1.fillRect(((5 + (SysUtil.e_I / 2)) + (v4 * 7)), ((((((SysUtil.f / 2) + (this.s / 2)) - 48) + 8) + (v3 * 8)) + 2), 4, 4);
+        v1.fillRect(((5 + (SysUtil.e_I / 2)) + (v4 * 7)), ((((((SysUtil.f_I / 2) + (this.s / 2)) - 48) + 8) + (v3 * 8)) + 2), 4, 4);
         v1.setColor(127, (((6 - v4) << 7) / 6), 0);
-        v1.drawRect(((5 + (SysUtil.e_I / 2)) + (v4 * 7)), ((((((SysUtil.f / 2) + (this.s / 2)) - 48) + 8) + (v3 * 8)) + 2), 4, 4);
+        v1.drawRect(((5 + (SysUtil.e_I / 2)) + (v4 * 7)), ((((((SysUtil.f_I / 2) + (this.s / 2)) - 48) + 8) + (v3 * 8)) + 2), 4, 4);
         v4 += 1;
         goto L504;
         L648:
@@ -776,10 +776,10 @@ public class TrackSelect extends Screen {
         v2 = ((int) this);
         v3 = ((String) this.a_arrI[(this.d_I - 1)]);
         v2 = ((int) this);
-        SysUtil.a_p.a(v1, this.a_String[v3], ((SysUtil.e_I - SysUtil.a_p.a(this.a_String[v3])) / 2), (((SysUtil.f / 2) + (this.s / 2)) - 20));
+        SysUtil.a_p.a(v1, this.a_String[v3], ((SysUtil.e_I - SysUtil.a_p.a(this.a_String[v3])) / 2), (((SysUtil.f_I / 2) + (this.s / 2)) - 20));
         L738:
         v1.setColor(11184810);
-        v1.drawRect(((SysUtil.e_I / 2) - (this.r / 2)), ((SysUtil.f / 2) - (this.s / 2)), this.r, this.s);
+        v1.drawRect(((SysUtil.e_I / 2) - (this.r / 2)), ((SysUtil.f_I / 2) - (this.s / 2)), this.r, this.s);
         v2 = 139;
         if (this.e_I != 0) goto L821;
         if (this.d_I <= 0) goto L821;
@@ -789,7 +789,7 @@ public class TrackSelect extends Screen {
         if (this.e_I > 0) goto L835;
         if (this.d_I <= 0) goto L877;
         L835:
-        SysUtil.a_p.a(v1, SysUtil.a(v2), ((SysUtil.e_I - SysUtil.a_p.a(SysUtil.a(v2))) / 2), (((SysUtil.f / 2) - (this.s / 2)) + 7));
+        SysUtil.a_p.a(v1, SysUtil.a(v2), ((SysUtil.e_I - SysUtil.a_p.a(SysUtil.a(v2))) / 2), (((SysUtil.f_I / 2) - (this.s / 2)) + 7));
         L877:
         return;
         L878:
@@ -892,7 +892,7 @@ public class TrackSelect extends Screen {
         if (((((int) this.a_F) + this.a_arrarrI[v2][0]) + 115) <= SysUtil.e_I) goto L652;
         v5 = -115;
         L652:
-        if (((((int) this.b_F) + this.a_arrarrI[v2][1]) + v4) <= SysUtil.f) goto L680;
+        if (((((int) this.b_F) + this.a_arrarrI[v2][1]) + v4) <= SysUtil.f_I) goto L680;
         v6 = (-v4);
         L680:
         v1.setClip(((((int) this.a_F) + this.a_arrarrI[v2][0]) + v5), ((((int) this.b_F) + this.a_arrarrI[v2][1]) + v6), 118, (v4 + 3));
@@ -1003,7 +1003,7 @@ public class TrackSelect extends Screen {
         v2 += 1;
         goto L518;
         L1864:
-        v1.setClip(0, 0, SysUtil.e_I, SysUtil.f);
+        v1.setClip(0, 0, SysUtil.e_I, SysUtil.f_I);
         v2 = ((int) v1);
         v1 = ((Graphics) this);
         v3 = (SysUtil.a_p.a() + 6);
@@ -1020,7 +1020,7 @@ public class TrackSelect extends Screen {
     }
     // bytecode 8 bytes, max_stack 2, max_locals 2
     public String a(int v1) {
-        return ObfBd.a.a(v1);
+        return ObfBd.a_ba.a(v1);
     }
     // bytecode 9 bytes, max_stack 2, max_locals 2
     public byte[] a(int v1) {
@@ -1079,7 +1079,7 @@ public class TrackSelect extends Screen {
         v1 = ((int) this);
         int v2 = this.t;
         L151:
-        v2 = (((v2 - 1) + CarSpec.a_String.length) % CarSpec.a_String.length);
+        v2 = (((v2 - 1) + CarSpec.a.length) % CarSpec.a.length);
         if (v1.a(v2) == 0) goto L151;
         v1.t = v2;
         return;
@@ -1188,37 +1188,37 @@ public class TrackSelect extends Screen {
         /* try L10-L243 catch java.io.IOException -> L246 */
         this.t = -10;
         this.w();
-        if (ObfR.f != 0) goto L30;
+        if (ObfR.f_I != 0) goto L30;
         new MenuScreen(); /* constructor */
         this.a_r = new MenuScreen();
         goto L154;
         L30:
-        if (ObfR.f != 1) goto L51;
+        if (ObfR.f_I != 1) goto L51;
         new ObfR(); /* constructor */
         this.a_r = new ObfR();
         goto L154;
         L51:
-        if (ObfR.f != 2) goto L72;
+        if (ObfR.f_I != 2) goto L72;
         new CareerMap(); /* constructor */
         this.a_r = new CareerMap();
         goto L154;
         L72:
-        if (ObfR.f != 3) goto L93;
+        if (ObfR.f_I != 3) goto L93;
         new ObfCd(); /* constructor */
         this.a_r = new ObfCd();
         goto L154;
         L93:
-        if (ObfR.f != 4) goto L114;
+        if (ObfR.f_I != 4) goto L114;
         new ObfAc(); /* constructor */
         this.a_r = new ObfAc();
         goto L154;
         L114:
-        if (ObfR.f != 5) goto L135;
+        if (ObfR.f_I != 5) goto L135;
         new RaceView(); /* constructor */
         this.a_r = new RaceView();
         goto L154;
         L135:
-        if (ObfR.f != 6) goto L154;
+        if (ObfR.f_I != 6) goto L154;
         new CarSelect(); /* constructor */
         this.a_r = new CarSelect();
         L154:
@@ -1251,8 +1251,8 @@ public class TrackSelect extends Screen {
         this.b_String[this.k] = "8a.map";
         L25:
         ObfR.h = this.t;
-        ObfR.b_String = this.b_String[this.k];
-        ObfR.f = this.b_arrarrI[this.c_arrarrI[this.k][this.o]][0];
+        ObfR.b_String_2 = this.b_String[this.k];
+        ObfR.f_I = this.b_arrarrI[this.c_arrarrI[this.k][this.o]][0];
         ObfR.g = this.b_arrarrI[this.c_arrarrI[this.k][this.o]][4];
         new java.lang.StringBuffer(); /* constructor */
         ObfR.c_String = new java.lang.StringBuffer().append(this.a_String).append(".001").toString();
@@ -1693,18 +1693,18 @@ public class TrackSelect extends Screen {
         if (this.e_I > 0) goto L28;
         if (this.c_Z == 0) goto L481;
         L28:
-        this.a.a().a().setViewport(((SysUtil.e_I / 2) - (this.r / 2)), ((SysUtil.f / 2) - (this.s / 2)), this.r, this.s);
+        this.a.a().a().setViewport(((SysUtil.e_I / 2) - (this.r / 2)), ((SysUtil.f_I / 2) - (this.s / 2)), this.r, this.s);
         this.a.a().a(this.r, this.s);
-        ObfBd.a.setColor(0);
-        this.a.a().a(ObfBd.a);
+        ObfBd.a_Backgr.setColor(0);
+        this.a.a().a(ObfBd.a_Backgr);
         if (this.e_I > 0) goto L125;
         if (this.c_Z == 0) goto L233;
         L125:
-        ObfBd.a.setIdentity();
-        ObfBd.a.postTranslate(0.0f, 0.20000000298023224f, -2.5f);
-        ObfBd.a.postRotate(180.0f, 0.0f, 1.0f, 0.0f);
-        ObfBd.a.postRotate(60.0f, 1.0f, 0.0f, 0.0f);
-        ObfBd.a.postRotate(this.e_F, 0.0f, 0.0f, 1.0f);
+        ObfBd.a_Transf.setIdentity();
+        ObfBd.a_Transf.postTranslate(0.0f, 0.20000000298023224f, -2.5f);
+        ObfBd.a_Transf.postRotate(180.0f, 0.0f, 1.0f, 0.0f);
+        ObfBd.a_Transf.postRotate(60.0f, 1.0f, 0.0f, 0.0f);
+        ObfBd.a_Transf.postRotate(this.e_F, 0.0f, 0.0f, 1.0f);
         if (this.c_Z == 0) goto L191;
         jt1 = this.t; /* join L202 from L184 */
         goto L202;
@@ -1712,7 +1712,7 @@ public class TrackSelect extends Screen {
         jt1 = this.b_arrI[(this.e_I - 1)]; /* join L202 from L191 */
         L202:
         int v1 = jt1;
-        this.a.a().a(ObfBd.a.a(v1, this.e_F).a(), ObfBd.a);
+        this.a.a().a(ObfBd.a_ba.a(v1, this.e_F).a(), ObfBd.a_Transf);
         goto L459;
         L233:
         if (this.d_I <= 0) goto L459;
@@ -1751,20 +1751,20 @@ public class TrackSelect extends Screen {
         goto L390;
         /* pop: ex_389; */
         L390:
-        ObfBd.a.setIdentity();
-        ObfBd.a.postTranslate(0.0f, 1.0f, -2.5f);
-        ObfBd.a.postRotate(-45.0f, 1.0f, 0.0f, 0.0f);
-        ObfBd.a.postRotate(this.e_F, 0.0f, 0.0f, 1.0f);
-        ObfBd.a.postScale(0.6000000238418579f, 0.6000000238418579f, 0.6000000238418579f);
-        this.a_cq.a(this.a.a(), ObfBd.a);
+        ObfBd.a_Transf.setIdentity();
+        ObfBd.a_Transf.postTranslate(0.0f, 1.0f, -2.5f);
+        ObfBd.a_Transf.postRotate(-45.0f, 1.0f, 0.0f, 0.0f);
+        ObfBd.a_Transf.postRotate(this.e_F, 0.0f, 0.0f, 1.0f);
+        ObfBd.a_Transf.postScale(0.6000000238418579f, 0.6000000238418579f, 0.6000000238418579f);
+        this.a_cq.a(this.a.a(), ObfBd.a_Transf);
         L459:
-        this.a.a().a().setViewport(0, 0, SysUtil.e_I, SysUtil.f);
+        this.a.a().a().setViewport(0, 0, SysUtil.e_I, SysUtil.f_I);
         return;
         L481:
         this.a.a().a().setViewport(0, 0, 1, 1);
-        this.a.a().a(ObfBd.a);
-        this.a.a().a().setViewport(0, 0, SysUtil.e_I, SysUtil.f);
-        this.a.a().a(SysUtil.e_I, SysUtil.f);
+        this.a.a().a(ObfBd.a_Backgr);
+        this.a.a().a().setViewport(0, 0, SysUtil.e_I, SysUtil.f_I);
+        this.a.a().a(SysUtil.e_I, SysUtil.f_I);
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -2047,7 +2047,7 @@ public class TrackSelect extends Screen {
         return;
         L38:
         if (this.f_Z == 0) goto L81;
-        this.i_Z = this.a_n.a((v1 - ((SysUtil.e_I - this.r) / 2)), (v2 - ((SysUtil.f - this.s) / 2)));
+        this.i_Z = this.a_n.a((v1 - ((SysUtil.e_I - this.r) / 2)), (v2 - ((SysUtil.f_I - this.s) / 2)));
         return;
         L81:
         if (this.d_I > 0) goto L95;
@@ -2059,8 +2059,8 @@ public class TrackSelect extends Screen {
         if (this.c_Z == 0) goto L411;
         if (v1 < (((((SysUtil.e_I - this.r) / 2) + 2) - 3) - 10)) goto L219;
         if (v1 > ((((((SysUtil.e_I - this.r) / 2) + 2) + 13) + 6) + 10)) goto L219;
-        if (v2 < (((((SysUtil.f / 2) + (this.s / 2)) - 56) - 3) - 10)) goto L219;
-        if (v2 > (((((SysUtil.f / 2) + (this.s / 2)) - 43) + 6) + 10)) goto L219;
+        if (v2 < (((((SysUtil.f_I / 2) + (this.s / 2)) - 56) - 3) - 10)) goto L219;
+        if (v2 > (((((SysUtil.f_I / 2) + (this.s / 2)) - 43) + 6) + 10)) goto L219;
         KORa.buzz();
         this.a(SysUtil.a());
         this.i_Z = true;
@@ -2068,8 +2068,8 @@ public class TrackSelect extends Screen {
         L219:
         if (v1 < ((((((SysUtil.e_I + this.r) / 2) - 2) - 13) - 3) - 10)) goto L330;
         if (v1 > (((((SysUtil.e_I + this.r) / 2) - 2) + 6) + 10)) goto L330;
-        if (v2 < (((((SysUtil.f / 2) + (this.s / 2)) - 56) - 3) - 10)) goto L330;
-        if (v2 > (((((SysUtil.f / 2) + (this.s / 2)) - 43) + 6) + 10)) goto L330;
+        if (v2 < (((((SysUtil.f_I / 2) + (this.s / 2)) - 56) - 3) - 10)) goto L330;
+        if (v2 > (((((SysUtil.f_I / 2) + (this.s / 2)) - 43) + 6) + 10)) goto L330;
         KORa.buzz();
         this.a(SysUtil.b());
         this.i_Z = true;
@@ -2077,8 +2077,8 @@ public class TrackSelect extends Screen {
         L330:
         if (v1 < ((SysUtil.e_I - this.r) / 2)) goto L405;
         if (v1 > ((SysUtil.e_I + this.r) / 2)) goto L405;
-        if (v2 < ((SysUtil.f - this.s) / 2)) goto L405;
-        if (v2 > ((SysUtil.f + this.s) / 2)) goto L405;
+        if (v2 < ((SysUtil.f_I - this.s) / 2)) goto L405;
+        if (v2 > ((SysUtil.f_I + this.s) / 2)) goto L405;
         KORa.buzz();
         this.d_Z = true;
         this.c_Z = false;
@@ -2094,7 +2094,7 @@ public class TrackSelect extends Screen {
         v3 = 120;
         L440:
         int v4 = ((SysUtil.e_I - 228) / 2);
-        int v5 = ((SysUtil.f - v3) / 2);
+        int v5 = ((SysUtil.f_I - v3) / 2);
         if (v1 < v4) goto L557;
         if (v1 > (v4 + 228)) goto L557;
         if (v2 < v5) goto L557;
@@ -2142,7 +2142,7 @@ public class TrackSelect extends Screen {
         if (((((int) this.a_F) + this.a_arrarrI[v3][0]) + 145) <= SysUtil.e_I) goto L708;
         v6 = -145;
         L708:
-        if (((((int) this.b_F) + this.a_arrarrI[v3][1]) + v5) <= SysUtil.f) goto L736;
+        if (((((int) this.b_F) + this.a_arrarrI[v3][1]) + v5) <= SysUtil.f_I) goto L736;
         v7 = (-v5);
         L736:
         if (this.a_arrZ[v3] == 0) goto L857;
@@ -2229,7 +2229,7 @@ public class TrackSelect extends Screen {
         if (((((int) this.a_F) + this.a_arrarrI[v3][0]) + 95) <= SysUtil.e_I) goto L143;
         v6 = -95;
         L143:
-        if (((((int) this.b_F) + this.a_arrarrI[v3][1]) + v5) <= SysUtil.f) goto L171;
+        if (((((int) this.b_F) + this.a_arrarrI[v3][1]) + v5) <= SysUtil.f_I) goto L171;
         v7 = (-v5);
         L171:
         v5 = 0;

@@ -14,22 +14,22 @@ public class ObfW extends MenuScreen {
     public ObfW(MainCanvas v1, int v2) {
         super(v1);
         new java.lang.StringBuffer(); /* constructor */
-        /* pop: new java.lang.StringBuffer().append(Settings.b).append("?a=m").toString(); */
+        /* pop: new java.lang.StringBuffer().append(Settings.b_String).append("?a=m").toString(); */
         this.s = 0;
         this.a_arrB = null;
-        ObfCl.f = true;
+        ObfCl.f_Z = true;
         this.s = v2;
         this.c = true;
         return;
     }
     // bytecode 46 bytes, max_stack 2, max_locals 1
     public void b() {
-        ObfW.k = ObfW.a.f();
-        ObfW.j = ObfW.a.g();
+        ObfR.k = ObfW.a.f();
+        ObfR.j = ObfW.a.g();
         this.a_arrB = ObfW.a.a();
-        ObfW.j = ObfW.a.g();
-        ObfW.m = 1;
-        ObfW.l = 0;
+        ObfR.j = ObfW.a.g();
+        ObfR.m = 1;
+        ObfR.l = 0;
         return;
     }
     // bytecode 28 bytes, max_stack 8, max_locals 1
@@ -65,8 +65,8 @@ public class ObfW extends MenuScreen {
     }
     // bytecode 21 bytes, max_stack 5, max_locals 1
     public void p() {
-        new ObfBs(ObfBb.a, ObfW.a.a()); /* constructor */
-        this.a = new ObfBs(ObfBb.a, ObfW.a.a());
+        new ObfBs(ObfBb.a_cf, ObfW.a.a()); /* constructor */
+        this.a = new ObfBs(ObfBb.a_cf, ObfW.a.a());
         return;
     }
     // bytecode 19 bytes, max_stack 2, max_locals 2
@@ -122,9 +122,9 @@ public class ObfW extends MenuScreen {
         v1.drawImage(this.a, (v9 + 10), v5, 20);
         v5 = (((v2 * v8) + v6) + ((v7 - 7) / 2));
         v3 = ((int) SysUtil.a(v3));
-        SysUtil.a.a(v1, v3, ((((v1.getClipWidth() - 10) - 6) - SysUtil.a.a(v3)) + v9), v5);
+        SysUtil.a_p.a(v1, v3, ((((v1.getClipWidth() - 10) - 6) - SysUtil.a_p.a(v3)) + v9), v5);
         v5 = ((((v2 * v8) + v6) + v7) + ((v7 - 7) / 2));
-        SysUtil.a.a(v1, ((long) v4), ((((v1.getClipWidth() - 10) - 6) - SysUtil.a.a(((long) v4))) + v9), v5);
+        SysUtil.a_p.a(v1, ((long) v4), ((((v1.getClipWidth() - 10) - 6) - SysUtil.a_p.a(((long) v4))) + v9), v5);
         return;
     }
     // bytecode 1 bytes, max_stack 0, max_locals 2
@@ -133,8 +133,8 @@ public class ObfW extends MenuScreen {
     }
     // bytecode 20 bytes, max_stack 2, max_locals 2
     public void a(int v1) {
-        if (ObfW.a != 22) goto L14;
-        ObfW.a = 24;
+        if (ObfR.a_B != 22) goto L14;
+        ObfR.a_B = 24;
         return;
         L14:
         this.a(v1);

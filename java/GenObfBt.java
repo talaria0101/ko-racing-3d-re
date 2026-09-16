@@ -133,12 +133,12 @@ public class ObfBt extends Screen {
         if (v3 >= v1.a_r.d()) goto L333;
         if (v3 != v1.a_r.e()) goto L327;
         if (v1.a_r.e_Z != 0) goto L297;
-        new ObfCl(ObfBb.a, v2, v3, v1.a_bs, v1.a_r.a(v3)); /* constructor */
-        v1.a_arrLcl[v3] = new ObfCl(ObfBb.a, v2, v3, v1.a_bs, v1.a_r.a(v3));
+        new ObfCl(ObfBb.a_cf, v2, v3, v1.a_bs, v1.a_r.a(v3)); /* constructor */
+        v1.a_arrLcl[v3] = new ObfCl(ObfBb.a_cf, v2, v3, v1.a_bs, v1.a_r.a(v3));
         goto L327;
         L297:
-        new OpponentCar(ObfBb.a, v2, v3, v1.a_bs, v1.a_r.a(v3)); /* constructor */
-        v1.a_arrLcl[v3] = new OpponentCar(ObfBb.a, v2, v3, v1.a_bs, v1.a_r.a(v3));
+        new OpponentCar(ObfBb.a_cf, v2, v3, v1.a_bs, v1.a_r.a(v3)); /* constructor */
+        v1.a_arrLcl[v3] = new OpponentCar(ObfBb.a_cf, v2, v3, v1.a_bs, v1.a_r.a(v3));
         L327:
         v3 += 1;
         goto L232;
@@ -213,24 +213,24 @@ public class ObfBt extends Screen {
         if (v1 != this.a_r.e()) goto L241;
         if (this.a_r.e_Z != 0) goto L180;
         new java.lang.StringBuffer(); /* constructor */
-        new ObfCl(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
-        this.a_arrLcl[v1] = new ObfCl(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
+        new ObfCl(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
+        this.a_arrLcl[v1] = new ObfCl(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
         goto L383;
         L180:
         new java.lang.StringBuffer(); /* constructor */
-        new OpponentCar(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
-        this.a_arrLcl[v1] = new OpponentCar(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
+        new OpponentCar(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
+        this.a_arrLcl[v1] = new OpponentCar(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
         goto L383;
         L241:
         if (v1 != this.a_r.f()) goto L313;
         new java.lang.StringBuffer(); /* constructor */
-        new GhostCar(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
-        this.a_arrLcl[v1] = new GhostCar(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
+        new GhostCar(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
+        this.a_arrLcl[v1] = new GhostCar(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
         goto L383;
         L313:
         new java.lang.StringBuffer(); /* constructor */
-        new PlayerCar(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
-        this.a_arrLcl[v1] = new PlayerCar(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
+        new PlayerCar(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
+        this.a_arrLcl[v1] = new PlayerCar(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
         this.a_arrLcl[v1].b(ObfR.m);
         L383:
         v1 += 1;
@@ -322,7 +322,7 @@ public class ObfBt extends Screen {
         goto L19;
         L50:
         v1 = ((int) this.a.a());
-        if (ObfR.a != 25) goto L71;
+        if (ObfR.a_B != 25) goto L71;
         this.c(0.0f);
         L71:
         this.a.a(v1, ObfBt.a_j);
@@ -346,7 +346,7 @@ public class ObfBt extends Screen {
     }
     // bytecode 81 bytes, max_stack 4, max_locals 4
     public void a(Graphics v1) {
-        if (Settings.f == 0) goto L28;
+        if (Settings.f_Z == 0) goto L28;
         if (Settings.j == 1) goto L20;
         if (Settings.j != 2) goto L28;
         L20:
@@ -409,7 +409,7 @@ public class ObfBt extends Screen {
         if (this.e != 0) goto L39;
         this.e = 1;
         L39:
-        if (Settings.f == 0) goto L83;
+        if (Settings.f_Z == 0) goto L83;
         if (Settings.j == 1) goto L59;
         if (Settings.j != 2) goto L83;
         L59:
@@ -486,7 +486,7 @@ public class ObfBt extends Screen {
         L504:
         jt2 = 6.0f; /* join L506 from L504 */
         L506:
-        if (Settings.a != 1) goto L518;
+        if (Settings.a_B != 1) goto L518;
         jt3 = 10.100000381469727f; /* join L520 from L513 */
         goto L520;
         L518:
@@ -826,11 +826,11 @@ public class ObfBt extends Screen {
         if (this.b_Z != Settings.e()) goto L56;
         if (this.c_Z == Settings.f()) goto L115;
         L56:
-        this.a_bs.a(ObfBb.a);
+        this.a_bs.a(ObfBb.a_cf);
         int v1 = 0;
         L68:
         if (v1 >= this.a_r.d()) goto L98;
-        this.a_arrLcl[v1].a(ObfBb.a, true);
+        this.a_arrLcl[v1].a(ObfBb.a_cf, true);
         v1 += 1;
         goto L68;
         L98:
@@ -839,12 +839,12 @@ public class ObfBt extends Screen {
         goto L134;
         L115:
         if (Settings.d_Z == ObfAr.a_Z) goto L134;
-        this.a_bs.b(ObfBb.a);
+        this.a_bs.b(ObfBb.a_cf);
         L134:
         v1 = 0;
         L136:
         if (v1 >= this.a_r.d()) goto L165;
-        this.a_arrLcl[v1].a(ObfBb.a);
+        this.a_arrLcl[v1].a(ObfBb.a_cf);
         v1 += 1;
         goto L136;
         L165:
@@ -875,38 +875,38 @@ public class ObfBt extends Screen {
     // bytecode 285 bytes, max_stack 5, max_locals 3
     public void a(int v1, int v2) {
         if (Settings.l() != 0) goto L34;
-        if (v1 <= (SysUtil.e - 70)) goto L66;
+        if (v1 <= (SysUtil.e_I - 70)) goto L66;
         if (v2 >= 70) goto L66;
         this.a_r.a().f(3);
         return;
         L34:
-        if (v1 <= (SysUtil.e - 70)) goto L66;
-        if (v2 <= (SysUtil.f - 70)) goto L66;
+        if (v1 <= (SysUtil.e_I - 70)) goto L66;
+        if (v2 <= (SysUtil.f_I - 70)) goto L66;
         this.a_r.a().f(3);
         return;
         L66:
         if (Settings.l() != 0) goto L115;
-        if (v2 <= ((3 * SysUtil.f) / 4)) goto L92;
+        if (v2 <= ((3 * SysUtil.f_I) / 4)) goto L92;
         this.b_F = -1.0f;
         goto L210;
         L92:
-        this.c_F = ((1.5f * ((float) (v1 - (SysUtil.e / 2)))) / ((float) SysUtil.e));
+        this.c_F = ((1.5f * ((float) (v1 - (SysUtil.e_I / 2)))) / ((float) SysUtil.e_I));
         goto L210;
         L115:
         if (Settings.l() != 1) goto L163;
-        if (v1 >= (SysUtil.e / 4)) goto L140;
+        if (v1 >= (SysUtil.e_I / 4)) goto L140;
         this.b_F = -1.0f;
         goto L210;
         L140:
-        this.c_F = ((1.5f * ((float) (v2 - (SysUtil.f / 2)))) / ((float) SysUtil.f));
+        this.c_F = ((1.5f * ((float) (v2 - (SysUtil.f_I / 2)))) / ((float) SysUtil.f_I));
         goto L210;
         L163:
         if (Settings.l() != 3) goto L210;
-        if (v1 <= ((3 * SysUtil.e) / 4)) goto L190;
+        if (v1 <= ((3 * SysUtil.e_I) / 4)) goto L190;
         this.b_F = -1.0f;
         goto L210;
         L190:
-        this.c_F = ((1.5f * ((float) (SysUtil.f - (v2 / 2)))) / ((float) SysUtil.f));
+        this.c_F = ((1.5f * ((float) (SysUtil.f_I - (v2 / 2)))) / ((float) SysUtil.f_I));
         L210:
         if (fcmpg(this.c_F, 0.0f) <= 0) goto L237;
         this.c_F = 1.100000023841858f;

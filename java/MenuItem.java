@@ -65,7 +65,7 @@ public class MenuItem extends Widget {
         return;
         L41:
         if (Settings.l() != 1) goto L84;
-        SysUtil.a(v1, ((SysUtil.e - ((v3 + this.f()) - 1)) - this.a()), 0, this.a(), v1.getClipHeight(), 10066329, 7829367, true);
+        SysUtil.a(v1, ((SysUtil.e_I - ((v3 + this.f()) - 1)) - this.a()), 0, this.a(), v1.getClipHeight(), 10066329, 7829367, true);
         return;
         L84:
         if (Settings.l() != 3) goto L115;
@@ -94,7 +94,7 @@ public class MenuItem extends Widget {
         L46:
         if (v12 > v6.length) goto L392;
         if (v12 == v6.length) goto L78;
-        if (v6[v12] != SysUtil.a.a(32)) goto L352;
+        if (v6[v12] != SysUtil.a_p.a(32)) goto L352;
         L78:
         if (v4 < 0) goto L113;
         if (v8 <= v4) goto L113;
@@ -113,7 +113,7 @@ public class MenuItem extends Widget {
         goto L336;
         L200:
         if (Settings.l() != 1) goto L269;
-        this.a.a(v1, v6, v7, (v12 - v7), (SysUtil.e - ((v3 + this.f()) + (v10 * ((this.a.a(v5) + 1) + this.a_I)))), (((v9 + v2) + this.e()) - 2), 0);
+        this.a.a(v1, v6, v7, (v12 - v7), (SysUtil.e_I - ((v3 + this.f()) + (v10 * ((this.a.a(v5) + 1) + this.a_I)))), (((v9 + v2) + this.e()) - 2), 0);
         goto L336;
         L269:
         if (Settings.l() != 3) goto L336;
@@ -153,7 +153,7 @@ public class MenuItem extends Widget {
         L31:
         if (v7 > v2.length) goto L157;
         if (v7 == v2.length) goto L60;
-        if (v2[v7] != SysUtil.a.a(32)) goto L121;
+        if (v2[v7] != SysUtil.a_p.a(32)) goto L121;
         L60:
         if (v3 <= v1) goto L91;
         if (v7 < v2.length) goto L77;
@@ -200,7 +200,7 @@ public class MenuItem extends Widget {
         L22:
         if (v7 > v2.length) goto L144;
         if (v7 == v2.length) goto L51;
-        if (v2[v7] != SysUtil.a.a(32)) goto L108;
+        if (v2[v7] != SysUtil.a_p.a(32)) goto L108;
         L51:
         if (v1 < 0) goto L78;
         if (v3 <= v1) goto L78;

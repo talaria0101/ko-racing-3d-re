@@ -113,7 +113,7 @@ public class CarPhysics {
     public float k() {
         float v1 = (this.u * 10.0f);
         if (Settings.m != 2) goto L44;
-        if (ObfCl.f != 0) goto L44;
+        if (ObfCl.f_Z != 0) goto L44;
         if (fcmpg(this.u, 3.0f) <= 0) goto L44;
         v1 = (v1 - ((this.u - 3.0f) * 9.0f));
         L44:
@@ -154,7 +154,7 @@ public class CarPhysics {
     // bytecode 34 bytes, max_stack 2, max_locals 1
     public float t() {
         if (Settings.m != 2) goto L27;
-        if (ObfCl.f != 0) goto L27;
+        if (ObfCl.f_Z != 0) goto L27;
         if (ObfR.r != 0) goto L27;
         return (this.r + 10.0f);
         L27:
@@ -163,7 +163,7 @@ public class CarPhysics {
     // bytecode 32 bytes, max_stack 2, max_locals 1
     public float u() {
         if (Settings.m != 2) goto L27;
-        if (ObfCl.f != 0) goto L27;
+        if (ObfCl.f_Z != 0) goto L27;
         if (ObfR.r != 0) goto L27;
         return (this.s + 10.0f);
         L27:
@@ -172,7 +172,7 @@ public class CarPhysics {
     // bytecode 48 bytes, max_stack 4, max_locals 1
     public float v() {
         if (Settings.m != 2) goto L32;
-        if (ObfCl.f != 0) goto L32;
+        if (ObfCl.f_Z != 0) goto L32;
         return ((this.t * (1.0f + (((float) this.b_I) / 10.0f))) * 1.2000000476837158f);
         L32:
         return (this.t * (1.0f + (((float) this.b_I) / 10.0f)));

@@ -118,11 +118,11 @@ public class CarSpec {
         this.c[v1] = StreamReader.a(v2);
         this.d[v1] = StreamReader.a(v2);
         v2.close();
-        ObfAt.a = true;
+        ObfAt.a_Z = true;
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        new ObfAt(ObfBb.a, new java.lang.StringBuffer().append("/models/").append(v3).toString(), new java.lang.StringBuffer().append("/tex/").append(v4).toString()); /* constructor */
-        this.a_arrLat[v1] = new ObfAt(ObfBb.a, new java.lang.StringBuffer().append("/models/").append(v3).toString(), new java.lang.StringBuffer().append("/tex/").append(v4).toString());
+        new ObfAt(ObfBb.a_cf, new java.lang.StringBuffer().append("/models/").append(v3).toString(), new java.lang.StringBuffer().append("/tex/").append(v4).toString()); /* constructor */
+        this.a_arrLat[v1] = new ObfAt(ObfBb.a_cf, new java.lang.StringBuffer().append("/models/").append(v3).toString(), new java.lang.StringBuffer().append("/tex/").append(v4).toString());
         if (CarSpec.a_Transf != null) goto L186;
         if (this.a_arrLat[v1].a == null) goto L186;
         new javax.microedition.m3g.Transform(); /* constructor */

@@ -8,7 +8,7 @@ public class GlyphTable {
     public GlyphTable(String v1, Font v2) {
         super();
         this.a = null;
-        this.a = new Obf[B[SysUtil.c]#1;
+        this.a = new Obf[B[SysUtil.c_I]#1;
         this.a(v1, v2);
         return;
     }
@@ -37,7 +37,7 @@ public class GlyphTable {
         if (v6 != 0) goto L125;
         L89:
         if (v5 != 231) goto L102;
-        Settings.e = v4;
+        Settings.e_String = v4;
         L102:
         this.a[v5] = v2.a(v4);
         v4 = "";
@@ -58,7 +58,7 @@ public class GlyphTable {
     }
     // bytecode 14 bytes, max_stack 4, max_locals 3
     public void a(int v1, String v2) {
-        this.a[v1] = SysUtil.a.a(v2);
+        this.a[v1] = SysUtil.a_p.a(v2);
         return;
     }
 }

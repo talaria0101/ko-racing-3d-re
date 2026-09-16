@@ -45,7 +45,7 @@ public class WidgetGroup extends Widget {
         this.f = false;
         this.a = new Widget[v6]#1;
         this.a_I = 0;
-        this.k = SysUtil.d;
+        this.k = SysUtil.d_I;
         this.d = v7;
         this.h = v5;
         this.a(1);
@@ -147,8 +147,8 @@ public class WidgetGroup extends Widget {
         v1.drawLine((this.e() + v2), ((this.e + v3) - v8), (((this.e() + v2) + this.b()) - 1), ((this.e + v3) - v8));
         v1.drawLine((this.e() + v2), (this.e + v3), (((this.e() + v2) + this.b()) - 1), (this.e + v3));
         L409:
-        v1.setClip((this.e() + v2), (((this.e + v3) + 4) + SysUtil.d), this.b(), ((this.a() - (2 * (4 + SysUtil.d))) - this.m));
-        v8 = SysUtil.d;
+        v1.setClip((this.e() + v2), (((this.e + v3) + 4) + SysUtil.d_I), this.b(), ((this.a() - (2 * (4 + SysUtil.d_I))) - this.m));
+        v8 = SysUtil.d_I;
         int v9 = 1;
         L460:
         if (v9 >= this.a_I) goto L539;
@@ -177,8 +177,8 @@ public class WidgetGroup extends Widget {
         v1.drawLine(((this.e + v3) - v8), (this.e() + v2), ((this.e + v3) - v8), (((this.e() + v2) + this.b()) - 1));
         v1.drawLine((this.e + v3), (this.e() + v2), (this.e + v3), (((this.e() + v2) + this.b()) - 1));
         L807:
-        v1.setClip((((this.e + v3) + 4) + SysUtil.d), (this.e() + v2), (this.a() - (2 * (4 + SysUtil.d))), this.b());
-        v8 = SysUtil.d;
+        v1.setClip((((this.e + v3) + 4) + SysUtil.d_I), (this.e() + v2), (this.a() - (2 * (4 + SysUtil.d_I))), this.b());
+        v8 = SysUtil.d_I;
         v9 = 1;
         L853:
         if (v9 >= this.a_I) goto L932;
@@ -207,8 +207,8 @@ public class WidgetGroup extends Widget {
         v1.drawLine((v6 - ((this.e + v3) - v8)), (this.e() + v2), (v6 - ((this.e + v3) - v8)), (((this.e() + v2) + this.b()) - 1));
         v1.drawLine((v6 - (this.e + v3)), (this.e() + v2), (v6 - (this.e + v3)), (((this.e() + v2) + this.b()) - 1));
         L1237:
-        v1.setClip((((v6 - (((this.e + v3) + 4) + SysUtil.d)) - this.a()) + (2 * (4 + SysUtil.d))), (this.e() + v2), (this.a() - (2 * (4 + SysUtil.d))), this.b());
-        v8 = SysUtil.d;
+        v1.setClip((((v6 - (((this.e + v3) + 4) + SysUtil.d_I)) - this.a()) + (2 * (4 + SysUtil.d_I))), (this.e() + v2), (this.a() - (2 * (4 + SysUtil.d_I))), this.b());
+        v8 = SysUtil.d_I;
         v9 = 1;
         L1299:
         if (v9 >= this.a_I) goto L1378;
@@ -260,12 +260,12 @@ public class WidgetGroup extends Widget {
     // bytecode 138 bytes, max_stack 6, max_locals 3
     public void i(int v1) {
         int v2 = (this.f() + this.a[v1].f());
-        if (((this.f() + this.a[v1].f()) + this.a[v1].a()) <= (((((this.e + this.h) - SysUtil.d) - 6) - this.m) - 10)) goto L99;
-        this.l = (this.l + ((((((this.e + this.h) - (v2 + this.a[v1].a())) - SysUtil.d) - 6) - this.m) - 10));
+        if (((this.f() + this.a[v1].f()) + this.a[v1].a()) <= (((((this.e + this.h) - SysUtil.d_I) - 6) - this.m) - 10)) goto L99;
+        this.l = (this.l + ((((((this.e + this.h) - (v2 + this.a[v1].a())) - SysUtil.d_I) - 6) - this.m) - 10));
         return;
         L99:
         if (v2 >= (this.e + this.m)) goto L137;
-        this.l = (this.l - (((v2 - this.e) - (2 * WidgetGroup.i)) - SysUtil.d));
+        this.l = (this.l - (((v2 - this.e) - (2 * WidgetGroup.i)) - SysUtil.d_I));
         L137:
         return;
     }

@@ -22,7 +22,7 @@ public class ObfCe {
         this.b_arrF = null;
         this.e = null;
         this.a_F = 0.0f;
-        int v1 = ((int) (((float) (SysUtil.e * SysUtil.f)) * 0.0010000000474974513f));
+        int v1 = ((int) (((float) (SysUtil.e_I * SysUtil.f_I)) * 0.0010000000474974513f));
         this.a = new int[v1]#1;
         this.b = new int[v1]#2;
         this.a_arrF = new float[v1]#3;
@@ -33,8 +33,8 @@ public class ObfCe {
         int v2 = 0;
         L108:
         if (v2 >= v1) goto L205;
-        this.a[v2] = KORa.rand.nextInt(SysUtil.e);
-        this.b[v2] = KORa.rand.nextInt(SysUtil.f);
+        this.a[v2] = KORa.rand.nextInt(SysUtil.e_I);
+        this.b[v2] = KORa.rand.nextInt(SysUtil.f_I);
         this.a_arrF[v2] = (KORa.rand.nextFloat() * 255.0f);
         this.c[v2] = (KORa.rand.nextInt(18) / 17);
         this.d[v2] = (KORa.rand.nextInt((18 - this.c[v2])) / 17);
@@ -50,8 +50,8 @@ public class ObfCe {
         int v4 = 0;
         L28:
         if (v4 >= this.a_arrF.length) goto L174;
-        int v2 = ((int) (((float) this.a[v4]) + (this.a_F * (((float) this.a[v4]) - (((float) SysUtil.e) / 2.0f)))));
-        int v3 = ((int) (((float) this.b[v4]) + (this.a_F * (((float) this.b[v4]) - (((float) SysUtil.f) / 2.0f)))));
+        int v2 = ((int) (((float) this.a[v4]) + (this.a_F * (((float) this.a[v4]) - (((float) SysUtil.e_I) / 2.0f)))));
+        int v3 = ((int) (((float) this.b[v4]) + (this.a_F * (((float) this.b[v4]) - (((float) SysUtil.f_I) / 2.0f)))));
         if (((int) this.a_arrF[v4]) <= 80) goto L144;
         jt1 = (((int) this.a_arrF[v4]) - 80); /* join L145 from L130 */
         goto L145;

@@ -7,53 +7,53 @@ public class MenuScreen extends ObfR {
     public MenuScreen() {
         super();
         this.q = 56;
-        ObfCl.f = false;
+        ObfCl.f_Z = false;
         return;
     }
     // bytecode 16 bytes, max_stack 2, max_locals 2
     public MenuScreen(MainCanvas v1) {
         super(v1);
         this.p = 45;
-        ObfCl.f = false;
+        ObfCl.f_Z = false;
         return;
     }
     // bytecode 365 bytes, max_stack 4, max_locals 5
     public void b() {
-        InputStream v1 = Resources.a(MenuScreen.c);
-        /* pop: Resources.a(MenuScreen.c).skip(((long) MenuScreen.g)); */
-        MenuScreen.k = StreamReader.a(v1);
-        MenuScreen.j = StreamReader.a(v1);
+        InputStream v1 = Resources.a(ObfR.c_String);
+        /* pop: Resources.a(ObfR.c_String).skip(((long) ObfR.g)); */
+        ObfR.k = StreamReader.a(v1);
+        ObfR.j = StreamReader.a(v1);
         if (StreamReader.a(v1) <= 0) goto L41;
         jt1 = 1; /* join L42 from L37 */
         goto L42;
         L41:
         jt1 = 0; /* join L42 from L41 */
         L42:
-        MenuScreen.a = jt1;
-        if (MenuScreen.h != -10) goto L63;
-        MenuScreen.h = StreamReader.a(v1);
+        ObfR.a_Z = jt1;
+        if (ObfR.h != -10) goto L63;
+        ObfR.h = StreamReader.a(v1);
         goto L68;
         L63:
         /* pop: StreamReader.a(v1); */
         L68:
-        MenuScreen.m = StreamReader.a(v1);
-        MenuScreen.l = StreamReader.a(v1);
-        MenuScreen.c = new int[StreamReader.a(v1)]#1;
-        if (MenuScreen.l <= 3) goto L214;
+        ObfR.m = StreamReader.a(v1);
+        ObfR.l = StreamReader.a(v1);
+        ObfR.c_arrI = new int[StreamReader.a(v1)]#1;
+        if (ObfR.l <= 3) goto L214;
         int v3 = 0;
         L97:
         if (v3 >= 3) goto L173;
         L102:
         int v2 = 1;
-        MenuScreen.c[v3] = KORa.rand.nextInt(4);
-        if (MenuScreen.c[v3] != MenuScreen.h) goto L132;
+        ObfR.c_arrI[v3] = KORa.rand.nextInt(4);
+        if (ObfR.c_arrI[v3] != ObfR.h) goto L132;
         v2 = 0;
         goto L163;
         L132:
         int v4 = 0;
         L135:
         if (v4 >= v3) goto L163;
-        if (MenuScreen.c[v3] != MenuScreen.c[v4]) goto L157;
+        if (ObfR.c_arrI[v3] != ObfR.c_arrI[v4]) goto L157;
         v2 = 0;
         L157:
         v4 += 1;
@@ -63,20 +63,20 @@ public class MenuScreen extends ObfR {
         v3 += 1;
         goto L97;
         L173:
-        MenuScreen.c[3] = MenuScreen.h;
-        if (MenuScreen.l <= 4) goto L360;
+        ObfR.c_arrI[3] = ObfR.h;
+        if (ObfR.l <= 4) goto L360;
         L188:
-        MenuScreen.c[4] = KORa.rand.nextInt(4);
-        if (MenuScreen.c[4] == MenuScreen.h) goto L188;
+        ObfR.c_arrI[4] = KORa.rand.nextInt(4);
+        if (ObfR.c_arrI[4] == ObfR.h) goto L188;
         goto L360;
         L214:
         v3 = 0;
         L216:
-        if (v3 >= MenuScreen.l) goto L360;
+        if (v3 >= ObfR.l) goto L360;
         L223:
         v2 = 1;
-        v4 = MenuScreen.m;
-        if (MenuScreen.m != 3) goto L238;
+        v4 = ObfR.m;
+        if (ObfR.m != 3) goto L238;
         v4 = 4;
         L238:
         v4 = ((KORa.rand.nextInt(4) + v4) - 1);
@@ -95,15 +95,15 @@ public class MenuScreen extends ObfR {
         if (v4 != 2) goto L296;
         v4 = 5;
         L296:
-        MenuScreen.c[v3] = v4;
-        if (MenuScreen.c[v3] != MenuScreen.h) goto L319;
+        ObfR.c_arrI[v3] = v4;
+        if (ObfR.c_arrI[v3] != ObfR.h) goto L319;
         v2 = 0;
         goto L350;
         L319:
         v4 = 0;
         L322:
         if (v4 >= v3) goto L350;
-        if (MenuScreen.c[v3] != MenuScreen.c[v4]) goto L344;
+        if (ObfR.c_arrI[v3] != ObfR.c_arrI[v4]) goto L344;
         v2 = 0;
         L344:
         v4 += 1;
@@ -132,7 +132,7 @@ public class MenuScreen extends ObfR {
         this.a.j(0);
         this.a.k(this.c());
         this.a.a(0);
-        this.a.e(MenuScreen.o);
+        this.a.e(ObfR.o);
         return;
     }
     // bytecode 477 bytes, max_stack 6, max_locals 7
@@ -158,26 +158,26 @@ public class MenuScreen extends ObfR {
         v4 = (v4 + 10);
         v3 = ((int) SysUtil.a(58));
         v2 = ((Image) SysUtil.p.a(v3));
-        int v6 = (SysUtil.p.a(MenuScreen.d) + 1);
+        int v6 = (SysUtil.p.a(ObfR.d) + 1);
         SysUtil.p.a(v1, v3, v4, v5);
-        SysUtil.p.a(v1, MenuScreen.d, ((v4 + v2) + 10), v5);
+        SysUtil.p.a(v1, ObfR.d, ((v4 + v2) + 10), v5);
         SysUtil.p.a(v1, SysUtil.a(59), (((v4 + v2) + v6) + 10), v5);
         v5 = (v5 + (SysUtil.p.a() + 5));
         v3 = ((int) SysUtil.a(57));
         SysUtil.p.a(v1, v3, v4, v5);
-        SysUtil.p.a(v1, MenuScreen.k, ((v4 + v2) + 10), v5);
+        SysUtil.p.a(v1, ObfR.k, ((v4 + v2) + 10), v5);
         v5 = (v5 + (SysUtil.p.a() + 5));
         v3 = ((int) SysUtil.a(60));
         SysUtil.p.a(v1, v3, v4, v5);
-        SysUtil.p.a(v1, MenuScreen.l, ((v4 + v2) + 10), v5);
+        SysUtil.p.a(v1, ObfR.l, ((v4 + v2) + 10), v5);
         v5 = (v5 + (SysUtil.p.a() + 5));
         v3 = ((int) SysUtil.a(165));
         SysUtil.p.a(v1, v3, v4, v5);
-        SysUtil.p.a(v1, SysUtil.a((76 + MenuScreen.j)), ((v4 + v2) + 10), v5);
+        SysUtil.p.a(v1, SysUtil.a((76 + ObfR.j)), ((v4 + v2) + 10), v5);
         v5 = (v5 + (SysUtil.p.a() + 5));
         v3 = ((int) SysUtil.a(138));
         SysUtil.p.a(v1, v3, v4, v5);
-        SysUtil.p.a(v1, SysUtil.a((133 + MenuScreen.m)), ((v4 + v2) + 10), v5);
+        SysUtil.p.a(v1, SysUtil.a((133 + ObfR.m)), ((v4 + v2) + 10), v5);
         return;
     }
     // bytecode 12 bytes, max_stack 2, max_locals 1
@@ -197,10 +197,10 @@ public class MenuScreen extends ObfR {
     public void k() {
         int v1 = this.a.a(this.e()).f();
         if (this.a.a(this.e()).f() == 0) goto L32;
-        if (v1 <= MenuScreen.o) goto L36;
-        if (MenuScreen.o == 0) goto L36;
+        if (v1 <= ObfR.o) goto L36;
+        if (ObfR.o == 0) goto L36;
         L32:
-        v1 = MenuScreen.o;
+        v1 = ObfR.o;
         L36:
         this.a.e(v1);
         return;

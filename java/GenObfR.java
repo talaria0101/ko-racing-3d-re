@@ -130,7 +130,7 @@ public class ObfR extends Screen {
         this.d_Image = null;
         this.e_Image = null;
         ObfR.a_B = 21;
-        ObfCl.f = false;
+        ObfCl.f_Z = false;
         return;
     }
     // bytecode 257 bytes, max_stack 5, max_locals 2
@@ -184,7 +184,7 @@ public class ObfR extends Screen {
         ObfR.b_Z = false;
         this.a = v1;
         this.i();
-        ObfCl.f = false;
+        ObfCl.f_Z = false;
         return;
     }
     // bytecode 332 bytes, max_stack 4, max_locals 5
@@ -356,12 +356,12 @@ public class ObfR extends Screen {
         this.b = (ObfR.l + 1);
         this.a_String = new java.lang.String[this.b]#1;
         if (ObfR.h >= 50) goto L73;
-        this.a_String[0] = CarSpec.a_String[ObfR.h];
+        this.a_String[0] = CarSpec.a[ObfR.h];
         L73:
         int v1 = 0;
         L75:
         if (v1 >= ObfR.l) goto L105;
-        this.a_String[(v1 + 1)] = CarSpec.a_String[ObfR.c_arrI[v1]];
+        this.a_String[(v1 + 1)] = CarSpec.a[ObfR.c_arrI[v1]];
         v1 += 1;
         goto L75;
         L105:
@@ -455,8 +455,8 @@ public class ObfR extends Screen {
     }
     // bytecode 19 bytes, max_stack 3, max_locals 1
     public void i() {
-        if (Settings.d.length() <= 0) goto L18;
-        this.b_String[0] = Settings.d;
+        if (Settings.d_String.length() <= 0) goto L18;
+        this.b_String[0] = Settings.d_String;
         L18:
         return;
     }
@@ -543,7 +543,7 @@ public class ObfR extends Screen {
         /* try L176-L212 catch java.io.IOException -> L215 */
         if (this.a() == 0) goto L169;
         if (this.d_Image != null) goto L54;
-        if (SysUtil.e <= 200) goto L38;
+        if (SysUtil.e_I <= 200) goto L38;
         this.d_Image = javax.microedition.lcdui.Image.createImage(Resources.a("/images/w.png"));
         goto L54;
         L38:
@@ -559,7 +559,7 @@ public class ObfR extends Screen {
         return;
         L169:
         if (this.e_Image != null) goto L216;
-        if (SysUtil.e <= 200) goto L200;
+        if (SysUtil.e_I <= 200) goto L200;
         this.e_Image = javax.microedition.lcdui.Image.createImage(Resources.a("/images/lo.png"));
         goto L216;
         L200:
@@ -669,7 +669,7 @@ public class ObfR extends Screen {
         int v8 = ((v6 * 2) + v7);
         if ((Settings.m() % 2) != 1) goto L186;
         if (v3.b_Image == null) goto L167;
-        if (v3.b_Image.getWidth() >= (SysUtil.e - 20)) goto L186;
+        if (v3.b_Image.getWidth() >= (SysUtil.e_I - 20)) goto L186;
         L167:
         v3.b_Image = javax.microedition.lcdui.Image.createImage((v4.getClipWidth() - 20), (v6 * 2));
         L186:
@@ -874,7 +874,7 @@ public class ObfR extends Screen {
     // bytecode 14 bytes, max_stack 2, max_locals 1
     public void m() {
         ObfR.a_B = 27;
-        this.a_F = ((float) SysUtil.e);
+        this.a_F = ((float) SysUtil.e_I);
         return;
     }
     // bytecode 67 bytes, max_stack 4, max_locals 3
@@ -970,8 +970,8 @@ public class ObfR extends Screen {
     // bytecode 43 bytes, max_stack 6, max_locals 1
     public void p() {
         new java.lang.StringBuffer(); /* constructor */
-        new ObfBs(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a_String).toString()), ObfR.a_Z); /* constructor */
-        this.a_bs = new ObfBs(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a_String).toString()), ObfR.a_Z);
+        new ObfBs(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a_String).toString()), ObfR.a_Z); /* constructor */
+        this.a_bs = new ObfBs(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a_String).toString()), ObfR.a_Z);
         return;
     }
     // bytecode 76 bytes, max_stack 7, max_locals 2
@@ -1282,7 +1282,7 @@ public class ObfR extends Screen {
         if (v2 <= (SysUtil.f_I - 150)) goto L61;
         this.a(-202);
         L61:
-        if (v1 <= (SysUtil.e - 100)) goto L134;
+        if (v1 <= (SysUtil.e_I - 100)) goto L134;
         if (v2 <= (SysUtil.f_I - 150)) goto L134;
         this.a(-203);
         return;
@@ -1302,12 +1302,12 @@ public class ObfR extends Screen {
         return;
         L153:
         if (Settings.l() != 0) goto L183;
-        if (v1 <= (SysUtil.e - 70)) goto L211;
+        if (v1 <= (SysUtil.e_I - 70)) goto L211;
         if (v2 >= 70) goto L211;
         this.a(-202);
         return;
         L183:
-        if (v1 <= (SysUtil.e - 70)) goto L211;
+        if (v1 <= (SysUtil.e_I - 70)) goto L211;
         if (v2 <= (SysUtil.f_I - 70)) goto L211;
         this.a(-202);
         return;

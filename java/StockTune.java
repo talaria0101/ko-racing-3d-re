@@ -13,11 +13,11 @@ public class StockTune extends CarPhysics {
     }
     // bytecode 20 bytes, max_stack 3, max_locals 1
     public float t() {
-        return (((this.r * Settings.b) * ((float) (this.b + 3))) / 7.0f);
+        return (((this.r * Settings.b_F) * ((float) (this.b + 3))) / 7.0f);
     }
     // bytecode 9 bytes, max_stack 2, max_locals 1
     public float u() {
-        return (this.s * Settings.a);
+        return (this.s * Settings.a_F);
     }
 }
 

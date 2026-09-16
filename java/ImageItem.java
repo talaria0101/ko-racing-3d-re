@@ -38,7 +38,7 @@ public class ImageItem extends MenuItem {
         return;
         L92:
         if (Settings.l() != 1) goto L143;
-        v1.drawImage(this.a, (SysUtil.e - (((v3 + this.f()) + ((this.a() - this.a.getHeight()) / 2)) - 1)), (v2 + this.e()), 24);
+        v1.drawImage(this.a, (SysUtil.e_I - (((v3 + this.f()) + ((this.a() - this.a.getHeight()) / 2)) - 1)), (v2 + this.e()), 24);
         return;
         L143:
         if (Settings.l() != 3) goto L404;
@@ -51,7 +51,7 @@ public class ImageItem extends MenuItem {
         return;
         L276:
         if (Settings.l() != 1) goto L340;
-        v1.drawImage(this.a, (SysUtil.e - (((v3 + this.f()) + ((this.a() - this.a.getHeight()) / 2)) - 1)), (((v2 + this.e()) + this.b()) - this.a.getWidth()), 24);
+        v1.drawImage(this.a, (SysUtil.e_I - (((v3 + this.f()) + ((this.a() - this.a.getHeight()) / 2)) - 1)), (((v2 + this.e()) + this.b()) - this.a.getWidth()), 24);
         return;
         L340:
         if (Settings.l() != 3) goto L404;

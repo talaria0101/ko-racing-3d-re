@@ -14,11 +14,11 @@ public class ImageBackground extends BackgroundPass {
         new javax.microedition.m3g.Transform(); /* constructor */
         this.a_Transf = new javax.microedition.m3g.Transform();
         this.a.setColor(Settings.h);
-        String v2 = Settings.a;
+        String v2 = Settings.a_String_2;
         ImageBackground v1 = this;
         v2 = ((String) javax.microedition.lcdui.Image.createImage(Resources.a(v2)));
-        new ObfCq(v2, false, false, Settings.a); /* constructor */
-        v1.a = new ObfCq(v2, false, false, Settings.a);
+        new ObfCq(v2, false, false, Settings.a_Z); /* constructor */
+        v1.a = new ObfCq(v2, false, false, Settings.a_Z);
         java.lang.System.gc();
         return;
         v1 = ((ImageBackground) ex_70);

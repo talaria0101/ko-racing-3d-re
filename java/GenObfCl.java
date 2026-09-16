@@ -297,12 +297,12 @@ public class ObfCl extends ObfCa {
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a_at = ObfBb.a.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c_String).toString(), false, new java.lang.StringBuffer().append("/tex/").append(this.c_String).append("_l").toString());
+        this.a_at = ObfBb.a_de.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c_String).toString(), false, new java.lang.StringBuffer().append("/tex/").append(this.c_String).append("_l").toString());
         goto L174;
         L119:
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a_at = ObfBb.a.b(new java.lang.StringBuffer().append("/models/").append(this.b_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c_String).toString(), false);
+        this.a_at = ObfBb.a_de.b(new java.lang.StringBuffer().append("/models/").append(this.b_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c_String).toString(), false);
         L174:
         if (Settings.d() <= 0) goto L215;
         if (Settings.g() == 0) goto L215;
@@ -394,11 +394,11 @@ public class ObfCl extends ObfCa {
         if (this.g_Z != 0) goto L118;
         if (fcmpl(v2, 1.0f) >= 0) goto L118;
         if (this.a_x.a() == 0) goto L118;
-        if (Settings.m_I != 1) goto L91;
+        if (Settings.m != 1) goto L91;
         if (ObfCl.f_Z == 0) goto L118;
         L91:
         if (Settings.r() != 0) goto L118;
-        if (Settings.m_I != 2) goto L108;
+        if (Settings.m != 2) goto L108;
         /* pop: ObfCl.f_Z; */
         L108:
         v1 = (v1 * (1.399999976158142f - (0.4000000059604645f * v2)));
@@ -452,11 +452,11 @@ public class ObfCl extends ObfCa {
         if (this.g_Z != 0) goto L119;
         if (fcmpl(v2, 1.0f) >= 0) goto L119;
         if (this.a_x.a() == 0) goto L119;
-        if (Settings.m_I != 1) goto L92;
+        if (Settings.m != 1) goto L92;
         if (ObfCl.f_Z == 0) goto L119;
         L92:
         if (Settings.r() != 0) goto L119;
-        if (Settings.m_I != 2) goto L109;
+        if (Settings.m != 2) goto L109;
         /* pop: ObfCl.f_Z; */
         L109:
         v1 = (v1 * (1.399999976158142f - (0.4000000059604645f * v2)));
@@ -555,7 +555,7 @@ public class ObfCl extends ObfCa {
         return;
         L13:
         if (fcmpg(this.a_di.l(), 0.0f) <= 0) goto L98;
-        if (Settings.m_I != 2) goto L60;
+        if (Settings.m != 2) goto L60;
         if (ObfCl.f_Z != 0) goto L60;
         this.a_di.e((((-this.a().q()) * v1) * 2.0f));
         goto L77;
@@ -566,7 +566,7 @@ public class ObfCl extends ObfCa {
         this.a_di.d(0.0f);
         return;
         L98:
-        if (Settings.m_I != 2) goto L132;
+        if (Settings.m != 2) goto L132;
         if (ObfCl.f_Z != 0) goto L132;
         this.a_di.e(((this.a().q() * v1) * 2.0f));
         goto L148;
@@ -665,7 +665,7 @@ public class ObfCl extends ObfCa {
         goto L1085;
         L941:
         ObfCl.i_bz.b(0.0f, 0.0f, 0.0f);
-        if (Settings.m_I != 2) goto L1067;
+        if (Settings.m != 2) goto L1067;
         if (ObfCl.f_Z != 0) goto L1067;
         v3 = ((float) this);
         v3 = ((float) this);
@@ -722,7 +722,7 @@ public class ObfCl extends ObfCa {
         L2118:
         this.a_bz.b((this.h_bz.a() + (v1 * this.b_bz.a())), (this.h_bz.b() + (v1 * this.b_bz.b())), (this.h_bz.c() + (v1 * this.b_bz.c())));
         v1 = this.a_bs.a((this.a_bz.a() - (0.30000001192092896f * this.g_F)), (this.a_bz.b() - (0.30000001192092896f * this.g_F)));
-        v1 = (this.a_bs.a((this.a_bz.a() - (0.30000001192092896f * this.g_F)), (this.a_bz.b() - (0.30000001192092896f * this.g_F))) * ObfAr.c_F);
+        v1 = (this.a_bs.a((this.a_bz.a() - (0.30000001192092896f * this.g_F)), (this.a_bz.b() - (0.30000001192092896f * this.g_F))) * ObfAr.c);
         this.j = true;
         this.k_F = v1;
         v2 = ((ObfCl) (v1 - this.a_bz.c()));
@@ -752,8 +752,8 @@ public class ObfCl extends ObfCa {
         v4 = this.a_bs.a((this.a_bz.a() + (0.30000001192092896f * this.h_F)), (this.a_bz.b() - (0.30000001192092896f * this.g_F)));
         this.k_Z = false;
         if (this.j == 0) goto L2688;
-        this.c_bz.b(1.2000000476837158f, 0.0f, (ObfAr.c_F * (v1 - v2)));
-        this.d_bz.b(0.0f, 0.6000000238418579f, (ObfAr.c_F * (v4 - v3)));
+        this.c_bz.b(1.2000000476837158f, 0.0f, (ObfAr.c * (v1 - v2)));
+        this.d_bz.b(0.0f, 0.6000000238418579f, (ObfAr.c * (v4 - v3)));
         this.k_Z = true;
         this.e_bz.b(this.d_bz, this.c_bz);
         L2688:
@@ -781,13 +781,13 @@ public class ObfCl extends ObfCa {
         int v2 = 0;
         this.a_ct.a(this.a_di.a(), this.a_bz);
         this.o.b((-this.a_di.a().c()), (-this.a_bz.c()), 0.0f);
-        ObfAu.a_ct.a(this.a_di.a(), this.a_bz);
+        ObfAu.a.a(this.a_di.a(), this.a_bz);
         ObfAu.a_bz.b((-this.a_di.a().c()), (-this.a_bz.c()), 0.0f);
         this.k();
         if (this.a_bs.a() == 0) goto L634;
         v1 = ((float) this);
         if (fcmpl(this.a_di.j(), 1.0f) >= 0) goto L141;
-        if (Settings.m_I != 2) goto L141;
+        if (Settings.m != 2) goto L141;
         if (ObfCl.f_Z != 0) goto L141;
         jt1 = 0.800000011920929f; /* join L143 from L136 */
         goto L143;
@@ -1045,37 +1045,37 @@ public class ObfCl extends ObfCa {
     public void a(float v1, float v2, float v3, ObfR v4) {
         float v5 = 0.0f;
         float v6 = 0.0f;
-        if (ObfR.l_I <= 0) goto L177;
+        if (ObfR.l <= 0) goto L177;
         if (this.l_I != 0) goto L42;
-        v5 = (0.0f + (0.30000001192092896f * ObfAr.c_F));
-        v6 = (0.0f + (-0.10000000149011612f * ObfAr.c_F));
+        v5 = (0.0f + (0.30000001192092896f * ObfAr.c));
+        v6 = (0.0f + (-0.10000000149011612f * ObfAr.c));
         goto L195;
         L42:
         if (this.l_I != 1) goto L73;
-        v5 = (0.0f + (0.30000001192092896f * ObfAr.c_F));
-        v6 = (0.0f + (0.10000000149011612f * ObfAr.c_F));
+        v5 = (0.0f + (0.30000001192092896f * ObfAr.c));
+        v6 = (0.0f + (0.10000000149011612f * ObfAr.c));
         goto L195;
         L73:
         if (this.l_I != 2) goto L94;
-        v6 = (0.0f + (-0.10000000149011612f * ObfAr.c_F));
+        v6 = (0.0f + (-0.10000000149011612f * ObfAr.c));
         goto L195;
         L94:
         if (this.l_I != 3) goto L115;
-        v6 = (0.0f + (0.10000000149011612f * ObfAr.c_F));
+        v6 = (0.0f + (0.10000000149011612f * ObfAr.c));
         goto L195;
         L115:
         if (this.l_I != 4) goto L146;
-        v5 = (0.0f - (0.30000001192092896f * ObfAr.c_F));
-        v6 = (0.0f + (-0.10000000149011612f * ObfAr.c_F));
+        v5 = (0.0f - (0.30000001192092896f * ObfAr.c));
+        v6 = (0.0f + (-0.10000000149011612f * ObfAr.c));
         goto L195;
         L146:
         if (this.l_I != 5) goto L195;
-        v5 = (0.0f - (0.30000001192092896f * ObfAr.c_F));
-        v6 = (0.0f + (0.10000000149011612f * ObfAr.c_F));
+        v5 = (0.0f - (0.30000001192092896f * ObfAr.c));
+        v6 = (0.0f + (0.10000000149011612f * ObfAr.c));
         goto L195;
         L177:
         if (v4.e_Z != 0) goto L195;
-        v5 = (0.0f + (0.30000001192092896f * ObfAr.c_F));
+        v5 = (0.0f + (0.30000001192092896f * ObfAr.c));
         L195:
         v4 = ((ObfR) this.a_bs.a(this.a_bs.b(), this.a_bs.c()));
         v4 = ((ObfR) (2 - this.a_bs.a(this.a_bs.b(), this.a_bs.c()).a));

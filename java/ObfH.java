@@ -8,26 +8,26 @@ public class ObfH extends MenuScreen {
     public ObfH(MainCanvas v1) {
         super(v1);
         this.f = false;
-        ObfH.b = false;
+        ObfR.b_Z = false;
         return;
     }
     // bytecode 86 bytes, max_stack 4, max_locals 4
     public void b() {
-        ObfH.c = new int[ObfH.l]#1;
+        ObfR.c_arrI = new int[ObfR.l]#1;
         int v2 = 0;
         L10:
-        if (v2 >= ObfH.l) goto L85;
+        if (v2 >= ObfR.l) goto L85;
         L17:
         int v1 = 1;
-        ObfH.c[v2] = KORa.rand.nextInt(4);
-        if (ObfH.c[v2] != ObfH.h) goto L47;
+        ObfR.c_arrI[v2] = KORa.rand.nextInt(4);
+        if (ObfR.c_arrI[v2] != ObfR.h) goto L47;
         v1 = 0;
         goto L75;
         L47:
         int v3 = 0;
         L49:
         if (v3 >= v2) goto L75;
-        if (ObfH.c[v2] != ObfH.c[v3]) goto L69;
+        if (ObfR.c_arrI[v2] != ObfR.c_arrI[v3]) goto L69;
         v1 = 0;
         L69:
         v3 += 1;
@@ -42,17 +42,17 @@ public class ObfH extends MenuScreen {
     // bytecode 42 bytes, max_stack 5, max_locals 2
     public void a(Graphics v1) {
         if (this.f != 0) goto L36;
-        if (ObfH.a > 21) goto L36;
+        if (ObfR.a_B > 21) goto L36;
         v1.setColor(0);
-        v1.fillRect(0, (SysUtil.f - 25), SysUtil.e, 25);
+        v1.fillRect(0, (SysUtil.f_I - 25), SysUtil.e_I, 25);
         L36:
         this.a(v1);
         return;
     }
     // bytecode 20 bytes, max_stack 2, max_locals 2
     public void a(int v1) {
-        if (ObfH.a != 22) goto L14;
-        ObfH.a = 24;
+        if (ObfR.a_B != 22) goto L14;
+        ObfR.a_B = 24;
         return;
         L14:
         this.a(v1);

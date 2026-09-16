@@ -68,8 +68,8 @@ public class SoundBank extends AudioPlayer {
         L46:
         return 0;
         L48:
-        v3 = ((long) SoundBank.a);
-        if (SoundBank.a == null) goto L77;
+        v3 = ((long) AudioPlayer.a_Player);
+        if (AudioPlayer.a_Player == null) goto L77;
         this.a = v1;
         SoundBank.a_I = v2;
         v3.stop();
@@ -78,17 +78,17 @@ public class SoundBank extends AudioPlayer {
         L75:
         return 0;
         L77:
-        SoundBank.a = this.a(v1);
+        AudioPlayer.a_Player = this.a(v1);
         if (this.a(v1) != null) goto L91;
         return 0;
         L91:
-        SoundBank.a.realize();
-        SoundBank.a.prefetch();
-        /* pop: SoundBank.a.setMediaTime(0L); */
+        AudioPlayer.a_Player.realize();
+        AudioPlayer.a_Player.prefetch();
+        /* pop: AudioPlayer.a_Player.setMediaTime(0L); */
         this.e();
         this.a = java.lang.System.currentTimeMillis();
-        SoundBank.a.start();
-        SoundBank.d = v2;
+        AudioPlayer.a_Player.start();
+        AudioPlayer.d = v2;
         this.a_Z = false;
         goto L149;
         /* pop: ex_148; */
@@ -100,14 +100,14 @@ public class SoundBank extends AudioPlayer {
     public void a() {
         /* try L11-L19 catch javax.microedition.media.MediaException -> L22 */
         this.a_Z = true;
-        if (SoundBank.a == null) goto L23;
-        SoundBank.a.stop();
+        if (AudioPlayer.a_Player == null) goto L23;
+        AudioPlayer.a_Player.stop();
         goto L23;
         /* pop: ex_22; */
         L23:
         this.b = "";
-        SoundBank.a = null;
-        SoundBank.d = m1;
+        AudioPlayer.a_Player = null;
+        AudioPlayer.d = m1;
         this.c = m1;
         return;
     }
@@ -118,13 +118,13 @@ public class SoundBank extends AudioPlayer {
         return;
         L8:
         if (v2.equals("stopped") == 0) goto L42;
-        SoundBank.a = null;
+        AudioPlayer.a_Player = null;
         this.b = "";
         /* pop: this.a(this.a, SoundBank.a_I); */
         goto L129;
         L42:
         if (v2.equals("endOfMedia") == 0) goto L67;
-        SoundBank.a = null;
+        AudioPlayer.a_Player = null;
         this.b = "";
         EngineSounds.c();
         goto L129;
@@ -156,10 +156,10 @@ public class SoundBank extends AudioPlayer {
     }
     // bytecode 47 bytes, max_stack 2, max_locals 2
     public void d() {
-        if (SoundBank.a == null) goto L46;
-        if (SoundBank.a.getState() != 400) goto L46;
-        javax.microedition.media.control.VolumeControl v1 = ((javax.microedition.media.control.VolumeControl) SoundBank.a.getControl("VolumeControl"));
-        if (((javax.microedition.media.control.VolumeControl) SoundBank.a.getControl("VolumeControl")) == null) goto L46;
+        if (AudioPlayer.a_Player == null) goto L46;
+        if (AudioPlayer.a_Player.getState() != 400) goto L46;
+        javax.microedition.media.control.VolumeControl v1 = ((javax.microedition.media.control.VolumeControl) AudioPlayer.a_Player.getControl("VolumeControl"));
+        if (((javax.microedition.media.control.VolumeControl) AudioPlayer.a_Player.getControl("VolumeControl")) == null) goto L46;
         /* pop: v1.setLevel(0); */
         L46:
         return;

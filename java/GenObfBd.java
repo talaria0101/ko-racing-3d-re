@@ -292,8 +292,8 @@ public class ObfBd extends ObfBh {
         v2.h_cm.a(new MenuItem(null, 0, 0, 52, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
         v2.h_cm.a(new ObfCz(3), 0);
-        new ObfCh(v2.h_cm, 0, 0, SysUtil.e, (SysUtil.f - 20)); /* constructor */
-        v2.a_ch = new ObfCh(v2.h_cm, 0, 0, SysUtil.e, (SysUtil.f - 20));
+        new ObfCh(v2.h_cm, 0, 0, SysUtil.e_I, (SysUtil.f_I - 20)); /* constructor */
+        v2.a_ch = new ObfCh(v2.h_cm, 0, 0, SysUtil.e_I, (SysUtil.f_I - 20));
         v2.h_cm.b(1.0f);
         v2.h_cm.a(v2.a_ch, 0);
         v2.h_cm.c = true;
@@ -413,8 +413,8 @@ public class ObfBd extends ObfBh {
         v2.v_cm.a(new MenuItem(null, 0, 0, 166, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
         v2.v_cm.a(new ObfCz(3), 0);
-        new ObfDc(v2.v_cm, 0, 0, SysUtil.e, (SysUtil.f - 20)); /* constructor */
-        v2.a_dc = new ObfDc(v2.v_cm, 0, 0, SysUtil.e, (SysUtil.f - 20));
+        new ObfDc(v2.v_cm, 0, 0, SysUtil.e_I, (SysUtil.f_I - 20)); /* constructor */
+        v2.a_dc = new ObfDc(v2.v_cm, 0, 0, SysUtil.e_I, (SysUtil.f_I - 20));
         v2.v_cm.a(v2.a_dc, 0);
         v2.v_cm.b(1.0f);
         v2 = v1;
@@ -705,8 +705,8 @@ public class ObfBd extends ObfBh {
         v1.m_I = 0;
         goto L442;
         L309:
-        if (ObfW.a_m == null) goto L325;
-        v1.a_m = ObfW.a_m;
+        if (ObfW.a == null) goto L325;
+        v1.a_m = ObfW.a;
         goto L442;
         L325:
         if (v1.a_m != null) goto L343;
@@ -736,7 +736,7 @@ public class ObfBd extends ObfBh {
         L442:
         v1.c(0);
         v1.k.g();
-        if (MainMenu.a >= 0) goto L483;
+        if (MainMenu.a_I >= 0) goto L483;
         v1.w.b(216);
         v1.x.b(217);
         goto L503;
@@ -758,8 +758,8 @@ public class ObfBd extends ObfBh {
         if (this.i.a() == 0) goto L611;
         this.c(0);
         this.i.g();
-        new TextBuffer("/ui/help.txt", (SysUtil.e - 15)); /* constructor */
-        this.a_ch.a(new TextBuffer("/ui/help.txt", (SysUtil.e - 15)));
+        new TextBuffer("/ui/help.txt", (SysUtil.e_I - 15)); /* constructor */
+        this.a_ch.a(new TextBuffer("/ui/help.txt", (SysUtil.e_I - 15)));
         this.a(this.h_cm);
         goto L692;
         L611:
@@ -882,21 +882,21 @@ public class ObfBd extends ObfBh {
         if (this.e != this.n_cm) goto L413;
         if (this.i_I != 0) goto L219;
         if (this.a_af.d() >= this.q_I) goto L128;
-        ObfR.b = this.a_af.a(this.a_af.d());
+        ObfR.b_String_2 = this.a_af.a(this.a_af.d());
         goto L150;
         L128:
-        ObfR.b = this.a.a().b(this.a_arrI[this.a()]);
+        ObfR.b_String_2 = this.a.a().b(this.a_arrI[this.a()]);
         L150:
-        ObfR.k_I = (this.b_af.d() + 1);
-        ObfR.j_I = (this.a_db.a(this.a_db.d()).d() - 76);
-        ObfR.h_I = this.b_arrI[this.d_af.d()];
+        ObfR.k = (this.b_af.d() + 1);
+        ObfR.j = (this.a_db.a(this.a_db.d()).d() - 76);
+        ObfR.h = this.b_arrI[this.d_af.d()];
         this.a.a(true);
         this.f_Z = false;
         this.g_Z = true;
         return;
         L219:
         if (this.i_I != 1) goto L261;
-        ObfR.h_I = this.b_arrI[this.d_af.d()];
+        ObfR.h = this.b_arrI[this.d_af.d()];
         this.a.a(false);
         this.f_Z = false;
         this.g_Z = true;
@@ -904,16 +904,16 @@ public class ObfBd extends ObfBh {
         L261:
         if (this.i_I != 2) goto L413;
         if (this.a_af.d() >= this.q_I) goto L303;
-        ObfR.b = this.a_af.a(this.a_af.d());
+        ObfR.b_String_2 = this.a_af.a(this.a_af.d());
         goto L325;
         L303:
-        ObfR.b = this.a.a().b(this.a_arrI[this.a()]);
+        ObfR.b_String_2 = this.a.a().b(this.a_arrI[this.a()]);
         L325:
-        ObfR.k_I = (this.b_af.d() + 1);
-        ObfR.j_I = (this.a_db.a(this.a_db.d()).d() - 76);
-        ObfR.h_I = this.b_arrI[this.d_af.d()];
-        ObfR.l_I = this.c_af.d();
-        ObfR.m_I = this.b_db.d();
+        ObfR.k = (this.b_af.d() + 1);
+        ObfR.j = (this.a_db.a(this.a_db.d()).d() - 76);
+        ObfR.h = this.b_arrI[this.d_af.d()];
+        ObfR.l = this.c_af.d();
+        ObfR.m = this.b_db.d();
         this.a.B();
         this.f_Z = false;
         this.g_Z = true;
@@ -982,7 +982,7 @@ public class ObfBd extends ObfBh {
         L807:
         this.b(v1);
         if (this.e != this.k_cm) goto L837;
-        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().a(ImageGrid.a_ci, -6);
         goto L868;
         L837:
         if (this.e == this.v_cm) goto L859;
@@ -1013,7 +1013,7 @@ public class ObfBd extends ObfBh {
         L974:
         return;
         L975:
-        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().a(ImageGrid.a_ci, -6);
         /* pop: v2.s_cm.a(v2.a); */
         if (SysUtil.a(v2.a) == -5) goto L1034;
         if (SysUtil.a(v2.a) == -6) goto L1034;
@@ -1085,7 +1085,7 @@ public class ObfBd extends ObfBh {
         return;
         L1411:
         if (v2.a.a().length() <= 0) goto L1438;
-        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().a(ImageGrid.a_ci, -6);
         goto L1447;
         L1438:
         ImageGrid.a().a(null, -6);
@@ -1117,7 +1117,7 @@ public class ObfBd extends ObfBh {
         return;
         L1601:
         /* pop: v2.c_ao.a(); */
-        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().a(ImageGrid.a_ci, -6);
         if (v2.c_ao.c() == 0) goto L1640;
         if (v2.c_ao.d() > 0) goto L1651;
         L1640:
@@ -1145,7 +1145,7 @@ public class ObfBd extends ObfBh {
         return;
         L1772:
         /* pop: v2.c_ao.a(); */
-        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().a(ImageGrid.a_ci, -6);
         if (v2.c_ao.c() == 0) goto L1811;
         if (v2.c_ao.d() > 0) goto L1822;
         L1811:
@@ -1404,7 +1404,7 @@ public class ObfBd extends ObfBh {
         L3100:
         return;
         L3101:
-        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().a(ImageGrid.a_ci, -6);
         v1 = ((float) v2);
         v2.a_cb.b(ObfBd.a_ba.a(v1.b_arrI[v1.d_af.d()]));
         v1.b_cb.b(ObfBd.a_ba.b(v1.b_arrI[v1.d_af.d()]));
@@ -1443,7 +1443,7 @@ public class ObfBd extends ObfBh {
         return;
         L3412:
         if (v2.b_ao.a().length() <= 0) goto L3439;
-        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().a(ImageGrid.a_ci, -6);
         goto L3448;
         L3439:
         ImageGrid.a().a(null, -6);
@@ -1490,8 +1490,8 @@ public class ObfBd extends ObfBh {
         if (SysUtil.a(v2.a) == -6) goto L3664;
         if (SysUtil.b(v2.a) != 8) goto L3701;
         L3664:
-        ObfW.a_m = v2.a_m;
-        ObfW.f = v2.a_m.h();
+        ObfW.a = v2.a_m;
+        ObfR.f_I = v2.a_m.h();
         v2.a.C();
         v2.f_Z = false;
         v2.g_Z = true;
@@ -1534,7 +1534,7 @@ public class ObfBd extends ObfBh {
         L3908:
         Garage.c(22);
         Garage.b(false);
-        if (MainMenu.a >= 0) goto L3946;
+        if (MainMenu.a_I >= 0) goto L3946;
         v2.w.b(216);
         v2.x.b(217);
         goto L4038;
@@ -1574,8 +1574,8 @@ public class ObfBd extends ObfBh {
         v2.z.g();
         v2.v_cm.b(166);
         if (v2.a_ab != null) goto L4156;
-        new Dialog((SysUtil.e - 15), v2.a_m); /* constructor */
-        v2.a_ab = new Dialog((SysUtil.e - 15), v2.a_m);
+        new Dialog((SysUtil.e_I - 15), v2.a_m); /* constructor */
+        v2.a_ab = new Dialog((SysUtil.e_I - 15), v2.a_m);
         L4156:
         v2.a_dc.a(v2.a_ab, true);
         v2.a(v2.v_cm);
@@ -1585,8 +1585,8 @@ public class ObfBd extends ObfBh {
         v2.c(0);
         v2.A.g();
         v2.v_cm.b(52);
-        new TextBuffer("/ui/online.txt", (SysUtil.e - 15)); /* constructor */
-        v2.a_dc.a(new TextBuffer("/ui/online.txt", (SysUtil.e - 15)));
+        new TextBuffer("/ui/online.txt", (SysUtil.e_I - 15)); /* constructor */
+        v2.a_dc.a(new TextBuffer("/ui/online.txt", (SysUtil.e_I - 15)));
         v2.a(v2.v_cm);
         return;
         L4239:
@@ -1595,13 +1595,13 @@ public class ObfBd extends ObfBh {
         v2.v.g();
         v1 = ((float) v2.a_m.e());
         if (v2.a_m.e() != 0) goto L4366;
-        new Dialog((SysUtil.e - 15), v2.a_m); /* constructor */
-        v2.a_ab = new Dialog((SysUtil.e - 15), v2.a_m);
+        new Dialog((SysUtil.e_I - 15), v2.a_m); /* constructor */
+        v2.a_ab = new Dialog((SysUtil.e_I - 15), v2.a_m);
         v2.a_dc.a(null);
         java.lang.System.gc();
         Garage.c(23);
         Garage.b(false);
-        if (MainMenu.a >= 0) goto L4343;
+        if (MainMenu.a_I >= 0) goto L4343;
         v2.w.b(216);
         v2.x.b(217);
         goto L5482;
@@ -1640,7 +1640,7 @@ public class ObfBd extends ObfBh {
         L4487:
         Garage.c(22);
         Garage.b(false);
-        if (MainMenu.a >= 0) goto L4525;
+        if (MainMenu.a_I >= 0) goto L4525;
         v2.w.b(216);
         v2.x.b(217);
         goto L5482;
@@ -1667,7 +1667,7 @@ public class ObfBd extends ObfBh {
         L4597:
         if (v2.w.a() == 0) goto L5087;
         v2.w.g();
-        if (MainMenu.a >= 0) goto L4876;
+        if (MainMenu.a_I >= 0) goto L4876;
         new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
         v2.t_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         new MenuItem(null, 0, 0, 216, SysUtil.b); /* constructor */
@@ -1716,7 +1716,7 @@ public class ObfBd extends ObfBh {
         L5087:
         if (v2.x.a() == 0) goto L5482;
         v2.x.g();
-        if (MainMenu.a >= 0) goto L5311;
+        if (MainMenu.a_I >= 0) goto L5311;
         new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
         v2.t_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         new MenuItem(null, 0, 0, 217, SysUtil.b); /* constructor */
@@ -1836,8 +1836,8 @@ public class ObfBd extends ObfBh {
         L5938:
         if (v3 != 0) goto L5990;
         /* pop: v2.a_m.e(); */
-        new Dialog((SysUtil.e - 15), v2.a_m); /* constructor */
-        v2.a_ab = new Dialog((SysUtil.e - 15), v2.a_m);
+        new Dialog((SysUtil.e_I - 15), v2.a_m); /* constructor */
+        v2.a_ab = new Dialog((SysUtil.e_I - 15), v2.a_m);
         v2.a_dc.a(null);
         java.lang.System.gc();
         Garage.c(59);
@@ -1845,7 +1845,7 @@ public class ObfBd extends ObfBh {
         L5990:
         Garage.c(9);
         L5995:
-        if (MainMenu.a <= 0) goto L6021;
+        if (MainMenu.a_I <= 0) goto L6021;
         v2.w.b(218);
         v2.x.b(219);
         L6021:
@@ -1867,7 +1867,7 @@ public class ObfBd extends ObfBh {
         L6092:
         if (v2.d_ao.a().length() <= 0) goto L6132;
         if (v2.e_ao.a().length() <= 0) goto L6132;
-        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().a(ImageGrid.a_ci, -6);
         goto L6141;
         L6132:
         ImageGrid.a().a(null, -6);
@@ -1898,7 +1898,7 @@ public class ObfBd extends ObfBh {
         L6293:
         Garage.c(9);
         L6298:
-        if (MainMenu.a <= 0) goto L6324;
+        if (MainMenu.a_I <= 0) goto L6324;
         v2.w.b(218);
         v2.x.b(219);
         L6324:
@@ -1907,7 +1907,7 @@ public class ObfBd extends ObfBh {
         if (v2.d_ao.a().length() <= 0) goto L6392;
         if (v2.e_ao.a().length() <= 0) goto L6392;
         if (v2.e_ao.a().compareTo(v2.f_ao.a()) != 0) goto L6392;
-        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().a(ImageGrid.a_ci, -6);
         goto L6401;
         L6392:
         ImageGrid.a().a(null, -6);
@@ -1930,10 +1930,10 @@ public class ObfBd extends ObfBh {
         v2.F.g();
         v2.a(v2.m_cm);
         if (v2.a_m.d() != 0) goto L6592;
-        if (MainMenu.a <= 0) goto L6566;
+        if (MainMenu.a_I <= 0) goto L6566;
         /* pop: v2.a_m.e(); */
-        new Dialog((SysUtil.e - 15), v2.a_m); /* constructor */
-        v2.a_ab = new Dialog((SysUtil.e - 15), v2.a_m);
+        new Dialog((SysUtil.e_I - 15), v2.a_m); /* constructor */
+        v2.a_ab = new Dialog((SysUtil.e_I - 15), v2.a_m);
         v2.a_dc.a(null);
         java.lang.System.gc();
         Garage.c(56);
@@ -1995,8 +1995,8 @@ public class ObfBd extends ObfBh {
         L164:
         if (v1 >= this.a_m.b()) goto L218;
         SysUtil.a(v1, this.a_m.a(v1));
-        new MenuButton(null, 0, 0, (SysUtil.a + v1), SysUtil.b); /* constructor */
-        MenuButton v2 = new MenuButton(null, 0, 0, (SysUtil.a + v1), SysUtil.b);
+        new MenuButton(null, 0, 0, (SysUtil.a_I + v1), SysUtil.b); /* constructor */
+        MenuButton v2 = new MenuButton(null, 0, 0, (SysUtil.a_I + v1), SysUtil.b);
         null.a(v2, 0);
         v1 += 1;
         goto L164;
@@ -2018,7 +2018,7 @@ public class ObfBd extends ObfBh {
     // bytecode 61 bytes, max_stack 6, max_locals 2
     public void i() {
         /* try L7-L39 catch java.io.IOException -> L42 */
-        this.a_m = ObfW.a_m;
+        this.a_m = ObfW.a;
         this.a_cq = null;
         java.lang.System.gc();
         new ObfCq(ObfR.a(this.a_m.a(), "/images/ts2.png", true)); /* constructor */
@@ -2135,23 +2135,23 @@ public class ObfBd extends ObfBh {
         ((ObfCc) this.a).e();
         L18:
         this.d = true;
-        this.b = (5880.0f / ((float) SysUtil.f));
-        float v1 = ((float) (this.a.a().b() - SysUtil.e));
-        if (fcmpg(((float) (this.a.a().b() - SysUtil.e)), 0.0f) != 0) goto L64;
+        this.b = (5880.0f / ((float) SysUtil.f_I));
+        float v1 = ((float) (this.a.a().b() - SysUtil.e_I));
+        if (fcmpg(((float) (this.a.a().b() - SysUtil.e_I)), 0.0f) != 0) goto L64;
         this.c = 0.0f;
         goto L84;
         L64:
         this.c = (((-this.a.a().a()) / v1) - 0.5f);
         L84:
-        v1 = ((float) (this.a.a().c() - SysUtil.f));
-        if (fcmpg(((float) (this.a.a().c() - SysUtil.f)), 0.0f) != 0) goto L114;
+        v1 = ((float) (this.a.a().c() - SysUtil.f_I));
+        if (fcmpg(((float) (this.a.a().c() - SysUtil.f_I)), 0.0f) != 0) goto L114;
         this.d_F = 0.0f;
         goto L134;
         L114:
         this.d_F = (((-this.a.a().b()) / v1) - 0.5f);
         L134:
-        this.c = (this.c * (-90.0f / ((float) SysUtil.e)));
-        this.d_F = (this.d_F * (50.0f / ((float) SysUtil.f)));
+        this.c = (this.c * (-90.0f / ((float) SysUtil.e_I)));
+        this.d_F = (this.d_F * (50.0f / ((float) SysUtil.f_I)));
         return;
     }
     // bytecode 313 bytes, max_stack 10, max_locals 2
@@ -2211,9 +2211,9 @@ public class ObfBd extends ObfBh {
         this.r.g();
         new java.lang.StringBuffer(); /* constructor */
         int v2 = 1;
-        String v1 = new java.lang.StringBuffer().append(Settings.b).append("?a=tc").toString();
-        v1 = ((String) ScoreUpload.a(new java.lang.StringBuffer().append(Settings.b).append("?a=tc").toString(), v2, null));
-        if (ScoreUpload.a(new java.lang.StringBuffer().append(Settings.b).append("?a=tc").toString(), v2, null) == null) goto L143;
+        String v1 = new java.lang.StringBuffer().append(Settings.b_String).append("?a=tc").toString();
+        v1 = ((String) ScoreUpload.a(new java.lang.StringBuffer().append(Settings.b_String).append("?a=tc").toString(), v2, null));
+        if (ScoreUpload.a(new java.lang.StringBuffer().append(Settings.b_String).append("?a=tc").toString(), v2, null) == null) goto L143;
         new java.lang.String(v1); /* constructor */
         if (new java.lang.String(v1).compareTo("OK") == 0) goto L151;
         L143:
@@ -2299,7 +2299,7 @@ public class ObfBd extends ObfBh {
         v1.a = new Label(v1.c, 0, 0, 300, 30, 101);
         v1.c.a(v1.a, 0);
         v1.c.g(3);
-        v1.a.b(Settings.d);
+        v1.a.b(Settings.d_String);
         this.e = this.c;
         this.c.d();
         this.i_Z = false;
@@ -2450,33 +2450,33 @@ public class ObfBd extends ObfBh {
         goto L499;
         L110:
         if (this.e != this.a) goto L337;
-        if (v1 >= ((100 * SysUtil.e) / 640)) goto L160;
-        if (v2 <= (SysUtil.f - 70)) goto L160;
+        if (v1 >= ((100 * SysUtil.e_I) / 640)) goto L160;
+        if (v2 <= (SysUtil.f_I - 70)) goto L160;
         KORa.buzz();
         this.a(SysUtil.c());
         v3 = 1;
         goto L499;
         L160:
-        if (v1 <= (SysUtil.e - ((100 * SysUtil.e) / 640))) goto L203;
-        if (v2 <= (SysUtil.f - 70)) goto L203;
+        if (v1 <= (SysUtil.e_I - ((100 * SysUtil.e_I) / 640))) goto L203;
+        if (v2 <= (SysUtil.f_I - 70)) goto L203;
         KORa.buzz();
         this.a(SysUtil.d());
         v3 = 1;
         goto L499;
         L203:
-        if (v1 <= ((SysUtil.e / 2) - 100)) goto L237;
-        if (v1 >= ((SysUtil.e / 2) + 100)) goto L237;
-        if (v2 > (SysUtil.f - 70)) goto L288;
+        if (v1 <= ((SysUtil.e_I / 2) - 100)) goto L237;
+        if (v1 >= ((SysUtil.e_I / 2) + 100)) goto L237;
+        if (v2 > (SysUtil.f_I - 70)) goto L288;
         L237:
         if (this.a.g() != 2) goto L499;
-        if (v1 <= (SysUtil.e / 4)) goto L499;
-        if (v1 >= ((3 * SysUtil.e) / 4)) goto L499;
-        if (v2 <= (SysUtil.f / 4)) goto L499;
-        if (v2 >= ((3 * SysUtil.f) / 4)) goto L499;
+        if (v1 <= (SysUtil.e_I / 4)) goto L499;
+        if (v1 >= ((3 * SysUtil.e_I) / 4)) goto L499;
+        if (v2 <= (SysUtil.f_I / 4)) goto L499;
+        if (v2 >= ((3 * SysUtil.f_I) / 4)) goto L499;
         L288:
-        if (v1 <= ((SysUtil.e / 2) - 100)) goto L325;
-        if (v1 >= ((SysUtil.e / 2) + 100)) goto L325;
-        if (v2 <= (SysUtil.f - 70)) goto L325;
+        if (v1 <= ((SysUtil.e_I / 2) - 100)) goto L325;
+        if (v1 >= ((SysUtil.e_I / 2) + 100)) goto L325;
+        if (v2 <= (SysUtil.f_I - 70)) goto L325;
         KORa.buzz();
         L325:
         this.a(-201);

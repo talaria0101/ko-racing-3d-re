@@ -56,7 +56,7 @@ public class PlayerCar extends ObfCl {
     public void a(Textures v1, boolean v2) {
         /* try L115-L134 catch java.io.IOException -> L137 */
         if (Settings.e() <= 1) goto L11;
-        ObfAt.a = true;
+        ObfAt.a_Z = true;
         L11:
         if (this.d == Settings.e()) goto L28;
         this.d = Settings.e();
@@ -69,12 +69,12 @@ public class PlayerCar extends ObfCl {
         jt1 = this.b; /* join L62 from L58 */
         L62:
         new java.lang.StringBuffer(); /* constructor */
-        this.a = ObfBb.a.b(new java.lang.StringBuffer().append("/models/").append(jt1).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c).toString(), false);
+        this.a = ObfBb.a_de.b(new java.lang.StringBuffer().append("/models/").append(jt1).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c).toString(), false);
         if (Settings.e() <= 0) goto L138;
         if (Settings.g() == 0) goto L138;
-        if (PlayerCar.a != null) goto L138;
+        if (ObfCl.a_cq != null) goto L138;
         new ObfCq(v1.a("/tex/shadow.png", true), true, true); /* constructor */
-        PlayerCar.a = new ObfCq(v1.a("/tex/shadow.png", true), true, true);
+        ObfCl.a_cq = new ObfCq(v1.a("/tex/shadow.png", true), true, true);
         goto L138;
         /* pop: ex_137; */
         L138:
@@ -213,7 +213,7 @@ public class PlayerCar extends ObfCl {
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
     public void k() {
-        ObfAu.a = true;
+        ObfAu.a_Z = true;
         return;
     }
     // bytecode 20 bytes, max_stack 2, max_locals 2

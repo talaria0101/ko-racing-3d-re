@@ -38,18 +38,18 @@ public class ObfAz extends MenuItem {
         L171:
         if (Settings.l() != 1) goto L268;
         if (this.b_Z != 0) goto L227;
-        this.a.a(v1, SysUtil.a(this.b), (SysUtil.e - (v3 + this.f())), (((v2 + this.e()) + this.b()) - v5));
+        this.a.a(v1, SysUtil.a(this.b), (SysUtil.e_I - (v3 + this.f())), (((v2 + this.e()) + this.b()) - v5));
         goto L362;
         L227:
-        this.a.a(v1, SysUtil.a(211), (SysUtil.e - (v3 + this.f())), (((v2 + this.e()) + this.b()) - v5));
+        this.a.a(v1, SysUtil.a(211), (SysUtil.e_I - (v3 + this.f())), (((v2 + this.e()) + this.b()) - v5));
         goto L362;
         L268:
         if (Settings.l() != 3) goto L362;
         if (this.b_Z != 0) goto L324;
-        this.a.a(v1, SysUtil.a(this.b), (v3 + this.f()), (SysUtil.f - (((v2 + this.e()) + this.b()) - v5)));
+        this.a.a(v1, SysUtil.a(this.b), (v3 + this.f()), (SysUtil.f_I - (((v2 + this.e()) + this.b()) - v5)));
         goto L362;
         L324:
-        this.a.a(v1, SysUtil.a(211), (v3 + this.f()), (SysUtil.f - (((v2 + this.e()) + this.b()) - v5)));
+        this.a.a(v1, SysUtil.a(211), (v3 + this.f()), (SysUtil.f_I - (((v2 + this.e()) + this.b()) - v5)));
         L362:
         this.a.b();
         return;

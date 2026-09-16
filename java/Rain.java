@@ -29,11 +29,11 @@ public class Rain extends Snow {
     }
     // bytecode 121 bytes, max_stack 5, max_locals 2
     public void a(int v1) {
-        Rain.d = 50;
+        Snow.d = 50;
         this.a[v1][0] = ((float) this.a.nextInt(this.b));
         this.a[v1][1] = ((float) this.a.nextInt(this.c));
-        this.a[v1][0] = this.a.nextInt(Rain.d);
-        this.a[v1][1] = this.a.nextInt(Rain.e);
+        this.a[v1][0] = this.a.nextInt(Snow.d);
+        this.a[v1][1] = this.a.nextInt(Snow.e);
         this.a[v1][2] = (100 - this.a.nextInt(200));
         this.a[v1][3] = (4 + this.a.nextInt(4));
         return;
@@ -64,7 +64,7 @@ public class Rain extends Snow {
         if (fcmpg(this.a[v6][0], ((float) this.b)) > 0) goto L329;
         if (fcmpl(this.a[v6][1], 0.0f) < 0) goto L329;
         if (fcmpl(this.a[v6][0], 0.0f) < 0) goto L329;
-        if (this.a[v6][0] <= Rain.d) goto L335;
+        if (this.a[v6][0] <= Snow.d) goto L335;
         L329:
         this.a(v6);
         L335:

@@ -122,10 +122,10 @@ public class MenuList extends Widget {
         L234:
         if (Settings.l() != 1) goto L338;
         if (this.b >= (this.a_I - 1)) goto L293;
-        SysUtil.b.a(v1, "<", (SysUtil.e - ((v3 + this.f()) + v4)), (((v2 + this.e()) - SysUtil.b.a(60)) - 2));
+        SysUtil.b.a(v1, "<", (SysUtil.e_I - ((v3 + this.f()) + v4)), (((v2 + this.e()) - SysUtil.b.a(60)) - 2));
         L293:
         if (this.b <= 0) goto L441;
-        SysUtil.b.a(v1, ">", (SysUtil.e - ((v3 + this.f()) + v4)), (((v2 + this.e()) + this.b()) + 2));
+        SysUtil.b.a(v1, ">", (SysUtil.e_I - ((v3 + this.f()) + v4)), (((v2 + this.e()) + this.b()) + 2));
         goto L441;
         L338:
         if (Settings.l() != 3) goto L441;

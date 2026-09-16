@@ -268,7 +268,7 @@ public class Settings {
     // bytecode 19 bytes, max_stack 2, max_locals 0
     public static boolean a() {
         if (Settings.i_Z == 0) goto L17;
-        if (SysUtil.e <= SysUtil.f) goto L17;
+        if (SysUtil.e_I <= SysUtil.f_I) goto L17;
         return 1;
         L17:
         return 0;

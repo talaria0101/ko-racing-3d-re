@@ -17,7 +17,7 @@ public class ObfBr extends TrackSelect {
     }
     // bytecode 14 bytes, max_stack 2, max_locals 1
     public void n() {
-        Settings.h = true;
+        Settings.h_Z = true;
         Settings.b();
         this.b(7);
         return;
@@ -79,7 +79,7 @@ public class ObfBr extends TrackSelect {
     }
     // bytecode 9 bytes, max_stack 2, max_locals 2
     public String a(int v1) {
-        return ObfBd.a.a(7);
+        return ObfBd.a_ba.a(7);
     }
 }
 

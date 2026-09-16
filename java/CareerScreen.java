@@ -25,26 +25,26 @@ public class CareerScreen extends MenuScreen {
         this.k = false;
         this.l = false;
         this.f = v2;
-        CareerScreen.l = 1;
-        CareerScreen.c = new int[1]#1;
-        CareerScreen.a = false;
+        ObfR.l = 1;
+        ObfR.c_arrI = new int[1]#1;
+        ObfR.a_Z = false;
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
     public void b() {
-        CareerScreen.a = false;
+        ObfR.a_Z = false;
         return;
     }
     // bytecode 11 bytes, max_stack 2, max_locals 1
     public void a() {
-        CareerScreen.a = 14;
+        ObfR.a_B = 14;
         this.j = true;
         return;
     }
     // bytecode 10 bytes, max_stack 1, max_locals 1
     public void t() {
         this.f();
-        CareerScreen.a = 19;
+        ObfR.a_B = 19;
         return;
     }
     // bytecode 40 bytes, max_stack 3, max_locals 1
@@ -62,7 +62,7 @@ public class CareerScreen extends MenuScreen {
     public void d() {
         new Bluetooth(this, this.f); /* constructor */
         this.a = new Bluetooth(this, this.f);
-        CareerScreen.a = 18;
+        ObfR.a_B = 18;
         return;
     }
     // bytecode 1 bytes, max_stack 0, max_locals 1
@@ -71,41 +71,41 @@ public class CareerScreen extends MenuScreen {
     }
     // bytecode 312 bytes, max_stack 3, max_locals 4
     public void a(OutputStream v1) {
-        if (CareerScreen.a == 18) goto L33;
-        if (CareerScreen.a == 17) goto L33;
-        if (CareerScreen.a == 14) goto L33;
-        if (CareerScreen.a >= 24) goto L33;
+        if (ObfR.a_B == 18) goto L33;
+        if (ObfR.a_B == 17) goto L33;
+        if (ObfR.a_B == 14) goto L33;
+        if (ObfR.a_B >= 24) goto L33;
         return;
         L33:
         new java.io.ByteArrayOutputStream(); /* constructor */
         java.io.ByteArrayOutputStream v2 = new java.io.ByteArrayOutputStream();
         new java.io.DataOutputStream(v2); /* constructor */
         java.io.DataOutputStream v3 = new java.io.DataOutputStream(v2);
-        if (CareerScreen.a != 18) goto L106;
+        if (ObfR.a_B != 18) goto L106;
         if (this.f == 0) goto L86;
-        v3.writeUTF(CareerScreen.b);
-        v3.writeByte(CareerScreen.k);
-        v3.writeByte(CareerScreen.j);
+        v3.writeUTF(ObfR.b_String_2);
+        v3.writeByte(ObfR.k);
+        v3.writeByte(ObfR.j);
         L86:
-        v3.writeByte(CareerScreen.h);
+        v3.writeByte(ObfR.h);
         v3.writeUTF(this.b[0]);
         goto L263;
         L106:
-        if (CareerScreen.a != 17) goto L128;
+        if (ObfR.a_B != 17) goto L128;
         v3.writeByte(-52);
-        CareerScreen.a = 16;
+        ObfR.a_B = 16;
         goto L263;
         L128:
-        if (CareerScreen.a != 14) goto L152;
+        if (ObfR.a_B != 14) goto L152;
         v3.writeByte(-51);
         this.a.u();
         goto L263;
         L152:
-        if (CareerScreen.a != 25) goto L169;
+        if (ObfR.a_B != 25) goto L169;
         v3.writeByte(-50);
         goto L263;
         L169:
-        if (CareerScreen.a < 24) goto L263;
+        if (ObfR.a_B < 24) goto L263;
         if (this.a.b() != 0) goto L207;
         v3.writeByte(-55);
         v3.writeFloat(this.a.a());
@@ -138,9 +138,9 @@ public class CareerScreen extends MenuScreen {
     }
     // bytecode 380 bytes, max_stack 5, max_locals 4
     public void b(InputStream v1) {
-        if (CareerScreen.a == 18) goto L25;
-        if (CareerScreen.a == 16) goto L25;
-        if (CareerScreen.a >= 24) goto L25;
+        if (ObfR.a_B == 18) goto L25;
+        if (ObfR.a_B == 16) goto L25;
+        if (ObfR.a_B >= 24) goto L25;
         return;
         L25:
         int v2 = v1.read();
@@ -151,21 +151,21 @@ public class CareerScreen extends MenuScreen {
         v1 = ((InputStream) new java.io.ByteArrayInputStream(v3, 0, v2));
         new java.io.DataInputStream(v1); /* constructor */
         v2 = ((int) new java.io.DataInputStream(v1));
-        if (CareerScreen.a != 18) goto L146;
+        if (ObfR.a_B != 18) goto L146;
         if (this.f == 0) goto L98;
-        CareerScreen.c[0] = v2.readByte();
+        ObfR.c_arrI[0] = v2.readByte();
         goto L128;
         L98:
-        CareerScreen.b = v2.readUTF();
-        CareerScreen.k = v2.readByte();
-        CareerScreen.j = v2.readByte();
-        CareerScreen.c[0] = v2.readByte();
+        ObfR.b_String_2 = v2.readUTF();
+        ObfR.k = v2.readByte();
+        ObfR.j = v2.readByte();
+        ObfR.c_arrI[0] = v2.readByte();
         L128:
         this.b[1] = v2.readUTF();
-        CareerScreen.a = 19;
+        ObfR.a_B = 19;
         goto L375;
         L146:
-        if (CareerScreen.a != 16) goto L173;
+        if (ObfR.a_B != 16) goto L173;
         v3 = ((byte) v2.readByte());
         if (v2.readByte() != -52) goto L170;
         this.h = true;
@@ -186,7 +186,7 @@ public class CareerScreen extends MenuScreen {
         goto L375;
         L222:
         this.i = false;
-        if (CareerScreen.a < 24) goto L375;
+        if (ObfR.a_B < 24) goto L375;
         if (v3 != -55) goto L258;
         this.a.a((v2.readFloat() + 0.30000001192092896f));
         goto L375;
@@ -213,63 +213,63 @@ public class CareerScreen extends MenuScreen {
     }
     // bytecode 77 bytes, max_stack 2, max_locals 2
     public void b(float v1) {
-        if (CareerScreen.a >= 19) goto L26;
+        if (ObfR.a_B >= 19) goto L26;
         if (this.j != 0) goto L26;
         this.a.a().b(v1);
         L26:
         this.b(v1);
-        if (CareerScreen.a != 19) goto L51;
+        if (ObfR.a_B != 19) goto L51;
         this.a.D();
         this.d();
         return;
         L51:
-        if (CareerScreen.a != 16) goto L76;
+        if (ObfR.a_B != 16) goto L76;
         if (this.h == 0) goto L76;
-        CareerScreen.a = 24;
+        ObfR.a_B = 24;
         this.h = false;
         L76:
         return;
     }
     // bytecode 184 bytes, max_stack 2, max_locals 2
     public void a(int v1) {
-        if (CareerScreen.a != 22) goto L14;
-        CareerScreen.a = 17;
+        if (ObfR.a_B != 22) goto L14;
+        ObfR.a_B = 17;
         return;
         L14:
-        if (CareerScreen.a != 18) goto L39;
+        if (ObfR.a_B != 18) goto L39;
         if (SysUtil.a(v1) != -6) goto L183;
         this.a.y();
         return;
         L39:
-        if (CareerScreen.a != 16) goto L64;
+        if (ObfR.a_B != 16) goto L64;
         if (SysUtil.a(v1) != -6) goto L183;
         this.a.x();
         return;
         L64:
-        if (CareerScreen.a != 24) goto L112;
+        if (ObfR.a_B != 24) goto L112;
         if (SysUtil.a(v1) == -6) goto L90;
         if (SysUtil.a(v1) != -7) goto L103;
         L90:
-        CareerScreen.a = 25;
+        ObfR.a_B = 25;
         this.a.z();
         return;
         L103:
         this.a.a(v1);
         return;
         L112:
-        if (CareerScreen.a == 26) goto L128;
-        if (CareerScreen.a != 27) goto L183;
+        if (ObfR.a_B == 26) goto L128;
+        if (ObfR.a_B != 27) goto L183;
         L128:
         if (SysUtil.a(v1) != -6) goto L145;
         this.a.t();
         return;
         L145:
         if (SysUtil.a(v1) != -7) goto L183;
-        if (CareerScreen.a != 26) goto L168;
-        CareerScreen.a = 27;
+        if (ObfR.a_B != 26) goto L168;
+        ObfR.a_B = 27;
         return;
         L168:
-        if (CareerScreen.a != 27) goto L183;
+        if (ObfR.a_B != 27) goto L183;
         this.a.x();
         L183:
         return;
@@ -281,7 +281,7 @@ public class CareerScreen extends MenuScreen {
     }
     // bytecode 31 bytes, max_stack 2, max_locals 1
     public void j() {
-        if (CareerScreen.a >= 19) goto L26;
+        if (ObfR.a_B >= 19) goto L26;
         if (this.j != 0) goto L26;
         this.a.a().j();
         return;
@@ -292,18 +292,18 @@ public class CareerScreen extends MenuScreen {
     // bytecode 509 bytes, max_stack 6, max_locals 4
     public void a(Graphics v1) {
         if (this.j != 0) goto L70;
-        if (CareerScreen.a == 18) goto L23;
-        if (CareerScreen.a != 16) goto L70;
+        if (ObfR.a_B == 18) goto L23;
+        if (ObfR.a_B != 16) goto L70;
         L23:
         v1.setColor(0);
-        v1.fillRect(0, (SysUtil.f - 25), SysUtil.e, 25);
-        if (CareerScreen.a != 18) goto L70;
+        v1.fillRect(0, (SysUtil.f_I - 25), SysUtil.e_I, 25);
+        if (ObfR.a_B != 18) goto L70;
         if (this.j != 0) goto L70;
         this.a.a().a(v1);
         L70:
         this.a(v1);
-        if (CareerScreen.a == 18) goto L91;
-        if (CareerScreen.a != 16) goto L123;
+        if (ObfR.a_B == 18) goto L91;
+        if (ObfR.a_B != 16) goto L123;
         L91:
         ImageGrid.a().a(ImageGrid.b, -6);
         ImageGrid.a().b(null, -7);
@@ -311,29 +311,29 @@ public class CareerScreen extends MenuScreen {
         L123:
         if (this.g == 0) goto L251;
         new java.lang.StringBuffer(); /* constructor */
-        int v2 = SysUtil.a.a(new java.lang.StringBuffer().append(this.b[1]).append(" ").toString());
-        int v3 = SysUtil.a.a(SysUtil.a(118));
+        int v2 = SysUtil.a_p.a(new java.lang.StringBuffer().append(this.b[1]).append(" ").toString());
+        int v3 = SysUtil.a_p.a(SysUtil.a(118));
         new java.lang.StringBuffer(); /* constructor */
-        SysUtil.a.a(v1, new java.lang.StringBuffer().append(this.b[1]).append(" ").toString(), (((SysUtil.e - v2) - v3) / 2), ((SysUtil.f / 2) - 8));
-        SysUtil.a.a(v1, SysUtil.a(118), (((SysUtil.e + v2) - v3) / 2), ((SysUtil.f / 2) - 8));
+        SysUtil.a_p.a(v1, new java.lang.StringBuffer().append(this.b[1]).append(" ").toString(), (((SysUtil.e_I - v2) - v3) / 2), ((SysUtil.f_I / 2) - 8));
+        SysUtil.a_p.a(v1, SysUtil.a(118), (((SysUtil.e_I + v2) - v3) / 2), ((SysUtil.f_I / 2) - 8));
         return;
         L251:
         if (this.k == 0) goto L381;
         new java.lang.StringBuffer(); /* constructor */
-        v2 = SysUtil.a.a(new java.lang.StringBuffer().append(this.b[1]).append(" ").toString());
-        v3 = SysUtil.a.a(SysUtil.a(140));
+        v2 = SysUtil.a_p.a(new java.lang.StringBuffer().append(this.b[1]).append(" ").toString());
+        v3 = SysUtil.a_p.a(SysUtil.a(140));
         new java.lang.StringBuffer(); /* constructor */
-        SysUtil.a.a(v1, new java.lang.StringBuffer().append(this.b[1]).append(" ").toString(), (((SysUtil.e - v2) - v3) / 2), ((SysUtil.f / 2) - 8));
-        SysUtil.a.a(v1, SysUtil.a(140), (((SysUtil.e + v2) - v3) / 2), ((SysUtil.f / 2) - 8));
+        SysUtil.a_p.a(v1, new java.lang.StringBuffer().append(this.b[1]).append(" ").toString(), (((SysUtil.e_I - v2) - v3) / 2), ((SysUtil.f_I / 2) - 8));
+        SysUtil.a_p.a(v1, SysUtil.a(140), (((SysUtil.e_I + v2) - v3) / 2), ((SysUtil.f_I / 2) - 8));
         return;
         L381:
         if (this.i == 0) goto L508;
         new java.lang.StringBuffer(); /* constructor */
-        v2 = SysUtil.a.a(new java.lang.StringBuffer().append(this.b[1]).append(" ").toString());
-        v3 = SysUtil.a.a(SysUtil.a(124));
+        v2 = SysUtil.a_p.a(new java.lang.StringBuffer().append(this.b[1]).append(" ").toString());
+        v3 = SysUtil.a_p.a(SysUtil.a(124));
         new java.lang.StringBuffer(); /* constructor */
-        SysUtil.a.a(v1, new java.lang.StringBuffer().append(this.b[1]).append(" ").toString(), (((SysUtil.e - v2) - v3) / 2), ((SysUtil.f / 2) - 8));
-        SysUtil.a.a(v1, SysUtil.a(124), (((SysUtil.e + v2) - v3) / 2), ((SysUtil.f / 2) - 8));
+        SysUtil.a_p.a(v1, new java.lang.StringBuffer().append(this.b[1]).append(" ").toString(), (((SysUtil.e_I - v2) - v3) / 2), ((SysUtil.f_I / 2) - 8));
+        SysUtil.a_p.a(v1, SysUtil.a(124), (((SysUtil.e_I + v2) - v3) / 2), ((SysUtil.f_I / 2) - 8));
         L508:
         return;
     }
@@ -344,16 +344,16 @@ public class CareerScreen extends MenuScreen {
     }
     // bytecode 49 bytes, max_stack 2, max_locals 1
     public int h() {
-        if (CareerScreen.a != 21) goto L11;
+        if (ObfR.a_B != 21) goto L11;
         return 55;
         L11:
-        if (CareerScreen.a != 22) goto L22;
+        if (ObfR.a_B != 22) goto L22;
         return 62;
         L22:
-        if (CareerScreen.a != 16) goto L33;
+        if (ObfR.a_B != 16) goto L33;
         return 114;
         L33:
-        if (CareerScreen.a <= 24) goto L44;
+        if (ObfR.a_B <= 24) goto L44;
         return 63;
         L44:
         return this.s;
@@ -367,8 +367,8 @@ public class CareerScreen extends MenuScreen {
     }
     // bytecode 56 bytes, max_stack 4, max_locals 1
     public void i() {
-        if (Settings.d.length() <= 0) goto L19;
-        this.b[0] = Settings.d;
+        if (Settings.d_String.length() <= 0) goto L19;
+        this.b[0] = Settings.d_String;
         return;
         L19:
         new java.lang.StringBuffer(); /* constructor */
@@ -384,8 +384,8 @@ public class CareerScreen extends MenuScreen {
     // bytecode 43 bytes, max_stack 6, max_locals 1
     public void p() {
         new java.lang.StringBuffer(); /* constructor */
-        new ObfBs(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a).toString()), CareerScreen.a); /* constructor */
-        this.a = new ObfBs(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a).toString()), CareerScreen.a);
+        new ObfBs(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a).toString()), ObfR.a_Z); /* constructor */
+        this.a = new ObfBs(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a).toString()), ObfR.a_Z);
         return;
     }
     // bytecode 29 bytes, max_stack 2, max_locals 1

@@ -393,7 +393,7 @@ public class ObfBh extends Screen {
     }
     // bytecode 11 bytes, max_stack 2, max_locals 1
     public void x() {
-        this.b_ao.b(Settings.d);
+        this.b_ao.b(Settings.d_String);
         return;
     }
     // bytecode 13 bytes, max_stack 3, max_locals 1
@@ -418,9 +418,9 @@ public class ObfBh extends Screen {
         L95:
         this.c_db.g(jt1);
         this.a_cp.c(Settings.e());
-        this.b_cp.c(Settings.f);
+        this.b_cp.c(Settings.f_Z);
         this.c_cp.c(Settings.g());
-        if (Settings.d_I != Settings.b_I) goto L145;
+        if (Settings.d != Settings.b) goto L145;
         jt2 = 1; /* join L146 from L141 */
         goto L146;
         L145:
@@ -433,42 +433,42 @@ public class ObfBh extends Screen {
     public void i() {
         Settings.a((3 - this.a_db.d()));
         if ((3 - this.a_db.d()) >= 3) goto L350;
-        this.h_db.g((2 - Settings.a[(3 - this.a_db.d())][0]));
-        this.a_bk.c(Settings.a[(3 - this.a_db.d())][1]);
-        this.b_db.g((1 - Settings.a[(3 - this.a_db.d())][2]));
-        this.d_db.g((2 - Settings.a[(3 - this.a_db.d())][3]));
-        this.e_db.g((2 - Settings.a[(3 - this.a_db.d())][4]));
-        this.f_db.g((2 - Settings.a[(3 - this.a_db.d())][5]));
-        this.g_db.g((3 - Settings.a[(3 - this.a_db.d())][6]));
-        if (Settings.a[(3 - this.a_db.d())][7] != 0) goto L219;
+        this.h_db.g((2 - Settings.a_arrarrI[(3 - this.a_db.d())][0]));
+        this.a_bk.c(Settings.a_arrarrI[(3 - this.a_db.d())][1]);
+        this.b_db.g((1 - Settings.a_arrarrI[(3 - this.a_db.d())][2]));
+        this.d_db.g((2 - Settings.a_arrarrI[(3 - this.a_db.d())][3]));
+        this.e_db.g((2 - Settings.a_arrarrI[(3 - this.a_db.d())][4]));
+        this.f_db.g((2 - Settings.a_arrarrI[(3 - this.a_db.d())][5]));
+        this.g_db.g((3 - Settings.a_arrarrI[(3 - this.a_db.d())][6]));
+        if (Settings.a_arrarrI[(3 - this.a_db.d())][7] != 0) goto L219;
         jt1 = 0; /* join L220 from L215 */
         goto L220;
         L219:
         jt1 = 1; /* join L220 from L219 */
         L220:
         this.c_db.g(jt1);
-        if (Settings.a[(3 - this.a_db.d())][8] == 0) goto L250;
+        if (Settings.a_arrarrI[(3 - this.a_db.d())][8] == 0) goto L250;
         jt2 = 1; /* join L251 from L246 */
         goto L251;
         L250:
         jt2 = 0; /* join L251 from L250 */
         L251:
         this.a_cp.c(jt2);
-        if (Settings.a[(3 - this.a_db.d())][9] == 0) goto L281;
+        if (Settings.a_arrarrI[(3 - this.a_db.d())][9] == 0) goto L281;
         jt3 = 1; /* join L282 from L277 */
         goto L282;
         L281:
         jt3 = 0; /* join L282 from L281 */
         L282:
         this.b_cp.c(jt3);
-        if (Settings.a[(3 - this.a_db.d())][10] == 0) goto L312;
+        if (Settings.a_arrarrI[(3 - this.a_db.d())][10] == 0) goto L312;
         jt4 = 1; /* join L313 from L308 */
         goto L313;
         L312:
         jt4 = 0; /* join L313 from L312 */
         L313:
         this.c_cp.c(jt4);
-        if (Settings.a[(3 - this.a_db.d())][11] != Settings.b_I) goto L346;
+        if (Settings.a_arrarrI[(3 - this.a_db.d())][11] != Settings.b) goto L346;
         jt5 = 1; /* join L347 from L342 */
         goto L347;
         L346:
@@ -496,13 +496,13 @@ public class ObfBh extends Screen {
         L95:
         Settings.h(jt1);
         Settings.b(this.a_cp.a());
-        Settings.f = this.b_cp.a();
+        Settings.f_Z = this.b_cp.a();
         Settings.d(this.c_cp.a());
         if (this.d_cp.a() == 0) goto L147;
-        Settings.d_I = Settings.b_I;
+        Settings.d = Settings.b;
         goto L153;
         L147:
-        Settings.d_I = Settings.c_I;
+        Settings.d = Settings.c;
         L153:
         ObfBh v1 = this;
         new boolean[3]#1[0] = 1;
@@ -513,7 +513,7 @@ public class ObfBh extends Screen {
         L173:
         if (v3 >= 3) goto L211;
         if (v2[v3] == 0) goto L203;
-        if (Settings.i() != Settings.a[v3][0]) goto L203;
+        if (Settings.i() != Settings.a_arrarrI[v3][0]) goto L203;
         jt2 = 1; /* join L204 from L199 */
         goto L204;
         L203:
@@ -527,7 +527,7 @@ public class ObfBh extends Screen {
         L213:
         if (v3 >= 3) goto L251;
         if (v2[v3] == 0) goto L243;
-        if (Settings.j() != Settings.a[v3][1]) goto L243;
+        if (Settings.j() != Settings.a_arrarrI[v3][1]) goto L243;
         jt3 = 1; /* join L244 from L239 */
         goto L244;
         L243:
@@ -541,7 +541,7 @@ public class ObfBh extends Screen {
         L253:
         if (v3 >= 3) goto L291;
         if (v2[v3] == 0) goto L283;
-        if (Settings.l() != Settings.a[v3][2]) goto L283;
+        if (Settings.l() != Settings.a_arrarrI[v3][2]) goto L283;
         jt4 = 1; /* join L284 from L279 */
         goto L284;
         L283:
@@ -555,7 +555,7 @@ public class ObfBh extends Screen {
         L293:
         if (v3 >= 3) goto L331;
         if (v2[v3] == 0) goto L323;
-        if (Settings.d() != Settings.a[v3][3]) goto L323;
+        if (Settings.d() != Settings.a_arrarrI[v3][3]) goto L323;
         jt5 = 1; /* join L324 from L319 */
         goto L324;
         L323:
@@ -569,7 +569,7 @@ public class ObfBh extends Screen {
         L333:
         if (v3 >= 3) goto L371;
         if (v2[v3] == 0) goto L363;
-        if (Settings.e() != Settings.a[v3][4]) goto L363;
+        if (Settings.e() != Settings.a_arrarrI[v3][4]) goto L363;
         jt6 = 1; /* join L364 from L359 */
         goto L364;
         L363:
@@ -583,7 +583,7 @@ public class ObfBh extends Screen {
         L373:
         if (v3 >= 3) goto L411;
         if (v2[v3] == 0) goto L403;
-        if (Settings.f() != Settings.a[v3][5]) goto L403;
+        if (Settings.f() != Settings.a_arrarrI[v3][5]) goto L403;
         jt7 = 1; /* join L404 from L399 */
         goto L404;
         L403:
@@ -597,7 +597,7 @@ public class ObfBh extends Screen {
         L413:
         if (v3 >= 3) goto L452;
         if (v2[v3] == 0) goto L444;
-        if (Settings.g() != Settings.a[v3][6]) goto L444;
+        if (Settings.g() != Settings.a_arrarrI[v3][6]) goto L444;
         jt8 = 1; /* join L445 from L440 */
         goto L445;
         L444:
@@ -611,7 +611,7 @@ public class ObfBh extends Screen {
         L454:
         if (v3 >= 3) goto L493;
         if (v2[v3] == 0) goto L485;
-        if (Settings.h() != Settings.a[v3][7]) goto L485;
+        if (Settings.h() != Settings.a_arrarrI[v3][7]) goto L485;
         jt9 = 1; /* join L486 from L481 */
         goto L486;
         L485:
@@ -625,7 +625,7 @@ public class ObfBh extends Screen {
         L495:
         if (v3 >= 3) goto L542;
         if (v2[v3] == 0) goto L534;
-        if (Settings.a[v3][8] == 0) goto L526;
+        if (Settings.a_arrarrI[v3][8] == 0) goto L526;
         jt10 = 1; /* join L527 from L522 */
         goto L527;
         L526:
@@ -645,13 +645,13 @@ public class ObfBh extends Screen {
         L544:
         if (v3 >= 3) goto L591;
         if (v2[v3] == 0) goto L583;
-        if (Settings.a[v3][9] == 0) goto L575;
+        if (Settings.a_arrarrI[v3][9] == 0) goto L575;
         jt12 = 1; /* join L576 from L571 */
         goto L576;
         L575:
         jt12 = 0; /* join L576 from L575 */
         L576:
-        if (Settings.f != jt12) goto L583;
+        if (Settings.f_Z != jt12) goto L583;
         jt13 = 1; /* join L584 from L579 */
         goto L584;
         L583:
@@ -665,7 +665,7 @@ public class ObfBh extends Screen {
         L593:
         if (v3 >= 3) goto L640;
         if (v2[v3] == 0) goto L632;
-        if (Settings.a[v3][10] == 0) goto L624;
+        if (Settings.a_arrarrI[v3][10] == 0) goto L624;
         jt14 = 1; /* join L625 from L620 */
         goto L625;
         L624:
@@ -685,7 +685,7 @@ public class ObfBh extends Screen {
         L642:
         if (v3 >= 3) goto L681;
         if (v2[v3] == 0) goto L673;
-        if (Settings.d_I != Settings.a[v3][11]) goto L673;
+        if (Settings.d != Settings.a_arrarrI[v3][11]) goto L673;
         jt16 = 1; /* join L674 from L669 */
         goto L674;
         L673:
@@ -936,7 +936,7 @@ public class ObfBh extends Screen {
         goto L198;
         L174:
         if (this.e_cm.a().c() != 0) goto L198;
-        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().a(ImageGrid.a_ci, -6);
         L198:
         if (SysUtil.a(this.a_I) == -6) goto L222;
         if (SysUtil.a(this.a_I) != -7) goto L227;
@@ -1054,14 +1054,14 @@ public class ObfBh extends Screen {
         v1.a_I = 2147483647;
         v1.a(v1.b_cm);
         if (v1.b_ao.a().length() <= 0) goto L861;
-        Settings.d = v1.b_ao.a();
+        Settings.d_String = v1.b_ao.a();
         Settings.b();
         L861:
         return;
         L862:
         /* pop: v1.d_cm.a(v1.a_I); */
         if (v1.b_ao.a().length() <= 0) goto L901;
-        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().a(ImageGrid.a_ci, -6);
         goto L910;
         L901:
         ImageGrid.a().a(null, -6);
@@ -1171,8 +1171,8 @@ public class ObfBh extends Screen {
     }
     // bytecode 24 bytes, max_stack 2, max_locals 1
     public void B() {
-        Settings.d = this.a_ao.a();
-        this.b_ao.b(Settings.d);
+        Settings.d_String = this.a_ao.a();
+        this.b_ao.b(Settings.d_String);
         Settings.b();
         return;
     }

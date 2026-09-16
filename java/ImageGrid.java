@@ -93,19 +93,19 @@ public class ImageGrid extends Widget {
         if (ImageGrid.a_ag != null) goto L9;
         ImageGrid.a();
         L9:
-        ImageGrid.a_ag.e(SysUtil.e);
+        ImageGrid.a_ag.e(SysUtil.e_I);
         ImageGrid.a_ag.a(v0, 0, v2);
         return;
     }
     // bytecode 139 bytes, max_stack 6, max_locals 1
     public static void a() {
         /* try L17-L112 catch java.io.IOException -> L115 */
-        new ImageGrid(0, 0, SysUtil.e, 28); /* constructor */
-        ImageGrid.a_ag = new ImageGrid(0, 0, SysUtil.e, 28);
-        if (SysUtil.e > 400) goto L31;
-        SysUtil.a = "/images/i_s.png";
+        new ImageGrid(0, 0, SysUtil.e_I, 28); /* constructor */
+        ImageGrid.a_ag = new ImageGrid(0, 0, SysUtil.e_I, 28);
+        if (SysUtil.e_I > 400) goto L31;
+        SysUtil.a_String_2 = "/images/i_s.png";
         L31:
-        Image v0 = javax.microedition.lcdui.Image.createImage(Resources.a(SysUtil.a));
+        Image v0 = javax.microedition.lcdui.Image.createImage(Resources.a(SysUtil.a_String_2));
         new ImageCell(ImageGrid.a_ag, v0, 0); /* constructor */
         ImageGrid.a_ci = new ImageCell(ImageGrid.a_ag, v0, 0);
         new ImageCell(ImageGrid.a_ag, v0, 1); /* constructor */

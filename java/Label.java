@@ -151,10 +151,10 @@ public class Label extends Widget {
         this.n = 0;
         this.b_String = "";
         this.d = "";
-        this.n = SysUtil.e;
+        this.n = SysUtil.e_I;
         this.m = v6;
-        this.d = SysUtil.a.a(SysUtil.a(this.m));
-        this.f = (SysUtil.e - (SysUtil.b.a(SysUtil.a(this.m)) + 20));
+        this.d = SysUtil.a_p.a(SysUtil.a(this.m));
+        this.f = (SysUtil.e_I - (SysUtil.b.a(SysUtil.a(this.m)) + 20));
         this.b(true);
         return;
     }
@@ -172,17 +172,17 @@ public class Label extends Widget {
         Label.c = null;
         L24:
         int v7 = (this.e + v3);
-        int v6 = ((SysUtil.e - this.f) / 2);
+        int v6 = ((SysUtil.e_I - this.f) / 2);
         Graphics v5 = v1;
         Label v4 = this;
-        if (v4.n == SysUtil.e) goto L179;
-        if (SysUtil.e >= SysUtil.f) goto L81;
+        if (v4.n == SysUtil.e_I) goto L179;
+        if (SysUtil.e_I >= SysUtil.f_I) goto L81;
         v4.f = 200;
         goto L107;
         L81:
-        v4.f = (SysUtil.e - (SysUtil.b.a(SysUtil.a(v4.m)) + 20));
+        v4.f = (SysUtil.e_I - (SysUtil.b.a(SysUtil.a(v4.m)) + 20));
         L107:
-        v4.n = SysUtil.e;
+        v4.n = SysUtil.e_I;
         String v8 = v4.a;
         v4.a = "";
         v4.i = 0;
@@ -316,7 +316,7 @@ public class Label extends Widget {
         if (ImageGrid.d != null) goto L16;
         ImageGrid.a();
         L16:
-        ImageGrid.a().a(ImageGrid.a, -6);
+        ImageGrid.a().a(ImageGrid.a_ci, -6);
         if (this.a().length() <= 0) goto L51;
         ImageGrid.a().b(ImageGrid.c, -7);
         goto L62;

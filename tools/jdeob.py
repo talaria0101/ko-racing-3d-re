@@ -591,6 +591,46 @@ class Emitter:
         name = self.fmap.get((name, desc), name)
         return '%s.%s' % (cls, name), desc
 
+    def static_member(self, ref):
+        """Static field via its defining class (handles inheritance)."""
+        full = jdis.resolve(self.klass.cp, ref)
+        cls_obf, rest = full.split('.', 1)
+        cls_obf = cls_obf.replace('/', '.')
+        nm = rest.split(':')[0]
+        ds = rest.split(':')[1] if ':' in rest else ''
+        try:
+            owner = self.defining_class(cls_obf, nm, ds)
+        except Exception:
+            owner = cls_obf
+        try:
+            oname = field_map(cached_klass(owner)).get((nm, ds), nm)
+        except Exception:
+            oname = nm
+        return '%s.%s' % (readable_class(owner, self.names), oname), ds
+
+    _field_cache = {}
+
+    def defining_class(self, obf, name, desc):
+        """Nearest class up `obf`'s hierarchy declaring field (name, desc)."""
+        key = (obf, name, desc)
+        if key in Emitter._field_cache:
+            return Emitter._field_cache[key]
+        seen = set()
+        cur = obf
+        found = obf
+        while cur and cur not in seen:
+            seen.add(cur)
+            try:
+                fields = [(n, d) for _, n, d, _ in cached_klass(cur).fields]
+            except Exception:
+                break
+            if (name, desc) in fields:
+                found = cur
+                break
+            cur = _super_of(cur)
+        Emitter._field_cache[key] = found
+        return found
+
     def _ref(self, idx):
         e = self.klass.cp[idx]
         tag = e[0]
@@ -1166,7 +1206,8 @@ class Emitter:
             P(cls, expr)
             return
         if op in ('getstatic', 'getfield'):
-            full, _ = self.member(arg)
+            full, _ = self.static_member(arg) if op == 'getstatic' \
+                else self.member(arg)
             if op == 'getstatic':
                 P(self._field_type(arg), full)
             else:
@@ -1176,7 +1217,8 @@ class Emitter:
             return
         if op in ('putstatic', 'putfield'):
             _, v = self.pop()
-            full, fdesc = self.member(arg)
+            full, fdesc = self.static_member(arg) if op == 'putstatic' \
+                else self.member(arg)
             ftype = java_type(fdesc, self.names) if fdesc else 'Object'
             if op == 'putstatic':
                 L.append('%s = %s;' % (full, self._bool(ftype, v)))
@@ -1361,6 +1403,56 @@ def const_str(const, cp, names):
     return '/* ConstantValue tag %s */ null' % tag
 
 
+_KLASS_CACHE = {}
+
+
+def cached_klass(obf):
+    if obf not in _KLASS_CACHE:
+        _KLASS_CACHE[obf] = Klass(obf)
+    return _KLASS_CACHE[obf]
+
+
+def _super_of(obf):
+    """Superclass obfuscated name, or None for java/ roots."""
+    try:
+        data, pos0, cp = jdis.load(os.path.join(_XDIR, obf + '.class'))
+    except Exception:
+        return None
+    v = struct.unpack('>H', data[pos0 + 4:pos0 + 6])[0]
+    r = jdis.resolve(cp, v)
+    if r.startswith('#') or '/' in r or r == 'java/lang/Object':
+        return None
+    return r
+
+
+_FMAP_CACHE = {}
+
+
+def field_map(klass):
+    """Disambiguated field names for one class."""
+    obf = klass.obf
+    if obf in _FMAP_CACHE:
+        return _FMAP_CACHE[obf]
+    seen = {}
+    fmap = {}
+    for _, fname, fdesc, _ in klass.fields:
+        key = (fname, fdesc)
+        if fname in seen:
+            uniq = '%s_%s' % (fname, fdesc.strip('L;').split('/')[-1][:6]
+                              .replace('[', 'arr').replace('.', '_'))
+            n = 2
+            while uniq in seen.values():
+                uniq = '%s_%d' % (uniq, n)
+                n += 1
+            fmap[key] = uniq
+            seen[fname] = uniq
+        else:
+            seen[fname] = fname
+            fmap[key] = fname
+    _FMAP_CACHE[obf] = fmap
+    return fmap
+
+
 def role_note(klass):
     """One-line role guess from strings, superclass and API usage."""
     strs = klass.strings()
@@ -1416,22 +1508,7 @@ def decompile_class(obf, names):
         decl += (' extends ' if is_ifc else ' implements ') + \
             ', '.join(cname(c) for c in ifcs)
     out.append(decl + ' {')
-    seen = {}
-    fmap = {}
-    for facc, fname, fdesc, const in klass.fields:
-        key = (fname, fdesc)
-        if fname in seen:
-            uniq = '%s_%s' % (fname, fdesc.strip('L;').split('/')[-1][:6]
-                              .replace('[', 'arr').replace('.', '_'))
-            n = 2
-            while uniq in seen.values():
-                uniq = '%s_%d' % (uniq, n)
-                n += 1
-            fmap[key] = uniq
-            seen[fname] = uniq
-        else:
-            seen[fname] = fname
-            fmap[key] = fname
+    fmap = field_map(klass)
     for facc, fname, fdesc, const in klass.fields:
         init = const_str(const, klass.cp, names)
         out.append('    %s %s %s%s;' % (

@@ -208,7 +208,7 @@ public class ObfAt extends ObfAm {
         new javax.microedition.m3g.VertexArray(v9, 2, 1); /* constructor */
         v15 = ((int) new javax.microedition.m3g.VertexArray(v9, 2, 1));
         new javax.microedition.m3g.VertexArray(v9, 2, 1).set(0, v9, v11);
-        if (SysUtil.g <= 1) goto L344;
+        if (SysUtil.g_I <= 1) goto L344;
         if (Settings.d() >= 2) goto L348;
         if (Settings.e() >= 2) goto L348;
         L344:
@@ -261,7 +261,7 @@ public class ObfAt extends ObfAm {
         new float[2]#14[1] = ((128.0f * this.a) + this.b);
         v3 = ((boolean) new float[2]#14);
         v11.setTexCoords(1, v4, this.a, v3);
-        this.a = ObfBb.a.a("/tex/r.png", false);
+        this.a = ObfBb.a_cf.a("/tex/r.png", false);
         v2.setTexture(1, this.a);
         L717:
         ObfAt.a_Z = false;

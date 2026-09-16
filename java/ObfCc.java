@@ -27,7 +27,7 @@ public class ObfCc extends WidgetGroup {
         SysUtil.a(v1, 0, (v5 + v3), v1.getClipWidth(), v4, 3355443, 6710886, true);
         v1.setColor(6710886);
         v1.drawLine(0, ((v5 - 1) + v3), v1.getClipWidth(), ((v5 - 1) + v3));
-        v4 = SysUtil.d;
+        v4 = SysUtil.d_I;
         int v6 = 1;
         L116:
         if (v6 >= this.a) goto L174;

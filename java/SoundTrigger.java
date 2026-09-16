@@ -20,23 +20,23 @@ public class SoundTrigger extends SoundBank {
         L46:
         return 0;
         L48:
-        v3 = ((long) SoundTrigger.a);
-        if (SoundTrigger.a == null) goto L67;
+        v3 = ((long) AudioPlayer.a_Player);
+        if (AudioPlayer.a_Player == null) goto L67;
         this.a = v1;
-        SoundTrigger.a = v2;
+        SoundBank.a_I = v2;
         return 0;
         L67:
-        SoundTrigger.a = this.a(v1);
+        AudioPlayer.a_Player = this.a(v1);
         if (this.a(v1) != null) goto L81;
         return 0;
         L81:
-        SoundTrigger.a.realize();
-        SoundTrigger.a.prefetch();
-        /* pop: SoundTrigger.a.setMediaTime(0L); */
+        AudioPlayer.a_Player.realize();
+        AudioPlayer.a_Player.prefetch();
+        /* pop: AudioPlayer.a_Player.setMediaTime(0L); */
         this.e();
         this.a = java.lang.System.currentTimeMillis();
-        SoundTrigger.a.start();
-        SoundTrigger.d = v2;
+        AudioPlayer.a_Player.start();
+        AudioPlayer.d = v2;
         this.a = false;
         goto L139;
         /* pop: ex_138; */

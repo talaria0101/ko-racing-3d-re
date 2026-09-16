@@ -45,7 +45,7 @@ public class TextBuffer {
     // bytecode 48 bytes, max_stack 3, max_locals 1
     public void a() {
         this.a_S = 0;
-        this.a_I = (SysUtil.e - 15);
+        this.a_I = (SysUtil.e_I - 15);
         if (this.a_String == null) goto L32;
         /* pop: this.a(this.a_String); */
         return;

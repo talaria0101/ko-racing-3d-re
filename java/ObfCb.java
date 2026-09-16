@@ -15,8 +15,8 @@ public class ObfCb extends Widget {
         this.b(false);
         this.a(false);
         if (v2 < 0) goto L70;
-        new MenuItem(this, 0, 0, v2, SysUtil.a); /* constructor */
-        this.a = new MenuItem(this, 0, 0, v2, SysUtil.a);
+        new MenuItem(this, 0, 0, v2, SysUtil.a_p); /* constructor */
+        this.a = new MenuItem(this, 0, 0, v2, SysUtil.a_p);
         this.e(this.a.b());
         goto L76;
         L70:
@@ -64,7 +64,7 @@ public class ObfCb extends Widget {
     }
     // bytecode 7 bytes, max_stack 1, max_locals 1
     public int a() {
-        return SysUtil.a.a();
+        return SysUtil.a_p.a();
     }
     // bytecode 2 bytes, max_stack 1, max_locals 1
     public int c() {

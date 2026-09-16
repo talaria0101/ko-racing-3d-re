@@ -28,20 +28,20 @@ public class ObfS extends MenuButton {
         L19:
         this.a(v1, (v2 + ((int) this.a)), (v3 + 7), false);
         if (fcmpg(this.a(), 1.0f) < 0) goto L120;
-        if (SysUtil.e <= 400) goto L75;
+        if (SysUtil.e_I <= 400) goto L75;
         jt1 = 5; /* join L76 from L71 */
         goto L76;
         L75:
         jt1 = 0; /* join L76 from L75 */
         L76:
-        SysUtil.a.a(v1, "<", 10, (((v3 + this.f()) + 7) + jt1));
-        if (SysUtil.e <= 400) goto L115;
+        SysUtil.a_p.a(v1, "<", 10, (((v3 + this.f()) + 7) + jt1));
+        if (SysUtil.e_I <= 400) goto L115;
         jt2 = 5; /* join L116 from L111 */
         goto L116;
         L115:
         jt2 = 0; /* join L116 from L115 */
         L116:
-        SysUtil.a.a(v1, ">", (v1.getClipWidth() - 15), (((v3 + this.f()) + 7) + jt2));
+        SysUtil.a_p.a(v1, ">", (v1.getClipWidth() - 15), (((v3 + this.f()) + 7) + jt2));
         L120:
         return;
     }

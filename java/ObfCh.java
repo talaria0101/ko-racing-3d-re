@@ -74,8 +74,8 @@ public class ObfCh extends Widget {
     }
     // bytecode 39 bytes, max_stack 3, max_locals 1
     public void c() {
-        if (this.b() == SysUtil.e) goto L38;
-        this.b(SysUtil.e, this.a());
+        if (this.b() == SysUtil.e_I) goto L38;
+        this.b(SysUtil.e_I, this.a());
         this.h = 0;
         this.m = 0;
         this.a_t.a();

@@ -14,43 +14,43 @@ public class ObfCd extends MenuScreen {
     public ObfCd() {
         super();
         this.q = 61;
-        ObfCl.f = false;
+        ObfCl.f_Z = false;
         return;
     }
     // bytecode 10 bytes, max_stack 2, max_locals 2
     public ObfCd(MainCanvas v1) {
         super(v1);
-        ObfCl.f = false;
+        ObfCl.f_Z = false;
         return;
     }
     // bytecode 273 bytes, max_stack 3, max_locals 5
     public void b() {
-        InputStream v1 = Resources.a(ObfCd.c);
-        /* pop: Resources.a(ObfCd.c).skip(((long) ObfCd.g)); */
-        ObfCd.j = StreamReader.a(v1);
+        InputStream v1 = Resources.a(ObfR.c_String);
+        /* pop: Resources.a(ObfR.c_String).skip(((long) ObfR.g)); */
+        ObfR.j = StreamReader.a(v1);
         if (StreamReader.a(v1) <= 0) goto L34;
         jt1 = 1; /* join L35 from L30 */
         goto L35;
         L34:
         jt1 = 0; /* join L35 from L34 */
         L35:
-        ObfCd.a = jt1;
-        if (ObfCd.h != -10) goto L56;
-        ObfCd.h = StreamReader.a(v1);
+        ObfR.a_Z = jt1;
+        if (ObfR.h != -10) goto L56;
+        ObfR.h = StreamReader.a(v1);
         goto L61;
         L56:
         /* pop: StreamReader.a(v1); */
         L61:
-        ObfCd.m = StreamReader.a(v1);
-        ObfCd.l = StreamReader.a(v1);
-        ObfCd.c = new int[StreamReader.a(v1)]#1;
+        ObfR.m = StreamReader.a(v1);
+        ObfR.l = StreamReader.a(v1);
+        ObfR.c_arrI = new int[StreamReader.a(v1)]#1;
         int v3 = 0;
         L83:
-        if (v3 >= ObfCd.l) goto L227;
+        if (v3 >= ObfR.l) goto L227;
         L90:
         int v2 = 1;
-        int v4 = ObfCd.m;
-        if (ObfCd.m != 3) goto L105;
+        int v4 = ObfR.m;
+        if (ObfR.m != 3) goto L105;
         v4 = 4;
         L105:
         v4 = ((KORa.rand.nextInt(4) + v4) - 1);
@@ -69,15 +69,15 @@ public class ObfCd extends MenuScreen {
         if (v4 != 2) goto L163;
         v4 = 5;
         L163:
-        ObfCd.c[v3] = v4;
-        if (ObfCd.c[v3] != ObfCd.h) goto L186;
+        ObfR.c_arrI[v3] = v4;
+        if (ObfR.c_arrI[v3] != ObfR.h) goto L186;
         v2 = 0;
         goto L217;
         L186:
         v4 = 0;
         L189:
         if (v4 >= v3) goto L217;
-        if (ObfCd.c[v3] != ObfCd.c[v4]) goto L211;
+        if (ObfR.c_arrI[v3] != ObfR.c_arrI[v4]) goto L211;
         v2 = 0;
         L211:
         v4 += 1;
@@ -87,16 +87,16 @@ public class ObfCd extends MenuScreen {
         v3 += 1;
         goto L83;
         L227:
-        ObfCd.k = ObfCd.l;
-        ObfCd.d = new int[ObfCd.l]#2;
+        ObfR.k = ObfR.l;
+        ObfCd.d = new int[ObfR.l]#2;
         v3 = 0;
         L241:
-        if (v3 >= ObfCd.k) goto L260;
+        if (v3 >= ObfR.k) goto L260;
         ObfCd.d[v3] = 0;
         v3 += 1;
         goto L241;
         L260:
-        ObfCd.s = (ObfCd.l + 1);
+        ObfCd.s = (ObfR.l + 1);
         v1.close();
         return;
     }
@@ -108,7 +108,7 @@ public class ObfCd extends MenuScreen {
         if (v1 >= this.b) goto L267;
         if (this.a.a(v1).c() < 0) goto L261;
         ObfCd.d[this.a.a(v1).c()] = (ObfCd.d[this.a.a(v1).c()] + 1);
-        if (ObfCd.d[this.a.a(v1).c()] != (ObfCd.l - this.a.a(v1).c())) goto L261;
+        if (ObfCd.d[this.a.a(v1).c()] != (ObfR.l - this.a.a(v1).c())) goto L261;
         int v2 = 0;
         L83:
         if (v2 >= this.b) goto L261;
@@ -118,7 +118,7 @@ public class ObfCd extends MenuScreen {
         this.a.a(this.b[v2]);
         L151:
         this.a.a(v2).l();
-        int v5 = (ObfCd.l - this.a.a(v1).c());
+        int v5 = (ObfR.l - this.a.a(v1).c());
         int v4 = v2;
         ObfCd v3 = this;
         int v6 = 0;
@@ -162,25 +162,25 @@ public class ObfCd extends MenuScreen {
         if (Settings.l() != 1) goto L377;
         if (this.a.a(this.b[v2]).d() == 0) goto L296;
         if (v2 <= 0) goto L296;
-        v8 = (((v3 - v4) - 4) - SysUtil.a.a(SysUtil.a(97)));
-        SysUtil.a.a(v1, SysUtil.a(97), (v1.getClipWidth() - ((((v2 * v6) + v7) + v5) + 4)), v8);
+        v8 = (((v3 - v4) - 4) - SysUtil.a_p.a(SysUtil.a(97)));
+        SysUtil.a_p.a(v1, SysUtil.a(97), (v1.getClipWidth() - ((((v2 * v6) + v7) + v5) + 4)), v8);
         return;
         L296:
         v8 = (this.a.a(this.b[v2]).e() - this.a.a(this.b[0]).e());
-        v3 = (((v3 - v4) - 4) - SysUtil.a.b(((long) v8)));
-        SysUtil.a.b(v1, ((long) v8), (v1.getClipWidth() - ((((v2 * v6) + v7) + v5) + 4)), v3);
+        v3 = (((v3 - v4) - 4) - SysUtil.a_p.b(((long) v8)));
+        SysUtil.a_p.b(v1, ((long) v8), (v1.getClipWidth() - ((((v2 * v6) + v7) + v5) + 4)), v3);
         return;
         L377:
         if (Settings.l() != 3) goto L529;
         if (this.a.a(this.b[v2]).d() == 0) goto L454;
         if (v2 <= 0) goto L454;
-        v8 = (((v3 + v4) + 4) + SysUtil.a.a(SysUtil.a(97)));
-        SysUtil.a.a(v1, SysUtil.a(97), ((((v2 * v6) + v7) + v5) + 4), v8);
+        v8 = (((v3 + v4) + 4) + SysUtil.a_p.a(SysUtil.a(97)));
+        SysUtil.a_p.a(v1, SysUtil.a(97), ((((v2 * v6) + v7) + v5) + 4), v8);
         return;
         L454:
         v8 = (this.a.a(this.b[v2]).e() - this.a.a(this.b[0]).e());
-        v3 = (((v3 + v4) + 4) + SysUtil.a.b(((long) v8)));
-        SysUtil.a.b(v1, ((long) v8), ((((v2 * v6) + v7) + v5) + 4), v3);
+        v3 = (((v3 + v4) + 4) + SysUtil.a_p.b(((long) v8)));
+        SysUtil.a_p.b(v1, ((long) v8), ((((v2 * v6) + v7) + v5) + 4), v3);
         L529:
         return;
     }

@@ -57,15 +57,15 @@ public class Screen {
     public boolean a(int v1, int v2) {
         int v3 = 0;
         if (v1 >= 70) goto L39;
-        if (v2 <= (SysUtil.f - 70)) goto L39;
+        if (v2 <= (SysUtil.f_I - 70)) goto L39;
         if (ImageGrid.a().a() == null) goto L30;
         KORa.buzz();
         L30:
         v3 = 1;
         this.a(-202);
         L39:
-        if (v1 <= (SysUtil.e - 70)) goto L80;
-        if (v2 <= (SysUtil.f - 70)) goto L80;
+        if (v1 <= (SysUtil.e_I - 70)) goto L80;
+        if (v2 <= (SysUtil.f_I - 70)) goto L80;
         if (ImageGrid.a().b() == null) goto L71;
         KORa.buzz();
         L71:

@@ -10,7 +10,7 @@ public class CareerMap extends MenuScreen {
         super();
         this.t = 0;
         this.q = 93;
-        ObfCl.f = false;
+        ObfCl.f_Z = false;
         return;
     }
     // bytecode 21 bytes, max_stack 2, max_locals 2
@@ -18,33 +18,33 @@ public class CareerMap extends MenuScreen {
         super(v1);
         this.t = 0;
         this.p = 39;
-        ObfCl.f = false;
+        ObfCl.f_Z = false;
         return;
     }
     // bytecode 211 bytes, max_stack 3, max_locals 3
     public void b() {
-        InputStream v1 = Resources.a(CareerMap.c);
-        /* pop: Resources.a(CareerMap.c).skip(((long) CareerMap.g)); */
-        CareerMap.j = StreamReader.a(v1);
+        InputStream v1 = Resources.a(ObfR.c_String);
+        /* pop: Resources.a(ObfR.c_String).skip(((long) ObfR.g)); */
+        ObfR.j = StreamReader.a(v1);
         if (StreamReader.a(v1) <= 0) goto L34;
         jt1 = 1; /* join L35 from L30 */
         goto L35;
         L34:
         jt1 = 0; /* join L35 from L34 */
         L35:
-        CareerMap.a = jt1;
-        CareerMap.k = StreamReader.a(v1);
+        ObfR.a_Z = jt1;
+        ObfR.k = StreamReader.a(v1);
         if (StreamReader.a(v1) <= 1) goto L55;
         this.e = true;
         L55:
-        if (CareerMap.h != -10) goto L73;
-        CareerMap.h = StreamReader.a(v1);
+        if (ObfR.h != -10) goto L73;
+        ObfR.h = StreamReader.a(v1);
         goto L78;
         L73:
         /* pop: StreamReader.a(v1); */
         L78:
         float v2 = 1.0f;
-        if (CareerMap.h < 50) goto L131;
+        if (ObfR.h < 50) goto L131;
         if (Settings.c() != 0) goto L97;
         v2 = 0.8999999761581421f;
         L97:
@@ -63,11 +63,11 @@ public class CareerMap extends MenuScreen {
         L150:
         this.s = (((int) ((((float) StreamReader.b(v1)) / v2) / 1000.0f)) * 1000);
         L169:
-        if (CareerMap.b.compareTo("8a.map") != 0) goto L197;
-        CareerMap.j = 3;
+        if (ObfR.b_String_2.compareTo("8a.map") != 0) goto L197;
+        ObfR.j = 3;
         this.s = ((int) (((float) this.s) / 1.399999976158142f));
         L197:
-        CareerMap.l = 0;
+        ObfR.l = 0;
         this.t = 0;
         v1.close();
         return;
@@ -113,18 +113,18 @@ public class CareerMap extends MenuScreen {
         v4 = (v4 + 10);
         v3 = ((int) SysUtil.a(58));
         v2 = ((Image) SysUtil.p.a(v3));
-        int v6 = (SysUtil.p.a(CareerMap.d) + 1);
+        int v6 = (SysUtil.p.a(ObfR.d) + 1);
         SysUtil.p.a(v1, v3, v4, v5);
-        SysUtil.p.a(v1, CareerMap.d, ((v4 + v2) + 10), v5);
+        SysUtil.p.a(v1, ObfR.d, ((v4 + v2) + 10), v5);
         SysUtil.p.a(v1, SysUtil.a(59), (((v4 + v2) + v6) + 10), v5);
         v5 = (v5 + (SysUtil.p.a() + 5));
         v3 = ((int) SysUtil.a(57));
         SysUtil.p.a(v1, v3, v4, v5);
-        SysUtil.p.a(v1, CareerMap.k, ((v4 + v2) + 10), v5);
+        SysUtil.p.a(v1, ObfR.k, ((v4 + v2) + 10), v5);
         v5 = (v5 + (SysUtil.p.a() + 5));
         v3 = ((int) SysUtil.a(165));
         SysUtil.p.a(v1, v3, v4, v5);
-        SysUtil.p.a(v1, SysUtil.a((76 + CareerMap.j)), ((v4 + v2) + 10), v5);
+        SysUtil.p.a(v1, SysUtil.a((76 + ObfR.j)), ((v4 + v2) + 10), v5);
         v5 = (v5 + (SysUtil.p.a() + 5));
         v3 = ((int) SysUtil.a(94));
         SysUtil.p.a(v1, v3, v4, v5);
@@ -136,7 +136,7 @@ public class CareerMap extends MenuScreen {
     // bytecode 601 bytes, max_stack 11, max_locals 7
     public void d(Graphics v1) {
         int v2 = 30;
-        if (SysUtil.f > 240) goto L15;
+        if (SysUtil.f_I > 240) goto L15;
         v2 = 23;
         L15:
         if (Settings.m() != 0) goto L39;
@@ -152,7 +152,7 @@ public class CareerMap extends MenuScreen {
         int v4 = ((v2 * 2) + v3);
         if ((Settings.m() % 2) != 1) goto L118;
         if (this.b == null) goto L101;
-        if (this.b.getWidth() >= (SysUtil.e - 20)) goto L118;
+        if (this.b.getWidth() >= (SysUtil.e_I - 20)) goto L118;
         L101:
         this.b = javax.microedition.lcdui.Image.createImage((v1.getClipWidth() - 20), (v2 * 2));
         L118:
@@ -173,9 +173,9 @@ public class CareerMap extends MenuScreen {
         this.b(v1, 1, 94, this.s, 10, v3, v2, v4);
         this.b(v1, 2, 95, this.a(), 10, v3, v2, v4);
         v5 = ((Graphics) this.a());
-        if (CareerMap.o == 0) goto L319;
-        if (v5 <= CareerMap.o) goto L319;
-        v5 = ((Graphics) CareerMap.o);
+        if (ObfR.o == 0) goto L319;
+        if (v5 <= ObfR.o) goto L319;
+        v5 = ((Graphics) ObfR.o);
         L319:
         this.b(v1, 3, 96, v5, 10, v3, v2, v4);
         return;
@@ -186,9 +186,9 @@ public class CareerMap extends MenuScreen {
         this.b(v5, 0, 95, this.a(), 0, 0, v2, v4);
         v1.drawRegion(this.b, 0, 0, this.b.getWidth(), this.b.getHeight(), 5, ((v1.getClipWidth() - (v3 + (v4 << 1))) - this.b.getHeight()), ((v1.getClipHeight() - this.b.getWidth()) / 2), 20);
         int v6 = this.a();
-        if (CareerMap.o == 0) goto L524;
-        if (v6 <= CareerMap.o) goto L524;
-        v6 = CareerMap.o;
+        if (ObfR.o == 0) goto L524;
+        if (v6 <= ObfR.o) goto L524;
+        v6 = ObfR.o;
         L524:
         this.b(v5, 0, 96, v6, 0, 0, v2, v4);
         v1.drawRegion(this.b, 0, 0, this.b.getWidth(), this.b.getHeight(), 5, ((v1.getClipWidth() - (v3 + (v4 * 3))) - this.b.getHeight()), ((v1.getClipHeight() - this.b.getWidth()) / 2), 20);

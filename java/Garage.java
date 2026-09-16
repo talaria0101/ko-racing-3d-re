@@ -203,7 +203,7 @@ public class Garage {
         if (Garage.a_Image != null) goto L66;
         Garage.a_Image = javax.microedition.lcdui.Image.createImage(Resources.a("/images/garage.png"));
         L66:
-        Garage.c_F = ((float) ((SysUtil.e / 2) - 8));
+        Garage.c_F = ((float) ((SysUtil.e_I / 2) - 8));
         new CheckBox(Garage.d_I, Garage.e); /* constructor */
         Garage.a_n = new CheckBox(Garage.d_I, Garage.e);
         Garage.a_Z = true;
@@ -255,31 +255,31 @@ public class Garage {
         if (Garage.h != 0) goto L97;
         v1.setColor(0);
         v1.fillRect(0, 0, v1.getClipWidth(), v1.getClipHeight());
-        v1.drawImage(Garage.a_Image, ((SysUtil.e - Garage.a_Image.getWidth()) / 2), ((SysUtil.f_I - Garage.a_Image.getHeight()) / 2), 20);
+        v1.drawImage(Garage.a_Image, ((SysUtil.e_I - Garage.a_Image.getWidth()) / 2), ((SysUtil.f_I - Garage.a_Image.getHeight()) / 2), 20);
         goto L440;
         L97:
         if (Garage.h <= 0) goto L440;
         v1.setColor(0);
         v1.fillRect(0, 0, v1.getClipWidth(), v1.getClipHeight());
         if (Garage.b_arrI[Garage.g] != 51) goto L173;
-        v1.drawImage(Garage.d(), ((SysUtil.e - Garage.d().getWidth()) / 2), (((SysUtil.f_I - Garage.d().getHeight()) / 2) - 20), 20);
+        v1.drawImage(Garage.d(), ((SysUtil.e_I - Garage.d().getWidth()) / 2), (((SysUtil.f_I - Garage.d().getHeight()) / 2) - 20), 20);
         goto L440;
         L173:
         if (Garage.b_arrI[Garage.g] != 53) goto L224;
-        v1.drawImage(Garage.f(), ((SysUtil.e - Garage.f().getWidth()) / 2), (((SysUtil.f_I - Garage.f().getHeight()) / 2) + 10), 20);
+        v1.drawImage(Garage.f(), ((SysUtil.e_I - Garage.f().getWidth()) / 2), (((SysUtil.f_I - Garage.f().getHeight()) / 2) + 10), 20);
         goto L440;
         L224:
         if (Garage.b_arrI[Garage.g] != 52) goto L272;
-        v1.drawImage(Garage.e(), ((SysUtil.e - Garage.e().getWidth()) / 2), ((SysUtil.f_I - Garage.e().getHeight()) / 2), 20);
+        v1.drawImage(Garage.e(), ((SysUtil.e_I - Garage.e().getWidth()) / 2), ((SysUtil.f_I - Garage.e().getHeight()) / 2), 20);
         goto L440;
         L272:
         if (Garage.b_arrI[Garage.g] != 65) goto L401;
-        v1.drawImage(Garage.c(), (((SysUtil.e - Garage.c().getWidth()) / 2) - 60), (((SysUtil.f_I - Garage.c().getHeight()) / 2) + 20), 20);
-        v1.drawImage(Garage.c(), (((SysUtil.e - Garage.c().getWidth()) / 2) + 60), (((SysUtil.f_I - Garage.c().getHeight()) / 2) + 20), 20);
-        v1.drawImage(Garage.b(), ((SysUtil.e - Garage.b().getWidth()) / 2), (((SysUtil.f_I - Garage.b().getHeight()) / 2) + 20), 20);
+        v1.drawImage(Garage.c(), (((SysUtil.e_I - Garage.c().getWidth()) / 2) - 60), (((SysUtil.f_I - Garage.c().getHeight()) / 2) + 20), 20);
+        v1.drawImage(Garage.c(), (((SysUtil.e_I - Garage.c().getWidth()) / 2) + 60), (((SysUtil.f_I - Garage.c().getHeight()) / 2) + 20), 20);
+        v1.drawImage(Garage.b(), ((SysUtil.e_I - Garage.b().getWidth()) / 2), (((SysUtil.f_I - Garage.b().getHeight()) / 2) + 20), 20);
         goto L440;
         L401:
-        v1.drawImage(Garage.a(), (((SysUtil.e - Garage.a().getWidth()) / 2) - 30), (((SysUtil.f_I - Garage.a().getHeight()) / 2) + 10), 20);
+        v1.drawImage(Garage.a(), (((SysUtil.e_I - Garage.a().getWidth()) / 2) - 30), (((SysUtil.f_I - Garage.a().getHeight()) / 2) + 10), 20);
         L440:
         Garage.d = ((((float) SysUtil.f_I) / 2.0f) - (((float) Garage.a[0].getHeight()) / 4.0f));
         if (fcmpg(((((((float) SysUtil.f_I) / 2.0f) - (((float) Garage.a[0].getHeight()) / 4.0f)) + ((float) Garage.a[0].getHeight())) + 4.0f), ((float) SysUtil.f_I)) <= 0) goto L502;
@@ -288,8 +288,8 @@ public class Garage {
         int v3 = ((int) (Garage.e_F * ((float) Garage.e)));
         int v2 = ((int) (Garage.e_F * ((float) Garage.d_I)));
         v1 = v0;
-        float v4 = (Garage.c_F / ((float) SysUtil.e));
-        int v5 = ((int) (((float) (SysUtil.e / 2)) - (((float) Garage.d_I) * Garage.f)));
+        float v4 = (Garage.c_F / ((float) SysUtil.e_I));
+        int v5 = ((int) (((float) (SysUtil.e_I / 2)) - (((float) Garage.d_I) * Garage.f)));
         int v6 = ((int) ((Garage.d - (((float) (Garage.e + 20)) * Garage.e_F)) - 10.0f));
         if (((int) ((Garage.d - (((float) (Garage.e + 20)) * Garage.e_F)) - 10.0f)) >= 5) goto L581;
         v6 = 5;
@@ -297,8 +297,8 @@ public class Garage {
         if (v5 >= 10) goto L592;
         v5 = 10;
         L592:
-        if ((v5 + Garage.d_I) <= (SysUtil.e - 10)) goto L619;
-        v5 = ((SysUtil.e - Garage.d_I) - 10);
+        if ((v5 + Garage.d_I) <= (SysUtil.e_I - 10)) goto L619;
+        v5 = ((SysUtil.e_I - Garage.d_I) - 10);
         L619:
         Garage.a_n.b(v2, v3);
         int v7 = v6;
@@ -314,13 +314,13 @@ public class Garage {
         L702:
         if (v9 >= v8) goto L784;
         v1.setColor(15921906);
-        v1.drawLine((((int) (Garage.c_F + (((1.0f - v4) * 24.0f) * (((float) (v5 + (Garage.d_I / 2))) / ((float) SysUtil.e))))) + 3), (((int) Garage.d) - 7), (((v5 + ((int) (v4 * ((float) v2)))) + v9) - (v8 / 2)), ((v6 + v3) - 1));
+        v1.drawLine((((int) (Garage.c_F + (((1.0f - v4) * 24.0f) * (((float) (v5 + (Garage.d_I / 2))) / ((float) SysUtil.e_I))))) + 3), (((int) Garage.d) - 7), (((v5 + ((int) (v4 * ((float) v2)))) + v9) - (v8 / 2)), ((v6 + v3) - 1));
         v9 += 1;
         goto L702;
         L784:
         v1.setColor(5000268);
-        v1.drawLine((((int) (Garage.c_F + (((1.0f - v4) * 24.0f) * (((float) (v5 + (Garage.d_I / 2))) / ((float) SysUtil.e))))) + 3), (((int) Garage.d) - 7), ((v5 + ((int) (v4 * ((float) v2)))) - (v8 / 2)), ((v6 + v3) - 1));
-        v1.drawLine((((int) (Garage.c_F + (((1.0f - v4) * 24.0f) * (((float) (v5 + (Garage.d_I / 2))) / ((float) SysUtil.e))))) + 3), (((int) Garage.d) - 7), ((v5 + ((int) (v4 * ((float) v2)))) + (v8 / 2)), ((v6 + v3) - 1));
+        v1.drawLine((((int) (Garage.c_F + (((1.0f - v4) * 24.0f) * (((float) (v5 + (Garage.d_I / 2))) / ((float) SysUtil.e_I))))) + 3), (((int) Garage.d) - 7), ((v5 + ((int) (v4 * ((float) v2)))) - (v8 / 2)), ((v6 + v3) - 1));
+        v1.drawLine((((int) (Garage.c_F + (((1.0f - v4) * 24.0f) * (((float) (v5 + (Garage.d_I / 2))) / ((float) SysUtil.e_I))))) + 3), (((int) Garage.d) - 7), ((v5 + ((int) (v4 * ((float) v2)))) + (v8 / 2)), ((v6 + v3) - 1));
         Garage.a_n.a(v1, v5, v7);
         if (((v6 + v3) - 1) >= (((int) Garage.d) - 7)) goto L987;
         v1.setColor(15921906);
@@ -332,12 +332,12 @@ public class Garage {
         if (Garage.a_arrarrI[Garage.b_I][Garage.c] >= Garage.a_arrI.length) goto L1090;
         v1.setClip(v2, v3, Garage.a_arrB[Garage.a_arrarrI[Garage.b_I][Garage.c]], Garage.a[0].getHeight());
         v1.drawImage(Garage.a[0], (v2 - Garage.a_arrI[Garage.a_arrarrI[Garage.b_I][Garage.c]]), v3, 20);
-        v1.setClip(0, 0, SysUtil.e, SysUtil.f_I);
+        v1.setClip(0, 0, SysUtil.e_I, SysUtil.f_I);
         goto L1206;
         L1090:
         v1.setClip(((v2 + 16) - Garage.a_arrB[(Garage.a_arrarrI[Garage.b_I][Garage.c] % Garage.a_arrI.length)]), v3, Garage.a_arrB[(Garage.a_arrarrI[Garage.b_I][Garage.c] % Garage.a_arrI.length)], Garage.a[0].getHeight());
         v1.drawImage(Garage.a[1], (((v2 + 16) - Garage.a[1].getWidth()) + Garage.a_arrI[(Garage.a_arrarrI[Garage.b_I][Garage.c] % Garage.a_arrI.length)]), v3, 20);
-        v1.setClip(0, 0, SysUtil.e, SysUtil.f_I);
+        v1.setClip(0, 0, SysUtil.e_I, SysUtil.f_I);
         L1206:
         if (Garage.f_Z == 0) goto L1218;
         Planet.a(v0, 0, 0);
@@ -404,10 +404,10 @@ public class Garage {
         L107:
         if (fcmpg(Garage.b_F, (Garage.a_arrarrF[Garage.b_I][Garage.c] / 2.0f)) <= 0) goto L376;
         Garage.c_F = (Garage.c_F - ((((float) Garage.b_arrarrI[Garage.b_I][Garage.c]) * Garage.b_F) / Garage.a_arrarrF[Garage.b_I][Garage.c]));
-        if (fcmpl((Garage.c_F - ((((float) Garage.b_arrarrI[Garage.b_I][Garage.c]) * Garage.b_F) / Garage.a_arrarrF[Garage.b_I][Garage.c])), ((float) ((int) (((float) SysUtil.e) * 0.30000001192092896f)))) >= 0) goto L228;
+        if (fcmpl((Garage.c_F - ((((float) Garage.b_arrarrI[Garage.b_I][Garage.c]) * Garage.b_F) / Garage.a_arrarrF[Garage.b_I][Garage.c])), ((float) ((int) (((float) SysUtil.e_I) * 0.30000001192092896f)))) >= 0) goto L228;
         Garage.b_I = KORa.rand.nextInt(Garage.a_arrarrI.length);
         Garage.c = 0;
-        Garage.c_F = ((float) ((int) (((float) SysUtil.e) * 0.30000001192092896f)));
+        Garage.c_F = ((float) ((int) (((float) SysUtil.e_I) * 0.30000001192092896f)));
         if (Garage.h_Z == 0) goto L221;
         if (Garage.b_I != 0) goto L221;
         Garage.b_I = 2;
@@ -416,21 +416,21 @@ public class Garage {
         goto L372;
         L228:
         if (Garage.h_Z != 0) goto L253;
-        if (fcmpg(Garage.c_F, ((float) ((int) ((((float) SysUtil.e) * 0.699999988079071f) - 16.0f)))) > 0) goto L269;
+        if (fcmpg(Garage.c_F, ((float) ((int) ((((float) SysUtil.e_I) * 0.699999988079071f) - 16.0f)))) > 0) goto L269;
         L253:
-        if (fcmpg(Garage.c_F, ((float) ((int) (((float) SysUtil.e) - 46.0f)))) <= 0) goto L372;
+        if (fcmpg(Garage.c_F, ((float) ((int) (((float) SysUtil.e_I) - 46.0f)))) <= 0) goto L372;
         L269:
         Garage.b_I = KORa.rand.nextInt(Garage.a_arrarrI.length);
         if (Garage.h_Z != 0) goto L336;
-        if (fcmpg(Garage.c_F, ((float) ((int) ((((float) SysUtil.e) * 0.699999988079071f) - 15.0f)))) <= 0) goto L314;
+        if (fcmpg(Garage.c_F, ((float) ((int) ((((float) SysUtil.e_I) * 0.699999988079071f) - 15.0f)))) <= 0) goto L314;
         Garage.b_I = 0;
         goto L352;
         L314:
-        Garage.c_F = ((float) ((int) ((((float) SysUtil.e) * 0.699999988079071f) - 16.0f)));
+        Garage.c_F = ((float) ((int) ((((float) SysUtil.e_I) * 0.699999988079071f) - 16.0f)));
         Garage.c = 0;
         goto L352;
         L336:
-        Garage.c_F = ((float) ((int) (((float) SysUtil.e) - 46.0f)));
+        Garage.c_F = ((float) ((int) (((float) SysUtil.e_I) - 46.0f)));
         Garage.c = 0;
         L352:
         if (Garage.h_Z == 0) goto L368;
@@ -711,12 +711,12 @@ public class Garage {
         if (((int) ((Garage.d - (((float) (Garage.e + 20)) * Garage.e_F)) - 10.0f)) >= -10) goto L29;
         v2 = -10;
         L29:
-        int v3 = ((int) (((float) (SysUtil.e / 2)) - (((float) Garage.d_I) * Garage.f)));
-        if (((int) (((float) (SysUtil.e / 2)) - (((float) Garage.d_I) * Garage.f))) >= 10) goto L55;
+        int v3 = ((int) (((float) (SysUtil.e_I / 2)) - (((float) Garage.d_I) * Garage.f)));
+        if (((int) (((float) (SysUtil.e_I / 2)) - (((float) Garage.d_I) * Garage.f))) >= 10) goto L55;
         v3 = 10;
         L55:
-        if ((v3 + Garage.d_I) <= (SysUtil.e - 10)) goto L80;
-        v3 = ((SysUtil.e - Garage.d_I) - 10);
+        if ((v3 + Garage.d_I) <= (SysUtil.e_I - 10)) goto L80;
+        v3 = ((SysUtil.e_I - Garage.d_I) - 10);
         L80:
         if (Garage.a_n.b((v0 - v3), (v1 - v2)) == 0) goto L99;
         Garage.b = true;
@@ -734,12 +734,12 @@ public class Garage {
         if (((int) ((Garage.d - (((float) (Garage.e + 20)) * Garage.e_F)) - 10.0f)) >= -10) goto L48;
         v2 = -10;
         L48:
-        int v3 = ((int) (((float) (SysUtil.e / 2)) - (((float) Garage.d_I) * Garage.f)));
-        if (((int) (((float) (SysUtil.e / 2)) - (((float) Garage.d_I) * Garage.f))) >= 10) goto L74;
+        int v3 = ((int) (((float) (SysUtil.e_I / 2)) - (((float) Garage.d_I) * Garage.f)));
+        if (((int) (((float) (SysUtil.e_I / 2)) - (((float) Garage.d_I) * Garage.f))) >= 10) goto L74;
         v3 = 10;
         L74:
-        if ((v3 + Garage.d_I) <= (SysUtil.e - 10)) goto L99;
-        v3 = ((SysUtil.e - Garage.d_I) - 10);
+        if ((v3 + Garage.d_I) <= (SysUtil.e_I - 10)) goto L99;
+        v3 = ((SysUtil.e_I - Garage.d_I) - 10);
         L99:
         if (Garage.a_n.a((v0 - v3), (v1 - v2)) == 0) goto L115;
         return;

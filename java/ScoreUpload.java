@@ -12,11 +12,11 @@ public class ScoreUpload {
     public ScoreUpload() {
         super();
         new java.lang.StringBuffer(); /* constructor */
-        this.a = new java.lang.StringBuffer().append(Settings.b).append("?a=b").toString();
+        this.a = new java.lang.StringBuffer().append(Settings.b_String).append("?a=b").toString();
         new java.lang.StringBuffer(); /* constructor */
         this.b = new java.lang.StringBuffer().append(this.a).append("&p=").toString();
         new java.lang.StringBuffer(); /* constructor */
-        this.c = new java.lang.StringBuffer().append(Settings.b).append("?a=s&s=").toString();
+        this.c = new java.lang.StringBuffer().append(Settings.b_String).append("?a=s&s=").toString();
         this.a_arrI = null;
         this.a_String = null;
         return;
@@ -73,18 +73,18 @@ public class ScoreUpload {
         /* try L0-L134 catch java.lang.Exception -> L165 */
         /* try L135-L141 catch java.lang.Exception -> L165 */
         /* try L142-L161 catch java.lang.Exception -> L165 */
-        MainCanvas.a = 1;
+        MainCanvas.a_I = 1;
         MainCanvas.a();
         v0 = ((String) ((javax.microedition.io.HttpConnection) javax.microedition.io.Connector.open(v0)));
         ((javax.microedition.io.HttpConnection) javax.microedition.io.Connector.open(v0)).setRequestMethod("POST");
-        MainCanvas.a = 2;
+        MainCanvas.a_I = 2;
         MainCanvas.a();
         if (v2 == null) goto L50;
         OutputStream v3 = v0.openOutputStream();
         v0.openOutputStream().write(v2);
         v3.close();
         L50:
-        MainCanvas.a = 3;
+        MainCanvas.a_I = 3;
         MainCanvas.a();
         v2 = ((byte[]) v0.openInputStream());
         int v4 = 0;
@@ -95,7 +95,7 @@ public class ScoreUpload {
         v4 = (v4 + v3);
         L96:
         if (v3 > 0) goto L74;
-        MainCanvas.a = 0;
+        MainCanvas.a_I = 0;
         if (v4 <= 0) goto L138;
         new java.lang.String(v5, 0, v4); /* constructor */
         v3 = ((OutputStream) new java.lang.String(v5, 0, v4));
@@ -113,7 +113,7 @@ public class ScoreUpload {
         L162:
         return v5;
         v3 = ((OutputStream) ex_165);
-        MainCanvas.a = 0;
+        MainCanvas.a_I = 0;
         v3.printStackTrace();
         return null;
     }
@@ -167,7 +167,7 @@ public class ScoreUpload {
         L169:
         jt4 = 0; /* join L170 from L169 */
         L170:
-        Settings.e = jt4;
+        Settings.e_Z = jt4;
         Settings.i(v1.readByte());
         Settings.j(v1.readByte());
         Settings.b(v1.readByte());
@@ -188,7 +188,7 @@ public class ScoreUpload {
         L236:
         jt6 = 0; /* join L237 from L236 */
         L237:
-        Settings.f = jt6;
+        Settings.f_Z = jt6;
         Settings.r(v1.readByte());
         Settings.l(v1.readByte());
         if (v1.readByte() == 0) goto L265;
@@ -197,7 +197,7 @@ public class ScoreUpload {
         L265:
         jt7 = 0; /* join L266 from L265 */
         L266:
-        Settings.g = jt7;
+        Settings.g_Z = jt7;
         Settings.b();
         Garage.c(32);
         return 1;

@@ -326,7 +326,7 @@ public class Bluetooth implements java.lang.Runnable, javax.bluetooth.DiscoveryL
         /* pop: ex_106; */
         L107:
         this.e = true;
-        if (Settings.e != 0) goto L121;
+        if (Settings.e_Z != 0) goto L121;
         java.lang.System.gc();
         L121:
         return;

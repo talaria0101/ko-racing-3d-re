@@ -130,10 +130,10 @@ public class Planet {
         L9:
         v1 = 0;
         L11:
-        if (v1 > (SysUtil.f / Planet.f)) goto L79;
+        if (v1 > (SysUtil.f_I / Planet.f)) goto L79;
         v2 = 0;
         L24:
-        if (v2 > (SysUtil.e / Planet.f)) goto L73;
+        if (v2 > (SysUtil.e_I / Planet.f)) goto L73;
         v0.drawRGB(Planet.a, 0, Planet.a_I, (0 + (v2 * Planet.f)), (0 + (v1 * Planet.f)), Planet.a_I, Planet.b, true);
         v2 += 1;
         goto L24;
@@ -217,7 +217,7 @@ public class Planet {
     // bytecode 18 bytes, max_stack 1, max_locals 0
     public static void b() {
         Planet.a = null;
-        if (Settings.e != 0) goto L13;
+        if (Settings.e_Z != 0) goto L13;
         java.lang.System.gc();
         L13:
         Planet.b_Z = false;

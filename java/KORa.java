@@ -38,10 +38,10 @@ public class KORa extends javax.microedition.midlet.MIDlet implements javax.micr
         L31:
         jt1 = 0; /* join L32 from L31 */
         L32:
-        Settings.i = jt1;
+        Settings.i_Z = jt1;
         goto L43;
         /* pop: ex_38; */
-        Settings.i = false;
+        Settings.i_Z = false;
         L43:
         KORa.self = this;
         new java.util.Random(); /* constructor */

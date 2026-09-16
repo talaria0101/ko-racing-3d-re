@@ -16,34 +16,34 @@ public class ObfAc extends MenuScreen {
     }
     // bytecode 147 bytes, max_stack 4, max_locals 5
     public void b() {
-        InputStream v1 = Resources.a(ObfAc.c);
-        /* pop: Resources.a(ObfAc.c).skip(((long) ObfAc.g)); */
-        ObfAc.k = StreamReader.a(v1);
-        ObfAc.j = StreamReader.a(v1);
+        InputStream v1 = Resources.a(ObfR.c_String);
+        /* pop: Resources.a(ObfR.c_String).skip(((long) ObfR.g)); */
+        ObfR.k = StreamReader.a(v1);
+        ObfR.j = StreamReader.a(v1);
         if (StreamReader.a(v1) <= 0) goto L41;
         jt1 = 1; /* join L42 from L37 */
         goto L42;
         L41:
         jt1 = 0; /* join L42 from L41 */
         L42:
-        ObfAc.a = jt1;
-        ObfAc.m = StreamReader.a(v1);
-        ObfAc.l = 1;
-        ObfAc.c = new int[1]#1;
+        ObfR.a_Z = jt1;
+        ObfR.m = StreamReader.a(v1);
+        ObfR.l = 1;
+        ObfR.c_arrI = new int[1]#1;
         int v3 = 0;
         L64:
-        if (v3 >= ObfAc.l) goto L142;
+        if (v3 >= ObfR.l) goto L142;
         L71:
         int v2 = 1;
-        ObfAc.c[v3] = KORa.rand.nextInt(4);
-        if (ObfAc.c[v3] != ObfAc.h) goto L101;
+        ObfR.c_arrI[v3] = KORa.rand.nextInt(4);
+        if (ObfR.c_arrI[v3] != ObfR.h) goto L101;
         v2 = 0;
         goto L132;
         L101:
         int v4 = 0;
         L104:
         if (v4 >= v3) goto L132;
-        if (ObfAc.c[v3] != ObfAc.c[v4]) goto L126;
+        if (ObfR.c_arrI[v3] != ObfR.c_arrI[v4]) goto L126;
         v2 = 0;
         L126:
         v4 += 1;

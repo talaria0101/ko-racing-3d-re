@@ -53,7 +53,7 @@ public class HighList {
         return null;
         L13:
         if (this.a[(v1 - 1)].a() != 0) goto L41;
-        this.a[(v1 - 1)].a(ObfBb.a);
+        this.a[(v1 - 1)].a(ObfBb.a_b);
         L41:
         return this.a[(v1 - 1)];
     }

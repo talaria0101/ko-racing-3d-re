@@ -22,8 +22,8 @@ public class ObfCp extends Widget {
         this.b = v2;
         new ImageItem(this, 0, 0, v5, SysUtil.b); /* constructor */
         this.a = new ImageItem(this, 0, 0, v5, SysUtil.b);
-        this.a_Image[0] = javax.microedition.lcdui.Image.createImage(Resources.a(SysUtil.a[0]));
-        this.a_Image[1] = javax.microedition.lcdui.Image.createImage(Resources.a(SysUtil.a[1]));
+        this.a_Image[0] = javax.microedition.lcdui.Image.createImage(Resources.a(SysUtil.a_String[0]));
+        this.a_Image[1] = javax.microedition.lcdui.Image.createImage(Resources.a(SysUtil.a_String[1]));
         return;
         /* pop: ex_109; */
         this.a_Image[0] = null;

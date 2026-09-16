@@ -59,23 +59,23 @@ public class ObfAi {
         if (this.b_Z != 0) goto L69;
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a = ObfBb.a.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString(), true);
+        this.a = ObfBb.a_de.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString(), true);
         goto L245;
         L69:
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a = ObfBb.a.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString());
+        this.a = ObfBb.a_de.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString());
         goto L245;
         L126:
         if (this.b_Z != 0) goto L191;
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a = ObfBb.a.b(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString(), true);
+        this.a = ObfBb.a_de.b(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString(), true);
         goto L245;
         L191:
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a = ObfBb.a.b(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString());
+        this.a = ObfBb.a_de.b(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString());
         L245:
         this.a.b((ObfAr.a + 0.009999999776482582f), (ObfAr.a + 0.009999999776482582f), (ObfAr.a + 0.009999999776482582f));
         return;

@@ -31,28 +31,28 @@ public class CarSelect extends CareerMap {
     }
     // bytecode 183 bytes, max_stack 3, max_locals 3
     public void b() {
-        InputStream v1 = Resources.a(CarSelect.c);
-        /* pop: Resources.a(CarSelect.c).skip(((long) CarSelect.g)); */
-        CarSelect.j = StreamReader.a(v1);
+        InputStream v1 = Resources.a(ObfR.c_String);
+        /* pop: Resources.a(ObfR.c_String).skip(((long) ObfR.g)); */
+        ObfR.j = StreamReader.a(v1);
         if (StreamReader.a(v1) <= 0) goto L34;
         jt1 = 1; /* join L35 from L30 */
         goto L35;
         L34:
         jt1 = 0; /* join L35 from L34 */
         L35:
-        CarSelect.a = jt1;
-        CarSelect.k = StreamReader.a(v1);
+        ObfR.a_Z = jt1;
+        ObfR.k = StreamReader.a(v1);
         if (StreamReader.a(v1) <= 1) goto L55;
         this.e = true;
         L55:
-        if (CarSelect.h != -10) goto L73;
-        CarSelect.h = StreamReader.a(v1);
+        if (ObfR.h != -10) goto L73;
+        ObfR.h = StreamReader.a(v1);
         goto L78;
         L73:
         /* pop: StreamReader.a(v1); */
         L78:
         float v2 = 1.0f;
-        if (CarSelect.h < 50) goto L131;
+        if (ObfR.h < 50) goto L131;
         if (Settings.c() != 0) goto L97;
         v2 = 0.8999999761581421f;
         L97:
@@ -71,7 +71,7 @@ public class CarSelect extends CareerMap {
         L150:
         this.s = (((int) ((((float) StreamReader.b(v1)) / v2) / 1000.0f)) * 1000);
         L169:
-        CarSelect.l = 0;
+        ObfR.l = 0;
         this.t = 0;
         v1.close();
         return;
