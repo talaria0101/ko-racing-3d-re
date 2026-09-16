@@ -31,10 +31,14 @@
 //! (`di.e`/`a_z` drift state, whose feed `di.c__void` is dead code in the
 //! shipped game) is replaced by the direct relation `yaw_rate =
 //! clamp(steer * speed, +-1.5)`, which keeps the verbatim lock law and the
-//! verbatim +-1.5 authority cap; wheel spin/slip visuals (`cl.a(float)`)
-//! and the suspension settle (`cl.k(float)`) are not simulated; tilt comes
-//! from the surface normal. The `.car` tail past the four stat bytes feeds
-//! the menus, not the car.
+//! verbatim +-1.5 authority cap; the throttle-to-velocity coupling the
+//! static trace cannot find is a chase of the capped drive state at
+//! ~1/s (reaches cruise in about three seconds, brakes bite at ~4/s)
+//! instead of the game's unknown rate - full throttle for a second must
+//! not put the car at cruise, and a test pins that; wheel spin/slip
+//! visuals (`cl.a(float)`) and the suspension settle (`cl.k(float)`) are
+//! not simulated; tilt comes from the surface normal. The `.car` tail
+//! past the four stat bytes feeds the menus, not the car.
 
 use macroquad::prelude::{vec3, Quat, Vec3};
 
@@ -361,12 +365,18 @@ impl World {
         }
         car.state.coasting = coasting;
 
-        // The velocity vector chases the drive state: full response in
-        // about a second at full throttle. (The game integrates it out of
-        // the tire/slope/drag forces in `cl.c(float)`; this keeps the
-        // game's numbers at the boundaries - same caps, same creep.)
-        let want = forward * car.drive;
-        let blend = (dt * 2.5).min(1.0);
+        // The velocity vector chases the drive state. The game's exact
+        // throttle-to-velocity coupling is the one open item in the port
+        // (see module docs); this chase keeps the game's caps and creep
+        // with an arcade response of roughly three seconds to cruise.
+        // Braking bites harder, as it should. Neither is verbatim.
+        // Chase the drive state, but no further than the planar cap:
+        // chasing the raw 76-scale drive would pin the car at the cap
+        // within a second whatever the blend. Reversing chases backwards.
+        let cruise = tune.pitch_ref(1);
+        let want = forward * car.drive.clamp(-cruise * 0.4, cruise);
+        let rate = if control.brake { 4.0 } else { 1.1 };
+        let blend = (dt * rate).min(1.0);
         car.vel += (want - car.vel) * blend;
         // Planar cap is the tune `k()` (`c(float)` rescales past it:
         // 19 units/s at class 1, the road speed everything else keys off).
@@ -617,6 +627,22 @@ mod tests {
     }
 
     #[test]
+    fn full_throttle_does_not_shoot() {
+        // One second of throttle must not put the car at cruise: the game
+        // revs fast but the chassis answers over seconds, not frames.
+        let mut world = World::new(&[]);
+        let car = world.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        let drive = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
+        let heights = [Some(0.0)];
+        for _ in 0..60 {
+            world.step(1.0 / 60.0, &drive, &heights);
+        }
+        let early = world.speed(car);
+        assert!(early < 14.0, "shoots: {early:.2} after one second");
+        assert!(early > 4.0, "tractor: {early:.2} after one second");
+    }
+
+    #[test]
     fn throttle_climbs_to_top_speed_and_brake_floors_it() {
         let mut world = World::new(&[]);
         let car = world.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
@@ -626,11 +652,13 @@ mod tests {
             world.step(1.0 / 60.0, &drive, &heights);
         }
         // The drive state revs to the tune top while the velocity vector
-        // holds at the planar `k()` cap: two parallel speeds, as in game.
+        // settles where the chase meets the tune drag, below the planar
+        // `k()` cap: two parallel speeds, as in game.
         let tune = Tuning::player([3, 5, 5, 1]);
         let top = tune.top_speed(1, false);
         assert!((world.cars[car].drive - top).abs() < top * 0.05);
-        assert!((world.speed(car) - tune.pitch_ref(1)).abs() < 1.0);
+        let cruise = world.speed(car);
+        assert!(cruise > 12.0 && cruise < 17.0, "cruise {cruise:.2}");
         let brake = [CarControl { throttle: 0.0, steer: 0.0, brake: true }];
         for _ in 0..600 {
             world.step(1.0 / 60.0, &brake, &heights);
