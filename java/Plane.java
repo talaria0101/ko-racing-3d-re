@@ -107,19 +107,19 @@ public class Plane {
         if (fcmpl(ObfAu.a_bz.b(), ObfAu.a_bz.c()) >= 0) goto L78;
         return 1;
         L78:
-        v0 = ((float) ObfB.a(v0));
+        v0 = ((float) MeshCache.a(v0));
         v5 = ObfAu.b;
         v5 = ObfAu.a;
         v5 = ObfAu.b;
-        int v1 = ObfB.a((Vec2.a(ObfAu.b.a, ObfAu.a.c) + ObfAu.b.a_F));
+        int v1 = MeshCache.a((Vec2.a(ObfAu.b.a, ObfAu.a.c) + ObfAu.b.a_F));
         v5 = ObfAu.a;
         v5 = ObfAu.b;
         v5 = ObfAu.a;
-        int v2 = ObfB.a((Vec2.a(ObfAu.a.a, ObfAu.b.b) + ObfAu.a.a_F));
+        int v2 = MeshCache.a((Vec2.a(ObfAu.a.a, ObfAu.b.b) + ObfAu.a.a_F));
         v5 = ObfAu.a;
         v5 = ObfAu.b;
         v5 = ObfAu.a;
-        int v3 = ObfB.a((Vec2.a(ObfAu.a.a, ObfAu.b.c) + ObfAu.a.a_F));
+        int v3 = MeshCache.a((Vec2.a(ObfAu.a.a, ObfAu.b.c) + ObfAu.a.a_F));
         if (v2 == v3) goto L206;
         if (v0 == v1) goto L206;
         if (fcmpg(((float) v1), 0.0010000000474974513f) <= 0) goto L208;

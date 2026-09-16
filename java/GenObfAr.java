@@ -128,7 +128,7 @@ public class ObfAr {
         L97:
         jt2 = ""; /* join L99 from L97 */
         L99:
-        this.a_am = ObfBb.a_de.a(new java.lang.StringBuffer().append("/models/").append(jt1).append(v2).toString(), new java.lang.StringBuffer().append("/tex/").append(jt2).append(this.c_String).toString(), false, true);
+        this.a_am = AssetManager.a_de.a(new java.lang.StringBuffer().append("/models/").append(jt1).append(v2).toString(), new java.lang.StringBuffer().append("/tex/").append(jt2).append(this.c_String).toString(), false, true);
         goto L208;
         L123:
         new java.lang.StringBuffer(); /* constructor */
@@ -145,7 +145,7 @@ public class ObfAr {
         L185:
         jt4 = ""; /* join L187 from L185 */
         L187:
-        this.a_am = ObfBb.a_de.b(new java.lang.StringBuffer().append("/models/").append(jt3).append(v2).toString(), new java.lang.StringBuffer().append("/tex/").append(jt4).append(this.c_String).toString(), false, true);
+        this.a_am = AssetManager.a_de.b(new java.lang.StringBuffer().append("/models/").append(jt3).append(v2).toString(), new java.lang.StringBuffer().append("/tex/").append(jt4).append(this.c_String).toString(), false, true);
         L208:
         this.a_am.b((ObfAr.a + 0.009999999776482582f), (ObfAr.a + 0.009999999776482582f), (ObfAr.a + 0.009999999776482582f));
         Settings.a_Z = v3;

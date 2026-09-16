@@ -66,12 +66,12 @@ public class ObfBc {
         if (v1 != 0) goto L66;
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a = ObfBb.a_de.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString(), true);
+        this.a = AssetManager.a_de.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString(), true);
         goto L121;
         L66:
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a = ObfBb.a_de.b(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString(), true);
+        this.a = AssetManager.a_de.b(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString(), true);
         L121:
         this.a.b((ObfAr.a + 0.009999999776482582f), (ObfAr.a + 0.009999999776482582f), (ObfAr.a + 0.009999999776482582f));
         Settings.a_Z = v2;

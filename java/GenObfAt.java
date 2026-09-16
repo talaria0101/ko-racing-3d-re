@@ -261,7 +261,7 @@ public class ObfAt extends ObfAm {
         new float[2]#14[1] = ((128.0f * this.a) + this.b);
         v3 = ((boolean) new float[2]#14);
         v11.setTexCoords(1, v4, this.a, v3);
-        this.a = ObfBb.a_cf.a("/tex/r.png", false);
+        this.a = AssetManager.a_cf.a("/tex/r.png", false);
         v2.setTexture(1, this.a);
         L717:
         ObfAt.a_Z = false;

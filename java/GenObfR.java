@@ -395,7 +395,7 @@ public class ObfR extends Screen {
         L14:
         this.a_bt = null;
         this.a_e = null;
-        ObfBb.b();
+        AssetManager.b();
         this.d_Z = false;
         java.lang.System.gc();
         return;
@@ -507,7 +507,7 @@ public class ObfR extends Screen {
         v1.a(v2.a.a());
         v2.a.flushGraphics();
         Settings.q(ObfR.j);
-        ObfBb.a();
+        AssetManager.a();
         v1.r();
         if (v1.c_Z == 0) goto L310;
         v1.v = (v1.v + 1);
@@ -970,8 +970,8 @@ public class ObfR extends Screen {
     // bytecode 43 bytes, max_stack 6, max_locals 1
     public void p() {
         new java.lang.StringBuffer(); /* constructor */
-        new ObfBs(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a_String).toString()), ObfR.a_Z); /* constructor */
-        this.a_bs = new ObfBs(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a_String).toString()), ObfR.a_Z);
+        new ObfBs(AssetManager.a_cf, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a_String).toString()), ObfR.a_Z); /* constructor */
+        this.a_bs = new ObfBs(AssetManager.a_cf, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a_String).toString()), ObfR.a_Z);
         return;
     }
     // bytecode 76 bytes, max_stack 7, max_locals 2

@@ -2,9 +2,9 @@
 // edit: fix the emitter and re-run.  Original name `by`.
 // String constants: <init> | Code | javax/microedition/m3g/Transform | postRotate
 // API references: javax/microedition
-public class ObfBy extends ObfAt {
+public class Billboard extends ObfAt {
     // bytecode 11 bytes, max_stack 6, max_locals 6
-    public ObfBy(Textures v1, String v2, String v3, int v4, boolean v5) {
+    public Billboard(Textures v1, String v2, String v3, int v4, boolean v5) {
         super(v1, v2, v3, v4, true);
         return;
     }

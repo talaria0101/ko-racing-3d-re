@@ -65,8 +65,8 @@ public class ObfW extends MenuScreen {
     }
     // bytecode 21 bytes, max_stack 5, max_locals 1
     public void p() {
-        new ObfBs(ObfBb.a_cf, ObfW.a.a()); /* constructor */
-        this.a = new ObfBs(ObfBb.a_cf, ObfW.a.a());
+        new ObfBs(AssetManager.a_cf, ObfW.a.a()); /* constructor */
+        this.a = new ObfBs(AssetManager.a_cf, ObfW.a.a());
         return;
     }
     // bytecode 19 bytes, max_stack 2, max_locals 2

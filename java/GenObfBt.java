@@ -133,12 +133,12 @@ public class ObfBt extends Screen {
         if (v3 >= v1.a_r.d()) goto L333;
         if (v3 != v1.a_r.e()) goto L327;
         if (v1.a_r.e_Z != 0) goto L297;
-        new ObfCl(ObfBb.a_cf, v2, v3, v1.a_bs, v1.a_r.a(v3)); /* constructor */
-        v1.a_arrLcl[v3] = new ObfCl(ObfBb.a_cf, v2, v3, v1.a_bs, v1.a_r.a(v3));
+        new ObfCl(AssetManager.a_cf, v2, v3, v1.a_bs, v1.a_r.a(v3)); /* constructor */
+        v1.a_arrLcl[v3] = new ObfCl(AssetManager.a_cf, v2, v3, v1.a_bs, v1.a_r.a(v3));
         goto L327;
         L297:
-        new OpponentCar(ObfBb.a_cf, v2, v3, v1.a_bs, v1.a_r.a(v3)); /* constructor */
-        v1.a_arrLcl[v3] = new OpponentCar(ObfBb.a_cf, v2, v3, v1.a_bs, v1.a_r.a(v3));
+        new OpponentCar(AssetManager.a_cf, v2, v3, v1.a_bs, v1.a_r.a(v3)); /* constructor */
+        v1.a_arrLcl[v3] = new OpponentCar(AssetManager.a_cf, v2, v3, v1.a_bs, v1.a_r.a(v3));
         L327:
         v3 += 1;
         goto L232;
@@ -213,24 +213,24 @@ public class ObfBt extends Screen {
         if (v1 != this.a_r.e()) goto L241;
         if (this.a_r.e_Z != 0) goto L180;
         new java.lang.StringBuffer(); /* constructor */
-        new ObfCl(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
-        this.a_arrLcl[v1] = new ObfCl(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
+        new ObfCl(AssetManager.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
+        this.a_arrLcl[v1] = new ObfCl(AssetManager.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
         goto L383;
         L180:
         new java.lang.StringBuffer(); /* constructor */
-        new OpponentCar(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
-        this.a_arrLcl[v1] = new OpponentCar(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
+        new OpponentCar(AssetManager.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
+        this.a_arrLcl[v1] = new OpponentCar(AssetManager.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
         goto L383;
         L241:
         if (v1 != this.a_r.f()) goto L313;
         new java.lang.StringBuffer(); /* constructor */
-        new GhostCar(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
-        this.a_arrLcl[v1] = new GhostCar(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
+        new GhostCar(AssetManager.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
+        this.a_arrLcl[v1] = new GhostCar(AssetManager.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
         goto L383;
         L313:
         new java.lang.StringBuffer(); /* constructor */
-        new PlayerCar(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
-        this.a_arrLcl[v1] = new PlayerCar(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
+        new PlayerCar(AssetManager.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
+        this.a_arrLcl[v1] = new PlayerCar(AssetManager.a_cf, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
         this.a_arrLcl[v1].b(ObfR.m);
         L383:
         v1 += 1;
@@ -500,7 +500,7 @@ public class ObfBt extends Screen {
         if (fcmpg(v3, 1.0f) <= 0) goto L547;
         v3 = ((int) 1.0f);
         L547:
-        this.a_cl.j((((float) ObfB.a(this.a_arrF[1])) * v3));
+        this.a_cl.j((((float) MeshCache.a(this.a_arrF[1])) * v3));
         L566:
         if (this.a_arrZ[0] != 0) goto L631;
         if (this.a_arrZ[1] != 0) goto L646;
@@ -826,11 +826,11 @@ public class ObfBt extends Screen {
         if (this.b_Z != Settings.e()) goto L56;
         if (this.c_Z == Settings.f()) goto L115;
         L56:
-        this.a_bs.a(ObfBb.a_cf);
+        this.a_bs.a(AssetManager.a_cf);
         int v1 = 0;
         L68:
         if (v1 >= this.a_r.d()) goto L98;
-        this.a_arrLcl[v1].a(ObfBb.a_cf, true);
+        this.a_arrLcl[v1].a(AssetManager.a_cf, true);
         v1 += 1;
         goto L68;
         L98:
@@ -839,12 +839,12 @@ public class ObfBt extends Screen {
         goto L134;
         L115:
         if (Settings.d_Z == ObfAr.a_Z) goto L134;
-        this.a_bs.b(ObfBb.a_cf);
+        this.a_bs.b(AssetManager.a_cf);
         L134:
         v1 = 0;
         L136:
         if (v1 >= this.a_r.d()) goto L165;
-        this.a_arrLcl[v1].a(ObfBb.a_cf);
+        this.a_arrLcl[v1].a(AssetManager.a_cf);
         v1 += 1;
         goto L136;
         L165:

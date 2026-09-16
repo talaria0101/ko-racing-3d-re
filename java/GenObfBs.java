@@ -105,32 +105,32 @@ public class ObfBs {
         if (v4 >= this.a) goto L377;
         int v5 = ((byte) StreamReader.a(v1));
         if ((((byte) StreamReader.a(v1)) & ObfR.b(0)) == 0) goto L100;
-        new ObfBm(ObfBb.a, StreamReader.a(v1), StreamReader.a(v1), v4, v3); /* constructor */
-        this.a_arrarrLbm[v4][v3] = new ObfBm(ObfBb.a, StreamReader.a(v1), StreamReader.a(v1), v4, v3);
+        new ObfBm(AssetManager.a, StreamReader.a(v1), StreamReader.a(v1), v4, v3); /* constructor */
+        this.a_arrarrLbm[v4][v3] = new ObfBm(AssetManager.a, StreamReader.a(v1), StreamReader.a(v1), v4, v3);
         L100:
         if ((v5 & ObfR.b(1)) == 0) goto L145;
         if (this.a_arrarrLbm[v4][v3] == null) goto L145;
-        this.a_arrarrLbm[v4][v3].a(ObfBb.a_ae, StreamReader.a(v1), StreamReader.a(v1));
+        this.a_arrarrLbm[v4][v3].a(AssetManager.a_ae, StreamReader.a(v1), StreamReader.a(v1));
         L145:
         if ((v5 & ObfR.b(2)) == 0) goto L190;
         if (this.a_arrarrLbm[v4][v3] == null) goto L190;
-        this.a_arrarrLbm[v4][v3].b(ObfBb.a_ae, StreamReader.a(v1), StreamReader.a(v1));
+        this.a_arrarrLbm[v4][v3].b(AssetManager.a_ae, StreamReader.a(v1), StreamReader.a(v1));
         L190:
         if ((v5 & ObfR.b(3)) == 0) goto L235;
         if (this.a_arrarrLbm[v4][v3] == null) goto L235;
-        this.a_arrarrLbm[v4][v3].c(ObfBb.a_ae, StreamReader.a(v1), StreamReader.a(v1));
+        this.a_arrarrLbm[v4][v3].c(AssetManager.a_ae, StreamReader.a(v1), StreamReader.a(v1));
         L235:
         if ((v5 & ObfR.b(4)) == 0) goto L280;
         if (this.a_arrarrLbm[v4][v3] == null) goto L280;
-        this.a_arrarrLbm[v4][v3].a(ObfBb.a_ap, StreamReader.a(v1), StreamReader.a(v1));
+        this.a_arrarrLbm[v4][v3].a(AssetManager.a_ap, StreamReader.a(v1), StreamReader.a(v1));
         L280:
         if ((v5 & ObfR.b(5)) == 0) goto L325;
         if (this.a_arrarrLbm[v4][v3] == null) goto L325;
-        this.a_arrarrLbm[v4][v3].b(ObfBb.a_ap, StreamReader.a(v1), StreamReader.a(v1));
+        this.a_arrarrLbm[v4][v3].b(AssetManager.a_ap, StreamReader.a(v1), StreamReader.a(v1));
         L325:
         if ((v5 & ObfR.b(6)) == 0) goto L371;
         if (this.a_arrarrLbm[v4][v3] == null) goto L371;
-        this.a_arrarrLbm[v4][v3].c(ObfBb.a_ap, StreamReader.a(v1), StreamReader.a(v1));
+        this.a_arrarrLbm[v4][v3].c(AssetManager.a_ap, StreamReader.a(v1), StreamReader.a(v1));
         L371:
         v4 += 1;
         goto L45;
@@ -329,7 +329,7 @@ public class ObfBs {
         if (this.a(this.c, this.d) == null) goto L145;
         if (this.a_arrarrLbm[this.c][this.d].a(v2) == 0) goto L145;
         if (this.a_arrarrLbm[this.c][this.d].c(v2) == 0) goto L145;
-        if (v1.b((((float) (this.c + ObfB.a(v2))) * ObfAr.c), (((float) (this.d + ObfB.b(v2))) * ObfAr.c), (ObfBs.a_F / 5.0f)) == 0) goto L145;
+        if (v1.b((((float) (this.c + MeshCache.a(v2))) * ObfAr.c), (((float) (this.d + MeshCache.b(v2))) * ObfAr.c), (ObfBs.a_F / 5.0f)) == 0) goto L145;
         return 1;
         L145:
         v2 += 1;
@@ -391,15 +391,15 @@ public class ObfBs {
         if (v5 >= 4) goto L154;
         if (v4.a(v5) == 0) goto L148;
         if (v4.c(v5) != 0) goto L148;
-        v1 = (v1 + ObfB.a(v5));
-        v2 = (v2 + ObfB.b(v5));
+        v1 = (v1 + MeshCache.a(v5));
+        v2 = (v2 + MeshCache.b(v5));
         if (this.a(v1, v2) == null) goto L101;
         if (this.a(v1, v2).a(((v5 + 2) % 4)) != 0) goto L101;
-        v1 = (v1 + ObfB.a(v5));
-        v2 = (v2 + ObfB.b(v5));
+        v1 = (v1 + MeshCache.a(v5));
+        v2 = (v2 + MeshCache.b(v5));
         L101:
-        v3.a(((((float) v1) - ((((float) ObfB.a(v5)) / 2.009999990463257f) / 1.100000023841858f)) * ObfAr.c));
-        v3.b(((((float) v2) - ((((float) ObfB.b(v5)) / 2.009999990463257f) / 1.100000023841858f)) * ObfAr.c));
+        v3.a(((((float) v1) - ((((float) MeshCache.a(v5)) / 2.009999990463257f) / 1.100000023841858f)) * ObfAr.c));
+        v3.b(((((float) v2) - ((((float) MeshCache.b(v5)) / 2.009999990463257f) / 1.100000023841858f)) * ObfAr.c));
         return;
         L148:
         v5 += 1;
@@ -430,16 +430,16 @@ public class ObfBs {
         if (v4 >= 4) goto L332;
         if (this.a_arrarrLbm[v2][v3].b(v4) == 0) goto L292;
         if (this.a_arrarrLbm[v2][v3].b() != 3) goto L152;
-        v1[((((v2 * 3) + ObfB.a(v4)) + 1) + ((((v3 * 3) + ObfB.b(v4)) + 1) * (this.a * 3)))] = -5592406;
+        v1[((((v2 * 3) + MeshCache.a(v4)) + 1) + ((((v3 * 3) + MeshCache.b(v4)) + 1) * (this.a * 3)))] = -5592406;
         goto L185;
         L152:
-        v1[((((v2 * 3) + ObfB.a(v4)) + 1) + ((((v3 * 3) + ObfB.b(v4)) + 1) * (this.a * 3)))] = m1;
+        v1[((((v2 * 3) + MeshCache.a(v4)) + 1) + ((((v3 * 3) + MeshCache.b(v4)) + 1) * (this.a * 3)))] = m1;
         L185:
-        v1[(((((v2 * 3) + ObfB.a(v4)) + 1) - java.lang.Math.abs(ObfB.b(v4))) + (((((v3 * 3) + ObfB.b(v4)) + 1) - java.lang.Math.abs(ObfB.a(v4))) * (this.a * 3)))] = -16777216;
-        v1[(((((v2 * 3) + ObfB.a(v4)) + 1) + java.lang.Math.abs(ObfB.b(v4))) + (((((v3 * 3) + ObfB.b(v4)) + 1) + java.lang.Math.abs(ObfB.a(v4))) * (this.a * 3)))] = -16777216;
+        v1[(((((v2 * 3) + MeshCache.a(v4)) + 1) - java.lang.Math.abs(MeshCache.b(v4))) + (((((v3 * 3) + MeshCache.b(v4)) + 1) - java.lang.Math.abs(MeshCache.a(v4))) * (this.a * 3)))] = -16777216;
+        v1[(((((v2 * 3) + MeshCache.a(v4)) + 1) + java.lang.Math.abs(MeshCache.b(v4))) + (((((v3 * 3) + MeshCache.b(v4)) + 1) + java.lang.Math.abs(MeshCache.a(v4))) * (this.a * 3)))] = -16777216;
         goto L326;
         L292:
-        v1[((((v2 * 3) + ObfB.a(v4)) + 1) + ((((v3 * 3) + ObfB.b(v4)) + 1) * (this.a * 3)))] = -16777216;
+        v1[((((v2 * 3) + MeshCache.a(v4)) + 1) + ((((v3 * 3) + MeshCache.b(v4)) + 1) * (this.a * 3)))] = -16777216;
         L326:
         v4 += 1;
         goto L78;
@@ -478,8 +478,8 @@ public class ObfBs {
         if (v5 >= 4) goto L66;
         if (v3.a(v5) == 0) goto L60;
         if (v3.c(v5) == 0) goto L60;
-        v1 = (v1 + ObfB.a(v5));
-        v2 = (v2 + ObfB.b(v5));
+        v1 = (v1 + MeshCache.a(v5));
+        v2 = (v2 + MeshCache.b(v5));
         v3 = ((int) this.a(v1, v2));
         L60:
         v5 += 1;
@@ -501,8 +501,8 @@ public class ObfBs {
         if (v5 >= 4) goto L66;
         if (v3.a(v5) == 0) goto L60;
         if (v3.c(v5) == 0) goto L60;
-        v1 = (v1 + ObfB.a(v5));
-        v2 = (v2 + ObfB.b(v5));
+        v1 = (v1 + MeshCache.a(v5));
+        v2 = (v2 + MeshCache.b(v5));
         v3 = ((int) this.a(v1, v2));
         L60:
         v5 += 1;
@@ -536,13 +536,13 @@ public class ObfBs {
         int v8 = (((v7 + 4) + v6) % 4);
         if (v3.a(v8) == 0) goto L305;
         if (v4 != null) goto L130;
-        new Vec3(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f); /* constructor */
-        v4 = ((Object) new Vec3(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f));
+        new Vec3(((((float) v1) + (((float) MeshCache.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) MeshCache.b(v8)) / 2.0f)) * ObfAr.c), 0.0f); /* constructor */
+        v4 = ((Object) new Vec3(((((float) v1) + (((float) MeshCache.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) MeshCache.b(v8)) / 2.0f)) * ObfAr.c), 0.0f));
         goto L305;
         L130:
-        new Vec3(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f); /* constructor */
-        Vec3 v5 = new Vec3(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f);
-        new Vec3(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f).a((-v4.a()), (-v4.b()), 0.0f);
+        new Vec3(((((float) v1) + (((float) MeshCache.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) MeshCache.b(v8)) / 2.0f)) * ObfAr.c), 0.0f); /* constructor */
+        Vec3 v5 = new Vec3(((((float) v1) + (((float) MeshCache.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) MeshCache.b(v8)) / 2.0f)) * ObfAr.c), 0.0f);
+        new Vec3(((((float) v1) + (((float) MeshCache.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) MeshCache.b(v8)) / 2.0f)) * ObfAr.c), 0.0f).a((-v4.a()), (-v4.b()), 0.0f);
         float v9 = ((((float) ((v6 + 3) % 4)) * 3.1415927410125732f) / 2.0f);
         if (fcmpg(java.lang.Math.abs(v5.a()), 0.0010000000474974513f) < 0) goto L252;
         if (fcmpg(java.lang.Math.abs(v5.b()), 0.0010000000474974513f) < 0) goto L252;
@@ -552,7 +552,7 @@ public class ObfBs {
         L245:
         v9 = (v9 + 0.7853981852531433f);
         L252:
-        v4.b(((((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c) + v4.a()) / 2.0f), ((((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c) + v4.b()) / 2.0f), v9);
+        v4.b(((((((float) v1) + (((float) MeshCache.a(v8)) / 2.0f)) * ObfAr.c) + v4.a()) / 2.0f), ((((((float) v2) + (((float) MeshCache.b(v8)) / 2.0f)) * ObfAr.c) + v4.b()) / 2.0f), v9);
         L305:
         v7 += 1;
         goto L56;
@@ -579,8 +579,8 @@ public class ObfBs {
         if (v7 >= 4) goto L180;
         if (v5.a(v7) == 0) goto L174;
         if (v5.c(v7) != 0) goto L174;
-        v1 = (v1 + ObfB.a(v7));
-        v2 = (v2 + ObfB.b(v7));
+        v1 = (v1 + MeshCache.a(v7));
+        v2 = (v2 + MeshCache.b(v7));
         if (this.a(v1, v2) == null) goto L180;
         if (this.a(v1, v2).a(((v7 + 2) % 4)) != 0) goto L155;
         v5 = this.a(v1, v2);
@@ -589,8 +589,8 @@ public class ObfBs {
         if (v6 != 0) goto L139;
         v4 += 1;
         L139:
-        v1 = (v1 + ObfB.a(v7));
-        v2 = (v2 + ObfB.b(v7));
+        v1 = (v1 + MeshCache.a(v7));
+        v2 = (v2 + MeshCache.b(v7));
         L155:
         this.a(v1, v2).a(((v7 + 2) % 4), true);
         goto L180;
@@ -644,7 +644,7 @@ public class ObfBs {
         v4 = ((float) 0);
         L125:
         if (v4 >= 4) goto L211;
-        if (v1.a((v6 + ObfB.a(v4)), (v7 + ObfB.b(v4))).c() > v8.d()) goto L211;
+        if (v1.a((v6 + MeshCache.a(v4)), (v7 + MeshCache.b(v4))).c() > v8.d()) goto L211;
         v4 += 1;
         goto L125;
         L168:

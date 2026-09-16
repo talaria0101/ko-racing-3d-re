@@ -384,8 +384,8 @@ public class CareerScreen extends MenuScreen {
     // bytecode 43 bytes, max_stack 6, max_locals 1
     public void p() {
         new java.lang.StringBuffer(); /* constructor */
-        new ObfBs(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a).toString()), ObfR.a_Z); /* constructor */
-        this.a = new ObfBs(ObfBb.a_cf, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a).toString()), ObfR.a_Z);
+        new ObfBs(AssetManager.a_cf, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a).toString()), ObfR.a_Z); /* constructor */
+        this.a = new ObfBs(AssetManager.a_cf, Resources.a(new java.lang.StringBuffer().append("/levels/").append(this.a).toString()), ObfR.a_Z);
         return;
     }
     // bytecode 29 bytes, max_stack 2, max_locals 1

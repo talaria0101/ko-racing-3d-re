@@ -297,12 +297,12 @@ public class ObfCl extends ObfCa {
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a_at = ObfBb.a_de.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c_String).toString(), false, new java.lang.StringBuffer().append("/tex/").append(this.c_String).append("_l").toString());
+        this.a_at = AssetManager.a_de.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c_String).toString(), false, new java.lang.StringBuffer().append("/tex/").append(this.c_String).append("_l").toString());
         goto L174;
         L119:
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a_at = ObfBb.a_de.b(new java.lang.StringBuffer().append("/models/").append(this.b_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c_String).toString(), false);
+        this.a_at = AssetManager.a_de.b(new java.lang.StringBuffer().append("/models/").append(this.b_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c_String).toString(), false);
         L174:
         if (Settings.d() <= 0) goto L215;
         if (Settings.g() == 0) goto L215;
@@ -607,13 +607,13 @@ public class ObfCl extends ObfCa {
         L243:
         v2 = ((ObfCl) ((this.a().b() * 0.5f) * this.a_di.m()));
         if (fcmpl(this.f.a(), 0.0f) >= 0) goto L315;
-        v2 = ((ObfCl) ((float) ObfB.a(((double) v2), ((double) (-this.f.a())))));
-        v3 = ((float) ObfB.a(((double) this.f.b()), ((double) (-this.f.a()))));
+        v2 = ((ObfCl) ((float) MeshCache.a(((double) v2), ((double) (-this.f.a())))));
+        v3 = ((float) MeshCache.a(((double) this.f.b()), ((double) (-this.f.a()))));
         goto L370;
         L315:
         if (fcmpg(this.f.a(), 0.0f) <= 0) goto L366;
-        v2 = ((ObfCl) ((float) ObfB.a(((double) v2), ((double) this.f.a()))));
-        v3 = ((float) ObfB.a(((double) this.f.b()), ((double) this.f.a())));
+        v2 = ((ObfCl) ((float) MeshCache.a(((double) v2), ((double) this.f.a()))));
+        v3 = ((float) MeshCache.a(((double) this.f.b()), ((double) this.f.a())));
         goto L370;
         L366:
         v2 = ((ObfCl) 0.0f);
@@ -656,8 +656,8 @@ public class ObfCl extends ObfCa {
         if (this.a_di.a() == 0) goto L941;
         this.a_bj = this.a_bs.a(this.a_di.b(), this.a_di.c());
         v2 = ((ObfCl) (((this.a_bj.a() * this.g_F) + (this.a_bj.b() * this.h_F)) / this.a_bj.c()));
-        ObfCl.i_bz.b((100.0f * (this.a_di.e() - ((this.a().i() * this.a_di.f()) * ((float) ObfB.a(this.f.a()))))), 0.0f, 0.0f);
-        ObfCl.j_bz.b(((float) (-ObfB.a(v2))), 0.0f, 0.0f);
+        ObfCl.i_bz.b((100.0f * (this.a_di.e() - ((this.a().i() * this.a_di.f()) * ((float) MeshCache.a(this.f.a()))))), 0.0f, 0.0f);
+        ObfCl.j_bz.b(((float) (-MeshCache.a(v2))), 0.0f, 0.0f);
         ObfCl.j_bz.e(java.lang.Math.abs((ObfCl.j_bz.a() * v2)));
         ObfCl.i_bz.e(java.lang.Math.abs((ObfCl.i_bz.a() * v2)));
         v2 = ((ObfCl) (v2 * v2));
@@ -963,9 +963,9 @@ public class ObfCl extends ObfCa {
         if (this.b_Z == 0) goto L10;
         return;
         L10:
-        v2 = ((ObfCl) ObfB.a(this.a_di.m()));
+        v2 = ((ObfCl) MeshCache.a(this.a_di.m()));
         float v3 = (this.a_di.m() + (this.f_F * v1));
-        int v4 = ObfB.a((this.a_di.m() + (this.f_F * v1)));
+        int v4 = MeshCache.a((this.a_di.m() + (this.f_F * v1)));
         if (fcmpl(this.a_di.j(), this.a().a()) >= 0) goto L77;
         if (v2 == 0) goto L77;
         if (v4 == 0) goto L77;
@@ -1010,9 +1010,9 @@ public class ObfCl extends ObfCa {
         this.d_Z = true;
         L96:
         this.a_di.a(this.a_bz.a(), this.a_bz.b(), this.a_bz.c(), this.j);
-        v2 = ObfB.a(this.a_di.m());
+        v2 = MeshCache.a(this.a_di.m());
         this.a_di.j((this.f_F * v1));
-        int v3 = ObfB.a(this.a_di.m());
+        int v3 = MeshCache.a(this.a_di.m());
         if (fcmpl(this.a_di.j(), this.a().a()) >= 0) goto L202;
         if (v2 == 0) goto L202;
         if (v3 == 0) goto L202;
@@ -1021,8 +1021,8 @@ public class ObfCl extends ObfCa {
         L202:
         if (this.k_Z == 0) goto L253;
         this.h = true;
-        this.a_di.c(ObfB.b(((double) this.e_bz.b())));
-        this.a_di.a(ObfB.b(((double) this.e_bz.a())));
+        this.a_di.c(MeshCache.b(((double) this.e_bz.b())));
+        this.a_di.a(MeshCache.b(((double) this.e_bz.a())));
         goto L278;
         L253:
         if (this.h == 0) goto L268;

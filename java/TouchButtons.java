@@ -876,8 +876,8 @@ public class TouchButtons {
     // bytecode 399 bytes, max_stack 4, max_locals 12
     public static byte[] a(byte[] v0) {
         /* try L56-L388 catch java.io.IOException -> L391 */
-        new ObfCj(); /* constructor */
-        ObfCj v1 = new ObfCj();
+        new BitWriter(); /* constructor */
+        BitWriter v1 = new BitWriter();
         int v5 = 0;
         int v6 = 8388607;
         int v8 = 0;

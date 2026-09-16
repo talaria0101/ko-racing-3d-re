@@ -81,7 +81,7 @@ public class CarSpec {
         new int[8]#6[6] = 0;
         new int[8]#6[7] = 0;
         this.d = new int[8]#6;
-        ObfBb.a();
+        AssetManager.a();
         return;
     }
     // bytecode 65 bytes, max_stack 3, max_locals 2
@@ -100,7 +100,7 @@ public class CarSpec {
         this.b_arrI = null;
         this.c = null;
         this.d = null;
-        ObfBb.b();
+        AssetManager.b();
         return;
     }
     // bytecode 214 bytes, max_stack 8, max_locals 5
@@ -121,8 +121,8 @@ public class CarSpec {
         ObfAt.a_Z = true;
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        new ObfAt(ObfBb.a_cf, new java.lang.StringBuffer().append("/models/").append(v3).toString(), new java.lang.StringBuffer().append("/tex/").append(v4).toString()); /* constructor */
-        this.a_arrLat[v1] = new ObfAt(ObfBb.a_cf, new java.lang.StringBuffer().append("/models/").append(v3).toString(), new java.lang.StringBuffer().append("/tex/").append(v4).toString());
+        new ObfAt(AssetManager.a_cf, new java.lang.StringBuffer().append("/models/").append(v3).toString(), new java.lang.StringBuffer().append("/tex/").append(v4).toString()); /* constructor */
+        this.a_arrLat[v1] = new ObfAt(AssetManager.a_cf, new java.lang.StringBuffer().append("/models/").append(v3).toString(), new java.lang.StringBuffer().append("/tex/").append(v4).toString());
         if (CarSpec.a_Transf != null) goto L186;
         if (this.a_arrLat[v1].a == null) goto L186;
         new javax.microedition.m3g.Transform(); /* constructor */

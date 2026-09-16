@@ -40,10 +40,10 @@ public class ObfBd extends ObfBh {
     private MenuButton t;
     private MenuButton u;
     private WidgetGroup k_cm;
-    private ObfAf a_af;
-    private ObfAf b_af;
+    private StringList a_af;
+    private StringList b_af;
     private MenuList a_db;
-    private ObfAf c_af;
+    private StringList c_af;
     private MenuList b_db;
     private WidgetGroup l_cm;
     private WidgetGroup m_cm;
@@ -56,7 +56,7 @@ public class ObfBd extends ObfBh {
     private MenuButton B;
     private IconList a_bk;
     private WidgetGroup n_cm;
-    private ObfAf d_af;
+    private StringList d_af;
     private ObfCb a_cb;
     private ObfCb b_cb;
     private ObfCb c_cb;
@@ -81,7 +81,7 @@ public class ObfBd extends ObfBh {
     private MenuButton E;
     private boolean i_Z;
     private WidgetGroup s_cm;
-    private ObfAf e_af;
+    private StringList e_af;
     private int k_I;
     private int l_I;
     private ScoreUpload a_dj;
@@ -244,12 +244,12 @@ public class ObfBd extends ObfBh {
         v1.a.a(new MenuItem(null, 0, 0, 0, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
         v1.a.a(new ObfCz(3), 1);
-        new ObfS(null, 0, 0, 54, SysUtil.b); /* constructor */
-        v1.d_bi = new ObfS(null, 0, 0, 54, SysUtil.b);
+        new MarqueeButton(null, 0, 0, 54, SysUtil.b); /* constructor */
+        v1.d_bi = new MarqueeButton(null, 0, 0, 54, SysUtil.b);
         v1.a.a(v1.d_bi, 1);
         if (Settings.k() != 0) goto L270;
-        new ObfS(null, 0, 0, 155, SysUtil.b); /* constructor */
-        v1.j = new ObfS(null, 0, 0, 155, SysUtil.b);
+        new MarqueeButton(null, 0, 0, 155, SysUtil.b); /* constructor */
+        v1.j = new MarqueeButton(null, 0, 0, 155, SysUtil.b);
         v1.a.a(v1.j, 1);
         ObfBd v2 = v1;
         new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
@@ -264,25 +264,25 @@ public class ObfBd extends ObfBh {
         v2.b_ao = new Label(v2.o_cm, 0, 0, 300, 30, 156);
         v2.o_cm.a(v2.b_ao, 0);
         L270:
-        new ObfS(null, 0, 0, 157, SysUtil.b); /* constructor */
-        v1.k = new ObfS(null, 0, 0, 157, SysUtil.b);
+        new MarqueeButton(null, 0, 0, 157, SysUtil.b); /* constructor */
+        v1.k = new MarqueeButton(null, 0, 0, 157, SysUtil.b);
         v1.a.a(v1.k, 1);
-        new ObfS(null, 0, 0, 233, SysUtil.b); /* constructor */
-        v1.e = new ObfS(null, 0, 0, 233, SysUtil.b);
-        new ObfS(null, 0, 0, 132, SysUtil.b); /* constructor */
-        v1.g_bi = new ObfS(null, 0, 0, 132, SysUtil.b);
+        new MarqueeButton(null, 0, 0, 233, SysUtil.b); /* constructor */
+        v1.e = new MarqueeButton(null, 0, 0, 233, SysUtil.b);
+        new MarqueeButton(null, 0, 0, 132, SysUtil.b); /* constructor */
+        v1.g_bi = new MarqueeButton(null, 0, 0, 132, SysUtil.b);
         v1.a.a(v1.g_bi, 1);
-        new ObfS(null, 0, 0, 106, SysUtil.b); /* constructor */
-        v1.h = new ObfS(null, 0, 0, 106, SysUtil.b);
+        new MarqueeButton(null, 0, 0, 106, SysUtil.b); /* constructor */
+        v1.h = new MarqueeButton(null, 0, 0, 106, SysUtil.b);
         v1.a.a(v1.h, 1);
-        new ObfS(null, 0, 0, 2, SysUtil.b); /* constructor */
-        v1.b = new ObfS(null, 0, 0, 2, SysUtil.b);
+        new MarqueeButton(null, 0, 0, 2, SysUtil.b); /* constructor */
+        v1.b = new MarqueeButton(null, 0, 0, 2, SysUtil.b);
         v1.a.a(v1.b, 1);
-        new ObfS(null, 0, 0, 52, SysUtil.b); /* constructor */
-        v1.i = new ObfS(null, 0, 0, 52, SysUtil.b);
+        new MarqueeButton(null, 0, 0, 52, SysUtil.b); /* constructor */
+        v1.i = new MarqueeButton(null, 0, 0, 52, SysUtil.b);
         v1.a.a(v1.i, 1);
-        new ObfS(null, 0, 0, 3, SysUtil.b); /* constructor */
-        v1.a = new ObfS(null, 0, 0, 3, SysUtil.b);
+        new MarqueeButton(null, 0, 0, 3, SysUtil.b); /* constructor */
+        v1.a = new MarqueeButton(null, 0, 0, 3, SysUtil.b);
         v1.a.a(v1.a, 1);
         v1.m();
         v2 = v1;
@@ -318,22 +318,22 @@ public class ObfBd extends ObfBh {
         v2.k_cm.a(new MenuItem(null, 0, 0, 113, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
         v2.k_cm.a(new ObfCz(3), 0);
-        new ObfAf(v2.k_cm, 100, 60, 119); /* constructor */
-        v2.a_af = new ObfAf(v2.k_cm, 100, 60, 119);
+        new StringList(v2.k_cm, 100, 60, 119); /* constructor */
+        v2.a_af = new StringList(v2.k_cm, 100, 60, 119);
         v2.a_af.c(true);
         v2.k_cm.a(v2.a_af, 1);
         v2.a_arrI = new int[100]#31;
         v2.j_I = 0;
-        new ObfAf(v2.k_cm, 10, 60, 120); /* constructor */
-        v2.b_af = new ObfAf(v2.k_cm, 10, 60, 120);
+        new StringList(v2.k_cm, 10, 60, 120); /* constructor */
+        v2.b_af = new StringList(v2.k_cm, 10, 60, 120);
         v2.b_af.c(true);
         v2.k_cm.a(v2.b_af, 1);
         new MenuList(v2.k_cm, 10, 121); /* constructor */
         v2.a_db = new MenuList(v2.k_cm, 10, 121);
         v2.a_db.c(true);
         v2.k_cm.a(v2.a_db, 1);
-        new ObfAf(v2.k_cm, 10, 60, 133); /* constructor */
-        v2.c_af = new ObfAf(v2.k_cm, 10, 60, 133);
+        new StringList(v2.k_cm, 10, 60, 133); /* constructor */
+        v2.c_af = new StringList(v2.k_cm, 10, 60, 133);
         v2.c_af.a("0");
         v2.c_af.a("1");
         v2.c_af.a("2");
@@ -358,8 +358,8 @@ public class ObfBd extends ObfBh {
         v2.n_cm.a(new MenuItem(null, 0, 0, 125, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
         v2.n_cm.a(new ObfCz(3), 0);
-        new ObfAf(v2.n_cm, 10, 60, -125); /* constructor */
-        v2.d_af = new ObfAf(v2.n_cm, 10, 60, -125);
+        new StringList(v2.n_cm, 10, 60, -125); /* constructor */
+        v2.d_af = new StringList(v2.n_cm, 10, 60, -125);
         v2.d_af.c(true);
         v2.n_cm.a(v2.d_af, 1);
         new ObfCb(v2.n_cm, 127); /* constructor */
@@ -2376,8 +2376,8 @@ public class ObfBd extends ObfBh {
     public void J() {
         if (this.a_dj != null) goto L62;
         ObfBd v1 = this;
-        new ObfAf(v1.s_cm, 100, 60, 146); /* constructor */
-        this.e_af = new ObfAf(v1.s_cm, 100, 60, 146);
+        new StringList(v1.s_cm, 100, 60, 146); /* constructor */
+        this.e_af = new StringList(v1.s_cm, 100, 60, 146);
         v1.e_af.c(true);
         v1.s_cm.a(v1.e_af, 1);
         new ScoreUpload(); /* constructor */

@@ -2,12 +2,12 @@
 // edit: fix the emitter and re-run.  Original name `b`.
 // String constants: /lists/ol | /objects/ | <init> | Code | [Lai; | append | close | getClass | getResourceAsStream | java/io/IOException | java/io/InputStream | java/lang/Class
 // API references: java/io
-public class ObfB {
+public class MeshCache {
     private ObfAi[] a;
     private Textures a_cf;
     private int a_I;
     // bytecode 38 bytes, max_stack 2, max_locals 2
-    public ObfB(Textures v1) {
+    public MeshCache(Textures v1) {
         this();
         this.a = null;
         this.a_cf = null;
@@ -70,7 +70,7 @@ public class ObfB {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public ObfB() {
+    public MeshCache() {
         super();
         return;
     }
@@ -122,19 +122,19 @@ public class ObfB {
     // bytecode 47 bytes, max_stack 8, max_locals 2
     public static double e(double v0) {
         if (dcmpl(v0, 0.41421356237309503) >= 0) goto L13;
-        return ObfB.d(v0);
+        return MeshCache.d(v0);
         L13:
         if (dcmpg(v0, 2.414213562373095) <= 0) goto L32;
-        return (1.5707963267948966 - ObfB.d((1.0 / v0)));
+        return (1.5707963267948966 - MeshCache.d((1.0 / v0)));
         L32:
-        return (0.7853981633974483 + ObfB.d(((v0 - 1.0) / (v0 + 1.0))));
+        return (0.7853981633974483 + MeshCache.d(((v0 - 1.0) / (v0 + 1.0))));
     }
     // bytecode 18 bytes, max_stack 4, max_locals 2
     public static double a(double v0) {
         if (dcmpg(v0, 0.0) <= 0) goto L11;
-        return ObfB.e(v0);
+        return MeshCache.e(v0);
         L11:
-        return (-ObfB.e((-v0)));
+        return (-MeshCache.e((-v0)));
     }
     // bytecode 63 bytes, max_stack 4, max_locals 4
     public static double a(double v0, double v2) {
@@ -147,7 +147,7 @@ public class ObfB {
         L26:
         return -1.5707963267948966;
         L30:
-        v0 = ObfB.a((v0 / v2));
+        v0 = MeshCache.a((v0 / v2));
         if (dcmpl(v2, 0.0) >= 0) goto L61;
         if (dcmpl(v0, 0.0) > 0) goto L55;
         return (v0 + 3.141592653589793);
@@ -168,10 +168,10 @@ public class ObfB {
         L25:
         double v2 = java.lang.Math.sqrt((1.0 - (v0 * v0)));
         if (dcmpg(v0, 0.7) <= 0) goto L56;
-        v2 = (1.5707963267948966 - ObfB.a((v2 / v0)));
+        v2 = (1.5707963267948966 - MeshCache.a((v2 / v0)));
         goto L63;
         L56:
-        v2 = ObfB.a((v0 / v2));
+        v2 = MeshCache.a((v0 / v2));
         L63:
         if (v4 <= 0) goto L71;
         v2 = (-v2);
@@ -185,7 +185,7 @@ public class ObfB {
         L14:
         return -100000.0;
         L18:
-        return (1.5707963267948966 - ObfB.b(v0));
+        return (1.5707963267948966 - MeshCache.b(v0));
     }
 }
 

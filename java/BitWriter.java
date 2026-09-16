@@ -2,12 +2,12 @@
 // edit: fix the emitter and re-run.  Original name `cj`.
 // String constants: <init> | Code | flush | java/io/ByteArrayOutputStream | java/io/IOException | java/lang/Object | toByteArray | write | StackMap
 // API references: java/io
-public class ObfCj {
+public class BitWriter {
      ByteArrayOutputStream a;
     private byte[] a_arrB;
      byte a_B;
     // bytecode 35 bytes, max_stack 3, max_locals 1
-    public ObfCj() {
+    public BitWriter() {
         super();
         new java.io.ByteArrayOutputStream(); /* constructor */
         this.a = new java.io.ByteArrayOutputStream();

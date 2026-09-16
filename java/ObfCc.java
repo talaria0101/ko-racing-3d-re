@@ -51,7 +51,7 @@ public class ObfCc extends WidgetGroup {
         this.d = false;
         L44:
         if (this.e == 0) goto L76;
-        if (fcmpg(((ObfS) this.a[this.b]).a(), 1.0f) < 0) goto L76;
+        if (fcmpg(((MarqueeButton) this.a[this.b]).a(), 1.0f) < 0) goto L76;
         this.e = false;
         L76:
         v2 += 1;
@@ -77,22 +77,22 @@ public class ObfCc extends WidgetGroup {
     }
     // bytecode 35 bytes, max_stack 2, max_locals 1
     public void a() {
-        ((ObfS) this.a[this.b]).a();
+        ((MarqueeButton) this.a[this.b]).a();
         this.a();
-        ((ObfS) this.a[this.b]).d();
+        ((MarqueeButton) this.a[this.b]).d();
         return;
     }
     // bytecode 35 bytes, max_stack 2, max_locals 1
     public void b() {
-        ((ObfS) this.a[this.b]).b();
+        ((MarqueeButton) this.a[this.b]).b();
         this.b();
-        ((ObfS) this.a[this.b]).c();
+        ((MarqueeButton) this.a[this.b]).c();
         return;
     }
     // bytecode 31 bytes, max_stack 2, max_locals 1
     public boolean a() {
         if (this.d == 0) goto L27;
-        if (fcmpg(((ObfS) this.a[this.b]).a(), 1.0f) < 0) goto L29;
+        if (fcmpg(((MarqueeButton) this.a[this.b]).a(), 1.0f) < 0) goto L29;
         L27:
         return 1;
         L29:
@@ -101,13 +101,13 @@ public class ObfCc extends WidgetGroup {
     // bytecode 21 bytes, max_stack 2, max_locals 1
     public void c() {
         this.d = true;
-        ((ObfS) this.a[this.b]).e();
+        ((MarqueeButton) this.a[this.b]).e();
         return;
     }
     // bytecode 21 bytes, max_stack 2, max_locals 1
     public void d() {
         this.e = true;
-        ((ObfS) this.a[this.b]).f();
+        ((MarqueeButton) this.a[this.b]).f();
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1

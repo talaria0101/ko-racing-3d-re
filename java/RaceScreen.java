@@ -37,8 +37,8 @@ public class RaceScreen extends RaceView {
     }
     // bytecode 21 bytes, max_stack 5, max_locals 1
     public void p() {
-        new ObfBs(ObfBb.a_cf, ObfW.a.a()); /* constructor */
-        this.a = new ObfBs(ObfBb.a_cf, ObfW.a.a());
+        new ObfBs(AssetManager.a_cf, ObfW.a.a()); /* constructor */
+        this.a = new ObfBs(AssetManager.a_cf, ObfW.a.a());
         return;
     }
     // bytecode 103 bytes, max_stack 5, max_locals 2

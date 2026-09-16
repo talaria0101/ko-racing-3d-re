@@ -69,7 +69,7 @@ public class PlayerCar extends ObfCl {
         jt1 = this.b; /* join L62 from L58 */
         L62:
         new java.lang.StringBuffer(); /* constructor */
-        this.a = ObfBb.a_de.b(new java.lang.StringBuffer().append("/models/").append(jt1).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c).toString(), false);
+        this.a = AssetManager.a_de.b(new java.lang.StringBuffer().append("/models/").append(jt1).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c).toString(), false);
         if (Settings.e() <= 0) goto L138;
         if (Settings.g() == 0) goto L138;
         if (ObfCl.a_cq != null) goto L138;
@@ -154,9 +154,9 @@ public class PlayerCar extends ObfCl {
         this.b.a(this.a, this.a().a());
         this.c.b((-this.a().b().b()), this.a().b().a());
         this.c.a();
-        int v3 = ObfB.a((Vec2.a(this.c, this.a) - Vec2.a(this.a().a(), this.c)));
+        int v3 = MeshCache.a((Vec2.a(this.c, this.a) - Vec2.a(this.a().a(), this.c)));
         float v4 = Vec2.b(this.b, this.a().b());
-        v4 = (((float) v3) * ((float) ObfB.c(((double) v4))));
+        v4 = (((float) v3) * ((float) MeshCache.c(((double) v4))));
         this.a().d(0.0f);
         /* pop: this.b.c(); */
         v4 = ((1.5f * v4) * java.lang.Math.abs(v4));

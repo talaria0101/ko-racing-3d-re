@@ -2,10 +2,10 @@
 // edit: fix the emitter and re-run.  Original name `af`.
 // String constants: <init> | Code | [Ljava/lang/String; | getClipWidth | java/lang/String | javax/microedition/lcdui/Graphics | setColor | StackMap
 // API references: javax/microedition
-public class ObfAf extends MenuList {
+public class StringList extends MenuList {
     private String[] a;
     // bytecode 27 bytes, max_stack 4, max_locals 5
-    public ObfAf(Widget v1, int v2, int v3, int v4) {
+    public StringList(Widget v1, int v2, int v3, int v4) {
         super(v1, v2, v4);
         this.a = null;
         this.a = new java.lang.String[v2]#1;

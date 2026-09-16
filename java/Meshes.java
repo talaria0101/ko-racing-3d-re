@@ -43,7 +43,7 @@ public class Meshes {
         if (this.a(v1) >= 0) goto L17;
         return this.c(v1, v2);
         L17:
-        this.a[v3].a().getAppearance(0).setTexture(0, ObfBb.a_cf.a(v2, true));
+        this.a[v3].a().getAppearance(0).setTexture(0, AssetManager.a_cf.a(v2, true));
         return this.a[v3];
     }
     // bytecode 55 bytes, max_stack 5, max_locals 6
@@ -52,7 +52,7 @@ public class Meshes {
         if (this.a(v1) >= 0) goto L21;
         return this.c(v1, v2, v3, v4);
         L21:
-        this.a[v5].a().getAppearance(0).setTexture(0, ObfBb.a_cf.a(v2, v3));
+        this.a[v5].a().getAppearance(0).setTexture(0, AssetManager.a_cf.a(v2, v3));
         return this.a[v5];
     }
     // bytecode 47 bytes, max_stack 9, max_locals 4
@@ -61,8 +61,8 @@ public class Meshes {
         if (this.a(v1) >= 0) goto L17;
         return this.c(v1, v2);
         L17:
-        new ObfBy(this.a_cf, v1, v2, Settings.d, true); /* constructor */
-        this.a[v3] = new ObfBy(this.a_cf, v1, v2, Settings.d, true);
+        new Billboard(this.a_cf, v1, v2, Settings.d, true); /* constructor */
+        this.a[v3] = new Billboard(this.a_cf, v1, v2, Settings.d, true);
         return this.a[v3];
     }
     // bytecode 9 bytes, max_stack 5, max_locals 4
@@ -109,8 +109,8 @@ public class Meshes {
     }
     // bytecode 58 bytes, max_stack 9, max_locals 3
     public ObfAt c(String v1, String v2) {
-        new ObfBy(this.a_cf, v1, v2, Settings.d, true); /* constructor */
-        this.a[this.a_I] = new ObfBy(this.a_cf, v1, v2, Settings.d, true);
+        new Billboard(this.a_cf, v1, v2, Settings.d, true); /* constructor */
+        this.a[this.a_I] = new Billboard(this.a_cf, v1, v2, Settings.d, true);
         this.a_String[this.a_I] = v1;
         this.a_I = (this.a_I + 1);
         return this.a[(this.a_I - 1)];

@@ -2,18 +2,18 @@
 // edit: fix the emitter and re-run.  Original name `s`.
 // String constants: <clinit> | <init> | Code | getClipWidth | javax/microedition/lcdui/Graphics | StackMap | java/lang/String
 // API references: javax/microedition
-public class ObfS extends MenuButton {
+public class MarqueeButton extends MenuButton {
     private float a;
     private float b;
     private static int b_I;
     private float c;
     private float d;
     static {
-        ObfS.b_I = 600;
+        MarqueeButton.b_I = 600;
         return;
     }
     // bytecode 32 bytes, max_stack 6, max_locals 6
-    public ObfS(Widget v1, int v2, int v3, int v4, Font v5) {
+    public MarqueeButton(Widget v1, int v2, int v3, int v4, Font v5) {
         super(null, 0, 0, v4, v5);
         this.a = 0.0f;
         this.b = 0.0f;
@@ -49,7 +49,7 @@ public class ObfS extends MenuButton {
     public void a(float v1) {
         v1 = (v1 * 3.0f);
         if (fcmpg(this.a, this.b) <= 0) goto L65;
-        this.a = (this.a - (((float) ObfS.b_I) * v1));
+        this.a = (this.a - (((float) MarqueeButton.b_I) * v1));
         if (fcmpl(this.a, this.b) >= 0) goto L124;
         this.a = 0.0f;
         this.b = 0.0f;
@@ -58,7 +58,7 @@ public class ObfS extends MenuButton {
         return;
         L65:
         if (fcmpl(this.a, this.b) >= 0) goto L124;
-        this.a = (this.a + (((float) ObfS.b_I) * v1));
+        this.a = (this.a + (((float) MarqueeButton.b_I) * v1));
         if (fcmpg(this.a, this.b) <= 0) goto L124;
         this.a = 0.0f;
         this.b = 0.0f;
@@ -76,35 +76,35 @@ public class ObfS extends MenuButton {
     }
     // bytecode 31 bytes, max_stack 3, max_locals 1
     public void a() {
-        ObfS.b_I = 200;
+        MarqueeButton.b_I = 200;
         this.a = 0.0f;
         this.b = ((float) ((this.a.b() / 2) + this.b()));
         return;
     }
     // bytecode 32 bytes, max_stack 3, max_locals 1
     public void b() {
-        ObfS.b_I = 200;
+        MarqueeButton.b_I = 200;
         this.a = 0.0f;
         this.b = ((float) (((-this.a.b()) / 2) - this.b()));
         return;
     }
     // bytecode 31 bytes, max_stack 3, max_locals 1
     public void c() {
-        ObfS.b_I = 200;
+        MarqueeButton.b_I = 200;
         this.a = ((float) ((this.a.b() / 2) + this.b()));
         this.b = 0.0f;
         return;
     }
     // bytecode 32 bytes, max_stack 3, max_locals 1
     public void d() {
-        ObfS.b_I = 200;
+        MarqueeButton.b_I = 200;
         this.a = ((float) (((-this.a.b()) / 2) - this.b()));
         this.b = 0.0f;
         return;
     }
     // bytecode 35 bytes, max_stack 3, max_locals 1
     public void e() {
-        ObfS.b_I = 200;
+        MarqueeButton.b_I = 200;
         this.a = 0.0f;
         this.b = ((float) ((this.a.b() - this.b()) / 2));
         this.i();
@@ -112,7 +112,7 @@ public class ObfS extends MenuButton {
     }
     // bytecode 35 bytes, max_stack 3, max_locals 1
     public void f() {
-        ObfS.b_I = 200;
+        MarqueeButton.b_I = 200;
         this.a = ((float) ((this.a.b() - this.b()) / 2));
         this.b = 0.0f;
         this.i();

@@ -180,21 +180,21 @@ public class ObfBm {
         L8:
         if (Settings.f() <= 0) goto L63;
         if (this.a_bc != null) goto L35;
-        this.a_bc = ObfBb.a_ae.a(this.g);
+        this.a_bc = AssetManager.a_ae.a(this.g);
         L35:
         if (this.a_bc == null) goto L63;
         this.a_bc.a(v1, this.f, this.a_F, this.b_F, 0.0f);
         L63:
         if (Settings.f() <= 0) goto L118;
         if (this.b_bc != null) goto L90;
-        this.b_bc = ObfBb.a_ae.a(this.i);
+        this.b_bc = AssetManager.a_ae.a(this.i);
         L90:
         if (this.b_bc == null) goto L118;
         this.b_bc.a(v1, this.h, this.a_F, this.b_F, 0.0f);
         L118:
         if (Settings.f() <= 0) goto L173;
         if (this.c_bc != null) goto L145;
-        this.c_bc = ObfBb.a_ae.a(this.k);
+        this.c_bc = AssetManager.a_ae.a(this.k);
         L145:
         if (this.c_bc == null) goto L173;
         this.c_bc.a(v1, this.j, this.a_F, this.b_F, 0.0f);
@@ -206,21 +206,21 @@ public class ObfBm {
         this.a.a(v1, this.a_I, this.a_F, this.b_F, 0.0f);
         if (Settings.f() <= 1) goto L78;
         if (this.a_bp != null) goto L49;
-        this.a_bp = ObfBb.a_ap.a(this.m);
+        this.a_bp = AssetManager.a_ap.a(this.m);
         L49:
         if (this.a_bp == null) goto L78;
         this.a_bp.a(v1, v3, this.l, this.a_F, this.b_F, 0.0f);
         L78:
         if (Settings.f() <= 1) goto L135;
         if (this.b_bp != null) goto L106;
-        this.b_bp = ObfBb.a_ap.a(this.o);
+        this.b_bp = AssetManager.a_ap.a(this.o);
         L106:
         if (this.b_bp == null) goto L135;
         this.b_bp.a(v1, v3, this.n, this.a_F, this.b_F, 0.0f);
         L135:
         if (Settings.f() <= 1) goto L192;
         if (this.c_bp != null) goto L163;
-        this.c_bp = ObfBb.a_ap.a(this.q);
+        this.c_bp = AssetManager.a_ap.a(this.q);
         L163:
         if (this.c_bp == null) goto L192;
         this.c_bp.a(v1, v3, this.p, this.a_F, this.b_F, 0.0f);
