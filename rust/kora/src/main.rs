@@ -23,7 +23,7 @@ use kora::menu::Outcome;
 use kora::physics::{CarControl, Tuning, World};
 use kora::engine::Engine;
 use kora::progress::{self, Progress};
-use kora::race::Race;
+use kora::race::{Mode, Race, drift_points};
 use kora::text;
 use kora::settings::Settings;
 use kora::{format, hud, map, menu, music, pack, paths, scene, sky, space, theme};
@@ -136,6 +136,16 @@ struct Running {
     outcome: Option<Outcome>,
     engine: Engine,
     last_throttle: f32,
+    /// Start lights: the MIDlet counts `bt.a_F` up and holds the cars for
+    /// the first three seconds while the screen shows the count.
+    countdown: f32,
+    /// "GO!" flash after the lights.
+    go_flash: f32,
+    /// Slideshow drift score (`help.txt`: points for drifting, zeroed by
+    /// a wall touch).
+    drift_score: f32,
+    /// Seconds left on the clock for the time-boxed solo modes.
+    time_left: Option<f32>,
     /// The offscreen the world is drawn into, and its size so it can be rebuilt
     /// when the window changes.
     target: Option<(RenderTarget, Vec2)>,
@@ -147,7 +157,7 @@ impl Running {
     fn standings(&self) -> Vec<usize> {
         let mut order = self.finish_order.clone();
         let mut rest: Vec<usize> = (0..self.world.cars.len())
-            .filter(|car| !order.contains(car))
+            .filter(|car| !order.contains(car) && !self.races[*car].eliminated)
             .collect();
         rest.sort_by(|&a, &b| {
             let (pa, pb) = (
@@ -162,6 +172,57 @@ impl Running {
 
     fn place_of(&self, car: usize) -> usize {
         self.standings().iter().position(|&c| c == car).unwrap_or(0)
+    }
+
+    /// Survival knock-out: eliminate the last placed running car. Finished
+    /// cars are safe. Returns the player's outcome when the knock-out ends
+    /// their race, or hands them the win when nobody is left to beat.
+    fn eliminate_last(&mut self) -> Option<Outcome> {
+        let victim = self
+            .standings()
+            .iter()
+            .rev()
+            .find(|&&car| !self.races[car].finished)
+            .copied()?;
+        self.races[victim].eliminated = true;
+        // Zero time pays no award and keeps no record: a knock-out is a
+        // loss, whatever the stopwatch says.
+        if victim == self.player {
+            let place = self
+                .races
+                .iter()
+                .filter(|race| !race.eliminated)
+                .count();
+            self.outcome = Some(Outcome {
+                place,
+                gained: 0,
+                total_time: 0.0,
+                best_lap: self.races[self.player].best,
+                laps: self.races[self.player].laps,
+                cars: self.world.cars.len(),
+                improved: false,
+                previous_best: None,
+            });
+            return self.outcome.clone();
+        }
+        let rivals_left = (0..self.world.cars.len())
+            .any(|car| car != self.player && !self.races[car].eliminated);
+        if !rivals_left {
+            let race = &self.races[self.player];
+            let now = get_time();
+            self.outcome = Some(Outcome {
+                place: self.finish_order.len(),
+                gained: 0,
+                total_time: race.total_time(now),
+                best_lap: race.best,
+                laps: race.laps,
+                cars: self.world.cars.len(),
+                improved: false,
+                previous_best: None,
+            });
+            return self.outcome.clone();
+        }
+        None
     }
 }
 
@@ -231,8 +292,11 @@ fn start_race(
         }
     }
 
+    // Race clocks start at the green light, not at boot: `Race::new` with a
+    // zero base would bill the menus to the first lap.
+    let now = get_time();
     let races: Vec<Race> = (0..world.cars.len())
-        .map(|index| Race::new(&track.grid, laps, world.position(index), 0.0))
+        .map(|index| Race::new(&track.grid, laps, world.position(index), now))
         .collect();
     let drivers: Vec<AiDriver> = (0..world.cars.len())
         .map(|index| AiDriver::new(if index == player { 1.0 } else { 0.84 + 0.06 * index as f32 }))
@@ -262,21 +326,30 @@ fn start_race(
         target: None,
         engine,
         last_throttle: 0.0,
+        countdown: 3.0,
+        go_flash: 0.0,
+        drift_score: 0.0,
+        time_left: event.time_limit,
     })
 }
 
 impl Running {
     fn restart(&mut self, laps: u32) {
+        let now = get_time();
         for index in 0..self.world.cars.len() {
             self.world.reset(index);
             let position = self.world.position(index);
-            self.races[index] = Race::new(&self.track.grid, laps, position, 0.0);
+            self.races[index] = Race::new(&self.track.grid, laps, position, now);
         }
         self.finish_order.clear();
         self.outcome = None;
         self.free = None;
         self.engine.stop();
         self.camera = self.track.spawn + vec3(0.0, 5.0, 9.0);
+        self.countdown = 3.0;
+        self.go_flash = 0.0;
+        self.drift_score = 0.0;
+        self.time_left = self.event.time_limit;
     }
 
     /// Tab hands the viewport to a free photo camera (or back to the car).
@@ -356,30 +429,44 @@ impl Running {
     /// Advance the race by one frame.  Returns the outcome once the player has
     /// finished.
     fn update(&mut self, dt: f32, laps: u32, settings: &Settings) -> Option<Outcome> {
+        // The start lights hold everything for three seconds.
+        if self.countdown > 0.0 {
+            self.countdown -= dt;
+            if self.countdown <= 0.0 {
+                self.go_flash = 1.0;
+            }
+            return None;
+        }
+        if self.go_flash > 0.0 {
+            self.go_flash -= dt;
+        }
         let mut controls = vec![CarControl::default(); self.world.cars.len()];
         // The control scheme picks the keys; auto-throttle drives for you.
-        let (accelerate, brake) = settings.scheme.throttle_keys();
-        let (left, right) = settings.scheme.steer_keys();
-        controls[self.player].throttle = if settings.auto_throttle || is_key_down(accelerate) {
-            1.0
-        } else if is_key_down(brake) {
-            -0.6
-        } else {
-            0.0
-        };
-        self.last_throttle = controls[self.player].throttle.max(0.0);
-        // Positive steering turns the wheels left (about +Y).
-        controls[self.player].steer = if is_key_down(left) {
-            1.0
-        } else if is_key_down(right) {
-            -1.0
-        } else {
-            0.0
-        };
-        controls[self.player].brake = is_key_down(KeyCode::Space);
+        // An eliminated survival car coasts with locked controls (`cl.l()`).
+        if !self.races[self.player].eliminated {
+            let (accelerate, brake) = settings.scheme.throttle_keys();
+            let (left, right) = settings.scheme.steer_keys();
+            controls[self.player].throttle = if settings.auto_throttle || is_key_down(accelerate) {
+                1.0
+            } else if is_key_down(brake) {
+                -0.6
+            } else {
+                0.0
+            };
+            self.last_throttle = controls[self.player].throttle.max(0.0);
+            // Positive steering turns the wheels left (about +Y).
+            controls[self.player].steer = if is_key_down(left) {
+                1.0
+            } else if is_key_down(right) {
+                -1.0
+            } else {
+                0.0
+            };
+            controls[self.player].brake = is_key_down(KeyCode::Space);
+        }
 
         for index in 0..self.world.cars.len() {
-            if index == self.player {
+            if index == self.player || self.races[index].eliminated {
                 continue;
             }
             let (position, rotation) = self.world.pose(index);
@@ -419,12 +506,91 @@ impl Running {
             self.world.step(dt / substeps as f32, &controls, &heights);
         }
 
+        let mode = Mode::from_u8(self.event.mode);
+        let laps_before: Vec<u32> = self.races.iter().map(|race| race.lap).collect();
         let now = get_time();
         for index in 0..self.world.cars.len() {
             let before = self.races[index].finished;
             self.races[index].update(now, &self.track.grid, self.world.position(index));
             if self.races[index].finished && !before {
                 self.finish_order.push(index);
+            }
+        }
+
+        // Slideshow: slides pay while the clock runs, and a wall touch
+        // zeroes the counter.
+        if mode == Mode::Slideshow && !self.races[self.player].finished {
+            if self.world.wall_hit(self.player) {
+                self.drift_score = 0.0;
+            } else {
+                self.drift_score += drift_points(
+                    self.world.slide(self.player),
+                    self.world.speed(self.player),
+                    dt,
+                );
+            }
+        }
+
+        // Survival: each completed lap knocks out the last placed car.
+        if mode == Mode::Survival
+            && self.outcome.is_none()
+            && laps_before.iter().zip(self.races.iter()).any(|(before, race)| {
+                !race.eliminated && race.lap > *before
+            })
+        {
+            if let Some(outcome) = self.eliminate_last() {
+                return Some(outcome);
+            }
+        }
+
+        // Time chase and special: the clock runs out or the laps get done.
+        if matches!(mode, Mode::TimeChase | Mode::Special)
+            && self.outcome.is_none()
+            && !self.races[self.player].finished
+        {
+            if let Some(left) = self.time_left.as_mut() {
+                *left -= dt;
+                if *left <= 0.0 {
+                    // The clock beat the car: last place, no award, no
+                    // record. The results screen shows the loss as it is.
+                    let race = &self.races[self.player];
+                    // Zero time pays no award and keeps no record.
+                    self.outcome = Some(Outcome {
+                        place: self.world.cars.len().saturating_sub(1),
+                        gained: 0,
+                        total_time: 0.0,
+                        best_lap: race.best,
+                        laps,
+                        cars: self.world.cars.len(),
+                        improved: false,
+                        previous_best: None,
+                    });
+                    return self.outcome.clone();
+                }
+            }
+        }
+
+        // Slideshow: the clock ends the run and the score is the result.
+        if mode == Mode::Slideshow
+            && self.outcome.is_none()
+            && !self.races[self.player].finished
+        {
+            if let Some(left) = self.time_left.as_mut() {
+                *left -= dt;
+                if *left <= 0.0 {
+                    let race = &self.races[self.player];
+                    self.outcome = Some(Outcome {
+                        place: 0,
+                        gained: self.drift_score as u32,
+                        total_time: race.total_time(now),
+                        best_lap: race.best,
+                        laps,
+                        cars: self.world.cars.len(),
+                        improved: false,
+                        previous_best: None,
+                    });
+                    return self.outcome.clone();
+                }
             }
         }
 
@@ -618,6 +784,39 @@ impl Running {
             28.0,
             WHITE,
         );
+        // The start lights count down over the frozen scene, then the flag.
+        if self.countdown > 0.0 {
+            let count = self.countdown.ceil().max(1.0) as u32;
+            let text = count.to_string();
+            let size = 96.0;
+            let width = screen_width();
+            text::draw_shadow(&text, width / 2.0 - 20.0, 200.0, size, RED);
+        } else if self.go_flash > 0.0 {
+            let width = screen_width();
+            text::draw_shadow("GO!", width / 2.0 - 60.0, 200.0, 96.0, GREEN);
+        }
+        let mode = Mode::from_u8(self.event.mode);
+        // The solo clock ticks away in the corner, like `Countdown`.
+        if matches!(mode, Mode::TimeChase | Mode::Special | Mode::Slideshow) {
+            if let Some(left) = self.time_left {
+                text::draw_shadow(
+                    &labels::format("hud_time_left", &[&menu::format_time(left.max(0.0))]),
+                    16.0,
+                    194.0,
+                    28.0,
+                    Color::new(1.0, 0.4, 0.3, 1.0),
+                );
+            }
+        }
+        if mode == Mode::Slideshow {
+            text::draw_shadow(
+                &labels::format("hud_drift", &[&format!("{:.0}", self.drift_score)]),
+                16.0,
+                230.0,
+                28.0,
+                Color::new(1.0, 0.85, 0.2, 1.0),
+            );
+        }
         let best = race
             .best
             .map(menu::format_time)
@@ -1109,9 +1308,24 @@ async fn main() {
                     if let Some(outcome) = finished {
                         // Keep the time if it beats the record, and pay the
                         // record's award the first time a race is passed.
+                        // Slideshow pays its drift score as points on top,
+                        // every run.
+                        let slideshow =
+                            Mode::from_u8(run.event.mode) == Mode::Slideshow;
+                        let score = run.drift_score as u32;
                         let result =
                             progress.record(&run.event.key, outcome.total_time, run.event.award);
+                        if slideshow {
+                            progress.points += score;
+                        }
                         progress.save(&save_path);
+                        if slideshow {
+                            if let Some(run) = running.as_mut() {
+                                if let Some(outcome) = run.outcome.as_mut() {
+                                    outcome.gained += score;
+                                }
+                            }
+                        }
                         if let Some(run) = running.as_mut() {
                             if let Some(outcome) = run.outcome.as_mut() {
                                 outcome.gained = result.gained;

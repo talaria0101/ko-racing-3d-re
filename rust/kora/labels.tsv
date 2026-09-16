@@ -62,6 +62,8 @@ hud_lap	LAP {}/{}	162
 hud_pos	POS {}/{}	164
 hud_time	TIME {}	-
 hud_lap_best	LAP {}  BEST {}	-
+hud_time_left	TIME LEFT {}	-
+hud_drift	DRIFT {}	-
 no_time	--:--	-
 race_needs	{} NEEDS {} POINTS	-
 load_failed	COULD NOT LOAD {}	-

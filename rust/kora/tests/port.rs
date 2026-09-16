@@ -2676,3 +2676,73 @@ fn placement_log_covers_every_payload() {
     assert!(log.contains("slot ["));
 }
 
+
+#[test]
+fn race_modes_match_the_games_seven() {
+    use kora::race::Mode;
+    // `ui.txt` 202-208 name the modes in order.
+    assert_eq!(Mode::from_u8(0), Mode::Circuit);
+    assert_eq!(Mode::from_u8(1), Mode::Race);
+    assert_eq!(Mode::from_u8(2), Mode::TimeChase);
+    assert_eq!(Mode::from_u8(3), Mode::Survival);
+    assert_eq!(Mode::from_u8(4), Mode::HeadToHead);
+    assert_eq!(Mode::from_u8(5), Mode::Slideshow);
+    assert_eq!(Mode::from_u8(6), Mode::Special);
+    assert_eq!(Mode::from_u8(99), Mode::Circuit);
+    for mode in [Mode::Circuit, Mode::Race, Mode::Survival, Mode::HeadToHead] {
+        assert!(mode.is_race());
+    }
+    for mode in [Mode::TimeChase, Mode::Slideshow, Mode::Special] {
+        assert!(!mode.is_race());
+    }
+}
+
+#[test]
+fn drift_points_pay_slides_only_at_speed() {
+    use kora::race::drift_points;
+    assert!(drift_points(2.0, 10.0, 0.1) > 0.0, "a slide at speed pays");
+    assert_eq!(drift_points(2.0, 2.0, 0.1), 0.0, "parking sideways pays nothing");
+    assert_eq!(drift_points(0.0, 10.0, 0.1), 0.0, "straight running pays nothing");
+    assert!(
+        drift_points(4.0, 10.0, 0.1) > drift_points(2.0, 10.0, 0.1),
+        "the longer the drift, the more points"
+    );
+}
+
+#[test]
+fn eliminated_cars_cannot_finish() {
+    use kora::race::Race;
+    let dir = assets();
+    let resources = pack::load(&dir);
+    let track = scene::build(&dir, &resources, "ma1.map");
+    let grid = &track.grid;
+    assert!(grid.gates().len() > 1);
+    // Drive the gate state machine: leave the next gate, re-enter it, until
+    // one lap is done. Works whatever the gate list repeats.
+    fn drive_lap(grid: &kora::grid::Grid, race: &mut Race, now: &mut f64) {
+        let away = vec3(-1000.0, 0.0, -1000.0);
+        for _ in 0..40 {
+            if race.lap >= 1 {
+                break;
+            }
+            let (x, y) = grid.gates()[race.next];
+            *now += 1.0;
+            race.update(*now, grid, away);
+            *now += 1.0;
+            race.update(*now, grid, grid.center(x, y));
+        }
+    }
+
+    // Start on the finish line, off the first gate, then walk the order.
+    let start = grid.center(grid.gates()[0].0, grid.gates()[0].1);
+    let mut race = Race::new(grid, 1, start, 0.0);
+    race.eliminated = true;
+    let mut now = 0.0;
+    drive_lap(grid, &mut race, &mut now);
+    assert!(!race.finished, "a knocked-out car stays out");
+
+    let mut race = Race::new(grid, 1, start, 0.0);
+    let mut now = 0.0;
+    drive_lap(grid, &mut race, &mut now);
+    assert!(race.finished, "the same run counts when racing");
+}

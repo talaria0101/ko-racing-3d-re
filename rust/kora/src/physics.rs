@@ -266,6 +266,10 @@ pub struct Car {
     spawn_yaw: f32,
     state: EngineState,
     slide: f32,
+    /// Whether this step scraped a barrier wall. The slideshow mode
+    /// zeroes its drift score on a wall touch (`help.txt`: "If you bump
+    /// into a wall, the drift counter is zeroed").
+    wall_hit: bool,
 }
 
 pub struct World {
@@ -297,6 +301,7 @@ impl World {
             spawn_yaw: yaw,
             state: EngineState::default(),
             slide: 0.0,
+            wall_hit: false,
         });
         self.cars.len() - 1
     }
@@ -465,6 +470,7 @@ impl World {
         for &(centre, half) in walls {
             next = slide_out(next, centre, half);
         }
+        car.wall_hit = speed > 2.0 && (next - (car.pos + car.vel * dt)).length() > 0.001;
         car.pos = next;
 
         // Ground: snap to the sampled surface; past the edge, fall.
@@ -547,6 +553,16 @@ impl World {
 
     pub fn speed(&self, car: usize) -> f32 {
         self.cars[car].vel.length()
+    }
+
+    /// Sideways speed, the drift meter's input.
+    pub fn slide(&self, car: usize) -> f32 {
+        self.cars[car].slide
+    }
+
+    /// Whether the last step scraped a barrier wall.
+    pub fn wall_hit(&self, car: usize) -> bool {
+        self.cars[car].wall_hit
     }
 
     pub fn engine(&self, car: usize) -> EngineState {

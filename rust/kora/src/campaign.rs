@@ -105,6 +105,11 @@ pub struct RaceEvent {
     pub unlocks: Option<u8>,
     /// Stable key for saving a best time against this race.
     pub key: String,
+    /// Seconds on the clock for the time-boxed solo modes (time chase,
+    /// slideshow, special), from the setup's `i32 time_limit`, which the
+    /// game counts down in milliseconds (`Countdown.c`/`d`). `None` for
+    /// the wheel-to-wheel modes.
+    pub time_limit: Option<f32>,
 }
 
 impl RaceEvent {
@@ -116,12 +121,15 @@ impl RaceEvent {
             map: map.to_string(),
             mode: record.mode,
             laps: config.laps,
-            opponents: if config.is_race() { config.opponents } else { 3 },
+            // Solo modes carry no opponents byte in their setup, so they
+            // run one car against the clock or the judges.
+            opponents: if config.is_race() { config.opponents } else { 0 },
             theme: config.theme,
             threshold: record.values[0],
             award: record.values[1].max(0),
             unlocks: (record.values[1] < 0).then(|| (-record.values[1]) as u8),
             key: format!("{table}:{level_index}:{}", record.mode),
+            time_limit: config.time_limit.map(|ms| (ms as f32 / 1000.0).clamp(5.0, 1800.0)),
         }
     }
 }
@@ -181,7 +189,7 @@ pub fn quick_events(resources: &Resources) -> Vec<RaceEvent> {
                     if setup.config.is_race() {
                         setup.config.opponents
                     } else {
-                        3
+                        0
                     },
                     setup.config.theme,
                     setup.config.mode,
@@ -204,6 +212,12 @@ pub fn quick_events(resources: &Resources) -> Vec<RaceEvent> {
                 threshold: 0,
                 award: 1,
                 unlocks: None,
+                time_limit: setup.and_then(|setup| {
+                    setup
+                        .config
+                        .time_limit
+                        .map(|ms| (ms as f32 / 1000.0).clamp(5.0, 1800.0))
+                }),
             }
         })
         .collect()

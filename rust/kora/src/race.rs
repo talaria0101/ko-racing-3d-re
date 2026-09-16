@@ -12,6 +12,54 @@ use crate::grid::Grid;
 /// Radius of a gate, wide enough to cover both lanes of a two-cell road.
 const GATE_RADIUS: f32 = 9.5;
 
+/// The seven event modes (`ui.txt` 202-208: circuit, race, time chase,
+/// survival, head to head, slideshow, special). Modes 0, 1, 3 and 4 race
+/// opponents (`RaceConfig::RACE_MODES`); 2, 5 and 6 are solo, with 2 and 6
+/// carrying a time limit and 5 paying drift points instead of places.
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub enum Mode {
+    Circuit,
+    Race,
+    TimeChase,
+    Survival,
+    HeadToHead,
+    Slideshow,
+    Special,
+}
+
+impl Mode {
+    pub fn from_u8(mode: u8) -> Mode {
+        match mode {
+            1 => Mode::Race,
+            2 => Mode::TimeChase,
+            3 => Mode::Survival,
+            4 => Mode::HeadToHead,
+            5 => Mode::Slideshow,
+            6 => Mode::Special,
+            _ => Mode::Circuit,
+        }
+    }
+
+    /// Whether cars race each other rather than the clock or the judges.
+    pub fn is_race(self) -> bool {
+        matches!(
+            self,
+            Mode::Circuit | Mode::Race | Mode::Survival | Mode::HeadToHead
+        )
+    }
+}
+
+/// Drift points for one step. The longer the slide, the more points
+/// (`help.txt`: "The longer your drift is, the more points are added").
+/// Slides only count at speed, so parking sideways earns nothing.
+pub fn drift_points(slide: f32, speed: f32, dt: f32) -> f32 {
+    if speed > 3.0 {
+        slide * speed * dt
+    } else {
+        0.0
+    }
+}
+
 pub struct Race {
     pub laps: u32,
     pub gates: Vec<(i32, i32)>,
@@ -22,6 +70,10 @@ pub struct Race {
     pub best: Option<f32>,
     pub finished: bool,
     pub finish_time: Option<f32>,
+    /// Survival knock-outs: after each lap the last placed car is
+    /// eliminated (`help.txt`), locks its controls and leaves the
+    /// standings. An eliminated car can no longer finish.
+    pub eliminated: bool,
     started: f64,
     lap_started: f64,
     was_inside: bool,
@@ -41,6 +93,7 @@ impl Race {
             best: None,
             finished: false,
             finish_time: None,
+            eliminated: false,
             started: now,
             lap_started: now,
             was_inside: false,
@@ -65,7 +118,7 @@ impl Race {
     }
 
     pub fn update(&mut self, now: f64, grid: &Grid, position: Vec3) {
-        if self.finished || self.gates.is_empty() {
+        if self.finished || self.eliminated || self.gates.is_empty() {
             return;
         }
         let inside = self.inside(grid, position, self.next);
