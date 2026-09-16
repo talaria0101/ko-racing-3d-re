@@ -4,7 +4,7 @@
 // API references: javax/microedition
 public class ObfCg extends ObfCb {
     // bytecode 7 bytes, max_stack 3, max_locals 3
-    public ObfCg(ObfBn v1, int v2) {
+    public ObfCg(Widget v1, int v2) {
         super(null, m1);
         return;
     }

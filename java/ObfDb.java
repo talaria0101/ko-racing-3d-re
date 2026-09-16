@@ -2,14 +2,14 @@
 // edit: fix the emitter and re-run.  Original name `db`.
 // String constants: <init> | Code | KORa | [Lax; | buzz | getClipHeight | javax/microedition/lcdui/Graphics | StackMap
 // API references: javax/microedition
-public class ObfDb extends ObfBn {
+public class ObfDb extends Widget {
     protected ObfAx a;
     private ObfAx[] a_arrLax;
     protected int a_I;
     protected int b;
     private boolean b_Z;
     // bytecode 99 bytes, max_stack 6, max_locals 4
-    public ObfDb(ObfBn v1, int v2, int v3) {
+    public ObfDb(Widget v1, int v2, int v3) {
         super(v1, 0, 0, 0, 0);
         this.a = null;
         this.a_arrLax = null;
@@ -27,7 +27,7 @@ public class ObfDb extends ObfBn {
         this.e(this.a.b());
         L89:
         v2 = 1;
-        v1 = ((ObfBn) this);
+        v1 = ((Widget) this);
         this.b = v2;
         return;
     }

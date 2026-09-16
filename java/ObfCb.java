@@ -2,12 +2,12 @@
 // edit: fix the emitter and re-run.  Original name `cb`.
 // String constants: <init> | Code | drawRect | fillRect | getClipWidth | javax/microedition/lcdui/Graphics | setColor | StackMap
 // API references: javax/microedition
-public class ObfCb extends ObfBn {
+public class ObfCb extends Widget {
     private ObfAx a;
     protected int a_I;
     protected int b;
     // bytecode 86 bytes, max_stack 8, max_locals 3
-    public ObfCb(ObfBn v1, int v2) {
+    public ObfCb(Widget v1, int v2) {
         super(v1, 0, 0, 0, 0);
         this.a = null;
         this.a_I = 0;
@@ -22,8 +22,8 @@ public class ObfCb extends ObfBn {
         L70:
         this.e((-v2));
         L76:
-        v1 = ((ObfBn) 5);
-        v1 = ((ObfBn) this);
+        v1 = ((Widget) 5);
+        v1 = ((Widget) this);
         this.b = 5;
         return;
     }

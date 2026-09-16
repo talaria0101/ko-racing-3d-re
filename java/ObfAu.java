@@ -4,15 +4,15 @@
 public class ObfAu {
     public static ObfCt a;
     public static ObfCt b;
-    public static ObfBz a_bz;
+    public static Vec3 a_bz;
     public static boolean a_Z;
     static {
         new ObfCt(0.0f, 0.0f, 0.0f, 0.0f); /* constructor */
         ObfAu.a = new ObfCt(0.0f, 0.0f, 0.0f, 0.0f);
         ObfAu.b = null;
         new Vec2(0.0f, 0.0f); /* constructor */
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        ObfAu.a_bz = new ObfBz(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        ObfAu.a_bz = new Vec3(0.0f, 0.0f, 0.0f);
         ObfAu.a_Z = false;
         return;
     }

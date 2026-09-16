@@ -6,7 +6,7 @@ public class ObfAz extends ObfAx {
     private boolean b_Z;
     private int h;
     // bytecode 38 bytes, max_stack 6, max_locals 7
-    public ObfAz(ObfBn v1, int v2, int v3, int v4, ObfP v5, int v6) {
+    public ObfAz(Widget v1, int v2, int v3, int v4, ObfP v5, int v6) {
         super(null, 0, 0, v4, v5);
         this.b = 0;
         this.b_Z = false;

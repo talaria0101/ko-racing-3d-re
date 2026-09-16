@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `ao`.
 // String constants: <clinit> | <init> | Code | KORa | [[C | append | charAt | currentTimeMillis | displayTextField | drawLine | drawRect | fillRect
 // API references: javax/microedition
-public class ObfAo extends ObfBn {
+public class ObfAo extends Widget {
     private String a;
     private long a_J;
     private long b;
@@ -25,7 +25,7 @@ public class ObfAo extends ObfBn {
         return;
     }
     // bytecode 746 bytes, max_stack 8, max_locals 7
-    public ObfAo(ObfBn v1, int v2, int v3, int v4, int v5, int v6) {
+    public ObfAo(Widget v1, int v2, int v3, int v4, int v5, int v6) {
         super(v1, 0, 0, v4, 30);
         this.a = "";
         this.a_J = 0L;

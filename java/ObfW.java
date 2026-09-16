@@ -3,7 +3,7 @@
 // String constants: <clinit> | <init> | ?a=m | Code | append | createImage | drawImage | drawRect | fillRect | getClipHeight | getClipWidth | getGraphics
 // API references: java/io javax/microedition
 public class ObfW extends ObfCu {
-    public static ObfM a;
+    public static MainMenu a;
     private int s;
     private byte[] a_arrB;
     static {

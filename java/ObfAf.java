@@ -5,7 +5,7 @@
 public class ObfAf extends ObfDb {
     private String[] a;
     // bytecode 27 bytes, max_stack 4, max_locals 5
-    public ObfAf(ObfBn v1, int v2, int v3, int v4) {
+    public ObfAf(Widget v1, int v2, int v3, int v4) {
         super(v1, v2, v4);
         this.a = null;
         this.a = new java.lang.String[v2];

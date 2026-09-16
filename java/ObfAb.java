@@ -8,7 +8,7 @@ public class ObfAb extends ObfT {
     private boolean[] b;
     private int[] a_arrI;
     // bytecode 962 bytes, max_stack 7, max_locals 7
-    public ObfAb(int v1, ObfM v2) {
+    public ObfAb(int v1, MainMenu v2) {
         /* try L385-L954 catch java.lang.Exception -> L955 */
         super(v1, SysUtil.b);
         this.a = null;
@@ -24,7 +24,7 @@ public class ObfAb extends ObfT {
         v1.b();
         v1.b();
         v1.a_arrZ[v1.a] = 1;
-        if (ObfM.a > 0) goto L106;
+        if (MainMenu.a > 0) goto L106;
         jt1 = 175; /* join L109 from L100 */
         goto L109;
         L106:
@@ -80,7 +80,7 @@ public class ObfAb extends ObfT {
         v4.a[v4.a][2] = v4.a.a(v6);
         v4.b();
         v1.b();
-        if (ObfM.a > 0) goto L733;
+        if (MainMenu.a > 0) goto L733;
         if (v2.a(v3, 0) <= 0) goto L715;
         if (v2.e(v3) == 1) goto L600;
         if (v2.a(v3) >= 2) goto L564;

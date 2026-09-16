@@ -2,15 +2,15 @@
 // edit: fix the emitter and re-run.  Original name `bj`.
 // String constants: <init> | Code | java/lang/Object | StackMap
 public class ObfBj {
-    private ObfBz a;
+    private Vec3 a;
     private float a_F;
     // bytecode 35 bytes, max_stack 6, max_locals 5
     public ObfBj(float v1, float v2, float v3, float v4) {
         super();
         this.a = null;
         this.a_F = 0.0f;
-        new ObfBz(v1, v2, v3); /* constructor */
-        this.a = new ObfBz(v1, v2, v3);
+        new Vec3(v1, v2, v3); /* constructor */
+        this.a = new Vec3(v1, v2, v3);
         this.a_F = v4;
         return;
     }

@@ -13,12 +13,12 @@ public class ObfCl extends ObfCa {
     private boolean h;
     protected boolean a_Z;
     private boolean i;
-    private ObfBz e_bz;
-    protected ObfBz a_bz;
-    protected ObfBz b_bz;
-    private ObfBz f;
-    private ObfBz g;
-    private ObfBz h_bz;
+    private Vec3 e_bz;
+    protected Vec3 a_bz;
+    protected Vec3 b_bz;
+    private Vec3 f;
+    private Vec3 g;
+    private Vec3 h_bz;
     private ObfBj a_bj;
     private boolean j;
     private float f_F;
@@ -48,16 +48,16 @@ public class ObfCl extends ObfCa {
     private Vec2 d_z;
     private Vec2 e_z;
     private Vec2 f_z;
-    private static ObfBz i_bz;
-    private static ObfBz j_bz;
-    private static ObfBz k_bz;
-    private static ObfBz l;
-    private static ObfBz m;
-    private static ObfBz n;
+    private static Vec3 i_bz;
+    private static Vec3 j_bz;
+    private static Vec3 k_bz;
+    private static Vec3 l;
+    private static Vec3 m;
+    private static Vec3 n;
     private Transform a_Transf;
-    protected ObfBz c_bz;
-    protected ObfBz d_bz;
-    private ObfBz o;
+    protected Vec3 c_bz;
+    protected Vec3 d_bz;
+    private Vec3 o;
     protected ObfCt a_ct;
     private int l_I;
     private boolean l_Z;
@@ -191,36 +191,36 @@ public class ObfCl extends ObfCa {
         this.f_z = new Vec2(0.0f, 0.0f);
         new Vec2(0.0f, 0.0f); /* constructor */
         new Vec2(0.0f, 0.0f); /* constructor */
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        this.e_bz = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        this.f = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        this.g = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        this.h_bz = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        ObfCl.j_bz = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        ObfCl.i_bz = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        ObfCl.k_bz = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        ObfCl.m = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        ObfCl.l = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        this.b_bz = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        this.a_bz = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        this.c_bz = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        this.d_bz = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        this.o = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        ObfCl.n = new ObfBz(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        this.e_bz = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        this.f = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        this.g = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        this.h_bz = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        ObfCl.j_bz = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        ObfCl.i_bz = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        ObfCl.k_bz = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        ObfCl.m = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        ObfCl.l = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        this.b_bz = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        this.a_bz = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        this.c_bz = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        this.d_bz = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        this.o = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        ObfCl.n = new Vec3(0.0f, 0.0f, 0.0f);
         new ObfCt(0.0f, 0.0f, 0.0f, 0.0f); /* constructor */
         this.a_ct = new ObfCt(0.0f, 0.0f, 0.0f, 0.0f);
         new ObfCt(0.0f, 0.0f, 0.0f, 0.0f); /* constructor */
@@ -854,7 +854,7 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 385 bytes, max_stack 5, max_locals 7
-    public void a(ObfCt v1, ObfBz v2, float v3, float v4, ObfBz v5) {
+    public void a(ObfCt v1, Vec3 v2, float v3, float v4, Vec3 v5) {
         ObfCl.n.a(v2, this.b_bz);
         float v6 = (-v1.a(ObfCl.n));
         this.c_z.a(v1.a());
@@ -895,7 +895,7 @@ public class ObfCl extends ObfCa {
         ObfCl v4 = this;
         if (this.b_Z != 0) goto L21;
         v4 = this;
-        ObfBz v3 = this.a_bz;
+        Vec3 v3 = this.a_bz;
         goto L32;
         L21:
         v4 = this;
@@ -910,7 +910,7 @@ public class ObfCl extends ObfCa {
         v4 = v1;
         v4 = ((ObfCl) v1.a_di.a());
         L66:
-        v3 = ((ObfBz) Vec2.b(v3, v4));
+        v3 = ((Vec3) Vec2.b(v3, v4));
         if (fcmpl(Vec2.b(v3, v4), 0.8999999761581421f) >= 0) goto L381;
         v1.d();
         this.a();
@@ -920,7 +920,7 @@ public class ObfCl extends ObfCa {
         L98:
         v4 = this;
         v4 = v1;
-        v2 = ((boolean) ObfBz.a(this.a_di.a(), v1.a_di.a()));
+        v2 = ((boolean) Vec3.a(this.a_di.a(), v1.a_di.a()));
         v4 = this;
         v4 = this;
         this.c_bz.a(this.a_bz, this.a_di.a(), 0.0f);
@@ -1097,11 +1097,11 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public ObfBz a() {
+    public Vec3 a() {
         return this.a_bz;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public ObfBz b() {
+    public Vec3 b() {
         return this.b_bz;
     }
     // bytecode 53 bytes, max_stack 4, max_locals 2

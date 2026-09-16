@@ -4,7 +4,7 @@
 public class ObfBi extends ObfAx {
     private boolean b;
     // bytecode 22 bytes, max_stack 6, max_locals 6
-    public ObfBi(ObfBn v1, int v2, int v3, int v4, ObfP v5) {
+    public ObfBi(Widget v1, int v2, int v3, int v4, ObfP v5) {
         super(v1, v2, v3, v4, v5);
         this.b = false;
         this.b(1);

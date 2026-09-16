@@ -22,9 +22,9 @@ public class Bluetooth implements java.lang.Runnable, javax.bluetooth.DiscoveryL
     private int b_I;
     private volatile boolean e;
     private volatile boolean f;
-    private ObfBu a_bu;
+    private CareerScreen a_bu;
     // bytecode 170 bytes, max_stack 5, max_locals 3
-    public Bluetooth(ObfBu v1, boolean v2) {
+    public Bluetooth(CareerScreen v1, boolean v2) {
         super();
         this.a = null;
         new javax.bluetooth.UUID("32253635BF2E4FE0898AF505D430A394", 0); /* constructor */
@@ -52,7 +52,7 @@ public class Bluetooth implements java.lang.Runnable, javax.bluetooth.DiscoveryL
         this.a_Z = v2;
         new java.lang.Object(); /* constructor */
         this.a = new java.lang.Object();
-        v1 = ((ObfBu) this);
+        v1 = ((CareerScreen) this);
         new java.lang.Thread(v1); /* constructor */
         this.a_Thread = new java.lang.Thread(v1);
         v1.a_Thread.setPriority(1);

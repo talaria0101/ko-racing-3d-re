@@ -2,18 +2,18 @@
 // edit: fix the emitter and re-run.  Original name `ax`.
 // String constants: <init> | Code | getClipHeight | getClipWidth | javax/microedition/lcdui/Graphics | StackMap
 // API references: javax/microedition
-public class ObfAx extends ObfBn {
+public class ObfAx extends Widget {
     private int b;
     protected ObfP a;
     private boolean b_Z;
     protected int a_I;
     // bytecode 13 bytes, max_stack 7, max_locals 6
-    public ObfAx(ObfBn v1, int v2, int v3, int v4, ObfP v5) {
+    public ObfAx(Widget v1, int v2, int v3, int v4, ObfP v5) {
         super(v1, v2, v3, v4, v5, 1);
         return;
     }
     // bytecode 115 bytes, max_stack 6, max_locals 7
-    public ObfAx(ObfBn v1, int v2, int v3, int v4, ObfP v5, boolean v6) {
+    public ObfAx(Widget v1, int v2, int v3, int v4, ObfP v5, boolean v6) {
         super(v1, v2, v3, 0, 0);
         this.b = 0;
         this.a = null;
@@ -25,7 +25,7 @@ public class ObfAx extends ObfBn {
         this.a_I = 3;
         L53:
         v2 = v4;
-        v1 = ((ObfBn) this);
+        v1 = ((Widget) this);
         this.b = v2;
         if (SysUtil.a(this.b).length != 0) goto L82;
         this.f(0);

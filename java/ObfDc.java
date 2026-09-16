@@ -5,7 +5,7 @@
 public class ObfDc extends ObfCh {
     private boolean b;
     // bytecode 17 bytes, max_stack 6, max_locals 6
-    public ObfDc(ObfBn v1, int v2, int v3, int v4, int v5) {
+    public ObfDc(Widget v1, int v2, int v3, int v4, int v5) {
         super(v1, 0, 0, v4, v5);
         this.b = false;
         return;

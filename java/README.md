@@ -102,3 +102,46 @@ checked. `TODO(obfuscated)` marks a method whose body has not been
 walked yet. Field and method inventories are complete even where
 bodies are TODO, so a later pass can fill them without relearning
 the layout.
+
+## Port gotchas (from review passes 1-5 over all 121 classes)
+
+Proven against the bytecode; check here before "fixing" a divergence.
+
+* Cells are centered on `(14x, 14y)` and span 7 units each way.
+  `bm.<init>` multiplies the int cell by `ar.c` (14.0); tile and
+  fence geometry is centered (`[-1,1]` times the 7.01 node scale).
+* Every rotation is `+90 * arg` degrees about `+Z`, tiles, mid and
+  high detail alike (`TrackTile`, `MidDetail`, `HighDetail`). The
+  drivable-side mask rotates as `open[(d + arg) % 4]`. Matches
+  KEmulator `postRotate` (counterclockwise positive).
+* Composite order is translate, then rotate, then scale
+  (`T * R * S`), scale 7.01 baked at load. Mesh bytes are signed:
+  `raw * scale + bias`.
+* Flagged high detail (trees/bushes/cacti with the `.ob` flag) keeps
+  identity rotation and translation only; the `bp` yaw is dropped.
+* `.hd` kind 0 is an intentional empty slot (`t38.hd`), not a bug.
+* Booleans materialize as `iconst; goto` joins (see `jt` temps);
+  port the resulting value, not the jumps.
+* `fcmpg` vs `fcmpl` and `lcmp`/`dcmp` keep NaN semantics; the
+  emitter prints which one, and the Rust port must match it
+  (`total_cmp` is not `partial_cmp`).
+* `idiv`/`irem` by zero throws on the device; 102 files use them
+  (often `time / 60`). Rust panics too, but only in debug, so keep
+  the same guards.
+* No `jsr`/`ret` anywhere: no subroutines; `finally` is exception
+  tables only. One synchronized class (`Bluetooth`): the game is
+  effectively single-threaded.
+* `/* pop: ... */` comments are obfuscator filler (built strings
+  that are discarded). Do not port them as behavior.
+* SMS unlock lives in `SysUtil`, Bluetooth multiplayer in
+  `Bluetooth`, ads in `VservManager` (third-party SDK, 23 KB, not
+  game logic, do not port).
+* Saves use `RecordStore` (`Settings`, `MainMenu`); randomness is
+  the global `KORa.rand`.
+* Opponent ghosts (`GhostCar`) deserialize timestamp-gated frames
+  with interpolation deltas; audio (`AudioPlayer` chain) debounces
+  clip starts at 500 ms with per-name player caching.
+* Same field name with different descriptors is one obfuscator
+  slot; generated files disambiguate with suffixes (`a_String`,
+  `b_Z`, `a_arrI`). `Gen*.java` is raw emitter output kept beside
+  each curated file for review; `Obf*.java` is not hand edited.

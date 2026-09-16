@@ -2,8 +2,8 @@
 // edit: fix the emitter and re-run.  Original name `cm`.
 // String constants: <clinit> | <init> | Code | [Lbn; | drawLine | getClipHeight | getClipWidth | getClipX | getClipY | javax/microedition/lcdui/Graphics | setClip | setColor
 // API references: javax/microedition
-public class ObfCm extends ObfBn {
-    protected ObfBn[] a;
+public class ObfCm extends Widget {
+    protected Widget[] a;
     protected int a_I;
     private int k;
     protected int b;
@@ -25,7 +25,7 @@ public class ObfCm extends ObfBn {
         return;
     }
     // bytecode 133 bytes, max_stack 6, max_locals 8
-    public ObfCm(ObfBn v1, int v2, int v3, int v4, int v5, int v6, boolean v7) {
+    public ObfCm(Widget v1, int v2, int v3, int v4, int v5, int v6, boolean v7) {
         super(v1, v2, v3, v4, v5);
         this.a = null;
         this.a_I = 0;
@@ -43,7 +43,7 @@ public class ObfCm extends ObfBn {
         this.e = false;
         this.c = false;
         this.f = false;
-        this.a = new ObfBn[v6];
+        this.a = new Widget[v6];
         this.a_I = 0;
         this.k = SysUtil.d;
         this.d = v7;
@@ -289,7 +289,7 @@ public class ObfCm extends ObfBn {
         return 0;
     }
     // bytecode 156 bytes, max_stack 4, max_locals 3
-    public void a(ObfBn v1, byte v2) {
+    public void a(Widget v1, byte v2) {
         if (this.a_I < this.a.length) goto L13;
         return;
         L13:
@@ -352,7 +352,7 @@ public class ObfCm extends ObfBn {
         return m1;
     }
     // bytecode 19 bytes, max_stack 2, max_locals 1
-    public ObfBn a() {
+    public Widget a() {
         if (this.b >= 0) goto L9;
         return null;
         L9:

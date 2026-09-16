@@ -2,12 +2,12 @@
 // edit: fix the emitter and re-run.  Original name `cp`.
 // String constants: <init> | Code | [Ljava/lang/String; | [Ljavax/microedition/lcdui/Image; | createImage | getWidth | java/io/IOException | javax/microedition/lcdui/Image | StackMap | javax/microedition/lcdui/Graphics
 // API references: javax/microedition
-public class ObfCp extends ObfBn {
+public class ObfCp extends Widget {
     private ObfDl a;
     private Image[] a_Image;
     private boolean b;
     // bytecode 125 bytes, max_stack 8, max_locals 6
-    public ObfCp(ObfBn v1, int v2, int v3, int v4, int v5) {
+    public ObfCp(Widget v1, int v2, int v3, int v4, int v5) {
         /* try L74-L108 catch java.io.IOException -> L109 */
         super(v1, 0, 0, v4, 0);
         this.a = null;
@@ -18,7 +18,7 @@ public class ObfCp extends ObfBn {
         this.b(1);
         this.a(0);
         v2 = 0;
-        v1 = ((ObfBn) this);
+        v1 = ((Widget) this);
         this.b = v2;
         new ObfDl(this, 0, 0, v5, SysUtil.b); /* constructor */
         this.a = new ObfDl(this, 0, 0, v5, SysUtil.b);

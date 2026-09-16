@@ -31,7 +31,7 @@ public class ObfCt {
         return;
     }
     // bytecode 21 bytes, max_stack 5, max_locals 3
-    public void a(ObfBz v1, ObfBz v2) {
+    public void a(Vec3 v1, Vec3 v2) {
         this.a(v1.a(), v1.b(), v2.a(), v2.b());
         return;
     }
@@ -42,7 +42,7 @@ public class ObfCt {
         return;
     }
     // bytecode 59 bytes, max_stack 5, max_locals 4
-    public void a(ObfBz v1, float v2, float v3) {
+    public void a(Vec3 v1, float v2, float v3) {
         this.b.b(v1.a(), v1.b());
         this.a.b(v2, v3);
         v2 = ((float) this);
@@ -184,7 +184,7 @@ public class ObfCt {
         return java.lang.Math.abs((Vec2.a(this.a, v1) + this.a_F));
     }
     // bytecode 18 bytes, max_stack 3, max_locals 3
-    public float a(ObfBz v1) {
+    public float a(Vec3 v1) {
         ObfCt v2 = this;
         v2 = this;
         return (Vec2.a(this.a, v1) + this.a_F);

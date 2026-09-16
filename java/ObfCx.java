@@ -85,18 +85,18 @@ public class ObfCx extends ObfCl {
     // bytecode 263 bytes, max_stack 6, max_locals 5
     public boolean a(ObfCl v1, boolean v2) {
         if (this.b() != 0) goto L15;
-        ObfBz v3 = this.a();
+        Vec3 v3 = this.a();
         goto L23;
         L15:
         v3 = this.a().a();
         L23:
         if (v1.b() != 0) goto L39;
-        ObfBz v4 = v1.a();
+        Vec3 v4 = v1.a();
         goto L48;
         L39:
         v4 = v1.a().a();
         L48:
-        v3 = ((ObfBz) Vec2.b(v3, v4));
+        v3 = ((Vec3) Vec2.b(v3, v4));
         if (fcmpl(Vec2.b(v3, v4), 0.800000011920929f) >= 0) goto L261;
         this.d();
         v1.d();
@@ -105,8 +105,8 @@ public class ObfCx extends ObfCl {
         if (v2 != 0) goto L84;
         return 1;
         L84:
-        v2 = ((boolean) ObfBz.a(this.a().a(), v1.a().a()));
-        v4 = ((ObfBz) ((0.800000011920929f - v3) / (v2 - v3)));
+        v2 = ((boolean) Vec3.a(this.a().a(), v1.a().a()));
+        v4 = ((Vec3) ((0.800000011920929f - v3) / (v2 - v3)));
         this.c.a(this.a(), this.a().a(), v4);
         this.d.a(v1.a(), v1.a().a(), v4);
         this.a.a(this.d, this.c);

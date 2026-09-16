@@ -515,7 +515,7 @@ public class ObfBs {
         return v2;
     }
     // bytecode 314 bytes, max_stack 6, max_locals 10
-    public ObfBz a(int v1, int v2) {
+    public Vec3 a(int v1, int v2) {
         ObfBm v3 = this.a(v1, v2);
         Object v4 = null;
         int v6 = 0;
@@ -536,13 +536,13 @@ public class ObfBs {
         int v8 = (((v7 + 4) + v6) % 4);
         if (v3.a(v8) == 0) goto L305;
         if (v4 != null) goto L130;
-        new ObfBz(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f); /* constructor */
-        v4 = ((Object) new ObfBz(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f));
+        new Vec3(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f); /* constructor */
+        v4 = ((Object) new Vec3(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f));
         goto L305;
         L130:
-        new ObfBz(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f); /* constructor */
-        ObfBz v5 = new ObfBz(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f);
-        new ObfBz(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f).a((-v4.a()), (-v4.b()), 0.0f);
+        new Vec3(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f); /* constructor */
+        Vec3 v5 = new Vec3(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f);
+        new Vec3(((((float) v1) + (((float) ObfB.a(v8)) / 2.0f)) * ObfAr.c), ((((float) v2) + (((float) ObfB.b(v8)) / 2.0f)) * ObfAr.c), 0.0f).a((-v4.a()), (-v4.b()), 0.0f);
         float v9 = ((((float) ((v6 + 3) % 4)) * 3.1415927410125732f) / 2.0f);
         if (fcmpg(java.lang.Math.abs(v5.a()), 0.0010000000474974513f) < 0) goto L252;
         if (fcmpg(java.lang.Math.abs(v5.b()), 0.0010000000474974513f) < 0) goto L252;

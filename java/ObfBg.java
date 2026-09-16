@@ -8,7 +8,7 @@ public class ObfBg extends ObfJ {
     private float h;
     private float i;
     private float j;
-    private ObfBz a;
+    private Vec3 a;
     private float k;
     private float l;
     private boolean a_Z;
@@ -25,8 +25,8 @@ public class ObfBg extends ObfJ {
         this.l = 0.0f;
         this.a_Z = false;
         this.d = 1.899999976158142f;
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        this.a = new ObfBz(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        this.a = new Vec3(0.0f, 0.0f, 0.0f);
         this.a();
         return;
     }

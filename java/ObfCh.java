@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `ch`.
 // String constants: <init> | Code | currentTimeMillis | drawLine | drawRect | getClipHeight | getClipWidth | getClipX | getClipY | java/lang/System | javax/microedition/lcdui/Graphics | setClip
 // API references: javax/microedition
-public class ObfCh extends ObfBn {
+public class ObfCh extends Widget {
     protected byte b;
     protected byte c;
     private int j;
@@ -19,12 +19,12 @@ public class ObfCh extends ObfBn {
     private int n;
     protected int i;
     // bytecode 15 bytes, max_stack 7, max_locals 6
-    public ObfCh(ObfBn v1, int v2, int v3, int v4, int v5) {
+    public ObfCh(Widget v1, int v2, int v3, int v4, int v5) {
         super(v1, v2, v3, v4, v5, SysUtil.b);
         return;
     }
     // bytecode 104 bytes, max_stack 6, max_locals 7
-    public ObfCh(ObfBn v1, int v2, int v3, int v4, int v5, ObfP v6) {
+    public ObfCh(Widget v1, int v2, int v3, int v4, int v5, ObfP v6) {
         super(v1, v2, v3, v4, v5);
         this.b = 0;
         this.c = 0;

@@ -35,8 +35,8 @@ public class ObfAa extends ObfJ {
     // bytecode 378 bytes, max_stack 6, max_locals 5
     public void a(ObfDi v1, float v2) {
         this.a.setIdentity();
-        new ObfBz(0.0f, 1.0f, 0.0f); /* constructor */
-        ObfBz v3 = new ObfBz(0.0f, 1.0f, 0.0f);
+        new Vec3(0.0f, 1.0f, 0.0f); /* constructor */
+        Vec3 v3 = new Vec3(0.0f, 1.0f, 0.0f);
         this.k = (this.k + (v2 * this.j));
         if (fcmpg(this.k, this.g) <= 0) goto L53;
         this.k = this.g;

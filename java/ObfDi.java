@@ -2,8 +2,8 @@
 // edit: fix the emitter and re-run.  Original name `di`.
 // String constants: <init> | Code | abs | java/lang/Math | java/lang/Object | StackMap
 public class ObfDi {
-    private ObfBz a;
-    private ObfBz b;
+    private Vec3 a;
+    private Vec3 b;
     private Vec2 a_z;
     private Vec2 b_z;
     private float b_F;
@@ -45,11 +45,11 @@ public class ObfDi {
         this.b_Z = true;
         this.m = 0.0f;
         this.a_F = 0.0f;
-        new ObfBz(0.0f, 0.0f, 1.0f); /* constructor */
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        this.a = new ObfBz(0.0f, 0.0f, 0.0f);
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        this.b = new ObfBz(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 1.0f); /* constructor */
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        this.a = new Vec3(0.0f, 0.0f, 0.0f);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        this.b = new Vec3(0.0f, 0.0f, 0.0f);
         new Vec2(0.0f, 0.0f); /* constructor */
         new Vec2(0.0f, 0.0f); /* constructor */
         this.a_z = new Vec2(0.0f, 0.0f);
@@ -81,7 +81,7 @@ public class ObfDi {
         return this.a.c();
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public ObfBz a() {
+    public Vec3 a() {
         return this.a;
     }
     // bytecode 9 bytes, max_stack 5, max_locals 4
@@ -205,7 +205,7 @@ public class ObfDi {
         return this.d;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public ObfBz b() {
+    public Vec3 b() {
         return this.b;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1

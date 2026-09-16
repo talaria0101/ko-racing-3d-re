@@ -224,8 +224,8 @@ public class ObfBt extends ObfY {
         L241:
         if (v1 != this.a_r.f()) goto L313;
         new java.lang.StringBuffer(); /* constructor */
-        new ObfO(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
-        this.a_arrLcl[v1] = new ObfO(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
+        new GhostCar(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
+        this.a_arrLcl[v1] = new GhostCar(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
         goto L383;
         L313:
         new java.lang.StringBuffer(); /* constructor */
@@ -241,7 +241,7 @@ public class ObfBt extends ObfY {
         L407:
         if (v1 >= this.a_r.d()) goto L555;
         if (this.a_r.e_Z != 0) goto L453;
-        ObfBz v2 = this.a_bs.a(this.a_bs.b(), this.a_bs.c());
+        Vec3 v2 = this.a_bs.a(this.a_bs.b(), this.a_bs.c());
         goto L505;
         L453:
         v2 = this.a_bs.a(this.a_bs.a(this.a_bs.b(), this.a_bs.c(), 1), this.a_bs.b(this.a_bs.b(), this.a_bs.c(), 1));
@@ -257,7 +257,7 @@ public class ObfBt extends ObfY {
         L557:
         if (v1 >= ObfBt.a_arrLj.length) goto L591;
         ObfDi v3 = this.a_cl.a();
-        v2 = ((ObfBz) ObfBt.a_arrLj[v1]);
+        v2 = ((Vec3) ObfBt.a_arrLj[v1]);
         ObfBt.a_arrLj[v1].a(v3, 1.0f);
         v1 += 1;
         goto L557;

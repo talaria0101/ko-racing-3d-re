@@ -59,7 +59,7 @@ public class ObfCn extends ObfT {
         L224:
         if (((char) v2) != 126) goto L255;
         new java.lang.StringBuffer(); /* constructor */
-        v3 = new java.lang.StringBuffer().append(v3).append(ObfM.a).toString();
+        v3 = new java.lang.StringBuffer().append(v3).append(MainMenu.a).toString();
         goto L33;
         L255:
         if (((char) v2) != 94) goto L293;

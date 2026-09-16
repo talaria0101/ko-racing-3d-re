@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `ag`.
 // String constants: /images/i_s.png | <clinit> | <init> | Code | [Lbw; | createImage | java/io/IOException | javax/microedition/lcdui/Image | StackMap | javax/microedition/lcdui/Graphics
 // API references: javax/microedition
-public class ObfAg extends ObfBn {
+public class ObfAg extends Widget {
     private ObfBw[] a;
     private static ObfAg a_ag;
     public static ObfCi a_ci;

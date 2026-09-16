@@ -87,7 +87,7 @@ public class ObfBd extends ObfBh {
     private ObfDj a_dj;
     private boolean j_Z;
     private ObfCe a_ce;
-    private ObfM a_m;
+    private MainMenu a_m;
     private int m_I;
     private ObfCm t_cm;
     private ObfAo d_ao;
@@ -710,8 +710,8 @@ public class ObfBd extends ObfBh {
         goto L442;
         L325:
         if (v1.a_m != null) goto L343;
-        new ObfM(); /* constructor */
-        v1.a_m = new ObfM();
+        new MainMenu(); /* constructor */
+        v1.a_m = new MainMenu();
         L343:
         if (v1.a_m.a() != 0) goto L374;
         ObfCo.b(1);
@@ -736,7 +736,7 @@ public class ObfBd extends ObfBh {
         L442:
         v1.c(0);
         v1.k.g();
-        if (ObfM.a >= 0) goto L483;
+        if (MainMenu.a >= 0) goto L483;
         v1.w.b(216);
         v1.x.b(217);
         goto L503;
@@ -1534,7 +1534,7 @@ public class ObfBd extends ObfBh {
         L3908:
         ObfCo.c(22);
         ObfCo.b(0);
-        if (ObfM.a >= 0) goto L3946;
+        if (MainMenu.a >= 0) goto L3946;
         v2.w.b(216);
         v2.x.b(217);
         goto L4038;
@@ -1601,7 +1601,7 @@ public class ObfBd extends ObfBh {
         java.lang.System.gc();
         ObfCo.c(23);
         ObfCo.b(0);
-        if (ObfM.a >= 0) goto L4343;
+        if (MainMenu.a >= 0) goto L4343;
         v2.w.b(216);
         v2.x.b(217);
         goto L5482;
@@ -1640,7 +1640,7 @@ public class ObfBd extends ObfBh {
         L4487:
         ObfCo.c(22);
         ObfCo.b(0);
-        if (ObfM.a >= 0) goto L4525;
+        if (MainMenu.a >= 0) goto L4525;
         v2.w.b(216);
         v2.x.b(217);
         goto L5482;
@@ -1667,7 +1667,7 @@ public class ObfBd extends ObfBh {
         L4597:
         if (v2.w.a() == 0) goto L5087;
         v2.w.g();
-        if (ObfM.a >= 0) goto L4876;
+        if (MainMenu.a >= 0) goto L4876;
         new ObfCm(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
         v2.t_cm = new ObfCm(null, 0, 0, v2.b, v2.c, 9, 1);
         new ObfAx(null, 0, 0, 216, SysUtil.b); /* constructor */
@@ -1708,7 +1708,7 @@ public class ObfBd extends ObfBh {
         new ObfAo(v2.t_cm, 0, 0, 300, 30, 221); /* constructor */
         v2.e_ao = new ObfAo(v2.t_cm, 0, 0, 300, 30, 221);
         v2.t_cm.a(v2.e_ao, 0);
-        v2.d_ao.b(ObfM.a_String);
+        v2.d_ao.b(MainMenu.a_String);
         v2.p_I = 2;
         L5078:
         v2.a(v2.t_cm);
@@ -1716,7 +1716,7 @@ public class ObfBd extends ObfBh {
         L5087:
         if (v2.x.a() == 0) goto L5482;
         v2.x.g();
-        if (ObfM.a >= 0) goto L5311;
+        if (MainMenu.a >= 0) goto L5311;
         new ObfCm(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
         v2.t_cm = new ObfCm(null, 0, 0, v2.b, v2.c, 9, 1);
         new ObfAx(null, 0, 0, 217, SysUtil.b); /* constructor */
@@ -1845,7 +1845,7 @@ public class ObfBd extends ObfBh {
         L5990:
         ObfCo.c(9);
         L5995:
-        if (ObfM.a <= 0) goto L6021;
+        if (MainMenu.a <= 0) goto L6021;
         v2.w.b(218);
         v2.x.b(219);
         L6021:
@@ -1898,7 +1898,7 @@ public class ObfBd extends ObfBh {
         L6293:
         ObfCo.c(9);
         L6298:
-        if (ObfM.a <= 0) goto L6324;
+        if (MainMenu.a <= 0) goto L6324;
         v2.w.b(218);
         v2.x.b(219);
         L6324:
@@ -1930,7 +1930,7 @@ public class ObfBd extends ObfBh {
         v2.F.g();
         v2.a(v2.m_cm);
         if (v2.a_m.d() != 0) goto L6592;
-        if (ObfM.a <= 0) goto L6566;
+        if (MainMenu.a <= 0) goto L6566;
         /* pop: v2.a_m.e(); */
         new ObfAb((SysUtil.e - 15), v2.a_m); /* constructor */
         v2.a_ab = new ObfAb((SysUtil.e - 15), v2.a_m);

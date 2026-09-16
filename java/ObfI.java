@@ -8,8 +8,8 @@ public class ObfI {
     private float d;
     private float e;
     private float f;
-    private ObfBz a_bz;
-    private ObfBz b_bz;
+    private Vec3 a_bz;
+    private Vec3 b_bz;
     private ObfBj a_bj;
     private static Vec2 a_z;
     static {
@@ -27,19 +27,19 @@ public class ObfI {
         this.a_bz = null;
         this.b_bz = null;
         this.a_bj = null;
-        new ObfBz((v7 - v1), (v8 - v2), (v9 - v3)); /* constructor */
-        this.a_bz = new ObfBz((v7 - v1), (v8 - v2), (v9 - v3));
-        new ObfBz((v4 - v1), (v5 - v2), (v6 - v3)); /* constructor */
-        this.b_bz = new ObfBz((v4 - v1), (v5 - v2), (v6 - v3));
+        new Vec3((v7 - v1), (v8 - v2), (v9 - v3)); /* constructor */
+        this.a_bz = new Vec3((v7 - v1), (v8 - v2), (v9 - v3));
+        new Vec3((v4 - v1), (v5 - v2), (v6 - v3)); /* constructor */
+        this.b_bz = new Vec3((v4 - v1), (v5 - v2), (v6 - v3));
         this.a = Vec2.a(this.a_bz, this.a_bz);
         this.b = Vec2.a(this.a_bz, this.b_bz);
         this.c = Vec2.a(this.b_bz, this.b_bz);
         this.d = (1.0f / ((this.a * this.c) - (this.b * this.b)));
         this.e = v1;
         this.f = v2;
-        new ObfBz(0.0f, 0.0f, 0.0f); /* constructor */
-        v4 = ((float) new ObfBz(0.0f, 0.0f, 0.0f));
-        new ObfBz(0.0f, 0.0f, 0.0f).b(this.a_bz, this.b_bz);
+        new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
+        v4 = ((float) new Vec3(0.0f, 0.0f, 0.0f));
+        new Vec3(0.0f, 0.0f, 0.0f).b(this.a_bz, this.b_bz);
         new ObfBj(v4.a(), v4.b(), v4.c(), (-(((v4.a() * v1) + (v4.b() * v2)) + (v4.c() * v3)))); /* constructor */
         this.a_bj = new ObfBj(v4.a(), v4.b(), v4.c(), (-(((v4.a() * v1) + (v4.b() * v2)) + (v4.c() * v3))));
         this.a_bj.a();

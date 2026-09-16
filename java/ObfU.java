@@ -1199,8 +1199,8 @@ public class ObfU extends ObfY {
         goto L154;
         L51:
         if (ObfR.f != 2) goto L72;
-        new ObfDk(); /* constructor */
-        this.a_r = new ObfDk();
+        new CareerMap(); /* constructor */
+        this.a_r = new CareerMap();
         goto L154;
         L72:
         if (ObfR.f != 3) goto L93;
@@ -1219,8 +1219,8 @@ public class ObfU extends ObfY {
         goto L154;
         L135:
         if (ObfR.f != 6) goto L154;
-        new ObfD(); /* constructor */
-        this.a_r = new ObfD();
+        new CarSelect(); /* constructor */
+        this.a_r = new CarSelect();
         L154:
         this.a_r.b();
         this.t = ObfR.h;

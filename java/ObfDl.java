@@ -7,7 +7,7 @@ public class ObfDl extends ObfAx {
     private int b;
     private byte b_B;
     // bytecode 27 bytes, max_stack 6, max_locals 6
-    public ObfDl(ObfBn v1, int v2, int v3, int v4, ObfP v5) {
+    public ObfDl(Widget v1, int v2, int v3, int v4, ObfP v5) {
         super(v1, 0, 0, v4, v5);
         this.a = null;
         this.b = 0;

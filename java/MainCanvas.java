@@ -615,8 +615,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         goto L361;
         L253:
         if (ObfR.f != 2) goto L275;
-        new ObfDk(this); /* constructor */
-        this.a_r = new ObfDk(this);
+        new CareerMap(this); /* constructor */
+        this.a_r = new CareerMap(this);
         goto L361;
         L275:
         if (ObfR.f != 3) goto L297;
@@ -635,8 +635,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         goto L361;
         L341:
         if (ObfR.f != 6) goto L361;
-        new ObfD(this); /* constructor */
-        this.a_r = new ObfD(this);
+        new CarSelect(this); /* constructor */
+        this.a_r = new CarSelect(this);
         L361:
         this.a_r.d();
         this.c = false;
@@ -708,7 +708,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         /* try L0-L109 catch java.lang.Exception -> L110 */
         this.f = true;
         if (this.b_I != 1) goto L26;
-        ((ObfBu) this.a_r).a();
+        ((CareerScreen) this.a_r).a();
         goto L104;
         L26:
         if (this.b_I == 0) goto L49;
@@ -747,7 +747,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         /* pop: ex_24; */
         L25:
         ((ObfBh) this.a_y).a(null);
-        ((ObfBu) this.a_r).t();
+        ((CareerScreen) this.a_r).t();
         if (Settings.e != 0) goto L55;
         java.lang.System.gc();
         L55:
@@ -984,8 +984,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
     public void a(boolean v1) {
         this.b_I = 1;
         this.b_y = null;
-        new ObfBu(this, v1); /* constructor */
-        this.a_r = new ObfBu(this, v1);
+        new CareerScreen(this, v1); /* constructor */
+        this.a_r = new CareerScreen(this, v1);
         this.a_r.d();
         this.c = false;
         this.a_an.a();

@@ -8,3 +8,10 @@ cy	AudioPlayer
 dh	Bluetooth
 e	TouchButtons
 z	Vec2
+bn	Widget
+bu	CareerScreen
+d	CarSelect
+dk	CareerMap
+m	MainMenu
+o	GhostCar
+bz	Vec3

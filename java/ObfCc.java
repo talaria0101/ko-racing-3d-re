@@ -6,7 +6,7 @@ public class ObfCc extends ObfCm {
     private boolean d;
     private boolean e;
     // bytecode 37 bytes, max_stack 8, max_locals 8
-    public ObfCc(ObfBn v1, int v2, int v3, int v4, int v5, int v6, boolean v7) {
+    public ObfCc(Widget v1, int v2, int v3, int v4, int v5, int v6, boolean v7) {
         super(null, 0, 0, v4, v5, 11, 1);
         this.d = false;
         this.e = false;
