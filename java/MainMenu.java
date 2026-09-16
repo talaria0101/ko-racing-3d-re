@@ -48,7 +48,7 @@ public class MainMenu {
     private float c_F;
     public static int a_I;
     public static String a_String;
-    private ObfDd[] a_arrLdd;
+    private ScoreRecord[] a_arrLdd;
     static {
         MainMenu.b = 111;
         MainMenu.a_I = m1;
@@ -176,12 +176,12 @@ public class MainMenu {
         L79:
         int v4 = v1.readByte();
         v3.writeByte(v4);
-        this.a_arrLdd = new ObfDd[v4]#5;
+        this.a_arrLdd = new ScoreRecord[v4]#5;
         int v5 = 0;
         L103:
         if (v5 >= v4) goto L152;
-        new ObfDd(); /* constructor */
-        this.a_arrLdd[v5] = new ObfDd();
+        new ScoreRecord(); /* constructor */
+        this.a_arrLdd[v5] = new ScoreRecord();
         this.a_arrLdd[v5].a(v1);
         this.a_arrLdd[v5].a(v3);
         v5 += 1;

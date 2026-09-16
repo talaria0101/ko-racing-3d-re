@@ -65,3 +65,9 @@ av	AiTune
 aw	PlayerTune
 cs	StockTune
 x	CarPhysics
+an	FrameTimer
+da	BitReader
+dd	ScoreRecord
+ay	Rain
+l	Snow
+ad	Countdown

@@ -10,7 +10,7 @@ public class ObfBt extends Screen {
     private static ObfJ c;
     private static CockpitCam a_cr;
     private static OrbitCam a_aa;
-    private ObfL a_l;
+    private Snow a_l;
     private static ObfJ[] a_arrLj;
     private static int a_I;
     private long a_J;
@@ -172,13 +172,13 @@ public class ObfBt extends Screen {
         v1.b_Z = Settings.e();
         v1.c_Z = Settings.f();
         if (Settings.j != 1) goto L588;
-        new ObfAy(20, v1.a.getWidth(), v1.a.getHeight()); /* constructor */
-        v1.a_l = new ObfAy(20, v1.a.getWidth(), v1.a.getHeight());
+        new Rain(20, v1.a.getWidth(), v1.a.getHeight()); /* constructor */
+        v1.a_l = new Rain(20, v1.a.getWidth(), v1.a.getHeight());
         goto L628;
         L588:
         if (Settings.j != 2) goto L624;
-        new ObfL("/images/snow", 20, v1.a.getWidth(), v1.a.getHeight()); /* constructor */
-        v1.a_l = new ObfL("/images/snow", 20, v1.a.getWidth(), v1.a.getHeight());
+        new Snow("/images/snow", 20, v1.a.getWidth(), v1.a.getHeight()); /* constructor */
+        v1.a_l = new Snow("/images/snow", 20, v1.a.getWidth(), v1.a.getHeight());
         L624:
         goto L628;
         /* pop: ex_627; */
@@ -265,13 +265,13 @@ public class ObfBt extends Screen {
         this.b_Z = Settings.e();
         this.c_Z = Settings.f();
         if (Settings.j != 1) goto L642;
-        new ObfAy(20, this.a.getWidth(), this.a.getHeight()); /* constructor */
-        this.a_l = new ObfAy(20, this.a.getWidth(), this.a.getHeight());
+        new Rain(20, this.a.getWidth(), this.a.getHeight()); /* constructor */
+        this.a_l = new Rain(20, this.a.getWidth(), this.a.getHeight());
         goto L682;
         L642:
         if (Settings.j != 2) goto L678;
-        new ObfL("/images/snow", 20, this.a.getWidth(), this.a.getHeight()); /* constructor */
-        this.a_l = new ObfL("/images/snow", 20, this.a.getWidth(), this.a.getHeight());
+        new Snow("/images/snow", 20, this.a.getWidth(), this.a.getHeight()); /* constructor */
+        this.a_l = new Snow("/images/snow", 20, this.a.getWidth(), this.a.getHeight());
         L678:
         goto L682;
         /* pop: ex_681; */

@@ -2,9 +2,9 @@
 // edit: fix the emitter and re-run.  Original name `ad`.
 // String constants: <init> | Code | LOST | getClipHeight | getClipWidth | javax/microedition/lcdui/Graphics | StackMap
 // API references: javax/microedition
-public class ObfAd extends TouchButtons {
+public class Countdown extends TouchButtons {
     // bytecode 7 bytes, max_stack 3, max_locals 3
-    public ObfAd(int v1, int v2) {
+    public Countdown(int v1, int v2) {
         super(v1, v2);
         return;
     }

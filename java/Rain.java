@@ -2,12 +2,12 @@
 // edit: fix the emitter and re-run.  Original name `ay`.
 // String constants: <init> | Code | [[F | [[I | drawLine | getClipHeight | getClipWidth | getColor | java/io/IOException | java/util/Random | javax/microedition/lcdui/Graphics | nextInt
 // API references: java/util javax/microedition
-public class ObfAy extends ObfL {
+public class Rain extends Snow {
     private float a;
     private float b;
     private float c;
     // bytecode 24 bytes, max_stack 4, max_locals 4
-    public ObfAy(int v1, int v2, int v3) {
+    public Rain(int v1, int v2, int v3) {
         super(20, v2, v3);
         this.a = 0.0f;
         this.b = 0.0f;
@@ -29,11 +29,11 @@ public class ObfAy extends ObfL {
     }
     // bytecode 121 bytes, max_stack 5, max_locals 2
     public void a(int v1) {
-        ObfAy.d = 50;
+        Rain.d = 50;
         this.a[v1][0] = ((float) this.a.nextInt(this.b));
         this.a[v1][1] = ((float) this.a.nextInt(this.c));
-        this.a[v1][0] = this.a.nextInt(ObfAy.d);
-        this.a[v1][1] = this.a.nextInt(ObfAy.e);
+        this.a[v1][0] = this.a.nextInt(Rain.d);
+        this.a[v1][1] = this.a.nextInt(Rain.e);
         this.a[v1][2] = (100 - this.a.nextInt(200));
         this.a[v1][3] = (4 + this.a.nextInt(4));
         return;
@@ -64,7 +64,7 @@ public class ObfAy extends ObfL {
         if (fcmpg(this.a[v6][0], ((float) this.b)) > 0) goto L329;
         if (fcmpl(this.a[v6][1], 0.0f) < 0) goto L329;
         if (fcmpl(this.a[v6][0], 0.0f) < 0) goto L329;
-        if (this.a[v6][0] <= ObfAy.d) goto L335;
+        if (this.a[v6][0] <= Rain.d) goto L335;
         L329:
         this.a(v6);
         L335:

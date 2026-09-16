@@ -15,7 +15,7 @@ kept beside it for review.
 | `aa` | `OrbitCam.java` | <init>; Code; abs; java/lang/Math; javax/microedition |
 | `ab` | `Dialog.java` |  PTS; <init>; Code; [[B; javax/microedition |
 | `ac` | `ObfAc.java` | <init>; Code; KORa; close; java/io; java/util |
-| `ad` | `ObfAd.java` | <init>; Code; LOST; getClipHeight; javax/microedition |
+| `ad` | `Countdown.java` | <init>; Code; LOST; getClipHeight; javax/microedition |
 | `ae` | `MidList.java` | /lists/md_list; /tiles/; <init>; Code; java/io |
 | `af` | `ObfAf.java` | <init>; Code; [Ljava/lang/String;; getClipWidth; javax/microedition |
 | `ag` | `ObfAg.java` | /images/i_s.png; <clinit>; <init>; Code; javax/microedition |
@@ -25,7 +25,7 @@ kept beside it for review.
 | `ak` | `ImageBackground.java` | <init>; Code; createImage; err; java/io; javax/microedition |
 | `al` | `Settings.java` | /back/clear.bck; /back/desert.bck; /back/rain.bck; /back/snow.bck; java/io; java/util; javax/microed |
 | `am` | `GenObfAm.java` | <init>; Code; java/lang/Object; javax/microedition/m3g/Appearance; javax/microedition |
-| `an` | `ObfAn.java` | <init>; Code; currentTimeMillis; java/lang/Object |
+| `an` | `FrameTimer.java` | <init>; Code; currentTimeMillis; java/lang/Object |
 | `ao` | `Label.java` | <clinit>; <init>; Code; KORa; javax/microedition |
 | `ap` | `HighList.java` | /lists/hd_list; /tiles/; <init>; Code; java/io |
 | `aq` | `SysUtil.java` | .tab; /fonts/black; /fonts/font; /fonts/font.tab; java/io; javax/microedition; javax/wireless |
@@ -36,7 +36,7 @@ kept beside it for review.
 | `av` | `AiTune.java` | <init>; Code; StackMap |
 | `aw` | `PlayerTune.java` | <init>; Code; java/io/IOException; java/lang/Math |
 | `ax` | `MenuItem.java` | <init>; Code; getClipHeight; getClipWidth; javax/microedition |
-| `ay` | `ObfAy.java` | <init>; Code; [[F; [[I; java/util; javax/microedition |
+| `ay` | `Rain.java` | <init>; Code; [[F; [[I; java/util; javax/microedition |
 | `az` | `ObfAz.java` | <init>; Code; StackMap; javax/microedition/lcdui/Graphics |
 | `b` | `GenObfB.java` | /lists/ol; /objects/; <init>; Code; java/io |
 | `ba` | `CarSpec.java` | /cars/; /models/; /tex/; <clinit>; java/io; javax/microedition |
@@ -93,10 +93,10 @@ kept beside it for review.
 | `cy` | `AudioPlayer.java` | <clinit>; <init>; Code; VolumeControl; java/io; java/util; javax/microedition |
 | `cz` | `ObfCz.java` | <init>; Code |
 | `d` | `CarSelect.java` | <init>; Code; close; java/io/IOException; java/io |
-| `da` | `ObfDa.java` | <init>; Code; java/lang/Object; StackMap |
+| `da` | `BitReader.java` | <init>; Code; java/lang/Object; StackMap |
 | `db` | `MenuList.java` | <init>; Code; KORa; [Lax;; javax/microedition |
 | `dc` | `ObfDc.java` | <init>; Code; getClipHeight; getClipWidth; javax/microedition |
-| `dd` | `ObfDd.java` | <init>; Code; append; getTime; java/io; java/util |
+| `dd` | `ScoreRecord.java` | <init>; Code; append; getTime; java/io; java/util |
 | `de` | `Meshes.java` | <init>; Code; [Lat;; [Ljava/lang/String;; javax/microedition |
 | `df` | `Frustum.java` | <clinit>; <init>; Code; cos |
 | `dg` | `SoundTrigger.java` | <init>; Code; abs; compareTo; javax/microedition |
@@ -115,7 +115,7 @@ kept beside it for review.
 | `i` | `ObfI.java` | <clinit>; <init>; Code; java/lang/Object |
 | `j` | `GenObfJ.java` | <init>; Code; java/lang/Object; javax/microedition/m3g/Transform; javax/microedition |
 | `k` | `ObfK.java` | <init>; Code; StackMap |
-| `l` | `ObfL.java` | .png; <clinit>; <init>; Code; java/util; javax/microedition |
+| `l` | `Snow.java` | .png; <clinit>; <init>; Code; java/util; javax/microedition |
 | `m` | `MainMenu.java` |  PTS; /images/arr.png; /images/e.png; /images/fu.png; java/io; java/util; javax/microedition |
 | `n` | `CheckBox.java` | /images/c.png; /images/r.png; <init>; Code; javax/microedition |
 | `o` | `GhostCar.java` | <init>; Code; java/io/DataInputStream; java/io/IOException; java/io |

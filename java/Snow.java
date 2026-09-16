@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `l`.
 // String constants: .png | <clinit> | <init> | Code | [Ljavax/microedition/lcdui/Image; | [[F | [[I | append | createImage | drawImage | getClipHeight | getClipWidth
 // API references: java/util javax/microedition
-public class ObfL {
+public class Snow {
     private static Image[] a;
     protected int[][] a_arrarrI;
     protected float[][] a_arrarrF;
@@ -16,13 +16,13 @@ public class ObfL {
     private float b_F;
     private int f;
     static {
-        ObfL.a = null;
-        ObfL.d = 200;
-        ObfL.e = 100;
+        Snow.a = null;
+        Snow.d = 200;
+        Snow.e = 100;
         return;
     }
     // bytecode 110 bytes, max_stack 3, max_locals 4
-    public ObfL(int v1, int v2, int v3) {
+    public Snow(int v1, int v2, int v3) {
         super();
         this.a_arrarrI = null;
         this.a_arrarrF = null;
@@ -44,15 +44,15 @@ public class ObfL {
         return;
     }
     // bytecode 70 bytes, max_stack 4, max_locals 5
-    public ObfL(String v1, int v2, int v3, int v4) {
+    public Snow(String v1, int v2, int v3, int v4) {
         this(20, v3, v4);
-        if (ObfL.a != null) goto L69;
-        ObfL.a = new javax.microedition.lcdui.Image[3]#1;
+        if (Snow.a != null) goto L69;
+        Snow.a = new javax.microedition.lcdui.Image[3]#1;
         v2 = 0;
         L24:
         if (v2 >= 3) goto L69;
         new java.lang.StringBuffer(); /* constructor */
-        ObfL.a[v2] = javax.microedition.lcdui.Image.createImage(Resources.a(new java.lang.StringBuffer().append(v1).append(v2).append(".png").toString()));
+        Snow.a[v2] = javax.microedition.lcdui.Image.createImage(Resources.a(new java.lang.StringBuffer().append(v1).append(v2).append(".png").toString()));
         v2 += 1;
         goto L24;
         L69:
@@ -75,8 +75,8 @@ public class ObfL {
     public void a(int v1) {
         this.a_arrarrF[v1][0] = ((float) this.a_Random.nextInt(this.b));
         this.a_arrarrF[v1][1] = ((float) this.a_Random.nextInt((this.c / 2)));
-        this.a_arrarrI[v1][0] = this.a_Random.nextInt(ObfL.d);
-        this.a_arrarrI[v1][1] = this.a_Random.nextInt(ObfL.e);
+        this.a_arrarrI[v1][0] = this.a_Random.nextInt(Snow.d);
+        this.a_arrarrI[v1][1] = this.a_Random.nextInt(Snow.e);
         this.a_arrarrI[v1][2] = (100 - this.a_Random.nextInt(200));
         this.a_arrarrI[v1][3] = (((SysUtil.f / 2) + this.a_Random.nextInt((SysUtil.f / 2))) - 30);
         return;
@@ -130,7 +130,7 @@ public class ObfL {
     }
     // bytecode 10 bytes, max_stack 3, max_locals 1
     public static int a(int v0) {
-        return (v0 / ((ObfL.e / 3) + 1));
+        return (v0 / ((Snow.e / 3) + 1));
     }
     // bytecode 170 bytes, max_stack 6, max_locals 3
     public void a(Graphics v1) {
@@ -138,15 +138,15 @@ public class ObfL {
         L2:
         if (v2 >= this.a_I) goto L169;
         if (Settings.l() != 0) goto L58;
-        v1.drawImage(ObfL.a[ObfL.a(this.a_arrarrI[v2][1])], ((int) this.a_arrarrF[v2][0]), ((int) this.a_arrarrF[v2][1]), 20);
+        v1.drawImage(Snow.a[Snow.a(this.a_arrarrI[v2][1])], ((int) this.a_arrarrF[v2][0]), ((int) this.a_arrarrF[v2][1]), 20);
         goto L163;
         L58:
         if (Settings.l() != 1) goto L112;
-        v1.drawImage(ObfL.a[ObfL.a(this.a_arrarrI[v2][1])], (v1.getClipWidth() - ((int) this.a_arrarrF[v2][1])), ((int) this.a_arrarrF[v2][0]), 20);
+        v1.drawImage(Snow.a[Snow.a(this.a_arrarrI[v2][1])], (v1.getClipWidth() - ((int) this.a_arrarrF[v2][1])), ((int) this.a_arrarrF[v2][0]), 20);
         goto L163;
         L112:
         if (Settings.l() != 3) goto L163;
-        v1.drawImage(ObfL.a[ObfL.a(this.a_arrarrI[v2][1])], ((int) this.a_arrarrF[v2][1]), (v1.getClipHeight() - ((int) this.a_arrarrF[v2][0])), 20);
+        v1.drawImage(Snow.a[Snow.a(this.a_arrarrI[v2][1])], ((int) this.a_arrarrF[v2][1]), (v1.getClipHeight() - ((int) this.a_arrarrF[v2][0])), 20);
         L163:
         v2 += 1;
         goto L2;

@@ -5,7 +5,7 @@
 public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas implements java.lang.Runnable {
     private boolean b;
     private ObfBq a;
-    private ObfAn a_an;
+    private FrameTimer a_an;
     private ObfR a_r;
     private Screen a_y;
     private Screen b_y;
@@ -248,8 +248,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         Garage.c(false);
         v1.i = false;
         L64:
-        ObfAn v2 = v1.a_an;
-        v2 = ((ObfAn) (((float) v1.a_an.a_I) / 1000.0f));
+        FrameTimer v2 = v1.a_an;
+        v2 = ((FrameTimer) (((float) v1.a_an.a_I) / 1000.0f));
         if (v1.b_y == null) goto L145;
         if (Garage.c() != 0) goto L145;
         if (v1.h != 0) goto L145;
@@ -316,8 +316,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         SysUtil.g = ((java.lang.Integer) javax.microedition.m3g.Graphics3D.getProperties().get("numTextureUnits")).intValue();
         this.setFullScreenMode(true);
         this.a_Graphi = this.getGraphics();
-        new ObfAn(); /* constructor */
-        this.a_an = new ObfAn();
+        new FrameTimer(); /* constructor */
+        this.a_an = new FrameTimer();
         this.sizeChanged(this.a_Graphi.getClipWidth(), this.a_Graphi.getClipHeight());
         MainCanvas v1 = this;
         MainCanvas v2 = v1;

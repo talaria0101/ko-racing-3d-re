@@ -996,8 +996,8 @@ public class TouchButtons {
         int v6 = 0;
         int v4 = 8388607;
         int v8 = 0;
-        new ObfDa(v0); /* constructor */
-        ObfDa v9 = new ObfDa(v0);
+        new BitReader(v0); /* constructor */
+        BitReader v9 = new BitReader(v0);
         v0 = ((byte[]) 0);
         L72:
         if (v0 >= 23) goto L99;

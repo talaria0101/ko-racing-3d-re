@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `dd`.
 // String constants: <init> | Code | append | getTime | java/io/DataInputStream | java/io/DataOutputStream | java/io/IOException | java/lang/Object | java/lang/StringBuffer | java/util/Date | readByte | readInt
 // API references: java/io java/util
-public class ObfDd {
+public class ScoreRecord {
     private int a;
     private int b;
     private long a_J;
@@ -11,7 +11,7 @@ public class ObfDd {
     private boolean a_Z;
     private boolean b_Z;
     // bytecode 40 bytes, max_stack 3, max_locals 1
-    public ObfDd() {
+    public ScoreRecord() {
         super();
         this.a = m1;
         this.b = m1;
