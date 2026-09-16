@@ -26,3 +26,15 @@ public class RaceBase {
 public class RaceStage extends RaceBase {
     // TODO(obfuscated): bd field renames + method bodies.
 }
+
+/*
+ * PAINT ORDER (bd, verified heads).
+ *
+ * bd.a(Graphics) paints the 3D world through bq (Background colour
+ * clear, track flood, cars) and bd.b(Graphics) layers the UI widgets
+ * (cm/bi: lap, position, time, minimap, pause icon top-right via
+ * drawImage at clipWidth - imgWidth - 3). bd.m()V builds the widget
+ * set and adds the sky-strip widget (bi id 10000) when the al.a sky
+ * path from al.q(theme) is non-empty. bh/r/u/co/dm/aj share the
+ * colour-clear + widget pattern with per-screen widget sets.
+ */

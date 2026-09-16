@@ -415,9 +415,16 @@ impl Running {
     /// The offscreen the world is drawn into: the window's shape, but 240 lines
     /// tall, which is what the MIDlet rendered into.  Rebuilt when the window
     /// changes size, and kept between frames because the sky and the meshes are
-    /// drawn into it every frame.
+    /// drawn into it every frame.  `KORA_RES` overrides the height outright -
+    /// KEmulator draws at desktop resolution, so a larger target (say 586)
+    /// with `KORA_SMOOTH=1` is what gets the port looking like the emulator
+    /// instead of a 2008 phone.
     fn world_target(&mut self) -> RenderTarget {
-        let height = 240.0;
+        let height = std::env::var("KORA_RES")
+            .ok()
+            .and_then(|value| value.parse::<f32>().ok())
+            .filter(|&value| value >= 64.0)
+            .unwrap_or(240.0);
         let width = (screen_width() * height / screen_height()).max(64.0).round();
         if let Some((target, size)) = &self.target {
             if size.x == width {

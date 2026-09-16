@@ -53,6 +53,9 @@ either form, and a test checks the two agree byte for byte.
 | `KORA_CAR` | `cars/rally.car` | car to select at startup |
 | `KORA_LAPS` | campaign, else `3` | overrides the race length |
 | `KORA_OPPONENTS` | campaign, else `3` | overrides the size of the grid |
+| `KORA_SMOOTH` | unset | set to `1` for linear texture filtering (KEmulator look) instead of the game's nearest |
+| `KORA_RES` | `240` | height in lines of the 3D render target (the MIDlet rendered 240 lines); larger is smoother |
+| `KORA_SKYFIT` | aspect fit | set to `stretch` for the old fullscreen-stretched sky backdrop |
 
 Controls: the **control scheme** picked in OPTIONS decides which keys drive -
 CLASSIC is the arrow keys, LEFT-HANDED is WASD and RIGHT-HANDED is the numeric
@@ -504,7 +507,16 @@ result still looks like scrambled texture coordinates.
 
 Anything judging the look must therefore sample nearest - `python3 -m kora
 view` does - and must not be surprised when that looks blockier than a filtered
-build: blocky is what the game is.
+build: blocky is what the game is.  KEmulator draws through desktop GL, which
+blends: `KORA_SMOOTH=1` takes linear filtering on the world and car textures
+for that look (with a little seam bleed, as warned above), and `KORA_RES`
+raises the 3D target above its native 240 lines.  Neither changes the geometry
+or the tests.
+
+The sky strip is drawn fitted to the screen width keeping its aspect,
+top-aligned: stretching the 256x128 strip fullscreen puts its sun (0.52 up
+`bss.png`) where the hills cover it and leaves flat grey, while the game
+shows the sun.  `KORA_SKYFIT=stretch` restores the stretch.
 
 ### Textures
 

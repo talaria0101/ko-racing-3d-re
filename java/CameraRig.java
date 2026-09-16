@@ -23,3 +23,14 @@ public class CameraRig {
         return transform;
     }
 }
+
+/*
+ * CAMERA SIDE (j, verified heads).
+ *
+ * j.a()Ldf gives the frustum/position holder the render entry reads
+ * the camera cell from (df.a()/14 + 0.5, df.b()/14 + 0.5); j.a()V
+ * resets it (called from bt.e at race setup); j.a(Ldi;F)V,
+ * j.a(Lj;)V, c()/a()/b()F are per-frame followers still TODO. The
+ * base node composite ignores this rig (see M3GNode); it steers
+ * culling and the camera, never the scenery orientation.
+ */

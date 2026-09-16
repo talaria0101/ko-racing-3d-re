@@ -298,6 +298,27 @@ pub struct Repeat {
     tiling: Tiling,
 }
 
+/// Texture filtering override for looks over authenticity.
+///
+/// The game asks for nearest (`cf.a` passes `al.d` = 210) and the port
+/// honours that by default, but at grazing angles one screen pixel covers
+/// many texels and nearest turns the road into large flat blocks while
+/// KEmulator's desktop GL blends them.  `KORA_SMOOTH=1` selects linear
+/// filtering on the world and car textures instead - closer to the
+/// emulator, at the price the game was avoiding (a little paint bleed
+/// along atlas seams).
+pub fn smooth() -> bool {
+    std::env::var("KORA_SMOOTH").is_ok_and(|value| value != "0")
+}
+
+fn texture_filter() -> FilterMode {
+    if smooth() {
+        FilterMode::Linear
+    } else {
+        FilterMode::Nearest
+    }
+}
+
 /// The rectangle a texture is used over when it needs no tiling.
 const UNIT_UV: [f32; 4] = [0.0, 1.0, 0.0, 1.0];
 
@@ -328,8 +349,8 @@ impl Repeat {
         // *linear* filtering bleeds the neighbouring tile's art into every
         // texel at the edges, which reads as grass growing over the road and as
         // the road's own paint landing beside it.  Nearest keeps every texel
-        // its own.
-        texture.set_filter(FilterMode::Nearest);
+        // its own; `KORA_SMOOTH=1` takes linear anyway (see [`smooth`]).
+        texture.set_filter(texture_filter());
         Some(Repeat { texture, tiling })
     }
 
@@ -1038,7 +1059,7 @@ pub fn load_car_texture(res: &Resources, geometry: &mut CarGeometry) -> Option<T
     // same nearest filtering the game asks for - linear bleeds one panel's
     // paint into the next along every seam.
     let repeat = Repeat::build(&image, geometry.uv_bounds)?;
-    repeat.texture.set_filter(FilterMode::Nearest);
+    repeat.texture.set_filter(texture_filter());
     for vertex in geometry.vertices.iter_mut() {
         vertex.uv = repeat.tiling().map(vertex.uv);
     }

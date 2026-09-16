@@ -2565,3 +2565,38 @@ fn race_direction_aims_at_the_first_gate() {
         track.spawn_yaw
     );
 }
+
+/// The sky strip keeps its aspect instead of stretching fullscreen.
+/// Stretching the 256x128 strip to the whole viewport puts its sun (at
+/// 0.52 height in `bss.png`) mid-screen, where the track hills cover
+/// it, leaving flat grey; the original shows the sun up at ~0.3 with
+/// the strip's dark mountains overlapping the 3D hills. Fitting the
+/// strip to the screen width top-aligned puts the sun at ~0.35 on a
+/// 4:3 window, next to where the game shows it.
+#[test]
+fn sky_strip_keeps_its_aspect() {
+    use kora::sky::sky_rect;
+
+    assert_eq!(sky_rect(800.0, 600.0, 256.0, 128.0), (800.0, 400.0));
+    assert_eq!(sky_rect(320.0, 240.0, 256.0, 128.0), (320.0, 160.0));
+    // Degenerate input falls back to fullscreen rather than NaN.
+    assert_eq!(sky_rect(800.0, 600.0, 0.0, 0.0), (800.0, 600.0));
+}
+
+/// Smoothing is opt-in: by default the port honours the game's nearest
+/// request (`al.d` = 210), and `KORA_SMOOTH=1` takes linear instead.
+#[test]
+fn smoothing_defaults_to_authentic() {
+    let saved = std::env::var("KORA_SMOOTH").ok();
+    unsafe { std::env::remove_var("KORA_SMOOTH") };
+    assert!(!kora::scene::smooth());
+    unsafe { std::env::set_var("KORA_SMOOTH", "1") };
+    assert!(kora::scene::smooth());
+    unsafe {
+        if let Some(value) = saved {
+            std::env::set_var("KORA_SMOOTH", value);
+        } else {
+            std::env::remove_var("KORA_SMOOTH");
+        }
+    }
+}

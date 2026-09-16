@@ -77,3 +77,25 @@ public class TrackCell {
     // bm.a(I)Z, bm.b(I)Z, bm.c(I)Z, bm.a(IZ)V, bm.b(I)V, bm.c(I)V,
     // bm.c()I, bm.d(I)V, bm.d()I, bm.e(I)V. TODO.
 }
+
+/*
+ * RACE RENDER (bm.a(Lbq;[Lcl;Lj;)V, verified).
+ *
+ * Renders the tile (ar.a with the TILE arg), then the three high
+ * slots in order, each reloaded by stored kind (ap.a(bm.?)) and
+ * placed with its STORED DETAIL arg and the cell origin
+ * (bp.a(renderer, camera, detailArg, cellX, cellY)) - never the tile
+ * arg. Mid detail is not rendered here (it renders in bm.a(Lbq)V,
+ * gated by the graphics detail); the port renders all layers in one
+ * place instead, same final triangles. The tail of the method walks
+ * car hooks (cl.a/cl.c with bm.b[Z] side gates) - bodies TODO.
+ *
+ * Marker fields, all verified: bm.c:I is a render stamp
+ * (bm.a(I)V sets it, bm.a()I reads it; the render flood stamps
+ * bs.e there and skips stamped cells), while bm.d:I/bm.e:I are the
+ * flood path indices (bm.c(I)V/bm.d(I)V set them during linking;
+ * bm.c(I)V prints the old index when called twice). bm.b:I is zero
+ * from the constructor and bm.a(Lbq)V returns early when it is
+ * nonzero - set nowhere in the race path so far (TODO: menu/preview
+ * use). bm.b(I)V resets side state [0] (TODO: per-frame reset path).
+ */

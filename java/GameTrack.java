@@ -62,3 +62,50 @@ public class GameTrack {
         return 0.0f;
     }
 }
+
+/*
+ * RACE ASSEMBLY (how a track is put together for a race).
+ *
+ * Verified against bs.class bytecode with /tmp/dis.py. Field map used
+ * below: bs.a:I width, bs.b:I height, bs.a:[[Lbm grid, bs.f/g:I start,
+ * bs.i/j:I finish, bs.h:I flood length at finish, bs.b:F step float,
+ * bs.e:I per-pass frame marker, bs.a:[B checkpoint bytes.
+ *
+ * Linking flood (bs.a()V): starts at the start cell with order counter
+ * 0 and walks the road trying sides 0..3 in order (+X, -Y, -X, +Y via
+ * b.a/b.b), stepping only onto mutually open neighbours
+ * (bm.a(dir) here, opposite side there). Each visit stamps the cell
+ * with bm.c(order) on even steps and bm.d(order) on odd steps (bm.c
+ * even prints the old index to stdout when overwritten - leftover
+ * debug), marks sides linked with bm.a(side, true), stops the count
+ * at the finish (bs.h) but keeps walking until it returns to the
+ * start. bm.c()/bm.d() are therefore path positions along the flood,
+ * which ck (the AI waypoint field) indexes per cell.
+ *
+ * Render entry (bs.a(Lbq;Lj;[Lcl;)V): takes the camera cell from the
+ * camera rig (j.a().a()/14 + 0.5, j.a().b()/14 + 0.5) and the view
+ * distance (al.g), bumps the frame marker (bs.e = (bs.e + 1) % 10000)
+ * and runs TWO flood passes, bs.a(...,count) then bs.b(...,count),
+ * counting down. Each pass (bs.a(Lbq;Lj;[Lcl;III)V with x, y, count):
+ * reject out-of-range cells; skip cells already stamped with the
+ * current marker (bm.a()I == bs.e); skip cells outside the view
+ * (j.a().a(x*14, y*14, bs.a:F) false - the df frustum check, see
+ * Renderer.java); stamp the cell (bm.a(bs.e)); render it (bm.a(Lbq)
+ * when the detail flags allow); recurse into the four neighbours
+ * whose bm.b(dir) (SECOND flag block) is set, with count - 1; render
+ * once more at depth 0. The port renders every occupied cell with no
+ * frustum or depth cutoff instead - a performance-only divergence,
+ * the same triangles in the same places.
+ *
+ * LOD gates: mid detail renders only above one graphics-detail
+ * threshold (al.f) and high detail above another; the port's
+ * Detail::Base/Mid/Full select the same layers. Exact threshold
+ * constants are branch offsets in the bytecode, still TODO.
+ *
+ * Minimap (bs.a()LImage): int[width*3 * height*3], cleared to
+ * -11645362, then per road cell per set bm.b(dir) side one pixel at
+ * (x*3 + dx + 1) + (y*3 + dy + 1) * width*3 in -5592406 - row 0 at
+ * the top, so game +Y runs down the image, matching mapimg.py and
+ * the port's HUD minimap. Cells whose bm.b()I == 3 (finish tile kind)
+ * are highlighted. No mirroring anywhere in the chain.
+ */

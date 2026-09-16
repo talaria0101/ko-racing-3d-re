@@ -22,6 +22,24 @@ use crate::pack::Resources;
 /// race record indexes this.
 pub const THEMES: [&str; 5] = ["clear", "rain", "snow", "desert", "sunset"];
 
+/// Where a backdrop strip lands on screen: fit to the full width keeping
+/// its aspect, top-aligned.  Stretching the 256x128 strip fullscreen puts
+/// its sun (at 0.52 height in `bss.png`) mid-screen, where the track hills
+/// cover it, leaving flat grey; the original shows the sun up at ~0.3 with
+/// the strip's dark mountains overlapping the 3D hills.  Pure helper so
+/// tests can pin the mapping: returns the drawn `(width, height)`.
+pub fn sky_rect(screen_width: f32, _screen_height: f32, image_width: f32, image_height: f32) -> (f32, f32) {
+    if image_width <= 0.0 || image_height <= 0.0 {
+        return (screen_width, _screen_height);
+    }
+    (screen_width, screen_width * image_height / image_width)
+}
+
+/// `KORA_SKYFIT=stretch` restores the old fullscreen stretch.
+pub fn sky_stretch() -> bool {
+    std::env::var("KORA_SKYFIT").is_ok_and(|value| value == "stretch")
+}
+
 pub struct Sky {
     texture: Option<Texture2D>,
     clear: Color,
@@ -49,13 +67,24 @@ impl Sky {
     pub fn draw(&self) {
         clear_background(self.clear);
         if let Some(texture) = &self.texture {
+            let dest_size = if sky_stretch() {
+                vec2(screen_width(), screen_height())
+            } else {
+                let (w, h) = sky_rect(
+                    screen_width(),
+                    screen_height(),
+                    texture.width(),
+                    texture.height(),
+                );
+                vec2(w, h)
+            };
             draw_texture_ex(
                 texture,
                 0.0,
                 0.0,
                 WHITE,
                 DrawTextureParams {
-                    dest_size: Some(vec2(screen_width(), screen_height())),
+                    dest_size: Some(dest_size),
                     ..Default::default()
                 },
             );

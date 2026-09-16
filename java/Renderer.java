@@ -33,3 +33,24 @@ public class Renderer {
     //   bq.a(Graphics)V, bq.a(Background)V, bq.a(Transform)V,
     //   bq.a()V, bq.a()LGraphics3D, bq.b()V
 }
+
+/*
+ * VIEW AND CLEAR (verified).
+ *
+ * Frustum (df, held by the camera rig j): j.a() gives df; df.a()/b()
+ * are the camera position in world units (the render entry divides by
+ * ar.c = 14 and adds 0.5 for the camera cell); df.a(x, y, z) answers
+ * whether a world point is inside the view and cells failing it are
+ * skipped before rendering. df carries seven float arrays plus one
+ * float (planes plus scratch). The port does no frustum culling.
+ *
+ * Clear (bq.a(Background)): straight Graphics3D.clear. Race scenes
+ * (bd, r, u, co, dm, aj) build colour-only Backgrounds
+ * (new + setColor + setColorClearEnable) - NOBODY calls setImage, so
+ * the sky strip is not an M3G background image. It reaches the
+ * screen as a 2D UI-layer image (bi id 10000, added in bd.m when the
+ * al.a sky path is non-empty) composited around the 3D view, which
+ * is why it is identical facing any direction. The port stretches
+ * that strip fullscreen, which buries the strip's sun (at 0.52
+ * height) behind the track; see Sky below.
+ */
