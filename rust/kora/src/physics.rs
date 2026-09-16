@@ -345,6 +345,17 @@ impl World {
                 car.drive = top;
             }
             car.reversing = false;
+        } else if coasting {
+            // Lift-off slows the car instead of cruising forever: the
+            // drive state eases back toward a standstill on its own.
+            // (The game holds the last state and rolls on; the operator
+            // prefers a car that stops.)
+            // Exponential: roughly three seconds from full chat to a
+            // standstill, smooth all the way down.
+            car.drive *= (-1.5 * dt).exp();
+            if car.drive.abs() < 0.05 {
+                car.drive = 0.0;
+            }
         } else if control.throttle < 0.0 || control.brake {
             coasting = false;
             let push = if control.brake { 1.0 } else { -control.throttle };
@@ -640,6 +651,25 @@ mod tests {
         let early = world.speed(car);
         assert!(early < 14.0, "shoots: {early:.2} after one second");
         assert!(early > 4.0, "tractor: {early:.2} after one second");
+    }
+
+    #[test]
+    fn lift_off_coasts_to_a_stop() {
+        // No auto-cruise: release everything at speed and the car must
+        // come back to a standstill on its own.
+        let mut world = World::new(&[]);
+        let car = world.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        let drive = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
+        let heights = [Some(0.0)];
+        for _ in 0..300 {
+            world.step(1.0 / 60.0, &drive, &heights);
+        }
+        assert!(world.speed(car) > 10.0);
+        let coast = [CarControl::default()];
+        for _ in 0..600 {
+            world.step(1.0 / 60.0, &coast, &heights);
+        }
+        assert!(world.speed(car) < 1.0, "still rolling: {:.2}", world.speed(car));
     }
 
     #[test]
