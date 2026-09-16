@@ -5,7 +5,7 @@
 public class StreamReader {
     private static byte[] a;
     static {
-        StreamReader.a = new byte[4];
+        StreamReader.a = new byte[4]#1;
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1

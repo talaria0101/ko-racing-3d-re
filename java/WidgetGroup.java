@@ -43,7 +43,7 @@ public class WidgetGroup extends Widget {
         this.e = false;
         this.c = false;
         this.f = false;
-        this.a = new Widget[v6];
+        this.a = new Widget[v6]#1;
         this.a_I = 0;
         this.k = SysUtil.d;
         this.d = v7;

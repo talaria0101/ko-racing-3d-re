@@ -22,9 +22,9 @@ public class ObfAi {
         return;
     }
     // bytecode 112 bytes, max_stack 2, max_locals 2
-    public void a(ObfCf v1) {
+    public void a(Textures v1) {
         /* try L0-L97 catch java.lang.Exception -> L100 */
-        v1 = ((ObfCf) Resources.a(this.c));
+        v1 = ((Textures) Resources.a(this.c));
         this.a_String = StreamReader.a(v1);
         this.b = StreamReader.a(v1);
         if (this.b.indexOf("t.png") != 0) goto L81;

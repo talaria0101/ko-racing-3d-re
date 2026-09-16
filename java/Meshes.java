@@ -2,20 +2,20 @@
 // edit: fix the emitter and re-run.  Original name `de`.
 // String constants: <init> | Code | [Lat; | [Ljava/lang/String; | compareTo | getAppearance | java/lang/Object | java/lang/String | javax/microedition/m3g/Appearance | javax/microedition/m3g/Mesh | setTexture | StackMap
 // API references: javax/microedition
-public class ObfDe {
+public class Meshes {
     private ObfAt[] a;
     private String[] a_String;
-    private ObfCf a_cf;
+    private Textures a_cf;
     private int a_I;
     // bytecode 53 bytes, max_stack 2, max_locals 2
-    public ObfDe(ObfCf v1) {
+    public Meshes(Textures v1) {
         super();
         this.a = null;
         this.a_String = null;
         this.a_cf = null;
         this.a_I = 0;
-        this.a = new ObfAt[100];
-        this.a_String = new java.lang.String[100];
+        this.a = new ObfAt[100]#1;
+        this.a_String = new java.lang.String[100]#2;
         this.a_cf = v1;
         this.a_I = 0;
         return;

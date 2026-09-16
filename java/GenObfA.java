@@ -11,7 +11,7 @@ public class ObfA {
         if (StreamReader.a(v1) > 0) goto L19;
         return;
         L19:
-        v2 = ((int) new float[(v2 * 3)]);
+        v2 = ((int) new float[(v2 * 3)]#1);
         int v3 = 0;
         L27:
         if (v3 >= (v2.length / 3)) goto L98;
@@ -28,8 +28,8 @@ public class ObfA {
         v3 += 1;
         goto L27;
         L98:
-        this.a = new ObfI[StreamReader.a(v1)];
-        v3 = new int[3];
+        this.a = new ObfI[StreamReader.a(v1)]#2;
+        v3 = new int[3]#3;
         v4 = 0;
         L116:
         if (v4 >= this.a.length) goto L247;
@@ -55,7 +55,7 @@ public class ObfA {
         return this.a(v1, v2).a(v1, v2);
     }
     // bytecode 72 bytes, max_stack 5, max_locals 4
-    public ObfBj a(float v1, float v2) {
+    public Rect a(float v1, float v2) {
         if (this.a != null) goto L19;
         return SysUtil.a.a(0.0f, 0.0f, -1.0f, 0.0f);
         L19:

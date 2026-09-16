@@ -11,7 +11,7 @@ public class ObfCj {
         super();
         new java.io.ByteArrayOutputStream(); /* constructor */
         this.a = new java.io.ByteArrayOutputStream();
-        this.a_arrB = new byte[1];
+        this.a_arrB = new byte[1]#2;
         this.a_arrB[0] = 0;
         this.a_B = 0;
         return;

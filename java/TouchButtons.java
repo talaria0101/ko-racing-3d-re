@@ -79,30 +79,30 @@ public class TouchButtons {
         this.p = 0;
         this.q = 0;
         this.r = 0;
-        new int[2][0] = 0;
-        new int[2][1] = 17;
-        new Obf[I[8][0] = new int[2];
-        new int[2][0] = 4;
-        new int[2][1] = 9;
-        new Obf[I[8][1] = new int[2];
-        new int[2][0] = 11;
-        new int[2][1] = 3;
-        new Obf[I[8][2] = new int[2];
-        new int[2][0] = 20;
-        new int[2][1] = 0;
-        new Obf[I[8][3] = new int[2];
-        new int[2][0] = 32;
-        new int[2][1] = 0;
-        new Obf[I[8][4] = new int[2];
-        new int[2][0] = 41;
-        new int[2][1] = 3;
-        new Obf[I[8][5] = new int[2];
-        new int[2][0] = 48;
-        new int[2][1] = 9;
-        new Obf[I[8][6] = new int[2];
-        new int[2][0] = 52;
-        new int[2][1] = 17;
-        new Obf[I[8][7] = new int[2];
+        new int[2]#2[0] = 0;
+        new int[2]#2[1] = 17;
+        new Obf[I[8]#1[0] = new int[2]#2;
+        new int[2]#3[0] = 4;
+        new int[2]#3[1] = 9;
+        new Obf[I[8]#1[1] = new int[2]#3;
+        new int[2]#4[0] = 11;
+        new int[2]#4[1] = 3;
+        new Obf[I[8]#1[2] = new int[2]#4;
+        new int[2]#5[0] = 20;
+        new int[2]#5[1] = 0;
+        new Obf[I[8]#1[3] = new int[2]#5;
+        new int[2]#6[0] = 32;
+        new int[2]#6[1] = 0;
+        new Obf[I[8]#1[4] = new int[2]#6;
+        new int[2]#7[0] = 41;
+        new int[2]#7[1] = 3;
+        new Obf[I[8]#1[5] = new int[2]#7;
+        new int[2]#8[0] = 48;
+        new int[2]#8[1] = 9;
+        new Obf[I[8]#1[6] = new int[2]#8;
+        new int[2]#9[0] = 52;
+        new int[2]#9[1] = 17;
+        new Obf[I[8]#1[7] = new int[2]#9;
         this.f_Image = null;
         this.a_arrLcl = null;
         this.a_arrI = null;
@@ -288,8 +288,8 @@ public class TouchButtons {
     // bytecode 87 bytes, max_stack 3, max_locals 2
     public void a(ObfCl v1) {
         if (this.s != 0) goto L24;
-        this.a_arrLcl = new ObfCl[6];
-        this.a_arrI = new int[12];
+        this.a_arrLcl = new ObfCl[6]#1;
+        this.a_arrI = new int[12]#2;
         L24:
         this.a_arrLcl[this.s] = v1;
         this.a_arrI[(2 * this.s)] = v1.h();
@@ -882,7 +882,7 @@ public class TouchButtons {
         int v6 = 8388607;
         int v8 = 0;
         int v9 = 0;
-        int v10 = new int[257];
+        int v10 = new int[257]#2;
         int v11 = 0;
         L31:
         if (v11 >= 257) goto L51;
@@ -980,11 +980,11 @@ public class TouchButtons {
         if (v0 == null) goto L9;
         if (v0.length != 0) goto L13;
         L9:
-        return new byte[0];
+        return new byte[0]#1;
         L13:
         new java.io.ByteArrayOutputStream(); /* constructor */
         java.io.ByteArrayOutputStream v1 = new java.io.ByteArrayOutputStream();
-        int v2 = new int[257];
+        int v2 = new int[257]#3;
         int v3 = 0;
         L29:
         if (v3 >= 257) goto L46;

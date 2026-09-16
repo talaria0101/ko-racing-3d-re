@@ -2,12 +2,12 @@
 // edit: fix the emitter and re-run.  Original name `bb`.
 // String constants: <clinit> | <init> | Code | java/lang/Exception | java/lang/Object | StackMap
 public class ObfBb {
-    public static ObfBf a;
-    public static ObfAe a_ae;
-    public static ObfAp a_ap;
-    public static ObfCf a_cf;
+    public static TileList a;
+    public static MidList a_ae;
+    public static HighList a_ap;
+    public static Textures a_cf;
     public static ObfB a_b;
-    public static ObfDe a_de;
+    public static Meshes a_de;
     static {
         ObfBb.a = null;
         ObfBb.a_ae = null;
@@ -25,17 +25,17 @@ public class ObfBb {
     // bytecode 79 bytes, max_stack 3, max_locals 0
     public static void a() {
         if (ObfBb.a_cf != null) goto L29;
-        new ObfCf(); /* constructor */
-        ObfBb.a_cf = new ObfCf();
-        new ObfDe(ObfBb.a_cf); /* constructor */
-        ObfBb.a_de = new ObfDe(ObfBb.a_cf);
+        new Textures(); /* constructor */
+        ObfBb.a_cf = new Textures();
+        new Meshes(ObfBb.a_cf); /* constructor */
+        ObfBb.a_de = new Meshes(ObfBb.a_cf);
         L29:
-        new ObfBf(ObfBb.a_cf); /* constructor */
-        ObfBb.a = new ObfBf(ObfBb.a_cf);
-        new ObfAe(ObfBb.a_cf); /* constructor */
-        ObfBb.a_ae = new ObfAe(ObfBb.a_cf);
-        new ObfAp(); /* constructor */
-        ObfBb.a_ap = new ObfAp();
+        new TileList(ObfBb.a_cf); /* constructor */
+        ObfBb.a = new TileList(ObfBb.a_cf);
+        new MidList(ObfBb.a_cf); /* constructor */
+        ObfBb.a_ae = new MidList(ObfBb.a_cf);
+        new HighList(); /* constructor */
+        ObfBb.a_ap = new HighList();
         new ObfB(ObfBb.a_cf); /* constructor */
         ObfBb.a_b = new ObfB(ObfBb.a_cf);
         return;

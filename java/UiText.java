@@ -2,10 +2,10 @@
 // edit: fix the emitter and re-run.  Original name `cn`.
 // String constants: /ui/bob.txt | <init> | Code | UTF-8 | append | getClass | getResourceAsStream | java/io/IOException | java/io/InputStreamReader | java/lang/Class | java/lang/Object | java/lang/String
 // API references: java/io
-public class ObfCn extends TextBuffer {
+public class UiText extends TextBuffer {
     private int b;
     // bytecode 32 bytes, max_stack 4, max_locals 3
-    public ObfCn(int v1, int v2) {
+    public UiText(int v1, int v2) {
         super("/ui/bob.txt", v1, SysUtil.t);
         this.b = m1;
         v1 = ((int) this);

@@ -4,7 +4,7 @@
 // API references: javax/microedition
 public class ObfJ {
     protected Transform a;
-    protected ObfDf a_df;
+    protected Frustum a_df;
     protected float a_F;
     protected float b;
     protected float c;
@@ -20,18 +20,18 @@ public class ObfJ {
         this.a_F = 0.0f;
         this.b = 0.0f;
         this.c = 0.0f;
-        new float[3][0] = 0.0f;
-        new float[3][1] = 0.0f;
-        new float[3][2] = 0.0f;
-        this.a_arrF = new float[3];
+        new float[3]#1[0] = 0.0f;
+        new float[3]#1[1] = 0.0f;
+        new float[3]#1[2] = 0.0f;
+        this.a_arrF = new float[3]#1;
         this.d = 0.0f;
         this.e = 0.0f;
         this.f = 0.0f;
         new javax.microedition.m3g.Transform(); /* constructor */
         this.a = new javax.microedition.m3g.Transform();
         this.a.setIdentity();
-        new ObfDf(); /* constructor */
-        this.a_df = new ObfDf();
+        new Frustum(); /* constructor */
+        this.a_df = new Frustum();
         return;
     }
     // bytecode 8 bytes, max_stack 1, max_locals 1
@@ -45,7 +45,7 @@ public class ObfJ {
     }
     public void a(ObfDi v1, float v2);
     // bytecode 5 bytes, max_stack 1, max_locals 1
-    public ObfDf a() {
+    public Frustum a() {
         return this.a_df;
     }
     // bytecode 2 bytes, max_stack 1, max_locals 1

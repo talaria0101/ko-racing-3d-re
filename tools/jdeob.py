@@ -1129,14 +1129,18 @@ class Emitter:
         if op == 'newarray':
             _, n = self.pop()
             base = _NEWARRAY.get(arg, 'ATYPE%d' % arg)
-            P(base, 'new %s[%s]' % (base, n))
+            self.new_seq += 1
+            self.new_ids[self.new_seq] = [base, None]
+            P(base, 'new %s[%s]#%d' % (base, n, self.new_seq))
             return
         if op == 'anewarray':
             _, n = self.pop()
             cls = readable_class(jdis.resolve(
                 self.klass.cp, self.klass.cp[arg][1]).replace('/', '.'),
                 self.names)
-            P(cls + '[]', 'new %s[%s]' % (cls, n))
+            self.new_seq += 1
+            self.new_ids[self.new_seq] = [cls, None]
+            P(cls + '[]', 'new %s[%s]#%d' % (cls, n, self.new_seq))
             return
         if op == 'multianewarray':
             idx, dims = arg
@@ -1146,8 +1150,11 @@ class Emitter:
             base = java_type(desc, self.names)
             while base.endswith('[]'):
                 base = base[:-2]
+            self.new_seq += 1
+            self.new_ids[self.new_seq] = [base, None]
             P(java_type(desc, self.names),
-              'new %s%s' % (base, ''.join('[%s]' % s for s in sizes)))
+              'new %s%s#%d' % (base, ''.join('[%s]' % s for s in sizes),
+                               self.new_seq))
             return
         if op == 'new':
             cn = jdis.resolve(self.klass.cp,

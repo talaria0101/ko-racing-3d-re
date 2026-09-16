@@ -41,10 +41,10 @@ public class ObfBt extends Screen {
         ObfBt.a_cr = new ObfCr();
         new ObfAa(); /* constructor */
         ObfBt.a_aa = new ObfAa();
-        new ObfJ[3][0] = ObfBt.b;
-        new ObfJ[3][1] = ObfBt.c;
-        new ObfJ[3][2] = ObfBt.a_cr;
-        ObfBt.a_arrLj = new ObfJ[3];
+        new ObfJ[3]#5[0] = ObfBt.b;
+        new ObfJ[3]#5[1] = ObfBt.c;
+        new ObfJ[3]#5[2] = ObfBt.a_cr;
+        ObfBt.a_arrLj = new ObfJ[3]#5;
         ObfBt.a_I = 0;
         return;
     }
@@ -58,7 +58,7 @@ public class ObfBt extends Screen {
         this.a_J = 0L;
         this.b_I = 0;
         this.c_I = 0;
-        this.a_arrZ = new boolean[10];
+        this.a_arrZ = new boolean[10]#1;
         this.a_arrLcl = null;
         this.a_F = 0.0f;
         this.a_Z = false;
@@ -68,10 +68,10 @@ public class ObfBt extends Screen {
         this.e = 0;
         this.d_Z = false;
         this.a_r = null;
-        new float[3][0] = 0.0f;
-        new float[3][1] = 0.0f;
-        new float[3][2] = 0.0f;
-        this.a_arrF = new float[3];
+        new float[3]#2[0] = 0.0f;
+        new float[3]#2[1] = 0.0f;
+        new float[3]#2[2] = 0.0f;
+        this.a_arrF = new float[3]#2;
         this.a_q = null;
         this.e_Z = false;
         this.b_F = 0.0f;
@@ -92,7 +92,7 @@ public class ObfBt extends Screen {
         this.a_J = 0L;
         this.b_I = 0;
         this.c_I = 0;
-        this.a_arrZ = new boolean[10];
+        this.a_arrZ = new boolean[10]#1;
         this.a_arrLcl = null;
         this.a_F = 0.0f;
         this.a_Z = false;
@@ -102,10 +102,10 @@ public class ObfBt extends Screen {
         this.e = 0;
         this.d_Z = false;
         this.a_r = null;
-        new float[3][0] = 0.0f;
-        new float[3][1] = 0.0f;
-        new float[3][2] = 0.0f;
-        this.a_arrF = new float[3];
+        new float[3]#2[0] = 0.0f;
+        new float[3]#2[1] = 0.0f;
+        new float[3]#2[2] = 0.0f;
+        this.a_arrF = new float[3]#2;
         this.a_q = null;
         this.e_Z = false;
         this.b_F = 0.0f;
@@ -122,7 +122,7 @@ public class ObfBt extends Screen {
         ObfBt.a_I = 0;
         ObfBt.a_j = ObfBt.a_arrLj[ObfBt.a_I];
         v1.a();
-        v1.a_arrLcl = new ObfCl[v1.a_r.d()];
+        v1.a_arrLcl = new ObfCl[v1.a_r.d()]#4;
         if (Settings.e_Z != 0) goto L212;
         java.lang.System.gc();
         L212:
@@ -137,8 +137,8 @@ public class ObfBt extends Screen {
         v1.a_arrLcl[v3] = new ObfCl(ObfBb.a, v2, v3, v1.a_bs, v1.a_r.a(v3));
         goto L327;
         L297:
-        new ObfBo(ObfBb.a, v2, v3, v1.a_bs, v1.a_r.a(v3)); /* constructor */
-        v1.a_arrLcl[v3] = new ObfBo(ObfBb.a, v2, v3, v1.a_bs, v1.a_r.a(v3));
+        new OpponentCar(ObfBb.a, v2, v3, v1.a_bs, v1.a_r.a(v3)); /* constructor */
+        v1.a_arrLcl[v3] = new OpponentCar(ObfBb.a, v2, v3, v1.a_bs, v1.a_r.a(v3));
         L327:
         v3 += 1;
         goto L232;
@@ -201,7 +201,7 @@ public class ObfBt extends Screen {
         ObfBt.a_I = 0;
         ObfBt.a_j = ObfBt.a_arrLj[ObfBt.a_I];
         this.a();
-        this.a_arrLcl = new ObfCl[this.a_r.d()];
+        this.a_arrLcl = new ObfCl[this.a_r.d()]#2;
         if (Settings.e_Z != 0) goto L67;
         java.lang.System.gc();
         L67:
@@ -218,8 +218,8 @@ public class ObfBt extends Screen {
         goto L383;
         L180:
         new java.lang.StringBuffer(); /* constructor */
-        new ObfBo(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
-        this.a_arrLcl[v1] = new ObfBo(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
+        new OpponentCar(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
+        this.a_arrLcl[v1] = new OpponentCar(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
         goto L383;
         L241:
         if (v1 != this.a_r.f()) goto L313;

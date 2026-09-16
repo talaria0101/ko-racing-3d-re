@@ -22,7 +22,7 @@ public class ObfBs {
         return;
     }
     // bytecode 76 bytes, max_stack 3, max_locals 3
-    public ObfBs(ObfCf v1, InputStream v2) {
+    public ObfBs(Textures v1, InputStream v2) {
         super();
         this.a = 0;
         this.b = 0;
@@ -41,7 +41,7 @@ public class ObfBs {
         return;
     }
     // bytecode 76 bytes, max_stack 3, max_locals 4
-    public ObfBs(ObfCf v1, InputStream v2, boolean v3) {
+    public ObfBs(Textures v1, InputStream v2, boolean v3) {
         super();
         this.a = 0;
         this.b = 0;
@@ -96,7 +96,7 @@ public class ObfBs {
         /* try L0-L592 catch java.lang.Exception -> L593 */
         this.a = StreamReader.a(v1);
         this.b = StreamReader.a(v1);
-        this.a_arrarrLbm = new ObfBm[this.a][this.b];
+        this.a_arrarrLbm = new ObfBm[this.a][this.b]#1;
         int v3 = 0;
         L34:
         if (v3 >= this.b) goto L383;
@@ -150,7 +150,7 @@ public class ObfBs {
         this.i = StreamReader.a(v1);
         this.j = StreamReader.a(v1);
         v3 = StreamReader.a(v1);
-        this.a_arrB = new byte[(v3 * 2)];
+        this.a_arrB = new byte[(v3 * 2)]#3;
         v4 = 0;
         L467:
         if (v4 >= v3) goto L509;
@@ -315,7 +315,7 @@ public class ObfBs {
         return 0;
     }
     // bytecode 153 bytes, max_stack 5, max_locals 3
-    public boolean a(ObfDf v1) {
+    public boolean a(Frustum v1) {
         if (this.c < 0) goto L36;
         if (this.d < 0) goto L36;
         if (this.c >= this.a) goto L36;
@@ -369,7 +369,7 @@ public class ObfBs {
         return 0.0f;
     }
     // bytecode 65 bytes, max_stack 5, max_locals 6
-    public ObfBj a(float v1, float v2) {
+    public Rect a(float v1, float v2) {
         v1 = ((v1 / ObfAr.c) + 0.5f);
         v2 = ((v2 / ObfAr.c) + 0.5f);
         int v3 = ((int) v1);
@@ -410,7 +410,7 @@ public class ObfBs {
     // bytecode 492 bytes, max_stack 5, max_locals 5
     public Image a() {
         /* try L0-L484 catch java.lang.Exception -> L485 */
-        int v1 = new int[((this.a * 3) * (this.b * 3))];
+        int v1 = new int[((this.a * 3) * (this.b * 3))]#1;
         int v2 = 0;
         L18:
         if (v2 >= ((this.a * 3) * (this.b * 3))) goto L46;
@@ -715,7 +715,7 @@ public class ObfBs {
         return (v5 / this.b_F);
     }
     // bytecode 52 bytes, max_stack 3, max_locals 4
-    public void a(ObfCf v1) {
+    public void a(Textures v1) {
         int v2 = 0;
         L2:
         if (v2 >= this.a) goto L51;
@@ -734,7 +734,7 @@ public class ObfBs {
         return;
     }
     // bytecode 52 bytes, max_stack 3, max_locals 4
-    public void b(ObfCf v1) {
+    public void b(Textures v1) {
         int v2 = 0;
         L2:
         if (v2 >= this.a) goto L51;

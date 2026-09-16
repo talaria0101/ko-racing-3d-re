@@ -26,30 +26,30 @@ public class ObfAr {
     private String b_String;
     private String c_String;
     static {
-        new byte[24][0] = m1;
-        new byte[24][1] = 0;
-        new byte[24][2] = m1;
-        new byte[24][3] = 1;
-        new byte[24][4] = 0;
-        new byte[24][5] = m1;
-        new byte[24][6] = 0;
-        new byte[24][7] = 0;
-        new byte[24][8] = 0;
-        new byte[24][9] = 1;
-        new byte[24][10] = 0;
-        new byte[24][11] = 1;
-        new byte[24][12] = m1;
-        new byte[24][13] = 0;
-        new byte[24][14] = 1;
-        new byte[24][15] = m1;
-        new byte[24][16] = 0;
-        new byte[24][17] = 1;
-        new byte[24][18] = m1;
-        new byte[24][19] = 0;
-        new byte[24][20] = m1;
-        new byte[24][21] = 0;
-        new byte[24][22] = 0;
-        new byte[24][23] = 0;
+        new byte[24]#1[0] = m1;
+        new byte[24]#1[1] = 0;
+        new byte[24]#1[2] = m1;
+        new byte[24]#1[3] = 1;
+        new byte[24]#1[4] = 0;
+        new byte[24]#1[5] = m1;
+        new byte[24]#1[6] = 0;
+        new byte[24]#1[7] = 0;
+        new byte[24]#1[8] = 0;
+        new byte[24]#1[9] = 1;
+        new byte[24]#1[10] = 0;
+        new byte[24]#1[11] = 1;
+        new byte[24]#1[12] = m1;
+        new byte[24]#1[13] = 0;
+        new byte[24]#1[14] = 1;
+        new byte[24]#1[15] = m1;
+        new byte[24]#1[16] = 0;
+        new byte[24]#1[17] = 1;
+        new byte[24]#1[18] = m1;
+        new byte[24]#1[19] = 0;
+        new byte[24]#1[20] = m1;
+        new byte[24]#1[21] = 0;
+        new byte[24]#1[22] = 0;
+        new byte[24]#1[23] = 0;
         ObfAr.a = 7.0f;
         ObfAr.b = (1.0f * ObfAr.a);
         ObfAr.c = (2.0f * ObfAr.b);
@@ -65,22 +65,22 @@ public class ObfAr {
     // bytecode 163 bytes, max_stack 4, max_locals 1
     public ObfAr() {
         super();
-        new byte[16][0] = 0;
-        new byte[16][1] = 0;
-        new byte[16][2] = 2;
-        new byte[16][3] = 0;
-        new byte[16][4] = 1;
-        new byte[16][5] = 1;
-        new byte[16][6] = 2;
-        new byte[16][7] = 2;
-        new byte[16][8] = 0;
-        new byte[16][9] = 2;
-        new byte[16][10] = 0;
-        new byte[16][11] = 2;
-        new byte[16][12] = 0;
-        new byte[16][13] = 0;
-        new byte[16][14] = 1;
-        new byte[16][15] = 1;
+        new byte[16]#1[0] = 0;
+        new byte[16]#1[1] = 0;
+        new byte[16]#1[2] = 2;
+        new byte[16]#1[3] = 0;
+        new byte[16]#1[4] = 1;
+        new byte[16]#1[5] = 1;
+        new byte[16]#1[6] = 2;
+        new byte[16]#1[7] = 2;
+        new byte[16]#1[8] = 0;
+        new byte[16]#1[9] = 2;
+        new byte[16]#1[10] = 0;
+        new byte[16]#1[11] = 2;
+        new byte[16]#1[12] = 0;
+        new byte[16]#1[13] = 0;
+        new byte[16]#1[14] = 1;
+        new byte[16]#1[15] = 1;
         this.a_am = null;
         this.a_arrLz = null;
         this.a_arrI = null;
@@ -94,8 +94,8 @@ public class ObfAr {
         this.a_a = null;
         this.b_String = "";
         this.c_String = "";
-        this.a_arrZ = new boolean[4];
-        this.b_arrZ = new boolean[4];
+        this.a_arrZ = new boolean[4]#2;
+        this.b_arrZ = new boolean[4]#3;
         return;
     }
     // bytecode 10 bytes, max_stack 2, max_locals 2
@@ -153,7 +153,7 @@ public class ObfAr {
         return;
     }
     // bytecode 500 bytes, max_stack 5, max_locals 4
-    public void a(ObfCf v1) {
+    public void a(Textures v1) {
         /* try L481-L485 catch java.io.IOException -> L488 */
         ObfAr.a = 7.0f;
         if (Settings.m != 2) goto L23;
@@ -162,7 +162,7 @@ public class ObfAr {
         L23:
         ObfAr.b = (1.0f * ObfAr.a);
         ObfAr.c = (2.0f * ObfAr.b);
-        v1 = ((ObfCf) Resources.a(this.a_String));
+        v1 = ((Textures) Resources.a(this.a_String));
         this.b_String = StreamReader.a(v1);
         this.c_String = StreamReader.a(v1);
         if (this.c_String.indexOf("texpack.png") < 0) goto L120;
@@ -181,7 +181,7 @@ public class ObfAr {
         int v3 = StreamReader.a(v1);
         ObfAr v2 = this;
         if (v3 <= 0) goto L144;
-        v2.a_arrLz = new Vec2[v3];
+        v2.a_arrLz = new Vec2[v3]#1;
         L144:
         v3 = 0;
         L146:
@@ -195,7 +195,7 @@ public class ObfAr {
         v3 = StreamReader.a(v1);
         v2 = this;
         if (v3 <= 0) goto L218;
-        v2.a_arrI = new int[v3];
+        v2.a_arrI = new int[v3]#3;
         L218:
         v3 = 0;
         L220:
@@ -207,9 +207,9 @@ public class ObfAr {
         v3 = StreamReader.a(v1);
         v2 = this;
         if (v3 <= 0) goto L263;
-        v2.b_arrI = new int[v3];
+        v2.b_arrI = new int[v3]#4;
         L263:
-        this.a_arrF = new float[this.b_arrI.length];
+        this.a_arrF = new float[this.b_arrI.length]#5;
         v2 = ((ObfAr) 0);
         L276:
         if (v2 >= this.b_arrI.length) goto L348;
@@ -359,7 +359,7 @@ public class ObfAr {
         return this.a_a.a(v1, v2);
     }
     // bytecode 29 bytes, max_stack 5, max_locals 3
-    public ObfBj a(float v1, float v2) {
+    public Rect a(float v1, float v2) {
         if (this.a_a != null) goto L19;
         return SysUtil.a.a(0.0f, 0.0f, -1.0f, 0.0f);
         L19:

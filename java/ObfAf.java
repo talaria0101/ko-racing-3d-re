@@ -8,7 +8,7 @@ public class ObfAf extends MenuList {
     public ObfAf(Widget v1, int v2, int v3, int v4) {
         super(v1, v2, v4);
         this.a = null;
-        this.a = new java.lang.String[v2];
+        this.a = new java.lang.String[v2]#1;
         this.g(0);
         return;
     }

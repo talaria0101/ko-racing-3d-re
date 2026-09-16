@@ -2,17 +2,17 @@
 // edit: fix the emitter and re-run.  Original name `ae`.
 // String constants: /lists/md_list | /tiles/ | <init> | Code | [Lbc; | append | close | getClass | getResourceAsStream | java/io/IOException | java/io/InputStream | java/lang/Class
 // API references: java/io
-public class ObfAe {
+public class MidList {
     private ObfBc[] a;
     private int a_I;
-    private ObfCf a_cf;
+    private Textures a_cf;
     // bytecode 38 bytes, max_stack 2, max_locals 2
-    public ObfAe(ObfCf v1) {
+    public MidList(Textures v1) {
         super();
         this.a = null;
         this.a_I = 0;
         this.a_cf = null;
-        this.a = new ObfBc[100];
+        this.a = new ObfBc[100]#1;
         this.a_cf = v1;
         this.b();
         return;

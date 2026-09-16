@@ -34,7 +34,7 @@ public class ObfBm {
     private int p;
     private int q;
     // bytecode 302 bytes, max_stack 5, max_locals 6
-    public ObfBm(ObfBf v1, int v2, int v3, int v4, int v5) {
+    public ObfBm(TileList v1, int v2, int v3, int v4, int v5) {
         super();
         this.a = null;
         this.b = 0;
@@ -43,20 +43,20 @@ public class ObfBm {
         this.b_F = 0.0f;
         this.c = 0;
         this.a_arrB = null;
-        new boolean[4][0] = 0;
-        new boolean[4][1] = 0;
-        new boolean[4][2] = 0;
-        new boolean[4][3] = 0;
-        this.a_arrZ = new boolean[4];
+        new boolean[4]#1[0] = 0;
+        new boolean[4]#1[1] = 0;
+        new boolean[4]#1[2] = 0;
+        new boolean[4]#1[3] = 0;
+        this.a_arrZ = new boolean[4]#1;
         this.a_z = null;
         this.d = m1;
         this.e = m1;
-        new boolean[5][0] = 0;
-        new boolean[5][1] = 0;
-        new boolean[5][2] = 0;
-        new boolean[5][3] = 0;
-        new boolean[5][4] = 0;
-        this.b_arrZ = new boolean[5];
+        new boolean[5]#2[0] = 0;
+        new boolean[5]#2[1] = 0;
+        new boolean[5]#2[2] = 0;
+        new boolean[5]#2[3] = 0;
+        new boolean[5]#2[4] = 0;
+        this.b_arrZ = new boolean[5]#2;
         this.a_bc = null;
         this.f = 0;
         this.g = 0;
@@ -83,23 +83,23 @@ public class ObfBm {
         this.a_I = v3;
         this.a_F = (((float) v4) * ObfAr.c);
         this.b_F = (((float) v5) * ObfAr.c);
-        this.a_arrB = new byte[4];
-        v1 = ((ObfBf) 0);
+        this.a_arrB = new byte[4]#4;
+        v1 = ((TileList) 0);
         L266:
         if (v1 >= 4) goto L284;
         this.a_arrB[v1] = 0;
         v1 += 1;
         goto L266;
         L284:
-        v1 = ((ObfBf) 0.0f);
-        v1 = ((ObfBf) 0.0f);
-        v1 = ((ObfBf) this);
-        v1 = ((ObfBf) this);
+        v1 = ((TileList) 0.0f);
+        v1 = ((TileList) 0.0f);
+        v1 = ((TileList) this);
+        v1 = ((TileList) this);
         this.a_z.b(0.0f, 0.0f);
         return;
     }
     // bytecode 71 bytes, max_stack 3, max_locals 4
-    public void a(ObfAe v1, int v2, int v3) {
+    public void a(MidList v1, int v2, int v3) {
         if (ObfR.j != 3) goto L51;
         if (v2 < 19) goto L49;
         if (v2 == 22) goto L49;
@@ -117,7 +117,7 @@ public class ObfBm {
         return;
     }
     // bytecode 71 bytes, max_stack 3, max_locals 4
-    public void b(ObfAe v1, int v2, int v3) {
+    public void b(MidList v1, int v2, int v3) {
         if (ObfR.j != 3) goto L51;
         if (v2 < 19) goto L49;
         if (v2 == 22) goto L49;
@@ -135,7 +135,7 @@ public class ObfBm {
         return;
     }
     // bytecode 71 bytes, max_stack 3, max_locals 4
-    public void c(ObfAe v1, int v2, int v3) {
+    public void c(MidList v1, int v2, int v3) {
         if (ObfR.j != 3) goto L51;
         if (v2 < 19) goto L49;
         if (v2 == 22) goto L49;
@@ -153,21 +153,21 @@ public class ObfBm {
         return;
     }
     // bytecode 20 bytes, max_stack 3, max_locals 4
-    public void a(ObfAp v1, int v2, int v3) {
+    public void a(HighList v1, int v2, int v3) {
         this.a_bp = v1.a(v2);
         this.l = v3;
         this.m = v2;
         return;
     }
     // bytecode 20 bytes, max_stack 3, max_locals 4
-    public void b(ObfAp v1, int v2, int v3) {
+    public void b(HighList v1, int v2, int v3) {
         this.b_bp = v1.a(v2);
         this.n = v3;
         this.o = v2;
         return;
     }
     // bytecode 20 bytes, max_stack 3, max_locals 4
-    public void c(ObfAp v1, int v2, int v3) {
+    public void c(HighList v1, int v2, int v3) {
         this.c_bp = v1.a(v2);
         this.p = v3;
         this.q = v2;
@@ -332,7 +332,7 @@ public class ObfBm {
         return this.a.a(v1, v2);
     }
     // bytecode 152 bytes, max_stack 3, max_locals 4
-    public ObfBj a(float v1, float v2) {
+    public Rect a(float v1, float v2) {
         ObfBm v3 = this;
         v3 = ((ObfBm) (this.a_I % 4));
         if ((this.a_I % 4) == 0) goto L58;
@@ -415,7 +415,7 @@ public class ObfBm {
         return;
     }
     // bytecode 36 bytes, max_stack 2, max_locals 2
-    public void a(ObfCf v1) {
+    public void a(Textures v1) {
         this.b(v1);
         if (this.a_bc == null) goto L20;
         this.a_bc.a(true);
@@ -426,7 +426,7 @@ public class ObfBm {
         return;
     }
     // bytecode 9 bytes, max_stack 2, max_locals 2
-    public void b(ObfCf v1) {
+    public void b(Textures v1) {
         this.a.a(true);
         return;
     }

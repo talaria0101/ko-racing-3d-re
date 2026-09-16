@@ -6,19 +6,19 @@ public class Vec3 {
     // bytecode 24 bytes, max_stack 5, max_locals 1
     public Vec3() {
         super();
-        new float[3][0] = 0.0f;
-        new float[3][1] = 0.0f;
-        new float[3][2] = 0.0f;
-        this.a = new float[3];
+        new float[3]#1[0] = 0.0f;
+        new float[3]#1[1] = 0.0f;
+        new float[3]#1[2] = 0.0f;
+        this.a = new float[3]#1;
         return;
     }
     // bytecode 31 bytes, max_stack 5, max_locals 4
     public Vec3(float v1, float v2, float v3) {
         this();
-        new float[3][0] = 0.0f;
-        new float[3][1] = 0.0f;
-        new float[3][2] = 0.0f;
-        this.a = new float[3];
+        new float[3]#1[0] = 0.0f;
+        new float[3]#1[1] = 0.0f;
+        new float[3]#1[2] = 0.0f;
+        this.a = new float[3]#1;
         this.b(v1, v2, v3);
         return;
     }

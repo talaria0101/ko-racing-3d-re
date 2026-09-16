@@ -5,7 +5,7 @@
 public class IconList extends Widget {
     private MenuItem a;
     private Image[] a_Image;
-    private ObfDl[] a_arrLdl;
+    private ImageItem[] a_arrLdl;
     private int a_I;
     private int b;
     private int h;
@@ -15,9 +15,9 @@ public class IconList extends Widget {
         /* try L112-L156 catch java.io.IOException -> L157 */
         super(v1, 0, 0, 0, 0);
         this.a = null;
-        new javax.microedition.lcdui.Image[2][0] = null;
-        new javax.microedition.lcdui.Image[2][1] = null;
-        this.a_Image = new javax.microedition.lcdui.Image[2];
+        new javax.microedition.lcdui.Image[2]#1[0] = null;
+        new javax.microedition.lcdui.Image[2]#1[1] = null;
+        this.a_Image = new javax.microedition.lcdui.Image[2]#1;
         this.a_arrLdl = null;
         this.a_I = 0;
         this.b = 0;
@@ -27,7 +27,7 @@ public class IconList extends Widget {
         this.a(false);
         new MenuItem(this, 0, 0, v4, SysUtil.b); /* constructor */
         this.a = new MenuItem(this, 0, 0, v4, SysUtil.b);
-        this.a_arrLdl = new ObfDl[3];
+        this.a_arrLdl = new ImageItem[3]#3;
         this.e(this.a.b());
         v2 = 1;
         v1 = ((Widget) this);
@@ -105,8 +105,8 @@ public class IconList extends Widget {
     }
     // bytecode 50 bytes, max_stack 9, max_locals 2
     public void b(int v1) {
-        new ObfDl(this, 0, 0, v1, SysUtil.b); /* constructor */
-        this.a_arrLdl[this.a_I] = new ObfDl(this, 0, 0, v1, SysUtil.b);
+        new ImageItem(this, 0, 0, v1, SysUtil.b); /* constructor */
+        this.a_arrLdl[this.a_I] = new ImageItem(this, 0, 0, v1, SysUtil.b);
         this.a_arrLdl[this.a_I].a(this.a());
         this.a_I = (this.a_I + 1);
         return;

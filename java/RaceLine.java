@@ -24,7 +24,7 @@ public class RaceLine {
     // bytecode 468 bytes, max_stack 7, max_locals 6
     public void a(boolean v1) {
         /* try L0-L461 catch java.lang.Exception -> L462 */
-        this.a = new Vec2[this.a_bs.d()];
+        this.a = new Vec2[this.a_bs.d()]#1;
         int v3 = 0;
         L16:
         if (v3 >= this.a_bs.e()) goto L153;
@@ -67,7 +67,7 @@ public class RaceLine {
         goto L159;
         L278:
         v1 = ((boolean) this);
-        this.a_arrF = new float[v1.a.length];
+        this.a_arrF = new float[v1.a.length]#4;
         v2 = ((ObfBm) 0);
         L293:
         if (v2 >= v1.a.length) goto L373;

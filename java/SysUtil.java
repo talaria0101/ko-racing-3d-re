@@ -3,7 +3,7 @@
 // String constants: .tab | /fonts/black | /fonts/font | /fonts/font.tab | /fonts/in | /fonts/in.tab | /fonts/it | /fonts/it.tab | /fonts/la | /fonts/lg | /fonts/ln | /fonts/lr
 // API references: java/io javax/microedition javax/wireless
 public class SysUtil {
-    public static ObfBj a;
+    public static Rect a;
     public static Font a_p;
     public static Font b;
     public static Font c;
@@ -58,8 +58,8 @@ public class SysUtil {
     private static byte[][] a_arrarrB;
     public static String[][] a_String;
     static {
-        new ObfBj(0.0f, 0.0f, 0.0f, 0.0f); /* constructor */
-        SysUtil.a = new ObfBj(0.0f, 0.0f, 0.0f, 0.0f);
+        new Rect(0.0f, 0.0f, 0.0f, 0.0f); /* constructor */
+        SysUtil.a = new Rect(0.0f, 0.0f, 0.0f, 0.0f);
         SysUtil.a_p = null;
         SysUtil.b = null;
         SysUtil.c = null;
@@ -104,54 +104,54 @@ public class SysUtil {
         SysUtil.d_I = 3;
         SysUtil.a_f = null;
         SysUtil.h_I = 0;
-        new java.lang.String[2][0] = "/images/be.png";
-        new java.lang.String[2][1] = "/images/bf.png";
-        SysUtil.a_String = new java.lang.String[2];
+        new java.lang.String[2]#2[0] = "/images/be.png";
+        new java.lang.String[2]#2[1] = "/images/bf.png";
+        SysUtil.a_String = new java.lang.String[2]#2;
         SysUtil.a_String_2 = "/images/i.png";
         SysUtil.a_Canvas = null;
-        new java.lang.String[1][0] = "/ui/ui.txt";
-        SysUtil.b_String = new java.lang.String[1];
+        new java.lang.String[1]#3[0] = "/ui/ui.txt";
+        SysUtil.b_String = new java.lang.String[1]#3;
         SysUtil.e_I = 0;
         SysUtil.f_I = 0;
         SysUtil.g_I = 1;
-        new byte[1][0] = 0;
-        new Obf[B[12][0] = new byte[1];
-        new byte[1][0] = 0;
-        new Obf[B[12][1] = new byte[1];
-        new byte[1][0] = 0;
-        new Obf[B[12][2] = new byte[1];
-        new byte[1][0] = 0;
-        new Obf[B[12][3] = new byte[1];
-        new byte[1][0] = 0;
-        new Obf[B[12][4] = new byte[1];
-        new byte[1][0] = 0;
-        new Obf[B[12][5] = new byte[1];
-        new byte[1][0] = 0;
-        new Obf[B[12][6] = new byte[1];
-        new byte[1][0] = 0;
-        new Obf[B[12][7] = new byte[1];
-        new byte[1][0] = 0;
-        new Obf[B[12][8] = new byte[1];
-        new byte[1][0] = 0;
-        new Obf[B[12][9] = new byte[1];
-        new byte[1][0] = 0;
-        new Obf[B[12][10] = new byte[1];
-        new byte[1][0] = 0;
-        new Obf[B[12][11] = new byte[1];
-        SysUtil.a_arrarrB = new Obf[B[12];
-        new java.lang.String[3][0] = "Pokud chces ziskat plnou verzi hry, posli SMS ve tvaru HRAJ KORA na telefonni cislo 9079950. Sluzbu technicky zajistuje Axima spol. s r.o., cena SMS je 50,- Kc vc. DPH, infolinka prsms@axima-brno.cz.";
-        new java.lang.String[3][1] = "9079909";
-        new java.lang.String[3][2] = "HRAJ 92629";
-        new ObfString;[3][0] = new java.lang.String[3];
-        new java.lang.String[3][0] = "Ak chces plnu verziu, odosli sms v tvare EPAY KORA na tel. cislo 7604, cena sms je ¼1.593 (48 SKK) s DPH. Sluzbu zabezpecuju sms-platby.eu. Reklamacie uplatni na e-mailovej adrese KORA@KORAGAME.COM.";
-        new java.lang.String[3][1] = "7604";
-        new java.lang.String[3][2] = "EPAY KORA";
-        new ObfString;[3][1] = new java.lang.String[3];
-        new java.lang.String[3][0] = "Jesli chcialbys pelna wersje gry, wyslij SMS o tresci EPAY KORA na numer telefonu 7955. Koszt SMSa wynosi 9 zl (10,98 zl z VAT). Dostawca uslugi SMS jest firma sms-platby.eu. Reklamacje: kora@koragame.com, poniedzialek-piatek, od 9:00-17:00.";
-        new java.lang.String[3][1] = "7955";
-        new java.lang.String[3][2] = "EPAY KORA";
-        new ObfString;[3][2] = new java.lang.String[3];
-        SysUtil.a_String = new ObfString;[3];
+        new byte[1]#5[0] = 0;
+        new Obf[B[12]#4[0] = new byte[1]#5;
+        new byte[1]#6[0] = 0;
+        new Obf[B[12]#4[1] = new byte[1]#6;
+        new byte[1]#7[0] = 0;
+        new Obf[B[12]#4[2] = new byte[1]#7;
+        new byte[1]#8[0] = 0;
+        new Obf[B[12]#4[3] = new byte[1]#8;
+        new byte[1]#9[0] = 0;
+        new Obf[B[12]#4[4] = new byte[1]#9;
+        new byte[1]#10[0] = 0;
+        new Obf[B[12]#4[5] = new byte[1]#10;
+        new byte[1]#11[0] = 0;
+        new Obf[B[12]#4[6] = new byte[1]#11;
+        new byte[1]#12[0] = 0;
+        new Obf[B[12]#4[7] = new byte[1]#12;
+        new byte[1]#13[0] = 0;
+        new Obf[B[12]#4[8] = new byte[1]#13;
+        new byte[1]#14[0] = 0;
+        new Obf[B[12]#4[9] = new byte[1]#14;
+        new byte[1]#15[0] = 0;
+        new Obf[B[12]#4[10] = new byte[1]#15;
+        new byte[1]#16[0] = 0;
+        new Obf[B[12]#4[11] = new byte[1]#16;
+        SysUtil.a_arrarrB = new Obf[B[12]#4;
+        new java.lang.String[3]#18[0] = "Pokud chces ziskat plnou verzi hry, posli SMS ve tvaru HRAJ KORA na telefonni cislo 9079950. Sluzbu technicky zajistuje Axima spol. s r.o., cena SMS je 50,- Kc vc. DPH, infolinka prsms@axima-brno.cz.";
+        new java.lang.String[3]#18[1] = "9079909";
+        new java.lang.String[3]#18[2] = "HRAJ 92629";
+        new ObfString;[3]#17[0] = new java.lang.String[3]#18;
+        new java.lang.String[3]#19[0] = "Ak chces plnu verziu, odosli sms v tvare EPAY KORA na tel. cislo 7604, cena sms je ¼1.593 (48 SKK) s DPH. Sluzbu zabezpecuju sms-platby.eu. Reklamacie uplatni na e-mailovej adrese KORA@KORAGAME.COM.";
+        new java.lang.String[3]#19[1] = "7604";
+        new java.lang.String[3]#19[2] = "EPAY KORA";
+        new ObfString;[3]#17[1] = new java.lang.String[3]#19;
+        new java.lang.String[3]#20[0] = "Jesli chcialbys pelna wersje gry, wyslij SMS o tresci EPAY KORA na numer telefonu 7955. Koszt SMSa wynosi 9 zl (10,98 zl z VAT). Dostawca uslugi SMS jest firma sms-platby.eu. Reklamacje: kora@koragame.com, poniedzialek-piatek, od 9:00-17:00.";
+        new java.lang.String[3]#20[1] = "7955";
+        new java.lang.String[3]#20[2] = "EPAY KORA";
+        new ObfString;[3]#17[2] = new java.lang.String[3]#20;
+        SysUtil.a_String = new ObfString;[3]#17;
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -779,8 +779,8 @@ public class SysUtil {
         L28:
         int v2 = v0.getWidth();
         int v3 = v0.getHeight();
-        int v4 = new int[v2];
-        int v5 = new int[(v2 * v3)];
+        int v4 = new int[v2]#1;
+        int v5 = new int[(v2 * v3)]#2;
         int v7 = 0;
         L53:
         if (v7 >= v3) goto L159;
@@ -824,8 +824,8 @@ public class SysUtil {
     public static Image a(Image v0) {
         int v1 = v0.getWidth();
         int v2 = v0.getHeight();
-        int v3 = new int[v1];
-        int v4 = new int[(v1 * v2)];
+        int v3 = new int[v1]#1;
+        int v4 = new int[(v1 * v2)]#2;
         int v5 = 0;
         L24:
         if (v5 >= v2) goto L108;

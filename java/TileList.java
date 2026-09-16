@@ -2,17 +2,17 @@
 // edit: fix the emitter and re-run.  Original name `bf`.
 // String constants: /lists/tile_list | /tiles/ | <init> | Code | [Lar; | append | close | deleteCharAt | getClass | getResourceAsStream | java/io/IOException | java/io/InputStream
 // API references: java/io
-public class ObfBf {
+public class TileList {
     private ObfAr[] a;
-    private ObfCf a_cf;
+    private Textures a_cf;
     private int a_I;
     // bytecode 39 bytes, max_stack 2, max_locals 2
-    public ObfBf(ObfCf v1) {
+    public TileList(Textures v1) {
         super();
         this.a = null;
         this.a_cf = null;
         this.a_I = 0;
-        this.a = new ObfAr[200];
+        this.a = new ObfAr[200]#1;
         this.a_cf = v1;
         this.b();
         return;

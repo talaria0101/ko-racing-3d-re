@@ -2,18 +2,18 @@
 // edit: fix the emitter and re-run.  Original name `cf`.
 // String constants: /tex/r.png | <init> | Code | [Ljava/lang/String; | [Ljavax/microedition/m3g/Texture2D; | compareTo | createImage | createRGBImage | drawImage | getGraphics | getHeight | getRGB
 // API references: javax/microedition
-public class ObfCf {
+public class Textures {
     private Texture2D[] a;
     private String[] a_String;
     private int a_I;
     // bytecode 43 bytes, max_stack 2, max_locals 1
-    public ObfCf() {
+    public Textures() {
         super();
         this.a = null;
         this.a_String = null;
         this.a_I = 0;
-        this.a = new javax.microedition.m3g.Texture2D[50];
-        this.a_String = new java.lang.String[50];
+        this.a = new javax.microedition.m3g.Texture2D[50]#1;
+        this.a_String = new java.lang.String[50]#2;
         this.a_I = 0;
         return;
     }
@@ -47,7 +47,7 @@ public class ObfCf {
     public Texture2D b(String v1, boolean v2, String v3, ObfAt v4) {
         /* try L2-L13 catch java.lang.Exception -> L16 */
         v2 = ((boolean) null);
-        v2 = ((boolean) ObfCf.a(v1, Settings.d, v3, v4));
+        v2 = ((boolean) Textures.a(v1, Settings.d, v3, v4));
         goto L17;
         /* pop: ex_16; */
         L17:
@@ -58,7 +58,7 @@ public class ObfCf {
     }
     // bytecode 75 bytes, max_stack 8, max_locals 3
     public static Image a(Image v0) {
-        int v1 = new int[(v0.getWidth() * v0.getHeight())];
+        int v1 = new int[(v0.getWidth() * v0.getHeight())]#1;
         v0.getRGB(v1, 0, v0.getWidth(), 0, 0, v0.getWidth(), v0.getHeight());
         int v2 = 0;
         L34:
@@ -79,7 +79,7 @@ public class ObfCf {
         jt1 = javax.microedition.lcdui.Image.createImage(Resources.a(v1)); /* join L40 from L20 */
         goto L40;
         L30:
-        jt1 = ObfCf.a(javax.microedition.lcdui.Image.createImage(Resources.a(v1))); /* join L40 from L30 */
+        jt1 = Textures.a(javax.microedition.lcdui.Image.createImage(Resources.a(v1))); /* join L40 from L30 */
         L40:
         new javax.microedition.m3g.Image2D(100, jt1); /* constructor */
         new javax.microedition.m3g.Texture2D(new javax.microedition.m3g.Image2D(100, jt1)); /* constructor */

@@ -24,8 +24,8 @@ public class FontCodec {
         L17:
         int v2 = jt1;
         int v3 = v1.read();
-        this.a = new short[v3];
-        this.a_arrB = new byte[v3];
+        this.a = new short[v3]#1;
+        this.a_arrB = new byte[v3]#2;
         int v4 = 0;
         L40:
         if (v4 >= ((byte) this.a_arrB.length)) goto L70;

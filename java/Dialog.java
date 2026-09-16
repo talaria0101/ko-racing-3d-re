@@ -15,10 +15,10 @@ public class Dialog extends TextBuffer {
         this.a_arrZ = null;
         this.b = null;
         this.a_arrI = null;
-        this.a = new Obf[[B[127];
-        this.b = new boolean[127];
-        this.a_arrZ = new boolean[127];
-        this.a_arrI = new int[127];
+        this.a = new Obf[[B[127]#1;
+        this.b = new boolean[127]#2;
+        this.a_arrZ = new boolean[127]#3;
+        this.a_arrI = new int[127]#4;
         v1 = ((int) this);
         this.a(SysUtil.a(210));
         v1.b();
@@ -75,7 +75,7 @@ public class Dialog extends TextBuffer {
         byte[] v5 = SysUtil.a((v3 + 179));
         int v4 = v1;
         v1.b[v4.a] = 1;
-        v4.a[v4.a] = new Obf[B[4];
+        v4.a[v4.a] = new Obf[B[4]#12;
         v4.a[v4.a][0] = v5;
         v4.a[v4.a][2] = v4.a.a(v6);
         v4.b();
@@ -141,7 +141,7 @@ public class Dialog extends TextBuffer {
     // bytecode 85 bytes, max_stack 4, max_locals 4
     public void a(String v1, String v2, String v3) {
         this.b[this.a] = 1;
-        this.a[this.a] = new Obf[B[4];
+        this.a[this.a] = new Obf[B[4]#1;
         this.a[this.a][0] = this.a.a(v1);
         this.a[this.a][1] = this.a.a(v2);
         this.a[this.a][2] = this.a.a(v3);
@@ -151,7 +151,7 @@ public class Dialog extends TextBuffer {
     // bytecode 105 bytes, max_stack 4, max_locals 5
     public void a(String v1, String v2, String v3, String v4) {
         this.b[this.a] = 1;
-        this.a[this.a] = new Obf[B[4];
+        this.a[this.a] = new Obf[B[4]#1;
         this.a[this.a][0] = this.a.a(v1);
         this.a[this.a][1] = this.a.a(v2);
         this.a[this.a][2] = this.a.a(v3);

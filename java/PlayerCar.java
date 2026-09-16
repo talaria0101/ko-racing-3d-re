@@ -12,7 +12,7 @@ public class PlayerCar extends ObfCl {
     private float f;
     private float g;
     // bytecode 147 bytes, max_stack 6, max_locals 6
-    public PlayerCar(ObfCf v1, InputStream v2, int v3, ObfBs v4, int v5) {
+    public PlayerCar(Textures v1, InputStream v2, int v3, ObfBs v4, int v5) {
         super(v1, v2, v3, v4, v5);
         this.a = null;
         this.d = 0.0f;
@@ -45,7 +45,7 @@ public class PlayerCar extends ObfCl {
         return;
     }
     // bytecode 18 bytes, max_stack 3, max_locals 2
-    public void a(ObfCf v1) {
+    public void a(Textures v1) {
         if (this.d != Settings.e()) goto L11;
         return;
         L11:
@@ -53,7 +53,7 @@ public class PlayerCar extends ObfCl {
         return;
     }
     // bytecode 171 bytes, max_stack 5, max_locals 3
-    public void a(ObfCf v1, boolean v2) {
+    public void a(Textures v1, boolean v2) {
         /* try L115-L134 catch java.io.IOException -> L137 */
         if (Settings.e() <= 1) goto L11;
         ObfAt.a = true;

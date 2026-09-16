@@ -20,7 +20,7 @@ public class TextBuffer {
         this.b = null;
         this.a_p = v2;
         this.a_I = v1;
-        this.a = new Obf[B[127];
+        this.a = new Obf[B[127]#1;
         return;
     }
     // bytecode 10 bytes, max_stack 4, max_locals 3
@@ -103,7 +103,7 @@ public class TextBuffer {
         L20:
         return;
         L21:
-        this.a[(this.a_S - 1)] = new byte[v3];
+        this.a[(this.a_S - 1)] = new byte[v3]#1;
         int v4 = 0;
         L38:
         if (v4 >= v3) goto L70;

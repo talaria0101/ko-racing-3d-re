@@ -30,7 +30,7 @@ public class Planet {
         Planet.c = 20;
         Planet.a_I = Planet.f;
         Planet.b = Planet.f;
-        Planet.a = new int[(Planet.a_I * Planet.b)];
+        Planet.a = new int[(Planet.a_I * Planet.b)]#1;
         Planet.a_B = 1;
         Planet.a(1);
         Planet.b_Z = true;

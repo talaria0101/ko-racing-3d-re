@@ -3,7 +3,7 @@
 // String constants: <init> | Code | [Ljava/lang/String; | [Ljavax/microedition/lcdui/Image; | createImage | getWidth | java/io/IOException | javax/microedition/lcdui/Image | StackMap | javax/microedition/lcdui/Graphics
 // API references: javax/microedition
 public class ObfCp extends Widget {
-    private ObfDl a;
+    private ImageItem a;
     private Image[] a_Image;
     private boolean b;
     // bytecode 125 bytes, max_stack 8, max_locals 6
@@ -11,17 +11,17 @@ public class ObfCp extends Widget {
         /* try L74-L108 catch java.io.IOException -> L109 */
         super(v1, 0, 0, v4, 0);
         this.a = null;
-        new javax.microedition.lcdui.Image[2][0] = null;
-        new javax.microedition.lcdui.Image[2][1] = null;
-        this.a_Image = new javax.microedition.lcdui.Image[2];
+        new javax.microedition.lcdui.Image[2]#1[0] = null;
+        new javax.microedition.lcdui.Image[2]#1[1] = null;
+        this.a_Image = new javax.microedition.lcdui.Image[2]#1;
         this.b = false;
         this.b(true);
         this.a(false);
         v2 = 0;
         v1 = ((Widget) this);
         this.b = v2;
-        new ObfDl(this, 0, 0, v5, SysUtil.b); /* constructor */
-        this.a = new ObfDl(this, 0, 0, v5, SysUtil.b);
+        new ImageItem(this, 0, 0, v5, SysUtil.b); /* constructor */
+        this.a = new ImageItem(this, 0, 0, v5, SysUtil.b);
         this.a_Image[0] = javax.microedition.lcdui.Image.createImage(Resources.a(SysUtil.a[0]));
         this.a_Image[1] = javax.microedition.lcdui.Image.createImage(Resources.a(SysUtil.a[1]));
         return;

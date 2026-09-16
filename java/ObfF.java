@@ -8,7 +8,7 @@ public class ObfF {
     public ObfF(String v1, Font v2) {
         super();
         this.a = null;
-        this.a = new Obf[B[SysUtil.c];
+        this.a = new Obf[B[SysUtil.c]#1;
         this.a(v1, v2);
         return;
     }

@@ -13,7 +13,7 @@ public class ObfH extends MenuScreen {
     }
     // bytecode 86 bytes, max_stack 4, max_locals 4
     public void b() {
-        ObfH.c = new int[ObfH.l];
+        ObfH.c = new int[ObfH.l]#1;
         int v2 = 0;
         L10:
         if (v2 >= ObfH.l) goto L85;

@@ -32,7 +32,7 @@ public class Font {
     private boolean a_Z;
     private int s;
     static {
-        Font.d = new byte[255];
+        Font.d = new byte[255]#1;
         Font.c_I = 0;
         Font.d_I = 0;
         Font.e = 0;
@@ -116,7 +116,7 @@ public class Font {
     public void a(String v1, FontCodec v2, int v3) {
         InputStream v4 = Resources.a(v1);
         int v5 = Resources.a(v1).read();
-        this.a = new byte[v5];
+        this.a = new byte[v5]#1;
         this.a_g = v2;
         v2 = ((FontCodec) 0);
         L27:
@@ -129,8 +129,8 @@ public class Font {
         this.a_I = v3;
         new java.lang.StringBuffer(); /* constructor */
         this.a_Image = javax.microedition.lcdui.Image.createImage(Resources.a(new java.lang.StringBuffer().append(v1).append(".png").toString()));
-        this.b = new byte[v5];
-        this.c = new byte[v5];
+        this.b = new byte[v5]#3;
+        this.c = new byte[v5]#4;
         v2 = ((FontCodec) 0);
         v1 = ((String) 0);
         v3 = 0;
@@ -316,7 +316,7 @@ public class Font {
     }
     // bytecode 16 bytes, max_stack 3, max_locals 3
     public byte[] a(String v1) {
-        byte v2 = new byte[v1.length()];
+        byte v2 = new byte[v1.length()]#1;
         /* pop: this.a(v1, v2); */
         return v2;
     }
@@ -517,7 +517,7 @@ public class Font {
     }
     // bytecode 123 bytes, max_stack 8, max_locals 4
     public void a(int v1, boolean v2) {
-        v2 = ((boolean) new int[(this.a_Image.getWidth() * this.a_Image.getHeight())]);
+        v2 = ((boolean) new int[(this.a_Image.getWidth() * this.a_Image.getHeight())]#1);
         this.a_Image.getRGB(v2, 0, this.a_Image.getWidth(), 0, 0, this.a_Image.getWidth(), this.a_Image.getHeight());
         int v3 = 0;
         L52:

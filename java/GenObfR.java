@@ -95,13 +95,13 @@ public class ObfR extends Screen {
         this.c_I = 0;
         this.a_bt = null;
         this.b_arrI = null;
-        new java.lang.String[6][0] = "PLAYER";
-        new java.lang.String[6][1] = "JILL";
-        new java.lang.String[6][2] = "JOHN";
-        new java.lang.String[6][3] = "JIMM";
-        new java.lang.String[6][4] = "JAMES";
-        new java.lang.String[6][5] = "JUSTIN";
-        this.b_String = new java.lang.String[6];
+        new java.lang.String[6]#1[0] = "PLAYER";
+        new java.lang.String[6]#1[1] = "JILL";
+        new java.lang.String[6]#1[2] = "JOHN";
+        new java.lang.String[6]#1[3] = "JIMM";
+        new java.lang.String[6]#1[4] = "JAMES";
+        new java.lang.String[6]#1[5] = "JUSTIN";
+        this.b_String = new java.lang.String[6]#1;
         this.s = 0;
         this.e = 20;
         this.a_e = null;
@@ -146,13 +146,13 @@ public class ObfR extends Screen {
         this.c_I = 0;
         this.a_bt = null;
         this.b_arrI = null;
-        new java.lang.String[6][0] = "PLAYER";
-        new java.lang.String[6][1] = "JILL";
-        new java.lang.String[6][2] = "JOHN";
-        new java.lang.String[6][3] = "JIMM";
-        new java.lang.String[6][4] = "JAMES";
-        new java.lang.String[6][5] = "JUSTIN";
-        this.b_String = new java.lang.String[6];
+        new java.lang.String[6]#1[0] = "PLAYER";
+        new java.lang.String[6]#1[1] = "JILL";
+        new java.lang.String[6]#1[2] = "JOHN";
+        new java.lang.String[6]#1[3] = "JIMM";
+        new java.lang.String[6]#1[4] = "JAMES";
+        new java.lang.String[6]#1[5] = "JUSTIN";
+        this.b_String = new java.lang.String[6]#1;
         this.s = 0;
         this.e = 20;
         this.a_e = null;
@@ -208,7 +208,7 @@ public class ObfR extends Screen {
         L65:
         ObfR.m = StreamReader.a(v1);
         ObfR.l = StreamReader.a(v1);
-        ObfR.c_arrI = new int[StreamReader.a(v1)];
+        ObfR.c_arrI = new int[StreamReader.a(v1)]#1;
         if (ObfR.l <= 3) goto L181;
         int v3 = 0;
         L94:
@@ -354,7 +354,7 @@ public class ObfR extends Screen {
         this.a_String = ObfR.b_String_2;
         this.a = ObfR.k;
         this.b = (ObfR.l + 1);
-        this.a_String = new java.lang.String[this.b];
+        this.a_String = new java.lang.String[this.b]#1;
         if (ObfR.h >= 50) goto L73;
         this.a_String[0] = CarSpec.a_String[ObfR.h];
         L73:
@@ -365,8 +365,8 @@ public class ObfR extends Screen {
         v1 += 1;
         goto L75;
         L105:
-        this.a_arrI = new int[this.b];
-        this.b_arrI = new int[this.b];
+        this.a_arrI = new int[this.b]#2;
+        this.b_arrI = new int[this.b]#3;
         v1 = 0;
         L127:
         if (v1 >= this.b) goto L155;
@@ -949,8 +949,8 @@ public class ObfR extends Screen {
     }
     // bytecode 75 bytes, max_stack 3, max_locals 2
     public void n() {
-        this.d_arrI = new int[(this.a_bs.a() * this.a)];
-        this.e_arrI = new int[(this.a_bs.a() * this.a)];
+        this.d_arrI = new int[(this.a_bs.a() * this.a)]#1;
+        this.e_arrI = new int[(this.a_bs.a() * this.a)]#2;
         int v1 = 0;
         L38:
         if (v1 >= (this.a_bs.a() * this.a)) goto L74;
@@ -1061,12 +1061,12 @@ public class ObfR extends Screen {
         int v3 = StreamReader.a(v0);
         int v4 = StreamReader.a(v0);
         v1 = ((String) javax.microedition.lcdui.Image.createImage(Resources.a(v1)));
-        new javax.microedition.lcdui.Image[4][0] = v1;
-        new javax.microedition.lcdui.Image[4][1] = SysUtil.a(v1, 90);
-        new javax.microedition.lcdui.Image[4][2] = SysUtil.a(v1, 180);
-        new javax.microedition.lcdui.Image[4][3] = SysUtil.a(v1, 270);
-        v1 = ((String) new javax.microedition.lcdui.Image[4]);
-        int v5 = (new javax.microedition.lcdui.Image[4][0].getWidth() / 8);
+        new javax.microedition.lcdui.Image[4]#1[0] = v1;
+        new javax.microedition.lcdui.Image[4]#1[1] = SysUtil.a(v1, 90);
+        new javax.microedition.lcdui.Image[4]#1[2] = SysUtil.a(v1, 180);
+        new javax.microedition.lcdui.Image[4]#1[3] = SysUtil.a(v1, 270);
+        v1 = ((String) new javax.microedition.lcdui.Image[4]#1);
+        int v5 = (new javax.microedition.lcdui.Image[4]#1[0].getWidth() / 8);
         if (v2 == 0) goto L84;
         jt1 = ObfR.e(((v3 + 2) * v5)); /* join L90 from L72 */
         goto L90;
@@ -1204,7 +1204,7 @@ public class ObfR extends Screen {
     // bytecode 97 bytes, max_stack 5, max_locals 1
     public void r() {
         /* try L0-L94 catch java.io.IOException -> L95 */
-        this.a_arrLcq = new ObfCq[2];
+        this.a_arrLcq = new ObfCq[2]#1;
         if (MainCanvas.a_Z == 0) goto L32;
         new ObfCq("/tex/md2.jpg"); /* constructor */
         this.a_arrLcq[0] = new ObfCq("/tex/md2.jpg");

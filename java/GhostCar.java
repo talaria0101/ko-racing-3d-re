@@ -15,7 +15,7 @@ public class GhostCar extends ObfCl {
     private float h_F;
     private float i_F;
     // bytecode 104 bytes, max_stack 6, max_locals 6
-    public GhostCar(ObfCf v1, InputStream v2, int v3, ObfBs v4, int v5) {
+    public GhostCar(Textures v1, InputStream v2, int v3, ObfBs v4, int v5) {
         super(v1, v2, v3, v4, v5);
         this.e = null;
         this.d = 0.0f;

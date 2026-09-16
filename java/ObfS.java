@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `s`.
 // String constants: <clinit> | <init> | Code | getClipWidth | javax/microedition/lcdui/Graphics | StackMap | java/lang/String
 // API references: javax/microedition
-public class ObfS extends ObfBi {
+public class ObfS extends MenuButton {
     private float a;
     private float b;
     private static int b_I;

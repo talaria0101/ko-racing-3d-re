@@ -2,15 +2,15 @@
 // edit: fix the emitter and re-run.  Original name `ap`.
 // String constants: /lists/hd_list | /tiles/ | <init> | Code | [Lbp; | append | close | getClass | getResourceAsStream | java/io/IOException | java/io/InputStream | java/lang/Class
 // API references: java/io
-public class ObfAp {
+public class HighList {
     private ObfBp[] a;
     private int a_I;
     // bytecode 28 bytes, max_stack 2, max_locals 1
-    public ObfAp() {
+    public HighList() {
         super();
         this.a = null;
         this.a_I = 0;
-        this.a = new ObfBp[50];
+        this.a = new ObfBp[50]#1;
         this.b();
         return;
     }

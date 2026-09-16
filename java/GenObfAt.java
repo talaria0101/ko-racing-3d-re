@@ -14,17 +14,17 @@ public class ObfAt extends ObfAm {
         return;
     }
     // bytecode 17 bytes, max_stack 7, max_locals 4
-    public ObfAt(ObfCf v1, String v2, String v3) {
+    public ObfAt(Textures v1, String v2, String v3) {
         this(v2, ObfAt.a(v1, v3, Settings.d, false, true), false);
         return;
     }
     // bytecode 16 bytes, max_stack 6, max_locals 6
-    public ObfAt(ObfCf v1, String v2, String v3, int v4, boolean v5) {
+    public ObfAt(Textures v1, String v2, String v3, int v4, boolean v5) {
         this(v2, ObfAt.a(v1, v3, v4, v5), false);
         return;
     }
     // bytecode 78 bytes, max_stack 7, max_locals 7
-    public ObfAt(ObfCf v1, String v2, String v3, int v4, boolean v5, boolean v6) {
+    public ObfAt(Textures v1, String v2, String v3, int v4, boolean v5, boolean v6) {
         if (v2.indexOf("za") >= 0) goto L47;
         if (v2.indexOf("zc") >= 0) goto L47;
         if (v2.indexOf("zc") >= 0) goto L47;
@@ -40,14 +40,14 @@ public class ObfAt extends ObfAm {
         return;
     }
     // bytecode 187 bytes, max_stack 7, max_locals 11
-    public ObfAt(ObfCf v1, String v2, String v3, int v4, boolean v5, boolean v6, String v7) {
+    public ObfAt(Textures v1, String v2, String v3, int v4, boolean v5, boolean v6, String v7) {
         super();
         this.b_Textur = null;
         this.c = null;
         this.b_Z = false;
         v4 = ((int) v3);
         v3 = ((String) v1);
-        v1 = ((ObfCf) this);
+        v1 = ((Textures) this);
         int v8 = Settings.b_Z;
         new javax.microedition.m3g.Appearance(); /* constructor */
         javax.microedition.m3g.Appearance v9 = new javax.microedition.m3g.Appearance();
@@ -61,7 +61,7 @@ public class ObfAt extends ObfAm {
         v9.setPolygonMode(v10);
         v9.setTexture(0, v3.a(v4, v5, v7, v1));
         new javax.microedition.m3g.CompositingMode(); /* constructor */
-        v1 = ((ObfCf) new javax.microedition.m3g.CompositingMode());
+        v1 = ((Textures) new javax.microedition.m3g.CompositingMode());
         if (Settings.g() == 0) goto L141;
         if (v5 == 0) goto L141;
         v1.setBlending(64);
@@ -75,7 +75,7 @@ public class ObfAt extends ObfAm {
         v1.setDepthTestEnable(true);
         L169:
         v9.setCompositingMode(v1);
-        v1 = ((ObfCf) v9);
+        v1 = ((Textures) v9);
         this.a(v2, v1, v6);
         return;
     }
@@ -171,8 +171,8 @@ public class ObfAt extends ObfAm {
         /* pop: StreamReader.a(v4); */
         float v8 = java.lang.Float.valueOf(StreamReader.a(v4)).floatValue();
         int v9 = ((short) StreamReader.a(v4));
-        byte v10 = new byte[(((short) StreamReader.a(v4)) * 3)];
-        byte v11 = new byte[(v9 << 1)];
+        byte v10 = new byte[(((short) StreamReader.a(v4)) * 3)]#1;
+        byte v11 = new byte[(v9 << 1)]#2;
         int v12 = 0;
         L119:
         if (v12 >= v9) goto L203;
@@ -185,7 +185,7 @@ public class ObfAt extends ObfAm {
         goto L119;
         L203:
         v12 = ((short) StreamReader.a(v4));
-        int v13 = new int[((short) StreamReader.a(v4))];
+        int v13 = new int[((short) StreamReader.a(v4))]#3;
         int v14 = 0;
         L219:
         if (v14 >= v12) goto L242;
@@ -196,7 +196,7 @@ public class ObfAt extends ObfAm {
         v14 = StreamReader.a(v4);
         v14 = (StreamReader.a(v4) << 8);
         v14 = (StreamReader.a(v4) + v14);
-        v12 = new int[(StreamReader.a(v4) + v14)];
+        v12 = new int[(StreamReader.a(v4) + v14)]#4;
         int v15 = 0;
         L273:
         if (v15 >= v14) goto L296;
@@ -223,13 +223,13 @@ public class ObfAt extends ObfAm {
         L402:
         new javax.microedition.m3g.VertexBuffer(); /* constructor */
         v11 = ((byte) new javax.microedition.m3g.VertexBuffer());
-        new float[2][0] = ((128.0f * v7) + v8);
-        new float[2][1] = ((128.0f * v7) + v8);
-        v8 = new float[2];
-        new float[3][0] = ((128.0f * v5) + v6);
-        new float[3][1] = ((128.0f * v5) + v6);
-        new float[3][2] = ((128.0f * v5) + v6);
-        v6 = new float[3];
+        new float[2]#9[0] = ((128.0f * v7) + v8);
+        new float[2]#9[1] = ((128.0f * v7) + v8);
+        v8 = new float[2]#9;
+        new float[3]#10[0] = ((128.0f * v5) + v6);
+        new float[3]#10[1] = ((128.0f * v5) + v6);
+        new float[3]#10[2] = ((128.0f * v5) + v6);
+        v6 = new float[3]#10;
         v11.setTexCoords(0, v15, v7, v8);
         v7 = ((float) ((byte) ((int) (v6[2] / v5))));
         if (v3 == 0) goto L577;
@@ -257,9 +257,9 @@ public class ObfAt extends ObfAm {
         this.a = new javax.microedition.m3g.Mesh(v11, v3, null);
         v2.setMaterial(null);
         if (ObfAt.a_Z == 0) goto L717;
-        new float[2][0] = ((128.0f * this.a) + this.b);
-        new float[2][1] = ((128.0f * this.a) + this.b);
-        v3 = ((boolean) new float[2]);
+        new float[2]#14[0] = ((128.0f * this.a) + this.b);
+        new float[2]#14[1] = ((128.0f * this.a) + this.b);
+        v3 = ((boolean) new float[2]#14);
         v11.setTexCoords(1, v4, this.a, v3);
         this.a = ObfBb.a.a("/tex/r.png", false);
         v2.setTexture(1, this.a);

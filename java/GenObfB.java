@@ -4,15 +4,15 @@
 // API references: java/io
 public class ObfB {
     private ObfAi[] a;
-    private ObfCf a_cf;
+    private Textures a_cf;
     private int a_I;
     // bytecode 38 bytes, max_stack 2, max_locals 2
-    public ObfB(ObfCf v1) {
+    public ObfB(Textures v1) {
         this();
         this.a = null;
         this.a_cf = null;
         this.a_I = 0;
-        this.a = new ObfAi[50];
+        this.a = new ObfAi[50]#1;
         this.a_cf = v1;
         this.b();
         return;

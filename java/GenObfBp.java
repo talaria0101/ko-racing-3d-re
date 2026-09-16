@@ -31,10 +31,10 @@ public class ObfBp {
         this.a_b = v1;
         InputStream v2 = Resources.a(this.a_String);
         this.a_I = StreamReader.a(v2);
-        this.a = new int[this.a_I];
-        this.a_arrF = new float[(3 * this.a_I)];
-        this.b = new float[(3 * this.a_I)];
-        this.c = new float[(3 * this.a_I)];
+        this.a = new int[this.a_I]#1;
+        this.a_arrF = new float[(3 * this.a_I)]#2;
+        this.b = new float[(3 * this.a_I)]#3;
+        this.c = new float[(3 * this.a_I)]#4;
         int v3 = 0;
         L69:
         if (v3 >= this.a_I) goto L382;
@@ -79,8 +79,8 @@ public class ObfBp {
         return;
     }
     // bytecode 34 bytes, max_stack 3, max_locals 2
-    public void a(ObfCf v1) {
-        v1 = ((ObfCf) 0);
+    public void a(Textures v1) {
+        v1 = ((Textures) 0);
         L2:
         if (v1 >= this.a_I) goto L33;
         this.a_b.a(this.a[v1]).a(true);

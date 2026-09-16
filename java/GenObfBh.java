@@ -4,19 +4,19 @@
 // API references: javax/microedition
 public class ObfBh extends Screen {
     protected WidgetGroup a;
-    protected ObfBi a_bi;
-    protected ObfBi b;
-    private ObfBi d;
-    private ObfBi e;
-    private ObfBi f;
+    protected MenuButton a_bi;
+    protected MenuButton b;
+    private MenuButton d;
+    private MenuButton e;
+    private MenuButton f;
     protected WidgetGroup b_cm;
-    private ObfBi g;
-    private ObfBi h;
-    private ObfBi i;
-    protected ObfBi c;
+    private MenuButton g;
+    private MenuButton h;
+    private MenuButton i;
+    protected MenuButton c;
     private WidgetGroup g_cm;
     private MenuList a_db;
-    private ObfBi j;
+    private MenuButton j;
     private WidgetGroup h_cm;
     private ObfCp a_cp;
     private ObfCp b_cp;
@@ -199,20 +199,20 @@ public class ObfBh extends Screen {
         v1.a.a(new MenuItem(null, 0, 0, 0, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
         v1.a.a(new ObfCz(3), 0);
-        new ObfBi(null, 0, 0, 1, SysUtil.b); /* constructor */
-        v1.d = new ObfBi(null, 0, 0, 1, SysUtil.b);
+        new MenuButton(null, 0, 0, 1, SysUtil.b); /* constructor */
+        v1.d = new MenuButton(null, 0, 0, 1, SysUtil.b);
         v1.a.a(v1.d, 0);
-        new ObfBi(null, 0, 0, 48, SysUtil.b); /* constructor */
-        v1.e = new ObfBi(null, 0, 0, 48, SysUtil.b);
+        new MenuButton(null, 0, 0, 48, SysUtil.b); /* constructor */
+        v1.e = new MenuButton(null, 0, 0, 48, SysUtil.b);
         v1.a.a(v1.e, 0);
-        new ObfBi(null, 0, 0, 2, SysUtil.b); /* constructor */
-        v1.b = new ObfBi(null, 0, 0, 2, SysUtil.b);
+        new MenuButton(null, 0, 0, 2, SysUtil.b); /* constructor */
+        v1.b = new MenuButton(null, 0, 0, 2, SysUtil.b);
         v1.a.a(v1.b, 0);
-        new ObfBi(null, 0, 0, 131, SysUtil.b); /* constructor */
-        v1.f = new ObfBi(null, 0, 0, 131, SysUtil.b);
+        new MenuButton(null, 0, 0, 131, SysUtil.b); /* constructor */
+        v1.f = new MenuButton(null, 0, 0, 131, SysUtil.b);
         v1.a.a(v1.f, 0);
-        new ObfBi(null, 0, 0, 3, SysUtil.b); /* constructor */
-        v1.a_bi = new ObfBi(null, 0, 0, 3, SysUtil.b);
+        new MenuButton(null, 0, 0, 3, SysUtil.b); /* constructor */
+        v1.a_bi = new MenuButton(null, 0, 0, 3, SysUtil.b);
         v1.a.a(v1.a_bi, 0);
         this.m();
         this.a(this.a);
@@ -226,8 +226,8 @@ public class ObfBh extends Screen {
         this.b_cm.a(new MenuItem(null, 0, 0, 2, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
         this.b_cm.a(new ObfCz(3), 0);
-        new ObfBi(null, 0, 0, 4, SysUtil.b); /* constructor */
-        this.g = new ObfBi(null, 0, 0, 4, SysUtil.b);
+        new MenuButton(null, 0, 0, 4, SysUtil.b); /* constructor */
+        this.g = new MenuButton(null, 0, 0, 4, SysUtil.b);
         this.b_cm.a(this.g, 0);
         ObfBh v1 = this;
         new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, true); /* constructor */
@@ -243,8 +243,8 @@ public class ObfBh extends Screen {
         v1.a_db.c(19);
         v1.a_db.c(16);
         v1.g_cm.a(v1.a_db, 0);
-        new ObfBi(null, 0, 0, 236, SysUtil.b); /* constructor */
-        v1.j = new ObfBi(null, 0, 0, 236, SysUtil.b);
+        new MenuButton(null, 0, 0, 236, SysUtil.b); /* constructor */
+        v1.j = new MenuButton(null, 0, 0, 236, SysUtil.b);
         v1.g_cm.a(v1.j, 0);
         v1.b();
         new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, true); /* constructor */
@@ -312,8 +312,8 @@ public class ObfBh extends Screen {
         v1.d_cp = new ObfCp(v1.h_cm, 0, 0, v1.a.getWidth(), 234);
         v1.h_cm.a(v1.d_cp, 0);
         v1.y();
-        new ObfBi(null, 0, 0, 51, SysUtil.b); /* constructor */
-        this.i = new ObfBi(null, 0, 0, 51, SysUtil.b);
+        new MenuButton(null, 0, 0, 51, SysUtil.b); /* constructor */
+        this.i = new MenuButton(null, 0, 0, 51, SysUtil.b);
         this.b_cm.a(this.i, 0);
         v1 = this;
         new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true); /* constructor */
@@ -339,8 +339,8 @@ public class ObfBh extends Screen {
         v1.l.c(45);
         v1.j_cm.a(v1.l, 0);
         v1.z();
-        new ObfBi(null, 0, 0, 24, SysUtil.b); /* constructor */
-        this.h = new ObfBi(null, 0, 0, 24, SysUtil.b);
+        new MenuButton(null, 0, 0, 24, SysUtil.b); /* constructor */
+        this.h = new MenuButton(null, 0, 0, 24, SysUtil.b);
         v1 = this;
         new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true); /* constructor */
         this.i_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true);
@@ -505,10 +505,10 @@ public class ObfBh extends Screen {
         Settings.d_I = Settings.c_I;
         L153:
         ObfBh v1 = this;
-        new boolean[3][0] = 1;
-        new boolean[3][1] = 1;
-        new boolean[3][2] = 1;
-        boolean v2 = new boolean[3];
+        new boolean[3]#1[0] = 1;
+        new boolean[3]#1[1] = 1;
+        new boolean[3]#1[2] = 1;
+        boolean v2 = new boolean[3]#1;
         int v3 = 0;
         L173:
         if (v3 >= 3) goto L211;

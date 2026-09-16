@@ -7,9 +7,9 @@ public class ObfBr extends TrackSelect {
     public ObfBr(MainCanvas v1, String v2) {
         super(v1);
         this.b = "KORa_deluxe";
-        this.a = new int[10];
+        this.a = new int[10]#1;
         this.d = 0;
-        this.b = new int[5];
+        this.b = new int[5]#2;
         this.e = 0;
         this.a = v2;
         this.c();

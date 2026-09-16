@@ -49,8 +49,8 @@ public class ScoreUpload {
         return null;
         L49:
         v2 = v1.readByte();
-        this.a_arrI = new int[v2];
-        this.a_String = new java.lang.String[v2];
+        this.a_arrI = new int[v2]#3;
+        this.a_String = new java.lang.String[v2]#4;
         int v3 = 0;
         L71:
         if (v3 >= v2) goto L102;
@@ -88,7 +88,7 @@ public class ScoreUpload {
         MainCanvas.a();
         v2 = ((byte[]) v0.openInputStream());
         int v4 = 0;
-        byte v5 = new byte[4096];
+        byte v5 = new byte[4096]#1;
         L74:
         v3 = ((OutputStream) v2.read(v5, v4, 128));
         if (v2.read(v5, v4, 128) <= 0) goto L96;
@@ -100,11 +100,11 @@ public class ScoreUpload {
         new java.lang.String(v5, 0, v4); /* constructor */
         v3 = ((OutputStream) new java.lang.String(v5, 0, v4));
         if (new java.lang.String(v5, 0, v4).indexOf("Error") < 0) goto L135;
-        return new byte[0];
+        return new byte[0]#3;
         L135:
         goto L142;
         L138:
-        return new byte[0];
+        return new byte[0]#4;
         L142:
         v2.close();
         v0.close();

@@ -2,12 +2,12 @@
 // edit: fix the emitter and re-run.  Original name `dl`.
 // String constants: <init> | Code | drawImage | getClipHeight | getHeight | getWidth | javax/microedition/lcdui/Graphics | javax/microedition/lcdui/Image | StackMap
 // API references: javax/microedition
-public class ObfDl extends MenuItem {
+public class ImageItem extends MenuItem {
     private Image a;
     private int b;
     private byte b_B;
     // bytecode 27 bytes, max_stack 6, max_locals 6
-    public ObfDl(Widget v1, int v2, int v3, int v4, Font v5) {
+    public ImageItem(Widget v1, int v2, int v3, int v4, Font v5) {
         super(v1, 0, 0, v4, v5);
         this.a = null;
         this.b = 0;

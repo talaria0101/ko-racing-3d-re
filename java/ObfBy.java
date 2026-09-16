@@ -4,7 +4,7 @@
 // API references: javax/microedition
 public class ObfBy extends ObfAt {
     // bytecode 11 bytes, max_stack 6, max_locals 6
-    public ObfBy(ObfCf v1, String v2, String v3, int v4, boolean v5) {
+    public ObfBy(Textures v1, String v2, String v3, int v4, boolean v5) {
         super(v1, v2, v3, v4, true);
         return;
     }

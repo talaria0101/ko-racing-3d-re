@@ -87,8 +87,8 @@ public class Bluetooth implements java.lang.Runnable, javax.bluetooth.DiscoveryL
         v2 = ((java.lang.Throwable) 0);
         L67:
         if (v2 >= v1.a_Vector.size()) goto L152;
-        javax.bluetooth.UUID[] v3 = new javax.bluetooth.UUID[1];
-        new javax.bluetooth.UUID[1][0] = v1.a_UUID;
+        javax.bluetooth.UUID[] v3 = new javax.bluetooth.UUID[1]#1;
+        new javax.bluetooth.UUID[1]#1[0] = v1.a_UUID;
         v1.b_I = v1.a_Discov.searchServices(null, v3, ((javax.bluetooth.RemoteDevice) v1.a_Vector.elementAt(v2)), v1);
         v3 = ((javax.bluetooth.UUID[]) v1.a);
         monitorenter(v1.a); /* synchronized block */

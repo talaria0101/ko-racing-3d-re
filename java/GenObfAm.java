@@ -31,15 +31,15 @@ public class ObfAm {
         return;
     }
     // bytecode 11 bytes, max_stack 5, max_locals 4
-    public static Appearance a(ObfCf v0, String v1, int v2, boolean v3) {
+    public static Appearance a(Textures v0, String v1, int v2, boolean v3) {
         return ObfAm.a(v0, v1, v2, v3, Settings.b);
     }
     // bytecode 12 bytes, max_stack 5, max_locals 5
-    public static Appearance a(ObfCf v0, String v1, int v2, boolean v3, boolean v4) {
+    public static Appearance a(Textures v0, String v1, int v2, boolean v3, boolean v4) {
         return ObfAm.a(v0, v1, v3, v4, 160);
     }
     // bytecode 118 bytes, max_stack 5, max_locals 7
-    public static Appearance a(ObfCf v0, String v1, boolean v2, boolean v3, int v4) {
+    public static Appearance a(Textures v0, String v1, boolean v2, boolean v3, int v4) {
         new javax.microedition.m3g.Appearance(); /* constructor */
         javax.microedition.m3g.Appearance v5 = new javax.microedition.m3g.Appearance();
         new javax.microedition.m3g.PolygonMode(); /* constructor */
@@ -52,7 +52,7 @@ public class ObfAm {
         v5.setPolygonMode(v6);
         v5.setTexture(0, v0.a(v1, v2));
         new javax.microedition.m3g.CompositingMode(); /* constructor */
-        v0 = ((ObfCf) new javax.microedition.m3g.CompositingMode());
+        v0 = ((Textures) new javax.microedition.m3g.CompositingMode());
         if (Settings.g() == 0) goto L95;
         if (v2 == 0) goto L95;
         v0.setBlending(64);

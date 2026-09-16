@@ -23,13 +23,13 @@ public class ObfCe {
         this.e = null;
         this.a_F = 0.0f;
         int v1 = ((int) (((float) (SysUtil.e * SysUtil.f)) * 0.0010000000474974513f));
-        this.a = new int[v1];
-        this.b = new int[v1];
-        this.a_arrF = new float[v1];
-        this.c = new int[v1];
-        this.d = new int[v1];
-        this.b_arrF = new float[v1];
-        this.e = new int[v1];
+        this.a = new int[v1]#1;
+        this.b = new int[v1]#2;
+        this.a_arrF = new float[v1]#3;
+        this.c = new int[v1]#4;
+        this.d = new int[v1]#5;
+        this.b_arrF = new float[v1]#6;
+        this.e = new int[v1]#7;
         int v2 = 0;
         L108:
         if (v2 >= v1) goto L205;

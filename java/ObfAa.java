@@ -63,10 +63,10 @@ public class ObfAa extends ObfJ {
         L223:
         v3.a(this.b);
         v3.b(this.a);
-        new float[3][0] = (v1.b() + (this.d * v3.a()));
-        new float[3][1] = (v1.c() - (this.d * v3.b()));
-        new float[3][2] = ((v1.d() + (this.d * v3.c())) + this.c);
-        v1 = ((ObfDi) new float[3]);
+        new float[3]#2[0] = (v1.b() + (this.d * v3.a()));
+        new float[3]#2[1] = (v1.c() - (this.d * v3.b()));
+        new float[3]#2[2] = ((v1.d() + (this.d * v3.c())) + this.c);
+        v1 = ((ObfDi) new float[3]#2);
         this.a.postTranslate(v1[0], v1[1], v1[2]);
         this.a.a(v1, (-this.a), 0.0f);
         this.a.postRotate((180.0f - this.a), 0.0f, 0.0f, 1.0f);

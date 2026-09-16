@@ -236,9 +236,9 @@ public class TrackSelect extends Screen {
         this.j_Z = false;
         this.B = 0;
         this.C = 0;
-        this.a_arrI = new int[10];
+        this.a_arrI = new int[10]#1;
         this.d_I = 0;
-        this.b_arrI = new int[7];
+        this.b_arrI = new int[7]#2;
         this.e_I = 0;
         this.a_String = v2;
         this.c();
@@ -292,16 +292,16 @@ public class TrackSelect extends Screen {
         new java.lang.StringBuffer(); /* constructor */
         InputStream v1 = Resources.a(new java.lang.StringBuffer().append(this.a_String).append(".000").toString());
         this.j = StreamReader.a(v1);
-        this.a_arrarrI = new Obf[I[this.j];
-        this.a_String = new java.lang.String[this.j];
-        this.b_String = new java.lang.String[this.j];
-        this.c_arrI = new int[this.j];
-        this.d = new int[this.j];
-        this.a_arrZ = new boolean[this.j];
+        this.a_arrarrI = new Obf[I[this.j]#2;
+        this.a_String = new java.lang.String[this.j]#3;
+        this.b_String = new java.lang.String[this.j]#4;
+        this.c_arrI = new int[this.j]#5;
+        this.d = new int[this.j]#6;
+        this.a_arrZ = new boolean[this.j]#7;
         int v2 = 0;
         L103:
         if (v2 >= this.j) goto L250;
-        this.a_arrarrI[v2] = new int[5];
+        this.a_arrarrI[v2] = new int[5]#8;
         this.a_arrarrI[v2][0] = StreamReader.a(v1);
         this.a_arrarrI[v2][1] = StreamReader.a(v1);
         this.a_arrarrI[v2][2] = m1;
@@ -325,8 +325,8 @@ public class TrackSelect extends Screen {
         goto L103;
         L250:
         this.p = (StreamReader.a(v1) + 1);
-        this.e_arrI = new int[this.p];
-        this.d_arrZ = new boolean[this.p];
+        this.e_arrI = new int[this.p]#9;
+        this.d_arrZ = new boolean[this.p]#10;
         v2 = 0;
         L282:
         if (v2 >= (this.p - 1)) goto L315;
@@ -337,8 +337,8 @@ public class TrackSelect extends Screen {
         L315:
         this.d_arrZ[1] = 1;
         this.w = StreamReader.a(v1);
-        this.f_arrI = new int[this.w];
-        this.c_String_2 = new java.lang.String[this.w];
+        this.f_arrI = new int[this.w]#11;
+        this.c_String_2 = new java.lang.String[this.w]#12;
         v2 = 0;
         L353:
         if (v2 >= this.w) goto L387;
@@ -348,13 +348,13 @@ public class TrackSelect extends Screen {
         goto L353;
         L387:
         this.a_I = StreamReader.a(v1);
-        this.b_arrarrI = new Obf[I[this.a_I];
-        this.b_arrZ = new boolean[this.a_I];
-        this.c_arrZ = new boolean[this.a_I];
+        this.b_arrarrI = new Obf[I[this.a_I]#13;
+        this.b_arrZ = new boolean[this.a_I]#14;
+        this.c_arrZ = new boolean[this.a_I]#15;
         v2 = 0;
         L428:
         if (v2 >= this.a_I) goto L555;
-        this.b_arrarrI[v2] = new int[8];
+        this.b_arrarrI[v2] = new int[8]#16;
         this.b_arrarrI[v2][0] = StreamReader.a(v1);
         this.b_arrarrI[v2][1] = StreamReader.a(v1);
         this.b_arrarrI[v2][2] = StreamReader.b(v1);
@@ -458,12 +458,12 @@ public class TrackSelect extends Screen {
         goto L41;
         L281:
         this.k();
-        this.c_arrarrI = new Obf[I[this.j];
+        this.c_arrarrI = new Obf[I[this.j]#1;
         v2 = 0;
         L298:
         if (v2 >= this.j) goto L647;
         if (this.a_arrarrI[v2][2] < 0) goto L641;
-        this.c_arrarrI[v2] = new int[this.a_arrarrI[v2][2]];
+        this.c_arrarrI[v2] = new int[this.a_arrarrI[v2][2]]#2;
         int v4 = v2;
         TrackSelect v3 = this;
         int v5 = 0;
@@ -1855,7 +1855,7 @@ public class TrackSelect extends Screen {
         v4 = ((java.io.DataOutputStream) v3.readByte());
         if (v3.readByte() != 0) goto L222;
         v4 = ((java.io.DataOutputStream) v3.readInt());
-        v2 = ((Object) new byte[v3.readInt()]);
+        v2 = ((Object) new byte[v3.readInt()]#5);
         /* pop: v3.read(v2); */
         v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore(this.b_String, true, 0, false));
         javax.microedition.rms.RecordStore.openRecordStore(this.b_String, true, 0, false).setRecord(1, v2, 0, v2.length);

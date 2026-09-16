@@ -239,7 +239,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v5 = ((Object) v3.openInputStream());
         v7 = ((String) ((int) v3.getLength()));
         if (((int) v3.getLength()) <= 0) goto L458;
-        v1 = ((String) new byte[v7]);
+        v1 = ((String) new byte[v7]#4);
         v7 = ((String) 0);
         L426:
         if (v7 == v1.length) goto L462;
@@ -247,7 +247,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v7 = ((String) (v7 + v4));
         goto L426;
         L458:
-        v1 = ((String) new byte[1]);
+        v1 = ((String) new byte[1]#5);
         L462:
         /* pop: VservManager.cache.put(v2, v1); */
         goto L505;
@@ -335,7 +335,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.a(v1);
         if (this.c == null) goto L116;
         if (this.c.length <= 0) goto L116;
-        this.a_arrZ = new boolean[this.c.length];
+        this.a_arrZ = new boolean[this.c.length]#2;
         v1 = ((byte[]) 0);
         L94:
         if (v1 >= this.a_arrZ.length) goto L116;
@@ -345,7 +345,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L116:
         if (this.b_Hashta == null) goto L166;
         if (this.b_Hashta.length <= 0) goto L166;
-        this.b_arrZ = new boolean[this.b_Hashta.length];
+        this.b_arrZ = new boolean[this.b_Hashta.length]#3;
         v1 = ((byte[]) 0);
         L144:
         if (v1 >= this.b_arrZ.length) goto L166;
@@ -355,7 +355,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L166:
         if (this.d == null) goto L216;
         if (this.d.length <= 0) goto L216;
-        this.c_arrZ = new boolean[this.d.length];
+        this.c_arrZ = new boolean[this.d.length]#4;
         v1 = ((byte[]) 0);
         L194:
         if (v1 >= this.c_arrZ.length) goto L216;
@@ -482,8 +482,8 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         goto L28;
         L152:
         if (v2 == null) goto L279;
-        v8 = ((java.lang.String) new ObfJSONObject[v2.length()]);
-        this.a_Hashta = new java.util.Hashtable[v2.length()];
+        v8 = ((java.lang.String) new ObfJSONObject[v2.length()]#2);
+        this.a_Hashta = new java.util.Hashtable[v2.length()]#3;
         v1 = ((String) 0);
         L178:
         if (v1 >= v2.length()) goto L279;
@@ -506,8 +506,8 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.a(false);
         L288:
         if (v3 == null) goto L866;
-        v8 = ((java.lang.String) new ObfJSONObject[v3.length()]);
-        this.b_Hashta = new java.util.Hashtable[v3.length()];
+        v8 = ((java.lang.String) new ObfJSONObject[v3.length()]#5);
+        this.b_Hashta = new java.util.Hashtable[v3.length()]#6;
         v1 = ((String) null);
         v9 = ((java.lang.String) null);
         v2 = null;
@@ -539,8 +539,8 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L497:
         v12 = ((java.lang.String) null);
         if (v1 == null) goto L734;
-        v11 = ((Enumeration) new ObfJSONObject[v1.length()]);
-        v7 = ((Enumeration) new java.util.Hashtable[v1.length()]);
+        v11 = ((Enumeration) new ObfJSONObject[v1.length()]#8);
+        v7 = ((Enumeration) new java.util.Hashtable[v1.length()]#9);
         int v13 = 0;
         L525:
         if (v13 >= v1.length()) goto L717;
@@ -560,7 +560,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         goto L578;
         L648:
         if (v12 == null) goto L711;
-        v15 = ((java.lang.String) new java.lang.String[v12.length()]);
+        v15 = ((java.lang.String) new java.lang.String[v12.length()]#11);
         v14 = ((Enumeration) 0);
         L666:
         if (v14 >= v15.length) goto L695;
@@ -578,7 +578,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v1 = ((String) null);
         L734:
         if (v9 == null) goto L799;
-        v11 = ((Enumeration) new java.lang.String[v9.length()]);
+        v11 = ((Enumeration) new java.lang.String[v9.length()]#12);
         v13 = 0;
         L752:
         if (v13 >= v11.length) goto L781;
@@ -590,7 +590,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v9 = ((java.lang.String) null);
         L799:
         if (v2 == null) goto L860;
-        v11 = ((Enumeration) new java.lang.String[v2.length()]);
+        v11 = ((Enumeration) new java.lang.String[v2.length()]#13);
         v13 = 0;
         L815:
         if (v13 >= v11.length) goto L843;
@@ -609,8 +609,8 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.a(false);
         L875:
         if (v4 == null) goto L1192;
-        v8 = ((java.lang.String) new ObfJSONObject[v4.length()]);
-        this.c = new java.util.Hashtable[v4.length()];
+        v8 = ((java.lang.String) new ObfJSONObject[v4.length()]#14);
+        this.c = new java.util.Hashtable[v4.length()]#15;
         v1 = ((String) null);
         v7 = ((Enumeration) null);
         v9 = ((java.lang.String) 0);
@@ -636,7 +636,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         goto L966;
         L1060:
         if (v1 == null) goto L1121;
-        v10 = ((int) new java.lang.String[v1.length()]);
+        v10 = ((int) new java.lang.String[v1.length()]#17);
         v11 = ((Enumeration) 0);
         L1076:
         if (v11 >= v10.length) goto L1104;
@@ -648,7 +648,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v1 = ((String) null);
         L1121:
         if (v7 == null) goto L1186;
-        v10 = ((int) new java.lang.String[v7.length()]);
+        v10 = ((int) new java.lang.String[v7.length()]#18);
         v11 = ((Enumeration) 0);
         L1139:
         if (v11 >= v10.length) goto L1168;
@@ -667,15 +667,15 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.a(false);
         L1201:
         if (v5 == null) goto L1404;
-        v8 = ((java.lang.String) new ObfJSONArray[v5.length()]);
-        this.a_Hashta_2 = new ObfHashtable;[v5.length()];
+        v8 = ((java.lang.String) new ObfJSONArray[v5.length()]#19);
+        this.a_Hashta_2 = new ObfHashtable;[v5.length()]#20;
         v1 = ((String) 0);
         L1230:
         if (v1 >= v5.length()) goto L1404;
         v8[v1] = ((ObfJSONArray) v5.get(v1));
         if (v8[v1] == null) goto L1398;
-        v7 = ((Enumeration) new ObfJSONObject[v8[v1].length()]);
-        this.a_Hashta_2[v1] = new java.util.Hashtable[v8[v1].length()];
+        v7 = ((Enumeration) new ObfJSONObject[v8[v1].length()]#21);
+        this.a_Hashta_2[v1] = new java.util.Hashtable[v8[v1].length()]#22;
         v9 = ((java.lang.String) 0);
         L1290:
         if (v9 >= v8[v1].length()) goto L1398;
@@ -700,8 +700,8 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.a(false);
         L1413:
         if (v6 == null) goto L1979;
-        v8 = ((java.lang.String) new ObfJSONObject[v6.length()]);
-        this.d = new java.util.Hashtable[v6.length()];
+        v8 = ((java.lang.String) new ObfJSONObject[v6.length()]#24);
+        this.d = new java.util.Hashtable[v6.length()]#25;
         v1 = ((String) 0);
         L1442:
         if (v1 >= v6.length()) goto L1979;
@@ -737,8 +737,8 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         goto L1504;
         L1644:
         if (v7 == null) goto L1793;
-        v11 = ((Enumeration) new ObfJSONObject[v7.length()]);
-        v12 = ((java.lang.String) new java.util.Hashtable[v7.length()]);
+        v11 = ((Enumeration) new ObfJSONObject[v7.length()]#27);
+        v12 = ((java.lang.String) new java.util.Hashtable[v7.length()]#28);
         v13 = 0;
         L1672:
         if (v13 >= v7.length()) goto L1779;
@@ -759,7 +759,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         /* pop: this.d[v1].put("key", v12); */
         L1793:
         if (v9 == null) goto L1854;
-        v11 = ((Enumeration) new java.lang.String[v9.length()]);
+        v11 = ((Enumeration) new java.lang.String[v9.length()]#30);
         v13 = 0;
         L1811:
         if (v13 >= v11.length) goto L1840;
@@ -770,7 +770,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         /* pop: this.d[v1].put("notify-once", v11); */
         L1854:
         if (v2 == null) goto L1912;
-        v11 = ((Enumeration) new java.lang.String[v2.length()]);
+        v11 = ((Enumeration) new java.lang.String[v2.length()]#31);
         v13 = 0;
         L1870:
         if (v13 >= v11.length) goto L1898;
@@ -781,7 +781,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         /* pop: this.d[v1].put("notify", v11); */
         L1912:
         if (v10 == null) goto L1973;
-        v11 = ((Enumeration) new java.lang.String[v10.length()]);
+        v11 = ((Enumeration) new java.lang.String[v10.length()]#32);
         v13 = 0;
         L1930:
         if (v13 >= v11.length) goto L1959;
@@ -943,7 +943,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v4 = ((Object) v3.openInputStream());
         if (v2 != 1) goto L260;
         v2 = ((int) v3.getLength());
-        v1 = ((String) new byte[((int) v3.getLength())]);
+        v1 = ((String) new byte[((int) v3.getLength())]#1);
         v2 = 0;
         L197:
         if (v2 == v1.length) goto L224;
@@ -1563,8 +1563,8 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         int v6 = 0;
         if (v4.b_Hashta.containsKey("supportedScreens") == 0) goto L509;
         v4 = ((VservManager) VservManager.a(v4.b_Hashta.get("supportedScreens").toString(), "|"));
-        int v7 = new int[VservManager.a(v4.b_Hashta.get("supportedScreens").toString(), "|").length];
-        int v8 = new int[v4.length];
+        int v7 = new int[VservManager.a(v4.b_Hashta.get("supportedScreens").toString(), "|").length]#1;
+        int v8 = new int[v4.length]#2;
         int v2 = 0;
         L72:
         if (v2 >= v4.length) goto L124;
@@ -1650,8 +1650,8 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v5 = v7[(v4.length - 1)];
         v6 = v8[(v4.length - 1)];
         L509:
-        v4 = ((VservManager) new int[2]);
-        new int[2][0] = v5;
+        v4 = ((VservManager) new int[2]#3);
+        new int[2]#3[0] = v5;
         v4[1] = v6;
         v3 = ((String[]) v4);
         v2 = v4[0];
@@ -1670,8 +1670,8 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         goto L567;
         L613:
         v5 = ((int) v7.substring(0, (v7.length() - 1)));
-        v8 = ((int) new java.lang.String[2]);
-        new java.lang.String[2][0] = v5;
+        v8 = ((int) new java.lang.String[2]#5);
+        new java.lang.String[2]#5[0] = v5;
         v8[1] = v4;
         v4 = ((VservManager) v8);
         v1 = ((String) v8[0]);
@@ -1698,7 +1698,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         int v6 = 0;
         new java.lang.StringBuffer(); /* constructor */
         java.lang.StringBuffer v7 = new java.lang.StringBuffer();
-        java.lang.String[] v3 = new java.lang.String[((this.a_Font.stringWidth(v1) / v2) + 5)];
+        java.lang.String[] v3 = new java.lang.String[((this.a_Font.stringWidth(v1) / v2) + 5)]#2;
         int v8 = 0;
         L41:
         if (v8 >= v1.length()) goto L312;
@@ -1745,7 +1745,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v1 += 1;
         goto L317;
         L338:
-        v4 = ((Object) new java.lang.String[v8]);
+        v4 = ((Object) new java.lang.String[v8]#6);
         v1 = ((String) 0);
         v2 = 0;
         L349:
@@ -2357,7 +2357,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (v4 != 200) goto L917;
         v7 = ((Object) v6.openInputStream());
         v9 = ((String) ((int) v6.getLength()));
-        v4 = ((ObfString;) new byte[((int) v6.getLength())]);
+        v4 = ((ObfString;) new byte[((int) v6.getLength())]#3);
         v9 = ((String) 0);
         L803:
         if (v9 == v4.length) goto L838;
@@ -2449,7 +2449,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         new java.lang.StringBuffer(); /* constructor */
         v1 = ((Enumeration) this.getClass().getResourceAsStream(new java.lang.StringBuffer().append("/").append(v1).toString()));
         v2 = ((VservManager) v1.available());
-        v3 = ((Object) new byte[v1.available()]);
+        v3 = ((Object) new byte[v1.available()]#7);
         v2 = ((VservManager) 0);
         L1210:
         if (v2 == v3.length) goto L1236;
@@ -2992,7 +2992,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         goto L16;
         L50:
         v2.addElement(v0);
-        v0 = ((String) new java.lang.String[v2.size()]);
+        v0 = ((String) new java.lang.String[v2.size()]#2);
         if (v2.size() <= 0) goto L100;
         v1 = ((String) 0);
         L72:
@@ -3659,10 +3659,10 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.a_List = new javax.microedition.lcdui.List("Select Action", 3);
         this.a_arrI = null;
         if (this.b_Hashta[this.b_I].get("type").equals("video") == 0) goto L509;
-        this.a_arrI = new int[(this.a_Hashta_2[v2].length + 1)];
+        this.a_arrI = new int[(this.a_Hashta_2[v2].length + 1)]#2;
         goto L522;
         L509:
-        this.a_arrI = new int[this.a_Hashta_2[v2].length];
+        this.a_arrI = new int[this.a_Hashta_2[v2].length]#3;
         L522:
         v3 = 0;
         v4 = ((VservManager) 0);
@@ -3907,7 +3907,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         new java.lang.StringBuffer(); /* constructor */
         v5 = ((Command) new java.lang.StringBuffer().append(v5).append(v2[v6].get("label")).append(":").toString());
         v7 = ((Item) ((javax.microedition.lcdui.ChoiceGroup) v7));
-        boolean v8 = new boolean[((javax.microedition.lcdui.ChoiceGroup) v7).size()];
+        boolean v8 = new boolean[((javax.microedition.lcdui.ChoiceGroup) v7).size()]#5;
         /* pop: v7.getSelectedFlags(v8); */
         int v9 = 0;
         int v10 = 0;
@@ -4132,12 +4132,12 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
     public String getRecordFormRMS(int v1) {
         /* try L3-L75 catch java.lang.Exception -> L78 */
         String v2 = "";
-        byte v3 = new byte[5];
+        byte v3 = new byte[5]#1;
         int v5 = v1;
         L10:
         if (v5 >= (v1 + 1)) goto L75;
         if (this.b_Record.getRecordSize(v5) <= v3.length) goto L44;
-        v3 = new byte[this.b_Record.getRecordSize(v5)];
+        v3 = new byte[this.b_Record.getRecordSize(v5)]#2;
         L44:
         int v4 = this.b_Record.getRecord(v5, v3, 0);
         new java.lang.String(v3, 0, v4); /* constructor */

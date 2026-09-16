@@ -40,3 +40,14 @@ n	CheckBox
 ab	Dialog
 ct	Plane
 t	TextBuffer
+ae	MidList
+ap	HighList
+bf	TileList
+bi	MenuButton
+bj	Rect
+bo	OpponentCar
+cf	Textures
+cn	UiText
+de	Meshes
+df	Frustum
+dl	ImageItem

@@ -38,7 +38,7 @@ public class MenuScreen extends ObfR {
         L68:
         MenuScreen.m = StreamReader.a(v1);
         MenuScreen.l = StreamReader.a(v1);
-        MenuScreen.c = new int[StreamReader.a(v1)];
+        MenuScreen.c = new int[StreamReader.a(v1)]#1;
         if (MenuScreen.l <= 3) goto L214;
         int v3 = 0;
         L97:

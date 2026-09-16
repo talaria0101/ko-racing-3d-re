@@ -19,7 +19,7 @@ public class ObfCl extends ObfCa {
     private Vec3 f;
     private Vec3 g;
     private Vec3 h_bz;
-    private ObfBj a_bj;
+    private Rect a_bj;
     private boolean j;
     private float f_F;
     private float g_F;
@@ -88,7 +88,7 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 793 bytes, max_stack 7, max_locals 6
-    public ObfCl(ObfCf v1, InputStream v2, int v3, ObfBs v4, int v5) {
+    public ObfCl(Textures v1, InputStream v2, int v3, ObfBs v4, int v5) {
         /* try L449-L490 catch java.lang.Exception -> L493 */
         super();
         this.a = 11141120;
@@ -249,7 +249,7 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 18 bytes, max_stack 3, max_locals 2
-    public void a(ObfCf v1) {
+    public void a(Textures v1) {
         if (this.d_I != Settings.d()) goto L11;
         return;
         L11:
@@ -285,7 +285,7 @@ public class ObfCl extends ObfCa {
         return;
     }
     // bytecode 248 bytes, max_stack 7, max_locals 3
-    public void a(ObfCf v1, boolean v2) {
+    public void a(Textures v1, boolean v2) {
         /* try L192-L211 catch java.io.IOException -> L214 */
         if (Settings.d() <= 1) goto L11;
         ObfAt.a_Z = true;

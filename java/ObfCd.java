@@ -43,7 +43,7 @@ public class ObfCd extends MenuScreen {
         L61:
         ObfCd.m = StreamReader.a(v1);
         ObfCd.l = StreamReader.a(v1);
-        ObfCd.c = new int[StreamReader.a(v1)];
+        ObfCd.c = new int[StreamReader.a(v1)]#1;
         int v3 = 0;
         L83:
         if (v3 >= ObfCd.l) goto L227;
@@ -88,7 +88,7 @@ public class ObfCd extends MenuScreen {
         goto L83;
         L227:
         ObfCd.k = ObfCd.l;
-        ObfCd.d = new int[ObfCd.l];
+        ObfCd.d = new int[ObfCd.l]#2;
         v3 = 0;
         L241:
         if (v3 >= ObfCd.k) goto L260;

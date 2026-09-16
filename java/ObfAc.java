@@ -29,7 +29,7 @@ public class ObfAc extends MenuScreen {
         ObfAc.a = jt1;
         ObfAc.m = StreamReader.a(v1);
         ObfAc.l = 1;
-        ObfAc.c = new int[1];
+        ObfAc.c = new int[1]#1;
         int v3 = 0;
         L64:
         if (v3 >= ObfAc.l) goto L142;

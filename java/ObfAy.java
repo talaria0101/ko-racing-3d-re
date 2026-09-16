@@ -19,8 +19,8 @@ public class ObfAy extends ObfL {
         int v1 = 0;
         L2:
         if (v1 >= this.a) goto L39;
-        this.a[v1] = new int[4];
-        this.a[v1] = new float[2];
+        this.a[v1] = new int[4]#1;
+        this.a[v1] = new float[2]#2;
         this.a(v1);
         v1 += 1;
         goto L2;

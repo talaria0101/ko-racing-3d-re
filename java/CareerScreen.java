@@ -26,7 +26,7 @@ public class CareerScreen extends MenuScreen {
         this.l = false;
         this.f = v2;
         CareerScreen.l = 1;
-        CareerScreen.c = new int[1];
+        CareerScreen.c = new int[1]#1;
         CareerScreen.a = false;
         return;
     }
@@ -145,7 +145,7 @@ public class CareerScreen extends MenuScreen {
         L25:
         int v2 = v1.read();
         v2 = (v1.read() + (256 * v1.read()));
-        byte v3 = new byte[(v1.read() + (256 * v1.read()))];
+        byte v3 = new byte[(v1.read() + (256 * v1.read()))]#1;
         /* pop: v1.read(v3); */
         new java.io.ByteArrayInputStream(v3, 0, v2); /* constructor */
         v1 = ((InputStream) new java.io.ByteArrayInputStream(v3, 0, v2));

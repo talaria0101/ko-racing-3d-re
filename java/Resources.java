@@ -36,8 +36,8 @@ public class Resources {
         v1 = ((String) this.getClass().getResourceAsStream(v1));
         int v2 = StreamReader.a(this.getClass().getResourceAsStream(v1));
         this.a = StreamReader.b(v1);
-        this.a_String_2 = new java.lang.String[v2];
-        this.a_arrI = new int[v2];
+        this.a_String_2 = new java.lang.String[v2]#1;
+        this.a_arrI = new int[v2]#2;
         int v3 = 0;
         L73:
         if (v3 >= v2) goto L104;

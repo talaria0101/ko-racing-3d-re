@@ -19,7 +19,7 @@ public class MenuList extends Widget {
         this.b(true);
         this.a(false);
         this.b(v3);
-        this.a_arrLax = new MenuItem[v2];
+        this.a_arrLax = new MenuItem[v2]#1;
         if (this.a == null) goto L78;
         this.e(this.a.b());
         goto L89;

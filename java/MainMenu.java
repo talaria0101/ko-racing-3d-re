@@ -176,7 +176,7 @@ public class MainMenu {
         L79:
         int v4 = v1.readByte();
         v3.writeByte(v4);
-        this.a_arrLdd = new ObfDd[v4];
+        this.a_arrLdd = new ObfDd[v4]#5;
         int v5 = 0;
         L103:
         if (v5 >= v4) goto L152;
@@ -373,13 +373,13 @@ public class MainMenu {
         L120:
         this.a_Z = jt1;
         this.d_I = v1.readByte();
-        this.a_arrI = new int[this.d_I];
-        this.b_arrI = new int[this.d_I];
-        this.a_arrarrB = new Obf[B[this.d_I];
-        this.a_String = new java.lang.String[this.d_I];
-        this.c_arrI = new int[this.d_I];
-        this.d_arrI = new int[this.d_I];
-        this.b_arrarrB = new Obf[B[this.d_I];
+        this.a_arrI = new int[this.d_I]#4;
+        this.b_arrI = new int[this.d_I]#5;
+        this.a_arrarrB = new Obf[B[this.d_I]#6;
+        this.a_String = new java.lang.String[this.d_I]#7;
+        this.c_arrI = new int[this.d_I]#8;
+        this.d_arrI = new int[this.d_I]#9;
+        this.b_arrarrB = new Obf[B[this.d_I]#10;
         v2 = ((boolean) 0);
         L206:
         if (v2 >= this.d_I) goto L320;
@@ -388,11 +388,11 @@ public class MainMenu {
         this.c_arrI[v2] = v1.readByte();
         this.d_arrI[v2] = v1.readByte();
         int v3 = v1.readInt();
-        this.b_arrarrB[v2] = new byte[v3];
+        this.b_arrarrB[v2] = new byte[v3]#11;
         /* pop: v1.read(this.b_arrarrB[v2]); */
         this.a_String[v2] = Settings.a(v1);
         v3 = v1.readInt();
-        this.a_arrarrB[v2] = new byte[v3];
+        this.a_arrarrB[v2] = new byte[v3]#12;
         /* pop: v1.read(this.a_arrarrB[v2]); */
         v2 += 1;
         goto L206;
@@ -632,7 +632,7 @@ public class MainMenu {
         MainMenu.a_I = v1.readInt();
         MainMenu.a_String = Settings.a(v1);
         v2 = v1.readInt();
-        v2 = ((int) new java.lang.String[v1.readInt()]);
+        v2 = ((int) new java.lang.String[v1.readInt()]#4);
         int v3 = 0;
         L169:
         if (v3 >= v2.length) goto L188;
@@ -647,8 +647,8 @@ public class MainMenu {
         this.f_arrI[v3] = v1.readInt();
         this.g_arrI[v3] = v1.readInt();
         int v4 = v1.readInt();
-        this.a_arrarrI[v3] = new int[v4];
-        this.a_String[v3] = new java.lang.String[v4];
+        this.a_arrarrI[v3] = new int[v4]#5;
+        this.a_String[v3] = new java.lang.String[v4]#6;
         int v5 = 0;
         L259:
         if (v5 >= v4) goto L302;
@@ -903,7 +903,7 @@ public class MainMenu {
     }
     // bytecode 183 bytes, max_stack 3, max_locals 2
     public void c() {
-        this.e_arrI = new int[this.d_I];
+        this.e_arrI = new int[this.d_I]#1;
         int v1 = 0;
         L12:
         if (v1 >= this.d_I) goto L33;
@@ -911,7 +911,7 @@ public class MainMenu {
         v1 += 1;
         goto L12;
         L33:
-        this.f_arrI = new int[this.d_I];
+        this.f_arrI = new int[this.d_I]#2;
         v1 = 0;
         L45:
         if (v1 >= this.d_I) goto L66;
@@ -919,7 +919,7 @@ public class MainMenu {
         v1 += 1;
         goto L45;
         L66:
-        this.g_arrI = new int[this.d_I];
+        this.g_arrI = new int[this.d_I]#3;
         v1 = 0;
         L78:
         if (v1 >= this.d_I) goto L99;
@@ -928,8 +928,8 @@ public class MainMenu {
         goto L78;
         L99:
         this.j = 0;
-        this.a_arrarrI = new Obf[I[this.d_I];
-        this.a_String = new ObfString;[this.d_I];
+        this.a_arrarrI = new Obf[I[this.d_I]#4;
+        this.a_String = new ObfString;[this.d_I]#5;
         v1 = 0;
         L128:
         if (v1 >= this.d_I) goto L149;
@@ -937,8 +937,8 @@ public class MainMenu {
         v1 += 1;
         goto L128;
         L149:
-        this.h_arrI = new int[3];
-        this.b_String = new java.lang.String[3];
+        this.h_arrI = new int[3]#6;
+        this.b_String = new java.lang.String[3]#7;
         this.f_I = 0;
         this.e_I = 0;
         this.i = this.c_I;
@@ -1011,8 +1011,8 @@ public class MainMenu {
         this.f_arrI[v2] = v3.readInt();
         this.g_arrI[v2] = v3.readInt();
         int v4 = v3.readInt();
-        this.a_arrarrI[v2] = new int[v4];
-        this.a_String[v2] = new java.lang.String[v4];
+        this.a_arrarrI[v2] = new int[v4]#3;
+        this.a_String[v2] = new java.lang.String[v4]#4;
         int v5 = 0;
         L196:
         if (v5 >= v4) goto L235;

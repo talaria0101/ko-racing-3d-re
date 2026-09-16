@@ -20,12 +20,12 @@ public class ObfAg extends Widget {
     // bytecode 39 bytes, max_stack 6, max_locals 5
     public ObfAg(int v1, int v2, int v3, int v4) {
         super(null, 0, 0, v3, 28);
-        new ObfBw[5][0] = null;
-        new ObfBw[5][1] = null;
-        new ObfBw[5][2] = null;
-        new ObfBw[5][3] = null;
-        new ObfBw[5][4] = null;
-        this.a = new ObfBw[5];
+        new ObfBw[5]#1[0] = null;
+        new ObfBw[5]#1[1] = null;
+        new ObfBw[5]#1[2] = null;
+        new ObfBw[5]#1[3] = null;
+        new ObfBw[5]#1[4] = null;
+        this.a = new ObfBw[5]#1;
         return;
     }
     // bytecode 18 bytes, max_stack 3, max_locals 3

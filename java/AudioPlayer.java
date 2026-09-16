@@ -22,7 +22,7 @@ public class AudioPlayer implements javax.microedition.media.PlayerListener {
         super();
         new java.util.Hashtable(); /* constructor */
         this.a = new java.util.Hashtable();
-        this.a_InputS = new java.io.InputStream[10];
+        this.a_InputS = new java.io.InputStream[10]#2;
         this.b = 0;
         this.a_J = 0L;
         this.b_String = "";

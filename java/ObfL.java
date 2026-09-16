@@ -36,8 +36,8 @@ public class ObfL {
         new java.util.Random(); /* constructor */
         this.a_Random = new java.util.Random();
         this.a_I = (((v2 * v3) * v1) / 30000);
-        this.a_arrarrI = new Obf[I[this.a_I];
-        this.a_arrarrF = new Obf[F[this.a_I];
+        this.a_arrarrI = new Obf[I[this.a_I]#2;
+        this.a_arrarrF = new Obf[F[this.a_I]#3;
         this.b = v2;
         this.c = v3;
         this.a();
@@ -47,7 +47,7 @@ public class ObfL {
     public ObfL(String v1, int v2, int v3, int v4) {
         this(20, v3, v4);
         if (ObfL.a != null) goto L69;
-        ObfL.a = new javax.microedition.lcdui.Image[3];
+        ObfL.a = new javax.microedition.lcdui.Image[3]#1;
         v2 = 0;
         L24:
         if (v2 >= 3) goto L69;
@@ -63,8 +63,8 @@ public class ObfL {
         int v1 = 0;
         L2:
         if (v1 >= this.a_I) goto L39;
-        this.a_arrarrI[v1] = new int[4];
-        this.a_arrarrF[v1] = new float[2];
+        this.a_arrarrI[v1] = new int[4]#1;
+        this.a_arrarrF[v1] = new float[2]#2;
         this.a(v1);
         v1 += 1;
         goto L2;

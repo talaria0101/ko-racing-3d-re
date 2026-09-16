@@ -16,7 +16,7 @@ kept beside it for review.
 | `ab` | `Dialog.java` |  PTS; <init>; Code; [[B; javax/microedition |
 | `ac` | `ObfAc.java` | <init>; Code; KORa; close; java/io; java/util |
 | `ad` | `ObfAd.java` | <init>; Code; LOST; getClipHeight; javax/microedition |
-| `ae` | `ObfAe.java` | /lists/md_list; /tiles/; <init>; Code; java/io |
+| `ae` | `MidList.java` | /lists/md_list; /tiles/; <init>; Code; java/io |
 | `af` | `ObfAf.java` | <init>; Code; [Ljava/lang/String;; getClipWidth; javax/microedition |
 | `ag` | `ObfAg.java` | /images/i_s.png; <clinit>; <init>; Code; javax/microedition |
 | `ah` | `ObfAh.java` | <init>; Code; java/io/IOException; StackMap |
@@ -27,7 +27,7 @@ kept beside it for review.
 | `am` | `GenObfAm.java` | <init>; Code; java/lang/Object; javax/microedition/m3g/Appearance; javax/microedition |
 | `an` | `ObfAn.java` | <init>; Code; currentTimeMillis; java/lang/Object |
 | `ao` | `Label.java` | <clinit>; <init>; Code; KORa; javax/microedition |
-| `ap` | `ObfAp.java` | /lists/hd_list; /tiles/; <init>; Code; java/io |
+| `ap` | `HighList.java` | /lists/hd_list; /tiles/; <init>; Code; java/io |
 | `aq` | `SysUtil.java` | .tab; /fonts/black; /fonts/font; /fonts/font.tab; java/io; javax/microedition; javax/wireless |
 | `ar` | `GenObfAr.java` | /models/; /tex/; <clinit>; <init>; java/io |
 | `as` | `EngineSounds.java` | /sounds/acc2_8k.amr; /sounds/acc3_8k.amr; /sounds/acc_8k.amr; /sounds/dec_8k.amr; java/util; javax/m |
@@ -44,16 +44,16 @@ kept beside it for review.
 | `bc` | `GenObfBc.java` | /models/; /tex/; <init>; Code; java/io |
 | `bd` | `GenObfBd.java` | /images/lg.png; /images/tc.png; /images/td.png; /images/tf.png; java/io; javax/microedition |
 | `be` | `StreamReader.java` | <clinit>; <init>; Code; append; java/io |
-| `bf` | `ObfBf.java` | /lists/tile_list; /tiles/; <init>; Code; java/io |
+| `bf` | `TileList.java` | /lists/tile_list; /tiles/; <init>; Code; java/io |
 | `bg` | `ObfBg.java` | <init>; Code; abs; java/lang/Math; javax/microedition |
 | `bh` | `GenObfBh.java` | <init>; Code; [[I; abs; javax/microedition |
-| `bi` | `ObfBi.java` | <init>; Code; KORa; buzz |
-| `bj` | `ObfBj.java` | <init>; Code; java/lang/Object; StackMap |
+| `bi` | `MenuButton.java` | <init>; Code; KORa; buzz |
+| `bj` | `Rect.java` | <init>; Code; java/lang/Object; StackMap |
 | `bk` | `IconList.java` | <init>; Code; [Ldl;; [Ljava/lang/String;; javax/microedition |
 | `bl` | `Resources.java` | .lvl; <clinit>; <init>; Code; java/io |
 | `bm` | `GenObfBm.java` | <init>; Code; abs; java/io/PrintStream; java/io |
 | `bn` | `Widget.java` | <init>; Code; java/lang/Object; StackMap |
-| `bo` | `ObfBo.java` | <init>; Code; abs; java/lang/Math |
+| `bo` | `OpponentCar.java` | <init>; Code; abs; java/lang/Math |
 | `bp` | `GenObfBp.java` | <init>; Code; java/lang/Exception; java/lang/Object |
 | `bq` | `GenObfBq.java` | <init>; Code; bindTarget; clear; javax/microedition |
 | `br` | `ObfBr.java` | /images/a.png; /images/map2.jpg; /images/qm2.png; /images/st.png; javax/microedition |
@@ -71,7 +71,7 @@ kept beside it for review.
 | `cc` | `ObfCc.java` | <init>; Code; [Lbn;; drawLine; javax/microedition |
 | `cd` | `ObfCd.java` | <clinit>; <init>; Code; KORa; java/io; java/util; javax/microedition |
 | `ce` | `ObfCe.java` | <init>; Code; KORa; drawRect; java/util; javax/microedition |
-| `cf` | `ObfCf.java` | /tex/r.png; <init>; Code; [Ljava/lang/String;; javax/microedition |
+| `cf` | `Textures.java` | /tex/r.png; <init>; Code; [Ljava/lang/String;; javax/microedition |
 | `cg` | `ObfCg.java` | <init>; Code; fillRect; getClipWidth; javax/microedition |
 | `ch` | `ObfCh.java` | <init>; Code; currentTimeMillis; drawLine; javax/microedition |
 | `ci` | `ObfCi.java` | <init>; Code; clipRect; drawImage; javax/microedition |
@@ -79,7 +79,7 @@ kept beside it for review.
 | `ck` | `RaceLine.java` | <init>; Code; KORa; [Lz;; java/util |
 | `cl` | `GenObfCl.java` | /models/; /tex/; /tex/shadow.png; <clinit>; java/io; java/util; javax/microedition |
 | `cm` | `WidgetGroup.java` | <clinit>; <init>; Code; [Lbn;; javax/microedition |
-| `cn` | `ObfCn.java` | /ui/bob.txt; <init>; Code; UTF-8; java/io |
+| `cn` | `UiText.java` | /ui/bob.txt; <init>; Code; UTF-8; java/io |
 | `co` | `Garage.java` | /images/add.png; /images/bob_full.png; /images/box.png; /images/bt.png; java/util; javax/microeditio |
 | `cp` | `ObfCp.java` | <init>; Code; [Ljava/lang/String;; [Ljavax/microedition/lcdui/Image;; javax/microedition |
 | `cq` | `ObfCq.java` | <clinit>; <init>; Code; createImage; javax/microedition |
@@ -97,14 +97,14 @@ kept beside it for review.
 | `db` | `MenuList.java` | <init>; Code; KORa; [Lax;; javax/microedition |
 | `dc` | `ObfDc.java` | <init>; Code; getClipHeight; getClipWidth; javax/microedition |
 | `dd` | `ObfDd.java` | <init>; Code; append; getTime; java/io; java/util |
-| `de` | `ObfDe.java` | <init>; Code; [Lat;; [Ljava/lang/String;; javax/microedition |
-| `df` | `ObfDf.java` | <clinit>; <init>; Code; cos |
+| `de` | `Meshes.java` | <init>; Code; [Lat;; [Ljava/lang/String;; javax/microedition |
+| `df` | `Frustum.java` | <clinit>; <init>; Code; cos |
 | `dg` | `SoundTrigger.java` | <init>; Code; abs; compareTo; javax/microedition |
 | `dh` | `Bluetooth.java` | 32253635BF2E4FE0898AF505D430A394; ;authenticate=; ;encrypt=; ;master=; java/io; java/util; javax/blu |
 | `di` | `ObfDi.java` | <init>; Code; abs; java/lang/Math |
 | `dj` | `ScoreUpload.java` | &p=; <init>; ?a=b; ?a=s&s=; java/io; javax/microedition |
 | `dk` | `CareerMap.java` | 8a.map; <init>; Code; close; java/io; javax/microedition |
-| `dl` | `ObfDl.java` | <init>; Code; drawImage; getClipHeight; javax/microedition |
+| `dl` | `ImageItem.java` | <init>; Code; drawImage; getClipHeight; javax/microedition |
 | `dm` | `ObfDm.java` | <init>; Code; javax/microedition/m3g/Background; setColor; javax/microedition |
 | `dn` | `ObfDn.java` | .png; <init>; Code; append; javax/microedition |
 | `do` | `ObfDo.java` | <init>; Code; getClipHeight; getClipWidth; javax/microedition |

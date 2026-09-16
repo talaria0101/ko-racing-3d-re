@@ -10,7 +10,7 @@ public class ObfI {
     private float f;
     private Vec3 a_bz;
     private Vec3 b_bz;
-    private ObfBj a_bj;
+    private Rect a_bj;
     private static Vec2 a_z;
     static {
         new Vec2(0.0f, 0.0f); /* constructor */
@@ -40,8 +40,8 @@ public class ObfI {
         new Vec3(0.0f, 0.0f, 0.0f); /* constructor */
         v4 = ((float) new Vec3(0.0f, 0.0f, 0.0f));
         new Vec3(0.0f, 0.0f, 0.0f).b(this.a_bz, this.b_bz);
-        new ObfBj(v4.a(), v4.b(), v4.c(), (-(((v4.a() * v1) + (v4.b() * v2)) + (v4.c() * v3)))); /* constructor */
-        this.a_bj = new ObfBj(v4.a(), v4.b(), v4.c(), (-(((v4.a() * v1) + (v4.b() * v2)) + (v4.c() * v3))));
+        new Rect(v4.a(), v4.b(), v4.c(), (-(((v4.a() * v1) + (v4.b() * v2)) + (v4.c() * v3)))); /* constructor */
+        this.a_bj = new Rect(v4.a(), v4.b(), v4.c(), (-(((v4.a() * v1) + (v4.b() * v2)) + (v4.c() * v3))));
         this.a_bj.a();
         return;
     }
@@ -60,7 +60,7 @@ public class ObfI {
         return 0;
     }
     // bytecode 35 bytes, max_stack 5, max_locals 1
-    public ObfBj a() {
+    public Rect a() {
         return SysUtil.a_bj.a(this.a_bj.a(), this.a_bj.b(), this.a_bj.c(), this.a_bj.d());
     }
 }

@@ -64,12 +64,12 @@ public class RaceView extends ObfR {
         this.t = RaceView.i;
         this.a = RaceView.k;
         this.b = 1;
-        this.a = new java.lang.String[this.b];
+        this.a = new java.lang.String[this.b]#1;
         if (RaceView.h >= 50) goto L81;
         this.a[0] = CarSpec.a[RaceView.h];
         L81:
-        this.a = new int[this.b];
-        this.b = new int[this.b];
+        this.a = new int[this.b]#2;
+        this.b = new int[this.b]#3;
         int v1 = 0;
         L103:
         if (v1 >= this.b) goto L131;
