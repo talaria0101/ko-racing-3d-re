@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `a`.
 // String constants: <init> | Code | [Li; | java/lang/Object | StackMap | java/io/InputStream
 public class ObfA {
-    private ObfI[] a;
+    private Triangle[] a;
     // bytecode 248 bytes, max_stack 15, max_locals 6
     public ObfA(InputStream v1) {
         this();
@@ -28,7 +28,7 @@ public class ObfA {
         v3 += 1;
         goto L27;
         L98:
-        this.a = new ObfI[StreamReader.a(v1)]#2;
+        this.a = new Triangle[StreamReader.a(v1)]#2;
         v3 = new int[3]#3;
         v4 = 0;
         L116:
@@ -40,8 +40,8 @@ public class ObfA {
         v5 += 1;
         goto L129;
         L149:
-        new ObfI(v2[(v3[0] * 3)], v2[((v3[0] * 3) + 1)], (-v2[((v3[0] * 3) + 2)]), v2[(v3[1] * 3)], v2[((v3[1] * 3) + 1)], (-v2[((v3[1] * 3) + 2)]), v2[(v3[2] * 3)], v2[((v3[2] * 3) + 1)], (-v2[((v3[2] * 3) + 2)])); /* constructor */
-        this.a[v4] = new ObfI(v2[(v3[0] * 3)], v2[((v3[0] * 3) + 1)], (-v2[((v3[0] * 3) + 2)]), v2[(v3[1] * 3)], v2[((v3[1] * 3) + 1)], (-v2[((v3[1] * 3) + 2)]), v2[(v3[2] * 3)], v2[((v3[2] * 3) + 1)], (-v2[((v3[2] * 3) + 2)]));
+        new Triangle(v2[(v3[0] * 3)], v2[((v3[0] * 3) + 1)], (-v2[((v3[0] * 3) + 2)]), v2[(v3[1] * 3)], v2[((v3[1] * 3) + 1)], (-v2[((v3[1] * 3) + 2)]), v2[(v3[2] * 3)], v2[((v3[2] * 3) + 1)], (-v2[((v3[2] * 3) + 2)])); /* constructor */
+        this.a[v4] = new Triangle(v2[(v3[0] * 3)], v2[((v3[0] * 3) + 1)], (-v2[((v3[0] * 3) + 2)]), v2[(v3[1] * 3)], v2[((v3[1] * 3) + 1)], (-v2[((v3[1] * 3) + 2)]), v2[(v3[2] * 3)], v2[((v3[2] * 3) + 1)], (-v2[((v3[2] * 3) + 2)]));
         v4 += 1;
         goto L116;
         L247:

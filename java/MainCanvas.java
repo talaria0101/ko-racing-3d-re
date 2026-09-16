@@ -26,7 +26,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
     private String b_String;
     private String c_String;
     private Image a_Image;
-    private ObfBr a_br;
+    private DeluxeTrackSelect a_br;
     public static boolean a_Z;
     private boolean k;
     private Image b_Image;
@@ -526,8 +526,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         this.a_y.g();
         this.c = true;
         this.a_u.b();
-        new ObfBr(this, "/campaign/deluxe"); /* constructor */
-        this.a_br = new ObfBr(this, "/campaign/deluxe");
+        new DeluxeTrackSelect(this, "/campaign/deluxe"); /* constructor */
+        this.a_br = new DeluxeTrackSelect(this, "/campaign/deluxe");
         this.a_br.h();
         this.b_y = this.a_br;
         this.a_an.a();

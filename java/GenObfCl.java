@@ -70,7 +70,7 @@ public class ObfCl extends ObfCa {
     protected float c_F;
     private boolean n_Z;
     protected boolean e_Z;
-    protected static ObfCq a_cq;
+    protected static Sprite a_cq;
     private float k_F;
     private Transform b_Transf;
     private boolean o_Z;
@@ -307,8 +307,8 @@ public class ObfCl extends ObfCa {
         if (Settings.d() <= 0) goto L215;
         if (Settings.g() == 0) goto L215;
         if (ObfCl.a_cq != null) goto L215;
-        new ObfCq(v1.a("/tex/shadow.png", true), true, true); /* constructor */
-        ObfCl.a_cq = new ObfCq(v1.a("/tex/shadow.png", true), true, true);
+        new Sprite(v1.a("/tex/shadow.png", true), true, true); /* constructor */
+        ObfCl.a_cq = new Sprite(v1.a("/tex/shadow.png", true), true, true);
         goto L215;
         /* pop: ex_214; */
         L215:

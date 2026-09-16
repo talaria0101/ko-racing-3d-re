@@ -48,7 +48,7 @@ public class TrackSelect extends Screen {
     protected int d_I;
     protected int[] b_arrI;
     protected int e_I;
-    private ObfCq a_cq;
+    private Sprite a_cq;
     private int r;
     private int s;
     private float e_F;
@@ -1746,8 +1746,8 @@ public class TrackSelect extends Screen {
         goto L267;
         L342:
         new java.lang.StringBuffer(); /* constructor */
-        new ObfCq(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(v1.b_String[v2]).toString(), v3, true)); /* constructor */
-        v1.a_cq = new ObfCq(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(v1.b_String[v2]).toString(), v3, true));
+        new Sprite(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(v1.b_String[v2]).toString(), v3, true)); /* constructor */
+        v1.a_cq = new Sprite(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(v1.b_String[v2]).toString(), v3, true));
         goto L390;
         /* pop: ex_389; */
         L390:

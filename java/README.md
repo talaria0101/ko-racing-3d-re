@@ -7,10 +7,15 @@ double letter class names. Raw CFR output (when reproduced) goes to
 `src/` (gitignored). What lives here is renamed, commented, and
 checked against the data and the Rust port.
 
-Scope for now: the race path only. That is the track model and its
-detail layers, the mesh and node wrappers, and the race scene with
-its cars, controller, and per-level config. Menus, career front end,
-network, Bluetooth, ads, sound, and fonts stay obfuscated for later.
+Scope: the whole game, all 121 classes. The 16 hand-written files
+are the reviewed race-path layer (track model and detail layers,
+mesh and node wrappers, race scene with cars, controller, per-level
+config). Everything else is `tools/jdeob.py` output: `Obf*.java`
+(unnamed), named files (`RaceScreen.java`, `MainMenu.java`, ...),
+`Gen*.java` raw output beside each curated file, plus `KORa.java`
+(the MIDlet) and `VservManager.java` (third-party ad SDK, not game
+logic). `OBFUSCATION.md` maps every original name to its file and
+role. See `tools/jdeob_names.tsv` for the name assignments.
 
 ## How it was done
 

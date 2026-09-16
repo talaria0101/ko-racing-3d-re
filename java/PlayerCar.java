@@ -73,8 +73,8 @@ public class PlayerCar extends ObfCl {
         if (Settings.e() <= 0) goto L138;
         if (Settings.g() == 0) goto L138;
         if (ObfCl.a_cq != null) goto L138;
-        new ObfCq(v1.a("/tex/shadow.png", true), true, true); /* constructor */
-        ObfCl.a_cq = new ObfCq(v1.a("/tex/shadow.png", true), true, true);
+        new Sprite(v1.a("/tex/shadow.png", true), true, true); /* constructor */
+        ObfCl.a_cq = new Sprite(v1.a("/tex/shadow.png", true), true, true);
         goto L138;
         /* pop: ex_137; */
         L138:

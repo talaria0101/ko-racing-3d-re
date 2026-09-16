@@ -3,7 +3,7 @@
 // String constants: <init> | Code | createImage | err | java/io/PrintStream | java/lang/Exception | java/lang/System | javax/microedition/lcdui/Image | javax/microedition/m3g/Background | javax/microedition/m3g/Transform | postRotate | postScale
 // API references: java/io javax/microedition
 public class ImageBackground extends BackgroundPass {
-    private ObfCq a;
+    private Sprite a;
     private Transform a_Transf;
     // bytecode 82 bytes, max_stack 7, max_locals 3
     public ImageBackground() {
@@ -17,8 +17,8 @@ public class ImageBackground extends BackgroundPass {
         String v2 = Settings.a_String_2;
         ImageBackground v1 = this;
         v2 = ((String) javax.microedition.lcdui.Image.createImage(Resources.a(v2)));
-        new ObfCq(v2, false, false, Settings.a_Z); /* constructor */
-        v1.a = new ObfCq(v2, false, false, Settings.a_Z);
+        new Sprite(v2, false, false, Settings.a_Z); /* constructor */
+        v1.a = new Sprite(v2, false, false, Settings.a_Z);
         java.lang.System.gc();
         return;
         v1 = ((ImageBackground) ex_70);

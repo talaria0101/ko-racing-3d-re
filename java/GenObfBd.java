@@ -4,8 +4,8 @@
 // API references: java/io javax/microedition
 public class ObfBd extends ObfBh {
     private float a;
-    private ObfCq[] a_arrLcq;
-    private ObfCq a_cq;
+    private Sprite[] a_arrLcq;
+    private Sprite a_cq;
     private int f;
     public static Background a_Backgr;
     public static Transform a_Transf;
@@ -443,11 +443,11 @@ public class ObfBd extends ObfBh {
         v2.a_bk.c(((Settings.c() + 1) % 3));
         this.a(this.a);
         v1 = this;
-        v1.a_arrLcq = new ObfCq[2]#70;
-        new ObfCq("/tex/ea.jpg"); /* constructor */
-        v1.a_arrLcq[0] = new ObfCq("/tex/ea.jpg");
-        new ObfCq("/tex/ms.jpg"); /* constructor */
-        v1.a_arrLcq[1] = new ObfCq("/tex/ms.jpg");
+        v1.a_arrLcq = new Sprite[2]#70;
+        new Sprite("/tex/ea.jpg"); /* constructor */
+        v1.a_arrLcq[0] = new Sprite("/tex/ea.jpg");
+        new Sprite("/tex/ms.jpg"); /* constructor */
+        v1.a_arrLcq[1] = new Sprite("/tex/ms.jpg");
         v1.e_Z = false;
         new javax.microedition.m3g.Background(); /* constructor */
         ObfBd.a_Backgr = new javax.microedition.m3g.Background();
@@ -525,8 +525,8 @@ public class ObfBd extends ObfBh {
         if (v1.e == v1.t_cm) goto L376;
         if (v1.e != v1.u_cm) goto L404;
         L376:
-        new ObfCq(ObfR.a(v1.a_m.a(), "/images/ts2.png", true)); /* constructor */
-        v1.a_cq = new ObfCq(ObfR.a(v1.a_m.a(), "/images/ts2.png", true));
+        new Sprite(ObfR.a(v1.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        v1.a_cq = new Sprite(ObfR.a(v1.a_m.a(), "/images/ts2.png", true));
         goto L404;
         /* pop: ex_403; */
         L404:
@@ -728,8 +728,8 @@ public class ObfBd extends ObfBh {
         goto L442;
         L405:
         v1.m_I = 2;
-        new ObfCq(ObfR.a(v1.a_m.a(), "/images/ts2.png", true)); /* constructor */
-        v1.a_cq = new ObfCq(ObfR.a(v1.a_m.a(), "/images/ts2.png", true));
+        new Sprite(ObfR.a(v1.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        v1.a_cq = new Sprite(ObfR.a(v1.a_m.a(), "/images/ts2.png", true));
         goto L442;
         java.io.IOException v2 = ex_437;
         ex_437.printStackTrace();
@@ -1509,8 +1509,8 @@ public class ObfBd extends ObfBh {
         L3762:
         v2.a_cq = null;
         java.lang.System.gc();
-        new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", true)); /* constructor */
-        v2.a_cq = new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", true));
+        new Sprite(ObfR.a(v2.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        v2.a_cq = new Sprite(ObfR.a(v2.a_m.a(), "/images/ts2.png", true));
         goto L3802;
         v1 = ((float) ex_3797);
         ex_3797.printStackTrace();
@@ -1526,8 +1526,8 @@ public class ObfBd extends ObfBh {
         v2.m_I = 2;
         v2.a_cq = null;
         java.lang.System.gc();
-        new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", true)); /* constructor */
-        v2.a_cq = new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", true));
+        new Sprite(ObfR.a(v2.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        v2.a_cq = new Sprite(ObfR.a(v2.a_m.a(), "/images/ts2.png", true));
         goto L3908;
         v4 = ((int) ex_3902);
         ex_3902.printStackTrace();
@@ -1632,8 +1632,8 @@ public class ObfBd extends ObfBh {
         v2.m_I = 2;
         v2.a_cq = null;
         java.lang.System.gc();
-        new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", true)); /* constructor */
-        v2.a_cq = new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", true));
+        new Sprite(ObfR.a(v2.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        v2.a_cq = new Sprite(ObfR.a(v2.a_m.a(), "/images/ts2.png", true));
         goto L4487;
         v4 = ((int) ex_4481);
         ex_4481.printStackTrace();
@@ -2021,8 +2021,8 @@ public class ObfBd extends ObfBh {
         this.a_m = ObfW.a;
         this.a_cq = null;
         java.lang.System.gc();
-        new ObfCq(ObfR.a(this.a_m.a(), "/images/ts2.png", true)); /* constructor */
-        this.a_cq = new ObfCq(ObfR.a(this.a_m.a(), "/images/ts2.png", true));
+        new Sprite(ObfR.a(this.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        this.a_cq = new Sprite(ObfR.a(this.a_m.a(), "/images/ts2.png", true));
         goto L47;
         java.io.IOException v1 = ex_42;
         ex_42.printStackTrace();
@@ -2262,8 +2262,8 @@ public class ObfBd extends ObfBh {
         L125:
         jt1 = this.a.a().b(this.a_arrI[this.a()]); /* join L144 from L125 */
         L144:
-        new ObfCq(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(jt1).toString(), v1, true)); /* constructor */
-        this.a_cq = new ObfCq(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(jt1).toString(), v1, true));
+        new Sprite(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(jt1).toString(), v1, true)); /* constructor */
+        this.a_cq = new Sprite(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(jt1).toString(), v1, true));
         return;
     }
     // bytecode 148 bytes, max_stack 10, max_locals 1
@@ -2437,8 +2437,8 @@ public class ObfBd extends ObfBh {
         if (this.a_m.a(v1, v2) == 0) goto L101;
         this.a_cq = null;
         java.lang.System.gc();
-        new ObfCq(ObfR.a(this.a_m.a(), "/images/ts2.png", true)); /* constructor */
-        this.a_cq = new ObfCq(ObfR.a(this.a_m.a(), "/images/ts2.png", true));
+        new Sprite(ObfR.a(this.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        this.a_cq = new Sprite(ObfR.a(this.a_m.a(), "/images/ts2.png", true));
         goto L96;
         java.io.IOException v4 = ex_90;
         ex_90.printStackTrace();

@@ -82,3 +82,6 @@ bb	AssetManager
 by	Billboard
 cj	BitWriter
 s	MarqueeButton
+br	DeluxeTrackSelect
+cq	Sprite
+i	Triangle

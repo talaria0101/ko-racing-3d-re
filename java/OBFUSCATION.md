@@ -56,7 +56,7 @@ kept beside it for review.
 | `bo` | `OpponentCar.java` | <init>; Code; abs; java/lang/Math |
 | `bp` | `GenObfBp.java` | <init>; Code; java/lang/Exception; java/lang/Object |
 | `bq` | `GenObfBq.java` | <init>; Code; bindTarget; clear; javax/microedition |
-| `br` | `ObfBr.java` | /images/a.png; /images/map2.jpg; /images/qm2.png; /images/st.png; javax/microedition |
+| `br` | `DeluxeTrackSelect.java` | /images/a.png; /images/map2.jpg; /images/qm2.png; /images/st.png; javax/microedition |
 | `bs` | `GenObfBs.java` | <clinit>; <init>; Code; [[Lbm;; java/io; java/util; javax/microedition |
 | `bt` | `GenObfBt.java` | /cars/; /images/snow; <clinit>; <init> |
 | `bu` | `CareerScreen.java` | /levels/; <init>; Code; PLAYER; java/io; javax/microedition |
@@ -82,7 +82,7 @@ kept beside it for review.
 | `cn` | `UiText.java` | /ui/bob.txt; <init>; Code; UTF-8; java/io |
 | `co` | `Garage.java` | /images/add.png; /images/bob_full.png; /images/box.png; /images/bt.png; java/util; javax/microeditio |
 | `cp` | `ObfCp.java` | <init>; Code; [Ljava/lang/String;; [Ljavax/microedition/lcdui/Image;; javax/microedition |
-| `cq` | `ObfCq.java` | <clinit>; <init>; Code; createImage; javax/microedition |
+| `cq` | `Sprite.java` | <clinit>; <init>; Code; createImage; javax/microedition |
 | `cr` | `CockpitCam.java` | <init>; Code; javax/microedition/m3g/Transform; postRotate; javax/microedition |
 | `cs` | `StockTune.java` | <init>; Code |
 | `ct` | `Plane.java` | <clinit>; <init>; Code; abs |
@@ -112,7 +112,7 @@ kept beside it for review.
 | `f` | `GlyphTable.java` | <init>; Code; UTF-8; [[B; java/io |
 | `g` | `FontCodec.java` | <init>; Code; close; java/io/IOException; java/io |
 | `h` | `ObfH.java` | <init>; Code; KORa; fillRect; java/util; javax/microedition |
-| `i` | `ObfI.java` | <clinit>; <init>; Code; java/lang/Object |
+| `i` | `Triangle.java` | <clinit>; <init>; Code; java/lang/Object |
 | `j` | `GenObfJ.java` | <init>; Code; java/lang/Object; javax/microedition/m3g/Transform; javax/microedition |
 | `k` | `ObfK.java` | <init>; Code; StackMap |
 | `l` | `Snow.java` | .png; <clinit>; <init>; Code; java/util; javax/microedition |

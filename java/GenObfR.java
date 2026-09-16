@@ -37,7 +37,7 @@ public class ObfR extends Screen {
     public static boolean b_Z;
     private Background a_Backgr;
     private float b_F;
-    private ObfCq[] a_arrLcq;
+    private Sprite[] a_arrLcq;
     private int t;
     private Transform a_Transf;
     private float c_F;
@@ -1204,14 +1204,14 @@ public class ObfR extends Screen {
     // bytecode 97 bytes, max_stack 5, max_locals 1
     public void r() {
         /* try L0-L94 catch java.io.IOException -> L95 */
-        this.a_arrLcq = new ObfCq[2]#1;
+        this.a_arrLcq = new Sprite[2]#1;
         if (MainCanvas.a_Z == 0) goto L32;
-        new ObfCq("/tex/md2.jpg"); /* constructor */
-        this.a_arrLcq[0] = new ObfCq("/tex/md2.jpg");
+        new Sprite("/tex/md2.jpg"); /* constructor */
+        this.a_arrLcq[0] = new Sprite("/tex/md2.jpg");
         goto L47;
         L32:
-        new ObfCq("/tex/md.jpg"); /* constructor */
-        this.a_arrLcq[0] = new ObfCq("/tex/md.jpg");
+        new Sprite("/tex/md.jpg"); /* constructor */
+        this.a_arrLcq[0] = new Sprite("/tex/md.jpg");
         L47:
         new javax.microedition.m3g.Transform(); /* constructor */
         this.a_Transf = new javax.microedition.m3g.Transform();

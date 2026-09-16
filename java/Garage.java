@@ -34,7 +34,7 @@ public class Garage {
     private static boolean g_Z;
     private static Image a_Image;
     private static ObfAm a_am;
-    private static ObfCq a_cq;
+    private static Sprite a_cq;
     private static Transform a_Transf;
     private static Image b_Image;
     private static Image c_Image;

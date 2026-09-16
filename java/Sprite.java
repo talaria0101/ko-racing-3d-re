@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `cq`.
 // String constants: <clinit> | <init> | Code | createImage | java/io/IOException | java/lang/Object | javax/microedition/lcdui/Image | javax/microedition/m3g/Appearance | javax/microedition/m3g/CompositingMode | javax/microedition/m3g/Graphics3D | javax/microedition/m3g/Image2D | javax/microedition/m3g/Mesh
 // API references: javax/microedition
-public class ObfCq {
+public class Sprite {
     private static final short[] a;
     private static final short[] b;
     private static final int[] a_arrI;
@@ -22,7 +22,7 @@ public class ObfCq {
         new short[12]#1[9] = m1;
         new short[12]#1[10] = m1;
         new short[12]#1[11] = m1;
-        ObfCq.a = new short[12]#1;
+        Sprite.a = new short[12]#1;
         new short[8]#2[0] = 100;
         new short[8]#2[1] = 0;
         new short[8]#2[2] = 0;
@@ -31,13 +31,13 @@ public class ObfCq {
         new short[8]#2[5] = 100;
         new short[8]#2[6] = 0;
         new short[8]#2[7] = 100;
-        ObfCq.b = new short[8]#2;
+        Sprite.b = new short[8]#2;
         new int[1]#3[0] = 4;
-        ObfCq.a_arrI = new int[1]#3;
+        Sprite.a_arrI = new int[1]#3;
         return;
     }
     // bytecode 27 bytes, max_stack 2, max_locals 3
-    public ObfCq(String v1) {
+    public Sprite(String v1) {
         super();
         this.a_Mesh = null;
         String v2 = v1;
@@ -47,14 +47,14 @@ public class ObfCq {
         return;
     }
     // bytecode 15 bytes, max_stack 2, max_locals 2
-    public ObfCq(Image v1) {
+    public Sprite(Image v1) {
         super();
         this.a_Mesh = null;
         this.a(v1);
         return;
     }
     // bytecode 32 bytes, max_stack 6, max_locals 5
-    public ObfCq(Image v1, boolean v2, boolean v3, boolean v4) {
+    public Sprite(Image v1, boolean v2, boolean v3, boolean v4) {
         super();
         this.a_Mesh = null;
         new javax.microedition.m3g.Image2D(99, v1); /* constructor */
@@ -62,7 +62,7 @@ public class ObfCq {
         return;
     }
     // bytecode 18 bytes, max_stack 5, max_locals 4
-    public ObfCq(Texture2D v1, boolean v2, boolean v3) {
+    public Sprite(Texture2D v1, boolean v2, boolean v3) {
         super();
         this.a_Mesh = null;
         this.a(v1, true, true, true);
@@ -76,18 +76,18 @@ public class ObfCq {
     }
     // bytecode 279 bytes, max_stack 6, max_locals 8
     public void a(Texture2D v1, boolean v2, boolean v3, boolean v4) {
-        new javax.microedition.m3g.VertexArray((ObfCq.a.length / 3), 3, 2); /* constructor */
-        javax.microedition.m3g.VertexArray v5 = new javax.microedition.m3g.VertexArray((ObfCq.a.length / 3), 3, 2);
-        new javax.microedition.m3g.VertexArray((ObfCq.a.length / 3), 3, 2).set(0, (ObfCq.a.length / 3), ObfCq.a);
-        new javax.microedition.m3g.VertexArray((ObfCq.b.length / 2), 2, 2); /* constructor */
-        javax.microedition.m3g.VertexArray v6 = new javax.microedition.m3g.VertexArray((ObfCq.b.length / 2), 2, 2);
-        new javax.microedition.m3g.VertexArray((ObfCq.b.length / 2), 2, 2).set(0, (ObfCq.b.length / 2), ObfCq.b);
+        new javax.microedition.m3g.VertexArray((Sprite.a.length / 3), 3, 2); /* constructor */
+        javax.microedition.m3g.VertexArray v5 = new javax.microedition.m3g.VertexArray((Sprite.a.length / 3), 3, 2);
+        new javax.microedition.m3g.VertexArray((Sprite.a.length / 3), 3, 2).set(0, (Sprite.a.length / 3), Sprite.a);
+        new javax.microedition.m3g.VertexArray((Sprite.b.length / 2), 2, 2); /* constructor */
+        javax.microedition.m3g.VertexArray v6 = new javax.microedition.m3g.VertexArray((Sprite.b.length / 2), 2, 2);
+        new javax.microedition.m3g.VertexArray((Sprite.b.length / 2), 2, 2).set(0, (Sprite.b.length / 2), Sprite.b);
         new javax.microedition.m3g.VertexBuffer(); /* constructor */
         javax.microedition.m3g.VertexBuffer v7 = new javax.microedition.m3g.VertexBuffer();
         new javax.microedition.m3g.VertexBuffer().setPositions(v5, 2.0f, null);
         v7.setTexCoords(0, v6, 0.009999999776482582f, null);
-        new javax.microedition.m3g.TriangleStripArray(0, ObfCq.a_arrI); /* constructor */
-        v5 = ((javax.microedition.m3g.VertexArray) new javax.microedition.m3g.TriangleStripArray(0, ObfCq.a_arrI));
+        new javax.microedition.m3g.TriangleStripArray(0, Sprite.a_arrI); /* constructor */
+        v5 = ((javax.microedition.m3g.VertexArray) new javax.microedition.m3g.TriangleStripArray(0, Sprite.a_arrI));
         new javax.microedition.m3g.Mesh(v7, v5, null); /* constructor */
         this.a_Mesh = new javax.microedition.m3g.Mesh(v7, v5, null);
         new javax.microedition.m3g.PolygonMode(); /* constructor */
