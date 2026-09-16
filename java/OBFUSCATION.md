@@ -38,7 +38,7 @@ kept beside it for review.
 | `ax` | `MenuItem.java` | <init>; Code; getClipHeight; getClipWidth; javax/microedition |
 | `ay` | `Rain.java` | <init>; Code; [[F; [[I; java/util; javax/microedition |
 | `az` | `ObfAz.java` | <init>; Code; StackMap; javax/microedition/lcdui/Graphics |
-| `b` | `GenMeshCache.java` | /lists/ol; /objects/; <init>; Code; java/io |
+| `b` | `GenSceneryList.java` | /lists/ol; /objects/; <init>; Code; java/io |
 | `ba` | `CarSpec.java` | /cars/; /models/; /tex/; <clinit>; java/io; javax/microedition |
 | `bb` | `AssetManager.java` | <clinit>; <init>; Code; java/lang/Exception |
 | `bc` | `GenObfBc.java` | /models/; /tex/; <init>; Code; java/io |

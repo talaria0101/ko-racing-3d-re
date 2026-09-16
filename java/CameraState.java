@@ -264,7 +264,7 @@ public class CameraState {
     // bytecode 57 bytes, max_stack 4, max_locals 2
     public void l(float v1) {
         this.a_z.a(((-this.b_z.a()) * v1), ((-this.b_z.b()) * v1));
-        if (MeshCache.a(this.a_z.a()) == MeshCache.a(this.b_z.a())) goto L56;
+        if (SceneryList.a(this.a_z.a()) == SceneryList.a(this.b_z.a())) goto L56;
         this.a(0.0f, 0.0f);
         L56:
         return;

@@ -154,9 +154,9 @@ public class PlayerCar extends ObfCl {
         this.b.a(this.a, this.a().a());
         this.c.b((-this.a().b().b()), this.a().b().a());
         this.c.a();
-        int v3 = MeshCache.a((Vec2.a(this.c, this.a) - Vec2.a(this.a().a(), this.c)));
+        int v3 = SceneryList.a((Vec2.a(this.c, this.a) - Vec2.a(this.a().a(), this.c)));
         float v4 = Vec2.b(this.b, this.a().b());
-        v4 = (((float) v3) * ((float) MeshCache.c(((double) v4))));
+        v4 = (((float) v3) * ((float) SceneryList.c(((double) v4))));
         this.a().d(0.0f);
         /* pop: this.b.c(); */
         v4 = ((1.5f * v4) * java.lang.Math.abs(v4));

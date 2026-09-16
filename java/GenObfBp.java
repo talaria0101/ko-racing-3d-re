@@ -9,7 +9,7 @@ public class ObfBp {
     private int a_I;
     private String a_String;
     private boolean a_Z;
-    private MeshCache a_b;
+    private SceneryList a_b;
     // bytecode 56 bytes, max_stack 2, max_locals 2
     public ObfBp(String v1) {
         super();
@@ -26,7 +26,7 @@ public class ObfBp {
         return;
     }
     // bytecode 392 bytes, max_stack 5, max_locals 4
-    public void a(MeshCache v1) {
+    public void a(SceneryList v1) {
         /* try L0-L382 catch java.lang.Exception -> L385 */
         this.a_b = v1;
         InputStream v2 = Resources.a(this.a_String);

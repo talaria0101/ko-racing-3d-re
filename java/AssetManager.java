@@ -6,7 +6,7 @@ public class AssetManager {
     public static MidList a_ae;
     public static HighList a_ap;
     public static Textures a_cf;
-    public static MeshCache a_b;
+    public static SceneryList a_b;
     public static Meshes a_de;
     static {
         AssetManager.a = null;
@@ -36,8 +36,8 @@ public class AssetManager {
         AssetManager.a_ae = new MidList(AssetManager.a_cf);
         new HighList(); /* constructor */
         AssetManager.a_ap = new HighList();
-        new MeshCache(AssetManager.a_cf); /* constructor */
-        AssetManager.a_b = new MeshCache(AssetManager.a_cf);
+        new SceneryList(AssetManager.a_cf); /* constructor */
+        AssetManager.a_b = new SceneryList(AssetManager.a_cf);
         return;
     }
     // bytecode 91 bytes, max_stack 1, max_locals 0

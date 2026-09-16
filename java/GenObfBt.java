@@ -500,7 +500,7 @@ public class ObfBt extends Screen {
         if (fcmpg(v3, 1.0f) <= 0) goto L547;
         v3 = ((int) 1.0f);
         L547:
-        this.a_cl.j((((float) MeshCache.a(this.a_arrF[1])) * v3));
+        this.a_cl.j((((float) SceneryList.a(this.a_arrF[1])) * v3));
         L566:
         if (this.a_arrZ[0] != 0) goto L631;
         if (this.a_arrZ[1] != 0) goto L646;
