@@ -156,8 +156,8 @@ public class MainMenu {
         /* try L248-L272 catch java.io.IOException -> L273 */
         int v2 = 0;
         String v1 = this.b_String;
-        v1 = ((String) ObfDj.a(this.b_String, v2, null));
-        if (ObfDj.a(this.b_String, v2, null) == null) goto L23;
+        v1 = ((String) ScoreUpload.a(this.b_String, v2, null));
+        if (ScoreUpload.a(this.b_String, v2, null) == null) goto L23;
         if (v1.length != 0) goto L25;
         L23:
         return 1;
@@ -188,7 +188,7 @@ public class MainMenu {
         goto L103;
         L152:
         v1 = ((String) null);
-        v1 = ((String) javax.microedition.rms.RecordStore.openRecordStore("KORa_tour_list", 1, 0, 0));
+        v1 = ((String) javax.microedition.rms.RecordStore.openRecordStore("KORa_tour_list", true, 0, false));
         v2 = ((int) TouchButtons.a(v2.toByteArray()));
         v1.setRecord(1, v2, 0, v2.length);
         goto L202;
@@ -248,8 +248,8 @@ public class MainMenu {
         /* try L61-L88 catch java.io.IOException -> L91 */
         int v2 = 0;
         String v1 = this.b_String;
-        v1 = ((String) ObfDj.a(this.b_String, v2, null));
-        if (ObfDj.a(this.b_String, v2, null) == null) goto L23;
+        v1 = ((String) ScoreUpload.a(this.b_String, v2, null));
+        if (ScoreUpload.a(this.b_String, v2, null) == null) goto L23;
         if (v1.length != 0) goto L25;
         L23:
         return 1;
@@ -273,9 +273,9 @@ public class MainMenu {
         v2 = ((int) ex_91);
         ex_91.printStackTrace();
         L96:
-        v1 = ((String) ObfDj.a(this.c, 0, TouchButtons.a(v1.toByteArray())));
-        if (ObfDj.a(this.c, 0, TouchButtons.a(v1.toByteArray())) == null) goto L125;
-        if (this.a(v1, 1) != 0) goto L139;
+        v1 = ((String) ScoreUpload.a(this.c, false, TouchButtons.a(v1.toByteArray())));
+        if (ScoreUpload.a(this.c, false, TouchButtons.a(v1.toByteArray())) == null) goto L125;
+        if (this.a(v1, true) != 0) goto L139;
         L125:
         if (this.a() != 0) goto L137;
         this.c_I = m1;
@@ -420,8 +420,8 @@ public class MainMenu {
         v2.writeByte(MainMenu.b);
         v2.writeUTF(Settings.a());
         v2.writeInt(MainMenu.a_I);
-        v1 = ((java.io.ByteArrayOutputStream) ObfDj.a(this.e, 0, TouchButtons.a(v1.toByteArray())));
-        if (ObfDj.a(this.e, 0, TouchButtons.a(v1.toByteArray())) == null) goto L71;
+        v1 = ((java.io.ByteArrayOutputStream) ScoreUpload.a(this.e, false, TouchButtons.a(v1.toByteArray())));
+        if (ScoreUpload.a(this.e, false, TouchButtons.a(v1.toByteArray())) == null) goto L71;
         if (v1.length != 0) goto L73;
         L71:
         return 1;
@@ -455,8 +455,8 @@ public class MainMenu {
         v4.writeUTF(Settings.a());
         v4.writeUTF(v1);
         v4.writeUTF(v2);
-        v1 = ((String) ObfDj.a(this.f, 0, TouchButtons.a(v3.toByteArray())));
-        if (ObfDj.a(this.f, 0, TouchButtons.a(v3.toByteArray())) == null) goto L71;
+        v1 = ((String) ScoreUpload.a(this.f, false, TouchButtons.a(v3.toByteArray())));
+        if (ScoreUpload.a(this.f, false, TouchButtons.a(v3.toByteArray())) == null) goto L71;
         if (v1.length != 0) goto L73;
         L71:
         return 1;
@@ -496,8 +496,8 @@ public class MainMenu {
         v4.writeUTF(Settings.a());
         v4.writeUTF(v1);
         v4.writeUTF(v2);
-        v1 = ((String) ObfDj.a(this.g, 0, TouchButtons.a(v3.toByteArray())));
-        if (ObfDj.a(this.g, 0, TouchButtons.a(v3.toByteArray())) == null) goto L71;
+        v1 = ((String) ScoreUpload.a(this.g, false, TouchButtons.a(v3.toByteArray())));
+        if (ScoreUpload.a(this.g, false, TouchButtons.a(v3.toByteArray())) == null) goto L71;
         if (v1.length != 0) goto L73;
         L71:
         return 1;
@@ -537,8 +537,8 @@ public class MainMenu {
         v4.writeUTF(Settings.a());
         v4.writeUTF(v1);
         v4.writeUTF(v2);
-        v1 = ((String) ObfDj.a(this.h, 0, TouchButtons.a(v3.toByteArray())));
-        if (ObfDj.a(this.h, 0, TouchButtons.a(v3.toByteArray())) == null) goto L71;
+        v1 = ((String) ScoreUpload.a(this.h, false, TouchButtons.a(v3.toByteArray())));
+        if (ScoreUpload.a(this.h, false, TouchButtons.a(v3.toByteArray())) == null) goto L71;
         if (v1.length != 0) goto L73;
         L71:
         return 1;
@@ -590,7 +590,7 @@ public class MainMenu {
         v3 = ((int) ex_111);
         ex_111.printStackTrace();
         L116:
-        return this.b(ObfDj.a(this.d, 0, TouchButtons.a(v1.toByteArray())));
+        return this.b(ScoreUpload.a(this.d, false, TouchButtons.a(v1.toByteArray())));
     }
     // bytecode 419 bytes, max_stack 5, max_locals 8
     public int b(byte[] v1) {
@@ -697,7 +697,7 @@ public class MainMenu {
         /* try L102-L110 catch javax.microedition.rms.RecordStoreNotOpenException -> L113 */
         /* try L102-L110 catch javax.microedition.rms.RecordStoreException -> L121 */
         Object v2 = null;
-        v2 = ((Object) javax.microedition.rms.RecordStore.openRecordStore("KORa_tour", 1, 0, 0));
+        v2 = ((Object) javax.microedition.rms.RecordStore.openRecordStore("KORa_tour", true, 0, false));
         v2.setRecord(1, v1, 0, v1.length);
         goto L42;
         /* pop: ex_23; */
@@ -772,7 +772,7 @@ public class MainMenu {
         java.io.ByteArrayOutputStream v2 = new java.io.ByteArrayOutputStream();
         new java.io.DataOutputStream(v2); /* constructor */
         java.io.DataOutputStream v3 = new java.io.DataOutputStream(v2);
-        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore("KORa_record", 1, 0, 0));
+        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore("KORa_record", true, 0, false));
         v3.writeInt(this.c_I);
         int v4 = 0;
         L39:
@@ -971,7 +971,7 @@ public class MainMenu {
         Object v1 = null;
         Object v3 = null;
         this.c();
-        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore("KORa_record", 0, 0, 0));
+        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore("KORa_record", false, 0, false));
         byte[] v2 = TouchButtons.b(v1.getRecord(1));
         new java.io.ByteArrayInputStream(v2); /* constructor */
         v2 = ((byte[]) new java.io.ByteArrayInputStream(v2));
@@ -1113,8 +1113,8 @@ public class MainMenu {
         /* try L2-L22 catch finally -> L52 */
         /* try L53-L61 catch java.lang.Exception -> L64 */
         Object v1 = null;
-        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore("KORa_tour", 0, 0, 0));
-        int v2 = this.a(v1.getRecord(1), 0);
+        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore("KORa_tour", false, 0, false));
+        int v2 = this.a(v1.getRecord(1), false);
         if (v1 == null) goto L30;
         v1.closeRecordStore();
         L30:

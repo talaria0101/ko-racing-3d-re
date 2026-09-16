@@ -37,7 +37,7 @@ public class ObfBs {
         this.i = 0;
         this.j = 0;
         this.a_arrB = null;
-        this.a(v2, 0);
+        this.a(v2, false);
         return;
     }
     // bytecode 76 bytes, max_stack 3, max_locals 4
@@ -170,7 +170,7 @@ public class ObfBs {
         v1 = ((InputStream) v2.a(v2.f, v2.g));
         v3 = ((int) v2.a(v2.f, v2.g));
         v2 = ((boolean) (-v2.a(v2.f, v2.g).a));
-        v1.a(((v2 + 3) % 4), 1);
+        v1.a(((v2 + 3) % 4), true);
         return;
         v3 = ((int) ex_593);
         java.lang.System.err.println(v3.getMessage());
@@ -462,8 +462,8 @@ public class ObfBs {
         v2 += 1;
         goto L48;
         L465:
-        v2 = ((int) javax.microedition.lcdui.Image.createRGBImage(v1, (this.a * 3), (this.b * 3), 0));
-        return javax.microedition.lcdui.Image.createRGBImage(v1, (this.a * 3), (this.b * 3), 0);
+        v2 = ((int) javax.microedition.lcdui.Image.createRGBImage(v1, (this.a * 3), (this.b * 3), false));
+        return javax.microedition.lcdui.Image.createRGBImage(v1, (this.a * 3), (this.b * 3), false);
         v1 = ((int) ex_485);
         ex_485.printStackTrace();
         return null;
@@ -592,7 +592,7 @@ public class ObfBs {
         v1 = (v1 + ObfB.a(v7));
         v2 = (v2 + ObfB.b(v7));
         L155:
-        this.a(v1, v2).a(((v7 + 2) % 4), 1);
+        this.a(v1, v2).a(((v7 + 2) % 4), true);
         goto L180;
         L174:
         v7 += 1;

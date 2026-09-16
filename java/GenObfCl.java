@@ -253,7 +253,7 @@ public class ObfCl extends ObfCa {
         if (this.d_I != Settings.d()) goto L11;
         return;
         L11:
-        this.a(v1, 1);
+        this.a(v1, true);
         return;
     }
     // bytecode 20 bytes, max_stack 2, max_locals 2
@@ -297,18 +297,18 @@ public class ObfCl extends ObfCa {
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a_at = ObfBb.a.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c_String).toString(), 0, new java.lang.StringBuffer().append("/tex/").append(this.c_String).append("_l").toString());
+        this.a_at = ObfBb.a.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c_String).toString(), false, new java.lang.StringBuffer().append("/tex/").append(this.c_String).append("_l").toString());
         goto L174;
         L119:
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a_at = ObfBb.a.b(new java.lang.StringBuffer().append("/models/").append(this.b_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c_String).toString(), 0);
+        this.a_at = ObfBb.a.b(new java.lang.StringBuffer().append("/models/").append(this.b_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.c_String).toString(), false);
         L174:
         if (Settings.d() <= 0) goto L215;
         if (Settings.g() == 0) goto L215;
         if (ObfCl.a_cq != null) goto L215;
-        new ObfCq(v1.a("/tex/shadow.png", 1), 1, 1); /* constructor */
-        ObfCl.a_cq = new ObfCq(v1.a("/tex/shadow.png", 1), 1, 1);
+        new ObfCq(v1.a("/tex/shadow.png", true), true, true); /* constructor */
+        ObfCl.a_cq = new ObfCq(v1.a("/tex/shadow.png", true), true, true);
         goto L215;
         /* pop: ex_214; */
         L215:

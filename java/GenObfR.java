@@ -135,7 +135,7 @@ public class ObfR extends Screen {
     }
     // bytecode 257 bytes, max_stack 5, max_locals 2
     public ObfR(MainCanvas v1) {
-        super();
+        this();
         this.a = 0;
         this.b = 0;
         this.c = null;
@@ -356,12 +356,12 @@ public class ObfR extends Screen {
         this.b = (ObfR.l + 1);
         this.a_String = new java.lang.String[this.b];
         if (ObfR.h >= 50) goto L73;
-        this.a_String[0] = ObfBa.a_String[ObfR.h];
+        this.a_String[0] = CarSpec.a_String[ObfR.h];
         L73:
         int v1 = 0;
         L75:
         if (v1 >= ObfR.l) goto L105;
-        this.a_String[(v1 + 1)] = ObfBa.a_String[ObfR.c_arrI[v1]];
+        this.a_String[(v1 + 1)] = CarSpec.a_String[ObfR.c_arrI[v1]];
         v1 += 1;
         goto L75;
         L105:
@@ -678,7 +678,7 @@ public class ObfR extends Screen {
         L211:
         v3.a_Image = javax.microedition.lcdui.Image.createImage((v4.getClipWidth() - 20), (v6 * 2));
         Graphics v9 = v3.a_Image.getGraphics();
-        SysUtil.a(v3.a_Image.getGraphics(), 0, 0, (v4.getClipWidth() - 20), (v6 << 1), 5592405, 10066329, 1);
+        SysUtil.a(v3.a_Image.getGraphics(), 0, 0, (v4.getClipWidth() - 20), (v6 << 1), 5592405, 10066329, true);
         v9.setColor(10066329);
         v9.fillRect(((v6 * 2) - 1), v6, ((v4.getClipWidth() - 20) - (v6 * 2)), v6);
         v9.setColor(7829367);
@@ -802,7 +802,7 @@ public class ObfR extends Screen {
         L76:
         byte[] v2 = SysUtil.a(this.h());
         if (Settings.m() != 0) goto L435;
-        SysUtil.a(v1, 0, ((v1.getClipHeight() - SysUtil.b.a()) - this.e), v1.getClipWidth(), (SysUtil.b.a() + this.e), 5592405, 10066329, 1);
+        SysUtil.a(v1, 0, ((v1.getClipHeight() - SysUtil.b.a()) - this.e), v1.getClipWidth(), (SysUtil.b.a() + this.e), 5592405, 10066329, true);
         v1.setColor(10066329);
         v1.drawLine(0, ((v1.getClipHeight() - SysUtil.b.a()) - this.e), v1.getClipWidth(), ((v1.getClipHeight() - SysUtil.b.a()) - this.e));
         if (this.c_Z == 0) goto L265;
@@ -836,7 +836,7 @@ public class ObfR extends Screen {
         this.c = javax.microedition.lcdui.Image.createImage(v1.getClipHeight(), (this.e + SysUtil.b.a()));
         L464:
         Graphics v3 = this.c.getGraphics();
-        SysUtil.a(this.c.getGraphics(), 0, 0, v3.getClipWidth(), (SysUtil.b.a() + this.e), 5592405, 10066329, 1);
+        SysUtil.a(this.c.getGraphics(), 0, 0, v3.getClipWidth(), (SysUtil.b.a() + this.e), 5592405, 10066329, true);
         v3.setColor(10066329);
         v3.drawLine(0, (this.e + SysUtil.b.a()), v3.getClipWidth(), (this.e + SysUtil.b.a()));
         if (this.c_Z == 0) goto L607;
@@ -1096,7 +1096,7 @@ public class ObfR extends Screen {
         v9.drawRect(0, 0, (v6 - 1), (v7 - 1));
         v9.setColor(8947848);
         v9.drawRect(1, 1, (v6 - 2), (v7 - 2));
-        SysUtil.a(v9, 1, 1, (v6 - 3), (v7 - 2), 13421772, 10066329, 1);
+        SysUtil.a(v9, 1, 1, (v6 - 3), (v7 - 2), 13421772, 10066329, true);
         goto L298;
         L239:
         int v11 = 0;

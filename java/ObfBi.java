@@ -7,7 +7,7 @@ public class ObfBi extends ObfAx {
     public ObfBi(Widget v1, int v2, int v3, int v4, Font v5) {
         super(v1, v2, v3, v4, v5);
         this.b = false;
-        this.b(1);
+        this.b(true);
         return;
     }
     // bytecode 8 bytes, max_stack 4, max_locals 4
@@ -37,7 +37,7 @@ public class ObfBi extends ObfAx {
         if (SysUtil.b(v1) == 1) goto L70;
         if (SysUtil.b(v1) != 6) goto L77;
         L70:
-        this.a(0);
+        this.a(false);
         return 1;
         L77:
         return 0;
@@ -64,7 +64,7 @@ public class ObfBi extends ObfAx {
         this.b = true;
         goto L34;
         L29:
-        this.a(1);
+        this.a(true);
         L34:
         return 1;
         L36:

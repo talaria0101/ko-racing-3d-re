@@ -12,7 +12,7 @@ public class ObfDc extends ObfCh {
     }
     // bytecode 7 bytes, max_stack 3, max_locals 2
     public void a(ObfT v1) {
-        this.a(v1, 0);
+        this.a(v1, false);
         return;
     }
     // bytecode 11 bytes, max_stack 2, max_locals 3

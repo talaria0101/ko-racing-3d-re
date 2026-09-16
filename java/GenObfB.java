@@ -8,7 +8,7 @@ public class ObfB {
     private int a_I;
     // bytecode 38 bytes, max_stack 2, max_locals 2
     public ObfB(ObfCf v1) {
-        super();
+        this();
         this.a = null;
         this.a_cf = null;
         this.a_I = 0;

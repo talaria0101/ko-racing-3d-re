@@ -23,3 +23,12 @@ bx	SoundBank
 cm	WidgetGroup
 co	Garage
 dg	SoundTrigger
+ao	Label
+as	EngineSounds
+ba	CarSpec
+cu	MenuScreen
+cw	Planet
+cx	PlayerCar
+dj	ScoreUpload
+ck	Stars
+ck	RaceLine

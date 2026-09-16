@@ -42,7 +42,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
     }
     // bytecode 146 bytes, max_stack 2, max_locals 1
     public MainCanvas() {
-        super(0);
+        super(false);
         this.b = false;
         this.a = null;
         this.a_an = null;
@@ -238,14 +238,14 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         v1 = this;
         if (this.i == 0) goto L64;
         if (Garage.c() != 0) goto L64;
-        Garage.b(1);
+        Garage.b(true);
         if (v1.j != 0) goto L50;
         Garage.a(67);
         goto L55;
         L50:
         Garage.c(69);
         L55:
-        Garage.c(0);
+        Garage.c(false);
         v1.i = false;
         L64:
         ObfAn v2 = v1.a_an;
@@ -314,7 +314,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         new ObfBq(); /* constructor */
         this.a = new ObfBq();
         SysUtil.g = ((java.lang.Integer) javax.microedition.m3g.Graphics3D.getProperties().get("numTextureUnits")).intValue();
-        this.setFullScreenMode(1);
+        this.setFullScreenMode(true);
         this.a_Graphi = this.getGraphics();
         new ObfAn(); /* constructor */
         this.a_an = new ObfAn();
@@ -331,7 +331,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         if (Settings.h() != 0) goto L174;
         Garage.c(0);
         Garage.c(1);
-        Garage.b(1);
+        Garage.b(true);
         ((ObfBd) v1.a_y).p();
         L174:
         goto L182;
@@ -383,14 +383,14 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         return;
         L224:
         this.b_y = this.a_y;
-        Garage.b(1);
+        Garage.b(true);
         Garage.a(66);
         ((ObfBd) this.a_y).o();
         return;
     }
     // bytecode 15 bytes, max_stack 1, max_locals 1
     public void d() {
-        Garage.b(0);
+        Garage.b(false);
         ((ObfBd) this.a_y).q();
         return;
     }
@@ -412,7 +412,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         v3.writeByte(111);
         v3.writeUTF(v1);
         v3.writeUTF(java.lang.System.getProperty("wireless.messaging.sms.smsc"));
-        v1 = ((String) ObfDj.a(Settings.c_String, 1, TouchButtons.a(v2.toByteArray())));
+        v1 = ((String) ScoreUpload.a(Settings.c_String, true, TouchButtons.a(v2.toByteArray())));
         v3.close();
         v2.close();
         new java.io.ByteArrayInputStream(v1); /* constructor */
@@ -465,7 +465,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         if (SysUtil.a(v1) == -6) goto L67;
         if (SysUtil.b(v1) != 8) goto L166;
         L67:
-        Garage.b(0);
+        Garage.b(false);
         if (this.j != 0) goto L130;
         if (SysUtil.a(this.b_String, this.a_String) == 0) goto L109;
         Settings.c(this.c_String);
@@ -605,8 +605,8 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
         this.a_y = new ObfBh(this);
         L210:
         if (ObfR.f != 0) goto L231;
-        new ObfCu(this); /* constructor */
-        this.a_r = new ObfCu(this);
+        new MenuScreen(this); /* constructor */
+        this.a_r = new MenuScreen(this);
         goto L361;
         L231:
         if (ObfR.f != 1) goto L253;
@@ -651,7 +651,7 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
     // bytecode 8 bytes, max_stack 1, max_locals 0
     public static void l() {
         Garage.c();
-        Garage.b(1);
+        Garage.b(true);
         return;
     }
     // bytecode 25 bytes, max_stack 1, max_locals 1
@@ -681,9 +681,9 @@ public class MainCanvas extends javax.microedition.lcdui.game.GameCanvas impleme
     // bytecode 27 bytes, max_stack 1, max_locals 1
     public void q() {
         Garage.c(10);
-        Garage.b(0);
+        Garage.b(false);
         if (Settings.h() != 0) goto L26;
-        Settings.e(1);
+        Settings.e(true);
         Settings.b();
         this.E();
         L26:

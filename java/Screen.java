@@ -11,7 +11,7 @@ public class Screen {
     }
     // bytecode 15 bytes, max_stack 2, max_locals 2
     public Screen(MainCanvas v1) {
-        super();
+        this();
         this.a = null;
         this.a = v1;
         return;

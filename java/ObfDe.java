@@ -35,7 +35,7 @@ public class ObfDe {
     }
     // bytecode 9 bytes, max_stack 5, max_locals 4
     public ObfAt a(String v1, String v2, boolean v3) {
-        return this.a(v1, v2, v3, 0);
+        return this.a(v1, v2, v3, false);
     }
     // bytecode 49 bytes, max_stack 5, max_locals 4
     public ObfAt a(String v1, String v2) {
@@ -43,7 +43,7 @@ public class ObfDe {
         if (this.a(v1) >= 0) goto L17;
         return this.c(v1, v2);
         L17:
-        this.a[v3].a().getAppearance(0).setTexture(0, ObfBb.a_cf.a(v2, 1));
+        this.a[v3].a().getAppearance(0).setTexture(0, ObfBb.a_cf.a(v2, true));
         return this.a[v3];
     }
     // bytecode 55 bytes, max_stack 5, max_locals 6
@@ -61,13 +61,13 @@ public class ObfDe {
         if (this.a(v1) >= 0) goto L17;
         return this.c(v1, v2);
         L17:
-        new ObfBy(this.a_cf, v1, v2, Settings.d, 1); /* constructor */
-        this.a[v3] = new ObfBy(this.a_cf, v1, v2, Settings.d, 1);
+        new ObfBy(this.a_cf, v1, v2, Settings.d, true); /* constructor */
+        this.a[v3] = new ObfBy(this.a_cf, v1, v2, Settings.d, true);
         return this.a[v3];
     }
     // bytecode 9 bytes, max_stack 5, max_locals 4
     public ObfAt b(String v1, String v2, boolean v3) {
-        return this.b(v1, v2, v3, 0);
+        return this.b(v1, v2, v3, false);
     }
     // bytecode 55 bytes, max_stack 10, max_locals 6
     public ObfAt b(String v1, String v2, boolean v3, boolean v4) {
@@ -89,14 +89,14 @@ public class ObfDe {
         v3 = ((boolean) v2);
         v2 = v1;
         v1 = ((String) this);
-        new ObfAt(v1.a_cf, v2, v3, Settings.d, v4, 0, v5); /* constructor */
-        this.a[v1.a_I] = new ObfAt(v1.a_cf, v2, v3, Settings.d, v4, 0, v5);
+        new ObfAt(v1.a_cf, v2, v3, Settings.d, v4, false, v5); /* constructor */
+        this.a[v1.a_I] = new ObfAt(v1.a_cf, v2, v3, Settings.d, v4, false, v5);
         v1.a_String[v1.a_I] = v2;
         v1.a_I = (v1.a_I + 1);
         return v1.a[(v1.a_I - 1)];
         L87:
-        new ObfAt(this.a_cf, v1, v2, Settings.d, 0, 0, v4); /* constructor */
-        this.a[v3] = new ObfAt(this.a_cf, v1, v2, Settings.d, 0, 0, v4);
+        new ObfAt(this.a_cf, v1, v2, Settings.d, false, false, v4); /* constructor */
+        this.a[v3] = new ObfAt(this.a_cf, v1, v2, Settings.d, false, false, v4);
         return this.a[v3];
     }
     // bytecode 60 bytes, max_stack 10, max_locals 5
@@ -109,8 +109,8 @@ public class ObfDe {
     }
     // bytecode 58 bytes, max_stack 9, max_locals 3
     public ObfAt c(String v1, String v2) {
-        new ObfBy(this.a_cf, v1, v2, Settings.d, 1); /* constructor */
-        this.a[this.a_I] = new ObfBy(this.a_cf, v1, v2, Settings.d, 1);
+        new ObfBy(this.a_cf, v1, v2, Settings.d, true); /* constructor */
+        this.a[this.a_I] = new ObfBy(this.a_cf, v1, v2, Settings.d, true);
         this.a_String[this.a_I] = v1;
         this.a_I = (this.a_I + 1);
         return this.a[(this.a_I - 1)];

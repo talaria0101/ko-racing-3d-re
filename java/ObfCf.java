@@ -69,7 +69,7 @@ public class ObfCf {
         v2 += 1;
         goto L34;
         L61:
-        return javax.microedition.lcdui.Image.createRGBImage(v1, v0.getWidth(), v0.getHeight(), 0);
+        return javax.microedition.lcdui.Image.createRGBImage(v1, v0.getWidth(), v0.getHeight(), false);
     }
     // bytecode 133 bytes, max_stack 6, max_locals 4
     public Texture2D a(String v1, int v2, boolean v3) {

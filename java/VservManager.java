@@ -319,7 +319,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         new java.lang.String(v1); /* constructor */
         v1 = ((byte[]) new java.lang.String(v1));
         if (new java.lang.String(v1).trim().length() != 0) goto L25;
-        this.a(0);
+        this.a(false);
         return;
         L25:
         this.y_Z = true;
@@ -384,7 +384,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (v1.d[0].containsKey("action") == 0) goto L380;
         v2 = ((VservManager) ((java.lang.Integer) v1.d[0].get("action")).intValue());
         v1.c(v2);
-        v1.a(0);
+        v1.a(false);
         L380:
         return;
     }
@@ -394,7 +394,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         int v2 = 0;
         L12:
         if (v2 >= v1.length) goto L36;
-        this.a(null, v1[v2].trim(), 0);
+        this.a(null, v1[v2].trim(), false);
         v2 += 1;
         goto L12;
         L36:
@@ -407,7 +407,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         int v2 = 0;
         L12:
         if (v2 >= v1.length) goto L36;
-        this.a(null, v1[v2].trim(), 0);
+        this.a(null, v1[v2].trim(), false);
         v2 += 1;
         goto L12;
         L36:
@@ -438,7 +438,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.q_Z = true;
         return;
         L160:
-        this.a(0);
+        this.a(false);
         return;
     }
     // bytecode 1996 bytes, max_stack 4, max_locals 16
@@ -503,7 +503,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L279:
         goto L288;
         /* pop: ex_282; */
-        this.a(0);
+        this.a(false);
         L288:
         if (v3 == null) goto L866;
         v8 = ((java.lang.String) new ObfJSONObject[v3.length()]);
@@ -606,7 +606,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L866:
         goto L875;
         /* pop: ex_869; */
-        this.a(0);
+        this.a(false);
         L875:
         if (v4 == null) goto L1192;
         v8 = ((java.lang.String) new ObfJSONObject[v4.length()]);
@@ -664,7 +664,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L1192:
         goto L1201;
         /* pop: ex_1195; */
-        this.a(0);
+        this.a(false);
         L1201:
         if (v5 == null) goto L1404;
         v8 = ((java.lang.String) new ObfJSONArray[v5.length()]);
@@ -697,7 +697,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L1404:
         goto L1413;
         /* pop: ex_1407; */
-        this.a(0);
+        this.a(false);
         L1413:
         if (v6 == null) goto L1979;
         v8 = ((java.lang.String) new ObfJSONObject[v6.length()]);
@@ -796,10 +796,10 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L1979:
         goto L1995;
         /* pop: ex_1982; */
-        this.a(0);
+        this.a(false);
         return;
         /* pop: ex_1989; */
-        this.a(0);
+        this.a(false);
         L1995:
         return;
     }
@@ -890,7 +890,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L512:
         return;
         /* pop: ex_513; */
-        this.a(0);
+        this.a(false);
         return;
     }
     // bytecode 422 bytes, max_stack 5, max_locals 6
@@ -937,7 +937,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         java.lang.System.gc();
         return;
         /* pop: ex_163; */
-        this.a(0);
+        this.a(false);
         return;
         L170:
         v4 = ((Object) v3.openInputStream());
@@ -976,10 +976,10 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         java.lang.System.gc();
         return;
         /* pop: ex_343; */
-        this.a(0);
+        this.a(false);
         return;
         /* pop: ex_350; */
-        this.a(0);
+        this.a(false);
         if (v4 == null) goto L366;
         v4.close();
         L366:
@@ -989,7 +989,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         java.lang.System.gc();
         return;
         /* pop: ex_380; */
-        this.a(0);
+        this.a(false);
         return;
         v1 = ((String) ex_387);
         if (v4 == null) goto L398;
@@ -1001,7 +1001,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         java.lang.System.gc();
         goto L420;
         /* pop: ex_414; */
-        this.a(0);
+        this.a(false);
         L420:
         throw v1;
     }
@@ -1044,8 +1044,8 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         throw new java.lang.Exception("No VideoControl!!");
         L29:
         /* pop: v1.initDisplayMode(1, this); */
-        v1.setDisplayFullScreen(1);
-        v1.setVisible(1);
+        v1.setDisplayFullScreen(true);
+        v1.setVisible(true);
         v1 = ((javax.microedition.media.control.VideoControl) this);
         VservManager.a_Graphi.setColor(this.s);
         VservManager.a_Graphi.fillRect(0, 0, VservManager.t, VservManager.u);
@@ -1059,7 +1059,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.m_Z = true;
         return;
         /* pop: ex_125; */
-        this.a(0);
+        this.a(false);
         return;
     }
     // bytecode 19 bytes, max_stack 3, max_locals 4
@@ -1093,7 +1093,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.a_Player.start();
         return;
         /* pop: ex_106; */
-        this.a(0);
+        this.a(false);
         return;
     }
     // bytecode 983 bytes, max_stack 4, max_locals 3
@@ -1263,7 +1263,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.h_Z = true;
         return;
         /* pop: ex_976; */
-        this.a(0);
+        this.a(false);
         return;
     }
     // bytecode 1198 bytes, max_stack 6, max_locals 5
@@ -1411,7 +1411,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.setCommandListener(this);
         goto L1185;
         /* pop: ex_1179; */
-        this.a(0);
+        this.a(false);
         L1185:
         if (this.a_Comman == null) goto L1197;
         this.F = true;
@@ -1482,7 +1482,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L361:
         return;
         /* pop: ex_362; */
-        this.a(0);
+        this.a(false);
         return;
     }
     // bytecode 24 bytes, max_stack 2, max_locals 1
@@ -1551,7 +1551,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.n();
         return;
         /* pop: ex_102; */
-        this.a(0);
+        this.a(false);
         return;
     }
     // bytecode 821 bytes, max_stack 4, max_locals 14
@@ -1759,7 +1759,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L377:
         goto L386;
         /* pop: ex_380; */
-        this.a(0);
+        this.a(false);
         L386:
         return v4;
     }
@@ -1792,7 +1792,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         java.lang.System.gc();
         goto L112;
         /* pop: ex_106; */
-        v2.a(0);
+        v2.a(false);
         L112:
         this.l();
         this.n_Z = false;
@@ -1840,7 +1840,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v1.f_Z = true;
         goto L2374;
         /* pop: ex_415; */
-        v2.a(0);
+        v2.a(false);
         return;
         L422:
         if (this.b_Hashta[v1].get("type").equals("image") == 0) goto L666;
@@ -2224,7 +2224,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         return;
         L288:
         if (this.q_Z != 0) goto L300;
-        this.a(0);
+        this.a(false);
         L300:
         return;
     }
@@ -2275,7 +2275,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         int v5 = 0;
         L217:
         if (v5 >= v4.length) goto L245;
-        v2.a(null, v4[v5].trim(), 0);
+        v2.a(null, v4[v5].trim(), false);
         v5 += 1;
         goto L217;
         L245:
@@ -2292,7 +2292,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.e_J = 0L;
         this.d_J = 0L;
         this.c_Z = false;
-        this.a(0);
+        this.a(false);
         L332:
         if (java.lang.Thread.currentThread() != this.a_Thread) goto L495;
         if (VservManager.startMainApp == 0) goto L495;
@@ -2466,7 +2466,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         goto L1365;
         L1281:
         if (this.b_Hashta.get("staticAdPosition").equals("2") == 0) goto L1365;
-        this.a(0);
+        this.a(false);
         goto L1365;
         L1306:
         if (this.b_Hashta.get("staticAdPosition").equals("1") == 0) goto L1330;
@@ -2548,7 +2548,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L1803:
         return;
         /* pop: ex_1804; */
-        this.a(0);
+        this.a(false);
         return;
     }
     // bytecode 21 bytes, max_stack 4, max_locals 3
@@ -3180,7 +3180,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L486:
         return;
         /* pop: ex_487; */
-        this.a(0);
+        this.a(false);
         L493:
         return;
     }
@@ -3270,7 +3270,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         new java.lang.StringBuffer(); /* constructor */
         v1 = this.midlet.platformRequest(new java.lang.StringBuffer().append("").append(v1).toString());
         if (this.midlet.platformRequest(new java.lang.StringBuffer().append("").append(v1).toString()) == 0) goto L68;
-        this.a(1);
+        this.a(true);
         L68:
         return;
         /* pop: ex_69; */
@@ -3308,7 +3308,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         new java.lang.StringBuffer(); /* constructor */
         v2 = ((String) v1.midlet.platformRequest(new java.lang.StringBuffer().append("tel:").append(v1.c[v2].get("data").toString()).toString()));
         if (v1.midlet.platformRequest(new java.lang.StringBuffer().append("tel:").append(v1.c[v2].get("data").toString()).toString()) == 0) goto L96;
-        v1.a(1);
+        v1.a(true);
         L96:
         goto L220;
         /* pop: ex_99; */
@@ -3322,7 +3322,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         if (this.c[v1].containsKey("data") == 0) goto L220;
         v1 = ((int) this.c[v1].get("data").toString().trim());
         this.c();
-        this.a(null, v1, 1);
+        this.a(null, v1, true);
         this.a_Z = true;
         return;
         L186:
@@ -3576,7 +3576,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.c(v1);
         this.g_Z = true;
         L77:
-        this.a(0);
+        this.a(false);
         return;
     }
     // bytecode 27 bytes, max_stack 2, max_locals 1
@@ -3605,7 +3605,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L78:
         return;
         /* pop: ex_79; */
-        this.a(0);
+        this.a(false);
         return;
         L86:
         if (this.b_Hashta[this.b_I].get("type").equals("video") == 0) goto L130;
@@ -3648,7 +3648,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L404:
         goto L414;
         /* pop: ex_407; */
-        v4.a(0);
+        v4.a(false);
         L414:
         if (this.b_Hashta[v3].get("type").equals("video") != 0) goto L445;
         if (this.a_Hashta_2[v2].length != 1) goto L445;
@@ -3739,7 +3739,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         L1125:
         return;
         /* pop: ex_1126; */
-        this.a(0);
+        this.a(false);
         L1132:
         return;
     }
@@ -3821,7 +3821,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         v5.a_Player.start();
         goto L548;
         /* pop: ex_527; */
-        v5.a(0);
+        v5.a(false);
         L534:
         goto L646;
         L537:
@@ -3849,7 +3849,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         this.removeCommand(this.d_Comman);
         this.c_Z = false;
         this.d_J = 0L;
-        this.a(0);
+        this.a(false);
         return;
         L702:
         v2 = ((Displayable) v1);
@@ -3956,7 +3956,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         goto L880;
         L1564:
         if (v3.o_Z != 0) goto L1585;
-        v3.a(v5, v4, 1);
+        v3.a(v5, v4, true);
         v3.a_Z = true;
         L1585:
         v1.o_Z = false;
@@ -4006,7 +4006,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
         int v2 = 0;
         int v3 = 0;
         String v4 = "";
-        this.a_Record = javax.microedition.rms.RecordStore.openRecordStore("X_VSERV_PARAMETERS", 1);
+        this.a_Record = javax.microedition.rms.RecordStore.openRecordStore("X_VSERV_PARAMETERS", true);
         int v6 = this.a_Record.getNumRecords();
         L27:
         if (v4 == null) goto L182;
@@ -4043,10 +4043,10 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
     public void b(HttpConnection v1) {
         /* try L90-L105 catch java.io.IOException -> L108 */
         /* try L0-L128 catch javax.microedition.rms.RecordStoreException -> L129 */
-        this.a_Record = javax.microedition.rms.RecordStore.openRecordStore("X_VSERV_PARAMETERS", 1);
-        RecordEnumeration v2 = this.a_Record.enumerateRecords(null, null, 0);
-        int v3 = this.a_Record.enumerateRecords(null, null, 0).numRecords();
-        if (this.a_Record.enumerateRecords(null, null, 0).numRecords() <= 0) goto L115;
+        this.a_Record = javax.microedition.rms.RecordStore.openRecordStore("X_VSERV_PARAMETERS", true);
+        RecordEnumeration v2 = this.a_Record.enumerateRecords(null, null, false);
+        int v3 = this.a_Record.enumerateRecords(null, null, false).numRecords();
+        if (this.a_Record.enumerateRecords(null, null, false).numRecords() <= 0) goto L115;
         int v5 = 0;
         L35:
         if (v5 >= v2.numRecords()) goto L115;
@@ -4098,7 +4098,7 @@ public class VservManager extends javax.microedition.lcdui.Canvas implements jav
     // bytecode 14 bytes, max_stack 3, max_locals 1
     public void v() {
         /* try L0-L11 catch java.lang.Exception -> L12 */
-        this.b_Record = javax.microedition.rms.RecordStore.openRecordStore(VservManager.E_String, 1);
+        this.b_Record = javax.microedition.rms.RecordStore.openRecordStore(VservManager.E_String, true);
         return;
         /* pop: ex_12; */
         return;

@@ -14,7 +14,7 @@ public class Vec2 {
     }
     // bytecode 26 bytes, max_stack 5, max_locals 3
     public Vec2(float v1, float v2) {
-        super();
+        this();
         new float[2][0] = 0.0f;
         new float[2][1] = 0.0f;
         this.a = new float[2];

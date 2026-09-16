@@ -18,7 +18,7 @@ public class ObfCi extends ObfBw {
     }
     // bytecode 16 bytes, max_stack 3, max_locals 4
     public ObfCi(ObfAg v1, Image v2, int v3) {
-        super(v1, v2);
+        this(v1, v2);
         v2 = ((Image) v3);
         v1 = ((ObfAg) this);
         this.a_I = v2;

@@ -126,7 +126,7 @@ public class SoundBank extends AudioPlayer {
         if (v2.equals("endOfMedia") == 0) goto L67;
         SoundBank.a = null;
         this.b = "";
-        ObfAs.c();
+        EngineSounds.c();
         goto L129;
         L67:
         if (v2.equals("stopped") != 0) goto L127;

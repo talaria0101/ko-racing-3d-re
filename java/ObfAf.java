@@ -23,7 +23,7 @@ public class ObfAf extends ObfDb {
         SysUtil.b.a();
         if (this.c() == 0) goto L49;
         v1.setColor(10066329);
-        SysUtil.a(v1, 0, ((v3 + this.f()) - 1), v1.getClipWidth(), (SysUtil.b.a() + 1), 11184810, 8947848, 1);
+        SysUtil.a(v1, 0, ((v3 + this.f()) - 1), v1.getClipWidth(), (SysUtil.b.a() + 1), 11184810, 8947848, true);
         L49:
         SysUtil.b.a(v1, this.a[this.b], ((v2 + this.e()) + ((this.b() - SysUtil.b.a(this.a[this.b])) / 2)), (v3 + this.f()));
         SysUtil.b.b();
@@ -32,9 +32,9 @@ public class ObfAf extends ObfDb {
     // bytecode 35 bytes, max_stack 3, max_locals 1
     public int a() {
         if (this.a != null) goto L17;
-        return (SysUtil.b.a(1) + 3);
+        return (SysUtil.b.a(true) + 3);
         L17:
-        return ((this.a.a() + SysUtil.b.a(1)) + 3);
+        return ((this.a.a() + SysUtil.b.a(true)) + 3);
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2
     public void a(byte v1) {

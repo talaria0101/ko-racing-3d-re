@@ -44,9 +44,9 @@ public class ObfAm {
         javax.microedition.m3g.Appearance v5 = new javax.microedition.m3g.Appearance();
         new javax.microedition.m3g.PolygonMode(); /* constructor */
         javax.microedition.m3g.PolygonMode v6 = new javax.microedition.m3g.PolygonMode();
-        new javax.microedition.m3g.PolygonMode().setLocalCameraLightingEnable(0);
+        new javax.microedition.m3g.PolygonMode().setLocalCameraLightingEnable(false);
         v6.setShading(165);
-        v6.setTwoSidedLightingEnable(0);
+        v6.setTwoSidedLightingEnable(false);
         v6.setCulling(v4);
         v6.setPerspectiveCorrectionEnable(Settings.a);
         v5.setPolygonMode(v6);
@@ -58,8 +58,8 @@ public class ObfAm {
         v0.setBlending(64);
         L95:
         if (v3 != 0) goto L109;
-        v0.setDepthWriteEnable(0);
-        v0.setDepthTestEnable(0);
+        v0.setDepthWriteEnable(false);
+        v0.setDepthTestEnable(false);
         L109:
         v5.setCompositingMode(v0);
         return v5;

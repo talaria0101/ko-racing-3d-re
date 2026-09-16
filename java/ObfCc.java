@@ -7,7 +7,7 @@ public class ObfCc extends WidgetGroup {
     private boolean e;
     // bytecode 37 bytes, max_stack 8, max_locals 8
     public ObfCc(Widget v1, int v2, int v3, int v4, int v5, int v6, boolean v7) {
-        super(null, 0, 0, v4, v5, 11, 1);
+        super(null, 0, 0, v4, v5, 11, true);
         this.d = false;
         this.e = false;
         this.f(0);
@@ -24,7 +24,7 @@ public class ObfCc extends WidgetGroup {
         int v5 = (v1.getClipHeight() - v4);
         this.e(v1.getClipWidth());
         v1.setColor(3355443);
-        SysUtil.a(v1, 0, (v5 + v3), v1.getClipWidth(), v4, 3355443, 6710886, 1);
+        SysUtil.a(v1, 0, (v5 + v3), v1.getClipWidth(), v4, 3355443, 6710886, true);
         v1.setColor(6710886);
         v1.drawLine(0, ((v5 - 1) + v3), v1.getClipWidth(), ((v5 - 1) + v3));
         v4 = SysUtil.d;

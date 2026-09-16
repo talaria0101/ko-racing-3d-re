@@ -418,7 +418,7 @@ public class ObfBm {
     public void a(ObfCf v1) {
         this.b(v1);
         if (this.a_bc == null) goto L20;
-        this.a_bc.a(1);
+        this.a_bc.a(true);
         L20:
         if (this.a_bp == null) goto L35;
         this.a_bp.a(v1);
@@ -427,7 +427,7 @@ public class ObfBm {
     }
     // bytecode 9 bytes, max_stack 2, max_locals 2
     public void b(ObfCf v1) {
-        this.a.a(1);
+        this.a.a(true);
         return;
     }
 }

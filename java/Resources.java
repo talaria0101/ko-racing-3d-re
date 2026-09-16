@@ -26,7 +26,7 @@ public class Resources {
     // bytecode 111 bytes, max_stack 3, max_locals 4
     public Resources(String v1) {
         /* try L34-L108 catch java.io.IOException -> L109 */
-        super();
+        this();
         this.a = 0;
         this.a_String = null;
         this.a_String_2 = null;

@@ -78,7 +78,7 @@ public class ObfV extends ObfBv {
         if (this.a != null) goto L181;
         this.a = javax.microedition.lcdui.Image.createImage((v1.getClipWidth() - 20), (v2 * 2));
         Graphics v5 = this.a.getGraphics();
-        SysUtil.a(this.a.getGraphics(), 0, 0, (v1.getClipWidth() - 20), (v2 << 1), 5592405, 10066329, 1);
+        SysUtil.a(this.a.getGraphics(), 0, 0, (v1.getClipWidth() - 20), (v2 << 1), 5592405, 10066329, true);
         v5.setColor(10066329);
         v5.fillRect(0, v2, ((v1.getClipWidth() - 20) - 1), v2);
         v5.setColor(7829367);

@@ -23,8 +23,8 @@ public class ObfBk extends Widget {
         this.b = 0;
         this.h = 0;
         this.b_Z = false;
-        this.b(1);
-        this.a(0);
+        this.b(true);
+        this.a(false);
         new ObfAx(this, 0, 0, v4, SysUtil.b); /* constructor */
         this.a = new ObfAx(this, 0, 0, v4, SysUtil.b);
         this.a_arrLdl = new ObfDl[3];
@@ -58,7 +58,7 @@ public class ObfBk extends Widget {
         L58:
         if (SysUtil.b(v1) != 1) goto L95;
         if ((this.h - 1) >= 0) goto L83;
-        this.a(0);
+        this.a(false);
         goto L93;
         L83:
         this.h = (this.h - 1);
@@ -67,7 +67,7 @@ public class ObfBk extends Widget {
         L95:
         if (SysUtil.b(v1) != 6) goto L137;
         if ((this.h + 1) < this.a_I) goto L125;
-        this.a(0);
+        this.a(false);
         goto L135;
         L125:
         this.h = (this.h + 1);
@@ -139,7 +139,7 @@ public class ObfBk extends Widget {
     }
     // bytecode 46 bytes, max_stack 3, max_locals 3
     public void a(boolean v1, byte v2) {
-        this.a(1);
+        this.a(true);
         if (this.b_Z == 0) goto L18;
         this.b_Z = false;
         return;

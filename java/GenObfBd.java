@@ -66,14 +66,14 @@ public class ObfBd extends ObfBh {
     private boolean g_Z;
     private int h_I;
     private boolean h_Z;
-    public static ObfBa a_ba;
+    public static CarSpec a_ba;
     private int i_I;
     private int[] a_arrI;
     private int j_I;
     private WidgetGroup o_cm;
-    private ObfAo b_ao;
+    private Label b_ao;
     private WidgetGroup p_cm;
-    private ObfAo c_ao;
+    private Label c_ao;
     private WidgetGroup q_cm;
     private WidgetGroup r_cm;
     private ObfBi C;
@@ -84,15 +84,15 @@ public class ObfBd extends ObfBh {
     private ObfAf e_af;
     private int k_I;
     private int l_I;
-    private ObfDj a_dj;
+    private ScoreUpload a_dj;
     private boolean j_Z;
     private ObfCe a_ce;
     private MainMenu a_m;
     private int m_I;
     private WidgetGroup t_cm;
-    private ObfAo d_ao;
-    private ObfAo e_ao;
-    private ObfAo f_ao;
+    private Label d_ao;
+    private Label e_ao;
+    private Label f_ao;
     private WidgetGroup u_cm;
     private ObfBi F;
     private ObfBi G;
@@ -237,8 +237,8 @@ public class ObfBd extends ObfBh {
         /* try L2065-L2149 catch java.io.IOException -> L2152 */
         /* try L2153-L2165 catch java.io.IOException -> L2168 */
         ObfBd v1 = this;
-        new ObfCc(null, 0, 0, v1.b, v1.c, 11, 1); /* constructor */
-        this.a = new ObfCc(null, 0, 0, v1.b, v1.c, 11, 1);
+        new ObfCc(null, 0, 0, v1.b, v1.c, 11, true); /* constructor */
+        this.a = new ObfCc(null, 0, 0, v1.b, v1.c, 11, true);
         v1.a.a(1);
         new ObfAx(null, 0, 0, 0, SysUtil.b); /* constructor */
         v1.a.a(new ObfAx(null, 0, 0, 0, SysUtil.b), 0);
@@ -252,16 +252,16 @@ public class ObfBd extends ObfBh {
         v1.j = new ObfS(null, 0, 0, 155, SysUtil.b);
         v1.a.a(v1.j, 1);
         ObfBd v2 = v1;
-        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
-        v1.o_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1);
+        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
+        v1.o_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         new ObfAx(null, 0, 0, 155, SysUtil.b); /* constructor */
         v2.o_cm.a(new ObfAx(null, 0, 0, 155, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
         v2.o_cm.a(new ObfCz(3), 0);
         new ObfAx(null, 0, 0, 156, SysUtil.b); /* constructor */
         v2.o_cm.a(new ObfAx(null, 0, 0, 156, SysUtil.b), 0);
-        new ObfAo(v2.o_cm, 0, 0, 300, 30, 156); /* constructor */
-        v2.b_ao = new ObfAo(v2.o_cm, 0, 0, 300, 30, 156);
+        new Label(v2.o_cm, 0, 0, 300, 30, 156); /* constructor */
+        v2.b_ao = new Label(v2.o_cm, 0, 0, 300, 30, 156);
         v2.o_cm.a(v2.b_ao, 0);
         L270:
         new ObfS(null, 0, 0, 157, SysUtil.b); /* constructor */
@@ -286,8 +286,8 @@ public class ObfBd extends ObfBh {
         v1.a.a(v1.a, 1);
         v1.m();
         v2 = v1;
-        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
-        v1.h_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1);
+        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
+        v1.h_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         new ObfAx(null, 0, 0, 52, SysUtil.b); /* constructor */
         v2.h_cm.a(new ObfAx(null, 0, 0, 52, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
@@ -298,8 +298,8 @@ public class ObfBd extends ObfBh {
         v2.h_cm.a(v2.a_ch, 0);
         v2.h_cm.c = true;
         v2 = v1;
-        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
-        v1.i_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1);
+        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
+        v1.i_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         new ObfAx(null, 0, 0, 106, SysUtil.b); /* constructor */
         v2.i_cm.a(new ObfAx(null, 0, 0, 106, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
@@ -311,8 +311,8 @@ public class ObfBd extends ObfBh {
         v2.p = new ObfBi(v2.i_cm, 0, 0, 108, SysUtil.b);
         v2.i_cm.a(v2.p, 0);
         v2 = v1;
-        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
-        v1.k_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1);
+        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
+        v1.k_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         v2.k_cm.b(0.5666666626930237f);
         new ObfAx(null, 0, 0, 113, SysUtil.b); /* constructor */
         v2.k_cm.a(new ObfAx(null, 0, 0, 113, SysUtil.b), 0);
@@ -320,17 +320,17 @@ public class ObfBd extends ObfBh {
         v2.k_cm.a(new ObfCz(3), 0);
         new ObfAf(v2.k_cm, 100, 60, 119); /* constructor */
         v2.a_af = new ObfAf(v2.k_cm, 100, 60, 119);
-        v2.a_af.c(1);
+        v2.a_af.c(true);
         v2.k_cm.a(v2.a_af, 1);
         v2.a_arrI = new int[100];
         v2.j_I = 0;
         new ObfAf(v2.k_cm, 10, 60, 120); /* constructor */
         v2.b_af = new ObfAf(v2.k_cm, 10, 60, 120);
-        v2.b_af.c(1);
+        v2.b_af.c(true);
         v2.k_cm.a(v2.b_af, 1);
         new ObfDb(v2.k_cm, 10, 121); /* constructor */
         v2.a_db = new ObfDb(v2.k_cm, 10, 121);
-        v2.a_db.c(1);
+        v2.a_db.c(true);
         v2.k_cm.a(v2.a_db, 1);
         new ObfAf(v2.k_cm, 10, 60, 133); /* constructor */
         v2.c_af = new ObfAf(v2.k_cm, 10, 60, 133);
@@ -338,7 +338,7 @@ public class ObfBd extends ObfBh {
         v2.c_af.a("1");
         v2.c_af.a("2");
         v2.c_af.a("3");
-        v2.c_af.c(1);
+        v2.c_af.c(true);
         v2.k_cm.a(v2.c_af, 1);
         new ObfDb(v2.k_cm, 10, 138); /* constructor */
         v2.b_db = new ObfDb(v2.k_cm, 10, 138);
@@ -346,21 +346,21 @@ public class ObfBd extends ObfBh {
         v2.b_db.c(135);
         v2.b_db.c(136);
         v2.b_db.c(137);
-        v2.b_db.c(1);
+        v2.b_db.c(true);
         v2.b_db.g(0);
         v2.k_cm.a(v2.b_db, 1);
         v2 = v1;
-        new ObfBa(); /* constructor */
-        ObfBd.a_ba = new ObfBa();
-        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
-        v2.n_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1);
+        new CarSpec(); /* constructor */
+        ObfBd.a_ba = new CarSpec();
+        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
+        v2.n_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         new ObfAx(null, 0, 0, 125, SysUtil.b); /* constructor */
         v2.n_cm.a(new ObfAx(null, 0, 0, 125, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
         v2.n_cm.a(new ObfCz(3), 0);
         new ObfAf(v2.n_cm, 10, 60, -125); /* constructor */
         v2.d_af = new ObfAf(v2.n_cm, 10, 60, -125);
-        v2.d_af.c(1);
+        v2.d_af.c(true);
         v2.n_cm.a(v2.d_af, 1);
         new ObfCb(v2.n_cm, 127); /* constructor */
         v2.a_cb = new ObfCb(v2.n_cm, 127);
@@ -375,15 +375,15 @@ public class ObfBd extends ObfBh {
         v2.d_cb = new ObfCb(v2.n_cm, 130);
         v2.n_cm.a(v2.d_cb, 1);
         v2 = v1;
-        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
-        v1.s_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1);
+        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
+        v1.s_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         new ObfAx(null, 0, 0, 145, SysUtil.b); /* constructor */
         v2.s_cm.a(new ObfAx(null, 0, 0, 145, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
         v2.s_cm.a(new ObfCz(3), 0);
         v2 = v1;
-        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
-        v1.m_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1);
+        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
+        v1.m_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         new ObfAx(null, 0, 0, 157, SysUtil.b); /* constructor */
         v2.m_cm.a(new ObfAx(null, 0, 0, 157, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
@@ -407,8 +407,8 @@ public class ObfBd extends ObfBh {
         new ObfBi(v2.m_cm, 0, 0, 159, SysUtil.b); /* constructor */
         v2.B = new ObfBi(v2.m_cm, 0, 0, 159, SysUtil.b);
         v2.m_cm.a(v2.B, 0);
-        new WidgetGroup(null, 0, 0, v2.b, v2.c, 3, 1); /* constructor */
-        v2.v_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 3, 1);
+        new WidgetGroup(null, 0, 0, v2.b, v2.c, 3, true); /* constructor */
+        v2.v_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 3, true);
         new ObfAx(null, 0, 0, 166, SysUtil.b); /* constructor */
         v2.v_cm.a(new ObfAx(null, 0, 0, 166, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
@@ -418,8 +418,8 @@ public class ObfBd extends ObfBh {
         v2.v_cm.a(v2.a_dc, 0);
         v2.v_cm.b(1.0f);
         v2 = v1;
-        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
-        v1.j_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1);
+        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
+        v1.j_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         new ObfAx(null, 0, 0, 54, SysUtil.b); /* constructor */
         v2.j_cm.a(new ObfAx(null, 0, 0, 54, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
@@ -525,8 +525,8 @@ public class ObfBd extends ObfBh {
         if (v1.e == v1.t_cm) goto L376;
         if (v1.e != v1.u_cm) goto L404;
         L376:
-        new ObfCq(ObfR.a(v1.a_m.a(), "/images/ts2.png", 1)); /* constructor */
-        v1.a_cq = new ObfCq(ObfR.a(v1.a_m.a(), "/images/ts2.png", 1));
+        new ObfCq(ObfR.a(v1.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        v1.a_cq = new ObfCq(ObfR.a(v1.a_m.a(), "/images/ts2.png", true));
         goto L404;
         /* pop: ex_403; */
         L404:
@@ -547,9 +547,9 @@ public class ObfBd extends ObfBh {
         L537:
         if (this.e == this.v_cm) goto L677;
         v1 = this;
-        ObfBd.a_Backgr.setColorClearEnable(0);
+        ObfBd.a_Backgr.setColorClearEnable(false);
         v1.a.a().a(ObfBd.a_Backgr);
-        ObfBd.a_Backgr.setColorClearEnable(1);
+        ObfBd.a_Backgr.setColorClearEnable(true);
         ObfBd.a_Transf.setIdentity();
         ObfBd.a_Transf.postTranslate(0.0f, -0.10000000149011612f, -3.0f);
         if (v1.f != 1) goto L630;
@@ -700,8 +700,8 @@ public class ObfBd extends ObfBh {
         if (v1.a_m == null) goto L309;
         if (v1.a_m.b() == 0) goto L309;
         Garage.c(20);
-        Garage.b(1);
-        Garage.c(0);
+        Garage.b(true);
+        Garage.c(false);
         v1.m_I = 0;
         goto L442;
         L309:
@@ -714,22 +714,22 @@ public class ObfBd extends ObfBh {
         v1.a_m = new MainMenu();
         L343:
         if (v1.a_m.a() != 0) goto L374;
-        Garage.b(1);
+        Garage.b(true);
         Garage.c(19);
-        Garage.c(0);
+        Garage.c(false);
         v1.m_I = 0;
         goto L442;
         L374:
         if (v1.a_m.b() == 0) goto L405;
         Garage.c(20);
-        Garage.b(1);
-        Garage.c(0);
+        Garage.b(true);
+        Garage.c(false);
         v1.m_I = 0;
         goto L442;
         L405:
         v1.m_I = 2;
-        new ObfCq(ObfR.a(v1.a_m.a(), "/images/ts2.png", 1)); /* constructor */
-        v1.a_cq = new ObfCq(ObfR.a(v1.a_m.a(), "/images/ts2.png", 1));
+        new ObfCq(ObfR.a(v1.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        v1.a_cq = new ObfCq(ObfR.a(v1.a_m.a(), "/images/ts2.png", true));
         goto L442;
         java.io.IOException v2 = ex_437;
         ex_437.printStackTrace();
@@ -890,14 +890,14 @@ public class ObfBd extends ObfBh {
         ObfR.k_I = (this.b_af.d() + 1);
         ObfR.j_I = (this.a_db.a(this.a_db.d()).d() - 76);
         ObfR.h_I = this.b_arrI[this.d_af.d()];
-        this.a.a(1);
+        this.a.a(true);
         this.f_Z = false;
         this.g_Z = true;
         return;
         L219:
         if (this.i_I != 1) goto L261;
         ObfR.h_I = this.b_arrI[this.d_af.d()];
-        this.a.a(0);
+        this.a.a(false);
         this.f_Z = false;
         this.g_Z = true;
         return;
@@ -1474,7 +1474,7 @@ public class ObfBd extends ObfBh {
         L3570:
         v2.a(v2.a);
         L3578:
-        Garage.b(0);
+        Garage.b(false);
         return;
         L3583:
         if (v2.m_I != 2) goto L3607;
@@ -1509,8 +1509,8 @@ public class ObfBd extends ObfBh {
         L3762:
         v2.a_cq = null;
         java.lang.System.gc();
-        new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", 1)); /* constructor */
-        v2.a_cq = new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", 1));
+        new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        v2.a_cq = new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", true));
         goto L3802;
         v1 = ((float) ex_3797);
         ex_3797.printStackTrace();
@@ -1526,14 +1526,14 @@ public class ObfBd extends ObfBh {
         v2.m_I = 2;
         v2.a_cq = null;
         java.lang.System.gc();
-        new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", 1)); /* constructor */
-        v2.a_cq = new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", 1));
+        new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        v2.a_cq = new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", true));
         goto L3908;
         v4 = ((int) ex_3902);
         ex_3902.printStackTrace();
         L3908:
         Garage.c(22);
-        Garage.b(0);
+        Garage.b(false);
         if (MainMenu.a >= 0) goto L3946;
         v2.w.b(216);
         v2.x.b(217);
@@ -1546,19 +1546,19 @@ public class ObfBd extends ObfBh {
         if (v1 != 1) goto L3994;
         v2.a(v2.a);
         Garage.c(9);
-        Garage.b(0);
+        Garage.b(false);
         goto L4038;
         L3994:
         if (v1 != 2) goto L4016;
         v2.m_I = 2;
         Garage.c(21);
-        Garage.b(0);
+        Garage.b(false);
         goto L4038;
         L4016:
         if (v1 != 3) goto L4038;
         v2.a(v2.a);
         Garage.c(40);
-        Garage.b(0);
+        Garage.b(false);
         L4038:
         if (v2.m_I != 3) goto L5482;
         if (v2.m_cm.a(v2.a) == 0) goto L5482;
@@ -1577,7 +1577,7 @@ public class ObfBd extends ObfBh {
         new ObfAb((SysUtil.e - 15), v2.a_m); /* constructor */
         v2.a_ab = new ObfAb((SysUtil.e - 15), v2.a_m);
         L4156:
-        v2.a_dc.a(v2.a_ab, 1);
+        v2.a_dc.a(v2.a_ab, true);
         v2.a(v2.v_cm);
         return;
         L4177:
@@ -1600,7 +1600,7 @@ public class ObfBd extends ObfBh {
         v2.a_dc.a(null);
         java.lang.System.gc();
         Garage.c(23);
-        Garage.b(0);
+        Garage.b(false);
         if (MainMenu.a >= 0) goto L4343;
         v2.w.b(216);
         v2.x.b(217);
@@ -1620,7 +1620,7 @@ public class ObfBd extends ObfBh {
         L4392:
         Garage.c(9);
         L4397:
-        Garage.b(0);
+        Garage.b(false);
         return;
         L4402:
         if (v2.y.a() == 0) goto L4597;
@@ -1632,14 +1632,14 @@ public class ObfBd extends ObfBh {
         v2.m_I = 2;
         v2.a_cq = null;
         java.lang.System.gc();
-        new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", 1)); /* constructor */
-        v2.a_cq = new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", 1));
+        new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        v2.a_cq = new ObfCq(ObfR.a(v2.a_m.a(), "/images/ts2.png", true));
         goto L4487;
         v4 = ((int) ex_4481);
         ex_4481.printStackTrace();
         L4487:
         Garage.c(22);
-        Garage.b(0);
+        Garage.b(false);
         if (MainMenu.a >= 0) goto L4525;
         v2.w.b(216);
         v2.x.b(217);
@@ -1651,62 +1651,62 @@ public class ObfBd extends ObfBh {
         L4548:
         if (v1 != 1) goto L4565;
         Garage.c(9);
-        Garage.b(0);
+        Garage.b(false);
         goto L5482;
         L4565:
         if (v1 != 2) goto L4582;
         Garage.c(21);
-        Garage.b(0);
+        Garage.b(false);
         goto L5482;
         L4582:
         if (v1 != 3) goto L4596;
         Garage.c(40);
-        Garage.b(0);
+        Garage.b(false);
         L4596:
         return;
         L4597:
         if (v2.w.a() == 0) goto L5087;
         v2.w.g();
         if (MainMenu.a >= 0) goto L4876;
-        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
-        v2.t_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1);
+        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
+        v2.t_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         new ObfAx(null, 0, 0, 216, SysUtil.b); /* constructor */
         v2.t_cm.a(new ObfAx(null, 0, 0, 216, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
         v2.t_cm.a(new ObfCz(3), 0);
         new ObfAx(null, 0, 0, 220, SysUtil.b); /* constructor */
         v2.t_cm.a(new ObfAx(null, 0, 0, 220, SysUtil.b), 0);
-        new ObfAo(v2.t_cm, 0, 0, 300, 30, 220); /* constructor */
-        v2.d_ao = new ObfAo(v2.t_cm, 0, 0, 300, 30, 220);
+        new Label(v2.t_cm, 0, 0, 300, 30, 220); /* constructor */
+        v2.d_ao = new Label(v2.t_cm, 0, 0, 300, 30, 220);
         v2.t_cm.a(v2.d_ao, 0);
         new ObfAx(null, 0, 0, 221, SysUtil.b); /* constructor */
         v2.t_cm.a(new ObfAx(null, 0, 0, 221, SysUtil.b), 0);
-        new ObfAo(v2.t_cm, 0, 0, 300, 30, 221); /* constructor */
-        v2.e_ao = new ObfAo(v2.t_cm, 0, 0, 300, 30, 221);
+        new Label(v2.t_cm, 0, 0, 300, 30, 221); /* constructor */
+        v2.e_ao = new Label(v2.t_cm, 0, 0, 300, 30, 221);
         v2.t_cm.a(v2.e_ao, 0);
         new ObfAx(null, 0, 0, 222, SysUtil.b); /* constructor */
         v2.t_cm.a(new ObfAx(null, 0, 0, 222, SysUtil.b), 0);
-        new ObfAo(v2.t_cm, 0, 0, 300, 30, 222); /* constructor */
-        v2.f_ao = new ObfAo(v2.t_cm, 0, 0, 300, 30, 222);
+        new Label(v2.t_cm, 0, 0, 300, 30, 222); /* constructor */
+        v2.f_ao = new Label(v2.t_cm, 0, 0, 300, 30, 222);
         v2.t_cm.a(v2.f_ao, 0);
         v2.p_I = 0;
         goto L5078;
         L4876:
-        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
-        v2.t_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1);
+        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
+        v2.t_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         new ObfAx(null, 0, 0, 218, SysUtil.b); /* constructor */
         v2.t_cm.a(new ObfAx(null, 0, 0, 218, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
         v2.t_cm.a(new ObfCz(3), 0);
         new ObfAx(null, 0, 0, 220, SysUtil.b); /* constructor */
         v2.t_cm.a(new ObfAx(null, 0, 0, 220, SysUtil.b), 0);
-        new ObfAo(v2.t_cm, 0, 0, 300, 30, 220); /* constructor */
-        v2.d_ao = new ObfAo(v2.t_cm, 0, 0, 300, 30, 220);
+        new Label(v2.t_cm, 0, 0, 300, 30, 220); /* constructor */
+        v2.d_ao = new Label(v2.t_cm, 0, 0, 300, 30, 220);
         v2.t_cm.a(v2.d_ao, 0);
         new ObfAx(null, 0, 0, 221, SysUtil.b); /* constructor */
         v2.t_cm.a(new ObfAx(null, 0, 0, 221, SysUtil.b), 0);
-        new ObfAo(v2.t_cm, 0, 0, 300, 30, 221); /* constructor */
-        v2.e_ao = new ObfAo(v2.t_cm, 0, 0, 300, 30, 221);
+        new Label(v2.t_cm, 0, 0, 300, 30, 221); /* constructor */
+        v2.e_ao = new Label(v2.t_cm, 0, 0, 300, 30, 221);
         v2.t_cm.a(v2.e_ao, 0);
         v2.d_ao.b(MainMenu.a_String);
         v2.p_I = 2;
@@ -1717,29 +1717,29 @@ public class ObfBd extends ObfBh {
         if (v2.x.a() == 0) goto L5482;
         v2.x.g();
         if (MainMenu.a >= 0) goto L5311;
-        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
-        v2.t_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1);
+        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
+        v2.t_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         new ObfAx(null, 0, 0, 217, SysUtil.b); /* constructor */
         v2.t_cm.a(new ObfAx(null, 0, 0, 217, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
         v2.t_cm.a(new ObfCz(3), 0);
         new ObfAx(null, 0, 0, 220, SysUtil.b); /* constructor */
         v2.t_cm.a(new ObfAx(null, 0, 0, 220, SysUtil.b), 0);
-        new ObfAo(v2.t_cm, 0, 0, 300, 30, 220); /* constructor */
-        v2.d_ao = new ObfAo(v2.t_cm, 0, 0, 300, 30, 220);
+        new Label(v2.t_cm, 0, 0, 300, 30, 220); /* constructor */
+        v2.d_ao = new Label(v2.t_cm, 0, 0, 300, 30, 220);
         v2.t_cm.a(v2.d_ao, 0);
         new ObfAx(null, 0, 0, 221, SysUtil.b); /* constructor */
         v2.t_cm.a(new ObfAx(null, 0, 0, 221, SysUtil.b), 0);
-        new ObfAo(v2.t_cm, 0, 0, 300, 30, 221); /* constructor */
-        v2.e_ao = new ObfAo(v2.t_cm, 0, 0, 300, 30, 221);
+        new Label(v2.t_cm, 0, 0, 300, 30, 221); /* constructor */
+        v2.e_ao = new Label(v2.t_cm, 0, 0, 300, 30, 221);
         v2.t_cm.a(v2.e_ao, 0);
         v2.a(v2.t_cm);
         v2.p_I = 1;
         return;
         L5311:
         if (v2.u_cm != null) goto L5474;
-        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1); /* constructor */
-        v2.u_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, 1);
+        new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true); /* constructor */
+        v2.u_cm = new WidgetGroup(null, 0, 0, v2.b, v2.c, 9, true);
         new ObfAx(null, 0, 0, 219, SysUtil.b); /* constructor */
         v2.u_cm.a(new ObfAx(null, 0, 0, 219, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
@@ -1970,13 +1970,13 @@ public class ObfBd extends ObfBh {
         L42:
         this.a(this.a);
         L50:
-        Garage.b(0);
+        Garage.b(false);
         return;
         L55:
         if (this.m_I != 1) goto L81;
         this.c(0);
         this.a(this.a);
-        Garage.b(0);
+        Garage.b(false);
         return;
         L81:
         if (this.m_I != 0) goto L242;
@@ -1989,7 +1989,7 @@ public class ObfBd extends ObfBh {
         if (this.a_m.a() != 0) goto L219;
         this.m_I = 1;
         Garage.c(22);
-        Garage.b(0);
+        Garage.b(false);
         this.m_cm.j();
         v1 = 0;
         L164:
@@ -2006,7 +2006,7 @@ public class ObfBd extends ObfBh {
         if (v1 != 1) goto L241;
         this.a(this.a);
         Garage.c(9);
-        Garage.b(0);
+        Garage.b(false);
         L241:
         return;
         L242:
@@ -2021,8 +2021,8 @@ public class ObfBd extends ObfBh {
         this.a_m = ObfW.a_m;
         this.a_cq = null;
         java.lang.System.gc();
-        new ObfCq(ObfR.a(this.a_m.a(), "/images/ts2.png", 1)); /* constructor */
-        this.a_cq = new ObfCq(ObfR.a(this.a_m.a(), "/images/ts2.png", 1));
+        new ObfCq(ObfR.a(this.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        this.a_cq = new ObfCq(ObfR.a(this.a_m.a(), "/images/ts2.png", true));
         goto L47;
         java.io.IOException v1 = ex_42;
         ex_42.printStackTrace();
@@ -2170,8 +2170,8 @@ public class ObfBd extends ObfBh {
         new ObfBi(null, 0, 0, 154, SysUtil.b); /* constructor */
         this.l = new ObfBi(null, 0, 0, 154, SysUtil.b);
         ObfBd v1 = this;
-        new WidgetGroup(null, 0, 0, v1.b, v1.c, 9, 1); /* constructor */
-        this.g_cm = new WidgetGroup(null, 0, 0, v1.b, v1.c, 9, 1);
+        new WidgetGroup(null, 0, 0, v1.b, v1.c, 9, true); /* constructor */
+        this.g_cm = new WidgetGroup(null, 0, 0, v1.b, v1.c, 9, true);
         new ObfAx(null, 0, 0, 99, SysUtil.b); /* constructor */
         v1.g_cm.a(new ObfAx(null, 0, 0, 99, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
@@ -2212,8 +2212,8 @@ public class ObfBd extends ObfBh {
         new java.lang.StringBuffer(); /* constructor */
         int v2 = 1;
         String v1 = new java.lang.StringBuffer().append(Settings.b).append("?a=tc").toString();
-        v1 = ((String) ObfDj.a(new java.lang.StringBuffer().append(Settings.b).append("?a=tc").toString(), v2, null));
-        if (ObfDj.a(new java.lang.StringBuffer().append(Settings.b).append("?a=tc").toString(), v2, null) == null) goto L143;
+        v1 = ((String) ScoreUpload.a(new java.lang.StringBuffer().append(Settings.b).append("?a=tc").toString(), v2, null));
+        if (ScoreUpload.a(new java.lang.StringBuffer().append(Settings.b).append("?a=tc").toString(), v2, null) == null) goto L143;
         new java.lang.String(v1); /* constructor */
         if (new java.lang.String(v1).compareTo("OK") == 0) goto L151;
         L143:
@@ -2262,22 +2262,22 @@ public class ObfBd extends ObfBh {
         L125:
         jt1 = this.a.a().b(this.a_arrI[this.a()]); /* join L144 from L125 */
         L144:
-        new ObfCq(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(jt1).toString(), v1, 1)); /* constructor */
-        this.a_cq = new ObfCq(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(jt1).toString(), v1, 1));
+        new ObfCq(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(jt1).toString(), v1, true)); /* constructor */
+        this.a_cq = new ObfCq(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(jt1).toString(), v1, true));
         return;
     }
     // bytecode 148 bytes, max_stack 10, max_locals 1
     public void o() {
-        new WidgetGroup(null, 0, 0, this.b, this.c, 9, 1); /* constructor */
-        this.p_cm = new WidgetGroup(null, 0, 0, this.b, this.c, 9, 1);
+        new WidgetGroup(null, 0, 0, this.b, this.c, 9, true); /* constructor */
+        this.p_cm = new WidgetGroup(null, 0, 0, this.b, this.c, 9, true);
         new ObfAx(null, 0, 0, 228, SysUtil.b); /* constructor */
         this.p_cm.a(new ObfAx(null, 0, 0, 228, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
         this.p_cm.a(new ObfCz(3), 0);
-        new ObfAx(null, 5, 0, 229, SysUtil.b, 0); /* constructor */
-        this.p_cm.a(new ObfAx(null, 5, 0, 229, SysUtil.b, 0), 0);
-        new ObfAo(this.p_cm, 0, 0, 300, 30, 229); /* constructor */
-        this.c_ao = new ObfAo(this.p_cm, 0, 0, 300, 30, 229);
+        new ObfAx(null, 5, 0, 229, SysUtil.b, false); /* constructor */
+        this.p_cm.a(new ObfAx(null, 5, 0, 229, SysUtil.b, false), 0);
+        new Label(this.p_cm, 0, 0, 300, 30, 229); /* constructor */
+        this.c_ao = new Label(this.p_cm, 0, 0, 300, 30, 229);
         this.p_cm.a(this.c_ao, 0);
         this.e = this.p_cm;
         this.p_cm.d();
@@ -2287,16 +2287,16 @@ public class ObfBd extends ObfBh {
     // bytecode 166 bytes, max_stack 10, max_locals 2
     public void p() {
         ObfBd v1 = this;
-        new WidgetGroup(null, 0, 0, v1.b, v1.c, 9, 1); /* constructor */
-        this.c = new WidgetGroup(null, 0, 0, v1.b, v1.c, 9, 1);
+        new WidgetGroup(null, 0, 0, v1.b, v1.c, 9, true); /* constructor */
+        this.c = new WidgetGroup(null, 0, 0, v1.b, v1.c, 9, true);
         new ObfAx(null, 0, 0, 100, SysUtil.b); /* constructor */
         v1.c.a(new ObfAx(null, 0, 0, 100, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
         v1.c.a(new ObfCz(3), 0);
         new ObfAx(null, 0, 0, 101, SysUtil.b); /* constructor */
         v1.c.a(new ObfAx(null, 0, 0, 101, SysUtil.b), 0);
-        new ObfAo(v1.c, 0, 0, 300, 30, 101); /* constructor */
-        v1.a = new ObfAo(v1.c, 0, 0, 300, 30, 101);
+        new Label(v1.c, 0, 0, 300, 30, 101); /* constructor */
+        v1.a = new Label(v1.c, 0, 0, 300, 30, 101);
         v1.c.a(v1.a, 0);
         v1.c.g(3);
         v1.a.b(Settings.d);
@@ -2313,8 +2313,8 @@ public class ObfBd extends ObfBh {
     }
     // bytecode 141 bytes, max_stack 10, max_locals 1
     public void H() {
-        new WidgetGroup(null, 0, 0, this.b, this.c, 9, 1); /* constructor */
-        this.r_cm = new WidgetGroup(null, 0, 0, this.b, this.c, 9, 1);
+        new WidgetGroup(null, 0, 0, this.b, this.c, 9, true); /* constructor */
+        this.r_cm = new WidgetGroup(null, 0, 0, this.b, this.c, 9, true);
         new ObfAx(null, 0, 0, 141, SysUtil.b); /* constructor */
         this.r_cm.a(new ObfAx(null, 0, 0, 141, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
@@ -2367,7 +2367,7 @@ public class ObfBd extends ObfBh {
         this.a.r();
         return;
         L15:
-        Garage.a(0);
+        Garage.a(false);
         Garage.c(9);
         this.q();
         return;
@@ -2378,10 +2378,10 @@ public class ObfBd extends ObfBh {
         ObfBd v1 = this;
         new ObfAf(v1.s_cm, 100, 60, 146); /* constructor */
         this.e_af = new ObfAf(v1.s_cm, 100, 60, 146);
-        v1.e_af.c(1);
+        v1.e_af.c(true);
         v1.s_cm.a(v1.e_af, 1);
-        new ObfDj(); /* constructor */
-        v1.a_dj = new ObfDj();
+        new ScoreUpload(); /* constructor */
+        v1.a_dj = new ScoreUpload();
         L62:
         v1 = ((ObfBd) this.a_dj.a());
         if (this.a_dj.a() != null) goto L79;
@@ -2437,8 +2437,8 @@ public class ObfBd extends ObfBh {
         if (this.a_m.a(v1, v2) == 0) goto L101;
         this.a_cq = null;
         java.lang.System.gc();
-        new ObfCq(ObfR.a(this.a_m.a(), "/images/ts2.png", 1)); /* constructor */
-        this.a_cq = new ObfCq(ObfR.a(this.a_m.a(), "/images/ts2.png", 1));
+        new ObfCq(ObfR.a(this.a_m.a(), "/images/ts2.png", true)); /* constructor */
+        this.a_cq = new ObfCq(ObfR.a(this.a_m.a(), "/images/ts2.png", true));
         goto L96;
         java.io.IOException v4 = ex_90;
         ex_90.printStackTrace();

@@ -49,7 +49,7 @@ public class ObfAi {
         goto L101;
         /* pop: ex_100; */
         L101:
-        this.a(0);
+        this.a(false);
         this.a_Z = true;
         return;
     }
@@ -59,7 +59,7 @@ public class ObfAi {
         if (this.b_Z != 0) goto L69;
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a = ObfBb.a.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString(), 1);
+        this.a = ObfBb.a.a(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString(), true);
         goto L245;
         L69:
         new java.lang.StringBuffer(); /* constructor */
@@ -70,7 +70,7 @@ public class ObfAi {
         if (this.b_Z != 0) goto L191;
         new java.lang.StringBuffer(); /* constructor */
         new java.lang.StringBuffer(); /* constructor */
-        this.a = ObfBb.a.b(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString(), 1);
+        this.a = ObfBb.a.b(new java.lang.StringBuffer().append("/models/").append(this.a_String).toString(), new java.lang.StringBuffer().append("/tex/").append(this.b).toString(), true);
         goto L245;
         L191:
         new java.lang.StringBuffer(); /* constructor */

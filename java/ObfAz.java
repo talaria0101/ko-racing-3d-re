@@ -11,7 +11,7 @@ public class ObfAz extends ObfAx {
         this.b = 0;
         this.b_Z = false;
         this.h = m1;
-        this.b(1);
+        this.b(true);
         this.h = v6;
         return;
     }
@@ -99,7 +99,7 @@ public class ObfAz extends ObfAx {
         if (SysUtil.b(v1) == 1) goto L105;
         if (SysUtil.b(v1) != 6) goto L112;
         L105:
-        this.a(0);
+        this.a(false);
         return 1;
         L112:
         return 0;

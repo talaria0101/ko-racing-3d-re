@@ -8,7 +8,7 @@ public class ObfN extends ObfCh {
     private boolean b_Z;
     // bytecode 10 bytes, max_stack 4, max_locals 3
     public ObfN(int v1, int v2) {
-        super(v1, v2, SysUtil.t);
+        this(v1, v2, SysUtil.t);
         return;
     }
     // bytecode 64 bytes, max_stack 7, max_locals 4

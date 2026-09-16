@@ -5,7 +5,7 @@ public class ObfA {
     private ObfI[] a;
     // bytecode 248 bytes, max_stack 15, max_locals 6
     public ObfA(InputStream v1) {
-        super();
+        this();
         this.a = null;
         int v2 = StreamReader.a(v1);
         if (StreamReader.a(v1) > 0) goto L19;

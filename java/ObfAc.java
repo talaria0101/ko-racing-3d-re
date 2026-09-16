@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `ac`.
 // String constants: <init> | Code | KORa | close | java/io/IOException | java/io/InputStream | java/util/Random | nextInt | rand | skip | StackMap
 // API references: java/io java/util
-public class ObfAc extends ObfCu {
+public class ObfAc extends MenuScreen {
     // bytecode 12 bytes, max_stack 2, max_locals 1
     public ObfAc() {
         super();

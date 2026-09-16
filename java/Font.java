@@ -75,7 +75,7 @@ public class Font {
     }
     // bytecode 149 bytes, max_stack 3, max_locals 4
     public Font(Font v1) {
-        super();
+        this();
         this.a = null;
         this.a_g = null;
         this.a_B = 0;
@@ -158,7 +158,7 @@ public class Font {
     }
     // bytecode 74 bytes, max_stack 4, max_locals 4
     public Font(String v1, FontCodec v2, int v3) {
-        super();
+        this();
         this.a = null;
         this.a_g = null;
         this.a_B = 0;
@@ -176,7 +176,7 @@ public class Font {
     }
     // bytecode 80 bytes, max_stack 4, max_locals 5
     public Font(String v1, FontCodec v2, int v3, int v4) {
-        super();
+        this();
         this.a = null;
         this.a_g = null;
         this.a_B = 0;
@@ -534,7 +534,7 @@ public class Font {
         v3 += 1;
         goto L52;
         L99:
-        this.a_Image = javax.microedition.lcdui.Image.createRGBImage(v2, this.a_Image.getWidth(), this.a_Image.getHeight(), 1);
+        this.a_Image = javax.microedition.lcdui.Image.createRGBImage(v2, this.a_Image.getWidth(), this.a_Image.getHeight(), true);
         return;
     }
     // bytecode 383 bytes, max_stack 8, max_locals 8

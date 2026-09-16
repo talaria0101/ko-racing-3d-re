@@ -15,8 +15,8 @@ public class ObfCp extends Widget {
         new javax.microedition.lcdui.Image[2][1] = null;
         this.a_Image = new javax.microedition.lcdui.Image[2];
         this.b = false;
-        this.b(1);
-        this.a(0);
+        this.b(true);
+        this.a(false);
         v2 = 0;
         v1 = ((Widget) this);
         this.b = v2;
@@ -58,7 +58,7 @@ public class ObfCp extends Widget {
         if (SysUtil.b(v1) == 1) goto L83;
         if (SysUtil.b(v1) != 6) goto L90;
         L83:
-        this.a(0);
+        this.a(false);
         return 1;
         L90:
         return 0;

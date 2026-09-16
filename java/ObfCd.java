@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `cd`.
 // String constants: <clinit> | <init> | Code | KORa | [Ljava/lang/String; | close | getClipWidth | java/io/IOException | java/io/InputStream | java/util/Random | javax/microedition/lcdui/Graphics | nextInt
 // API references: java/io java/util javax/microedition
-public class ObfCd extends ObfCu {
+public class ObfCd extends MenuScreen {
     private static int s;
     private static int[] d;
     static {

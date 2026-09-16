@@ -7,7 +7,7 @@ public class ObfBo extends ObfCl {
     private float e;
     private Vec2 b;
     private Vec2 c;
-    private ObfCk a_ck;
+    private RaceLine a_ck;
     private ObfX b_x;
     private boolean h;
     // bytecode 150 bytes, max_stack 6, max_locals 6
@@ -33,8 +33,8 @@ public class ObfBo extends ObfCl {
         this.b = new Vec2(0.0f, 0.0f);
         new Vec2(0.0f, 0.0f); /* constructor */
         this.c = new Vec2(0.0f, 0.0f);
-        new ObfCk(this.a, 1); /* constructor */
-        this.a_ck = new ObfCk(this.a, 1);
+        new RaceLine(this.a, true); /* constructor */
+        this.a_ck = new RaceLine(this.a, true);
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 1

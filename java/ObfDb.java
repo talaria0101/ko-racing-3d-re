@@ -16,8 +16,8 @@ public class ObfDb extends Widget {
         this.a_I = 0;
         this.b = 0;
         this.b_Z = false;
-        this.b(1);
-        this.a(0);
+        this.b(true);
+        this.a(false);
         this.b(v3);
         this.a_arrLax = new ObfAx[v2];
         if (this.a == null) goto L78;
@@ -72,11 +72,11 @@ public class ObfDb extends Widget {
         return 1;
         L106:
         if (SysUtil.b(v1) != 1) goto L121;
-        this.a(0);
+        this.a(false);
         return 1;
         L121:
         if (SysUtil.b(v1) != 6) goto L137;
-        this.a(0);
+        this.a(false);
         return 1;
         L137:
         return 0;

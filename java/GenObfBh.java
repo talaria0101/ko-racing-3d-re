@@ -29,7 +29,7 @@ public class ObfBh extends Screen {
     private ObfCp c_cp;
     private ObfCp d_cp;
     protected WidgetGroup c_cm;
-    protected ObfAo a_ao;
+    protected Label a_ao;
     private ObfDb h_db;
     private ObfBk a_bk;
     private WidgetGroup i_cm;
@@ -45,7 +45,7 @@ public class ObfBh extends Screen {
     private ObfDb k;
     private ObfDb l;
     protected WidgetGroup d_cm;
-    private ObfAo b_ao;
+    private Label b_ao;
     protected WidgetGroup e_cm;
     protected int a_I;
     private int f_I;
@@ -126,7 +126,7 @@ public class ObfBh extends Screen {
     }
     // bytecode 309 bytes, max_stack 3, max_locals 2
     public ObfBh(MainCanvas v1) {
-        super();
+        this();
         this.a = null;
         this.a_bi = null;
         this.b = null;
@@ -192,8 +192,8 @@ public class ObfBh extends Screen {
     // bytecode 239 bytes, max_stack 10, max_locals 2
     public void a() {
         ObfBh v1 = this;
-        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, 1); /* constructor */
-        this.a = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, 1);
+        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true); /* constructor */
+        this.a = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true);
         v1.a.a(1);
         new ObfAx(null, 0, 0, 0, SysUtil.b); /* constructor */
         v1.a.a(new ObfAx(null, 0, 0, 0, SysUtil.b), 0);
@@ -220,8 +220,8 @@ public class ObfBh extends Screen {
     }
     // bytecode 1488 bytes, max_stack 10, max_locals 2
     public void m() {
-        new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 10, 1); /* constructor */
-        this.b_cm = new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 10, 1);
+        new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 10, true); /* constructor */
+        this.b_cm = new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 10, true);
         new ObfAx(null, 0, 0, 2, SysUtil.b); /* constructor */
         this.b_cm.a(new ObfAx(null, 0, 0, 2, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
@@ -230,8 +230,8 @@ public class ObfBh extends Screen {
         this.g = new ObfBi(null, 0, 0, 4, SysUtil.b);
         this.b_cm.a(this.g, 0);
         ObfBh v1 = this;
-        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, 1); /* constructor */
-        this.g_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, 1);
+        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, true); /* constructor */
+        this.g_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, true);
         new ObfAx(null, 0, 0, 4, SysUtil.b); /* constructor */
         v1.g_cm.a(new ObfAx(null, 0, 0, 4, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
@@ -247,8 +247,8 @@ public class ObfBh extends Screen {
         v1.j = new ObfBi(null, 0, 0, 236, SysUtil.b);
         v1.g_cm.a(v1.j, 0);
         v1.b();
-        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, 1); /* constructor */
-        v1.h_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, 1);
+        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, true); /* constructor */
+        v1.h_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 14, true);
         new ObfAx(null, 0, 0, 236, SysUtil.b); /* constructor */
         v1.h_cm.a(new ObfAx(null, 0, 0, 236, SysUtil.b), 0);
         new ObfCz(3); /* constructor */
@@ -316,8 +316,8 @@ public class ObfBh extends Screen {
         this.i = new ObfBi(null, 0, 0, 51, SysUtil.b);
         this.b_cm.a(this.i, 0);
         v1 = this;
-        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, 1); /* constructor */
-        this.j_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, 1);
+        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true); /* constructor */
+        this.j_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true);
         new ObfAx(null, 0, 0, 51, SysUtil.b); /* constructor */
         v1.j_cm.a(new ObfAx(null, 0, 0, 51, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
@@ -342,8 +342,8 @@ public class ObfBh extends Screen {
         new ObfBi(null, 0, 0, 24, SysUtil.b); /* constructor */
         this.h = new ObfBi(null, 0, 0, 24, SysUtil.b);
         v1 = this;
-        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, 1); /* constructor */
-        this.i_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, 1);
+        new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true); /* constructor */
+        this.i_cm = new WidgetGroup(null, 0, 0, v1.b_I, v1.c_I, 9, true);
         new ObfAx(null, 0, 0, 24, SysUtil.b); /* constructor */
         v1.i_cm.a(new ObfAx(null, 0, 0, 24, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
@@ -377,16 +377,16 @@ public class ObfBh extends Screen {
     }
     // bytecode 128 bytes, max_stack 10, max_locals 1
     public void w() {
-        new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 9, 1); /* constructor */
-        this.d_cm = new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 9, 1);
+        new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 9, true); /* constructor */
+        this.d_cm = new WidgetGroup(null, 0, 0, this.b_I, this.c_I, 9, true);
         new ObfAx(null, 0, 0, 100, SysUtil.b); /* constructor */
         this.d_cm.a(new ObfAx(null, 0, 0, 100, SysUtil.b), 2);
         new ObfCz(3); /* constructor */
         this.d_cm.a(new ObfCz(3), 0);
         new ObfAx(null, 0, 0, 101, SysUtil.b); /* constructor */
         this.d_cm.a(new ObfAx(null, 0, 0, 101, SysUtil.b), 0);
-        new ObfAo(this.d_cm, 0, 0, 200, 30, 101); /* constructor */
-        this.b_ao = new ObfAo(this.d_cm, 0, 0, 200, 30, 101);
+        new Label(this.d_cm, 0, 0, 200, 30, 101); /* constructor */
+        this.b_ao = new Label(this.d_cm, 0, 0, 200, 30, 101);
         this.d_cm.a(this.b_ao, 0);
         this.x();
         return;

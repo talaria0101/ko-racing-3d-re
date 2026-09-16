@@ -25,19 +25,19 @@ public class ObfT {
     }
     // bytecode 10 bytes, max_stack 4, max_locals 3
     public ObfT(String v1, int v2) {
-        super(v1, v2, SysUtil.b);
+        this(v1, v2, SysUtil.b);
         return;
     }
     // bytecode 18 bytes, max_stack 3, max_locals 4
     public ObfT(String v1, int v2, Font v3) {
-        super(v2, v3);
+        this(v2, v3);
         this.a_String = v1;
         /* pop: this.a(v1); */
         return;
     }
     // bytecode 19 bytes, max_stack 3, max_locals 3
     public ObfT(int v1, String v2) {
-        super(v1, SysUtil.b);
+        this(v1, SysUtil.b);
         this.b = v2;
         this.b(v2);
         return;
@@ -115,12 +115,12 @@ public class ObfT {
     }
     // bytecode 14 bytes, max_stack 3, max_locals 2
     public void a(String v1) {
-        this.a(this.a_p.a(v1), 1);
+        this.a(this.a_p.a(v1), true);
         return;
     }
     // bytecode 7 bytes, max_stack 3, max_locals 2
     public void a(byte[] v1) {
-        this.a(v1, 1);
+        this.a(v1, true);
         return;
     }
     // bytecode 168 bytes, max_stack 2, max_locals 5

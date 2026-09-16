@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `w`.
 // String constants: <clinit> | <init> | ?a=m | Code | append | createImage | drawImage | drawRect | fillRect | getClipHeight | getClipWidth | getGraphics
 // API references: java/io javax/microedition
-public class ObfW extends ObfCu {
+public class ObfW extends MenuScreen {
     public static MainMenu a;
     private int s;
     private byte[] a_arrB;
@@ -96,7 +96,7 @@ public class ObfW extends ObfCu {
         if (this.a != null) goto L181;
         this.a = javax.microedition.lcdui.Image.createImage((v1.getClipWidth() - 20), (v2 * 2));
         Graphics v5 = this.a.getGraphics();
-        SysUtil.a(this.a.getGraphics(), 0, 0, (v1.getClipWidth() - 20), (v2 << 1), 5592405, 10066329, 1);
+        SysUtil.a(this.a.getGraphics(), 0, 0, (v1.getClipWidth() - 20), (v2 << 1), 5592405, 10066329, true);
         v5.setColor(10066329);
         v5.fillRect(0, v2, ((v1.getClipWidth() - 20) - 1), v2);
         v5.setColor(7829367);

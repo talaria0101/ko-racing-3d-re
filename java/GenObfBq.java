@@ -47,7 +47,7 @@ public class ObfBq {
     }
     // bytecode 48 bytes, max_stack 4, max_locals 2
     public void a(Graphics v1) {
-        this.a.bindTarget(v1, 1, 0);
+        this.a.bindTarget(v1, true, 0);
         this.a_Transf.setIdentity();
         this.a_Transf.postMultiply(this.b);
         this.a_Transf.postMultiply(this.c);

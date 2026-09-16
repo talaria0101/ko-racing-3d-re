@@ -26,7 +26,7 @@ public class ObfS extends ObfBi {
         if (this.c() != 0) goto L19;
         if (fcmpg(this.a, this.b) == 0) goto L120;
         L19:
-        this.a(v1, (v2 + ((int) this.a)), (v3 + 7), 0);
+        this.a(v1, (v2 + ((int) this.a)), (v3 + 7), false);
         if (fcmpg(this.a(), 1.0f) < 0) goto L120;
         if (SysUtil.e <= 400) goto L75;
         jt1 = 5; /* join L76 from L71 */

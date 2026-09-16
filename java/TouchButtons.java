@@ -55,7 +55,7 @@ public class TouchButtons {
     // bytecode 491 bytes, max_stack 7, max_locals 3
     public TouchButtons(int v1, int v2) {
         /* try L391-L482 catch java.lang.Exception -> L485 */
-        super();
+        this();
         this.a = 0;
         this.b = 0;
         this.c = 0;
@@ -526,10 +526,10 @@ public class TouchButtons {
         TouchButtons v10 = v6;
         v6.g_Image = javax.microedition.lcdui.Image.createImage(80, 6);
         Graphics v8 = v10.g_Image.getGraphics();
-        SysUtil.a(v10.g_Image.getGraphics(), 0, 0, 20, 6, 13631488, 15790080, 0);
-        SysUtil.a(v8, 20, 0, 20, 6, 15790080, 6472704, 0);
-        SysUtil.a(v8, 40, 0, 20, 6, 6472704, 15790080, 0);
-        SysUtil.a(v8, 60, 0, 20, 6, 15790080, 13631488, 0);
+        SysUtil.a(v10.g_Image.getGraphics(), 0, 0, 20, 6, 13631488, 15790080, false);
+        SysUtil.a(v8, 20, 0, 20, 6, 15790080, 6472704, false);
+        SysUtil.a(v8, 40, 0, 20, 6, 6472704, 15790080, false);
+        SysUtil.a(v8, 60, 0, 20, 6, 15790080, 13631488, false);
         v10.g_Image = SysUtil.a(v10.g_Image, Settings.n());
         L297:
         if (Settings.l() != 0) goto L309;

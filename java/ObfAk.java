@@ -17,8 +17,8 @@ public class ObfAk extends ObfAj {
         String v2 = Settings.a;
         ObfAk v1 = this;
         v2 = ((String) javax.microedition.lcdui.Image.createImage(Resources.a(v2)));
-        new ObfCq(v2, 0, 0, Settings.a); /* constructor */
-        v1.a = new ObfCq(v2, 0, 0, Settings.a);
+        new ObfCq(v2, false, false, Settings.a); /* constructor */
+        v1.a = new ObfCq(v2, false, false, Settings.a);
         java.lang.System.gc();
         return;
         v1 = ((ObfAk) ex_70);

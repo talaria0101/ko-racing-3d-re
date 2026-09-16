@@ -128,17 +128,17 @@ public class WidgetGroup extends Widget {
         jt3 = v6; /* join L117 from L115 */
         L117:
         this.d((jt3 - this.a()));
-        v8 = (SysUtil.b.a(1) + 6);
+        v8 = (SysUtil.b.a(true) + 6);
         if (this.d == 0) goto L155;
         this.d((this.e + v8));
         L155:
         if (Settings.l() != 0) goto L552;
         v1.setClip((this.e() + v2), ((this.e + v3) - v8), this.b(), (this.a() + v8));
         v1.setColor(5592405);
-        SysUtil.a(v1, (this.e() + v2), (this.e + v3), this.b(), this.a(), 5592405, 8947848, 1);
+        SysUtil.a(v1, (this.e() + v2), (this.e + v3), this.b(), this.a(), 5592405, 8947848, true);
         if (this.d == 0) goto L409;
         v1.setColor(10223616);
-        SysUtil.a(v1, (this.e() + v2), ((this.e + v3) - v8), this.b(), v8, 10223616, 13565952, 1);
+        SysUtil.a(v1, (this.e() + v2), ((this.e + v3) - v8), this.b(), v8, 10223616, 13565952, true);
         this.a[0].a(2);
         this.a[0].d(0);
         this.a[0].h();
@@ -165,10 +165,10 @@ public class WidgetGroup extends Widget {
         if (Settings.l() != 3) goto L945;
         v1.setClip(((this.e + v3) - v8), (this.e() + v2), (this.a() + v8), this.b());
         v1.setColor(5592405);
-        SysUtil.a(v1, (this.e + v3), (this.e() + v2), this.a(), this.b(), 5592405, 8947848, 0);
+        SysUtil.a(v1, (this.e + v3), (this.e() + v2), this.a(), this.b(), 5592405, 8947848, false);
         if (this.d == 0) goto L807;
         v1.setColor(10223616);
-        SysUtil.a(v1, ((this.e + v3) - v8), (this.e() + v2), v8, this.b(), 10223616, 13565952, 0);
+        SysUtil.a(v1, ((this.e + v3) - v8), (this.e() + v2), v8, this.b(), 10223616, 13565952, false);
         this.a[0].a(2);
         this.a[0].d(0);
         this.a[0].h();
@@ -195,10 +195,10 @@ public class WidgetGroup extends Widget {
         if (Settings.l() != 1) goto L1390;
         v1.setClip((((v6 - ((this.e + v3) - v8)) - this.a()) - v8), (this.e() + v2), (this.a() + v8), this.b());
         v1.setColor(5592405);
-        SysUtil.a(v1, ((v6 - (this.e + v3)) - this.a()), (this.e() + v2), this.a(), this.b(), 8947848, 5592405, 0);
+        SysUtil.a(v1, ((v6 - (this.e + v3)) - this.a()), (this.e() + v2), this.a(), this.b(), 8947848, 5592405, false);
         if (this.d == 0) goto L1237;
         v1.setColor(10223616);
-        SysUtil.a(v1, ((v6 - ((this.e + v3) - v8)) - v8), (this.e() + v2), v8, this.b(), 13565952, 10223616, 0);
+        SysUtil.a(v1, ((v6 - ((this.e + v3) - v8)) - v8), (this.e() + v2), v8, this.b(), 13565952, 10223616, false);
         this.a[0].a(2);
         this.a[0].d(0);
         this.a[0].h();
@@ -231,7 +231,7 @@ public class WidgetGroup extends Widget {
         int v1 = ((((this.a_I + this.b) - 1) - v2) % this.a_I);
         if (this.a[v1].b() == 0) goto L64;
         this.b = v1;
-        this.a[v1].a(1, 6);
+        this.a[v1].a(true, 6);
         this.i(v1);
         return;
         L64:
@@ -248,7 +248,7 @@ public class WidgetGroup extends Widget {
         int v1 = (((this.b + 1) + v2) % this.a_I);
         if (this.a[v1].b() == 0) goto L58;
         this.b = v1;
-        this.a[v1].a(1, 5);
+        this.a[v1].a(true, 5);
         this.i(v1);
         return;
         L58:
@@ -302,7 +302,7 @@ public class WidgetGroup extends Widget {
         if (this.b >= 0) goto L145;
         if (this.a[this.a_I].b() == 0) goto L145;
         this.b = this.a_I;
-        this.a[this.a_I].a(1);
+        this.a[this.a_I].a(true);
         L145:
         this.a_I = (this.a_I + 1);
         return;
@@ -316,9 +316,9 @@ public class WidgetGroup extends Widget {
     public void i() {
         this.a_I = (this.a_I - 2);
         WidgetGroup v1 = this;
-        this.a[v1.b].a(0);
+        this.a[v1.b].a(false);
         v1.b = 2;
-        v1.a[v1.b].a(1, 5);
+        v1.a[v1.b].a(true, 5);
         v1.i(v1.b);
         return;
     }
@@ -376,9 +376,9 @@ public class WidgetGroup extends Widget {
         if (v3 != 0) goto L91;
         if (this.a[v4] == null) goto L91;
         if (this.a[v4].a(v1, (v2 - this.f())) == 0) goto L91;
-        this.a[this.b].a(0);
+        this.a[this.b].a(false);
         this.b = v4;
-        this.a[this.b].a(1, 5);
+        this.a[this.b].a(true, 5);
         this.i(this.b);
         v3 = 1;
         L91:
@@ -408,8 +408,8 @@ public class WidgetGroup extends Widget {
         int v3 = this.l;
         if (this.n < 0) goto L97;
         this.l = (this.l + (v2 - this.n));
-        int v4 = ((((this.k - this.a()) + SysUtil.b.a(1)) + 7) + 30);
-        if (((((this.k - this.a()) + SysUtil.b.a(1)) + 7) + 30) >= 70) goto L68;
+        int v4 = ((((this.k - this.a()) + SysUtil.b.a(true)) + 7) + 30);
+        if (((((this.k - this.a()) + SysUtil.b.a(true)) + 7) + 30) >= 70) goto L68;
         v4 = 0;
         L68:
         if (this.l <= 0) goto L80;
@@ -430,9 +430,9 @@ public class WidgetGroup extends Widget {
         if (v3 >= this.a_I) goto L205;
         if (this.a[v3] == null) goto L199;
         if (this.a[v3].b((v1 - this.e()), (v2 - this.f())) == 0) goto L199;
-        this.a[this.b].a(0);
+        this.a[this.b].a(false);
         this.b = v3;
-        this.a[this.b].a(1, 5);
+        this.a[this.b].a(true, 5);
         L199:
         v3 += 1;
         goto L126;
@@ -451,9 +451,9 @@ public class WidgetGroup extends Widget {
     }
     // bytecode 33 bytes, max_stack 3, max_locals 2
     public void g(int v1) {
-        this.a[this.b].a(0);
+        this.a[this.b].a(false);
         this.b = v1;
-        this.a[this.b].a(1, 5);
+        this.a[this.b].a(true, 5);
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2

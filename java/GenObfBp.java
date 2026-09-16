@@ -83,7 +83,7 @@ public class ObfBp {
         v1 = ((ObfCf) 0);
         L2:
         if (v1 >= this.a_I) goto L33;
-        this.a_b.a(this.a[v1]).a(1);
+        this.a_b.a(this.a[v1]).a(true);
         v1 += 1;
         goto L2;
         L33:

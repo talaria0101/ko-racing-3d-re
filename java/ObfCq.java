@@ -58,20 +58,20 @@ public class ObfCq {
         super();
         this.a_Mesh = null;
         new javax.microedition.m3g.Image2D(99, v1); /* constructor */
-        this.a(this.a(new javax.microedition.m3g.Image2D(99, v1)), 0, 0, v4);
+        this.a(this.a(new javax.microedition.m3g.Image2D(99, v1)), false, false, v4);
         return;
     }
     // bytecode 18 bytes, max_stack 5, max_locals 4
     public ObfCq(Texture2D v1, boolean v2, boolean v3) {
         super();
         this.a_Mesh = null;
-        this.a(v1, 1, 1, 1);
+        this.a(v1, true, true, true);
         return;
     }
     // bytecode 22 bytes, max_stack 6, max_locals 2
     public void a(Image v1) {
         new javax.microedition.m3g.Image2D(99, v1); /* constructor */
-        this.a(this.a(new javax.microedition.m3g.Image2D(99, v1)), 1, 0, 1);
+        this.a(this.a(new javax.microedition.m3g.Image2D(99, v1)), true, false, true);
         return;
     }
     // bytecode 279 bytes, max_stack 6, max_locals 8

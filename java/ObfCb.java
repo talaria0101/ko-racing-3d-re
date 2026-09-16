@@ -12,8 +12,8 @@ public class ObfCb extends Widget {
         this.a = null;
         this.a_I = 0;
         this.b = 0;
-        this.b(0);
-        this.a(0);
+        this.b(false);
+        this.a(false);
         if (v2 < 0) goto L70;
         new ObfAx(this, 0, 0, v2, SysUtil.a); /* constructor */
         this.a = new ObfAx(this, 0, 0, v2, SysUtil.a);
@@ -34,7 +34,7 @@ public class ObfCb extends Widget {
     // bytecode 152 bytes, max_stack 6, max_locals 4
     public void a(Graphics v1, int v2, int v3) {
         if (this.a == null) goto L46;
-        this.a.a(v1, (((v1.getClipWidth() / 2) + 10) - this.a.b()), (v3 + this.f()), this.a.b(), 0);
+        this.a.a(v1, (((v1.getClipWidth() / 2) + 10) - this.a.b()), (v3 + this.f()), this.a.b(), false);
         L46:
         v2 = 1;
         L48:

@@ -98,7 +98,7 @@ public class GhostCar extends ObfCl {
         this.f = v2;
         this.d = true;
         L109:
-        this.a.a(this.a.a(), this.a.b(), this.a.c(), 1);
+        this.a.a(this.a.a(), this.a.b(), this.a.c(), true);
         this.a.g((this.f * v1));
         this.a.b(((double) (this.e_F * v1)));
         this.a.k((this.d * v1));

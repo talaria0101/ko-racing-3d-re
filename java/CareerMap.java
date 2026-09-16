@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `dk`.
 // String constants: 8a.map | <init> | Code | close | compareTo | createImage | drawImage | drawRect | drawRegion | fillRect | getClipHeight | getClipWidth
 // API references: java/io javax/microedition
-public class CareerMap extends ObfCu {
+public class CareerMap extends MenuScreen {
     protected int s;
     protected int t;
     // bytecode 20 bytes, max_stack 2, max_locals 1
@@ -161,7 +161,7 @@ public class CareerMap extends ObfCu {
         L142:
         this.a = javax.microedition.lcdui.Image.createImage((v1.getClipWidth() - 20), (v2 * 2));
         Graphics v5 = this.a.getGraphics();
-        SysUtil.a(this.a.getGraphics(), 0, 0, (v1.getClipWidth() - 20), (v2 << 1), 5592405, 10066329, 1);
+        SysUtil.a(this.a.getGraphics(), 0, 0, (v1.getClipWidth() - 20), (v2 << 1), 5592405, 10066329, true);
         v5.setColor(10066329);
         v5.fillRect(0, v2, ((v1.getClipWidth() - 20) - 1), v2);
         v5.setColor(7829367);

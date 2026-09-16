@@ -27,8 +27,8 @@ public class Bluetooth implements java.lang.Runnable, javax.bluetooth.DiscoveryL
     public Bluetooth(CareerScreen v1, boolean v2) {
         super();
         this.a = null;
-        new javax.bluetooth.UUID("32253635BF2E4FE0898AF505D430A394", 0); /* constructor */
-        this.a_UUID = new javax.bluetooth.UUID("32253635BF2E4FE0898AF505D430A394", 0);
+        new javax.bluetooth.UUID("32253635BF2E4FE0898AF505D430A394", false); /* constructor */
+        this.a_UUID = new javax.bluetooth.UUID("32253635BF2E4FE0898AF505D430A394", false);
         this.a_Stream = null;
         this.a_LocalD = null;
         this.a_InputS = null;
@@ -144,7 +144,7 @@ public class Bluetooth implements java.lang.Runnable, javax.bluetooth.DiscoveryL
     public void servicesDiscovered(int v1, ServiceRecord[] v2) {
         if (v2 == null) goto L45;
         if (v2.length <= 0) goto L45;
-        this.a_String = Bluetooth.a(v2[0], 0, 0);
+        this.a_String = Bluetooth.a(v2[0], 0, false);
         this.a_bu.d(111);
         this.a_I = (this.a_I + 1);
         this.b = true;
@@ -173,14 +173,14 @@ public class Bluetooth implements java.lang.Runnable, javax.bluetooth.DiscoveryL
         /* pop: v1.append(":"); */
         /* pop: v1.append(v3); */
         /* pop: v1.append(";authenticate="); */
-        /* pop: v1.append(0); */
+        /* pop: v1.append(false); */
         /* pop: v1.append(";encrypt="); */
-        /* pop: v1.append(0); */
+        /* pop: v1.append(false); */
         /* pop: v1.append(";master="); */
-        /* pop: v1.append(0); */
+        /* pop: v1.append(false); */
         return v1.toString();
         /* pop: ex_138; */
-        return v0.getConnectionURL(0, 0);
+        return v0.getConnectionURL(0, false);
     }
     // bytecode 150 bytes, max_stack 5, max_locals 4
     public static long a(DataElement v0) {

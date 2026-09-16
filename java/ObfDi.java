@@ -86,7 +86,7 @@ public class ObfDi {
     }
     // bytecode 9 bytes, max_stack 5, max_locals 4
     public void a(float v1, float v2, float v3) {
-        this.a(v1, v2, 0.0f, 1);
+        this.a(v1, v2, 0.0f, true);
         return;
     }
     // bytecode 17 bytes, max_stack 4, max_locals 5

@@ -33,7 +33,7 @@ public class ObfBv extends ObfR {
     }
     // bytecode 70 bytes, max_stack 2, max_locals 2
     public ObfBv(MainCanvas v1) {
-        super();
+        this();
         this.b = 0.0f;
         this.c = 0.0f;
         this.f = true;
@@ -66,7 +66,7 @@ public class ObfBv extends ObfR {
         this.b = 1;
         this.a = new java.lang.String[this.b];
         if (ObfBv.h >= 50) goto L81;
-        this.a[0] = ObfBa.a[ObfBv.h];
+        this.a[0] = CarSpec.a[ObfBv.h];
         L81:
         this.a = new int[this.b];
         this.b = new int[this.b];
@@ -307,7 +307,7 @@ public class ObfBv extends ObfR {
         L142:
         this.a = javax.microedition.lcdui.Image.createImage((v1.getClipWidth() - 20), (v2 * 2));
         Graphics v5 = this.a.getGraphics();
-        SysUtil.a(this.a.getGraphics(), 0, 0, (v1.getClipWidth() - 20), (v2 << 1), 5592405, 10066329, 1);
+        SysUtil.a(this.a.getGraphics(), 0, 0, (v1.getClipWidth() - 20), (v2 << 1), 5592405, 10066329, true);
         v5.setColor(10066329);
         v5.fillRect(0, v2, ((v1.getClipWidth() - 20) - 1), v2);
         v5.setColor(7829367);

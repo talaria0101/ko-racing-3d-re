@@ -340,7 +340,7 @@ public class Garage {
         v1.setClip(0, 0, SysUtil.e, SysUtil.f_I);
         L1206:
         if (Garage.f_Z == 0) goto L1218;
-        ObfCw.a(v0, 0, 0);
+        Planet.a(v0, 0, 0);
         L1218:
         return;
     }
@@ -367,7 +367,7 @@ public class Garage {
         if (Garage.a_n == null) goto L81;
         Garage.a_n.e();
         L81:
-        ObfCw.b();
+        Planet.b();
         Garage.j = false;
         java.lang.System.gc();
         return;
@@ -386,20 +386,20 @@ public class Garage {
         Garage.d();
         L22:
         if (Garage.f_Z == 0) goto L56;
-        ObfCw.a();
-        if (ObfCw.a() == 0) goto L56;
+        Planet.a();
+        if (Planet.a() == 0) goto L56;
         Garage.f_Z = false;
         if (Garage.c() != 0) goto L56;
         int v1 = 0;
         Garage.d_Z = false;
-        ObfCw.b();
+        Planet.b();
         L56:
         Garage.a_F = (Garage.a_F + v0);
         Garage.b_F = (Garage.b_F + v0);
         if (fcmpl(Garage.e_F, 1.0f) >= 0) goto L107;
         Garage.e_F = (Garage.e_F + (v0 * 2.0f));
         if (fcmpg((Garage.e_F + (v0 * 2.0f)), 1.0f) < 0) goto L107;
-        Garage.a_n.a_(1);
+        Garage.a_n.a_(true);
         Garage.e_F = 1.0f;
         L107:
         if (fcmpg(Garage.b_F, (Garage.a_arrarrF[Garage.b_I][Garage.c] / 2.0f)) <= 0) goto L376;
@@ -554,7 +554,7 @@ public class Garage {
         Garage.e = 160;
         new ObfT((Garage.d_I - 24), v0); /* constructor */
         Garage.a_n.a(new ObfT((Garage.d_I - 24), v0));
-        Garage.a_n.a_(0);
+        Garage.a_n.a_(false);
         Garage.e_F = 0.30000001192092896f;
         if (fcmpg(Garage.f, 0.30000001192092896f) != 0) goto L146;
         Garage.f = 0.699999988079071f;
@@ -601,7 +601,7 @@ public class Garage {
         Garage.e = 160;
         new ObfCn((Garage.d_I - 24), Garage.b_arrI[Garage.g]); /* constructor */
         Garage.a_n.a(new ObfCn((Garage.d_I - 24), Garage.b_arrI[Garage.g]));
-        Garage.a_n.a_(0);
+        Garage.a_n.a_(false);
         Garage.e_F = 0.30000001192092896f;
         if (fcmpg(Garage.f, 0.30000001192092896f) != 0) goto L140;
         Garage.f = 0.699999988079071f;
@@ -684,7 +684,7 @@ public class Garage {
         new ObfCn((Garage.d_I - 24), Garage.b_arrI[Garage.g]); /* constructor */
         Garage.a_n.a(new ObfCn((Garage.d_I - 24), Garage.b_arrI[Garage.g]));
         L176:
-        Garage.a_n.a_(0);
+        Garage.a_n.a_(false);
         Garage.e_F = 0.30000001192092896f;
         if (fcmpg(Garage.f, 0.30000001192092896f) != 0) goto L203;
         Garage.f = 0.699999988079071f;

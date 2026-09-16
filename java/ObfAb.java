@@ -34,7 +34,7 @@ public class ObfAb extends ObfT {
         v1.b();
         if (v2.l() != 0) goto L144;
         v1.b();
-        v1.a(SysUtil.a(177), 0);
+        v1.a(SysUtil.a(177), false);
         goto L286;
         L144:
         int v3 = 0;
@@ -103,7 +103,7 @@ public class ObfAb extends ObfT {
         goto L932;
         L715:
         v1.b();
-        v1.a(SysUtil.a(177), 0);
+        v1.a(SysUtil.a(177), false);
         goto L932;
         L733:
         v4 = 0;

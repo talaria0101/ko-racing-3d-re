@@ -369,7 +369,7 @@ public class Settings {
         new java.io.DataOutputStream(v1); /* constructor */
         java.io.DataOutputStream v2 = new java.io.DataOutputStream(v1);
         Object v3 = null;
-        v0 = ((Object) javax.microedition.rms.RecordStore.openRecordStore("KORa_1.1.1", 1, 0, 0));
+        v0 = ((Object) javax.microedition.rms.RecordStore.openRecordStore("KORa_1.1.1", true, 0, false));
         v2.writeInt(Settings.p);
         v2.writeInt(Settings.q);
         v2.writeInt(Settings.k);
@@ -392,7 +392,7 @@ public class Settings {
         v2.writeByte(Settings.x);
         v2.writeBoolean(Settings.e_Z);
         v2.writeBoolean(Settings.j_Z);
-        v2.writeBoolean(1);
+        v2.writeBoolean(true);
         v2.writeBoolean(Settings.k_Z);
         v2.writeUTF(Settings.k_String);
         if (Settings.g_Z != 0) goto L214;
@@ -402,7 +402,7 @@ public class Settings {
         jt1 = 0; /* join L215 from L214 */
         L215:
         v2.writeBoolean(jt1);
-        v2.writeBoolean(1);
+        v2.writeBoolean(true);
         v2.writeBoolean(Settings.l_Z);
         v2.writeByte(Settings.m);
         v2.writeBoolean(Settings.f_Z);
@@ -555,9 +555,9 @@ public class Settings {
         /* try L741-L757 catch java.lang.NullPointerException -> L784 */
         Object v0 = null;
         Object v2 = null;
-        v0 = ((Object) javax.microedition.rms.RecordStore.openRecordStore("KORa_1.1.1", 0, 0, 0));
-        byte[] v1 = javax.microedition.rms.RecordStore.openRecordStore("KORa_1.1.1", 0, 0, 0).getRecord(1);
-        v1 = TouchButtons.b(javax.microedition.rms.RecordStore.openRecordStore("KORa_1.1.1", 0, 0, 0).getRecord(1));
+        v0 = ((Object) javax.microedition.rms.RecordStore.openRecordStore("KORa_1.1.1", false, 0, false));
+        byte[] v1 = javax.microedition.rms.RecordStore.openRecordStore("KORa_1.1.1", false, 0, false).getRecord(1);
+        v1 = TouchButtons.b(javax.microedition.rms.RecordStore.openRecordStore("KORa_1.1.1", false, 0, false).getRecord(1));
         new java.io.ByteArrayInputStream(v1); /* constructor */
         v1 = ((byte[]) new java.io.ByteArrayInputStream(v1));
         new java.io.DataInputStream(v1); /* constructor */
@@ -1048,8 +1048,8 @@ public class Settings {
     // bytecode 180 bytes, max_stack 3, max_locals 2
     public static boolean j() {
         /* try L37-L169 catch java.io.IOException -> L173 */
-        byte[] v0 = ObfDj.a(Settings.h_String, 0, Settings.a(Settings.f_String));
-        if (ObfDj.a(Settings.h_String, 0, Settings.a(Settings.f_String)) != null) goto L25;
+        byte[] v0 = ScoreUpload.a(Settings.h_String, false, Settings.a(Settings.f_String));
+        if (ScoreUpload.a(Settings.h_String, false, Settings.a(Settings.f_String)) != null) goto L25;
         Garage.c(15);
         return 0;
         L25:
@@ -1087,7 +1087,7 @@ public class Settings {
         jt1 = 1; /* join L153 from L130 */
         L153:
         if (jt1 == 0) goto L170;
-        Garage.b(1);
+        Garage.b(true);
         Garage.c(17);
         Settings.b();
         return 1;
@@ -1101,8 +1101,8 @@ public class Settings {
     // bytecode 179 bytes, max_stack 3, max_locals 3
     public static boolean a(String v0) {
         /* try L35-L168 catch java.io.IOException -> L172 */
-        byte[] v1 = ObfDj.a(Settings.g_String, 0, Settings.a(v0));
-        if (ObfDj.a(Settings.g_String, 0, Settings.a(v0)) != null) goto L23;
+        byte[] v1 = ScoreUpload.a(Settings.g_String, false, Settings.a(v0));
+        if (ScoreUpload.a(Settings.g_String, false, Settings.a(v0)) != null) goto L23;
         Garage.c(15);
         return 0;
         L23:
@@ -1141,7 +1141,7 @@ public class Settings {
         if (jt1 == 0) goto L169;
         v2 = ((int) v0);
         Settings.j_String = v0;
-        Garage.b(1);
+        Garage.b(true);
         Garage.c(17);
         Settings.b();
         return 1;

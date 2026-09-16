@@ -114,7 +114,7 @@ public class ObfBt extends Screen {
         this.a_r = v2;
         v2 = ((ObfR) v3);
         v1 = ((MainCanvas) this);
-        ObfAs.a();
+        EngineSounds.a();
         new ObfQ(); /* constructor */
         v1.a_q = new ObfQ();
         ObfBt.b.a();
@@ -183,7 +183,7 @@ public class ObfBt extends Screen {
         goto L628;
         /* pop: ex_627; */
         L628:
-        ObfAs.b();
+        EngineSounds.b();
         return;
     }
     // bytecode 4 bytes, max_stack 1, max_locals 0
@@ -193,7 +193,7 @@ public class ObfBt extends Screen {
     // bytecode 686 bytes, max_stack 10, max_locals 4
     public void e() {
         /* try L605-L678 catch java.io.IOException -> L681 */
-        ObfAs.a();
+        EngineSounds.a();
         new ObfQ(); /* constructor */
         this.a_q = new ObfQ();
         ObfBt.b.a();
@@ -229,8 +229,8 @@ public class ObfBt extends Screen {
         goto L383;
         L313:
         new java.lang.StringBuffer(); /* constructor */
-        new ObfCx(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
-        this.a_arrLcl[v1] = new ObfCx(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
+        new PlayerCar(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1)); /* constructor */
+        this.a_arrLcl[v1] = new PlayerCar(ObfBb.a, Resources.a(new java.lang.StringBuffer().append("/cars/").append(this.a_r.a(v1)).toString()), v1, this.a_bs, this.a_r.a(v1));
         this.a_arrLcl[v1].b(ObfR.m);
         L383:
         v1 += 1;
@@ -276,12 +276,12 @@ public class ObfBt extends Screen {
         goto L682;
         /* pop: ex_681; */
         L682:
-        ObfAs.b();
+        EngineSounds.b();
         return;
     }
     // bytecode 55 bytes, max_stack 3, max_locals 2
     public void s() {
-        ObfAs.f();
+        EngineSounds.f();
         this.a_l = null;
         this.a = null;
         this.a_bs = null;
@@ -434,10 +434,10 @@ public class ObfBt extends Screen {
         if (this.a_cl.d() == 0) goto L191;
         this.e = 3;
         L191:
-        ObfAs.b(this.e);
+        EngineSounds.b(this.e);
         if (this.a_r.e_Z == 0) goto L221;
         if (this.e != 1) goto L221;
-        ObfAs.b(50);
+        EngineSounds.b(50);
         L221:
         this.a_bs.a(this.a_cl.a());
         int v3 = 0;
@@ -510,10 +510,10 @@ public class ObfBt extends Screen {
         if (this.a_cl.a().b() != 0) goto L646;
         L631:
         this.a_cl.f(v1);
-        ObfAs.c(1);
+        EngineSounds.c(true);
         goto L650;
         L646:
-        ObfAs.c(0);
+        EngineSounds.c(false);
         L650:
         if (this.a_arrZ[1] != 0) goto L668;
         if (fcmpl(this.b_F, 0.0f) >= 0) goto L709;
@@ -524,10 +524,10 @@ public class ObfBt extends Screen {
         L694:
         this.a_cl.g(v1);
         L702:
-        ObfAs.b(1);
+        EngineSounds.b(true);
         goto L713;
         L709:
-        ObfAs.b(0);
+        EngineSounds.b(false);
         L713:
         v3 = 0;
         L715:
@@ -557,10 +557,10 @@ public class ObfBt extends Screen {
         int v4 = (v3 + 1);
         L836:
         if (v4 >= this.a_r.d()) goto L920;
-        if (this.a_arrLcl[v3].a(this.a_arrLcl[v4], 1) == 0) goto L914;
+        if (this.a_arrLcl[v3].a(this.a_arrLcl[v4], true) == 0) goto L914;
         if (v3 != this.a_r.e()) goto L893;
         this.e_Z = true;
-        ObfAs.a((50 * Settings.t()));
+        EngineSounds.a((50 * Settings.t()));
         L893:
         this.a_arrLcl[v3].c(v1);
         this.a_arrLcl[v4].c(v1);
@@ -586,7 +586,7 @@ public class ObfBt extends Screen {
         L990:
         if (this.a_arrLcl[this.a_r.e()].b() == 0) goto L1055;
         this.e_Z = true;
-        ObfAs.a((50 * Settings.t()));
+        EngineSounds.a((50 * Settings.t()));
         this.a_arrLcl[this.a_r.e()].c(v1);
         /* pop: this.a_arrLcl[this.a_r.e()].a(v1); */
         L1055:
@@ -603,7 +603,7 @@ public class ObfBt extends Screen {
         v4 = (v3 + 1);
         L1103:
         if (v4 >= this.a_r.d()) goto L1139;
-        /* pop: this.a_arrLcl[v3].a(this.a_arrLcl[v4], 0); */
+        /* pop: this.a_arrLcl[v3].a(this.a_arrLcl[v4], false); */
         v4 += 1;
         goto L1103;
         L1139:
@@ -630,7 +630,7 @@ public class ObfBt extends Screen {
         v3 += 1;
         goto L1147;
         L1248:
-        ObfAs.a(((this.a_cl.a().j() / this.a_cl.a().k()) * 100.0f));
+        EngineSounds.a(((this.a_cl.a().j() / this.a_cl.a().k()) * 100.0f));
         if (this.a_cl.d() != 0) goto L1324;
         if (fcmpg(this.a_cl.a().j(), 0.5f) <= 0) goto L1324;
         if (fcmpg(java.lang.Math.abs(this.a_cl.a().a()), 0.4000000059604645f) <= 0) goto L1324;
@@ -639,7 +639,7 @@ public class ObfBt extends Screen {
         L1324:
         jt4 = 0; /* join L1325 from L1324 */
         L1325:
-        ObfAs.a(jt4);
+        EngineSounds.a(jt4);
         v3 = 0;
         L1330:
         if (v3 >= (this.a_r.d() - 1)) goto L1419;
@@ -830,7 +830,7 @@ public class ObfBt extends Screen {
         int v1 = 0;
         L68:
         if (v1 >= this.a_r.d()) goto L98;
-        this.a_arrLcl[v1].a(ObfBb.a, 1);
+        this.a_arrLcl[v1].a(ObfBb.a, true);
         v1 += 1;
         goto L68;
         L98:
@@ -848,7 +848,7 @@ public class ObfBt extends Screen {
         v1 += 1;
         goto L136;
         L165:
-        ObfAs.e();
+        EngineSounds.e();
         return;
         v1 = ((int) ex_169);
         ex_169.printStackTrace();
@@ -864,7 +864,7 @@ public class ObfBt extends Screen {
         v1 += 1;
         goto L8;
         L30:
-        ObfAs.d();
+        EngineSounds.d();
         return;
     }
     // bytecode 8 bytes, max_stack 3, max_locals 3

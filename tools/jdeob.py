@@ -527,6 +527,7 @@ class Emitter:
 
     def __init__(self, klass, acc, name, desc, code, names, fmap=None):
         self.fmap = fmap or {}
+        self._own_desc = desc
         self.klass = klass
         self.names = names
         self.mname = name
@@ -1229,16 +1230,20 @@ class Emitter:
         nargs = len(params)
         args = [self.pop()[1] for _ in range(nargs)]
         args.reverse()
+        for i, p in enumerate(params):
+            if i < len(args) and p == 'Z' and args[i] in ('0', '1'):
+                args[i] = 'false' if args[i] == '0' else 'true'
         recv = None
         if op != 'invokestatic':
             _, recv = self.pop()
         call = '%s(%s)' % (nm, ', '.join(args))
         if nm == '<init>' and recv == 'this':
-            first = not any(ln.strip() and not ln.strip().startswith('/*')
-                            and not ln.strip().startswith('L')
-                            for ln in L)
-            L.append('%s(%s);' % ('super' if first else 'this.<init>',
-                                  ', '.join(args)))
+            others = [d for _, m, d, _ in self.klass.methods
+                      if m == '<init>' and d != self._own_desc]
+            if ds in others:
+                L.append('this(%s);' % ', '.join(args))
+            else:
+                L.append('super(%s);' % ', '.join(args))
             return
         if nm == '<init>':
             import re as _re

@@ -15,12 +15,12 @@ public class ObfAt extends ObfAm {
     }
     // bytecode 17 bytes, max_stack 7, max_locals 4
     public ObfAt(ObfCf v1, String v2, String v3) {
-        super(v2, ObfAt.a(v1, v3, Settings.d, 0, 1), 0);
+        this(v2, ObfAt.a(v1, v3, Settings.d, false, true), false);
         return;
     }
     // bytecode 16 bytes, max_stack 6, max_locals 6
     public ObfAt(ObfCf v1, String v2, String v3, int v4, boolean v5) {
-        super(v2, ObfAt.a(v1, v3, v4, v5), 0);
+        this(v2, ObfAt.a(v1, v3, v4, v5), false);
         return;
     }
     // bytecode 78 bytes, max_stack 7, max_locals 7
@@ -36,7 +36,7 @@ public class ObfAt extends ObfAm {
         L63:
         jt1 = ObfAt.a(v1, v3, v4, v5); /* join L72 from L63 */
         L72:
-        super(v2, jt1, v6);
+        this(v2, jt1, v6);
         return;
     }
     // bytecode 187 bytes, max_stack 7, max_locals 11
@@ -53,9 +53,9 @@ public class ObfAt extends ObfAm {
         javax.microedition.m3g.Appearance v9 = new javax.microedition.m3g.Appearance();
         new javax.microedition.m3g.PolygonMode(); /* constructor */
         javax.microedition.m3g.PolygonMode v10 = new javax.microedition.m3g.PolygonMode();
-        new javax.microedition.m3g.PolygonMode().setLocalCameraLightingEnable(0);
+        new javax.microedition.m3g.PolygonMode().setLocalCameraLightingEnable(false);
         v10.setShading(165);
-        v10.setTwoSidedLightingEnable(0);
+        v10.setTwoSidedLightingEnable(false);
         v10.setCulling(160);
         v10.setPerspectiveCorrectionEnable(Settings.a_Z);
         v9.setPolygonMode(v10);
@@ -67,12 +67,12 @@ public class ObfAt extends ObfAm {
         v1.setBlending(64);
         L141:
         if (v8 != 0) goto L159;
-        v1.setDepthWriteEnable(0);
-        v1.setDepthTestEnable(0);
+        v1.setDepthWriteEnable(false);
+        v1.setDepthTestEnable(false);
         goto L169;
         L159:
-        v1.setDepthWriteEnable(1);
-        v1.setDepthTestEnable(1);
+        v1.setDepthWriteEnable(true);
+        v1.setDepthTestEnable(true);
         L169:
         v9.setCompositingMode(v1);
         v1 = ((ObfCf) v9);
@@ -261,7 +261,7 @@ public class ObfAt extends ObfAm {
         new float[2][1] = ((128.0f * this.a) + this.b);
         v3 = ((boolean) new float[2]);
         v11.setTexCoords(1, v4, this.a, v3);
-        this.a = ObfBb.a.a("/tex/r.png", 0);
+        this.a = ObfBb.a.a("/tex/r.png", false);
         v2.setTexture(1, this.a);
         L717:
         ObfAt.a_Z = false;

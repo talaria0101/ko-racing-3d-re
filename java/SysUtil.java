@@ -199,7 +199,7 @@ public class SysUtil {
         SysUtil.d = new ObfDn(SysUtil.j_String, 7, 7, 7);
         new ObfDn(((ObfDn) SysUtil.d)); /* constructor */
         SysUtil.e = new ObfDn(((ObfDn) SysUtil.d));
-        new ObfDn(((ObfDn) SysUtil.d)).a(-24416, 1);
+        new ObfDn(((ObfDn) SysUtil.d)).a(-24416, true);
         new ObfDn(SysUtil.p_String, 14, 13, 9); /* constructor */
         new ObfDn(SysUtil.k_String, 6, 11, 8); /* constructor */
         SysUtil.g = new ObfDn(SysUtil.k_String, 6, 11, 8);
@@ -212,8 +212,8 @@ public class SysUtil {
         SysUtil.k = new Font(SysUtil.h);
         new Font(SysUtil.h); /* constructor */
         SysUtil.j = new Font(SysUtil.h);
-        SysUtil.k.a(-65536, 1);
-        SysUtil.j.a(-16711936, 1);
+        SysUtil.k.a(-65536, true);
+        SysUtil.j.a(-16711936, true);
         new ObfAh(SysUtil.l_String, 12, 11, 8); /* constructor */
         SysUtil.l = new ObfAh(SysUtil.l_String, 12, 11, 8);
         new FontCodec(SysUtil.f_String); /* constructor */
@@ -810,10 +810,10 @@ public class SysUtil {
         if (v1 == 90) goto L172;
         if (v1 != 270) goto L185;
         L172:
-        v7 = ((int) javax.microedition.lcdui.Image.createRGBImage(v5, v3, v2, 1));
+        v7 = ((int) javax.microedition.lcdui.Image.createRGBImage(v5, v3, v2, true));
         goto L195;
         L185:
-        v7 = ((int) javax.microedition.lcdui.Image.createRGBImage(v5, v2, v3, 1));
+        v7 = ((int) javax.microedition.lcdui.Image.createRGBImage(v5, v2, v3, true));
         L195:
         if (Settings.e != 0) goto L204;
         java.lang.System.gc();
@@ -845,7 +845,7 @@ public class SysUtil {
         v5 += 1;
         goto L24;
         L108:
-        v5 = ((int) javax.microedition.lcdui.Image.createRGBImage(v4, v1, v2, 1));
+        v5 = ((int) javax.microedition.lcdui.Image.createRGBImage(v4, v1, v2, true));
         if (Settings.e != 0) goto L127;
         java.lang.System.gc();
         L127:

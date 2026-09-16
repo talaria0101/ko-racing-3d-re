@@ -9,7 +9,7 @@ public class ObfAx extends Widget {
     protected int a_I;
     // bytecode 13 bytes, max_stack 7, max_locals 6
     public ObfAx(Widget v1, int v2, int v3, int v4, Font v5) {
-        super(v1, v2, v3, v4, v5, 1);
+        this(v1, v2, v3, v4, v5, true);
         return;
     }
     // bytecode 115 bytes, max_stack 6, max_locals 7
@@ -34,7 +34,7 @@ public class ObfAx extends Widget {
         this.f((this.a.a(this.b_Z) + this.a_I));
         L102:
         this.e(128);
-        this.b(0);
+        this.b(false);
         return;
     }
     // bytecode 5 bytes, max_stack 1, max_locals 1
@@ -61,21 +61,21 @@ public class ObfAx extends Widget {
         return;
         L8:
         if (Settings.l() != 0) goto L41;
-        SysUtil.a(v1, 0, ((v3 + this.f()) - 1), v1.getClipWidth(), this.a(), 11184810, 8947848, 1);
+        SysUtil.a(v1, 0, ((v3 + this.f()) - 1), v1.getClipWidth(), this.a(), 11184810, 8947848, true);
         return;
         L41:
         if (Settings.l() != 1) goto L84;
-        SysUtil.a(v1, ((SysUtil.e - ((v3 + this.f()) - 1)) - this.a()), 0, this.a(), v1.getClipHeight(), 10066329, 7829367, 1);
+        SysUtil.a(v1, ((SysUtil.e - ((v3 + this.f()) - 1)) - this.a()), 0, this.a(), v1.getClipHeight(), 10066329, 7829367, true);
         return;
         L84:
         if (Settings.l() != 3) goto L115;
-        SysUtil.a(v1, (v3 + this.f()), 0, this.a(), v1.getClipHeight(), 10066329, 7829367, 1);
+        SysUtil.a(v1, (v3 + this.f()), 0, this.a(), v1.getClipHeight(), 10066329, 7829367, true);
         L115:
         return;
     }
     // bytecode 11 bytes, max_stack 6, max_locals 5
     public void a(Graphics v1, int v2, int v3, int v4) {
-        this.a(v1, v2, v3, v4, 1);
+        this.a(v1, v2, v3, v4, true);
         return;
     }
     // bytecode 405 bytes, max_stack 10, max_locals 13

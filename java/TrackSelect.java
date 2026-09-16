@@ -163,7 +163,7 @@ public class TrackSelect extends Screen {
     }
     // bytecode 411 bytes, max_stack 2, max_locals 3
     public TrackSelect(MainCanvas v1, String v2) {
-        super(v1);
+        this(v1);
         this.a = null;
         this.b = null;
         this.c = null;
@@ -370,7 +370,7 @@ public class TrackSelect extends Screen {
         L555:
         v1.close();
         this.y();
-        this.a(0);
+        this.a(false);
         this.y = 0;
         this.r();
         return;
@@ -414,7 +414,7 @@ public class TrackSelect extends Screen {
     }
     // bytecode 15 bytes, max_stack 2, max_locals 1
     public void i() {
-        this.a(1);
+        this.a(true);
         this.y = 0;
         this.r();
         return;
@@ -540,7 +540,7 @@ public class TrackSelect extends Screen {
         L801:
         new ObfT(v4, (v3.r - 10), SysUtil.a_p); /* constructor */
         v3.a_n.a(new ObfT(v4, (v3.r - 10), SysUtil.a_p));
-        v3.a_n.a_(1);
+        v3.a_n.a_(true);
         L835:
         v2 += 1;
         goto L688;
@@ -1007,11 +1007,11 @@ public class TrackSelect extends Screen {
         v2 = ((int) v1);
         v1 = ((Graphics) this);
         v3 = (SysUtil.a_p.a() + 6);
-        SysUtil.a(v2, 0, 0, v2.getClipWidth(), v3, 10066329, 6710886, 1);
+        SysUtil.a(v2, 0, 0, v2.getClipWidth(), v3, 10066329, 6710886, true);
         v2.setColor(10066329);
         v2.drawLine(0, v3, v2.getClipWidth(), v3);
         SysUtil.a_p.a(v2, SysUtil.a(70), 5, 3);
-        SysUtil.a(v2, (v2.getClipWidth() - (v3 * 3)), 0, (v3 * 3), v3, 16777215, 11184810, 1);
+        SysUtil.a(v2, (v2.getClipWidth() - (v3 * 3)), 0, (v3 * 3), v3, 16777215, 11184810, true);
         new java.lang.StringBuffer(); /* constructor */
         v1 = ((Graphics) new java.lang.StringBuffer().append(v1.c_I).append("%").toString());
         SysUtil.i.a(v2, v1, (v2.getClipWidth() - (((v3 * 3) + SysUtil.i.a(v1)) / 2)), ((v3 - SysUtil.i.a()) / 2));
@@ -1047,7 +1047,7 @@ public class TrackSelect extends Screen {
         L8:
         if (this.g_Z == 0) goto L74;
         if (ObfBh.a(v1) != -11) goto L34;
-        Garage.b(0);
+        Garage.b(false);
         this.g_Z = false;
         return;
         L34:
@@ -1055,7 +1055,7 @@ public class TrackSelect extends Screen {
         if (SysUtil.a(v1) == -6) goto L61;
         if (SysUtil.b(v1) != 8) goto L73;
         L61:
-        Garage.b(0);
+        Garage.b(false);
         MainCanvas.G();
         this.g_Z = false;
         L73:
@@ -1079,7 +1079,7 @@ public class TrackSelect extends Screen {
         v1 = ((int) this);
         int v2 = this.t;
         L151:
-        v2 = (((v2 - 1) + ObfBa.a_String.length) % ObfBa.a_String.length);
+        v2 = (((v2 - 1) + CarSpec.a_String.length) % CarSpec.a_String.length);
         if (v1.a(v2) == 0) goto L151;
         v1.t = v2;
         return;
@@ -1189,8 +1189,8 @@ public class TrackSelect extends Screen {
         this.t = -10;
         this.w();
         if (ObfR.f != 0) goto L30;
-        new ObfCu(); /* constructor */
-        this.a_r = new ObfCu();
+        new MenuScreen(); /* constructor */
+        this.a_r = new MenuScreen();
         goto L154;
         L30:
         if (ObfR.f != 1) goto L51;
@@ -1232,7 +1232,7 @@ public class TrackSelect extends Screen {
         TrackSelect v1 = this;
         new java.lang.StringBuffer(); /* constructor */
         String v2 = new java.lang.StringBuffer().append("/levels/").append(v1.b_String[v1.k]).toString();
-        v1.e = ObfR.a(v2, "/images/ts.png", 0);
+        v1.e = ObfR.a(v2, "/images/ts.png", false);
         goto L251;
         v1 = ((TrackSelect) ex_246);
         ex_246.printStackTrace();
@@ -1335,7 +1335,7 @@ public class TrackSelect extends Screen {
         new java.io.DataOutputStream(v2); /* constructor */
         java.io.DataOutputStream v3 = new java.io.DataOutputStream(v2);
         Object v4 = null;
-        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore(this.b_String, 1, 0, 0));
+        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore(this.b_String, true, 0, false));
         v3.writeInt(this.b_I);
         int v5 = 0;
         L44:
@@ -1474,8 +1474,8 @@ public class TrackSelect extends Screen {
         /* try L378-L394 catch java.io.IOException -> L413 */
         Object v1 = null;
         Object v3 = null;
-        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore(this.b_String, 0, 0, 0));
-        byte[] v2 = TouchButtons.b(javax.microedition.rms.RecordStore.openRecordStore(this.b_String, 0, 0, 0).getRecord(1));
+        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore(this.b_String, false, 0, false));
+        byte[] v2 = TouchButtons.b(javax.microedition.rms.RecordStore.openRecordStore(this.b_String, false, 0, false).getRecord(1));
         new java.io.ByteArrayInputStream(v2); /* constructor */
         v2 = ((byte[]) new java.io.ByteArrayInputStream(v2));
         new java.io.DataInputStream(v2); /* constructor */
@@ -1627,7 +1627,7 @@ public class TrackSelect extends Screen {
         this.b_arrZ[this.c_arrarrI[this.k][this.o]] = 1;
         this.o = 0;
         L317:
-        this.a(1);
+        this.a(true);
         this.x();
         Settings.b();
         if (v1.a() == 0) goto L479;
@@ -1746,8 +1746,8 @@ public class TrackSelect extends Screen {
         goto L267;
         L342:
         new java.lang.StringBuffer(); /* constructor */
-        new ObfCq(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(v1.b_String[v2]).toString(), v3, 1)); /* constructor */
-        v1.a_cq = new ObfCq(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(v1.b_String[v2]).toString(), v3, 1));
+        new ObfCq(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(v1.b_String[v2]).toString(), v3, true)); /* constructor */
+        v1.a_cq = new ObfCq(ObfR.a(new java.lang.StringBuffer().append("/levels/").append(v1.b_String[v2]).toString(), v3, true));
         goto L390;
         /* pop: ex_389; */
         L390:
@@ -1807,7 +1807,7 @@ public class TrackSelect extends Screen {
         v1 += 1;
         goto L55;
         L79:
-        this.a(0);
+        this.a(false);
         this.y = 0;
         this.r();
         this.x();
@@ -1837,7 +1837,7 @@ public class TrackSelect extends Screen {
         java.io.DataOutputStream v4 = new java.io.DataOutputStream(v3);
         v4.writeByte(111);
         v4.writeUTF(Settings.a());
-        v2 = ((Object) ObfDj.a(TrackSelect.d_String, 1, TouchButtons.a(v3.toByteArray())));
+        v2 = ((Object) ScoreUpload.a(TrackSelect.d_String, true, TouchButtons.a(v3.toByteArray())));
         v4.close();
         v3.close();
         new java.io.ByteArrayInputStream(v2); /* constructor */
@@ -1857,8 +1857,8 @@ public class TrackSelect extends Screen {
         v4 = ((java.io.DataOutputStream) v3.readInt());
         v2 = ((Object) new byte[v3.readInt()]);
         /* pop: v3.read(v2); */
-        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore(this.b_String, 1, 0, 0));
-        javax.microedition.rms.RecordStore.openRecordStore(this.b_String, 1, 0, 0).setRecord(1, v2, 0, v2.length);
+        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore(this.b_String, true, 0, false));
+        javax.microedition.rms.RecordStore.openRecordStore(this.b_String, true, 0, false).setRecord(1, v2, 0, v2.length);
         if (v1 == null) goto L170;
         v1.closeRecordStore();
         L170:
@@ -1870,7 +1870,7 @@ public class TrackSelect extends Screen {
         ex_181.printStackTrace();
         L186:
         this.y();
-        this.a(0);
+        this.a(false);
         this.y = 0;
         this.r();
         Settings.a();
@@ -1926,13 +1926,13 @@ public class TrackSelect extends Screen {
         java.io.ByteArrayOutputStream v2 = new java.io.ByteArrayOutputStream();
         new java.io.DataOutputStream(v2); /* constructor */
         java.io.DataOutputStream v3 = new java.io.DataOutputStream(v2);
-        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore(this.b_String, 0, 0, 0));
-        byte[] v4 = javax.microedition.rms.RecordStore.openRecordStore(this.b_String, 0, 0, 0).getRecord(1);
+        v1 = ((Object) javax.microedition.rms.RecordStore.openRecordStore(this.b_String, false, 0, false));
+        byte[] v4 = javax.microedition.rms.RecordStore.openRecordStore(this.b_String, false, 0, false).getRecord(1);
         v3.writeByte(111);
         v3.writeUTF(Settings.a());
         v3.writeInt(v4.length);
         v3.write(v4);
-        v4 = ObfDj.a(TrackSelect.c_String, 1, TouchButtons.a(v2.toByteArray()));
+        v4 = ScoreUpload.a(TrackSelect.c_String, true, TouchButtons.a(v2.toByteArray()));
         new java.io.ByteArrayInputStream(v4); /* constructor */
         v2 = ((java.io.ByteArrayOutputStream) new java.io.ByteArrayInputStream(v4));
         new java.io.DataInputStream(v2); /* constructor */

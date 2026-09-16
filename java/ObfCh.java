@@ -20,12 +20,12 @@ public class ObfCh extends Widget {
     protected int i;
     // bytecode 15 bytes, max_stack 7, max_locals 6
     public ObfCh(Widget v1, int v2, int v3, int v4, int v5) {
-        super(v1, v2, v3, v4, v5, SysUtil.b);
+        this(v1, v2, v3, v4, v5, SysUtil.b);
         return;
     }
     // bytecode 104 bytes, max_stack 6, max_locals 7
     public ObfCh(Widget v1, int v2, int v3, int v4, int v5, Font v6) {
-        super(v1, v2, v3, v4, v5);
+        this(v1, v2, v3, v4, v5);
         this.b = 0;
         this.c = 0;
         this.j = 150;
@@ -42,7 +42,7 @@ public class ObfCh extends Widget {
         this.n = m1;
         this.i = 3;
         this.a_p = v6;
-        this.b(1);
+        this.b(true);
         this.a();
         return;
     }

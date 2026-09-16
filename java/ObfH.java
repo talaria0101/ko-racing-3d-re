@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `h`.
 // String constants: <init> | Code | KORa | fillRect | java/io/IOException | java/util/Random | javax/microedition/lcdui/Graphics | nextInt | rand | setColor | StackMap
 // API references: java/util javax/microedition
-public class ObfH extends ObfCu {
+public class ObfH extends MenuScreen {
     private boolean f;
     // bytecode 15 bytes, max_stack 2, max_locals 2
     public ObfH(MainCanvas v1) {

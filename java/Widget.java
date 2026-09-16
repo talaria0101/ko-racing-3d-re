@@ -123,7 +123,7 @@ public class Widget {
     }
     // bytecode 6 bytes, max_stack 2, max_locals 3
     public void a(boolean v1, byte v2) {
-        this.a(1);
+        this.a(true);
         return;
     }
     // bytecode 6 bytes, max_stack 2, max_locals 2

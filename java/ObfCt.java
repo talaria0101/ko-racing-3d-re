@@ -37,7 +37,7 @@ public class ObfCt {
     }
     // bytecode 13 bytes, max_stack 5, max_locals 5
     public ObfCt(float v1, float v2, float v3, float v4) {
-        super();
+        this();
         this.a(0.0f, 0.0f, 0.0f, 0.0f);
         return;
     }

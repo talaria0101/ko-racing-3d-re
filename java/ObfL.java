@@ -45,7 +45,7 @@ public class ObfL {
     }
     // bytecode 70 bytes, max_stack 4, max_locals 5
     public ObfL(String v1, int v2, int v3, int v4) {
-        super(20, v3, v4);
+        this(20, v3, v4);
         if (ObfL.a != null) goto L69;
         ObfL.a = new javax.microedition.lcdui.Image[3];
         v2 = 0;

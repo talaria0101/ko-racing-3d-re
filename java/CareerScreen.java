@@ -2,7 +2,7 @@
 // edit: fix the emitter and re-run.  Original name `bu`.
 // String constants: /levels/ | <init> | Code | PLAYER | [Ljava/lang/String; | append | close | fillRect | flush | getClipHeight | java/io/ByteArrayInputStream | java/io/ByteArrayOutputStream
 // API references: java/io javax/microedition
-public class CareerScreen extends ObfCu {
+public class CareerScreen extends MenuScreen {
     private boolean f;
     private Bluetooth a;
     private int s;

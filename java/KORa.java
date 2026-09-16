@@ -101,7 +101,7 @@ public class KORa extends javax.microedition.midlet.MIDlet implements javax.micr
         if (v1 != this.a) goto L56;
         if (KORa.m_pDisplay.getCurrent() != this.a_Form) goto L101;
         KORa.m_pDisplay.setCurrent(KORa.m_pCanvas);
-        ObfAo.a(this.a_TextFi.getString());
+        Label.a(this.a_TextFi.getString());
         this.a_Form.setCommandListener(null);
         KORa.m_pCanvas.setCommandListener(this);
         return;
