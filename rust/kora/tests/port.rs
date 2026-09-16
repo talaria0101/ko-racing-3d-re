@@ -2522,3 +2522,46 @@ fn flagged_scenery_ignores_cell_yaw() {
     assert!(plain.contains(&"ch".to_string()), "church stays yawed");
     assert!(plain.contains(&"za".to_string()), "fences stay yawed");
 }
+
+/// The grid faces the first gate that is not the start cell, snapped to
+/// the best-aligned road arm - not the arm whose shortest road path
+/// reaches a gate first. On Timberton the start is (7, 5) and the first
+/// distinct gate is the (2, 5) checkpoint due west, so the race heads
+/// west; the shortest-path rule heads east, which is backwards. That is
+/// what the original's start straight shows: the round tree on the left
+/// verge, the rails on the right and the sunset ahead are all on the
+/// wrong sides in the eastward view, and both cars reach the line about
+/// 45 seconds in (the original's 01:50 clock runs at the emulator's
+/// 216%), so the two screenshots are the same spot faced opposite ways.
+#[test]
+fn race_direction_aims_at_the_first_gate() {
+    let resources = pack::load(&assets());
+    let map = format::Map::parse(&resources["levels/ma1.map"]).expect("ma1");
+    let tile_list = pack::lines(&pack::read_jar_file(&assets(), "lists/tile_list"));
+    let mut tiles = std::collections::HashMap::new();
+    for row in &map.cells {
+        for cell in row {
+            if let Some((kind, _)) = cell.tile {
+                tiles.entry(kind).or_insert_with(|| {
+                    format::Tile::parse(&resources[&format!("tiles/{}", tile_list[kind as usize - 1])])
+                        .expect("tile")
+                });
+            }
+        }
+    }
+    let grid = kora::grid::Grid::build(&map, &tiles);
+    assert_eq!(grid.race_dir(), Some(2), "Timberton heads west (-X)");
+    // And the spawn faces that way: yaw +PI/2 is -X under the port's
+    // `rotation * (0,0,-1)` forward convention.
+    let track = scene::build_themed(
+        &assets(),
+        &resources,
+        "ma1.map",
+        4,
+    );
+    assert!(
+        (track.spawn_yaw - std::f32::consts::FRAC_PI_2).abs() < 1e-6,
+        "spawn yaw {:.3} should face west",
+        track.spawn_yaw
+    );
+}

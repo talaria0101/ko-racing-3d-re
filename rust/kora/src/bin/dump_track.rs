@@ -94,7 +94,11 @@ fn main() {
             // The front end's own camera, so what is rendered is what the game
             // shows rather than a view chosen to flatter it.
             let (back, height) = Camera::Chase.placement();
-            let forward = vec3(track.spawn_yaw.sin(), 0.0, -track.spawn_yaw.cos());
+            // Forward matches the race itself (`rotation * (0,0,-1)` in
+            // main.rs): at yaw `t` that is `(-sin t, 0, -cos t)`.  The
+            // x component used to be unnegated, which faced this viewer
+            // the opposite way down the start straight from the game.
+            let forward = vec3(-track.spawn_yaw.sin(), 0.0, -track.spawn_yaw.cos());
             let up = Vec3::Y;
             let eye = track.spawn - forward * back + up * height;
             let target = track.spawn + forward * 3.0 + up * 0.8;

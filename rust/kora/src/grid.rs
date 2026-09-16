@@ -7,7 +7,7 @@
 //! the MIDlet's `bs` flood walks: every one of the 40 shipped maps comes out
 //! connected, with a mostly degree-2 ring topology.
 
-use std::collections::{HashMap, VecDeque};
+use std::collections::HashMap;
 
 use macroquad::prelude::*;
 
@@ -195,10 +195,16 @@ impl Grid {
 
     /// Which way round the circuit is raced.
     ///
-    /// The start cell has two drivable sides; the race direction is the one
-    /// leading to the first checkpoint, found by labelling every cell with the
-    /// start side it descends from.  With no checkpoints either way round is a
-    /// valid lap, so the first open side wins.
+    /// The grid faces the first gate that is not the start cell itself,
+    /// snapped to whichever road arm out of the start best matches that
+    /// straight-line aim.  On Timberton the start is (7, 5) and the first
+    /// distinct gate is the (2, 5) checkpoint due west, so the race heads
+    /// west; picking the arm whose shortest road path reaches a gate first
+    /// heads east instead, which is backwards - the original's start
+    /// straight has the round tree on the left verge, the rails on the
+    /// right and the sunset ahead, all of which the eastward view puts on
+    /// the wrong sides.  With no distinct gate the first open side wins,
+    /// which is also the order the track-linking flood in `bs.a()V` walks.
     pub fn race_dir(&self) -> Option<usize> {
         let neighbours = self.neighbours(self.start.0, self.start.1);
         if neighbours.is_empty() {
@@ -207,29 +213,27 @@ impl Grid {
         if neighbours.len() < 2 {
             return Some(neighbours[0].0);
         }
-        let mut arm: HashMap<(i32, i32), usize> = HashMap::new();
-        let mut queue = VecDeque::new();
-        arm.insert(self.start, usize::MAX);
-        for &(dir, nx, ny) in &neighbours {
-            arm.insert((nx, ny), dir);
-            queue.push_back((nx, ny));
+        let target = self.gates().into_iter().find(|gate| *gate != self.start);
+        let Some(target) = target else {
+            return Some(neighbours[0].0);
+        };
+        let aim = (
+            (target.0 - self.start.0) as f32,
+            (target.1 - self.start.1) as f32,
+        );
+        let length = (aim.0 * aim.0 + aim.1 * aim.1).sqrt();
+        if length < 1e-6 {
+            return Some(neighbours[0].0);
         }
-        while let Some((x, y)) = queue.pop_front() {
-            let side = arm[&(x, y)];
-            for (_, nx, ny) in self.neighbours(x, y) {
-                if !arm.contains_key(&(nx, ny)) {
-                    arm.insert((nx, ny), side);
-                    queue.push_back((nx, ny));
-                }
+        let mut best: Option<(f32, usize)> = None;
+        for &(dir, _, _) in &neighbours {
+            let (dx, dy) = DIRS[dir];
+            let dot = (dx as f32 * aim.0 + dy as f32 * aim.1) / length;
+            if best.is_none_or(|(best_dot, _)| dot > best_dot) {
+                best = Some((dot, dir));
             }
         }
-        for gate in self.gates() {
-            match arm.get(&gate) {
-                Some(&side) if side != usize::MAX => return Some(side),
-                _ => {}
-            }
-        }
-        Some(neighbours[0].0)
+        Some(best.map(|(_, dir)| dir).unwrap_or(neighbours[0].0))
     }
 
     /// Starting grid: the first slot is the start cell itself and the rest sit
