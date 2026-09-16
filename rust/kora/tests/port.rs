@@ -2600,3 +2600,28 @@ fn smoothing_defaults_to_authentic() {
         }
     }
 }
+
+/// Open sides facing empty holes get barriers, not just off-map sides.
+/// 23 open sides across 13 shipped maps point at cells with no tile -
+/// Timberton's (4, 7) west and (9, 7) south spur ends among them - and
+/// no tile there means no ground either, so driving out is falling
+/// into the void. The port used to skip the wall whenever the side
+/// read open, whatever lay beyond.
+#[test]
+fn void_exits_get_barriers() {
+    let resources = pack::load(&assets());
+    let track = scene::build_themed(&assets(), &resources, "ma1.map", 4);
+    let near = |point: macroquad::prelude::Vec3| {
+        track.walls.iter().any(|(centre, _)| {
+            (centre.x - point.x).abs() < 2.0
+                && (centre.y - point.y).abs() < 2.5
+                && (centre.z - point.z).abs() < 2.0
+        })
+    };
+    use macroquad::prelude::vec3;
+    // Spur ends: west edge of (4, 7), south edge of (9, 7).
+    assert!(near(vec3(49.0, 0.0, -98.0)), "wall missing at (4,7) west");
+    assert!(near(vec3(126.0, 0.0, -105.0)), "wall missing at (9,7) south");
+    // Negative control: the start cell's east edge is open road.
+    assert!(!near(vec3(105.0, 0.0, -70.0)), "wall blocks open road");
+}

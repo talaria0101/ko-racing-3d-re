@@ -900,13 +900,19 @@ pub fn build_detailed(
         //
         // Sides facing off the map get a barrier even when the tile calls
         // them open: beyond is the void past the world edge, and driving out
-        // there is falling out of the world, not racing.  (The game rejoins
-        // fallers; the port keeps them in to begin with.)
+        // there is falling out of the world, not racing.  The same goes for
+        // open sides facing an empty hole inside the map (23 of them across
+        // 13 shipped maps, e.g. Timberton's (4, 7) west and (9, 7) south
+        // spurs): no tile there means no ground either, so they get walls
+        // too.  (The game rejoins fallers; the port keeps them in to begin
+        // with.)
         for dir in 0..4 {
             let (dx, dy) = crate::grid::DIRS[dir];
             let (nx, ny) = (x + dx, y + dy);
-            let off_map = nx < 0 || ny < 0 || nx >= grid.width || ny >= grid.height;
-            if grid.open_sides(x, y) & (1 << dir) != 0 && !off_map {
+            // `occupied` is false past the world edge too, so this covers
+            // both the off-map void and the in-map holes.
+            let road = grid.occupied(nx, ny);
+            if grid.open_sides(x, y) & (1 << dir) != 0 && road {
                 continue;
             }
             let edge = match dir {
