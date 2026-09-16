@@ -296,7 +296,11 @@ def _triangle(
             w0 = ((x1 - cx) * (y2 - cy) - (x2 - cx) * (y1 - cy)) / area
             w1 = ((x2 - cx) * (y0 - cy) - (x0 - cx) * (y2 - cy)) / area
             w2 = 1.0 - w0 - w1
-            if w0 < 0.0 or w1 < 0.0 or w2 < 0.0:
+            # Epsilon: pixel centres exactly on a shared edge round to
+            # either side, and a strict test drops the pixel from *both*
+            # triangles, leaving 1 px sky pinholes along tile borders.
+            # Overlaps resolve by depth (equal depths keep the first).
+            if w0 < -1e-9 or w1 < -1e-9 or w2 < -1e-9:
                 continue
             total = w0 * inv[0] + w1 * inv[1] + w2 * inv[2]
             if total <= 0.0:
