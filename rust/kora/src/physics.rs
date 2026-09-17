@@ -519,11 +519,18 @@ impl World {
         // (`cl.d(float)`: a small step snaps, a big negative one means air.)
         // A big step UP is a cliff, not a ramp: ramps and tile lips pass
         // under the limit, walls do not, so the car stops instead of
-        // teleporting onto them.
+        // teleporting onto them. Off the road, sustained climbs are
+        // rate-limited too: gentle grass passes slowly, but banks too
+        // steep to drive stay unclimbable (the car stops at their foot
+        // instead of pointing uphill and going). That is the roadside
+        // collision the original has where there is no rail. On the road
+        // the limit never applies - roads are drivable by definition.
         match height {
             Some(h) => {
                 let diff = h - car.pos.y;
-                if diff > 1.2 {
+                // Uphill roads and bridge ramps stay well under 3 m/s of
+                // rise even at cruise; banks do not.
+                if diff > 1.2 || (offroad && diff > 0.0 && diff / dt > 3.0) {
                     car.pos.x -= car.vel.x * dt;
                     car.pos.z -= car.vel.z * dt;
                     car.vel *= 0.2;
@@ -786,6 +793,30 @@ mod tests {
         }
         let moved = (cliff.position(car3) - vec3(0.0, 0.0, 0.0)).length();
         assert!(moved < 1.0, "climbed the cliff: {moved:.2}");
+    }
+
+    #[test]
+    fn banks_too_steep_stay_unclimbable() {
+        // Off the road a gentle rise passes slowly but a bank blocks;
+        // on the road even the bank passes, since roads are drivable by
+        // definition.
+        let drive = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
+        let mut gentle = World::new(&[]);
+        let g = gentle.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        let mut bank = World::new(&[]);
+        let b = bank.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        let mut road = World::new(&[]);
+        let r = road.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        for step in 0..120 {
+            // 1.2 m/s of rise passes, 6 m/s does not.
+            gentle.step(1.0 / 60.0, &drive, &[Some(step as f32 * 0.02)], &[true]);
+            bank.step(1.0 / 60.0, &drive, &[Some(step as f32 * 0.10)], &[true]);
+            road.step(1.0 / 60.0, &drive, &[Some(step as f32 * 0.10)], &[false]);
+        }
+        assert!(gentle.position(g).y > 1.0, "gentle rise blocked");
+        let moved = (bank.position(b) - vec3(0.0, 0.0, 0.0)).length();
+        assert!(moved < 2.0, "climbed the bank: {moved:.2}");
+        assert!(road.position(r).y > 3.0, "road climb blocked");
     }
 
     #[test]
