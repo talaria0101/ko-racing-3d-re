@@ -124,8 +124,8 @@ struct Running {
     back: Screen,
     track: scene::Track,
     sky: Option<sky::Sky>,
-    geometry: scene::CarGeometry,
-    texture: Option<Texture2D>,
+    geometries: Vec<scene::CarGeometry>,
+    textures: Vec<Option<Texture2D>>,
     world: World,
     races: Vec<Race>,
     drivers: Vec<AiDriver>,
@@ -259,33 +259,60 @@ fn start_race(
     // The theme byte picks one of the five backgrounds (`al.q(j)`).
     let sky = sky::Sky::load(resources, event.theme);
 
-    let car_def = resources
-        .get(&format!("cars/{car_file}"))
-        .and_then(|bytes| kora::format::Car::parse(bytes))?;
+    // Opponent cars (`r.b()V` roster): unique random pool cars, never the
+    // player's, class-shifted with the verbatim remap (`-1` is an empty
+    // slot). Seeded per race like the game's unseeded roll.
     // `cl.a(cf, boolean)` picks the model by the graphics detail setting -
     // `al.d() > 0 ? car.model : car.low_model` - and the two are very
-    // different: `bonus` is 92 triangles and `bonus_low` is 48.  The port used
-    // the high-detail body whatever the setting said, so at LOW it was drawing
-    // a car the game would not have.
-    let mut car_def = car_def;
-    if settings.quality == kora::settings::Quality::Low {
-        car_def.model = car_def.low_model.clone();
-    }
-    let mut geometry = scene::build_car(resources, &car_def)?;
-    let texture = scene::load_car_texture(resources, &mut geometry);
-    let laps = env_number("KORA_LAPS", 99).unwrap_or(event.laps).max(1);
+    // different: `bonus` is 92 triangles and `bonus_low` is 48.
+    let player_pool = kora::campaign::CAR_POOL
+        .iter()
+        .position(|name| format!("cars/{name}.car") == format!("cars/{car_file}"))
+        .unwrap_or(0);
+    let seed = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .map(|time| time.as_nanos() as u64)
+        .unwrap_or(0x243F6A8885A308D3);
+    let mut rng = kora::campaign::RosterRng::new(seed);
     let opponents = env_number("KORA_OPPONENTS", 7).unwrap_or(event.opponents);
+    let mut files = vec![car_file.to_string()];
+    for slot in kora::campaign::roster(player_pool, event.class, opponents as usize, &mut rng) {
+        if let Some(index) = slot {
+            if let Some(name) = kora::campaign::CAR_POOL.get(index) {
+                files.push(format!("{name}.car"));
+            }
+        }
+    }
+    let mut defs = Vec::with_capacity(files.len());
+    let mut geometries = Vec::with_capacity(files.len());
+    let mut textures = Vec::with_capacity(files.len());
+    for file in &files {
+        let mut def = resources
+            .get(&format!("cars/{file}"))
+            .and_then(|bytes| kora::format::Car::parse(bytes))?;
+        if settings.quality == kora::settings::Quality::Low {
+            def.model = def.low_model.clone();
+        }
+        let mut geometry = scene::build_car(resources, &def)?;
+        let texture = scene::load_car_texture(resources, &mut geometry);
+        defs.push(def);
+        geometries.push(geometry);
+        textures.push(texture);
+    }
+    let laps = env_number("KORA_LAPS", 99).unwrap_or(event.laps).max(1);
 
     let mut world = World::new(&track.walls);
     let mut player = 0;
-    for (index, &(spot, yaw)) in track.grid.grid_slots(1 + opponents as usize).iter().enumerate() {
-        // The player runs the player tune, opponents the AI tune; both read
-        // the same four `.car` stat bytes (`PlayerTune`/`AiTune`).
-        let tune = if index == 0 {
-            Tuning::player(car_def.stats)
-        } else {
-            Tuning::ai(car_def.stats)
-        };
+    for (index, &(spot, yaw)) in track
+        .grid
+        .grid_slots(files.len())
+        .iter()
+        .enumerate()
+    {
+        // Race opponents run the player tune with their own car's stats
+        // (`PlayerCar` builds `PlayerTune`, not `AiTune`); only the demo
+        // showcase car runs `AiTune`.
+        let tune = Tuning::player(defs[index].stats);
         let car = world.add_car(spot, yaw, tune, index != 0);
         if index == 0 {
             player = car;
@@ -313,8 +340,8 @@ fn start_race(
         back,
         track,
         sky,
-        geometry,
-        texture,
+        geometries,
+        textures,
         world,
         races,
         drivers,
@@ -499,11 +526,14 @@ impl Running {
 
         // The MIDlet sets its car's height from the track's collision mesh
         // every frame, which is how it crosses the steps between tiles.
-        let ride = self.geometry.half_extents.y + 0.02;
-        let reach = self.geometry.half_extents.z + 0.5;
+        // Each car stands on its own body: the pool spans hatchbacks to
+        // SUVs.
         let mut heights = Vec::with_capacity(self.world.cars.len());
         for index in 0..self.world.cars.len() {
             let (place, rotation) = self.world.pose(index);
+            let geometry = &self.geometries[index % self.geometries.len().max(1)];
+            let ride = geometry.half_extents.y + 0.02;
+            let reach = geometry.half_extents.z + 0.5;
             if place.y < -40.0 {
                 self.world.reset(index);
                 heights.push(None);
@@ -551,9 +581,13 @@ impl Running {
                 }
             })
             .collect();
-        let substeps = ((dt / (1.0 / 60.0)).ceil() as i32).clamp(1, 4);
-        for _ in 0..substeps {
-            self.world.step(dt / substeps as f32, &controls, &heights, &offroad);
+        // Frozen until the green light (`bt` zeroes the car-update dt
+        // through the countdown, so nobody creeps or pre-revs).
+        if self.countdown <= 0.0 {
+            let substeps = ((dt / (1.0 / 60.0)).ceil() as i32).clamp(1, 4);
+            for _ in 0..substeps {
+                self.world.step(dt / substeps as f32, &controls, &heights, &offroad);
+            }
         }
 
         let mode = Mode::from_u8(self.event.mode);
@@ -738,14 +772,15 @@ impl Running {
                 continue;
             }
             let (place, spin) = self.world.pose(index);
-            let mut vertices = self.geometry.vertices.clone();
+            let slot = index % self.geometries.len().max(1);
+            let mut vertices = self.geometries[slot].vertices.clone();
             for vertex in &mut vertices {
                 vertex.position = spin * vertex.position + place;
             }
             draw_mesh(&Mesh {
                 vertices,
-                indices: self.geometry.indices.clone(),
-                texture: self.texture.clone(),
+                indices: self.geometries[slot].indices.clone(),
+                texture: self.textures.get(slot).cloned().flatten(),
             });
         }
 

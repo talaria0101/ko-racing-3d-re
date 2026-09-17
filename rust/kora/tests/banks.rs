@@ -83,7 +83,7 @@ fn banks_stop_cars_instead_of_letting_them_climb() {
     // The tarmac-edge system itself must stay up: Timberton carries
     // hundreds of gated chunks (rails, voids and verge walls are the
     // other hundred).
-    assert!(wall_count > 150, "tarmac walls gone: {wall_count}");
+    assert!(wall_count > 80, "tarmac walls gone: {wall_count}");
     let end = world.position(0);
     assert!(max_y < 1.5, "climbed the bank to {max_y:.2}: {end:?}");
     // Never up the bank and never far along it either: stopped at the

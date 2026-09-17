@@ -192,9 +192,11 @@ pub fn verge_wall_needed(road: f32, verge: f32) -> bool {
     verge - road > VERGE_WALL_RISE
 }
 
-/// Rise across a tarmac edge that earns a wall: cut slopes and retaining
-/// faces, not crowns or joints. Pure so the rule pins in a test.
-pub const EDGE_WALL_RISE: f32 = 0.6;
+/// Rise across a tarmac edge that earns a wall: cliffs only. Gentler
+/// banks stay open for the AI to thread (the climb cap stalls players
+/// there instead); crowns, joints and flat verges stay open always.
+/// Pure so the rule pins in a test.
+pub const EDGE_WALL_RISE: f32 = 1.5;
 
 /// The parameter interval of a (g0, g1) border-distance line inside
 /// `margin` of the border: the caller subtracts it from the kept pieces
@@ -1200,10 +1202,14 @@ pub fn build_detailed(
                 .fold(f32::MIN, f32::max)
                 + 2.2;
             let direction = crate::grid::dir_mq(dir);
+            // Ends overlap a metre and a half into the neighbours: flush
+            // corners leak diagonal squeezes (a car at pace fits through
+            // half a metre), and a leaked car ends up behind its own
+            // wall, unable to re-enter.
             let (hx, hz) = if dir % 2 == 0 {
-                (0.6, half_tile)
+                (0.6, half_tile + 1.5)
             } else {
-                (half_tile, 0.6)
+                (half_tile + 1.5, 0.6)
             };
             walls.push((
                 centre + direction * half_tile + vec3(0.0, base, 0.0),
@@ -1342,9 +1348,9 @@ pub fn build_detailed(
                 );
                 let base = road.min(verge);
                 let (hx, hz) = if dir % 2 == 0 {
-                    (0.6, TILE * 0.5)
+                    (0.6, TILE * 0.5 + 1.5)
                 } else {
-                    (TILE * 0.5, 0.6)
+                    (TILE * 0.5 + 1.5, 0.6)
                 };
                 walls.push((
                     vec3(mid.x, base, mid.z),
@@ -1463,9 +1469,12 @@ pub fn build_detailed(
                     walls.push((
                         vec3(mid.x, (base + top) * 0.5, mid.z),
                         vec3(
-                            (hi.x - lo.x).abs() * 0.5 + 0.35,
+                            // A metre of overlap each end seals chunk seams
+                            // and corners, and the metre of thickness
+                            // catches nose-first entries.
+                            (hi.x - lo.x).abs() * 0.5 + 1.0,
                             (top - base) * 0.5,
-                            (hi.z - lo.z).abs() * 0.5 + 0.35,
+                            (hi.z - lo.z).abs() * 0.5 + 1.0,
                         ),
                     ));
                 }

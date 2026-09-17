@@ -110,6 +110,12 @@ pub struct RaceEvent {
     /// game counts down in milliseconds (`Countdown.c`/`d`). `None` for
     /// the wheel-to-wheel modes.
     pub time_limit: Option<f32>,
+    /// Player car pool index (`r.h`, the setup `car` byte): which of the
+    /// eight garage cars the event fields the player in.
+    pub car: u8,
+    /// Opponent pool class (`r.m`, the setup `param` byte of race modes):
+    /// which slice of the garage the rivals are drawn from.
+    pub class: u8,
 }
 
 impl RaceEvent {
@@ -130,8 +136,84 @@ impl RaceEvent {
             unlocks: (record.values[1] < 0).then(|| (-record.values[1]) as u8),
             key: format!("{table}:{level_index}:{}", record.mode),
             time_limit: config.time_limit.map(|ms| (ms as f32 / 1000.0).clamp(5.0, 1800.0)),
+            car: config.car,
+            class: config.param.unwrap_or(0),
         }
     }
+}
+
+/// The eight garage cars in `CarSpec.a` order: the pool the roster draws
+/// from (rally, fashion/BIRDIE, vintage, sport, bonus, suv, cx, cool).
+pub const CAR_POOL: [&str; 8] = [
+    "rally", "fashion", "vintage", "sport", "bonus", "suv", "cx", "cool",
+];
+
+/// Tiny seeded RNG for the roster (the game rolls `KORa.rand`, unseeded;
+/// the port seeds per race so results reproduce). Not the `rand` crate:
+/// one `next_int` is all the roster needs.
+pub struct RosterRng {
+    state: u64,
+}
+
+impl RosterRng {
+    pub fn new(seed: u64) -> RosterRng {
+        RosterRng { state: seed } 
+    }
+
+    pub fn next_int(&mut self, bound: usize) -> usize {
+        self.state = self
+            .state
+            .wrapping_mul(6364136223846793005)
+            .wrapping_add(1442695040888963407);
+        ((self.state >> 33) as usize) % bound.max(1)
+    }
+}
+
+/// Opponent car pool indices for a race (`r.b()V` second loop): unique
+/// random cars from the class range, never the player's, with the
+/// verbatim remap chain. A `-1` roll (class 0) is an empty slot: the
+/// field shrinks rather than fielding a duplicate. Verified for mode 1;
+/// assumed across race modes pending the `cu`/`cd` reader check.
+pub fn roster(
+    player: usize,
+    class: u8,
+    opponents: usize,
+    rng: &mut RosterRng,
+) -> Vec<Option<usize>> {
+    let mut out = Vec::with_capacity(opponents as usize);
+    for _ in 0..opponents as usize {
+        // Bounded retries: the game trusts its data to leave room, but
+        // a forced override could ask for more unique cars than the pool
+        // holds; an empty slot beats a hang.
+        let mut tries = 0;
+        loop {
+            tries += 1;
+            if tries > 100 {
+                out.push(None);
+                break;
+            }
+            let mut v = rng.next_int(4) as i32 + if class == 3 { 4 } else { class as i32 } - 1;
+            if v == 3 {
+                v = 2;
+            } else if v == 4 {
+                v = 3;
+            } else if v == 5 {
+                v = 4;
+            } else if v == 2 {
+                v = 5;
+            }
+            let cand = if v < 0 { None } else { Some(v as usize) };
+            if cand == Some(player) {
+                continue;
+            }
+            if out.contains(&cand) {
+                continue;
+            }
+            out.push(cand);
+            break;
+        }
+    }
+    out
 }
 
 /// Every race in both career tables, in table order, races before time trials.
@@ -212,6 +294,11 @@ pub fn quick_events(resources: &Resources) -> Vec<RaceEvent> {
                 threshold: 0,
                 award: 1,
                 unlocks: None,
+                car: setup.as_ref().map(|setup| setup.config.car).unwrap_or(0),
+                class: setup
+                    .as_ref()
+                    .and_then(|setup| setup.config.param)
+                    .unwrap_or(0),
                 time_limit: setup.and_then(|setup| {
                     setup
                         .config
@@ -221,4 +308,29 @@ pub fn quick_events(resources: &Resources) -> Vec<RaceEvent> {
             }
         })
         .collect()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn roster_is_unique_and_never_fields_the_player_car() {
+        // Hundred seeded draws: no duplicates (one empty at most, from
+        // the class-0 `-1` roll), never the player's own index, always in
+        // pool range.
+        for seed in 0..100 {
+            let mut rng = RosterRng::new(seed * 7919 + 13);
+            let field = roster(2, 1, 4, &mut rng);
+            assert_eq!(field.len(), 4);
+            let mut seen = std::collections::HashSet::new();
+            for slot in field {
+                if let Some(car) = slot {
+                    assert!(car < 8, "out of pool: {car}");
+                    assert_ne!(car, 2, "player's car fielded");
+                    assert!(seen.insert(car), "duplicate car {car}");
+                }
+            }
+        }
+    }
 }

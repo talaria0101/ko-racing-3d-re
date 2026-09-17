@@ -627,16 +627,25 @@ impl World {
                 if diff > 1.2 {
                     car.pos.x -= car.vel.x * dt;
                     car.pos.z -= car.vel.z * dt;
-                    car.vel *= 0.2;
+                    // Full stop, not a slide, and the drive dies too: a
+                    // live drive rebuilds between steps and rocks the car
+                    // across support edges, chattering the pin timer
+                    // forever. Re-revving after takes half a second.
+                    car.vel = Vec3::ZERO;
+                    car.drive = 0.0;
                     // Buried past the step the car can never drive out, so
-                    // a steady surface pops it up after two pinned seconds.
-                    // A moving grade resets the timer, which is what keeps
-                    // long climbs (and the bank unit test) from popping.
+                    // one full stuck-reverse cycle pinned pops it up. A
+                    // moving grade never holds still for the window, which
+                    // is what keeps long climbs (and the bank unit test)
+                    // from popping.
                     if car.pin == 0.0 {
                         car.pin_h = h;
                     }
                     car.pin += dt;
-                    if car.pin > 4.5 && (h - car.pin_h).abs() < 0.1 {
+                    // Half a metre of wander is chatter around one face
+                    // (traffic shoves, micro-rocking); rising grades move
+                    // metres over the window and stay suppressed.
+                    if car.pin > 3.5 && (h - car.pin_h).abs() < 0.5 {
                         car.pos.y = h;
                         car.airborne = false;
                         car.fall = 0.0;
@@ -650,11 +659,11 @@ impl World {
                     car.pos.y = h;
                     car.airborne = false;
                     car.fall = 0.0;
-                    car.pin = 0.0;
+                    car.pin = (car.pin - dt * 4.0).max(0.0);
                 } else if !car.airborne {
                     car.airborne = true;
                     car.fall = 0.0;
-                    car.pin = 0.0;
+                    car.pin = (car.pin - dt * 4.0).max(0.0);
                 }
                 if car.airborne {
                     car.fall += 9.8 * dt;
@@ -670,7 +679,7 @@ impl World {
                 car.airborne = true;
                 car.fall += 9.8 * dt;
                 car.pos.y -= car.fall * dt;
-                car.pin = 0.0;
+                car.pin = (car.pin - dt * 4.0).max(0.0);
             }
         }
         // Ascent memory for the climb cap: gains with every metre risen
@@ -749,6 +758,11 @@ impl World {
 
     pub fn speed(&self, car: usize) -> f32 {
         self.cars[car].vel.length()
+    }
+
+    /// Velocity vector: the opponent brain angles it against the line.
+    pub fn velocity(&self, car: usize) -> Vec3 {
+        self.cars[car].vel
     }
 
     /// Sideways speed, the drift meter's input.
@@ -1103,3 +1117,17 @@ mod tests {
     }
 }
 
+
+    #[test]
+    fn veto_kills_drive_so_pin_survives_chatter() {
+        let drive = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
+        let mut world = World::new(&[]);
+        let car = world.add_car(vec3(32.0, 0.5, -63.9), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        for step in 0..600 {
+            world.step(1.0 / 60.0, &drive, &[Some(1.84)], &[false]);
+            if step % 60 == 0 {
+                let p = world.position(car);
+                eprintln!("t={} y={:.2} sp={:.2}", step / 60, p.y, world.speed(car));
+            }
+        }
+    }
