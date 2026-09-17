@@ -157,7 +157,7 @@ fn car_settles_and_drives_on_the_track() {
     let idle = [CarControl::default()];
     for _ in 0..240 {
         let heights = heights(&world);
-        world.step(1.0 / 60.0, &idle, &heights);
+        world.step(1.0 / 60.0, &idle, &heights, &[false]);
     }
     let resting = world.position(player);
     assert!(
@@ -171,7 +171,7 @@ fn car_settles_and_drives_on_the_track() {
     }];
     for _ in 0..120 {
         let heights = heights(&world);
-        world.step(1.0 / 60.0, &drive, &heights);
+        world.step(1.0 / 60.0, &drive, &heights, &[false]);
     }
     let moved = (world.position(player) - resting).length();
     assert!(moved > 0.5, "car did not move under throttle ({moved:.2})");
@@ -533,7 +533,7 @@ fn opponents_drive_the_track() {
                     .map(|height| height + geometry.half_extents.y + 0.02),
             );
         }
-        world.step(1.0 / 60.0, &controls, &heights);
+        world.step(1.0 / 60.0, &controls, &heights, &vec![false; cars]);
         for index in 0..cars {
             let place = world.position(index);
             assert!(place.y > -30.0, "car {index} fell off at step {step}");
@@ -621,7 +621,7 @@ fn opponents_survive_other_tracks() {
                         .map(|height| height + geometry.half_extents.y + 0.02),
                 );
             }
-            world.step(1.0 / 60.0, &controls, &heights);
+            world.step(1.0 / 60.0, &controls, &heights, &vec![false; cars]);
             for index in 0..cars {
                 let place = world.position(index);
                 assert!(
@@ -881,7 +881,7 @@ fn cars_climb_the_track_elevation() {
                     .map(|height| height + ride),
             );
         }
-        world.step(1.0 / 60.0, &controls, &heights);
+        world.step(1.0 / 60.0, &controls, &heights, &vec![false; cars]);
         for index in 0..cars {
             highest = highest.max(world.position(index).y);
         }
@@ -1053,7 +1053,7 @@ fn a_race_runs_to_the_flag_and_scores() {
                     .map(|height| height + ride),
             );
         }
-        world.step(1.0 / 60.0, &controls, &heights);
+        world.step(1.0 / 60.0, &controls, &heights, &vec![false; cars]);
         let now = step as f64 / 60.0;
         for index in 0..cars {
             let before = races[index].finished;
@@ -1307,7 +1307,7 @@ fn grip_separates_the_cars() {
             let heights = vec![surface
                 .support_height(place, heading, reach, place.y, ride)
                 .map(|height| height + ride)];
-            world.step(1.0 / 60.0, &flat_out, &heights);
+            world.step(1.0 / 60.0, &flat_out, &heights, &[false]);
         }
         world.speed(0)
     };

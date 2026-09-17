@@ -518,9 +518,25 @@ impl Running {
             );
         }
 
+        // Verges bog down: further than a road half-width plus margin off
+        // the line, the car earns the off-road drag. Shoulders stay open
+        // (cutting costs pace, it does not end the race); rails, walls
+        // and cliffs do the stopping.
+        let offroad: Vec<bool> = (0..self.world.cars.len())
+            .map(|index| {
+                let place = self.world.position(index);
+                match self.track.grid.progress_at(place) {
+                    None => true,
+                    Some(f) => match self.track.grid.line_point(f, 0.0) {
+                        None => true,
+                        Some(line) => (place.x - line.x).hypot(place.z - line.z) > 5.0,
+                    },
+                }
+            })
+            .collect();
         let substeps = ((dt / (1.0 / 60.0)).ceil() as i32).clamp(1, 4);
         for _ in 0..substeps {
-            self.world.step(dt / substeps as f32, &controls, &heights);
+            self.world.step(dt / substeps as f32, &controls, &heights, &offroad);
         }
 
         let mode = Mode::from_u8(self.event.mode);

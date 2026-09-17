@@ -311,12 +311,19 @@ impl World {
     /// (`support_height`), or `None` past the edge - the game samples the
     /// collision mesh the same way (`cl.d(float)` grounds `a_bz`, and a big
     /// negative step means air).
-    pub fn step(&mut self, dt: f32, controls: &[CarControl], heights: &[Option<f32>]) {
+    pub fn step(
+        &mut self,
+        dt: f32,
+        controls: &[CarControl],
+        heights: &[Option<f32>],
+        offroad: &[bool],
+    ) {
         let dt = dt.clamp(1.0 / 240.0, 1.0 / 30.0);
         for index in 0..self.cars.len() {
             let control = controls.get(index).copied().unwrap_or_default();
             let height = heights.get(index).copied().flatten();
-            Self::step_car(&mut self.cars[index], &self.walls, dt, control, height);
+            let rough = offroad.get(index).copied().unwrap_or(false);
+            Self::step_car(&mut self.cars[index], &self.walls, dt, control, height, rough);
         }
         Self::shunts(&mut self.cars);
         for car in self.cars.iter_mut() {
@@ -331,6 +338,7 @@ impl World {
         dt: f32,
         control: CarControl,
         height: Option<f32>,
+        offroad: bool,
     ) {
         let tune = car.tune;
         let top = tune.top_speed(1, false);
@@ -486,10 +494,17 @@ impl World {
         car.vel = fwd * fwd_speed + side;
 
         // Quadratic drag (`c(float)` `k_bz` term in the tune `r`/`s`).
+        // Off the road the verges bog the car down: extra drag caps grass
+        // pace around a third of road cruise. Shoulders stay open by
+        // design (cutting costs time, it does not end the race), but
+        // blasting across hillsides at full speed is out.
         let v = car.vel.length();
         if v > 0.01 {
             let drag = (tune.s * v + tune.r * v * v) / tune.f;
             car.vel *= (1.0 + drag * dt).max(0.0);
+            if offroad {
+                car.vel *= (-1.8 * dt).exp();
+            }
         }
 
         // Move and slide along barriers (kinematic: the game never beaches).
@@ -502,10 +517,17 @@ impl World {
 
         // Ground: snap to the sampled surface; past the edge, fall.
         // (`cl.d(float)`: a small step snaps, a big negative one means air.)
+        // A big step UP is a cliff, not a ramp: ramps and tile lips pass
+        // under the limit, walls do not, so the car stops instead of
+        // teleporting onto them.
         match height {
             Some(h) => {
                 let diff = h - car.pos.y;
-                if diff > -2.5 {
+                if diff > 1.2 {
+                    car.pos.x -= car.vel.x * dt;
+                    car.pos.z -= car.vel.z * dt;
+                    car.vel *= 0.2;
+                } else if diff > -2.5 {
                     car.pos.y = h;
                     car.airborne = false;
                     car.fall = 0.0;
@@ -689,7 +711,7 @@ mod tests {
         let drive = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
         let heights = [Some(0.0)];
         for _ in 0..60 {
-            world.step(1.0 / 60.0, &drive, &heights);
+            world.step(1.0 / 60.0, &drive, &heights, &[false]);
         }
         let early = world.speed(car);
         assert!(early < 14.0, "shoots: {early:.2} after one second");
@@ -705,12 +727,12 @@ mod tests {
         let drive = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
         let heights = [Some(0.0)];
         for _ in 0..300 {
-            world.step(1.0 / 60.0, &drive, &heights);
+            world.step(1.0 / 60.0, &drive, &heights, &[false]);
         }
         assert!(world.speed(car) > 10.0);
         let coast = [CarControl::default()];
         for _ in 0..600 {
-            world.step(1.0 / 60.0, &coast, &heights);
+            world.step(1.0 / 60.0, &coast, &heights, &[false]);
         }
         assert!(world.speed(car) < 1.0, "still rolling: {:.2}", world.speed(car));
     }
@@ -728,7 +750,7 @@ mod tests {
         let brake = [CarControl { throttle: -0.6, steer: 0.0, brake: false }];
         let heights = [Some(0.0)];
         for _ in 0..240 {
-            world.step(1.0 / 60.0, &brake, &heights);
+            world.step(1.0 / 60.0, &brake, &heights, &[false]);
         }
         assert!(world.cars[car].drive < 0.0, "drive never went negative");
         let travelled = world.position(car) - start;
@@ -739,13 +761,41 @@ mod tests {
     }
 
     #[test]
+    fn verges_bog_down_but_cliffs_block() {
+        // Off the road the car still moves, just much slower; into a
+        // cliff face it stops instead of teleporting up.
+        let drive = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
+        let heights = [Some(0.0)];
+        let mut road = World::new(&[]);
+        let car = road.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        let mut rough = World::new(&[]);
+        let car2 = rough.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        for _ in 0..600 {
+            road.step(1.0 / 60.0, &drive, &heights, &[false]);
+            rough.step(1.0 / 60.0, &drive, &heights, &[true]);
+        }
+        assert!(road.speed(car) > 12.0, "road cruise {}", road.speed(car));
+        assert!(rough.speed(car2) < 8.0, "verge cruise {}", rough.speed(car2));
+        assert!(rough.speed(car2) > 1.0, "verge parked {}", rough.speed(car2));
+        // A five-metre step up blocks; the flat control case moves off.
+        let mut cliff = World::new(&[]);
+        let car3 = cliff.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        let wall = [Some(5.0)];
+        for _ in 0..60 {
+            cliff.step(1.0 / 60.0, &drive, &wall, &[false]);
+        }
+        let moved = (cliff.position(car3) - vec3(0.0, 0.0, 0.0)).length();
+        assert!(moved < 1.0, "climbed the cliff: {moved:.2}");
+    }
+
+    #[test]
     fn throttle_climbs_to_top_speed_and_brake_floors_it() {
         let mut world = World::new(&[]);
         let car = world.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
         let drive = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
         let heights = [Some(0.0)];
         for _ in 0..600 {
-            world.step(1.0 / 60.0, &drive, &heights);
+            world.step(1.0 / 60.0, &drive, &heights, &[false]);
         }
         // The drive state revs to the tune top while the velocity vector
         // settles where the chase meets the tune drag, below the planar
@@ -757,7 +807,7 @@ mod tests {
         assert!(cruise > 12.0 && cruise < 17.0, "cruise {cruise:.2}");
         let brake = [CarControl { throttle: 0.0, steer: 0.0, brake: true }];
         for _ in 0..600 {
-            world.step(1.0 / 60.0, &brake, &heights);
+            world.step(1.0 / 60.0, &brake, &heights, &[false]);
         }
         // Brake floors at the idle creep (`cl.g(float)`, tune `m`).
         assert!(world.speed(car) < 2.0, "speed {}", world.speed(car));
@@ -779,7 +829,7 @@ mod tests {
         let car = world.add_car(vec3(0.0, 10.0, 0.0), 0.0, Tuning::default(), false);
         let drive = [CarControl { throttle: 1.0, steer: 1.0, brake: false }];
         for _ in 0..120 {
-            world.step(1.0 / 60.0, &drive, &[None]);
+            world.step(1.0 / 60.0, &drive, &[None], &[false]);
         }
         let (_, quat) = world.pose(car);
         let up = quat * macroquad::prelude::vec3(0.0, 1.0, 0.0);
