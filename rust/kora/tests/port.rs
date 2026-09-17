@@ -2972,3 +2972,16 @@ fn verge_walls_need_a_real_bank() {
     assert!(kora::scene::verge_wall_needed(0.0, 1.5));
     assert!(!kora::scene::verge_wall_needed(2.0, 1.0));
 }
+
+#[test]
+fn tarmac_joints_stay_open_but_faces_wall() {
+    // A segment crossing a joint excludes the middle band around it.
+    let (e0, e1) = kora::scene::excluded_near_border(-3.0, 3.0, 1.5);
+    assert!((e0 - 0.25).abs() < 1e-6 && (e1 - 0.75).abs() < 1e-6);
+    // A segment running parallel far from the border excludes nothing.
+    let (e0, e1) = kora::scene::excluded_near_border(4.0, 8.0, 1.5);
+    assert!(e0 >= e1, "far parallel must exclude nothing");
+    // One hugging the border excludes everything.
+    let (e0, e1) = kora::scene::excluded_near_border(0.2, 0.4, 1.5);
+    assert!((e0 - 0.0).abs() < 1e-6 && (e1 - 1.0).abs() < 1e-6);
+}

@@ -192,6 +192,31 @@ pub fn verge_wall_needed(road: f32, verge: f32) -> bool {
     verge - road > VERGE_WALL_RISE
 }
 
+/// Rise across a tarmac edge that earns a wall: cut slopes and retaining
+/// faces, not crowns or joints. Pure so the rule pins in a test.
+pub const EDGE_WALL_RISE: f32 = 0.6;
+
+/// The parameter interval of a (g0, g1) border-distance line inside
+/// `margin` of the border: the caller subtracts it from the kept pieces
+/// so joints stay open. The road flows through connected sides, so no
+/// wall may stand within a car half-width of their border. Empty when
+/// inverted.
+pub fn excluded_near_border(g0: f32, g1: f32, margin: f32) -> (f32, f32) {
+    let span = g1 - g0;
+    if span.abs() < 1e-6 {
+        return if g0.abs() < margin {
+            (0.0, 1.0)
+        } else {
+            (1.0, 0.0)
+        };
+    }
+    let (mut t0, mut t1) = ((-margin - g0) / span, (margin - g0) / span);
+    if t0 > t1 {
+        std::mem::swap(&mut t0, &mut t1);
+    }
+    (t0.max(0.0), t1.min(1.0))
+}
+
 pub struct SurfaceGrid {
     width: i32,
     height: i32,
@@ -1325,6 +1350,125 @@ pub fn build_detailed(
                     vec3(mid.x, base, mid.z),
                     vec3(hx, (verge.max(road) + 2.2 - base) / 2.0, hz),
                 ));
+            }
+        }
+    }
+
+    // Tarmac-edge walls: the .tl outline polylines trace the road edges
+    // (the game draws its edge lines from them), so a bank rising past
+    // one gets a wall right at the tarmac instead of out at the cell
+    // border. Each gated chunk stands on its own: joints stay open
+    // because segment ends near connected borders are clipped away, and
+    // flat verges stay open because chunks whose sides match within a
+    // kerb step are skipped. Cut slopes and retaining faces qualify;
+    // crowns, joints and dropoffs onto tarmac do not.
+    for (x, y) in grid.path() {
+        if grid.prog_index(x, y).is_none() {
+            continue;
+        }
+        let centre = grid.center(x, y);
+        let (kind, arg) = tile_at(x, y).unwrap();
+        let Some(tile) = tiles.get(&kind) else {
+            continue;
+        };
+        // Connected borders, as (midpoint, normal) pairs for clipping.
+        let mut joints: Vec<(Vec3, Vec3)> = Vec::new();
+        for dir in 0..4 {
+            if grid.connected(x, y, dir) {
+                let step = crate::grid::dir_mq(dir);
+                joints.push((
+                    vec3(centre.x + step.x * TILE * 0.5, 0.0, centre.z + step.z * TILE * 0.5),
+                    step,
+                ));
+            }
+        }
+        for (ei, edge) in tile.edges.iter().enumerate() {
+            let (ax, bx) = (edge[0] as usize, edge[1] as usize);
+            if ax >= tile.points.len() || bx >= tile.points.len() {
+                continue;
+            }
+            let to_world = |p: &[f32; 2]| {
+                let local = rotate_sample(vec2(p[0] / 100.0, p[1] / 100.0), arg);
+                vec3(
+                    centre.x + (local.x - 0.5) * TILE,
+                    0.0,
+                    centre.z + (local.y - 0.5) * TILE,
+                )
+            };
+            let (w0, w1) = (to_world(&tile.points[ax]), to_world(&tile.points[bx]));
+            // Clip away the ends near joints, then split long remainders.
+            let mut kept = vec![(0.0f32, 1.0f32)];
+            for (mid, normal) in joints.iter() {
+                let g = |w: Vec3| (w.x - mid.x) * normal.x + (w.z - mid.z) * normal.z;
+                let (e0, e1) = excluded_near_border(g(w0), g(w1), 1.5);
+                if e0 >= e1 {
+                    continue;
+                }
+                let mut next = Vec::new();
+                for (a, b) in kept {
+                    if a < e0 {
+                        next.push((a, e0.min(b)));
+                    }
+                    if b > e1 {
+                        next.push((e1.max(a), b));
+                    }
+                }
+                kept = next;
+            }
+            let edge_h = tile.heights.get(ei).map(|&(_, h)| h).unwrap_or(1000.0);
+            for (a, b) in kept {
+                let pa = vec3(
+                    w0.x + (w1.x - w0.x) * a,
+                    0.0,
+                    w0.z + (w1.z - w0.z) * a,
+                );
+                let pb = vec3(
+                    w0.x + (w1.x - w0.x) * b,
+                    0.0,
+                    w0.z + (w1.z - w0.z) * b,
+                );
+                let segs = ((pa.x - pb.x).hypot(pa.z - pb.z) / 1.2).ceil().max(1.0) as usize;
+                for s in 0..segs {
+                    let (c0, c1) = (
+                        a + (b - a) * s as f32 / segs as f32,
+                        a + (b - a) * (s + 1) as f32 / segs as f32,
+                    );
+                    let lo = vec3(
+                        w0.x + (w1.x - w0.x) * c0,
+                        0.0,
+                        w0.z + (w1.z - w0.z) * c0,
+                    );
+                    let hi = vec3(
+                        w0.x + (w1.x - w0.x) * c1,
+                        0.0,
+                        w0.z + (w1.z - w0.z) * c1,
+                    );
+                    let mid = vec3((lo.x + hi.x) * 0.5, 0.0, (lo.z + hi.z) * 0.5);
+                    let tangent = vec3(hi.x - lo.x, 0.0, hi.z - lo.z);
+                    let len = tangent.length().max(1e-6);
+                    let normal = vec3(-tangent.z / len, 0.0, tangent.x / len);
+                    let ha = surface
+                        .height_at(vec3(mid.x + normal.x * 1.5, 0.0, mid.z + normal.z * 1.5));
+                    let hb = surface
+                        .height_at(vec3(mid.x - normal.x * 1.5, 0.0, mid.z - normal.z * 1.5));
+                    let (Some(ha), Some(hb)) = (ha, hb) else {
+                        continue;
+                    };
+                    if (ha - hb).abs() <= EDGE_WALL_RISE {
+                        continue;
+                    }
+                    let eh = if edge_h < 999.0 { edge_h } else { (ha + hb) * 0.5 };
+                    let base = ha.min(hb).min(eh) - 0.3;
+                    let top = ha.max(hb).max(eh) + 2.2;
+                    walls.push((
+                        vec3(mid.x, (base + top) * 0.5, mid.z),
+                        vec3(
+                            (hi.x - lo.x).abs() * 0.5 + 0.35,
+                            (top - base) * 0.5,
+                            (hi.z - lo.z).abs() * 0.5 + 0.35,
+                        ),
+                    ));
+                }
             }
         }
     }

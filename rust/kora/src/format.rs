@@ -232,6 +232,13 @@ pub struct Tile {
     pub name: String,
     pub texture: String,
     pub variant: u8,
+    /// Tarmac edge polyline: points in percent of tile, edges as index
+    /// pairs, and one height per edge (world units, 1000.0 = flat).
+    /// The game draws its road edge lines from these; the port walls
+    /// banks along them.
+    pub points: Vec<[f32; 2]>,
+    pub edges: Vec<[u8; 2]>,
+    pub heights: Vec<(f32, f32)>,
     pub solid: [bool; 4],
     pub open_sides: [bool; 4],
     /// Height-sampling mesh; most tiles ship none, and the game then treats
@@ -246,16 +253,26 @@ impl Tile {
         let texture = r.string();
         let variant = r.u8();
 
+        let mut points = Vec::new();
         for _ in 0..r.u8() {
-            r.u8();
-            r.u8();
+            points.push([r.u8() as f32, r.u8() as f32]);
         }
-        for _ in 0..r.u8() {
-            r.u8();
+        let flat_count = r.u8();
+        let mut flat = Vec::new();
+        for _ in 0..flat_count {
+            flat.push(r.u8());
         }
+        let mut edges = Vec::new();
+        for pair in flat.chunks_exact(2) {
+            edges.push([pair[0], pair[1]]);
+        }
+        let mut heights = Vec::new();
         for _ in 0..r.u8() {
-            if r.u8() >= 100 {
-                r.u8();
+            let value = r.u8();
+            if value < 100 {
+                heights.push((value as f32, 1000.0));
+            } else {
+                heights.push((r.u8() as f32, 14.0 * (value - 100) as f32 / 100.0));
             }
         }
 
@@ -282,6 +299,9 @@ impl Tile {
             name,
             texture,
             variant,
+            points,
+            edges,
+            heights,
             solid,
             open_sides,
             collision,

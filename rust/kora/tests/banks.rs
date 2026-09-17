@@ -23,6 +23,7 @@ fn banks_stop_cars_instead_of_letting_them_climb() {
         grid, surface, walls, ..
     } = track;
     let grid: Grid = grid;
+    let wall_count = walls.len();
     let ride = geometry.half_extents.y + 0.02;
     let reach = geometry.half_extents.z + 0.5;
 
@@ -79,14 +80,19 @@ fn banks_stop_cars_instead_of_letting_them_climb() {
         world.step(1.0 / 60.0, &drive, &heights, &offroad);
         max_y = max_y.max(world.position(0).y);
     }
+    // The tarmac-edge system itself must stay up: Timberton carries
+    // hundreds of gated chunks (rails, voids and verge walls are the
+    // other hundred).
+    assert!(wall_count > 150, "tarmac walls gone: {wall_count}");
     let end = world.position(0);
+    assert!(max_y < 1.5, "climbed the bank to {max_y:.2}: {end:?}");
+    // Never up the bank and never far along it either: stopped at the
+    // roadside (a wall grind reads speed while standing still, so pin
+    // the place, not the speedometer).
+    let start = Vec3::new(112.0, 1.0, -70.0);
     assert!(
-        max_y < 1.5,
-        "climbed the bank to {max_y:.2}: {end:?}"
-    );
-    assert!(
-        world.speed(0) < 1.0,
-        "still touring the bank at {:.1}",
-        world.speed(0)
+        (end.x - start.x).hypot(end.z - start.z) < 12.0,
+        "left the roadside: {end:?}"
     );
 }
+
