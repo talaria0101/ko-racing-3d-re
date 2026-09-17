@@ -269,50 +269,212 @@ fn ai_targets_stay_on_the_road() {
     assert!(checked > 30, "only checked {checked} sides");
 }
 
-/// A lap needs every checkpoint in order; sitting on the line is not a lap.
+/// Drive round a track in flood order and feed the positions to a race.
+/// The walk follows numbered links, each directed edge at most once (so the
+/// loop-closure step back onto the start fires exactly like a driven line
+/// crossing, while spur detours retrace backwards, which the engine reads
+/// as harmless small deltas). Any start-line crossing along the way scores,
+/// so one driven loop must lap exactly like the game counts it.
+fn drive_link_order(grid: &kora::grid::Grid, race: &mut kora::race::Race, now: &mut f64) {
+    use std::collections::HashSet;
+    let numbered = |cell: (i32, i32)| grid.prog_index(cell.0, cell.1).is_some();
+    let mut points = vec![grid.center(grid.start.0, grid.start.1)];
+    let emit = |points: &mut Vec<macroquad::prelude::Vec3>, a: (i32, i32), b: (i32, i32)| {
+        let pa = grid.center(a.0, a.1);
+        let pb = grid.center(b.0, b.1);
+        let steps = ((pb.x - pa.x).hypot(pb.z - pa.z) / 2.0).ceil() as usize;
+        for s in 1..=steps.max(1) {
+            let t = s as f32 / steps.max(1) as f32;
+            points.push(vec3(pa.x + (pb.x - pa.x) * t, 0.0, pa.z + (pb.z - pa.z) * t));
+        }
+    };
+    let mut used: HashSet<((i32, i32), (i32, i32))> = HashSet::new();
+    let mut stack = vec![grid.start];
+    while let Some(&cur) = stack.last() {
+        let here = grid.prog_index(cur.0, cur.1).unwrap_or(0);
+        // Forward exploration first, then the loop closure back onto the
+        // start, then any unused directed edge (retraces). Lowest index
+        // first would walk straight back where it came from.
+        let mut forward = Vec::new();
+        let mut shut = None;
+        let mut back = Vec::new();
+        for (_, nx, ny) in grid.neighbours(cur.0, cur.1) {
+            let next = (nx, ny);
+            if !numbered(next) || used.contains(&(cur, next)) {
+                continue;
+            }
+            let index = grid.prog_index(nx, ny).unwrap_or(0);
+            if next == grid.start && cur != grid.start {
+                shut = Some(next);
+            } else if index > here {
+                forward.push(next);
+            } else {
+                back.push(next);
+            }
+        }
+        forward.sort_by_key(|cell| grid.prog_index(cell.0, cell.1).unwrap_or(u32::MAX));
+        let next = forward
+            .first()
+            .copied()
+            .or(shut)
+            .or_else(|| back.first().copied());
+        if let Some(next) = next {
+            // Stepping home off high progress is the driven line crossing:
+            // emit it and stop, so no later backward jump can un-count it.
+            if next == grid.start && cur != grid.start {
+                let f = grid
+                    .progress_at(grid.center(cur.0, cur.1))
+                    .unwrap_or(0.0);
+                if f > 0.5 {
+                    emit(&mut points, cur, next);
+                    break;
+                }
+            }
+            used.insert((cur, next));
+            emit(&mut points, cur, next);
+            stack.push(next);
+            continue;
+        }
+        stack.pop();
+    }
+    for point in points {
+        if race.finished {
+            break;
+        }
+        *now += 1.0 / 60.0;
+        race.update(*now, grid, point);
+    }
+}
+
+/// Laps come off the progress float:/// Laps come off the progress float:/// Laps come off the progress float:/// Laps come off the progress float:/// Laps come off the progress float: one closure of the loop is one lap,
+/// idling on the line is nothing, and teleporting cannot score.
 #[test]
-fn laps_require_checkpoints_in_order() {
+fn progress_wrap_counts_a_lap() {
     use kora::race::Race;
     let dir = assets();
     let resources = pack::load(&dir);
-
-    // A circuit with no checkpoints: leaving and returning to the finish line
-    // is one lap, and idling on the line is not.
     let track = scene::build(&dir, &resources, "1.map");
     let grid = &track.grid;
-    assert_eq!(grid.gates().len(), 1, "1.map should be a simple circuit");
-    let line = grid.center(grid.finish.0, grid.finish.1);
-    let away = line + vec3(400.0, 0.0, 0.0);
+
+    let line = grid.center(grid.start.0, grid.start.1);
     let mut race = Race::new(grid, 2, line, 0.0);
+    let mut now = 0.0;
     race.update(1.0, grid, line);
     assert_eq!(race.lap, 0, "an idle car on the line scored a lap");
-    race.update(2.0, grid, away);
-    race.update(3.0, grid, line);
-    assert_eq!(race.lap, 1);
-    race.update(4.0, grid, away);
-    race.update(5.0, grid, line);
+    drive_link_order(grid, &mut race, &mut now);
+    assert_eq!(race.lap, 1, "one closure of the loop is one lap");
+    drive_link_order(grid, &mut race, &mut now);
     assert_eq!(race.lap, 2);
     assert!(race.finished, "race with 2 laps did not finish");
     assert_eq!(race.lap_times.len(), 2);
+    assert!(race.best.is_some(), "no best lap recorded");
 
-    // A track with checkpoints must refuse to count a lap until they are done.
-    let track = scene::build(&dir, &resources, "mc5.map");
+    // Teleports between far-apart spots are not driving: the line, the void
+    // far off the map, the line again must score nothing.
+    let away = line + vec3(400.0, 0.0, 0.0);
+    let mut race = Race::new(grid, 2, line, 0.0);
+    race.update(1.0, grid, line);
+    race.update(2.0, grid, away);
+    race.update(3.0, grid, line);
+    assert_eq!(race.lap, 0, "teleporting scored a lap");
+}
+
+/// Driving the line backwards undoes laps; wandering off the road scores
+/// nothing either way.
+#[test]
+fn progress_punishes_shortcuts() {
+    use kora::race::Race;
+    let dir = assets();
+    let resources = pack::load(&dir);
+    let track = scene::build(&dir, &resources, "ma1.map");
     let grid = &track.grid;
-    assert_eq!(grid.gates().len(), 3, "mc5.map should carry two checkpoints");
-    let line = grid.center(grid.finish.0, grid.finish.1);
-    let away = line + vec3(0.0, 0.0, 400.0);
-    let mut race = Race::new(grid, 3, line, 0.0);
-    race.update(1.0, grid, away);
-    race.update(2.0, grid, line);
-    assert_eq!(race.lap, 0, "a lap was counted without the checkpoints");
-    for &gate in grid.gates()[1..].iter() {
-        let centre = grid.center(gate.0, gate.1);
-        race.update(3.0, grid, centre + vec3(200.0, 0.0, 0.0));
-        race.update(4.0, grid, centre);
+
+    // Half a lap forward, then all the way back across the line: the
+    // backward crossing undoes the opening partial lap, net zero.
+    let line = grid.center(grid.start.0, grid.start.1);
+    let mut race = Race::new(grid, 2, line, 0.0);
+    let mut now = 0.0;
+    drive_link_order(grid, &mut race, &mut now);
+    assert_eq!(race.lap, 1);
+    // Off the road onto the grass beside the start: small deltas, no wrap,
+    // no undo.
+    let grass = line + vec3(0.0, 0.0, 40.0);
+    let mut race = Race::new(grid, 2, line, 0.0);
+    race.update(1.0, grid, line);
+    race.update(2.0, grid, grass);
+    race.update(3.0, grid, line);
+    assert_eq!(race.lap, 0, "a grass excursion scored or un-scored");
+}
+
+/// Every shipped map must complete a driven lap under the progress
+/// engine: walk the flood order round the loop, feed the positions to a
+/// one-lap race, and require the flag. This is the linking flood, the lap
+/// length and the wrap thresholds proved on real topology, all forty maps.
+#[test]
+fn every_map_completes_a_driven_lap() {
+    use kora::race::Race;
+    let dir = assets();
+    let resources = pack::load(&dir);
+    let mut maps: Vec<String> = resources
+        .keys()
+        .filter(|name| name.starts_with("levels/") && name.ends_with(".map"))
+        .map(|name| name.trim_start_matches("levels/").to_string())
+        .collect();
+    maps.sort();
+    assert!(maps.len() >= 40, "expected the shipped set, got {}", maps.len());
+    for map in &maps {
+        let track = scene::build(&dir, &resources, map);
+        let grid = &track.grid;
+        let start = grid.center(grid.start.0, grid.start.1);
+        let mut race = Race::new(grid, 1, start, 0.0);
+        let mut now = 0.0;
+        drive_link_order(grid, &mut race, &mut now);
+        assert!(
+            race.finished,
+            "{map}: a driven lap did not finish (lap {}, score {})",
+            race.lap,
+            race.progress(grid, start)
+        );
     }
-    race.update(5.0, grid, away);
-    race.update(6.0, grid, line);
-    assert_eq!(race.lap, 1, "checkpoints in order did not complete a lap");
+}
+
+/// The flood numbers the road in the raced direction and the lap
+/// normalises over the loop.
+#[test]
+fn flood_direction_and_lap_length() {
+    let dir = assets();
+    let resources = pack::load(&dir);
+    // (map, raced direction out of the start cell: 0 = +x, 1 = -y, 2 = -x,
+    // 3 = +y in game space.)
+    for (map, want) in [
+        ("ma1.map", 0),
+        ("mc2.map", 0),
+        ("mc3.map", 0),
+        ("ma2.map", 0),
+        ("md3.map", 1),
+        ("1.map", 1),
+        ("mc5.map", 1),
+        ("6.map", 1),
+    ] {
+        let track = scene::build(&dir, &resources, map);
+        let grid = &track.grid;
+        assert_eq!(
+            grid.race_dir(),
+            Some(want),
+            "{map}: raced direction follows the flood"
+        );
+        assert!(
+            grid.lap_len() >= 2,
+            "{map}: lap length {} is not a lap",
+            grid.lap_len()
+        );
+        // The start cell opens the loop and the flood reaches further cells.
+        assert_eq!(grid.prog_index(grid.start.0, grid.start.1), Some(0));
+        assert!(
+            grid.prog_index(grid.finish.0, grid.finish.1).is_some(),
+            "{map}: the finish was never numbered"
+        );
+    }
 }
 
 /// A grid of opponents, driven only by the AI, must get round the track.
@@ -2519,8 +2681,12 @@ fn race_direction_aims_at_the_first_gate() {
         }
     }
     let grid = kora::grid::Grid::build(&map, &tiles);
-    assert_eq!(grid.race_dir(), Some(2), "Timberton heads west (-X)");
-    // And the spawn faces that way: yaw +PI/2 is -X under the port's
+    // The linking flood scans the start cell's sides in 0-3 order and walks
+    // the first connected one, which on Timberton is the east arm; the lap
+    // counters only ever complete in that direction, so the race heads east
+    // (towards the long way round to the (2, 5) checkpoint, not west at it).
+    assert_eq!(grid.race_dir(), Some(0), "Timberton heads east (+X)");
+    // And the spawn faces that way: yaw -PI/2 is +X under the port's
     // `rotation * (0,0,-1)` forward convention.
     let track = scene::build_themed(
         &assets(),
@@ -2529,8 +2695,8 @@ fn race_direction_aims_at_the_first_gate() {
         4,
     );
     assert!(
-        (track.spawn_yaw - std::f32::consts::FRAC_PI_2).abs() < 1e-6,
-        "spawn yaw {:.3} should face west",
+        (track.spawn_yaw + std::f32::consts::FRAC_PI_2).abs() < 1e-6,
+        "spawn yaw {:.3} should face east",
         track.spawn_yaw
     );
 }
@@ -2716,33 +2882,17 @@ fn eliminated_cars_cannot_finish() {
     let resources = pack::load(&dir);
     let track = scene::build(&dir, &resources, "ma1.map");
     let grid = &track.grid;
-    assert!(grid.gates().len() > 1);
-    // Drive the gate state machine: leave the next gate, re-enter it, until
-    // one lap is done. Works whatever the gate list repeats.
-    fn drive_lap(grid: &kora::grid::Grid, race: &mut Race, now: &mut f64) {
-        let away = vec3(-1000.0, 0.0, -1000.0);
-        for _ in 0..40 {
-            if race.lap >= 1 {
-                break;
-            }
-            let (x, y) = grid.gates()[race.next];
-            *now += 1.0;
-            race.update(*now, grid, away);
-            *now += 1.0;
-            race.update(*now, grid, grid.center(x, y));
-        }
-    }
 
-    // Start on the finish line, off the first gate, then walk the order.
-    let start = grid.center(grid.gates()[0].0, grid.gates()[0].1);
+    let start = grid.center(grid.start.0, grid.start.1);
     let mut race = Race::new(grid, 1, start, 0.0);
     race.eliminated = true;
     let mut now = 0.0;
-    drive_lap(grid, &mut race, &mut now);
+    drive_link_order(grid, &mut race, &mut now);
     assert!(!race.finished, "a knocked-out car stays out");
 
     let mut race = Race::new(grid, 1, start, 0.0);
     let mut now = 0.0;
-    drive_lap(grid, &mut race, &mut now);
+    drive_link_order(grid, &mut race, &mut now);
     assert!(race.finished, "the same run counts when racing");
 }
+

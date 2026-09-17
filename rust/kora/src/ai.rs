@@ -65,6 +65,40 @@ const STRAIGHT_SPEED: f32 = 11.0;
 
 pub fn drive(grid: &Grid, position: Vec3, heading: Vec3, speed: f32, skill: f32) -> CarControl {
     let mut control = CarControl::default();
+    // A spun car must turn back onto the raced direction: laps only ever
+    // complete along the flood order, so a heading-relative target that
+    // leads backwards is replaced by the forward side (the game steers by
+    // absolute line waypoints and never races backwards at all).
+    let mut heading = heading;
+    let (cx, cy) = grid.cell_of(position);
+    if let (Some(here), Some(dir)) = (
+        grid.prog_index(cx, cy),
+        grid.pick_dir(cx, cy, vec2(heading.x, heading.z)),
+    ) {
+        let (dx, dy) = crate::grid::DIRS[dir];
+        let next = grid.prog_index(cx + dx, cy + dy).unwrap_or(here);
+        let len = grid.lap_len().max(1);
+        let step = (next + len - here) % len;
+        if step > 2 && step < len.saturating_sub(2) {
+            // Sideways or backwards: look for the forward side instead.
+            let mut best: Option<(f32, usize)> = None;
+            for (d, nx, ny) in grid.neighbours(cx, cy) {
+                let ni = grid.prog_index(nx, ny).unwrap_or(here);
+                let s = (ni + len - here) % len;
+                if s <= 2 || (ni == 0 && here + 2 >= len) {
+                    let delta = grid.center(nx, ny) - position;
+                    let dot = delta.x * heading.x + delta.z * heading.z;
+                    if best.is_none_or(|(best_dot, _)| dot > best_dot) {
+                        best = Some((dot, d));
+                    }
+                }
+            }
+            if let Some((_, d)) = best {
+                let aim = crate::grid::dir_mq(d);
+                heading = vec3(aim.x, 0.0, aim.z);
+            }
+        }
+    }
     let Some(target) = grid.target(position, heading) else {
         // Off the road entirely: creep forward so it can recover.
         control.throttle = 0.35;

@@ -36,6 +36,22 @@ pub struct Grid {
     pub start: (i32, i32),
     pub finish: (i32, i32),
     pub checkpoints: Vec<(i32, i32)>,
+    /// Visit order along the track-linking flood (`bs.a()V`): the start
+    /// cell is 0 and indices grow in the raced direction, first visit
+    /// wins. Cells the flood never reaches (void, verges) have no entry
+    /// and read as zero progress, as in the game.
+    prog: HashMap<(i32, i32), u32>,
+    /// Cells from the start to the finish the first time the flood gets
+    /// there; every numbered cell when start and finish coincide. The
+    /// game counts the same length doubled (`bs.b_F`, two stamps per
+    /// cell), which normalises away. First-visit numbering keeps every
+    /// index below this length, so on-road progress never exceeds 1.0.
+    lap_len: u32,
+    /// First flood step out of the start cell: the direction the race is
+    /// run. The flood scans sides in 0-3 order and takes the first
+    /// connected one, so this is ground truth where the checkpoint aim
+    /// used to guess.
+    flood_dir: Option<usize>,
 }
 
 impl Grid {
@@ -65,7 +81,7 @@ impl Grid {
             }
         }
 
-        Grid {
+        let mut grid = Grid {
             width,
             height,
             open,
@@ -77,7 +93,129 @@ impl Grid {
                 .iter()
                 .map(|&(x, y)| (x as i32, y as i32))
                 .collect(),
+            prog: HashMap::new(),
+            lap_len: 1,
+            flood_dir: None,
+        };
+        grid.link();
+        grid
+    }
+
+    /// Walk the road from the start cell the way `bs.a()V` does: sides in
+    /// 0-3 order, first connected side wins, cells numbered in visit
+    /// order and restamped on revisit. The game walks open sides and ends
+    /// at the first void step, which would strand every blind mouth; what
+    /// survives observably is the numbered road loop in flood direction,
+    /// and that is what this keeps: connected sides only, with a
+    /// backtracking search so spurs get nearby indices instead of ending
+    /// the walk.
+    fn link(&mut self) {
+        let mut order = 1u32;
+        let mut consumed: std::collections::HashSet<((i32, i32), usize)> =
+            std::collections::HashSet::new();
+        self.prog.insert(self.start, 0);
+        // Stack of (cell, next side to try): depth-first, sides in 0-3
+        // order, backtracking out of dead ends.
+        let mut stack = vec![(self.start, 0usize)];
+        while !stack.is_empty() {
+            let top = stack.len() - 1;
+            let (cell, dir) = stack[top];
+            if cell == self.finish && order > 1 && self.lap_len == 1 {
+                self.lap_len = order;
+            }
+            let mut found = None;
+            for d in dir..4 {
+                if self.connected(cell.0, cell.1, d) && !consumed.contains(&(cell, d)) {
+                    found = Some(d);
+                    stack[top].1 = d + 1;
+                    break;
+                }
+            }
+            let Some(d) = found else {
+                stack.pop();
+                continue;
+            };
+            consumed.insert((cell, d));
+            let next = (cell.0 + DIRS[d].0, cell.1 + DIRS[d].1);
+            consumed.insert((next, (d + 2) % 4));
+            if self.flood_dir.is_none() && cell == self.start {
+                self.flood_dir = Some(d);
+            }
+            if self.prog.contains_key(&next) {
+                if next == self.start {
+                    break; // loop closed, as in the game
+                }
+                continue;
+            }
+            self.prog.insert(next, order);
+            order += 1;
+            stack.push((next, 0));
         }
+        if self.lap_len == 1 {
+            // Start and finish coincide (or the finish was never reached):
+            // the lap is the whole numbered loop.
+            self.lap_len = order.max(2);
+        }
+    }
+
+    /// Flood index of a cell, if the walk numbered it. Exposed for tests
+    /// and the placement log; the game keeps the same numbers in
+    /// `bm.c()`/`bm.d()`.
+    pub fn prog_index(&self, x: i32, y: i32) -> Option<u32> {
+        self.prog.get(&(x, y)).copied()
+    }
+
+    /// How many cells the lap normalises over.
+    pub fn lap_len(&self) -> u32 {
+        self.lap_len
+    }
+
+    /// Track progress at a world position, `bs.a(Ldi;I)F` without the
+    /// parts the port does not need. Returns `None` past the map edge
+    /// (the game's 1000.0 sentinel, which only ever confuses the lap
+    /// counters) and 0.0 on cells the flood never reached.
+    pub fn progress_at(&self, position: Vec3) -> Option<f32> {
+        // The game truncates `x / 14 + 0.5`, which matches round-half-up
+        // for non-negative coordinates.
+        let fx = position.x / TILE + 0.5;
+        let fy = -position.z / TILE + 0.5;
+        if fx < 0.0 || fy < 0.0 || fx >= self.width as f32 || fy >= self.height as f32 {
+            return None;
+        }
+        let (cx, cy) = (fx.floor() as i32, fy.floor() as i32);
+        let base = match self.prog.get(&(cx, cy)) {
+            Some(&index) => index,
+            None => return Some(0.0),
+        };
+        let frac = self.progress_frac(cx, cy, fx - cx as f32 - 0.5, fy - cy as f32 - 0.5);
+        Some((base as f32 + frac) / self.lap_len as f32)
+    }
+
+    /// Sub-cell interpolation along the travel direction: the neighbour
+    /// the flood reaches next decides which fractional axis counts, with
+    /// the same per-direction formulas (`+x`, `-y`, `-x`, `+y`).
+    fn progress_frac(&self, x: i32, y: i32, fx: f32, fy: f32) -> f32 {
+        let here = self.prog.get(&(x, y)).copied().unwrap_or(0);
+        let mut dir = None;
+        for (d, (dx, dy)) in DIRS.iter().enumerate() {
+            let next = (x + dx, y + dy);
+            if self.connected(x, y, d)
+                && self.prog.get(&next).is_some_and(|&index| index > here)
+            {
+                dir = Some(d);
+                break;
+            }
+        }
+        let dir = dir.unwrap_or_else(|| {
+            self.neighbours(x, y).first().map(|&(d, _, _)| d).unwrap_or(0)
+        });
+        match dir {
+            0 => fx + 0.5,
+            1 => 0.5 - fy,
+            2 => 0.5 - fx,
+            _ => fy + 0.5,
+        }
+        .clamp(0.0, 1.0)
     }
 
     fn index(&self, x: i32, y: i32) -> Option<usize> {
@@ -195,45 +333,19 @@ impl Grid {
 
     /// Which way round the circuit is raced.
     ///
-    /// The grid faces the first gate that is not the start cell itself,
-    /// snapped to whichever road arm out of the start best matches that
-    /// straight-line aim.  On Timberton the start is (7, 5) and the first
-    /// distinct gate is the (2, 5) checkpoint due west, so the race heads
-    /// west; picking the arm whose shortest road path reaches a gate first
-    /// heads east instead, which is backwards - the original's start
-    /// straight has the round tree on the left verge, the rails on the
-    /// right and the sunset ahead, all of which the eastward view puts on
-    /// the wrong sides.  With no distinct gate the first open side wins,
-    /// which is also the order the track-linking flood in `bs.a()V` walks.
+    /// The first step of the track-linking flood: `bs.a()V` scans the
+    /// start cell's sides in 0-3 order and walks the first connected one,
+    /// and the lap counters only ever complete in that direction. Aiming
+    /// at the first checkpoint instead heads the wrong way wherever both
+    /// arms connect (Timberton races east, towards the long way round to
+    /// the (2, 5) checkpoint, not west at it).
     pub fn race_dir(&self) -> Option<usize> {
-        let neighbours = self.neighbours(self.start.0, self.start.1);
-        if neighbours.is_empty() {
-            return None;
+        if let Some(dir) = self.flood_dir {
+            return Some(dir);
         }
-        if neighbours.len() < 2 {
-            return Some(neighbours[0].0);
-        }
-        let target = self.gates().into_iter().find(|gate| *gate != self.start);
-        let Some(target) = target else {
-            return Some(neighbours[0].0);
-        };
-        let aim = (
-            (target.0 - self.start.0) as f32,
-            (target.1 - self.start.1) as f32,
-        );
-        let length = (aim.0 * aim.0 + aim.1 * aim.1).sqrt();
-        if length < 1e-6 {
-            return Some(neighbours[0].0);
-        }
-        let mut best: Option<(f32, usize)> = None;
-        for &(dir, _, _) in &neighbours {
-            let (dx, dy) = DIRS[dir];
-            let dot = (dx as f32 * aim.0 + dy as f32 * aim.1) / length;
-            if best.is_none_or(|(best_dot, _)| dot > best_dot) {
-                best = Some((dot, dir));
-            }
-        }
-        Some(best.map(|(_, dir)| dir).unwrap_or(neighbours[0].0))
+        self.neighbours(self.start.0, self.start.1)
+            .first()
+            .map(|&(dir, _, _)| dir)
     }
 
     /// Starting grid: the first slot is the start cell itself and the rest sit
