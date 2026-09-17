@@ -1273,6 +1273,10 @@ pub fn build_detailed(
     // lines can never close, and only uphill ones at that, so flat
     // corner-cutting grass stays open. Voids already have their own
     // barriers, so this covers occupied but unconnected neighbours.
+    // The rise is the max over samples out to 25 m, not one point: banks
+    // often start flat and steepen past the first cell, and a single
+    // sample lets the car walk up them progressively without any step
+    // ever tripping the climb veto.
     for y in 0..grid.height {
         for x in 0..grid.width {
             if grid.prog_index(x, y).is_none() {
@@ -1291,11 +1295,19 @@ pub fn build_detailed(
                 let step = crate::grid::dir_mq(dir);
                 let road_pt =
                     vec3(centre.x + step.x * 1.0, 0.0, centre.z + step.z * 1.0);
-                let verge_pt =
-                    vec3(centre.x + step.x * 13.0, 0.0, centre.z + step.z * 13.0);
                 let road = surface.height_at(road_pt).unwrap_or(0.0);
-                let verge = surface.height_at(verge_pt).unwrap_or(0.0);
-                if !verge_wall_needed(road, verge) {
+                let mut verge = f32::NEG_INFINITY;
+                for dist in [9.0, 13.0, 17.0, 21.0, 25.0] {
+                    let sample = vec3(
+                        centre.x + step.x * dist,
+                        0.0,
+                        centre.z + step.z * dist,
+                    );
+                    if let Some(h) = surface.height_at(sample) {
+                        verge = verge.max(h);
+                    }
+                }
+                if verge.is_infinite() || !verge_wall_needed(road, verge) {
                     continue;
                 }
                 let mid = vec3(

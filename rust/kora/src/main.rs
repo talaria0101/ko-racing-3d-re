@@ -518,19 +518,36 @@ impl Running {
             );
         }
 
-        // Verges bog down: further than a road half-width plus margin off
-        // the line, the car earns the off-road drag. Shoulders stay open
-        // (cutting costs pace, it does not end the race); rails, walls
-        // and cliffs do the stopping.
+        // Verges bog down: further than a road half-width off the line,
+        // the car earns the off-road drag. Shoulders stay open (cutting
+        // costs pace, it does not end the race); rails, walls and cliffs
+        // do the stopping. The distance is lateral: point to the line
+        // segment through the car's own progress, so along-track lag
+        // (the line point trails the cell centre by up to half a cell)
+        // never mislabels tarmac as verge.
         let offroad: Vec<bool> = (0..self.world.cars.len())
             .map(|index| {
                 let place = self.world.position(index);
                 match self.track.grid.progress_at(place) {
                     None => true,
-                    Some(f) => match self.track.grid.line_point(f, 0.0) {
-                        None => true,
-                        Some(line) => (place.x - line.x).hypot(place.z - line.z) > 5.0,
-                    },
+                    Some(f) => {
+                        let a = self.track.grid.line_point(f, 0.0);
+                        let b = self.track.grid.line_point(f, 1.0);
+                        match (a, b) {
+                            (Some(a), Some(b)) => {
+                                let abx = b.x - a.x;
+                                let abz = b.z - a.z;
+                                let len2 = (abx * abx + abz * abz).max(1e-6);
+                                let t = (((place.x - a.x) * abx + (place.z - a.z) * abz)
+                                    / len2)
+                                    .clamp(0.0, 1.0);
+                                let dx = place.x - (a.x + abx * t);
+                                let dz = place.z - (a.z + abz * t);
+                                dx.hypot(dz) > 2.5
+                            }
+                            _ => true,
+                        }
+                    }
                 }
             })
             .collect();

@@ -280,6 +280,14 @@ pub struct Car {
     /// (the cliff unit test) stays safely under it.
     pin: f32,
     pin_h: f32,
+    /// Metres climbed since flat ground, bled over about a second, while
+    /// off the road. A bank is a sustained ascent (the accumulator grows
+    /// toward a metre and the extra drag, fifteen per metre, stalls the
+    /// car near the foot); a lip, kerb or shoulder is a brief one (it
+    /// passes before the drag bites). This is what stops gradual banks,
+    /// where no single step ever trips the climb veto: the veto sees
+    /// steps, this sees hillsides.
+    climb: f32,
 }
 
 pub struct World {
@@ -314,6 +322,7 @@ impl World {
             wall_hit: false,
             pin: 0.0,
             pin_h: 0.0,
+            climb: 0.0,
         });
         self.cars.len() - 1
     }
@@ -372,9 +381,20 @@ impl World {
         let tip_in = rate / 3.0;
         if control.throttle > 0.0 {
             coasting = false;
-            car.drive += tip_in * control.throttle * dt;
-            if car.drive > top {
-                car.drive = top;
+            // Climb cap: off the road, sustained ascent closes the
+            // throttle (see `climb`): the drive state cannot build past
+            // what the slope allows, so banks stall near the foot instead
+            // of grinding up. Reverse and brake stay free, which is the
+            // way back down and out.
+            let cap = if offroad {
+                (1.0 - 3.0 * car.climb).max(0.0)
+            } else {
+                1.0
+            };
+            car.drive += tip_in * control.throttle * cap * dt;
+            let allow = top * cap;
+            if car.drive > allow {
+                car.drive = allow;
             }
             car.reversing = false;
         } else if coasting {
@@ -514,7 +534,10 @@ impl World {
             let drag = (tune.s * v + tune.r * v * v) / tune.f;
             car.vel *= (1.0 + drag * dt).max(0.0);
             if offroad {
-                car.vel *= (-1.8 * dt).exp();
+                // Strong enough that verge approaches arrive slowly: with
+                // the climb cap, momentum is what carries a car uphill,
+                // so less of it means stalls near the foot, not the top.
+                car.vel *= (-2.6 * dt).exp();
             }
         }
 
@@ -536,6 +559,7 @@ impl World {
         // instead of pointing uphill and going). That is the roadside
         // collision the original has where there is no rail. On the road
         // the limit never applies - roads are drivable by definition.
+        let y_before = car.pos.y;
         match height {
             Some(h) => {
                 let diff = h - car.pos.y;
@@ -590,6 +614,31 @@ impl World {
                 car.fall += 9.8 * dt;
                 car.pos.y -= car.fall * dt;
             }
+        }
+        // Ascent memory for the climb cap: gains with every metre risen
+        // while off the road, bleeds only while moving. A stall holds
+        // its value (nothing moves, nothing bleeds), so the cap stays
+        // shut and cannot ratchet the car up in bleed-and-climb cycles;
+        // anything with momentum washes the memory out, so lips, kerbs
+        // and crests taken at speed are unaffected.
+        // Gravity along the slope goes with it: ascent spends kinetic
+        // energy (`v^2 = 2 g dh`), so momentum alone carries a car about
+        // a metre up a bank and no further. It keys off actual ascent,
+        // never the support gap, so a car held at a slope foot loses
+        // nothing standing still - the cut vanishes with the motion,
+        // which is what the gap-based attempt got wrong.
+        if offroad {
+            let dy = (car.pos.y - y_before).max(0.0);
+            car.climb += dy;
+            if dy > 0.0 {
+                let v = car.vel.length();
+                if v > 1e-3 {
+                    car.vel *= ((v * v - 2.0 * 9.8 * dy).max(0.0)).sqrt() / v;
+                }
+            }
+        }
+        if car.vel.length() > 1.5 {
+            car.climb *= (-1.5 * dt).exp();
         }
 
         // Engine pitch input is drive over the `k()` reference, not over
@@ -873,6 +922,38 @@ mod tests {
             (world.position(car).y - 2.0).abs() < 1e-3,
             "burial never popped: {:.2}",
             world.position(car).y
+        );
+    }
+
+    #[test]
+    fn sustained_offroad_climbs_stall_but_lips_pass() {
+        // A sustained ascent off the road stalls the car low (banks);
+        // a brief lip mounts and stays mounted (kerbs, shoulders).
+        let drive = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
+        let mut hill = World::new(&[]);
+        let h = hill.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        for step in 0..600 {
+            hill.step(1.0 / 60.0, &drive, &[Some(step as f32 * 0.05)], &[true]);
+        }
+        assert!(
+            hill.position(h).y < 1.5,
+            "climbed the hill: {:.2}",
+            hill.position(h).y
+        );
+        let mut lip = World::new(&[]);
+        let l = lip.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        for step in 0..300 {
+            lip.step(
+                1.0 / 60.0,
+                &drive,
+                &[Some((step as f32 * 0.04).min(0.5))],
+                &[true],
+            );
+        }
+        assert!(
+            lip.position(l).y > 0.4,
+            "lip never mounted: {:.2}",
+            lip.position(l).y
         );
     }
 
