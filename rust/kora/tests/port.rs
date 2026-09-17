@@ -2962,3 +2962,13 @@ fn chase_camera_stops_at_walls() {
     );
 }
 
+
+#[test]
+fn verge_walls_need_a_real_bank() {
+    // Shoulders stay open, banks do not: the rule is a pure height
+    // comparison so it pins here without building a track.
+    assert!(!kora::scene::verge_wall_needed(0.0, 0.5));
+    assert!(!kora::scene::verge_wall_needed(0.0, 1.0));
+    assert!(kora::scene::verge_wall_needed(0.0, 1.5));
+    assert!(!kora::scene::verge_wall_needed(2.0, 1.0));
+}

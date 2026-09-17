@@ -181,6 +181,17 @@ pub const WORLD_SCALE: f32 = 7.01;
 /// cars stand on hillsides instead of driving straight through them.
 pub type VisualTris = Vec<[[f32; 3]; 3]>;
 
+/// Rise from the road side to the verge side that earns a wall: banks,
+/// not shoulders. Gentle grass stays open (cutting costs pace); a face
+/// taller than a car hood blocks like the original's roadsides do.
+pub const VERGE_WALL_RISE: f32 = 1.0;
+
+/// Whether a verge-side height above a road-side height wants a wall.
+/// Pure so the rule pins in a test without building a track.
+pub fn verge_wall_needed(road: f32, verge: f32) -> bool {
+    verge - road > VERGE_WALL_RISE
+}
+
 pub struct SurfaceGrid {
     width: i32,
     height: i32,
@@ -1235,6 +1246,55 @@ pub fn build_detailed(
                 (corners[0].z - corners[1].z).abs() * 0.5 + 0.4,
             );
             walls.push((vec3(mid.x, ground + 0.8, mid.z), half));
+        }
+    }
+
+    // Verges that rise past a car hood get walls where they meet the
+    // road: banks, not shoulders. Only non-road sides qualify, so racing
+    // lines can never close, and only uphill ones at that, so flat
+    // corner-cutting grass stays open. Voids already have their own
+    // barriers, so this covers occupied but unconnected neighbours.
+    for y in 0..grid.height {
+        for x in 0..grid.width {
+            if grid.prog_index(x, y).is_none() {
+                continue;
+            }
+            for dir in 0..4 {
+                if grid.connected(x, y, dir) {
+                    continue;
+                }
+                let (dx, dy) = crate::grid::DIRS[dir];
+                let (nx, ny) = (x + dx, y + dy);
+                if !grid.occupied(nx, ny) {
+                    continue;
+                }
+                let centre = grid.center(x, y);
+                let step = crate::grid::dir_mq(dir);
+                let road_pt =
+                    vec3(centre.x + step.x * 1.0, 0.0, centre.z + step.z * 1.0);
+                let verge_pt =
+                    vec3(centre.x + step.x * 13.0, 0.0, centre.z + step.z * 13.0);
+                let road = surface.height_at(road_pt).unwrap_or(0.0);
+                let verge = surface.height_at(verge_pt).unwrap_or(0.0);
+                if !verge_wall_needed(road, verge) {
+                    continue;
+                }
+                let mid = vec3(
+                    centre.x + step.x * TILE * 0.5,
+                    0.0,
+                    centre.z + step.z * TILE * 0.5,
+                );
+                let base = road.min(verge);
+                let (hx, hz) = if dir % 2 == 0 {
+                    (0.6, TILE * 0.5)
+                } else {
+                    (TILE * 0.5, 0.6)
+                };
+                walls.push((
+                    vec3(mid.x, base, mid.z),
+                    vec3(hx, (verge.max(road) + 2.2 - base) / 2.0, hz),
+                ));
+            }
         }
     }
 
