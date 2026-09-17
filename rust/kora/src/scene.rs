@@ -175,10 +175,16 @@ pub const WORLD_SCALE: f32 = 7.01;
 
 /// Per-cell collision meshes, so the runtime can ask how high the road is at
 /// any point and lift a car back onto it.
+/// One tile's visual triangles in cell-fraction plan space with macroquad
+/// heights, shared by every cell of that kind. Only used where the tile
+/// ships no collision mesh: the collider falls back to what is drawn so
+/// cars stand on hillsides instead of driving straight through them.
+pub type VisualTris = Vec<[[f32; 3]; 3]>;
+
 pub struct SurfaceGrid {
     width: i32,
     height: i32,
-    cells: Vec<Option<(u8, Option<format::Collision>)>>,
+    cells: Vec<Option<(u8, Option<format::Collision>, Option<std::rc::Rc<VisualTris>>)>>,
 }
 
 impl SurfaceGrid {
@@ -188,13 +194,13 @@ impl SurfaceGrid {
         if x < 0 || y < 0 || x >= self.width || y >= self.height {
             return None;
         }
-        let (arg, collision) = self.cells[(y * self.width + x) as usize].as_ref()?;
+        let (arg, collision, visual) = self.cells[(y * self.width + x) as usize].as_ref()?;
         let centre = vec3(x as f32 * TILE, 0.0, -(y as f32) * TILE);
         let local = vec2(
             (position.x - centre.x) / TILE + 0.5,
             (centre.z - position.z) / TILE + 0.5,
         );
-        Some(surface_height(collision.as_ref(), *arg, local))
+        Some(surface_height(collision.as_ref(), visual.as_deref(), *arg, local))
     }
 
     /// The height the runtime holds a car to: the surface under its centre,
@@ -437,33 +443,66 @@ fn rotate_sample(point: Vec2, arg: u8) -> Vec2 {
 /// unflipped sampler reports -4.2; `b1`'s kerb visuals run 0..+1.4; the `vl`
 /// dip's visuals run -0.69..0.03).  The barriers this port builds place
 /// themselves with `height_at` too, so they stand on the true surface with it.
-pub fn surface_height(collision: Option<&format::Collision>, arg: u8, local: Vec2) -> f32 {
-    let Some(collision) = collision else {
-        return 0.0;
-    };
-    if collision.vertices.is_empty() {
-        return 0.0;
-    }
+/// The game's height function: the interpolated collision mesh height in world
+/// units, falling back to the drawn tile triangles where the tile ships no
+/// mesh (or the point misses it), or zero under truly flat art.
+///
+/// The MIDlet negates the third component when it builds each triangle (`a` -
+/// three `fneg`s in its constructor), so the height in the game's own Z-down
+/// world is `-z * 14`.  This port maps that world to Y-up in `game_to_world`
+/// by negating the axis once more, so the height here is `+z * TILE`.
+/// Visual plan maps model `(x, y)` to cell fractions `((x + 1) / 2)` on the
+/// assumption the model frame matches the collision frame (verified for
+/// scale and height sign on the `vl` dip; if hills ever mirror, flip an
+/// axis here).
+pub fn surface_height(
+    collision: Option<&format::Collision>,
+    visual: Option<&VisualTris>,
+    arg: u8,
+    local: Vec2,
+) -> f32 {
     let point = rotate_sample(local, arg);
-    for triangle in &collision.triangles {
-        let [a, b, c] = [
-            collision.vertices[triangle[0]],
-            collision.vertices[triangle[1]],
-            collision.vertices[triangle[2]],
-        ];
-        let determinant = (b[1] - c[1]) * (a[0] - c[0]) + (c[0] - b[0]) * (a[1] - c[1]);
-        if determinant.abs() < 1e-9 {
-            continue;
+    if let Some(collision) = collision {
+        if !collision.vertices.is_empty() {
+            for triangle in &collision.triangles {
+                let [a, b, c] = [
+                    collision.vertices[triangle[0]],
+                    collision.vertices[triangle[1]],
+                    collision.vertices[triangle[2]],
+                ];
+                if let Some(h) = barycentric(&point, a, b, c) {
+                    // The mesh shares the tile's 14-unit scale, and the sign is the
+                    // port's Y-up one: see the note on this function.
+                    return h * TILE;
+                }
+            }
         }
-        let u = ((b[1] - c[1]) * (point.x - c[0]) + (c[0] - b[0]) * (point.y - c[1])) / determinant;
-        let v = ((c[1] - a[1]) * (point.x - c[0]) + (a[0] - c[0]) * (point.y - c[1])) / determinant;
-        if u >= -1e-6 && v >= -1e-6 && u + v <= 1.0 + 1e-6 {
-            // The mesh shares the tile's 14-unit scale, and the sign is the
-            // port's Y-up one: see the note on this function.
-            return (u * a[2] + v * b[2] + (1.0 - u - v) * c[2]) * TILE;
+    }
+    if let Some(visual) = visual {
+        // Plan is already cell fractions and heights are macroquad units,
+        // so the interpolant is the answer unwound.
+        for triangle in visual {
+            let [a, b, c] = *triangle;
+            if let Some(h) = barycentric(&point, a, b, c) {
+                return h;
+            }
         }
     }
     0.0
+}
+
+fn barycentric(point: &Vec2, a: [f32; 3], b: [f32; 3], c: [f32; 3]) -> Option<f32> {
+    let determinant = (b[1] - c[1]) * (a[0] - c[0]) + (c[0] - b[0]) * (a[1] - c[1]);
+    if determinant.abs() < 1e-9 {
+        return None;
+    }
+    let u = ((b[1] - c[1]) * (point.x - c[0]) + (c[0] - b[0]) * (point.y - c[1])) / determinant;
+    let v = ((c[1] - a[1]) * (point.x - c[0]) + (a[0] - c[0]) * (point.y - c[1])) / determinant;
+    if u >= -1e-6 && v >= -1e-6 && u + v <= 1.0 + 1e-6 {
+        Some(u * a[2] + v * b[2] + (1.0 - u - v) * c[2])
+    } else {
+        None
+    }
 }
 
 fn tile_has_mesh(tile: Option<&format::Tile>) -> bool {
@@ -1028,7 +1067,7 @@ pub fn build_detailed(
                     let lo = vec2(i as f32, j as f32) / steps as f32;
                     let hi = vec2((i + 1) as f32, (j + 1) as f32) / steps as f32;
                     let corner = |local: Vec2| {
-                        world_of(centre, local, surface_height(mesh, arg, local))
+                        world_of(centre, local, surface_height(mesh, None, arg, local))
                     };
                     let (a, b, c, d) = (
                         corner(vec2(lo.x, lo.y)),
@@ -1073,11 +1112,11 @@ pub fn build_detailed(
             };
             let base = edge
                 .iter()
-                .map(|sample| surface_height(mesh, arg, *sample))
+                .map(|sample| surface_height(mesh, None, arg, *sample))
                 .fold(f32::MAX, f32::min);
             let top = edge
                 .iter()
-                .map(|sample| surface_height(mesh, arg, *sample))
+                .map(|sample| surface_height(mesh, None, arg, *sample))
                 .fold(f32::MIN, f32::max)
                 + 2.2;
             let direction = crate::grid::dir_mq(dir);
@@ -1109,6 +1148,31 @@ pub fn build_detailed(
         }
     }
 
+    // Visual triangles per tile kind, in cell-fraction plan space with
+    // macroquad heights, backing the collider where a tile ships no
+    // collision mesh of its own.
+    let mut visuals: HashMap<u8, std::rc::Rc<VisualTris>> = HashMap::new();
+    for (&kind, tile) in tiles.iter() {
+        if tile.collision.as_ref().is_some_and(|c| !c.vertices.is_empty()) {
+            continue;
+        }
+        if let Some(model) = parse_model(res, &format!("models/p/{}", tile.name)) {
+            let tris: VisualTris = model
+                .triangles()
+                .into_iter()
+                .map(|face| {
+                    face.map(|i| {
+                        let v = model.positions[i];
+                        [(v[0] + 1.0) * 0.5, (v[1] + 1.0) * 0.5, -v[2] * WORLD_SCALE]
+                    })
+                })
+                .collect();
+            if !tris.is_empty() {
+                visuals.insert(kind, std::rc::Rc::new(tris));
+            }
+        }
+    }
+
     let surface = SurfaceGrid {
         width: grid.width,
         height: grid.height,
@@ -1122,6 +1186,7 @@ pub fn build_detailed(
                             .get(&kind)
                             .and_then(|tile| tile.collision.clone())
                             .filter(|collision| !collision.vertices.is_empty()),
+                        visuals.get(&kind).cloned(),
                     )
                 })
             })
