@@ -32,10 +32,11 @@
 //! shipped game) is replaced by the direct relation `yaw_rate =
 //! clamp(steer * speed, +-1.5)`, which keeps the verbatim lock law and the
 //! verbatim +-1.5 authority cap; the throttle-to-velocity coupling the
-//! static trace cannot find is a chase of the capped drive state at
-//! ~0.9/s (reaches cruise in about four seconds, brakes bite at ~4/s)
-//! instead of the game's unknown rate - full throttle for a second must
-//! not put the car at cruise, and a test pins that; wheel spin/slip
+//! static trace cannot find chases the capped drive state (0.9/s up,
+//! 2 reverse, 8 braking) under a calmed drive (a third of the game's
+//! pedal rate) instead of the game's unknown rate - full throttle for
+//! a second must not put the car at cruise, and a test pins that;
+//! wheel spin/slip
 //! visuals (`cl.a(float)`) and the suspension settle (`cl.k(float)`) are
 //! not simulated; tilt comes from the surface normal. The `.car` tail
 //! past the four stat bytes feeds the menus, not the car.
@@ -345,10 +346,14 @@ impl World {
         // and clamps to `l()`; `cl.g()` brake subtracts and floors at the
         // idle creep `m`). No separate reverse key: holding brake past a
         // standstill flips the direction latch, after which the same
-        // pedals back up.
+        // pedals back up. The game integrates both pedals at the full
+        // `h`, which snaps the drive 0-76 in half a second; the port tips
+        // in at a third of that (the brake pedal keeps the full rate so
+        // brakes bite), trading instant revs for a calm launch.
+        let tip_in = rate / 3.0;
         if control.throttle > 0.0 {
             coasting = false;
-            car.drive += rate * control.throttle * dt;
+            car.drive += tip_in * control.throttle * dt;
             if car.drive > top {
                 car.drive = top;
             }
@@ -379,12 +384,17 @@ impl World {
                 car.reversing = true;
             }
             if car.reversing {
-                car.drive -= rate * push * dt;
+                car.drive -= tip_in * push * dt;
                 if car.drive < -top * 0.4 {
                     car.drive = -top * 0.4;
                 }
-            } else {
+            } else if control.brake {
                 car.drive -= rate * push * dt;
+                if car.drive < tune.m {
+                    car.drive = tune.m;
+                }
+            } else {
+                car.drive -= tip_in * push * dt;
                 if car.drive < tune.m {
                     car.drive = tune.m;
                 }
@@ -394,18 +404,18 @@ impl World {
 
         // The velocity vector chases the drive state. The game's exact
         // throttle-to-velocity coupling is the one open item in the port
-        // (see module docs); this chase keeps the game's caps and creep
-        // with an arcade response of roughly four seconds to cruise.
-        // Braking bites harder, as it should. Neither is verbatim.
-        // Chase the drive state, but no further than the planar cap:
-        // chasing the raw 76-scale drive would pin the car at the cap
-        // within a second whatever the blend. Reversing chases backwards.
+        // (see module docs); this chase keeps the game's caps, creep and
+        // drag equilibrium with the calmed drive above. Neither is
+        // verbatim. Chase the drive state, but no further than the planar
+        // cap: chasing the raw 76-scale drive would pin the car at the
+        // cap within a second whatever the blend. Reversing chases
+        // backwards, gently; the brake pedal chases down hard.
         let cruise = tune.pitch_ref(1);
         let want = forward * car.drive.clamp(-cruise * 0.4, cruise);
-        let rate = if control.brake {
-            4.0
-        } else if car.reversing {
+        let rate = if car.reversing {
             2.0
+        } else if control.brake || control.throttle < 0.0 {
+            8.0
         } else {
             0.9
         };

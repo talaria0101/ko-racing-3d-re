@@ -55,6 +55,9 @@ pub struct Grid {
     /// Cells by flood index, for waypoint lookups (`ck` arrays its line
     /// the same way, by `bm.c()`/`bm.d()`).
     order: Vec<(i32, i32)>,
+    /// Boundary midpoint between each flood cell and the next, in
+    /// macroquad space, parallel to `order` (wrapping round the end).
+    edges: Vec<Vec3>,
 }
 
 impl Grid {
@@ -100,6 +103,7 @@ impl Grid {
             lap_len: 1,
             flood_dir: None,
             order: Vec::new(),
+            edges: Vec::new(),
         };
         grid.link();
         grid
@@ -164,6 +168,14 @@ impl Grid {
             self.prog.iter().map(|(&cell, &index)| (cell, index)).collect();
         cells.sort_by_key(|&(_, index)| index);
         self.order = cells.into_iter().map(|(cell, _)| cell).collect();
+        let n = self.order.len();
+        self.edges = (0..n)
+            .map(|i| {
+                let a = self.center(self.order[i].0, self.order[i].1);
+                let b = self.center(self.order[(i + 1) % n].0, self.order[(i + 1) % n].1);
+                vec3((a.x + b.x) * 0.5, 0.0, (a.z + b.z) * 0.5)
+            })
+            .collect();
     }
 
     /// Cells by flood index. Empty only when the flood never left the
@@ -173,23 +185,28 @@ impl Grid {
     }
 
     /// Road-following point at `progress` (0..1 round the lap) plus
-    /// `ahead` cells of lookahead, interpolated along the flood-ordered
-    /// cell centres: the port's `RaceLine`, which like `ck` arrays its
-    /// line by flood index and reads it by progress. Corner-cutting
-    /// straight-line hops between centres would aim across the infield;
-    /// walking the polyline aims down the road.
+    /// `ahead` cells of lookahead, interpolated along boundary midpoints
+    /// between consecutive flood cells: the port's `RaceLine`, which like
+    /// `ck` arrays its line by flood index (`bs.a(x, y, vec)` writes one
+    /// side midpoint per index) and reads it by progress. Midpoints hug
+    /// the road round bends; interpolating cell centres instead would aim
+    /// across corner mouths, straight into the rail pockets lining them.
     pub fn line_point(&self, progress: f32, ahead: f32) -> Option<Vec3> {
-        if self.order.is_empty() {
+        if self.edges.is_empty() {
             return None;
         }
         let len = self.lap_len.max(1) as f32;
         let mut s = progress * len + ahead;
         s -= s.div_euclid(len) * len;
-        let i0 = s.floor() as usize % self.order.len();
-        let i1 = (i0 + 1) % self.order.len();
-        let a = self.center(self.order[i0].0, self.order[i0].1);
-        let b = self.center(self.order[i1].0, self.order[i1].1);
-        let t = (s - s.floor()).clamp(0.0, 1.0);
+        let n = self.edges.len();
+        // Edge midpoints sit half an index past their cell centres, so an
+        // integer index lands on a centre and a half lands on a boundary.
+        let e = (s - 0.5).rem_euclid(n as f32);
+        let i0 = e.floor() as usize % n;
+        let i1 = (i0 + 1) % n;
+        let a = self.edges[i0];
+        let b = self.edges[i1];
+        let t = (e - e.floor()).clamp(0.0, 1.0);
         Some(vec3(
             a.x + (b.x - a.x) * t,
             0.0,

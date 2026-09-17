@@ -394,8 +394,8 @@ impl Running {
             return;
         };
         let mouse = mouse_delta_position();
-        free.yaw -= mouse.x * 0.003;
-        free.pitch = (free.pitch - mouse.y * 0.003).clamp(-1.45, 1.45);
+        free.yaw -= mouse.x * 0.006;
+        free.pitch = (free.pitch - mouse.y * 0.006).clamp(-1.45, 1.45);
         let turn = 1.8 * dt;
         if is_key_down(KeyCode::Left) {
             free.yaw += turn;
@@ -645,6 +645,11 @@ impl Running {
         let up = vec3(0.0, 1.0, 0.0);
         let (back, height) = settings.camera.placement();
         let desired = position - forward * back + up * height;
+        // Rails and walls stop the camera, not just the car: pull the
+        // viewpoint in front of whatever the segment crosses so it never
+        // slices through a rail it just watched the car hit.
+        let pull = scene::camera_pull_in(&self.track.walls, desired, position);
+        let desired = desired.lerp(position, 1.0 - pull);
         self.camera = self.camera.lerp(desired, (dt * 5.0).min(1.0));
 
         // The world is drawn at the height the MIDlet drew it at and scaled up,

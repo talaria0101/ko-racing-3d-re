@@ -40,6 +40,9 @@ pub struct AiDriver {
     last_prog: f32,
     still: f32,
     reversing: f32,
+    /// Reverse lock side, alternating every trigger so retries veer out
+    /// both ways instead of re-snagging the same rail end straight on.
+    veer: f32,
     steer: f32,
     /// Brake hold after a hard wall hit: the game's knockdown recovery
     /// (`cx.m(float)`) stops the car and holds it briefly before driving
@@ -63,6 +66,7 @@ impl AiDriver {
             last_prog: 0.0,
             still: 0.0,
             reversing: 0.0,
+            veer: 1.0,
             steer: 0.0,
             hold: 0.0,
         }
@@ -85,11 +89,20 @@ impl AiDriver {
             self.reversing -= dt;
             return CarControl {
                 throttle: -0.7,
-                steer: -self.steer,
+                steer: self.veer,
                 brake: false,
             };
         }
         let mut control = drive(grid, position, heading, speed, self.jitter);
+        // No donuts: at walking pace full lock spins the car in place
+        // (yaw follows steer times speed, so the jamb's full lock whirls
+        // the nose faster than the car travels and the error never
+        // settles - a stable attractor the original sits in forever).
+        // Reversing keeps full lock to manoeuvre out of pockets.
+        if self.reversing <= 0.0 {
+            let cap = 0.25f32.max((speed / 4.0).min(1.0));
+            control.steer = control.steer.clamp(-cap, cap);
+        }
         if self.hold > 0.0 {
             self.hold -= dt;
             control.throttle = 0.0;
@@ -107,7 +120,10 @@ impl AiDriver {
         if self.still > 2.0 {
             self.still = 0.0;
             self.last_prog = progress;
-            self.reversing = 1.2;
+            // Long enough to back properly out of a rail pocket at the
+            // calmed reverse rate, not just rock in it.
+            self.reversing = 2.5;
+            self.veer = -self.veer;
         }
         control
     }
@@ -177,10 +193,36 @@ pub fn drive(
     };
     let severity = v4.abs() / curve;
 
+    // Corner approach: the sharpest turn within the next few cells sets a
+    // target speed, and anything over it brakes now rather than inside
+    // the corner. The game's law is reactive only (it brakes on current
+    // misalignment), which arrives too hot wherever rails pocket a bend:
+    // the car overshoots into the pocket and funnels there, where the
+    // original strands with it. Proactive braking threads such corners
+    // instead of visiting them.
+    let mut approach = 1.0f32;
+    let mut prev_p = target;
+    let mut prev_d = direction;
+    for step in 1..=4 {
+        let p = grid
+            .line_point(progress, LOOKAHEAD + step as f32)
+            .map(|point| vec3(point.x + jitter.0, 0.0, point.z + jitter.1))
+            .unwrap_or(target);
+        let seg = vec3(p.x - prev_p.x, 0.0, p.z - prev_p.z);
+        if seg.length_squared() > 1e-6 && prev_d.length_squared() > 1e-6 {
+            let cos = (prev_d.x * seg.x + prev_d.z * seg.z)
+                / (prev_d.length() * seg.length());
+            approach = approach.min((cos * 0.5 + 0.5).sqrt().max(0.05));
+            prev_d = seg;
+        }
+        prev_p = p;
+    }
+    let corner_speed = 4.0 + 8.0 * approach;
+
     // The pedals: brake over corner speed, full throttle when aligned,
     // launch throttle when slow (`f()`/`g()` integrate the same drive the
     // player pedals do).
-    if 7.0 * severity > speed && speed > 1.2 {
+    if (7.0 * severity > speed && speed > 1.2) || speed > corner_speed {
         control.brake = true;
         control.throttle = 0.0;
     } else if (severity < 0.1 && v4.abs() < 1.0) || speed < 0.4 {
@@ -190,10 +232,11 @@ pub fn drive(
     // drive wherever the line is straight enough, which cruises near the
     // cap - too fast to hold the folds where the road passes near itself
     // (the car cuts across to an earlier section and laps half the track
-    // forever). The game fields roughly player pace, so the AI grounds
-    // the drive back down past it with the verbatim brake pedal and lets
-    // the laws above handle the corners.
-    if speed > 12.0 {
+    // forever) or to turn into railed corners (it overshoots into the
+    // pocket and funnels there). The game fields roughly player pace, so
+    // the AI grounds the drive back down past it with the verbatim brake
+    // pedal and lets the laws above handle the corners.
+    if speed > 9.0 {
         control.throttle = 0.0;
         control.brake = true;
     }

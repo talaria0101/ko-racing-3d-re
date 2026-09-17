@@ -652,6 +652,92 @@ fn parse_model(res: &Resources, path: &str) -> Option<format::Model> {
         .and_then(|bytes| format::Model::parse(bytes))
 }
 
+/// Fence rails as local arm segments `(x0, y0, x1, y1)` in tile units,
+/// measured off the model vertices. The game collides its scenery
+/// (`ai.a`), so rails are solid there; the port used to leave every
+/// detail instance intangible, and cars drove straight through roadside
+/// rails. Trees, rocks, bushes and canopy stay intangible (their
+/// solidity is unverified, and foliage overhangs the road by design).
+fn rail_arms(model: &str) -> Option<&'static [[f32; 4]]> {
+    Some(match model {
+        // Ribbon along local Y.
+        "models/za" => &[[0.0, -1.0, 0.0, 1.0]],
+        // Bent corner rails.
+        "models/zazd" => &[[-1.0, -0.62, 0.17, -0.17], [0.17, -0.17, 0.62, 1.0]],
+        // Corner with wings.
+        "models/zc" => &[[-0.1, 0.52, -0.1, -0.52], [-0.2, 0.0, 0.0, -1.0], [-0.2, 0.0, 0.0, 1.0]],
+        // Panel perimeters.
+        "models/zdn" | "models/zdzn" => &[[-0.62, 0.5, 0.62, 0.5], [-0.62, -0.5, 0.62, -0.5], [0.62, -1.0, 0.62, 1.0], [-0.62, -1.0, -0.62, 1.0]],
+        // Corner panels (the zdk pair carries an extra wing).
+        "models/zdkn" | "models/zdkzn" => &[[-0.62, 1.0, -0.17, -0.17], [-0.17, -0.17, 1.0, -0.62], [0.62, 1.0, 1.0, 0.62]],
+        "models/zn" | "models/zzdn" => &[[-0.62, 1.0, -0.17, -0.17], [-0.17, -0.17, 1.0, -0.62]],
+        // Corner bit and posts.
+        "models/zazk" => &[[0.62, 1.0, 1.0, 0.62]],
+        "models/z2" | "models/z3" => &[[0.0, 0.0, 0.0, 0.0]],
+        _ => return None,
+    })
+}
+
+/// How far along `from -> to` the chase camera may sit before a wall gets
+/// between it and the car, as a fraction (1.0 = clear). Tests the segment
+/// against every wall box in the ground plane, expanded by the camera
+/// margin, and stops just short of the nearest hit. A box holding the car
+/// itself is skipped: a wedged car stays visible through the rail (a brief
+/// clip) instead of hiding behind a wall close-up. The free camera flies
+/// anywhere on purpose; the chase camera should never slice through rails
+/// and walls it just watched the car crash into.
+pub fn camera_pull_in(walls: &[(Vec3, Vec3)], from: Vec3, to: Vec3) -> f32 {
+    let mut best = 1.0f32;
+    let margin = 0.5;
+    for (centre, half) in walls {
+        if (to.x - centre.x).abs() < half.x
+            && (to.z - centre.z).abs() < half.z
+            && (to.y - centre.y).abs() < half.y + margin
+        {
+            continue;
+        }
+        let lo_x = centre.x - half.x - margin;
+        let hi_x = centre.x + half.x + margin;
+        let lo_z = centre.z - half.z - margin;
+        let hi_z = centre.z + half.z + margin;
+        // Slab march: earliest fraction where the segment enters the box.
+        let dx = to.x - from.x;
+        let dz = to.z - from.z;
+        let mut tmin = 0.0f32;
+        let mut tmax = 1.0f32;
+        let mut ok = true;
+        for (p, d, lo, hi) in [
+            (from.x, dx, lo_x, hi_x),
+            (from.z, dz, lo_z, hi_z),
+        ] {
+            if d.abs() < 1e-6 {
+                if p < lo || p > hi {
+                    ok = false;
+                    break;
+                }
+            } else {
+                let mut t0 = (lo - p) / d;
+                let mut t1 = (hi - p) / d;
+                if t0 > t1 {
+                    std::mem::swap(&mut t0, &mut t1);
+                }
+                tmin = tmin.max(t0);
+                tmax = tmax.min(t1);
+                if tmin > tmax {
+                    ok = false;
+                    break;
+                }
+            }
+        }
+        if ok && tmin < best {
+            best = tmin.max(0.0);
+        }
+    }
+    // Never closer than a bonnet-length: fully blocked means riding the
+    // bumper, not wearing it.
+    best.max(0.12)
+}
+
 /// Detail remap from `bm.a(ae/ap, kind, arg)`: on theme 3 the MIDlet drops a
 /// range of mid/high-detail indices, and `bp` swaps two object kinds.
 fn themed_detail(theme: u8, kind: u8) -> u8 {
@@ -713,6 +799,9 @@ pub fn build_detailed(
     .expect("malformed .map");
 
     let mut builder = Builder::new(res);
+    // Rail arms (game-plane segments with the instance yaw and origin) to
+    // wall off once the surface exists for their heights.
+    let mut rail_segs: Vec<(f32, f32, f32, &'static [[f32; 4]])> = Vec::new();
     // Definition caches, keyed by the 1-based index stored in the map.
     let mut tiles: HashMap<u8, format::Tile> = HashMap::new();
     let mut mids: HashMap<u8, format::MidDetail> = HashMap::new();
@@ -843,20 +932,25 @@ pub fn build_detailed(
                         2 => (ox + py, oy + px),
                         _ => (ox + px, oy + py),
                     };
+                    let model = format!("models/{}", object.model);
+                    let yaw = high_detail_yaw(object.flag, arg);
                     builder.place(
                         Placement {
                             layer: "high",
                             cell: (x as i32, y as i32),
                             kind,
                             arg,
-                            model: format!("models/{}", object.model),
+                            model: model.clone(),
                             texture: object_texture(theme, &object.texture),
                             origin: [lx, ly, pz],
-                            yaw: high_detail_yaw(object.flag, arg),
+                            yaw,
                             flagged: object.flag,
                         },
                         [WORLD_SCALE; 3],
                     );
+                    if let Some(arms) = rail_arms(&model) {
+                        rail_segs.push((lx, ly, yaw, arms));
+                    }
                 }
             }
         }
@@ -1033,6 +1127,51 @@ pub fn build_detailed(
             })
             .collect(),
     };
+
+    // Rails are solid: one thin wall per arm, standing on the surface
+    // under its midpoint (grass verges have no mesh, so those fall back
+    // to the placement height). Like the edge barriers these only steer
+    // the kinematic slide, never beach. Arm ends inset a metre so they
+    // stop at the tarmac edge instead of snagging it: the artwork anchors
+    // rail ends onto the road itself, and full-length hitboxes hook every
+    // car that brushes past.
+    for (lx, ly, yaw, arms) in &rail_segs {
+        let (cos, sin) = (yaw.cos(), yaw.sin());
+        for arm in arms.iter() {
+            let (ax, ay, bx, by) = (arm[0], arm[1], arm[2], arm[3]);
+            let length = (bx - ax).hypot(by - ay).max(1e-6);
+            // Points (posts) keep their full hitbox.
+            let inset = if length < 0.1 {
+                0.0
+            } else {
+                (0.15 / length).min(0.49)
+            };
+            let mut corners = Vec::with_capacity(2);
+            for [px, py] in [
+                [ax + (bx - ax) * inset, ay + (by - ay) * inset],
+                [bx - (bx - ax) * inset, by - (by - ay) * inset],
+            ] {
+                let gx = px * WORLD_SCALE;
+                let gy = py * WORLD_SCALE;
+                let point = game_to_world(
+                    gx * cos - gy * sin + lx,
+                    gx * sin + gy * cos + ly,
+                    0.0,
+                );
+                corners.push(point);
+            }
+            let mid = (corners[0] + corners[1]) * 0.5;
+            let ground = surface
+                .support_height(mid, vec3(0.0, 0.0, -1.0), 0.5, mid.y + 2.0, 0.2)
+                .unwrap_or(0.0);
+            let half = vec3(
+                (corners[0].x - corners[1].x).abs() * 0.5 + 0.4,
+                1.4,
+                (corners[0].z - corners[1].z).abs() * 0.5 + 0.4,
+            );
+            walls.push((vec3(mid.x, ground + 0.8, mid.z), half));
+        }
+    }
 
     Track {
         grid,
