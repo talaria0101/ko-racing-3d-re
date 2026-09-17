@@ -504,7 +504,7 @@ fn opponents_drive_the_track() {
     let mut travelled = vec![0.0f32; cars];
     let mut previous: Vec<Vec3> = (0..cars).map(|i| world.position(i)).collect();
     let mut drivers: Vec<kora::ai::AiDriver> =
-        (0..cars).map(|_| kora::ai::AiDriver::new(1.0)).collect();
+        (0..cars).enumerate().map(|(i, _)| kora::ai::AiDriver::new(i)).collect();
 
     // 1.map is roughly 200 units round and the AI averages ~7 units/s, so a
     // lap takes ~30 s; 90 s gives everyone room for two.
@@ -591,8 +591,12 @@ fn opponents_survive_other_tracks() {
         }
         let cars = world.cars.len();
         let mut drivers: Vec<AiDriver> =
-            (0..cars).map(|_| AiDriver::new(0.95)).collect();
+            (0..cars).enumerate().map(|(i, _)| AiDriver::new(i)).collect();
 
+        let mut mark = vec![0.0f32; cars];
+        let mut races: Vec<kora::race::Race> = (0..cars)
+            .map(|i| kora::race::Race::new(&grid, 99, world.position(i), 0.0))
+            .collect();
         for step in 0..(40 * 60) {
             let mut controls = vec![CarControl::default(); cars];
             for index in 0..cars {
@@ -624,11 +628,26 @@ fn opponents_survive_other_tracks() {
                     place.y > -20.0,
                     "{map}: car {index} fell off at step {step}"
                 );
-                let (cx, cy) = grid.cell_of(vec3(place.x, 0.0, place.z));
-                assert!(
-                    grid.occupied(cx, cy),
-                    "{map}: car {index} left the road at step {step} ({place:?})"
-                );
+                // Verges are legal (the game scores ~zero progress there
+                // but never penalises); beaching for good is not, so every
+                // car has to keep advancing round the lap.
+                if step == 10 * 60 {
+                    mark[index] = grid.progress_at(place).unwrap_or(0.0);
+                }
+                races[index].update(step as f64 / 60.0, &grid, place);
+                if step == 40 * 60 - 1 {
+                    let now = grid.progress_at(place).unwrap_or(0.0);
+                    let gained = (now - mark[index]).rem_euclid(1.0);
+                    // A lapped car has proven itself whatever phase of the
+                    // next lap the sample catches; otherwise the net gain
+                    // has to show real advancement, not stranding.
+                    assert!(
+                        races[index].lap >= 1 || gained > 0.03,
+                        "{map}: car {index} stranded ({:.2} -> {:.2})",
+                        mark[index],
+                        now
+                    );
+                }
             }
         }
     }
@@ -835,7 +854,7 @@ fn cars_climb_the_track_elevation() {
     }
     let cars = world.cars.len();
     let ride = geometry.half_extents.y + 0.02;
-    let mut drivers: Vec<AiDriver> = (0..cars).map(|_| AiDriver::new(1.0)).collect();
+    let mut drivers: Vec<AiDriver> = (0..cars).enumerate().map(|(i, _)| AiDriver::new(i)).collect();
     let mut highest = f32::MIN;
 
     for _ in 0..(60 * 60) {
@@ -1006,7 +1025,7 @@ fn a_race_runs_to_the_flag_and_scores() {
     let cars = world.cars.len();
     let laps = 2;
     let mut races: Vec<Race> = (0..cars).map(|i| Race::new(&grid, laps, world.position(i), 0.0)).collect();
-    let mut drivers: Vec<AiDriver> = (0..cars).map(|_| AiDriver::new(1.0)).collect();
+    let mut drivers: Vec<AiDriver> = (0..cars).enumerate().map(|(i, _)| AiDriver::new(i)).collect();
     let ride = geometry.half_extents.y + 0.02;
     let mut finish_order: Vec<usize> = Vec::new();
 
@@ -2895,4 +2914,5 @@ fn eliminated_cars_cannot_finish() {
     drive_link_order(grid, &mut race, &mut now);
     assert!(race.finished, "the same run counts when racing");
 }
+
 

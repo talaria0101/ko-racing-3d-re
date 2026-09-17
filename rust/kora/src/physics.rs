@@ -351,15 +351,20 @@ impl World {
             }
             car.reversing = false;
         } else if coasting {
-            // Lift-off slows the car instead of cruising forever: the
-            // drive state eases back toward a standstill on its own.
+            // Lift-off slows the player's car instead of cruising forever:
+            // the drive state eases back toward a standstill on its own.
             // (The game holds the last state and rolls on; the operator
-            // prefers a car that stops.)
+            // prefers a car that stops.) AI cars keep the game's
+            // persistent drive: shared decay starves them to walking pace
+            // wherever the laws coast a lot, while their pace comes from
+            // the brake governor in `ai.rs` instead.
             // Exponential: roughly three seconds from full chat to a
             // standstill, smooth all the way down.
-            car.drive *= (-1.5 * dt).exp();
-            if car.drive.abs() < 0.05 {
-                car.drive = 0.0;
+            if !car.ai {
+                car.drive *= (-1.5 * dt).exp();
+                if car.drive.abs() < 0.05 {
+                    car.drive = 0.0;
+                }
             }
         } else if control.throttle < 0.0 || control.brake {
             coasting = false;

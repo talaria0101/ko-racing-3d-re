@@ -52,6 +52,9 @@ pub struct Grid {
     /// connected one, so this is ground truth where the checkpoint aim
     /// used to guess.
     flood_dir: Option<usize>,
+    /// Cells by flood index, for waypoint lookups (`ck` arrays its line
+    /// the same way, by `bm.c()`/`bm.d()`).
+    order: Vec<(i32, i32)>,
 }
 
 impl Grid {
@@ -96,6 +99,7 @@ impl Grid {
             prog: HashMap::new(),
             lap_len: 1,
             flood_dir: None,
+            order: Vec::new(),
         };
         grid.link();
         grid
@@ -156,6 +160,41 @@ impl Grid {
             // the lap is the whole numbered loop.
             self.lap_len = order.max(2);
         }
+        let mut cells: Vec<((i32, i32), u32)> =
+            self.prog.iter().map(|(&cell, &index)| (cell, index)).collect();
+        cells.sort_by_key(|&(_, index)| index);
+        self.order = cells.into_iter().map(|(cell, _)| cell).collect();
+    }
+
+    /// Cells by flood index. Empty only when the flood never left the
+    /// start cell.
+    pub fn order(&self) -> &[(i32, i32)] {
+        &self.order
+    }
+
+    /// Road-following point at `progress` (0..1 round the lap) plus
+    /// `ahead` cells of lookahead, interpolated along the flood-ordered
+    /// cell centres: the port's `RaceLine`, which like `ck` arrays its
+    /// line by flood index and reads it by progress. Corner-cutting
+    /// straight-line hops between centres would aim across the infield;
+    /// walking the polyline aims down the road.
+    pub fn line_point(&self, progress: f32, ahead: f32) -> Option<Vec3> {
+        if self.order.is_empty() {
+            return None;
+        }
+        let len = self.lap_len.max(1) as f32;
+        let mut s = progress * len + ahead;
+        s -= s.div_euclid(len) * len;
+        let i0 = s.floor() as usize % self.order.len();
+        let i1 = (i0 + 1) % self.order.len();
+        let a = self.center(self.order[i0].0, self.order[i0].1);
+        let b = self.center(self.order[i1].0, self.order[i1].1);
+        let t = (s - s.floor()).clamp(0.0, 1.0);
+        Some(vec3(
+            a.x + (b.x - a.x) * t,
+            0.0,
+            a.z + (b.z - a.z) * t,
+        ))
     }
 
     /// Flood index of a cell, if the walk numbered it. Exposed for tests

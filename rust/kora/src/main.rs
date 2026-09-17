@@ -299,7 +299,7 @@ fn start_race(
         .map(|index| Race::new(&track.grid, laps, world.position(index), now))
         .collect();
     let drivers: Vec<AiDriver> = (0..world.cars.len())
-        .map(|index| AiDriver::new(if index == player { 1.0 } else { 0.84 + 0.06 * index as f32 }))
+        .map(|index| AiDriver::new(index))
         .collect();
 
     let camera = track.spawn + vec3(0.0, 5.0, 9.0);
@@ -468,6 +468,11 @@ impl Running {
         for index in 0..self.world.cars.len() {
             if index == self.player || self.races[index].eliminated {
                 continue;
+            }
+            // A hard wall hit holds the car briefly, the knockdown
+            // recovery (`cx.m(float)`) lite.
+            if self.world.wall_hit(index) && self.world.speed(index) > 8.0 {
+                self.drivers[index].knock();
             }
             let (position, rotation) = self.world.pose(index);
             let heading = rotation * vec3(0.0, 0.0, -1.0);
