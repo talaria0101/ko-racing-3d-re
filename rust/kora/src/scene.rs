@@ -475,6 +475,7 @@ pub fn surface_height(
     let point = rotate_sample(local, arg);
     if let Some(collision) = collision {
         if !collision.vertices.is_empty() {
+            let mut best: Option<f32> = None;
             for triangle in &collision.triangles {
                 let [a, b, c] = [
                     collision.vertices[triangle[0]],
@@ -484,19 +485,28 @@ pub fn surface_height(
                 if let Some(h) = barycentric(&point, a, b, c) {
                     // The mesh shares the tile's 14-unit scale, and the sign is the
                     // port's Y-up one: see the note on this function.
-                    return h * TILE;
+                    best = Some(best.map_or(h * TILE, |b: f32| b.min(h * TILE)));
                 }
+            }
+            if let Some(h) = best {
+                return h;
             }
         }
     }
     if let Some(visual) = visual {
         // Plan is already cell fractions and heights are macroquad units,
-        // so the interpolant is the answer unwound.
+        // so the interpolant is the answer unwound. The lowest hit wins:
+        // tiles mix road with overhead art (tunnel roofs, gantries), and
+        // the car drives on the road under them, not on the roof.
+        let mut best: Option<f32> = None;
         for triangle in visual {
             let [a, b, c] = *triangle;
             if let Some(h) = barycentric(&point, a, b, c) {
-                return h;
+                best = Some(best.map_or(h, |b: f32| b.min(h)));
             }
+        }
+        if let Some(h) = best {
+            return h;
         }
     }
     0.0
@@ -1038,6 +1048,31 @@ pub fn build_detailed(
     // which is how the MIDlet drives its own car over them.
     let mut collision_vertices: Vec<[f32; 3]> = Vec::new();
     let mut collision_indices: Vec<[u32; 3]> = Vec::new();
+    // Visual triangles per tile kind, in cell-fraction plan space with
+    // macroquad heights, backing the collider where a tile ships no
+    // collision mesh of its own.
+    let mut visuals: HashMap<u8, std::rc::Rc<VisualTris>> = HashMap::new();
+    for (&kind, tile) in tiles.iter() {
+        if tile.collision.as_ref().is_some_and(|c| !c.vertices.is_empty()) {
+            continue;
+        }
+        if let Some(model) = parse_model(res, &format!("models/p/{}", tile.name)) {
+            let tris: VisualTris = model
+                .triangles()
+                .into_iter()
+                .map(|face| {
+                    face.map(|i| {
+                        let v = model.positions[i];
+                        [(v[0] + 1.0) * 0.5, (v[1] + 1.0) * 0.5, -v[2] * WORLD_SCALE]
+                    })
+                })
+                .collect();
+            if !tris.is_empty() {
+                visuals.insert(kind, std::rc::Rc::new(tris));
+            }
+        }
+    }
+
     let mut walls: Vec<(Vec3, Vec3)> = Vec::new();
     let half_tile = TILE * 0.5;
 
@@ -1053,13 +1088,18 @@ pub fn build_detailed(
             .and_then(|tile| tile.collision.as_ref())
             .filter(|collision| !collision.vertices.is_empty())
     };
+    let visual_of = |kind: u8| -> Option<std::rc::Rc<VisualTris>> { visuals.get(&kind).cloned() };
 
     for (x, y) in grid.path() {
         let centre = grid.center(x, y);
         let (kind, arg) = tile_at(x, y).unwrap();
         let mesh = mesh_of(kind);
+        // Mesh-less tiles subdivide their drawn triangles the same way, so
+        // the exported collider stays exactly the height function the
+        // runtime queries. Only tiles with neither get a flat quad.
+        let fallback = if mesh.is_none() { visual_of(kind) } else { None };
 
-        if mesh.is_none() {
+        if mesh.is_none() && fallback.is_none() {
             let base = collision_vertices.len() as u32;
             for (dx, dz) in [
                 (-half_tile, -half_tile),
@@ -1078,7 +1118,11 @@ pub fn build_detailed(
                     let lo = vec2(i as f32, j as f32) / steps as f32;
                     let hi = vec2((i + 1) as f32, (j + 1) as f32) / steps as f32;
                     let corner = |local: Vec2| {
-                        world_of(centre, local, surface_height(mesh, None, arg, local))
+                        world_of(
+                            centre,
+                            local,
+                            surface_height(mesh, fallback.as_deref(), arg, local),
+                        )
                     };
                     let (a, b, c, d) = (
                         corner(vec2(lo.x, lo.y)),
@@ -1156,31 +1200,6 @@ pub fn build_detailed(
                 texture: None,
             });
             texture_paths.push(texture_path.clone());
-        }
-    }
-
-    // Visual triangles per tile kind, in cell-fraction plan space with
-    // macroquad heights, backing the collider where a tile ships no
-    // collision mesh of its own.
-    let mut visuals: HashMap<u8, std::rc::Rc<VisualTris>> = HashMap::new();
-    for (&kind, tile) in tiles.iter() {
-        if tile.collision.as_ref().is_some_and(|c| !c.vertices.is_empty()) {
-            continue;
-        }
-        if let Some(model) = parse_model(res, &format!("models/p/{}", tile.name)) {
-            let tris: VisualTris = model
-                .triangles()
-                .into_iter()
-                .map(|face| {
-                    face.map(|i| {
-                        let v = model.positions[i];
-                        [(v[0] + 1.0) * 0.5, (v[1] + 1.0) * 0.5, -v[2] * WORLD_SCALE]
-                    })
-                })
-                .collect();
-            if !tris.is_empty() {
-                visuals.insert(kind, std::rc::Rc::new(tris));
-            }
         }
     }
 

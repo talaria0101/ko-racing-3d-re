@@ -221,6 +221,33 @@ impl Grid {
         self.prog.get(&(x, y)).copied()
     }
 
+    /// Nearest road-network cell to a map cell, by ring search out to six
+    /// cells. A car past the road edge (or beached on an unnumbered verge)
+    /// heads for this instead of aiming blind: the flood numbers only the
+    /// road, so the nearest numbered cell is always back toward the line.
+    pub fn nearest_road(&self, x: i32, y: i32) -> Option<(i32, i32)> {
+        if self.prog_index(x, y).is_some() {
+            return Some((x, y));
+        }
+        for r in 1..=6 {
+            for dx in -r..=r {
+                for dy in [-r, r] {
+                    if self.prog_index(x + dx, y + dy).is_some() {
+                        return Some((x + dx, y + dy));
+                    }
+                }
+            }
+            for dy in -r + 1..=r - 1 {
+                for dx in [-r, r] {
+                    if self.prog_index(x + dx, y + dy).is_some() {
+                        return Some((x + dx, y + dy));
+                    }
+                }
+            }
+        }
+        None
+    }
+
     /// How many cells the lap normalises over.
     pub fn lap_len(&self) -> u32 {
         self.lap_len

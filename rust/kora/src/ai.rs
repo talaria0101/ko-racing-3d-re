@@ -15,12 +15,16 @@
 //! (`control.steer` is -1..1, the game integrates wheel angle), the curve
 //! factor is continuous (`cos(turn / 2)`, the game's snaps only its
 //! extremes), the per-car line jitter uses a stable per-slot seed (the game
-//! rolls `KORa.rand` every run), and the stuck-reverse has no original.
+//! rolls `KORa.rand` every run), the stuck-reverse has no original, and
+//! neither does blind homing: the game AI never reads progress, so it
+//! cannot go blind past the road edge the way a progress-guided port AI
+//! does (the tracker returns `None`/0.0 there).
 
 use macroquad::prelude::*;
 
 use crate::grid::Grid;
 use crate::physics::CarControl;
+use crate::scene::TILE;
 
 /// Line jitter per car, `±0.07 * 14` world units (`ck.a(boolean)` only
 /// jitters when the flag is false, which is how every race AI builds its
@@ -38,6 +42,13 @@ pub struct AiDriver {
     /// into a rail pocket keeps its velocity (like the game's, which the
     /// positional slide never bleeds), so the trigger is static progress.
     last_prog: f32,
+    /// Where the car was when stillness started counting. Off the road
+    /// the tracker goes blind, so a car homing back to the line reads as
+    /// static progress while it moves: half a metre of travel resets the
+    /// timer there, while a beached car (static in both senses) still
+    /// reverses out. On the road progress alone decides, so rail pockets
+    /// keep the old trigger.
+    still_pos: Vec3,
     still: f32,
     reversing: f32,
     /// Reverse lock side, alternating every trigger so retries veer out
@@ -64,6 +75,7 @@ impl AiDriver {
         AiDriver {
             jitter: (unit(), unit()),
             last_prog: 0.0,
+            still_pos: Vec3::ZERO,
             still: 0.0,
             reversing: 0.0,
             veer: 1.0,
@@ -93,7 +105,53 @@ impl AiDriver {
                 brake: false,
             };
         }
-        let mut control = drive(grid, position, heading, speed, self.jitter);
+        // Past the road edge the tracker goes blind (`None`, or 0.0 on
+        // cells the flood never reached - which reads as lap-start
+        // progress and aims the car at the start line from mid-track,
+        // a misalignment the pedal law answers with zero throttle
+        // forever). Home to the nearest road cell instead: the flood
+        // numbers only the road, so the nearest numbered cell is always
+        // back toward the line, whatever direction the car left in.
+        let sensed = grid.progress_at(position);
+        let cx = (position.x / TILE).round() as i32;
+        let cy = (-position.z / TILE).round() as i32;
+        if sensed.is_none() || grid.prog_index(cx, cy).is_none() {
+            let mut control = CarControl::default();
+            if let Some((rx, ry)) = grid.nearest_road(cx, cy) {
+                let target = grid.center(rx, ry);
+                let to = vec3(target.x - position.x, 0.0, target.z - position.z);
+                if to.length() > 0.5 {
+                    let direction = to.normalize_or_zero();
+                    let forward = heading.normalize_or_zero();
+                    let err = forward.cross(direction).y.atan2(
+                        forward.x * direction.x + forward.z * direction.z,
+                    );
+                    control.steer = (err * err.abs()).clamp(-1.0, 1.0);
+                    let cap = 0.25f32.max((speed / 4.0).min(1.0));
+                    control.steer = control.steer.clamp(-cap, cap);
+                    control.throttle = 0.5;
+                } else {
+                    control.throttle = 0.3;
+                }
+            } else {
+                control.throttle = 0.35;
+            }
+            if (position - self.still_pos).length() > 0.5 {
+                self.still = 0.0;
+                self.still_pos = position;
+            } else {
+                self.still += dt;
+            }
+            if self.still > 2.0 {
+                self.still = 0.0;
+                self.still_pos = position;
+                self.reversing = 2.5;
+                self.veer = -self.veer;
+            }
+            return control;
+        }
+        let progress = sensed.unwrap_or(0.0);
+        let mut control = drive(grid, position, heading, speed, self.jitter, progress);
         // No donuts: at walking pace full lock spins the car in place
         // (yaw follows steer times speed, so the jamb's full lock whirls
         // the nose faster than the car travels and the error never
@@ -110,12 +168,12 @@ impl AiDriver {
             return control;
         }
         self.steer = control.steer;
-        let progress = grid.progress_at(position).unwrap_or(0.0);
         if (progress - self.last_prog).abs() < 0.002 {
             self.still += dt;
         } else {
             self.still = 0.0;
             self.last_prog = progress;
+            self.still_pos = position;
         }
         if self.still > 2.0 {
             self.still = 0.0;
@@ -143,9 +201,9 @@ pub fn drive(
     heading: Vec3,
     speed: f32,
     jitter: (f32, f32),
+    progress: f32,
 ) -> CarControl {
     let mut control = CarControl::default();
-    let progress = grid.progress_at(position).unwrap_or(0.0);
     const LOOKAHEAD: f32 = 0.5;
     let Some(target) = waypoint(grid, progress, LOOKAHEAD, jitter) else {
         // Off the road entirely: creep forward so it can recover.

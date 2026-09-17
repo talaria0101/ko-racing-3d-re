@@ -271,6 +271,15 @@ pub struct Car {
     /// zeroes its drift score on a wall touch (`help.txt`: "If you bump
     /// into a wall, the drift counter is zeroed").
     wall_hit: bool,
+    /// How long the climb veto has held this car under a steady surface.
+    /// A car buried past the step limit can never drive out: every exit
+    /// step reverts, forward or reverse. Past two pinned seconds it pops
+    /// up onto its own surface instead of freezing there forever. The
+    /// timer only runs while the surface stays put, so a rising grade
+    /// (ramps, banks) never triggers it, and one second of ramming
+    /// (the cliff unit test) stays safely under it.
+    pin: f32,
+    pin_h: f32,
 }
 
 pub struct World {
@@ -303,6 +312,8 @@ impl World {
             state: EngineState::default(),
             slide: 0.0,
             wall_hit: false,
+            pin: 0.0,
+            pin_h: 0.0,
         });
         self.cars.len() - 1
     }
@@ -530,7 +541,27 @@ impl World {
                 let diff = h - car.pos.y;
                 // Uphill roads and bridge ramps stay well under 3 m/s of
                 // rise even at cruise; banks do not.
-                if diff > 1.2 || (offroad && diff > 0.0 && diff / dt > 3.0) {
+                if diff > 1.2 {
+                    car.pos.x -= car.vel.x * dt;
+                    car.pos.z -= car.vel.z * dt;
+                    car.vel *= 0.2;
+                    // Buried past the step the car can never drive out, so
+                    // a steady surface pops it up after two pinned seconds.
+                    // A moving grade resets the timer, which is what keeps
+                    // long climbs (and the bank unit test) from popping.
+                    if (h - car.pin_h).abs() < 0.02 {
+                        car.pin += dt;
+                    } else {
+                        car.pin = 0.0;
+                    }
+                    car.pin_h = h;
+                    if car.pin > 2.0 {
+                        car.pos.y = h;
+                        car.airborne = false;
+                        car.fall = 0.0;
+                        car.pin = 0.0;
+                    }
+                } else if offroad && diff > 0.0 && diff / dt > 3.0 {
                     car.pos.x -= car.vel.x * dt;
                     car.pos.z -= car.vel.z * dt;
                     car.vel *= 0.2;
@@ -538,9 +569,11 @@ impl World {
                     car.pos.y = h;
                     car.airborne = false;
                     car.fall = 0.0;
+                    car.pin = 0.0;
                 } else if !car.airborne {
                     car.airborne = true;
                     car.fall = 0.0;
+                    car.pin = 0.0;
                 }
                 if car.airborne {
                     car.fall += 9.8 * dt;
@@ -817,6 +850,30 @@ mod tests {
         let moved = (bank.position(b) - vec3(0.0, 0.0, 0.0)).length();
         assert!(moved < 2.0, "climbed the bank: {moved:.2}");
         assert!(road.position(r).y > 3.0, "road climb blocked");
+    }
+
+    #[test]
+    fn buried_cars_pop_out_after_a_pinned_burial() {
+        // A car held under a steady surface pops up after two pinned
+        // seconds instead of freezing there forever (1.map's south bank
+        // wedged two AI cars exactly this way); a shorter pin pops
+        // nothing, which is what keeps the cliff test's rammer down.
+        let drive = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
+        let mut world = World::new(&[]);
+        let car = world.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        let roof = [Some(2.0)];
+        for _ in 0..90 {
+            world.step(1.0 / 60.0, &drive, &roof, &[false]);
+        }
+        assert!(world.position(car).y < 0.5, "short pin must not pop");
+        for _ in 0..90 {
+            world.step(1.0 / 60.0, &drive, &roof, &[false]);
+        }
+        assert!(
+            (world.position(car).y - 2.0).abs() < 1e-3,
+            "burial never popped: {:.2}",
+            world.position(car).y
+        );
     }
 
     #[test]
