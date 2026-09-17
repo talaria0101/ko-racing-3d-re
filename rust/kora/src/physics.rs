@@ -34,12 +34,16 @@
 //! verbatim +-1.5 authority cap; the longitudinal coupling is the force
 //! model (`100 * drive` engine, `(3v - 6v|v|)` drag, over mass 1500,
 //! capped at `k()` = 19) with the drive at the full pedal rate - top
-//! speed is cap-limited exactly like the game. Wheel spin, steered-tyre
-//! and slope forces, the lateral tyre clamps and the suspension settle
-//! (`cl.k(float)`) are not simulated; lateral velocity keeps a grip
-//! chase toward the heading, tilt comes from the surface normal, and
-//! lift-off bleeds velocity by operator order (the game rolls on). The
-//! `.car` tail past the four stat bytes feeds the menus, not the car.
+//! speed is cap-limited exactly like the game. The lateral coupling is
+//! the tyre model too (`d_z` plus `e_z` scrub from slip angles, clamped
+//! per car by `v()` and pushed at `g()`, with the creep averaging under
+//! 4 units/s): saturated tyres slide, which is the drift. Wheel spin is
+//! dead code in the shipped game (the spin flag never sets outside one
+//! reset frame); steered-tyre rotation, slope forces and the suspension
+//! settle (`cl.k(float)`) are not simulated. Tilt comes from the
+//! surface normal, and lift-off bleeds velocity by operator order (the
+//! game rolls on). The `.car` tail past the four stat bytes feeds the
+//! menus, not the car.
 
 use macroquad::prelude::{vec3, Quat, Vec3};
 
@@ -210,6 +214,27 @@ impl Tuning {
         self.o.min(self.n / speed.max(0.5))
     }
 
+    /// Tire angle factor (`CarPhysics.b()`): `.car` stat byte 2.
+    pub fn tire_a(&self) -> f32 {
+        self.ia as f32
+    }
+
+    /// Tire grip half-width (`PlayerTune.v()` / `AiTune.v()`): per car,
+    /// from `.car` stat byte 3 (Birdie 1.95, the rally 1.43).
+    pub fn tire_v(&self) -> f32 {
+        self.t * (1.0 + self.ib as f32 / 10.0)
+    }
+
+    /// Tire scrub rate (`CarPhysics.t()`): `r * 2`.
+    pub fn tire_tc(&self) -> f32 {
+        self.r * 2.0
+    }
+
+    /// Tire grip slope (`CarPhysics.u()`): `s`.
+    pub fn tire_uc(&self) -> f32 {
+        self.s
+    }
+
     /// Tire force clamp bounds (`CarPhysics.t()`/`u()`/`v()`, inherited
     /// unchanged by both tunes): the only handling the stat bytes buy.
     /// Outside mode 2 this is `(r * 2, s, t * (1 + ib / 10))`.
@@ -286,6 +311,10 @@ pub struct Car {
     /// normal step runs, so a reverse that works never pops.
     pin: f32,
     pin_h: f32,
+    /// Previous step's tire forces (lateral, longitudinal-scrub):
+    /// `c(float)` averages them with the fresh ones under 4 units/s
+    /// (`cl.d`/`cl.e` fields), which settles creep without chatter.
+    prev_tire: [f32; 2],
     /// Metres climbed since flat ground, bled over about a second, while
     /// off the road. A bank is a sustained ascent (the accumulator grows
     /// toward a metre and the extra drag, fifteen per metre, stalls the
@@ -328,6 +357,7 @@ impl World {
             wall_hit: false,
             pin: 0.0,
             pin_h: 0.0,
+            prev_tire: [0.0, 0.0],
             climb: 0.0,
         });
         self.cars.len() - 1
@@ -460,27 +490,24 @@ impl World {
         // cap, so the `k()` rescale below is what tops the car out,
         // exactly like the game. Spin, steered-tyre and slope forces of
         // the original are not modelled (see module docs).
-        // Lateral velocity keeps the old grip chase toward the heading
-        // (rate as before); only the forward axis is force-driven.
+        // The lateral axis is tire-driven just below, uniformly in every
+        // pedal state; only the forward axis differs here.
         let fwd = car.vel.x * forward.x + car.vel.z * forward.z;
         if control.brake && !car.reversing {
             // Brake pads are not among the traced forces; the pedal
-            // chases the chassis down hard, as before.
+            // chases the forward speed down hard, as before.
             let cruise = tune.pitch_ref(1);
-            let want = forward * car.drive.clamp(-cruise * 0.4, cruise);
+            let want = car.drive.clamp(-cruise * 0.4, cruise);
             let blend = (dt * 8.0).min(1.0);
-            car.vel += (want - car.vel) * blend;
+            let push = (want - fwd) * blend;
+            car.vel.x += forward.x * push;
+            car.vel.z += forward.z * push;
         } else {
             let engine = 100.0 * car.drive;
             let drag = 3.0 * fwd - 6.0 * fwd * fwd.abs();
             let push = (engine + drag) / 1500.0 * dt;
-            let rate = if car.reversing { 2.0 } else { 0.9 };
-            let blend = (dt * rate).min(1.0);
-            let side_x = car.vel.x - forward.x * fwd;
-            let side_z = car.vel.z - forward.z * fwd;
-            let fwd_new = fwd + push;
-            car.vel.x = forward.x * fwd_new + side_x * (1.0 - blend);
-            car.vel.z = forward.z * fwd_new + side_z * (1.0 - blend);
+            car.vel.x += forward.x * push;
+            car.vel.z += forward.z * push;
         }
         // Planar cap is the tune `k()` (`c(float)` rescales past it:
         // 19 units/s at class 1, the road speed everything else keys off).
@@ -532,19 +559,41 @@ impl World {
         };
         car.yaw += yaw_rate * dt;
 
-        // Lateral grip: bleed the sideways velocity (`c(float)` tire forces
-        // with the 0.2 low-speed cutoff; the tune `g` sets the rate).
+        // Tire forces, after `c(float)` (`d_z` lateral plus `e_z` scrub,
+        // summed with the roll angle at rest): slip angles from the
+        // velocity frame, clamped per car by the grip half-width `v()`
+        // (Birdie holds 1.95, the rally 1.43), pushed at `g()` over mass
+        // (`g()` is field `f`, 7350 - not the field `g`, 150).
+        // Saturated tires slide instead of gripping - that is the drift.
+        // The signs assume the port frame matches the game's; the circle
+        // test below pins stable cornering, and a mirror would spin out
+        // there instead.
         let fwd = vec3(-yaw_sin(car.yaw), 0.0, -yaw_cos(car.yaw));
         let fwd_speed = car.vel.dot(fwd);
-        let mut side = car.vel - fwd * fwd_speed;
-        let grip_rate = (tune.g / 150.0 * 8.0).min(12.0);
-        let keep = (-grip_rate * dt).exp();
-        side *= keep;
-        if speed < 0.2 && side.length() > fwd_speed.abs() {
-            side = Vec3::ZERO;
+        let left = vec3(-fwd.z, 0.0, fwd.x);
+        let slip = car.vel.dot(left);
+        let grip = fwd_speed.abs();
+        let steer_angle = (0.5 * tune.tire_a() * car.steer).atan2(grip);
+        let slip_angle = slip.atan2(grip);
+        let v4 = steer_angle + slip_angle;
+        let scrub = slip_angle - steer_angle;
+        let vv = tune.tire_v();
+        let mut dlat = tune.f * (tune.tire_uc() * v4).clamp(-vv, vv);
+        let mut elong = tune.f * (tune.tire_tc() * scrub).clamp(-vv, vv);
+        // Creep averaging: under 4 units/s each force blends with the
+        // previous step's (`cl.d`/`cl.e` fields), settling without chatter.
+        if dlat != 0.0 && car.prev_tire[0] != 0.0 && speed < 4.0 {
+            dlat = (dlat + car.prev_tire[0]) * 0.5;
         }
+        if elong != 0.0 && car.prev_tire[1] != 0.0 && speed < 4.0 {
+            elong = (elong + car.prev_tire[1]) * 0.5;
+        }
+        car.prev_tire = [dlat, elong];
+        let push_lat = (dlat + elong) / 1500.0 * dt;
+        car.vel.x += left.x * push_lat;
+        car.vel.z += left.z * push_lat;
+        let side = car.vel - fwd * car.vel.dot(fwd);
         car.slide = side.length();
-        car.vel = fwd * fwd_speed + side;
 
         // No multiplier drag here: drag already went in as a force above
         // (`k_bz`), and the MIDlet bogs nothing on grass (verified in
@@ -975,6 +1024,32 @@ mod tests {
         );
     }
 
+
+    #[test]
+    fn full_lock_holds_a_drifting_circle() {
+        // Tire forces must corner stably: full lock at top speed scrubs
+        // down into a sustained drifting circle - rolling, turning, and
+        // staying put. A mirrored sign convention would fly straight off
+        // (no turn) or spin up (no roll) instead.
+        let mut world = World::new(&[]);
+        let car = world.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        let straight = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
+        for _ in 0..(5 * 60) {
+            world.step(1.0 / 60.0, &straight, &[Some(0.0)], &[false]);
+        }
+        let lock = [CarControl { throttle: 0.6, steer: 1.0, brake: false }];
+        for _ in 0..(10 * 60) {
+            world.step(1.0 / 60.0, &lock, &[Some(0.0)], &[false]);
+        }
+        let end = world.position(car);
+        let speed = world.speed(car);
+        assert!(speed > 3.0 && speed < 17.0, "circle speed {speed:.2}");
+        assert!(end.x.abs() > 5.0, "never turned: {end:?}");
+        assert!(
+            (end.x * end.x + (end.z + 53.0) * (end.z + 53.0)).sqrt() < 150.0,
+            "flew off: {end:?}"
+        );
+    }
 
     #[test]
     fn throttle_climbs_to_top_speed_and_brake_floors_it() {
