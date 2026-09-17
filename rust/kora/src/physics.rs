@@ -33,7 +33,7 @@
 //! clamp(steer * speed, +-1.5)`, which keeps the verbatim lock law and the
 //! verbatim +-1.5 authority cap; the throttle-to-velocity coupling the
 //! static trace cannot find is a chase of the capped drive state at
-//! ~1/s (reaches cruise in about three seconds, brakes bite at ~4/s)
+//! ~0.9/s (reaches cruise in about four seconds, brakes bite at ~4/s)
 //! instead of the game's unknown rate - full throttle for a second must
 //! not put the car at cruise, and a test pins that; wheel spin/slip
 //! visuals (`cl.a(float)`) and the suspension settle (`cl.k(float)`) are
@@ -336,7 +336,10 @@ impl World {
         let rate = tune.throttle_rate(1, 0, car.ai);
         let speed = car.vel.length();
         let forward = vec3(-yaw_sin(car.yaw), 0.0, -yaw_cos(car.yaw));
-        let mut coasting = true;
+        // Decided from the input up front: testing the initial `true`
+        // down the branch chain sent every brake pedal down the coast
+        // path instead, so brakes never bit and reverse never latched.
+        let mut coasting = control.throttle == 0.0 && !control.brake;
 
         // Pedals drive the scalar state (`cl.f()` throttle adds `h * dt`
         // and clamps to `l()`; `cl.g()` brake subtracts and floors at the
@@ -369,7 +372,10 @@ impl World {
         } else if control.throttle < 0.0 || control.brake {
             coasting = false;
             let push = if control.brake { 1.0 } else { -control.throttle };
-            if speed < 0.5 && car.drive < 0.5 {
+            // The latch trips at the creep floor, not below it: brake
+            // floors the drive at `m`, which sits above the old 0.5 test,
+            // so holding brake past a standstill could never back up.
+            if speed < 0.5 && car.drive <= tune.m + 0.05 {
                 car.reversing = true;
             }
             if car.reversing {
@@ -389,14 +395,20 @@ impl World {
         // The velocity vector chases the drive state. The game's exact
         // throttle-to-velocity coupling is the one open item in the port
         // (see module docs); this chase keeps the game's caps and creep
-        // with an arcade response of roughly three seconds to cruise.
+        // with an arcade response of roughly four seconds to cruise.
         // Braking bites harder, as it should. Neither is verbatim.
         // Chase the drive state, but no further than the planar cap:
         // chasing the raw 76-scale drive would pin the car at the cap
         // within a second whatever the blend. Reversing chases backwards.
         let cruise = tune.pitch_ref(1);
         let want = forward * car.drive.clamp(-cruise * 0.4, cruise);
-        let rate = if control.brake { 4.0 } else { 1.1 };
+        let rate = if control.brake {
+            4.0
+        } else if car.reversing {
+            2.0
+        } else {
+            0.9
+        };
         let blend = (dt * rate).min(1.0);
         car.vel += (want - car.vel) * blend;
         // Planar cap is the tune `k()` (`c(float)` rescales past it:
@@ -691,6 +703,29 @@ mod tests {
             world.step(1.0 / 60.0, &coast, &heights);
         }
         assert!(world.speed(car) < 1.0, "still rolling: {:.2}", world.speed(car));
+    }
+
+    #[test]
+    fn brake_at_standstill_reverses() {
+        // Holding brake past a standstill must back up: the latch trips
+        // at the creep floor (brake floors the drive at `m`, which used
+        // to sit above the latch and block reverse entirely).
+        let mut world = World::new(&[]);
+        let car = world.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
+        let (_, rotation) = world.pose(car);
+        let forward = rotation * vec3(0.0, 0.0, -1.0);
+        let start = world.position(car);
+        let brake = [CarControl { throttle: -0.6, steer: 0.0, brake: false }];
+        let heights = [Some(0.0)];
+        for _ in 0..240 {
+            world.step(1.0 / 60.0, &brake, &heights);
+        }
+        assert!(world.cars[car].drive < 0.0, "drive never went negative");
+        let travelled = world.position(car) - start;
+        assert!(
+            travelled.dot(forward) < -0.5,
+            "did not back up: {travelled:?}"
+        );
     }
 
     #[test]

@@ -363,6 +363,8 @@ impl Running {
                 free.pos.x, free.pos.y, free.pos.z, target.x, target.y, target.z
             );
             self.free = None;
+            set_cursor_grab(false);
+            show_mouse(true);
             return;
         }
         let (_, rotation) = self.world.pose(self.player);
@@ -375,17 +377,25 @@ impl Running {
         };
         let target = free.pos + free.forward() * 3.0;
         println!(
-            "free camera on: eye {:.1},{:.1},{:.1} look {:.1},{:.1},{:.1} fov 90 - WASD move R/F up/down arrows look",
+            "free camera on: eye {:.1},{:.1},{:.1} look {:.1},{:.1},{:.1} fov 90 - mouse look, WASD move R/F up/down arrows look",
             free.pos.x, free.pos.y, free.pos.z, target.x, target.y, target.z
         );
         self.free = Some(free);
+        // The mouse steers the camera, so it is captured here; the car
+        // keeps none of the keys while the camera is out (see update).
+        set_cursor_grab(true);
+        show_mouse(false);
     }
 
-    /// WASD moves, R/F go up and down, the arrows look.  Shift is fast.
+    /// Mouse looks, WASD moves, R/F go up and down, the arrows look too.
+    /// Shift is fast.
     fn update_free_cam(&mut self, dt: f32) {
         let Some(free) = &mut self.free else {
             return;
         };
+        let mouse = mouse_delta_position();
+        free.yaw -= mouse.x * 0.003;
+        free.pitch = (free.pitch - mouse.y * 0.003).clamp(-1.45, 1.45);
         let turn = 1.8 * dt;
         if is_key_down(KeyCode::Left) {
             free.yaw += turn;
@@ -443,7 +453,9 @@ impl Running {
         let mut controls = vec![CarControl::default(); self.world.cars.len()];
         // The control scheme picks the keys; auto-throttle drives for you.
         // An eliminated survival car coasts with locked controls (`cl.l()`).
-        if !self.races[self.player].eliminated {
+        // The free camera owns every key while it is out, so looking
+        // around never steers the car; the player coasts meanwhile.
+        if !self.races[self.player].eliminated && self.free.is_none() {
             let (accelerate, brake) = settings.scheme.throttle_keys();
             let (left, right) = settings.scheme.steer_keys();
             controls[self.player].throttle = if settings.auto_throttle || is_key_down(accelerate) {
