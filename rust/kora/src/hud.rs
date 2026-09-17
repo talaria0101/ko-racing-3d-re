@@ -22,11 +22,10 @@ const ROAD: Color = Color::new(1.0, 1.0, 1.0, 0.65);
 const PLAYER: Color = Color::new(1.0, 0.85, 0.2, 1.0);
 const RIVAL: Color = Color::new(0.85, 0.90, 0.98, 0.95);
 
-/// The speedometer reads out `speed * SPEED_SCALE`, which puts the port's cars
-/// in the range a road car would show.  The bar is the fraction of
-/// `TOP_SPEED`, a little above what any of them actually reach.
+/// The speedometer reads out `speed * SPEED_SCALE`. The bar is the fraction of
+/// `TOP_SPEED`, the tune `k()` cap the cars pin themselves against.
 pub const SPEED_SCALE: f32 = 10.0;
-pub const TOP_SPEED: f32 = 14.0;
+pub const TOP_SPEED: f32 = 19.0;
 
 /// One car to place on the minimap: where it is and which way it faces.
 pub struct Marker {

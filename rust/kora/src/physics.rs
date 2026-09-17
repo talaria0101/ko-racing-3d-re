@@ -31,15 +31,15 @@
 //! (`di.e`/`a_z` drift state, whose feed `di.c__void` is dead code in the
 //! shipped game) is replaced by the direct relation `yaw_rate =
 //! clamp(steer * speed, +-1.5)`, which keeps the verbatim lock law and the
-//! verbatim +-1.5 authority cap; the throttle-to-velocity coupling the
-//! static trace cannot find chases the capped drive state (0.9/s up,
-//! 2 reverse, 8 braking) under a calmed drive (a third of the game's
-//! pedal rate) instead of the game's unknown rate - full throttle for
-//! a second must not put the car at cruise, and a test pins that;
-//! wheel spin/slip
-//! visuals (`cl.a(float)`) and the suspension settle (`cl.k(float)`) are
-//! not simulated; tilt comes from the surface normal. The `.car` tail
-//! past the four stat bytes feeds the menus, not the car.
+//! verbatim +-1.5 authority cap; the longitudinal coupling is the force
+//! model (`100 * drive` engine, `(3v - 6v|v|)` drag, over mass 1500,
+//! capped at `k()` = 19) with the drive at the full pedal rate - top
+//! speed is cap-limited exactly like the game. Wheel spin, steered-tyre
+//! and slope forces, the lateral tyre clamps and the suspension settle
+//! (`cl.k(float)`) are not simulated; lateral velocity keeps a grip
+//! chase toward the heading, tilt comes from the surface normal, and
+//! lift-off bleeds velocity by operator order (the game rolls on). The
+//! `.car` tail past the four stat bytes feeds the menus, not the car.
 
 use macroquad::prelude::{vec3, Quat, Vec3};
 
@@ -275,9 +275,15 @@ pub struct Car {
     /// A car buried past the step limit can never drive out: every exit
     /// step reverts, forward or reverse. Past two pinned seconds it pops
     /// up onto its own surface instead of freezing there forever. The
-    /// timer only runs while the surface stays put, so a rising grade
-    /// (ramps, banks) never triggers it, and one second of ramming
-    /// (the cliff unit test) stays safely under it.
+    /// How long the climb veto has held this car under one steady
+    /// surface. A car buried past the step limit can never drive out:
+    /// every exit step reverts, forward or reverse. Past four and a
+    /// half pinned seconds - one full stuck-reverse cycle - it pops up
+    /// onto its own surface instead of freezing there forever. The
+    /// surface must match the window start, so rising grades (ramps,
+    /// banks) never trigger it, and short rams (the cliff unit test)
+    /// stay safely under it. Escapes reset the window the moment any
+    /// normal step runs, so a reverse that works never pops.
     pin: f32,
     pin_h: f32,
     /// Metres climbed since flat ground, bled over about a second, while
@@ -374,11 +380,11 @@ impl World {
         // and clamps to `l()`; `cl.g()` brake subtracts and floors at the
         // idle creep `m`). No separate reverse key: holding brake past a
         // standstill flips the direction latch, after which the same
-        // pedals back up. The game integrates both pedals at the full
-        // `h`, which snaps the drive 0-76 in half a second; the port tips
-        // in at a third of that (the brake pedal keeps the full rate so
-        // brakes bite), trading instant revs for a calm launch.
-        let tip_in = rate / 3.0;
+        // pedals back up. Both pedals integrate at the full tune rate:
+        // the drive snaps 0-76 in half a second exactly like the game,
+        // and the launch stays calm because force, not the drive value,
+        // moves the chassis (see below).
+        let tip_in = rate;
         if control.throttle > 0.0 {
             coasting = false;
             // Climb cap: off the road, sustained ascent closes the
@@ -412,6 +418,11 @@ impl World {
                 if car.drive.abs() < 0.05 {
                     car.drive = 0.0;
                 }
+                // The force model coasts on weak drag alone and would roll
+                // nearly forever (as the game does); the operator wants a
+                // car that stops, so lift-off also bleeds velocity at the
+                // same rate. Player only, AI keeps the game's roll.
+                car.vel *= (-1.5 * dt).exp();
             }
         } else if control.throttle < 0.0 || control.brake {
             coasting = false;
@@ -441,25 +452,36 @@ impl World {
         }
         car.state.coasting = coasting;
 
-        // The velocity vector chases the drive state. The game's exact
-        // throttle-to-velocity coupling is the one open item in the port
-        // (see module docs); this chase keeps the game's caps, creep and
-        // drag equilibrium with the calmed drive above. Neither is
-        // verbatim. Chase the drive state, but no further than the planar
-        // cap: chasing the raw 76-scale drive would pin the car at the
-        // cap within a second whatever the blend. Reversing chases
-        // backwards, gently; the brake pedal chases down hard.
-        let cruise = tune.pitch_ref(1);
-        let want = forward * car.drive.clamp(-cruise * 0.4, cruise);
-        let rate = if car.reversing {
-            2.0
-        } else if control.brake || control.throttle < 0.0 {
-            8.0
+        // Longitudinal force, after `c(float)`: the engine `i_bz` pushes
+        // 100 times the drive state along the heading, drag `k_bz` answers
+        // `(3v - 6v|v|)` on the forward axis (a push below 0.5 units/s:
+        // the idle creep), all over mass `e` (1500). Top speed is
+        // cap-limited, not drag-limited: the engine still pulls at the
+        // cap, so the `k()` rescale below is what tops the car out,
+        // exactly like the game. Spin, steered-tyre and slope forces of
+        // the original are not modelled (see module docs).
+        // Lateral velocity keeps the old grip chase toward the heading
+        // (rate as before); only the forward axis is force-driven.
+        let fwd = car.vel.x * forward.x + car.vel.z * forward.z;
+        if control.brake && !car.reversing {
+            // Brake pads are not among the traced forces; the pedal
+            // chases the chassis down hard, as before.
+            let cruise = tune.pitch_ref(1);
+            let want = forward * car.drive.clamp(-cruise * 0.4, cruise);
+            let blend = (dt * 8.0).min(1.0);
+            car.vel += (want - car.vel) * blend;
         } else {
-            0.9
-        };
-        let blend = (dt * rate).min(1.0);
-        car.vel += (want - car.vel) * blend;
+            let engine = 100.0 * car.drive;
+            let drag = 3.0 * fwd - 6.0 * fwd * fwd.abs();
+            let push = (engine + drag) / 1500.0 * dt;
+            let rate = if car.reversing { 2.0 } else { 0.9 };
+            let blend = (dt * rate).min(1.0);
+            let side_x = car.vel.x - forward.x * fwd;
+            let side_z = car.vel.z - forward.z * fwd;
+            let fwd_new = fwd + push;
+            car.vel.x = forward.x * fwd_new + side_x * (1.0 - blend);
+            car.vel.z = forward.z * fwd_new + side_z * (1.0 - blend);
+        }
         // Planar cap is the tune `k()` (`c(float)` rescales past it:
         // 19 units/s at class 1, the road speed everything else keys off).
         let planar = vec3(car.vel.x, 0.0, car.vel.z).length();
@@ -524,22 +546,10 @@ impl World {
         car.slide = side.length();
         car.vel = fwd * fwd_speed + side;
 
-        // Quadratic drag (`c(float)` `k_bz` term in the tune `r`/`s`).
-        // Off the road the verges bog the car down: extra drag caps grass
-        // pace around a third of road cruise. Shoulders stay open by
-        // design (cutting costs time, it does not end the race), but
-        // blasting across hillsides at full speed is out.
-        let v = car.vel.length();
-        if v > 0.01 {
-            let drag = (tune.s * v + tune.r * v * v) / tune.f;
-            car.vel *= (1.0 + drag * dt).max(0.0);
-            if offroad {
-                // Strong enough that verge approaches arrive slowly: with
-                // the climb cap, momentum is what carries a car uphill,
-                // so less of it means stalls near the foot, not the top.
-                car.vel *= (-2.6 * dt).exp();
-            }
-        }
+        // No multiplier drag here: drag already went in as a force above
+        // (`k_bz`), and the MIDlet bogs nothing on grass (verified in
+        // `c(float)` - no surface term anywhere). `offroad` gates only
+        // the bank machinery below (climb cap, grade memory).
 
         // Move and slide along barriers (kinematic: the game never beaches).
         let mut next = car.pos + car.vel * dt;
@@ -573,13 +583,11 @@ impl World {
                     // a steady surface pops it up after two pinned seconds.
                     // A moving grade resets the timer, which is what keeps
                     // long climbs (and the bank unit test) from popping.
-                    if (h - car.pin_h).abs() < 0.02 {
-                        car.pin += dt;
-                    } else {
-                        car.pin = 0.0;
+                    if car.pin == 0.0 {
+                        car.pin_h = h;
                     }
-                    car.pin_h = h;
-                    if car.pin > 2.0 {
+                    car.pin += dt;
+                    if car.pin > 4.5 && (h - car.pin_h).abs() < 0.1 {
                         car.pos.y = h;
                         car.airborne = false;
                         car.fall = 0.0;
@@ -613,6 +621,7 @@ impl World {
                 car.airborne = true;
                 car.fall += 9.8 * dt;
                 car.pos.y -= car.fall * dt;
+                car.pin = 0.0;
             }
         }
         // Ascent memory for the climb cap: gains with every metre risen
@@ -795,6 +804,8 @@ mod tests {
     fn full_throttle_does_not_shoot() {
         // One second of throttle must not put the car at cruise: the game
         // revs fast but the chassis answers over seconds, not frames.
+        // 3.8 is the force model racing the stopwatch (100 * j over 1500
+        // with the full pedal rate), not a tuned number.
         let mut world = World::new(&[]);
         let car = world.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
         let drive = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
@@ -804,7 +815,7 @@ mod tests {
         }
         let early = world.speed(car);
         assert!(early < 14.0, "shoots: {early:.2} after one second");
-        assert!(early > 4.0, "tractor: {early:.2} after one second");
+        assert!(early > 2.5, "tractor: {early:.2} after one second");
     }
 
     #[test]
@@ -850,9 +861,11 @@ mod tests {
     }
 
     #[test]
-    fn verges_bog_down_but_cliffs_block() {
-        // Off the road the car still moves, just much slower; into a
-        // cliff face it stops instead of teleporting up.
+    fn verges_cost_pace_nothing_but_cliffs_block() {
+        // The MIDlet runs identical forces on grass and road, so the
+        // verge cruise matches the road cruise; cutting is priced by
+        // lost progress, not the tyres. Into a cliff face the car stops
+        // instead of teleporting up.
         let drive = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
         let heights = [Some(0.0)];
         let mut road = World::new(&[]);
@@ -864,8 +877,12 @@ mod tests {
             rough.step(1.0 / 60.0, &drive, &heights, &[true]);
         }
         assert!(road.speed(car) > 12.0, "road cruise {}", road.speed(car));
-        assert!(rough.speed(car2) < 8.0, "verge cruise {}", rough.speed(car2));
-        assert!(rough.speed(car2) > 1.0, "verge parked {}", rough.speed(car2));
+        assert!(
+            (rough.speed(car2) - road.speed(car)).abs() < 1.0,
+            "verge cruise {} vs road {}",
+            rough.speed(car2),
+            road.speed(car)
+        );
         // A five-metre step up blocks; the flat control case moves off.
         let mut cliff = World::new(&[]);
         let car3 = cliff.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
@@ -903,19 +920,20 @@ mod tests {
 
     #[test]
     fn buried_cars_pop_out_after_a_pinned_burial() {
-        // A car held under a steady surface pops up after two pinned
-        // seconds instead of freezing there forever (1.map's south bank
-        // wedged two AI cars exactly this way); a shorter pin pops
-        // nothing, which is what keeps the cliff test's rammer down.
+        // A car held under a steady surface pops up after one full
+        // stuck-reverse cycle (4.5 s) instead of freezing there forever
+        // (1.map's south bank wedged AI cars exactly this way); shorter
+        // pins pop nothing, which is what keeps escapes and the cliff
+        // test's rammer down.
         let drive = [CarControl { throttle: 1.0, steer: 0.0, brake: false }];
         let mut world = World::new(&[]);
         let car = world.add_car(vec3(0.0, 0.0, 0.0), 0.0, Tuning::player([3, 5, 5, 1]), false);
         let roof = [Some(2.0)];
-        for _ in 0..90 {
+        for _ in 0..180 {
             world.step(1.0 / 60.0, &drive, &roof, &[false]);
         }
         assert!(world.position(car).y < 0.5, "short pin must not pop");
-        for _ in 0..90 {
+        for _ in 0..180 {
             world.step(1.0 / 60.0, &drive, &roof, &[false]);
         }
         assert!(
@@ -957,6 +975,7 @@ mod tests {
         );
     }
 
+
     #[test]
     fn throttle_climbs_to_top_speed_and_brake_floors_it() {
         let mut world = World::new(&[]);
@@ -966,14 +985,15 @@ mod tests {
         for _ in 0..600 {
             world.step(1.0 / 60.0, &drive, &heights, &[false]);
         }
-        // The drive state revs to the tune top while the velocity vector
-        // settles where the chase meets the tune drag, below the planar
-        // `k()` cap: two parallel speeds, as in game.
+        // The drive state revs to the tune top while the velocity pins
+        // at the planar `k()` cap: the engine still pulls there, so the
+        // cap - not drag equilibrium - tops the car out, exactly like
+        // the game (drive 76 parallel with speed 19).
         let tune = Tuning::player([3, 5, 5, 1]);
         let top = tune.top_speed(1, false);
         assert!((world.cars[car].drive - top).abs() < top * 0.05);
         let cruise = world.speed(car);
-        assert!(cruise > 12.0 && cruise < 17.0, "cruise {cruise:.2}");
+        assert!((cruise - 19.0).abs() < 0.5, "cruise {cruise:.2}");
         let brake = [CarControl { throttle: 0.0, steer: 0.0, brake: true }];
         for _ in 0..600 {
             world.step(1.0 / 60.0, &brake, &heights, &[false]);
@@ -1007,3 +1027,4 @@ mod tests {
         assert_eq!(world.speed(car), 0.0);
     }
 }
+

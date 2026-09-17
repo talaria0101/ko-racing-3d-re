@@ -59,6 +59,13 @@ pub struct AiDriver {
     /// (`cx.m(float)`) stops the car and holds it briefly before driving
     /// on. The port holds the brake without the full stop.
     hold: f32,
+    /// Wrong-way watch: how long the car has faced against the line. A
+    /// car driving the flood backward loses progress every metre (spun
+    /// out of a shunt or a bank excursion); backing up and re-aiming
+    /// beats driving off forever. No original: the game's jamb would
+    /// just keep grinding it the wrong way too.
+    back_time: f32,
+    back_cool: f32,
 }
 
 impl AiDriver {
@@ -75,6 +82,8 @@ impl AiDriver {
         AiDriver {
             jitter: (unit(), unit()),
             last_prog: 0.0,
+            back_time: 0.0,
+            back_cool: 0.0,
             still_pos: Vec3::ZERO,
             still: 0.0,
             reversing: 0.0,
@@ -168,6 +177,33 @@ impl AiDriver {
             return control;
         }
         self.steer = control.steer;
+        // Wrong-way watch: facing against the flood direction means
+        // every metre driven is progress lost. Two seconds of that
+        // backs the car up to re-aim; hairpins only flash past, spins
+        // do not hold still, and reversing faces forward, so neither
+        // trips it (plus a cooldown after every reverse).
+        if self.back_cool > 0.0 {
+            self.back_cool -= dt;
+        }
+        let facing_wrong = match (grid.line_point(progress, 0.0), grid.line_point(progress, 1.0)) {
+            (Some(a), Some(b)) => {
+                let dir = vec3(b.x - a.x, 0.0, b.z - a.z).normalize_or_zero();
+                let fwd = heading.normalize_or_zero();
+                fwd.x * dir.x + fwd.z * dir.z < -0.3
+            }
+            _ => false,
+        };
+        if facing_wrong && self.back_cool <= 0.0 {
+            self.back_time += dt;
+        } else {
+            self.back_time = 0.0;
+        }
+        if self.back_time > 2.0 {
+            self.back_time = 0.0;
+            self.back_cool = 8.0;
+            self.reversing = 2.5;
+            self.veer = -self.veer;
+        }
         if (progress - self.last_prog).abs() < 0.002 {
             self.still += dt;
         } else {
@@ -178,6 +214,7 @@ impl AiDriver {
         if self.still > 2.0 {
             self.still = 0.0;
             self.last_prog = progress;
+            self.back_cool = 8.0;
             // Long enough to back properly out of a rail pocket at the
             // calmed reverse rate, not just rock in it.
             self.reversing = 2.5;
